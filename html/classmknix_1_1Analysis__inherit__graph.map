@@ -1,2 +1,0 @@
-<area shape="rect" href="$classmknix_1_1AnalysisDynamic.html" title="{mknix::AnalysisDynamic\n|&#45; integratorType\l&#45; to\l&#45; tf\l&#45; At\l&#45; theProblem\l|+ AnalysisDynamic()\l+ AnalysisDynamic()\l+ ~AnalysisDynamic()\l+ type()\l+ solve()\l}" alt="" coords="5,198,173,406">
-<area shape="rect" href="$classmknix_1_1AnalysisStatic.html" title="{mknix::AnalysisStatic\n|&#45; time\l&#45; theProblem\l|+ AnalysisStatic()\l+ AnalysisStatic()\l+ ~AnalysisStatic()\l+ type()\l+ solve()\l}" alt="" coords="197,222,347,382">

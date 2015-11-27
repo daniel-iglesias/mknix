@@ -28,9 +28,13 @@
 namespace mknix {
 
 class ReaderRigid;
+
 class ReaderFlex;
+
 class ReaderConstraints;
+
 class Simulation;
+
 class System;
 
 /**
@@ -41,18 +45,23 @@ class Reader
 public:
     Reader();
 
-    Reader( Simulation* );
+    Reader(Simulation *);
 
     ~Reader();
 
     void inputFromFile(const std::string& fileIn);
 
 private:
-    void readSystem( System* );
-    void readBodyPoints( System* );
-    void readLoads( System* );
-    void readEnvironment( System* );
-    void readMotion( System* );
+    void readSystem(System *);
+
+    void readBodyPoints(System *);
+
+    void readLoads(System *);
+
+    void readEnvironment(System *);
+
+    void readMotion(System *);
+
     void readAnalysis();
 
 //    void readNodeName( std::string & , std::string & );

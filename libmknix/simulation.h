@@ -79,8 +79,6 @@ public:
 
     void setInitialTemperatures(double);
 
-    void initThermalSimulation(Analysis *);
-
     void solveStep();
 
     void solveStep(double *, double * o_output = 0);
@@ -231,12 +229,15 @@ private:
 
     void systemOuputStep(const lmx::Vector<data_type>&);
 
-    char title[40];
-    Reader * theReader;
-    System * baseSystem;
+    std::string title;
+
+    std::unique_ptr<System> baseSystem;
+#ifdef HAVE_VTK
     Contact * theContact;
+#endif
     Analysis * theAnalysis;
-    std::vector<Analysis *> analyses;
+
+    std::vector<std::unique_ptr<Analysis>> analyses;
 //     std::vector<std::vector< double > > pointsTimeConfiguration;
     std::map<int, Point *> outputPoints;
     std::map<int, Node *> nodes;
@@ -264,7 +265,6 @@ private:
     lmx::DenseMatrix<data_type> globalSparsePattern;
 
     std::ofstream outFile;
-    std::string outFileName;
 
     static lmx::Vector<double> gravity;
     static double alpha;
@@ -275,6 +275,9 @@ private:
     static std::string constraintMethod;
     static double epsilon;
     static std::string smoothingType;
+
+    lmx::Vector<data_type> initThermalSimulation(Analysis * analysis, bool init = true);
+    lmx::Vector<data_type> initMechanicalSimulation(Analysis * analysis, bool init = true);
 };
 
 }

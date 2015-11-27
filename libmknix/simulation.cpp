@@ -1,22 +1,22 @@
-/***************************************************************************
- *   Copyright (C) 2013 by Daniel Iglesias                                 *
- *   http://code.google.com/p/mknix                                        *
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- *   This program is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
- *   GNU General Public License for more details.                          *
- *                                                                         *
- *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
- ***************************************************************************/
+/******************************************************************************
+ *  Copyright (C) 2015 by Daniel Iglesias                                     *
+ *                                                                            *
+ *  This file is part of Nemesis.                                             *
+ *                                                                            *
+ *  Nemesis is free software: you can redistribute it and/or modify           *
+ *  it under the terms of the GNU Lesser General Public License as            *
+ *  published by the Free Software Foundation, either version 3 of the        *
+ *  License, or (at your option) any later version.                           *
+ *                                                                            *
+ *  Nemesis is distributed in the hope that it will be useful,                *
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of            *
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             *
+ *  GNU Lesser General Public License for more details.                       *
+ *                                                                            *
+ *  You should have received a copy of the GNU Lesser General Public          *
+ *  License along with Nemesis.  If not, see <http://www.gnu.org/licenses/>.  *
+ *****************************************************************************/
+
 #include "simulation.h"
 #include "analysisdynamic.h"
 #include "system.h"
@@ -41,8 +41,7 @@ double Simulation::epsilon = 1E-5;
 std::string Simulation::smoothingType = "GLOBAL";
 
 Simulation::Simulation()
-        : theReader(nullptr)
-        , baseSystem(nullptr)
+        : baseSystem(nullptr)
 //  , stepTime(0.)
         , timerFile(nullptr)
         , configurationFile(nullptr)
@@ -61,29 +60,21 @@ Simulation::Simulation()
     }
 }
 
-
 Simulation::~Simulation()
 {
     if (globalTimer) delete globalTimer;
     if (timerFile) delete timerFile;
     if (configurationFile) delete configurationFile;
-//   if (outFile)  delete outFile;
-    if (theReader) delete theReader;
-    if (baseSystem) delete baseSystem;
-    for (auto& analysis : analyses) {
-        if (!analysis) {
-            delete analysis;
-            analysis = nullptr;
-        }
-    }
 }
 
 
 void Simulation::inputFromFile(const std::string& FileIn)
 {
-    if (theReader == nullptr) this->theReader = new Reader(this);
-    if (baseSystem == nullptr) this->baseSystem = new System("baseSystem");
-    theReader->inputFromFile(FileIn);
+    auto reader = make_unique<Reader>(this);
+    if (!baseSystem) {
+        baseSystem = make_unique<System>("baseSystem");
+    }
+    reader->inputFromFile(FileIn);
 }
 
 std::vector<double> Simulation::getInterfaceNodesCoords()
@@ -115,18 +106,15 @@ void Simulation::init()
 
     for (auto& analysis : analyses) {
         if (analysis->type() == "THERMAL" || analysis->type() == "THERMALSTATIC") {
-            this->initThermalSimulation(analysis);
+            initThermalSimulation(analysis.get());
         }
         else {
-            cout << "ANALYSIS NOT AVAILABLE" << endl;
-//             if( (*itAnalysis)->type() == "STATIC" || (*itAnalysis)->type() == "DYNAMIC")
-//                 this->baseSystem->setMechanical();
-//             this->runMechanicalAnalysis(*itAnalysis);
+            initMechanicalSimulation(analysis.get());
         }
     }
 }
 
-void Simulation::initThermalSimulation(Analysis * theAnalysis_in)
+lmx::Vector<data_type> Simulation::initThermalSimulation(Analysis * theAnalysis_in, bool init)
 {
     theAnalysis = theAnalysis_in;
     auto gdlSize = nodes.size();
@@ -143,15 +131,71 @@ void Simulation::initThermalSimulation(Analysis * theAnalysis_in)
     baseSystem->assembleCapacityMatrix(globalCapacity);
     baseSystem->calcConductivityMatrix();
     baseSystem->assembleConductivityMatrix(globalConductivity);
-//   cout << globalCapacity << endl;
-//   cout << globalConductivity;
 
     writeConfStep();
-    if (outputFilesDetail > 1) {
+
+    if (outputFilesDetail > 1 && theAnalysis->type() == "THERMAL") {
         systemOuputStep(q);
     }
-    theAnalysis->init(&q);
 
+    if (init) {
+        theAnalysis->init(&q);
+    }
+
+    return q;
+}
+
+lmx::Vector<data_type> Simulation::initMechanicalSimulation(Analysis * analysis, bool init)
+{
+    theAnalysis = analysis;
+    auto gdlSize = nodes.size() * Simulation::dimension;
+    lmx::Vector<data_type> q(gdlSize);
+
+    globalMass.resize(gdlSize, gdlSize);
+    globalRHSForces.resize(gdlSize);
+    globalInternalForces.resize(gdlSize);
+    globalExternalForces.resize(gdlSize);
+
+    auto i = 0u;
+    for (auto& node : nodes) {
+        q(Simulation::dimension * i) = node.second->getqx(0);
+        q(Simulation::dimension * i + 1) = node.second->getqx(1);
+        if (Simulation::getDim() == 3) {
+            q(Simulation::dimension * i + 2) = node.second->getqx(2);
+        }
+        ++i;
+    }
+
+    baseSystem->calcMassMatrix();
+    baseSystem->assembleMassMatrix(globalMass);
+    // maybe is better to make an specific function call for the sparse
+    // pattern, but this should work...
+    if (lmx::getMatrixType() == 1) {
+        globalSparsePattern.resize(gdlSize, gdlSize);
+        baseSystem->calcTangentMatrix();
+        baseSystem->assembleTangentMatrix(globalSparsePattern);
+    }
+
+    // Output matrices in initial configuration:
+    if (outputMatrices) {
+        lmx::Matrix<data_type> K_temp(gdlSize, gdlSize);
+        baseSystem->calcTangentMatrix();
+        baseSystem->assembleTangentMatrix(K_temp);
+        K_temp.harwellBoeingSave((char *) "K.mat");
+        globalMass.harwellBoeingSave((char *) "M.mat");
+        // save raw matrices:
+        std::ofstream Kfile("K");
+        Kfile << K_temp;
+        Kfile.close();
+    }
+    // Output to file the initial configuration:
+    writeConfStep();
+
+    if (outputFilesDetail > 1 && theAnalysis->type() == "DYNAMIC") {
+        systemOuputStep(q);
+    }
+
+    return q;
 }
 
 void setSignal(std::string node, std::vector<double>)
@@ -183,10 +227,8 @@ void Simulation::endSimulation()
 {
     configurationFile->close();
 
-    for (auto& analysis : analyses) {
-        delete analysis;
-        analysis = nullptr;
-    }
+    analyses.clear();
+
     if (outputFilesDetail > 1) {
         std::ifstream disp("dis.dat");
 
@@ -246,83 +288,40 @@ void Simulation::run()
 
     for (auto& analysis : analyses) {
         if (analysis->type() == "THERMAL" || analysis->type() == "THERMALSTATIC") {
-            this->runThermalAnalysis(analysis);
+            this->runThermalAnalysis(analysis.get());
         }
         else {
             if (analysis->type() == "STATIC" || analysis->type() == "DYNAMIC") {
                 this->baseSystem->setMechanical();
             }
-            this->runMechanicalAnalysis(analysis);
+            this->runMechanicalAnalysis(analysis.get());
         }
     }
 }
 
 void Simulation::runThermalAnalysis(Analysis * theAnalysis_in)
 {
-    theAnalysis = theAnalysis_in;
-    auto gdlSize = nodes.size();
-    lmx::Vector<data_type> q(gdlSize);
-    q.fillIdentity(initialTemperature);
-    {
-        //lmx::ExactStopwatch sw;
+    auto q = initThermalSimulation(theAnalysis_in, false);
 
-        globalCapacity.resize(gdlSize, gdlSize);
-        globalConductivity.resize(gdlSize, gdlSize);
-        globalRHSHeat.resize(gdlSize);
-        globalExternalHeat.resize(gdlSize);
-        globalInternalHeat.resize(gdlSize);
+    if (theAnalysis->type() == "THERMAL") {
+        theAnalysis->solve(&q);
+    }
 
-        baseSystem->calcCapacityMatrix();
-        baseSystem->assembleCapacityMatrix(globalCapacity);
-        baseSystem->calcConductivityMatrix();
-        baseSystem->assembleConductivityMatrix(globalConductivity);
-
-//         cout << "globalCapacity " << globalCapacity;
-//         cout << "globalConductivity " << globalConductivity;
-        // maybe is better to make an specific function call for the sparse
-        // pattern, but this should work...
-//        if( lmx::getMatrixType() == 1 ){
-//           globalSparsePattern.resize( gdlSize, gdlSize );
-//           baseSystem->calcTangentMatrix(  );
-//           baseSystem->assembleTangentMatrix( globalSparsePattern );
-//        }
-//        // Output matrices in initial configuration:
-//         if( outputMatrices ){
-//           lmx::Matrix< data_type > K_temp(gdlSize,gdlSize);
-//           baseSystem->calcTangentMatrix(  );
-//           baseSystem->assembleTangentMatrix( K_temp );
-//           K_temp.harwellBoeingSave( (char *) "K.mat");
-//           globalMass.harwellBoeingSave( (char *) "M.mat");
-//           // save raw matrices:
-//           std::ofstream Kfile("K");
-//           Kfile << K_temp;
-//           Kfile.close();
-//         }
-        // Output to file the initial configuration:
-        writeConfStep();
-
-        //       cout << "q0 = " << q <<endl;
-        //       cout << "qdot0 = " << qdot <<endl;
-        if (theAnalysis->type() == "THERMAL") {
-            systemOuputStep(q);
-// 	    cout << q << endl;
-            theAnalysis->solve(&q);
-        }
-        else if (theAnalysis->type() == "THERMALSTATIC") {
-            // write initial configuration...
-            outFile << "0 "; //time=0
+    else if (theAnalysis->type() == "THERMALSTATIC") {
+        // write initial configuration...
+        outFile << "0 "; //time=0
 //           systemOuputStep( q ); // produces output of temperatures, incompatible with mknixpost-static
-            for (auto& point : outputPoints) {
-                outFile << point.second->getConf(0) << " ";
-                outFile << point.second->getConf(1) << " ";
-                if (Simulation::getDim() == 3) {
-                    outFile << point.second->getConf(2) << " ";
-                }
+        for (auto& point : outputPoints) {
+            outFile << point.second->getConf(0) << " ";
+            outFile << point.second->getConf(1) << " ";
+            if (Simulation::getDim() == 3) {
+                outFile << point.second->getConf(2) << " ";
             }
-            outFile << endl;
-            theAnalysis->solve(&q);
         }
-    } // Output ExactStopwatch time
+        outFile << endl;
+        theAnalysis->solve(&q);
+    }
+
     if (outputFilesDetail > 1) {
         std::ifstream disp("dis.dat");
         char a;
@@ -339,9 +338,6 @@ void Simulation::runThermalAnalysis(Analysis * theAnalysis_in)
         }
     }
 
-//       cout << "q(" << q.size()/2 << ") = " << q(q.size()/2) << endl;
-//       cout << "q(" << q.size()-1 << ") = " << q(q.size()-1) << endl;
-
     // output f_int of constraints...
     lmx::Vector<double> constr_forces(nodes.size() * dimension);
     baseSystem->assembleConstraintForces(constr_forces);
@@ -353,97 +349,45 @@ void Simulation::runThermalAnalysis(Analysis * theAnalysis_in)
 
 void Simulation::runMechanicalAnalysis(Analysis * theAnalysis_in)
 {
-    theAnalysis = theAnalysis_in;
+    auto q = initMechanicalSimulation(theAnalysis_in, false);
+
     auto gdlSize = nodes.size() * Simulation::dimension;
-    lmx::Vector<data_type> q(gdlSize);
-    {
-        //lmx::ExactStopwatch sw;
 
-        globalMass.resize(gdlSize, gdlSize);
-        globalRHSForces.resize(gdlSize);
-        globalInternalForces.resize(gdlSize);
-        globalExternalForces.resize(gdlSize);
-
+    if (theAnalysis->type() == "DYNAMIC") {
+        lmx::Vector<data_type> qdot(gdlSize);
+        // output first step data
+        theAnalysis->setEpsilon(epsilon);
+        theAnalysis->solve(&q, &qdot);
+    }
+    else if (theAnalysis->type() == "STATIC") {
+        theAnalysis->solve(&q);
+    }
+    else if (theAnalysis->type() == "THERMOMECHANICALDYNAMIC") {
+        // Init thermal conf vector and a zero velocity vector
+        auto thermalSize = thermalNodes.size();
+        lmx::Vector<data_type> qdot(gdlSize);
+        lmx::Vector<data_type> qt(thermalSize);
         auto i = 0u;
-        for (auto& node : nodes) {
-            q(Simulation::dimension * i) = node.second->getqx(0);
-            q(Simulation::dimension * i + 1) = node.second->getqx(1);
-            if (Simulation::getDim() == 3) {
-                q(Simulation::dimension * i + 2) = node.second->getqx(2);
-            }
+        for (auto& node : thermalNodes) {
+            qt(i) = node.second->getqt();
             ++i;
         }
+        globalCapacity.resize(thermalSize, thermalSize);
+        globalConductivity.resize(thermalSize, thermalSize);
+        globalRHSHeat.resize(thermalSize);
+        globalExternalHeat.resize(thermalSize);
+        globalInternalHeat.resize(thermalSize);
 
-        baseSystem->calcMassMatrix();
-        baseSystem->assembleMassMatrix(globalMass);
-        // maybe is better to make an specific function call for the sparse
-        // pattern, but this should work...
-        if (lmx::getMatrixType() == 1) {
-            globalSparsePattern.resize(gdlSize, gdlSize);
-            baseSystem->calcTangentMatrix();
-            baseSystem->assembleTangentMatrix(globalSparsePattern);
-        }
-        // Output matrices in initial configuration:
-        if (outputMatrices) {
-            lmx::Matrix<data_type> K_temp(gdlSize, gdlSize);
-            baseSystem->calcTangentMatrix();
-            baseSystem->assembleTangentMatrix(K_temp);
-            K_temp.harwellBoeingSave((char *) "K.mat");
-            globalMass.harwellBoeingSave((char *) "M.mat");
-            // save raw matrices:
-            std::ofstream Kfile("K");
-            Kfile << K_temp;
-            Kfile.close();
-        }
-        // Output to file the initial configuration:
-        writeConfStep();
+        baseSystem->calcCapacityMatrix();
+        baseSystem->assembleCapacityMatrix(globalCapacity);
+        baseSystem->calcConductivityMatrix();
+        baseSystem->assembleConductivityMatrix(globalConductivity);
 
-        //       cout << "q0 = " << q <<endl;
-        //       cout << "qdot0 = " << qdot <<endl;
-        if (theAnalysis->type() == "DYNAMIC") {
-            lmx::Vector<data_type> qdot(gdlSize);
-            // output first step data
-            systemOuputStep(q);
-            theAnalysis->setEpsilon(epsilon);
-            theAnalysis->solve(&q, &qdot);
-        }
-        else if (theAnalysis->type() == "STATIC") {
-            // write initial configuration...
-//             outFile << "0 "; //time=0
-//             for(size_type i=0; i<q.size(); ++i) {
-//                 outFile << q(i) << " ";
-//             }
-//             outFile << endl;
-            theAnalysis->solve(&q);
-        }
-        else if (theAnalysis->type() == "THERMOMECHANICALDYNAMIC") {
-            // Init thermal conf vector and a zero velocity vector
-            auto thermalSize = thermalNodes.size();
-            lmx::Vector<data_type> qdot(gdlSize);
-            lmx::Vector<data_type> qt(thermalSize);
-            i = 0u;
-            for (auto& node : thermalNodes) {
-                qt(i) = node.second->getqt();
-                ++i;
-            }
-            globalCapacity.resize(thermalSize, thermalSize);
-            globalConductivity.resize(thermalSize, thermalSize);
-            globalRHSHeat.resize(thermalSize);
-            globalExternalHeat.resize(thermalSize);
-            globalInternalHeat.resize(thermalSize);
-
-            baseSystem->calcCapacityMatrix();
-            baseSystem->assembleCapacityMatrix(globalCapacity);
-            baseSystem->calcConductivityMatrix();
-            baseSystem->assembleConductivityMatrix(globalConductivity);
-
-            // output first step data
-            systemOuputStep(q);
-            theAnalysis->setEpsilon(epsilon);
-            theAnalysis->solve(&qt, &q, &qdot);
-        }
-
-    } // Output ExactStopwatch time
+        // output first step data
+        systemOuputStep(q);
+        theAnalysis->setEpsilon(epsilon);
+        theAnalysis->solve(&qt, &q, &qdot);
+    }
 
     if (outputFilesDetail > 1) {
         std::ifstream disp("dis.dat");
@@ -477,7 +421,7 @@ void Simulation::writeSystem()
 {
     std::stringstream ss;
     ss << title << ".mec";
-    outFileName = ss.str();
+    auto outFileName = ss.str();
     outFile.open(outFileName.c_str(), std::ofstream::out);
     outFile << "DIMENSION " << Simulation::dimension << endl;
 

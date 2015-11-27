@@ -1,22 +1,22 @@
-/***************************************************************************
- *   Copyright (C) 2013 by Daniel Iglesias                                 *
- *   http://code.google.com/p/mknix                                        *
- *                                                                         *
- *   This program is free software; you can redistribute it and/or modify  *
- *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
- *   (at your option) any later version.                                   *
- *                                                                         *
- *   This program is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
- *   GNU General Public License for more details.                          *
- *                                                                         *
- *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
- ***************************************************************************/
+/******************************************************************************
+ *  Copyright (C) 2015 by Daniel Iglesias                                     *
+ *                                                                            *
+ *  This file is part of Nemesis.                                             *
+ *                                                                            *
+ *  Nemesis is free software: you can redistribute it and/or modify           *
+ *  it under the terms of the GNU Lesser General Public License as            *
+ *  published by the Free Software Foundation, either version 3 of the        *
+ *  License, or (at your option) any later version.                           *
+ *                                                                            *
+ *  Nemesis is distributed in the hope that it will be useful,                *
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of            *
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             *
+ *  GNU Lesser General Public License for more details.                       *
+ *                                                                            *
+ *  You should have received a copy of the GNU Lesser General Public          *
+ *  License along with Nemesis.  If not, see <http://www.gnu.org/licenses/>.  *
+ *****************************************************************************/
+
 #include "analysisdynamic.h"
 #include "analysisstatic.h"
 #include "analysisthermaldynamic.h"
@@ -37,6 +37,15 @@
 #include "loadthermalbody.h"
 #include "loadthermalboundary1D.h"
 
+namespace {
+constexpr auto pathSep = "/";
+
+std::string dirName(const std::string& path)
+{
+    auto found = path.find_last_of(pathSep);
+    return path.substr(0, found);
+}
+}
 
 namespace mknix {
 
@@ -64,15 +73,18 @@ Reader::~Reader()
 
 void mknix::Reader::inputFromFile(const std::string& fileIn)
 {
-
     input.open(fileIn);
 
     char keyword[100];
-    char a; // For reading one-by-one the file.
+
+    // Change to directory of input file so all mesh file paths are relative to here
+    auto dir = dirName(fileIn);
+    chdir(dir.c_str());
 
     while (input >> keyword) {
 
         if (!strcmp(keyword, "//")) {
+            char a;
             do {
                 input.get(a);
             }
@@ -87,7 +99,7 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
             input >> keyword;
             chdir(keyword);
             working_dir = getcwd(keyword, 100);
-            output << "WORKINGDIR: " << working_dir.c_str() << std::endl;
+            output << "WORKINGDIR: " << working_dir << std::endl;
         }
         else if (!strcmp(keyword, "GRAVITY")) {
             double value;
@@ -269,10 +281,10 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
             theSimulation->setInitialTemperatures(init_temp);
         }
         else if (!strcmp(keyword, "SYSTEM")) {
-            this->readSystem(theSimulation->baseSystem);
+            readSystem(theSimulation->baseSystem.get());
         }
         else if (!strcmp(keyword, "ANALYSIS")) {
-            this->readAnalysis();
+            readAnalysis();
         }
     }
 
@@ -775,7 +787,7 @@ void mknix::Reader::readAnalysis()
                 }
             }
             this->theSimulation->analyses.push_back
-                    (new AnalysisStatic(theSimulation, time));
+                    (make_unique<AnalysisStatic>(theSimulation, time));
 
         }
         else if (!strcmp(keyword, "THERMALSTATIC")) {
@@ -800,7 +812,7 @@ void mknix::Reader::readAnalysis()
                 }
             }
             this->theSimulation->analyses.push_back
-                    (new AnalysisThermalStatic(theSimulation, time));
+                    (make_unique<AnalysisThermalStatic>(theSimulation, time));
 
         }
         else if (!strcmp(keyword, "THERMALDYNAMIC")) {
@@ -837,7 +849,7 @@ void mknix::Reader::readAnalysis()
                 }
             }
             this->theSimulation->analyses.push_back
-                    (new AnalysisThermalDynamic(theSimulation, to, tf, At, integratorType));
+                    (make_unique<AnalysisThermalDynamic>(theSimulation, to, tf, At, integratorType));
         }
         else if (!strcmp(keyword, "THERMOMECHANICALDYNAMIC")) {
             char integratorType[20];
@@ -873,7 +885,7 @@ void mknix::Reader::readAnalysis()
                 }
             }
             this->theSimulation->analyses.push_back
-                    (new AnalysisThermoMechanicalDynamic(theSimulation, to, tf, At, integratorType));
+                    (make_unique<AnalysisThermoMechanicalDynamic>(theSimulation, to, tf, At, integratorType));
         }
         else if (!strcmp(keyword, "DYNAMIC")) {
             char integratorType[20];
@@ -952,10 +964,7 @@ void mknix::Reader::readAnalysis()
                 }
             }
             this->theSimulation->analyses.push_back
-                    (new AnalysisDynamic(theSimulation, to, tf, At, integratorType,
-                                         par1, par2, par3
-                    )
-                    );
+                    (make_unique<AnalysisDynamic>(theSimulation, to, tf, At, integratorType, par1, par2, par3));
         }
         else if (!strcmp(keyword, "OTRO")) {
         }
