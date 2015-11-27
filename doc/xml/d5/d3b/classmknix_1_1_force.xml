@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="d5/d3b/classmknix_1_1_force" kind="class" prot="public">
+    <compoundname>mknix::Force</compoundname>
+    <basecompoundref refid="db/d1c/classmknix_1_1_load" prot="public" virt="non-virtual">mknix::Load</basecompoundref>
+    <includes refid="dd/d0d/force_8h" local="no">force.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d5/d3b/classmknix_1_1_force_1ab785d976ebb824b7a8404916657f5097" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Force::Force</definition>
+        <argsstring>()</argsstring>
+        <name>Force</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/force.h" line="33" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/force.cpp" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/d3b/classmknix_1_1_force_1a6d00b4232959ddd151e239b278423600" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Force::Force</definition>
+        <argsstring>(Node *, double, double, double)</argsstring>
+        <name>Force</name>
+        <param>
+          <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+          <defname>node_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>fx_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>fy_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>fz_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/force.h" line="35" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/force.cpp" bodystart="30" bodyend="39"/>
+        <references refid="db/d1c/classmknix_1_1_load_1a0cff22a8b9f289b38d978546160b6bb6" compoundref="dc/d61/load_8h" startline="42">mknix::Load::nodes</references>
+        <references refid="db/d1c/classmknix_1_1_load_1afbf0c36d2962e6bd85812ef7d498d314" compoundref="dc/d61/load_8h" startline="43">mknix::Load::externalForces</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" compoundref="dd/d6a/simulation_8h" startline="150" endline="150">mknix::Simulation::getDim</references>
+      </memberdef>
+      <memberdef kind="function" id="d5/d3b/classmknix_1_1_force_1a517004e90c90d84150b3570b74fdcce8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Force::~Force</definition>
+        <argsstring>()</argsstring>
+        <name>~Force</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/force.h" line="37" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/force.cpp" bodystart="42" bodyend="44"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="353">
+        <label>mknix::Load</label>
+        <link refid="db/d1c/classmknix_1_1_load"/>
+      </node>
+      <node id="352">
+        <label>mknix::Force</label>
+        <link refid="d5/d3b/classmknix_1_1_force"/>
+        <childnode refid="353" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="355">
+        <label>mknix::Load</label>
+        <link refid="db/d1c/classmknix_1_1_load"/>
+      </node>
+      <node id="354">
+        <label>mknix::Force</label>
+        <link refid="d5/d3b/classmknix_1_1_force"/>
+        <childnode refid="355" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/force.h" line="31" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/force.h" bodystart="30" bodyend="41"/>
+    <listofallmembers>
+      <member refid="db/d1c/classmknix_1_1_load_1a93aeafe41cb8ea7c97ae20b5870c5c9e" prot="public" virt="virtual"><scope>mknix::Force</scope><name>assembleExternalForces</name></member>
+      <member refid="db/d1c/classmknix_1_1_load_1afbf0c36d2962e6bd85812ef7d498d314" prot="protected" virt="non-virtual"><scope>mknix::Force</scope><name>externalForces</name></member>
+      <member refid="d5/d3b/classmknix_1_1_force_1ab785d976ebb824b7a8404916657f5097" prot="public" virt="non-virtual"><scope>mknix::Force</scope><name>Force</name></member>
+      <member refid="d5/d3b/classmknix_1_1_force_1a6d00b4232959ddd151e239b278423600" prot="public" virt="non-virtual"><scope>mknix::Force</scope><name>Force</name></member>
+      <member refid="db/d1c/classmknix_1_1_load_1a12f3697ad50880cb92bfc7267cca6a1c" prot="public" virt="non-virtual"><scope>mknix::Force</scope><name>Load</name></member>
+      <member refid="db/d1c/classmknix_1_1_load_1a0cff22a8b9f289b38d978546160b6bb6" prot="protected" virt="non-virtual"><scope>mknix::Force</scope><name>nodes</name></member>
+      <member refid="d5/d3b/classmknix_1_1_force_1a517004e90c90d84150b3570b74fdcce8" prot="public" virt="non-virtual"><scope>mknix::Force</scope><name>~Force</name></member>
+      <member refid="db/d1c/classmknix_1_1_load_1a79f63ce975fa0c0ad2d9cd8269908b8f" prot="public" virt="virtual"><scope>mknix::Force</scope><name>~Load</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

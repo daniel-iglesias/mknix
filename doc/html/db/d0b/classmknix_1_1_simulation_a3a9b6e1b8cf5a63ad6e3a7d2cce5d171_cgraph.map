@@ -1,0 +1,11 @@
+<map id="mknix::Simulation::staticConvergence" name="mknix::Simulation::staticConvergence">
+<area shape="rect" id="node3" href="$df/dd9/classmknix_1_1_system.html#a477db1887fa5858d2708f50397aa6ebf" title="mknix::System::checkAugmented" alt="" coords="189,5,408,35"/>
+<area shape="rect" id="node5" href="$df/dd9/classmknix_1_1_system.html#a22677dbc55080b00290652416ee8bb90" title="mknix::System::outputStep" alt="" coords="208,59,389,88"/>
+<area shape="rect" id="node7" href="$df/dd9/classmknix_1_1_system.html#afbf67e600535664daa11f57170ce28b1" title="mknix::System::clearAugmented" alt="" coords="193,112,404,141"/>
+<area shape="rect" id="node9" href="$db/d0b/classmknix_1_1_simulation.html#a9fd95351d7fe3ce2ba1991d6aae6a804" title="mknix::Simulation::\lstepTriggered" alt="" coords="232,165,365,211"/>
+<area shape="rect" id="node11" href="$df/dde/classmknix_1_1_contact.html#a0a9eb3950c6d13b5241cb8a58d9ad11e" title="mknix::Contact::updatePoints" alt="" coords="465,67,660,96"/>
+<area shape="rect" id="node13" href="$df/dde/classmknix_1_1_contact.html#a1f363d51121555347584e34cd880ef12" title="mknix::Contact::updateLines" alt="" coords="468,120,657,149"/>
+<area shape="rect" id="node15" href="$df/dde/classmknix_1_1_contact.html#acd4f6166d705a7641a84aae19fb0ffb3" title="mknix::Contact::updateDelaunay" alt="" coords="456,173,669,203"/>
+<area shape="rect" id="node17" href="$df/dde/classmknix_1_1_contact.html#a86ab86ad903f956284324fc2fb69e195" title="mknix::Contact::drawObjects" alt="" coords="467,227,659,256"/>
+<area shape="rect" id="node19" href="$db/d0b/classmknix_1_1_simulation.html#a5d4227d2d500003664587afadecb1081" title="mknix::Simulation::\lwriteConfStep" alt="" coords="496,279,629,326"/>
+</map>

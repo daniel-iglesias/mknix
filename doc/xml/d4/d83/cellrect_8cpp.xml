@@ -1,0 +1,346 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="d4/d83/cellrect_8cpp" kind="file">
+    <compoundname>cellrect.cpp</compoundname>
+    <includes refid="d8/d84/cellrect_8h" local="yes">cellrect.h</includes>
+    <incdepgraph>
+      <node id="5756">
+        <label>material.h</label>
+        <link refid="d3/d65/material_8h"/>
+        <childnode refid="5755" relation="include">
+        </childnode>
+      </node>
+      <node id="5747">
+        <label>cell.h</label>
+        <link refid="d0/ddd/cell_8h"/>
+        <childnode refid="5748" relation="include">
+        </childnode>
+      </node>
+      <node id="5753">
+        <label>string</label>
+      </node>
+      <node id="5750">
+        <label>map</label>
+      </node>
+      <node id="5752">
+        <label>point.h</label>
+        <link refid="d2/d91/point_8h"/>
+        <childnode refid="5749" relation="include">
+        </childnode>
+        <childnode refid="5750" relation="include">
+        </childnode>
+        <childnode refid="5753" relation="include">
+        </childnode>
+        <childnode refid="5754" relation="include">
+        </childnode>
+      </node>
+      <node id="5754">
+        <label>common.h</label>
+        <link refid="dc/d54/common_8h"/>
+      </node>
+      <node id="5745">
+        <label>cellrect.cpp</label>
+        <link refid="cellrect.cpp"/>
+        <childnode refid="5746" relation="include">
+        </childnode>
+      </node>
+      <node id="5749">
+        <label>vector</label>
+      </node>
+      <node id="5746">
+        <label>cellrect.h</label>
+        <link refid="d8/d84/cellrect_8h"/>
+        <childnode refid="5747" relation="include">
+        </childnode>
+      </node>
+      <node id="5755">
+        <label>LMX/lmx.h</label>
+      </node>
+      <node id="5748">
+        <label>gausspoint.h</label>
+        <link refid="d4/dc6/gausspoint_8h"/>
+        <childnode refid="5749" relation="include">
+        </childnode>
+        <childnode refid="5750" relation="include">
+        </childnode>
+        <childnode refid="5751" relation="include">
+        </childnode>
+        <childnode refid="5752" relation="include">
+        </childnode>
+        <childnode refid="5754" relation="include">
+        </childnode>
+        <childnode refid="5756" relation="include">
+        </childnode>
+      </node>
+      <node id="5751">
+        <label>node.h</label>
+        <link refid="d1/d77/node_8h"/>
+        <childnode refid="5749" relation="include">
+        </childnode>
+        <childnode refid="5752" relation="include">
+        </childnode>
+        <childnode refid="5755" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="d2/dde/namespacemknix">mknix</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//--<sp/>Licencia<sp/>--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d8/d84/cellrect_8h" kindref="compound" tooltip="Background cells for integration. ">cellrect.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mknix<sp/>{</highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6" refid="dd/d89/classmknix_1_1_cell_rect_1a7cc280eb130683f2b8d77ce04d3f7e84" refkind="member"><highlight class="normal"><ref refid="dd/d89/classmknix_1_1_cell_rect_1a7cc280eb130683f2b8d77ce04d3f7e84" kindref="member">CellRect::CellRect</ref>()</highlight></codeline>
+<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="dd/d89/classmknix_1_1_cell_rect_1a5242df2938d1f9f60cd089c5309fa1c2" refkind="member"><highlight class="normal"><ref refid="dd/d89/classmknix_1_1_cell_rect_1a7cc280eb130683f2b8d77ce04d3f7e84" kindref="member">CellRect::CellRect</ref>(<sp/><ref refid="d6/d4a/classmknix_1_1_material" kindref="compound">Material</ref>&amp;<sp/>material_in,</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>formulation_in,</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha_in,</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nGPoints_in,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x1_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y1_in,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x2_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y2_in,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x3_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y3_in,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x4_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y4_in,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dcx_in,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dcy_in,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minX_in,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minY_in,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxX_in,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxY_in</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/>:<sp/><ref refid="db/dd4/classmknix_1_1_cell" kindref="compound">Cell</ref>(<sp/>material_in</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>formulation_in</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>alpha_in</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>nGPoints_in</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>Az(0)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>minX(minX_in)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>minY(minY_in)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>minZ(0)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>maxX(maxX_in)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>maxY(maxY_in)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>maxZ(0)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>points.resize(4,2);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/>points.writeElement(x1_in,0,0);<sp/>points(0,1)<sp/>=<sp/>y1_in;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/>points(1,0)<sp/>=<sp/>x2_in;<sp/>points(1,1)<sp/>=<sp/>y2_in;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>points(2,0)<sp/>=<sp/>x3_in;<sp/>points(2,1)<sp/>=<sp/>y3_in;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/>points(3,0)<sp/>=<sp/>x4_in;<sp/>points(3,1)<sp/>=<sp/>y4_in;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/>Ax<sp/>=<sp/>x2_in<sp/>-<sp/>x1_in;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/>Ay<sp/>=<sp/>y3_in<sp/>-<sp/>y2_in;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" kindref="member">jacobian</ref><sp/>=<sp/>Ax/2.<sp/>*<sp/>Ay/2.;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>this-&gt;createGaussPoints(<sp/>dcx_in,<sp/>dcy_in<sp/>);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="dd/d89/classmknix_1_1_cell_rect_1a16a49a17652e7941217e1089bb243a6f" refkind="member"><highlight class="normal"><ref refid="dd/d89/classmknix_1_1_cell_rect_1a7cc280eb130683f2b8d77ce04d3f7e84" kindref="member">CellRect::CellRect</ref>(<sp/><ref refid="d6/d4a/classmknix_1_1_material" kindref="compound">Material</ref>&amp;<sp/>material_in,</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>formulation_in,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha_in,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nGPoints_in,</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x1_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y1_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z1_in,</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x2_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y2_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z2_in,</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x3_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y3_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z3_in,</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x4_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y4_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z4_in,</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x5_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y5_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z5_in,</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x6_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y6_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z6_in,</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x7_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y7_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z7_in,</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x8_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y8_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z8_in,</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dcx_in,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dcy_in,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dcz_in,</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minX_in,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minY_in,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minZ_in,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxX_in,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxY_in,</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxZ_in</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/>:<sp/><ref refid="db/dd4/classmknix_1_1_cell" kindref="compound">Cell</ref>(<sp/>material_in</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>formulation_in</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>alpha_in</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>nGPoints_in</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>minX(minX_in)</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>minY(minY_in)</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>minZ(minZ_in)</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>maxX(maxX_in)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>maxY(maxY_in)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>maxZ(maxZ_in)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/>points.resize(8,3);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>points.writeElement(x1_in,0,0);<sp/>points(0,1)<sp/>=<sp/>y1_in;<sp/>points(0,2)<sp/>=<sp/>z1_in;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/>points(1,0)<sp/>=<sp/>x2_in;<sp/>points(1,1)<sp/>=<sp/>y2_in;<sp/>points(1,2)<sp/>=<sp/>z2_in;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/>points(2,0)<sp/>=<sp/>x3_in;<sp/>points(2,1)<sp/>=<sp/>y3_in;<sp/>points(2,2)<sp/>=<sp/>z3_in;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>points(3,0)<sp/>=<sp/>x4_in;<sp/>points(3,1)<sp/>=<sp/>y4_in;<sp/>points(3,2)<sp/>=<sp/>z4_in;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/>points.writeElement(x5_in,4,0);<sp/>points(4,1)<sp/>=<sp/>y5_in;<sp/>points(4,2)<sp/>=<sp/>z5_in;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>points(5,0)<sp/>=<sp/>x6_in;<sp/>points(5,1)<sp/>=<sp/>y6_in;<sp/>points(5,2)<sp/>=<sp/>z6_in;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>points(6,0)<sp/>=<sp/>x7_in;<sp/>points(6,1)<sp/>=<sp/>y7_in;<sp/>points(6,2)<sp/>=<sp/>z7_in;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/>points(7,0)<sp/>=<sp/>x8_in;<sp/>points(7,1)<sp/>=<sp/>y8_in;<sp/>points(7,2)<sp/>=<sp/>z8_in;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>only<sp/>valid<sp/>for<sp/>rectangular<sp/>blocks</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/>Ax<sp/>=<sp/>x2_in<sp/>-<sp/>x1_in;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/>Ay<sp/>=<sp/>y3_in<sp/>-<sp/>y2_in;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/>Az<sp/>=<sp/>z5_in<sp/>-<sp/>z1_in;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" kindref="member">jacobian</ref><sp/>=<sp/>Ax/2.<sp/>*<sp/>Ay/2.<sp/>*<sp/>Az/2.;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/>this-&gt;createGaussPoints(<sp/>dcx_in,<sp/>dcy_in,<sp/>dcz_in<sp/>);</highlight></codeline>
+<codeline lineno="97"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99" refid="dd/d89/classmknix_1_1_cell_rect_1a966a8afa0dee4990f8231cb7e32d33ee" refkind="member"><highlight class="normal"><ref refid="dd/d89/classmknix_1_1_cell_rect_1a966a8afa0dee4990f8231cb7e32d33ee" kindref="member">CellRect::~CellRect</ref>()</highlight></codeline>
+<codeline lineno="100"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CellRect::createGaussPoints(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dcx_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dcy_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dcz_in<sp/>)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/>lmx::DenseMatrix&lt;double&gt;<sp/>gCoef(<sp/>(size_type)<ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref>,2);<sp/></highlight><highlight class="comment">//<sp/>col<sp/>1:<sp/>offset<sp/>from<sp/>center<sp/>point,<sp/><sp/>col<sp/>2:<sp/>weight<sp/>factor.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref><sp/>==<sp/>1){</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(0,0)<sp/>=<sp/>0.;<sp/>gCoef(0,1)<sp/>=<sp/>1.;</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/>}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref><sp/>==<sp/>2){</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(0,0)<sp/>=<sp/>-std::sqrt(1./3.);<sp/>gCoef(0,1)<sp/>=<sp/>1.;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(1,0)<sp/>=<sp/><sp/>std::sqrt(1./3.);<sp/>gCoef(1,1)<sp/>=<sp/>1.;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref><sp/>==<sp/>3){</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(0,0)<sp/>=<sp/>-0.77459666924148337703;<sp/>gCoef(0,1)<sp/>=<sp/>0.88888888888888888888;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(1,0)<sp/>=<sp/><sp/>0.00000000000000000000;<sp/>gCoef(1,1)<sp/>=<sp/>0.55555555555555555555;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(2,0)<sp/>=<sp/><sp/>0.77459666924148337703;<sp/>gCoef(2,1)<sp/>=<sp/>0.88888888888888888888;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref><sp/>==<sp/>4){</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(0,0)<sp/>=<sp/>-0.86113631159405257522;<sp/>gCoef(0,1)<sp/>=<sp/>0.34785484513745385737;</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(1,0)<sp/>=<sp/>-0.33998104358485626480;<sp/>gCoef(1,1)<sp/>=<sp/>0.65214515486254614262;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(2,0)<sp/>=<sp/><sp/>0.33998104358485626480;<sp/>gCoef(2,1)<sp/>=<sp/>0.65214515486254614262;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(3,0)<sp/>=<sp/><sp/>0.86113631159405257522;<sp/>gCoef(3,1)<sp/>=<sp/>0.34785484513745385737;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref><sp/>==<sp/>5){</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(0,0)<sp/>=<sp/>-0.90617984593866399279;<sp/>gCoef(0,1)<sp/>=<sp/>0.23692688505618908751;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(1,0)<sp/>=<sp/>-0.53846931010568309103;<sp/>gCoef(1,1)<sp/>=<sp/>0.47862867049936646804;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(2,0)<sp/>=<sp/><sp/>0.00000000000000000000;<sp/>gCoef(2,1)<sp/>=<sp/>0.56888888888888888889;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(3,0)<sp/>=<sp/><sp/>0.53846931010568309103;<sp/>gCoef(2,1)<sp/>=<sp/>0.47862867049936646804;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(4,0)<sp/>=<sp/><sp/>0.90617984593866399279;<sp/>gCoef(3,1)<sp/>=<sp/>0.23692688505618908751;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref><sp/>==<sp/>6){</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(0,0)<sp/>=<sp/>-0.932469514203152;<sp/>gCoef(0,1)<sp/>=<sp/>0.23692688505618908751;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(1,0)<sp/>=<sp/>-0.661209386466265;<sp/>gCoef(1,1)<sp/>=<sp/>0.47862867049936646804;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(2,0)<sp/>=<sp/>-0.238619186083197;<sp/>gCoef(2,1)<sp/>=<sp/>0.56888888888888888889;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(3,0)<sp/>=<sp/>-gCoef(2,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(3,1)<sp/>=<sp/>gCoef(2,1);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(4,0)<sp/>=<sp/>-gCoef(1,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(4,1)<sp/>=<sp/>gCoef(1,1);</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(5,0)<sp/>=<sp/>-gCoef(0,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(5,1)<sp/>=<sp/>gCoef(0,1);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref><sp/>==<sp/>8){</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(0,0)<sp/>=<sp/>-0.96028985649753623168;<sp/>gCoef(0,1)<sp/>=<sp/>0.10122853629037625915;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(1,0)<sp/>=<sp/>-0.79666647741362673959;<sp/>gCoef(1,1)<sp/>=<sp/>0.22238103445337447054;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(2,0)<sp/>=<sp/>-0.52553240991632898581;<sp/>gCoef(2,1)<sp/>=<sp/>0.31370664587788728733;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(3,0)<sp/>=<sp/>-0.18343464249564980493;<sp/>gCoef(3,1)<sp/>=<sp/>0.36268378337836198296;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(4,0)<sp/>=<sp/>-gCoef(3,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(4,1)<sp/>=<sp/>gCoef(3,1);</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(5,0)<sp/>=<sp/>-gCoef(2,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(5,1)<sp/>=<sp/>gCoef(2,1);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(6,0)<sp/>=<sp/>-gCoef(1,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(6,1)<sp/>=<sp/>gCoef(1,1);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(7,0)<sp/>=<sp/>-gCoef(0,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(7,1)<sp/>=<sp/>gCoef(0,1);</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref><sp/>==<sp/>12){</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>0,0)<sp/>=<sp/>-0.981560634246719;<sp/>gCoef(<sp/>0,1)<sp/>=<sp/>0.047175336386511;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>1,0)<sp/>=<sp/>-0.904117256370475;<sp/>gCoef(<sp/>1,1)<sp/>=<sp/>0.106939325995318;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>2,0)<sp/>=<sp/>-0.769902674194305;<sp/>gCoef(<sp/>2,1)<sp/>=<sp/>0.160078328543346;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>3,0)<sp/>=<sp/>-0.587317954286617;<sp/>gCoef(<sp/>3,1)<sp/>=<sp/>0.203167426723066;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>4,0)<sp/>=<sp/>-0.367831498998180;<sp/>gCoef(<sp/>4,1)<sp/>=<sp/>0.233492536538355;</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>5,0)<sp/>=<sp/>-0.125233408511469;<sp/>gCoef(<sp/>5,1)<sp/>=<sp/>0.249147045813403;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>6,0)<sp/>=<sp/>-gCoef(5,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(<sp/>6,1)<sp/>=<sp/>gCoef(5,1);</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>7,0)<sp/>=<sp/>-gCoef(4,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(<sp/>7,1)<sp/>=<sp/>gCoef(4,1);</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>8,0)<sp/>=<sp/>-gCoef(3,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(<sp/>8,1)<sp/>=<sp/>gCoef(3,1);</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>9,0)<sp/>=<sp/>-gCoef(2,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(<sp/>9,1)<sp/>=<sp/>gCoef(2,1);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(10,0)<sp/>=<sp/>-gCoef(1,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(10,1)<sp/>=<sp/>gCoef(1,1);</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(11,0)<sp/>=<sp/>-gCoef(0,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(11,1)<sp/>=<sp/>gCoef(0,1);</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref><sp/>==<sp/>20){</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>0,0)<sp/>=<sp/>-0.993128599185094924786;<sp/>gCoef(<sp/>0,1)<sp/>=<sp/>0.017614007139152118312;</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>1,0)<sp/>=<sp/>-0.963971927277913791268;<sp/>gCoef(<sp/>1,1)<sp/>=<sp/>0.040601429800386941331;</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>2,0)<sp/>=<sp/>-0.912234428251325905868;<sp/>gCoef(<sp/>2,1)<sp/>=<sp/>0.062672048334109063570;</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>3,0)<sp/>=<sp/>-0.839116971822218823395;<sp/>gCoef(<sp/>3,1)<sp/>=<sp/>0.083276741576704748725;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>4,0)<sp/>=<sp/>-0.746331906460150792614;<sp/>gCoef(<sp/>4,1)<sp/>=<sp/>0.101930119817240435037;</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>5,0)<sp/>=<sp/>-0.636053680726515025453;<sp/>gCoef(<sp/>5,1)<sp/>=<sp/>0.118194531961518417312;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>6,0)<sp/>=<sp/>-0.510867001950827098004;<sp/>gCoef(<sp/>6,1)<sp/>=<sp/>0.131688638449176626898;</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>7,0)<sp/>=<sp/>-0.373706088715419560673;<sp/>gCoef(<sp/>7,1)<sp/>=<sp/>0.142096109318382051329;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>8,0)<sp/>=<sp/>-0.227785851141645078080;<sp/>gCoef(<sp/>8,1)<sp/>=<sp/>0.149172986472603746788;</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(<sp/>9,0)<sp/>=<sp/>-0.076526521133497333755;<sp/>gCoef(<sp/>9,1)<sp/>=<sp/>0.152753387130725850698;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(10,0)<sp/>=<sp/>-gCoef(9,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(10,1)<sp/>=<sp/>gCoef(9,1);</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(11,0)<sp/>=<sp/>-gCoef(8,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(11,1)<sp/>=<sp/>gCoef(8,1);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(12,0)<sp/>=<sp/>-gCoef(7,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(12,1)<sp/>=<sp/>gCoef(7,1);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(13,0)<sp/>=<sp/>-gCoef(6,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(13,1)<sp/>=<sp/>gCoef(6,1);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(14,0)<sp/>=<sp/>-gCoef(5,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(14,1)<sp/>=<sp/>gCoef(5,1);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(15,0)<sp/>=<sp/>-gCoef(4,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(15,1)<sp/>=<sp/>gCoef(4,1);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(16,0)<sp/>=<sp/>-gCoef(3,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(16,1)<sp/>=<sp/>gCoef(3,1);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(17,0)<sp/>=<sp/>-gCoef(2,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(17,1)<sp/>=<sp/>gCoef(2,1);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(18,0)<sp/>=<sp/>-gCoef(1,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(18,1)<sp/>=<sp/>gCoef(1,1);</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(19,0)<sp/>=<sp/>-gCoef(0,0)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>;<sp/>gCoef(19,1)<sp/>=<sp/>gCoef(0,1);</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;gCoef.rows();<sp/>++i){</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j=0;<sp/>j&lt;gCoef.rows();<sp/>++j){</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" kindref="member">gPoints</ref>.push_back(<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>GaussPoint(<sp/>this-&gt;<ref refid="db/dd4/classmknix_1_1_cell_1a79afef7ecbdfee69e687bb2e7559520b" kindref="member">alpha</ref>,</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(i,1)*gCoef(j,1),</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" kindref="member">jacobian</ref>,</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a83ca13ff89196b3ab378d2a28820a08e" kindref="member">mat</ref>,</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i<sp/>*<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref><sp/>+<sp/>j,</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>points.readElement(0,0)<sp/>+<sp/>Ax/2<sp/>*<sp/>(<sp/>1<sp/>+<sp/>gCoef(i,0)<sp/>)<sp/>,</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>points.readElement(0,1)<sp/>+<sp/>Ay/2<sp/>*<sp/>(<sp/>1<sp/>+<sp/>gCoef(j,0)<sp/>),</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>dcx_in</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"></highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight><highlight class="comment">//void<sp/>CellRect::initialize(<sp/>std::map&lt;int,Node*&gt;<sp/>&amp;<sp/>nodes_in<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="comment">//{</highlight></codeline>
+<codeline lineno="209"><highlight class="comment"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>//<sp/>This<sp/>function<sp/>can<sp/>be<sp/>joined<sp/>with<sp/>assembleGaussPoints<sp/>so<sp/>the<sp/>Gpoints<sp/>are<sp/>iterated<sp/>only<sp/>once...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for<sp/>(<sp/>std::vector&lt;GaussPoint*&gt;::iterator<sp/>it<sp/>=<sp/>gPoints.begin();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="212"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>it<sp/>!=<sp/>gPoints.end();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="213"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++it)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>(*it)-&gt;findSupportNodes(<sp/>nodes_in,<sp/>minX,<sp/>maxX,<sp/>minY,<sp/>maxY<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight><highlight class="comment">//}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219" refid="dd/d89/classmknix_1_1_cell_rect_1a599daac72085b935a90afe8ffcecdd20" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d89/classmknix_1_1_cell_rect_1a599daac72085b935a90afe8ffcecdd20" kindref="member">CellRect::initialize</ref>(<sp/>std::vector&lt;Node*&gt;<sp/>&amp;<sp/>nodes_in<sp/>)</highlight></codeline>
+<codeline lineno="220"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;CellRect<sp/>points<sp/>&quot;<sp/>&lt;&lt;<sp/>this-&gt;points<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>function<sp/>can<sp/>be<sp/>joined<sp/>with<sp/>assembleGaussPoints<sp/>so<sp/>the<sp/>Gpoints<sp/>are<sp/>iterated<sp/>only<sp/>once...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>std::vector&lt;GaussPoint*&gt;::iterator<sp/>it<sp/>=<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" kindref="member">gPoints</ref>.begin();</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>it<sp/>!=<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" kindref="member">gPoints</ref>.end();</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++it)</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/>(*it)-&gt;findSupportNodes(<sp/>nodes_in,<sp/>minX,<sp/>maxX,<sp/>minY,<sp/>maxY<sp/>);</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>(*it)-&gt;findSupportNodes(<sp/>nodes_in<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="231"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233" refid="dd/d89/classmknix_1_1_cell_rect_1aff6050da82b250a264f856743b0225e0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d89/classmknix_1_1_cell_rect_1aff6050da82b250a264f856743b0225e0" kindref="member">CellRect::gnuplotOut</ref>(<sp/>std::ofstream&amp;<sp/>data,<sp/>std::ofstream&amp;<sp/>gpdata<sp/>)</highlight></codeline>
+<codeline lineno="234"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;Cell<sp/>points&quot;<sp/>&lt;&lt;<sp/>points.rows()<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;<sp/>&lt;&lt;<sp/>points.cols()<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="236"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;Cell<sp/>points<sp/>&quot;<sp/>&lt;&lt;<sp/>this-&gt;points<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;points.rows();<sp/>++i){</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/>data<sp/>&lt;&lt;<sp/>points(i,0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>points(i,1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>0\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/>data<sp/>&lt;&lt;<sp/>points(0,0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>points(0,1)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>0\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/>data<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"></highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(std::vector&lt;GaussPoint*&gt;::iterator<sp/>it=<ref refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" kindref="member">gPoints</ref>.begin();</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>it!=<ref refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" kindref="member">gPoints</ref>.end();</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>++it){</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*it)-&gt;gnuplotOut(<sp/>gpdata<sp/>);</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="249"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"></highlight></codeline>
+<codeline lineno="251"><highlight class="normal"></highlight></codeline>
+<codeline lineno="252"><highlight class="normal">}<sp/></highlight><highlight class="comment">//Namespace<sp/>mknix</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.cpp"/>
+  </compounddef>
+</doxygen>

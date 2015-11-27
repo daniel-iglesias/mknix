@@ -1,0 +1,514 @@
+\hypertarget{classmknix_1_1_gauss_point}{\subsection{mknix\-:\-:Gauss\-Point Class Reference}
+\label{classmknix_1_1_gauss_point}\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}}
+}
+
+
+{\ttfamily \#include $<$gausspoint.\-h$>$}
+
+
+
+Inheritance diagram for mknix\-:\-:Gauss\-Point\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{d1/d02/classmknix_1_1_gauss_point__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mknix\-:\-:Gauss\-Point\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{d4/d8d/classmknix_1_1_gauss_point__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmknix_1_1_gauss_point_a1d7606bf5762dabe86b0c5c83f2f1de2}{Gauss\-Point} ()
+\item 
+\hyperlink{classmknix_1_1_gauss_point_a41f2a35d335cd9e2c9880beca96b3a29}{Gauss\-Point} (double alpha\-\_\-in, double weight\-\_\-in, double jacobian\-\_\-in, \hyperlink{classmknix_1_1_material}{Material} $\ast$mat\-\_\-in, int num, double coor\-\_\-x, double coor\-\_\-y, double dc\-\_\-in)
+\item 
+\hyperlink{classmknix_1_1_gauss_point_a6545ce23d852884b899d81a9c79691bd}{Gauss\-Point} (double alpha\-\_\-in, double weight\-\_\-in, double jacobian\-\_\-in, \hyperlink{classmknix_1_1_material}{Material} $\ast$mat\-\_\-in, int num, double coor\-\_\-x, double coor\-\_\-y, double coor\-\_\-z, double dc\-\_\-in)
+\item 
+\hyperlink{classmknix_1_1_gauss_point_a84a09a5e3fa0bf13b6c1d710a838f883}{$\sim$\-Gauss\-Point} ()
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_a57e21322f3c898490257853fb2777077}{shape\-Fun\-Solve} (std\-::string, double)
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_a2c7657d7897b22f27427c612b67a2956}{fill\-B\-Triangle\-F\-E} ()
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_a0ea2abbe3c96295050f7cae7601a0713}{fill\-B\-Tetrahedron\-F\-E} ()
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_ab82f09f4b4f9ae25f78551e1aa2e4ee6}{compute\-Cij} ()
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_a92a5358c2a4305b15d33d265e4603621}{compute\-Hij} ()
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_abb5b248896056fd76d2e4ec8280a17f5}{compute\-Qext} (\hyperlink{classmknix_1_1_thermal_load}{Thermal\-Load} $\ast$)
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_a9a01f1ad9df5669317e8aa41ab8be649}{compute\-Mij} ()
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_aec3728abc07b0daa885b5a663916c95e}{compute\-Kij} ()
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_a4ed005e06a27c61eaf650dc841caf897}{compute\-Stress} ()
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_a36987660a0561548f737c065d0e7ccfd}{compute\-N\-L\-Stress} ()
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_a88e2b56ce3f05d609307e858de4d52dc}{compute\-Fint} ()
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_a7bfb2560bce7b5eb2ee9e5245e691976}{compute\-Fext} ()
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_a6114329f1c2757b8a0628d88e9d82339}{compute\-N\-L\-Fint} ()
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_a2b0667914f2a511167db6049616bf188}{compute\-N\-L\-Kij} ()
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_aec8b4913cc95ba20cff54736f63f1547}{assemble\-Cij} (lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_a1e1448cd0c3e4d5014cf1bfe21b4d166}{assemble\-Hij} (lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_a1c39b381deef9d070fa4a28816b8bb2f}{assemble\-Qext} (lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_a62f27768cbdfa9df3c88444b0f270fcf}{assemble\-Mij} (lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_ae995cf148587ed806ad440421c9c0130}{assemble\-Kij} (lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_a750508df5aa985421babfed3135fe1f5}{assemble\-Ri} (lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&, int)
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_af42b26bb5560437cd24a05a6ec5a12df}{assemble\-Fint} (lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_a95ea27055e2b71b521b5d5e500cdcc42}{assemble\-Fext} (lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+\item 
+double \hyperlink{classmknix_1_1_gauss_point_a8b0e8f05d6fe32c24fc5a4f5912c306b}{calc\-Potential\-E} (const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+\item 
+double \hyperlink{classmknix_1_1_gauss_point_a0c646ea6fd6888438b2f51ff7e3c0e9d}{calc\-Kinetic\-E} (const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+\item 
+double \hyperlink{classmknix_1_1_gauss_point_a43f19e4df71c710f9150b834cb956f89}{calc\-Elastic\-E} ()
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_a6d80a71224082e0ff5ab6c69d8a5bf58}{gnuplot\-Out\-Stress} (std\-::ofstream \&)
+\end{DoxyCompactItemize}
+\subsubsection*{Additional Inherited Members}
+
+
+\subsubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Daniel Iglesias 
+\end{DoxyAuthor}
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{classmknix_1_1_gauss_point_a1d7606bf5762dabe86b0c5c83f2f1de2}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!Gauss\-Point@{Gauss\-Point}}
+\index{Gauss\-Point@{Gauss\-Point}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{Gauss\-Point}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Gauss\-Point\-::\-Gauss\-Point (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a1d7606bf5762dabe86b0c5c83f2f1de2}
+\hypertarget{classmknix_1_1_gauss_point_a41f2a35d335cd9e2c9880beca96b3a29}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!Gauss\-Point@{Gauss\-Point}}
+\index{Gauss\-Point@{Gauss\-Point}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{Gauss\-Point}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Gauss\-Point\-::\-Gauss\-Point (
+\begin{DoxyParamCaption}
+\item[{double}]{alpha\-\_\-in, }
+\item[{double}]{weight\-\_\-in, }
+\item[{double}]{jacobian\-\_\-in, }
+\item[{{\bf Material} $\ast$}]{mat\-\_\-in, }
+\item[{int}]{num, }
+\item[{double}]{coor\-\_\-x, }
+\item[{double}]{coor\-\_\-y, }
+\item[{double}]{dc\-\_\-in}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a41f2a35d335cd9e2c9880beca96b3a29}
+\hypertarget{classmknix_1_1_gauss_point_a6545ce23d852884b899d81a9c79691bd}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!Gauss\-Point@{Gauss\-Point}}
+\index{Gauss\-Point@{Gauss\-Point}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{Gauss\-Point}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Gauss\-Point\-::\-Gauss\-Point (
+\begin{DoxyParamCaption}
+\item[{double}]{alpha\-\_\-in, }
+\item[{double}]{weight\-\_\-in, }
+\item[{double}]{jacobian\-\_\-in, }
+\item[{{\bf Material} $\ast$}]{mat\-\_\-in, }
+\item[{int}]{num, }
+\item[{double}]{coor\-\_\-x, }
+\item[{double}]{coor\-\_\-y, }
+\item[{double}]{coor\-\_\-z, }
+\item[{double}]{dc\-\_\-in}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a6545ce23d852884b899d81a9c79691bd}
+\hypertarget{classmknix_1_1_gauss_point_a84a09a5e3fa0bf13b6c1d710a838f883}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!$\sim$\-Gauss\-Point@{$\sim$\-Gauss\-Point}}
+\index{$\sim$\-Gauss\-Point@{$\sim$\-Gauss\-Point}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{$\sim$\-Gauss\-Point}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Gauss\-Point\-::$\sim$\-Gauss\-Point (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a84a09a5e3fa0bf13b6c1d710a838f883}
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classmknix_1_1_gauss_point_aec8b4913cc95ba20cff54736f63f1547}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!assemble\-Cij@{assemble\-Cij}}
+\index{assemble\-Cij@{assemble\-Cij}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{assemble\-Cij}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::assemble\-Cij (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ \&}]{global\-Capacity}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_aec8b4913cc95ba20cff54736f63f1547}
+\hypertarget{classmknix_1_1_gauss_point_a95ea27055e2b71b521b5d5e500cdcc42}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!assemble\-Fext@{assemble\-Fext}}
+\index{assemble\-Fext@{assemble\-Fext}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{assemble\-Fext}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::assemble\-Fext (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{global\-Fext}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a95ea27055e2b71b521b5d5e500cdcc42}
+\hypertarget{classmknix_1_1_gauss_point_af42b26bb5560437cd24a05a6ec5a12df}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!assemble\-Fint@{assemble\-Fint}}
+\index{assemble\-Fint@{assemble\-Fint}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{assemble\-Fint}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::assemble\-Fint (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{global\-Fint}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_af42b26bb5560437cd24a05a6ec5a12df}
+\hypertarget{classmknix_1_1_gauss_point_a1e1448cd0c3e4d5014cf1bfe21b4d166}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!assemble\-Hij@{assemble\-Hij}}
+\index{assemble\-Hij@{assemble\-Hij}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{assemble\-Hij}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::assemble\-Hij (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ \&}]{global\-Conductivity}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a1e1448cd0c3e4d5014cf1bfe21b4d166}
+\hypertarget{classmknix_1_1_gauss_point_ae995cf148587ed806ad440421c9c0130}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!assemble\-Kij@{assemble\-Kij}}
+\index{assemble\-Kij@{assemble\-Kij}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{assemble\-Kij}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::assemble\-Kij (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ \&}]{global\-Tangent}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_ae995cf148587ed806ad440421c9c0130}
+\hypertarget{classmknix_1_1_gauss_point_a62f27768cbdfa9df3c88444b0f270fcf}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!assemble\-Mij@{assemble\-Mij}}
+\index{assemble\-Mij@{assemble\-Mij}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{assemble\-Mij}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::assemble\-Mij (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ \&}]{global\-Mass}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a62f27768cbdfa9df3c88444b0f270fcf}
+\hypertarget{classmknix_1_1_gauss_point_a1c39b381deef9d070fa4a28816b8bb2f}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!assemble\-Qext@{assemble\-Qext}}
+\index{assemble\-Qext@{assemble\-Qext}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{assemble\-Qext}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::assemble\-Qext (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{global\-Heat}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a1c39b381deef9d070fa4a28816b8bb2f}
+\hypertarget{classmknix_1_1_gauss_point_a750508df5aa985421babfed3135fe1f5}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!assemble\-Ri@{assemble\-Ri}}
+\index{assemble\-Ri@{assemble\-Ri}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{assemble\-Ri}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::assemble\-Ri (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{global\-R, }
+\item[{int}]{first\-Node}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a750508df5aa985421babfed3135fe1f5}
+\hypertarget{classmknix_1_1_gauss_point_a43f19e4df71c710f9150b834cb956f89}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!calc\-Elastic\-E@{calc\-Elastic\-E}}
+\index{calc\-Elastic\-E@{calc\-Elastic\-E}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{calc\-Elastic\-E}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Gauss\-Point\-::calc\-Elastic\-E (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a43f19e4df71c710f9150b834cb956f89}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/da4/classmknix_1_1_gauss_point_a43f19e4df71c710f9150b834cb956f89_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_gauss_point_a0c646ea6fd6888438b2f51ff7e3c0e9d}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!calc\-Kinetic\-E@{calc\-Kinetic\-E}}
+\index{calc\-Kinetic\-E@{calc\-Kinetic\-E}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{calc\-Kinetic\-E}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Gauss\-Point\-::calc\-Kinetic\-E (
+\begin{DoxyParamCaption}
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{qdot}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a0c646ea6fd6888438b2f51ff7e3c0e9d}
+\hypertarget{classmknix_1_1_gauss_point_a8b0e8f05d6fe32c24fc5a4f5912c306b}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!calc\-Potential\-E@{calc\-Potential\-E}}
+\index{calc\-Potential\-E@{calc\-Potential\-E}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{calc\-Potential\-E}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Gauss\-Point\-::calc\-Potential\-E (
+\begin{DoxyParamCaption}
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a8b0e8f05d6fe32c24fc5a4f5912c306b}
+\hypertarget{classmknix_1_1_gauss_point_ab82f09f4b4f9ae25f78551e1aa2e4ee6}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!compute\-Cij@{compute\-Cij}}
+\index{compute\-Cij@{compute\-Cij}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{compute\-Cij}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::compute\-Cij (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_ab82f09f4b4f9ae25f78551e1aa2e4ee6}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/da4/classmknix_1_1_gauss_point_ab82f09f4b4f9ae25f78551e1aa2e4ee6_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_gauss_point_a7bfb2560bce7b5eb2ee9e5245e691976}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!compute\-Fext@{compute\-Fext}}
+\index{compute\-Fext@{compute\-Fext}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{compute\-Fext}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::compute\-Fext (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a7bfb2560bce7b5eb2ee9e5245e691976}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=324pt]{d2/da4/classmknix_1_1_gauss_point_a7bfb2560bce7b5eb2ee9e5245e691976_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_gauss_point_a88e2b56ce3f05d609307e858de4d52dc}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!compute\-Fint@{compute\-Fint}}
+\index{compute\-Fint@{compute\-Fint}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{compute\-Fint}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::compute\-Fint (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a88e2b56ce3f05d609307e858de4d52dc}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/da4/classmknix_1_1_gauss_point_a88e2b56ce3f05d609307e858de4d52dc_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_gauss_point_a92a5358c2a4305b15d33d265e4603621}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!compute\-Hij@{compute\-Hij}}
+\index{compute\-Hij@{compute\-Hij}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{compute\-Hij}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::compute\-Hij (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a92a5358c2a4305b15d33d265e4603621}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/da4/classmknix_1_1_gauss_point_a92a5358c2a4305b15d33d265e4603621_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_gauss_point_aec3728abc07b0daa885b5a663916c95e}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!compute\-Kij@{compute\-Kij}}
+\index{compute\-Kij@{compute\-Kij}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{compute\-Kij}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::compute\-Kij (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_aec3728abc07b0daa885b5a663916c95e}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{d2/da4/classmknix_1_1_gauss_point_aec3728abc07b0daa885b5a663916c95e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{d2/da4/classmknix_1_1_gauss_point_aec3728abc07b0daa885b5a663916c95e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_gauss_point_a9a01f1ad9df5669317e8aa41ab8be649}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!compute\-Mij@{compute\-Mij}}
+\index{compute\-Mij@{compute\-Mij}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{compute\-Mij}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::compute\-Mij (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a9a01f1ad9df5669317e8aa41ab8be649}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/da4/classmknix_1_1_gauss_point_a9a01f1ad9df5669317e8aa41ab8be649_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_gauss_point_a6114329f1c2757b8a0628d88e9d82339}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!compute\-N\-L\-Fint@{compute\-N\-L\-Fint}}
+\index{compute\-N\-L\-Fint@{compute\-N\-L\-Fint}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{compute\-N\-L\-Fint}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::compute\-N\-L\-Fint (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a6114329f1c2757b8a0628d88e9d82339}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/da4/classmknix_1_1_gauss_point_a6114329f1c2757b8a0628d88e9d82339_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_gauss_point_a2b0667914f2a511167db6049616bf188}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!compute\-N\-L\-Kij@{compute\-N\-L\-Kij}}
+\index{compute\-N\-L\-Kij@{compute\-N\-L\-Kij}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{compute\-N\-L\-Kij}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::compute\-N\-L\-Kij (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a2b0667914f2a511167db6049616bf188}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{d2/da4/classmknix_1_1_gauss_point_a2b0667914f2a511167db6049616bf188_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_gauss_point_a36987660a0561548f737c065d0e7ccfd}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!compute\-N\-L\-Stress@{compute\-N\-L\-Stress}}
+\index{compute\-N\-L\-Stress@{compute\-N\-L\-Stress}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{compute\-N\-L\-Stress}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::compute\-N\-L\-Stress (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a36987660a0561548f737c065d0e7ccfd}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/da4/classmknix_1_1_gauss_point_a36987660a0561548f737c065d0e7ccfd_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_gauss_point_abb5b248896056fd76d2e4ec8280a17f5}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!compute\-Qext@{compute\-Qext}}
+\index{compute\-Qext@{compute\-Qext}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{compute\-Qext}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::compute\-Qext (
+\begin{DoxyParamCaption}
+\item[{{\bf Thermal\-Load} $\ast$}]{thermal\-Load\-\_\-in}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_abb5b248896056fd76d2e4ec8280a17f5}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/da4/classmknix_1_1_gauss_point_abb5b248896056fd76d2e4ec8280a17f5_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_gauss_point_a4ed005e06a27c61eaf650dc841caf897}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!compute\-Stress@{compute\-Stress}}
+\index{compute\-Stress@{compute\-Stress}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{compute\-Stress}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::compute\-Stress (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a4ed005e06a27c61eaf650dc841caf897}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/da4/classmknix_1_1_gauss_point_a4ed005e06a27c61eaf650dc841caf897_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_gauss_point_a0ea2abbe3c96295050f7cae7601a0713}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!fill\-B\-Tetrahedron\-F\-E@{fill\-B\-Tetrahedron\-F\-E}}
+\index{fill\-B\-Tetrahedron\-F\-E@{fill\-B\-Tetrahedron\-F\-E}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{fill\-B\-Tetrahedron\-F\-E}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::fill\-B\-Tetrahedron\-F\-E (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a0ea2abbe3c96295050f7cae7601a0713}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{d2/da4/classmknix_1_1_gauss_point_a0ea2abbe3c96295050f7cae7601a0713_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_gauss_point_a2c7657d7897b22f27427c612b67a2956}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!fill\-B\-Triangle\-F\-E@{fill\-B\-Triangle\-F\-E}}
+\index{fill\-B\-Triangle\-F\-E@{fill\-B\-Triangle\-F\-E}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{fill\-B\-Triangle\-F\-E}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::fill\-B\-Triangle\-F\-E (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a2c7657d7897b22f27427c612b67a2956}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{d2/da4/classmknix_1_1_gauss_point_a2c7657d7897b22f27427c612b67a2956_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_gauss_point_a6d80a71224082e0ff5ab6c69d8a5bf58}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!gnuplot\-Out\-Stress@{gnuplot\-Out\-Stress}}
+\index{gnuplot\-Out\-Stress@{gnuplot\-Out\-Stress}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{gnuplot\-Out\-Stress}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::gnuplot\-Out\-Stress (
+\begin{DoxyParamCaption}
+\item[{std\-::ofstream \&}]{gptension}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_gauss_point_a6d80a71224082e0ff5ab6c69d8a5bf58}
+\hypertarget{classmknix_1_1_gauss_point_a57e21322f3c898490257853fb2777077}{\index{mknix\-::\-Gauss\-Point@{mknix\-::\-Gauss\-Point}!shape\-Fun\-Solve@{shape\-Fun\-Solve}}
+\index{shape\-Fun\-Solve@{shape\-Fun\-Solve}!mknix::GaussPoint@{mknix\-::\-Gauss\-Point}}
+\paragraph[{shape\-Fun\-Solve}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Gauss\-Point\-::shape\-Fun\-Solve (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{type\-\_\-in, }
+\item[{double}]{q\-\_\-in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_gauss_point_a57e21322f3c898490257853fb2777077}
+
+
+Reimplemented from \hyperlink{classmknix_1_1_point_a1843d81646fbca9519358eb3c8787e18}{mknix\-::\-Point}.
+
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{d2/da4/classmknix_1_1_gauss_point_a57e21322f3c898490257853fb2777077_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{gausspoint_8h}{gausspoint.\-h}\item 
+\hyperlink{gausspoint_8cpp}{gausspoint.\-cpp}\end{DoxyCompactItemize}

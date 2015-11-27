@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="d9/d2f/shapefunction_r_b_f_8h" kind="file">
+    <compoundname>shapefunctionRBF.h</compoundname>
+    <includes refid="d3/d16/shapefunction_8h" local="yes">shapefunction.h</includes>
+    <includedby refid="df/dfb/gausspoint_8cpp" local="yes">gausspoint.cpp</includedby>
+    <includedby refid="d5/d55/point_8cpp" local="yes">point.cpp</includedby>
+    <includedby refid="db/d27/shapefunction_r_b_f_8cpp" local="yes">shapefunctionRBF.cpp</includedby>
+    <incdepgraph>
+      <node id="8000">
+        <label>shapefunctionRBF.h</label>
+        <link refid="shapefunctionRBF.h"/>
+        <childnode refid="8001" relation="include">
+        </childnode>
+      </node>
+      <node id="8001">
+        <label>shapefunction.h</label>
+        <link refid="d3/d16/shapefunction_8h"/>
+        <childnode refid="8002" relation="include">
+        </childnode>
+      </node>
+      <node id="8002">
+        <label>LMX/lmx.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="8003">
+        <label>shapefunctionRBF.h</label>
+        <link refid="shapefunctionRBF.h"/>
+        <childnode refid="8004" relation="include">
+        </childnode>
+        <childnode refid="8005" relation="include">
+        </childnode>
+        <childnode refid="8006" relation="include">
+        </childnode>
+      </node>
+      <node id="8006">
+        <label>shapefunctionRBF.cpp</label>
+        <link refid="db/d27/shapefunction_r_b_f_8cpp"/>
+      </node>
+      <node id="8005">
+        <label>point.cpp</label>
+        <link refid="d5/d55/point_8cpp"/>
+      </node>
+      <node id="8004">
+        <label>gausspoint.cpp</label>
+        <link refid="df/dfb/gausspoint_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="db/d4a/classmknix_1_1_shape_function_r_b_f" prot="public">mknix::ShapeFunctionRBF</innerclass>
+    <innernamespace refid="d2/dde/namespacemknix">mknix</innernamespace>
+    <briefdescription>
+<para>Function for interpolation of basic variables by means of Radial basis Functions. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Daniel Iglesias </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//--<sp/>Licencia<sp/>--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SHAPEFUNCTIONRBF_H</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SHAPEFUNCTIONRBF_H</highlight></codeline>
+<codeline lineno="4"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="6"></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d3/d16/shapefunction_8h" kindref="compound" tooltip="Function for interpolation of basic variables. ">shapefunction.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mknix<sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24" refid="db/d4a/classmknix_1_1_shape_function_r_b_f" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="db/d4a/classmknix_1_1_shape_function_r_b_f" kindref="compound">ShapeFunctionRBF</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function" kindref="compound">ShapeFunction</ref>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nn,<sp/>mm;<sp/></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rbfType;<sp/></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha_c,<sp/>d_c,<sp/>q;<sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>lmx::DenseMatrix&lt;double&gt;<sp/>g_o;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="db/d4a/classmknix_1_1_shape_function_r_b_f_1a9ef5a4d07fa2a1d2203135c53db614e8" kindref="member">ShapeFunctionRBF</ref>();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="db/d4a/classmknix_1_1_shape_function_r_b_f_1a9ef5a4d07fa2a1d2203135c53db614e8" kindref="member">ShapeFunctionRBF</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&amp;,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&amp;,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&amp;,<sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref>*<sp/>);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="db/d4a/classmknix_1_1_shape_function_r_b_f_1a7a46908b3fbbbd7ffc312698e15b3d8f" kindref="member">~ShapeFunctionRBF</ref>();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="db/d4a/classmknix_1_1_shape_function_r_b_f_1a84441360824f4a8b754d0ae9f547c4ee" kindref="member">calc</ref>();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>computeMomentMatrix();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>computePhi(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}<sp/></highlight><highlight class="comment">//Namespace<sp/>mknix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h"/>
+  </compounddef>
+</doxygen>

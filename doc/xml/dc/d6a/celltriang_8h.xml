@@ -1,0 +1,460 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="dc/d6a/celltriang_8h" kind="file">
+    <compoundname>celltriang.h</compoundname>
+    <includes refid="d0/ddd/cell_8h" local="yes">cell.h</includes>
+    <includedby refid="d3/d0b/bodythermal_8h" local="yes">bodythermal.h</includedby>
+    <includedby refid="df/d03/elemtriangle_8h" local="no">elemtriangle.h</includedby>
+    <includedby refid="dd/dbc/bodyflex_8h" local="yes">bodyflex.h</includedby>
+    <includedby refid="d0/ddf/celltriang_8cpp" local="yes">celltriang.cpp</includedby>
+    <incdepgraph>
+      <node id="5906">
+        <label>celltriang.h</label>
+        <link refid="celltriang.h"/>
+        <childnode refid="5907" relation="include">
+        </childnode>
+      </node>
+      <node id="5916">
+        <label>material.h</label>
+        <link refid="d3/d65/material_8h"/>
+        <childnode refid="5915" relation="include">
+        </childnode>
+      </node>
+      <node id="5907">
+        <label>cell.h</label>
+        <link refid="d0/ddd/cell_8h"/>
+        <childnode refid="5908" relation="include">
+        </childnode>
+      </node>
+      <node id="5913">
+        <label>string</label>
+      </node>
+      <node id="5910">
+        <label>map</label>
+      </node>
+      <node id="5912">
+        <label>point.h</label>
+        <link refid="d2/d91/point_8h"/>
+        <childnode refid="5909" relation="include">
+        </childnode>
+        <childnode refid="5910" relation="include">
+        </childnode>
+        <childnode refid="5913" relation="include">
+        </childnode>
+        <childnode refid="5914" relation="include">
+        </childnode>
+      </node>
+      <node id="5914">
+        <label>common.h</label>
+        <link refid="dc/d54/common_8h"/>
+      </node>
+      <node id="5909">
+        <label>vector</label>
+      </node>
+      <node id="5915">
+        <label>LMX/lmx.h</label>
+      </node>
+      <node id="5908">
+        <label>gausspoint.h</label>
+        <link refid="d4/dc6/gausspoint_8h"/>
+        <childnode refid="5909" relation="include">
+        </childnode>
+        <childnode refid="5910" relation="include">
+        </childnode>
+        <childnode refid="5911" relation="include">
+        </childnode>
+        <childnode refid="5912" relation="include">
+        </childnode>
+        <childnode refid="5914" relation="include">
+        </childnode>
+        <childnode refid="5916" relation="include">
+        </childnode>
+      </node>
+      <node id="5911">
+        <label>node.h</label>
+        <link refid="d1/d77/node_8h"/>
+        <childnode refid="5909" relation="include">
+        </childnode>
+        <childnode refid="5912" relation="include">
+        </childnode>
+        <childnode refid="5915" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5917">
+        <label>celltriang.h</label>
+        <link refid="celltriang.h"/>
+        <childnode refid="5918" relation="include">
+        </childnode>
+        <childnode refid="5963" relation="include">
+        </childnode>
+        <childnode refid="5964" relation="include">
+        </childnode>
+        <childnode refid="5967" relation="include">
+        </childnode>
+      </node>
+      <node id="5925">
+        <label>analysisthermalstatic.cpp</label>
+        <link refid="df/d52/analysisthermalstatic_8cpp"/>
+      </node>
+      <node id="5966">
+        <label>elemtriangle.cpp</label>
+        <link refid="d9/d6d/elemtriangle_8cpp"/>
+      </node>
+      <node id="5933">
+        <label>bodyrigid2D.cpp</label>
+        <link refid="dc/d0c/bodyrigid2_d_8cpp"/>
+      </node>
+      <node id="5937">
+        <label>constraintclearance.cpp</label>
+        <link refid="df/d74/constraintclearance_8cpp"/>
+      </node>
+      <node id="5958">
+        <label>shapefunction.cpp</label>
+        <link refid="d1/dde/shapefunction_8cpp"/>
+      </node>
+      <node id="5965">
+        <label>bodyflexglobalgalerkin.h</label>
+        <link refid="df/d1c/bodyflexglobalgalerkin_8h"/>
+        <childnode refid="5919" relation="include">
+        </childnode>
+        <childnode refid="5928" relation="include">
+        </childnode>
+      </node>
+      <node id="5939">
+        <label>constraintdistance.cpp</label>
+        <link refid="d7/d93/constraintdistance_8cpp"/>
+      </node>
+      <node id="5962">
+        <label>system.cpp</label>
+        <link refid="d6/df8/system_8cpp"/>
+      </node>
+      <node id="5935">
+        <label>bodythermal.cpp</label>
+        <link refid="dd/d15/bodythermal_8cpp"/>
+      </node>
+      <node id="5955">
+        <label>readerflex.cpp</label>
+        <link refid="d6/daf/readerflex_8cpp"/>
+      </node>
+      <node id="5932">
+        <label>bodyrigid1D_bad_1.cpp</label>
+        <link refid="d9/d73/bodyrigid1_d__bad__1_8cpp"/>
+      </node>
+      <node id="5945">
+        <label>load.cpp</label>
+        <link refid="de/dbc/load_8cpp"/>
+      </node>
+      <node id="5940">
+        <label>constraintfixedaxis.cpp</label>
+        <link refid="d8/d02/constraintfixedaxis_8cpp"/>
+      </node>
+      <node id="5953">
+        <label>readerrigid.cpp</label>
+        <link refid="d9/d6a/readerrigid_8cpp"/>
+      </node>
+      <node id="5961">
+        <label>thermalload.cpp</label>
+        <link refid="dd/dbf/thermalload_8cpp"/>
+      </node>
+      <node id="5967">
+        <label>celltriang.cpp</label>
+        <link refid="d0/ddf/celltriang_8cpp"/>
+      </node>
+      <node id="5959">
+        <label>shapefunctiontriangle.cpp</label>
+        <link refid="dc/d70/shapefunctiontriangle_8cpp"/>
+      </node>
+      <node id="5931">
+        <label>bodyrigid1D.cpp</label>
+        <link refid="d5/d29/bodyrigid1_d_8cpp"/>
+      </node>
+      <node id="5941">
+        <label>constraintfixedcoordinates.cpp</label>
+        <link refid="d6/d46/constraintfixedcoordinates_8cpp"/>
+      </node>
+      <node id="5922">
+        <label>analysisdynamic.cpp</label>
+        <link refid="d3/d0b/analysisdynamic_8cpp"/>
+      </node>
+      <node id="5921">
+        <label>analysis.cpp</label>
+        <link refid="d8/d8e/analysis_8cpp"/>
+      </node>
+      <node id="5927">
+        <label>bodyflex.cpp</label>
+        <link refid="d6/d1e/bodyflex_8cpp"/>
+      </node>
+      <node id="5926">
+        <label>body.cpp</label>
+        <link refid="d1/d5f/body_8cpp"/>
+      </node>
+      <node id="5950">
+        <label>reader.h</label>
+        <link refid="d6/dda/reader_8h"/>
+        <childnode refid="5951" relation="include">
+        </childnode>
+        <childnode refid="5952" relation="include">
+        </childnode>
+      </node>
+      <node id="5946">
+        <label>mknix.cpp</label>
+        <link refid="d9/d06/mknix_8cpp"/>
+      </node>
+      <node id="5951">
+        <label>reader.cpp</label>
+        <link refid="d7/dff/reader_8cpp"/>
+      </node>
+      <node id="5938">
+        <label>constraintcontact.cpp</label>
+        <link refid="d8/d8b/constraintcontact_8cpp"/>
+      </node>
+      <node id="5918">
+        <label>bodythermal.h</label>
+        <link refid="d3/d0b/bodythermal_8h"/>
+        <childnode refid="5919" relation="include">
+        </childnode>
+        <childnode refid="5935" relation="include">
+        </childnode>
+      </node>
+      <node id="5920">
+        <label>simulation.h</label>
+        <link refid="dd/d6a/simulation_8h"/>
+        <childnode refid="5921" relation="include">
+        </childnode>
+        <childnode refid="5922" relation="include">
+        </childnode>
+        <childnode refid="5923" relation="include">
+        </childnode>
+        <childnode refid="5924" relation="include">
+        </childnode>
+        <childnode refid="5925" relation="include">
+        </childnode>
+        <childnode refid="5926" relation="include">
+        </childnode>
+        <childnode refid="5927" relation="include">
+        </childnode>
+        <childnode refid="5928" relation="include">
+        </childnode>
+        <childnode refid="5929" relation="include">
+        </childnode>
+        <childnode refid="5930" relation="include">
+        </childnode>
+        <childnode refid="5931" relation="include">
+        </childnode>
+        <childnode refid="5932" relation="include">
+        </childnode>
+        <childnode refid="5933" relation="include">
+        </childnode>
+        <childnode refid="5934" relation="include">
+        </childnode>
+        <childnode refid="5935" relation="include">
+        </childnode>
+        <childnode refid="5936" relation="include">
+        </childnode>
+        <childnode refid="5937" relation="include">
+        </childnode>
+        <childnode refid="5938" relation="include">
+        </childnode>
+        <childnode refid="5939" relation="include">
+        </childnode>
+        <childnode refid="5940" relation="include">
+        </childnode>
+        <childnode refid="5941" relation="include">
+        </childnode>
+        <childnode refid="5942" relation="include">
+        </childnode>
+        <childnode refid="5943" relation="include">
+        </childnode>
+        <childnode refid="5944" relation="include">
+        </childnode>
+        <childnode refid="5945" relation="include">
+        </childnode>
+        <childnode refid="5946" relation="include">
+        </childnode>
+        <childnode refid="5947" relation="include">
+        </childnode>
+        <childnode refid="5948" relation="include">
+        </childnode>
+        <childnode refid="5949" relation="include">
+        </childnode>
+        <childnode refid="5954" relation="include">
+        </childnode>
+        <childnode refid="5956" relation="include">
+        </childnode>
+        <childnode refid="5958" relation="include">
+        </childnode>
+        <childnode refid="5959" relation="include">
+        </childnode>
+        <childnode refid="5960" relation="include">
+        </childnode>
+        <childnode refid="5952" relation="include">
+        </childnode>
+        <childnode refid="5961" relation="include">
+        </childnode>
+      </node>
+      <node id="5947">
+        <label>node.cpp</label>
+        <link refid="d7/d70/node_8cpp"/>
+      </node>
+      <node id="5956">
+        <label>readerconstraints.h</label>
+        <link refid="de/d6c/readerconstraints_8h"/>
+        <childnode refid="5950" relation="include">
+        </childnode>
+        <childnode refid="5957" relation="include">
+        </childnode>
+      </node>
+      <node id="5930">
+        <label>bodyrigid0D.cpp</label>
+        <link refid="dc/d48/bodyrigid0_d_8cpp"/>
+      </node>
+      <node id="5963">
+        <label>elemtriangle.h</label>
+        <link refid="df/d03/elemtriangle_8h"/>
+        <childnode refid="5918" relation="include">
+        </childnode>
+        <childnode refid="5964" relation="include">
+        </childnode>
+        <childnode refid="5966" relation="include">
+        </childnode>
+      </node>
+      <node id="5948">
+        <label>point.cpp</label>
+        <link refid="d5/d55/point_8cpp"/>
+      </node>
+      <node id="5929">
+        <label>bodyrigid.cpp</label>
+        <link refid="da/d4a/bodyrigid_8cpp"/>
+      </node>
+      <node id="5960">
+        <label>shapefunctiontriangle3D.cpp</label>
+        <link refid="d5/d04/shapefunctiontriangle3_d_8cpp"/>
+      </node>
+      <node id="5924">
+        <label>analysisthermaldynamic.cpp</label>
+        <link refid="d0/d09/analysisthermaldynamic_8cpp"/>
+      </node>
+      <node id="5964">
+        <label>bodyflex.h</label>
+        <link refid="dd/dbc/bodyflex_8h"/>
+        <childnode refid="5965" relation="include">
+        </childnode>
+        <childnode refid="5927" relation="include">
+        </childnode>
+      </node>
+      <node id="5919">
+        <label>system.h</label>
+        <link refid="dc/db2/system_8h"/>
+        <childnode refid="5920" relation="include">
+        </childnode>
+        <childnode refid="5962" relation="include">
+        </childnode>
+      </node>
+      <node id="5949">
+        <label>readerrigid.h</label>
+        <link refid="dd/dd9/readerrigid_8h"/>
+        <childnode refid="5950" relation="include">
+        </childnode>
+        <childnode refid="5953" relation="include">
+        </childnode>
+      </node>
+      <node id="5942">
+        <label>force.cpp</label>
+        <link refid="df/d4d/force_8cpp"/>
+      </node>
+      <node id="5957">
+        <label>readerconstraints.cpp</label>
+        <link refid="d2/d38/readerconstraints_8cpp"/>
+      </node>
+      <node id="5944">
+        <label>generalcontact.cpp</label>
+        <link refid="de/d37/generalcontact_8cpp"/>
+      </node>
+      <node id="5934">
+        <label>bodyrigid3D.cpp</label>
+        <link refid="d0/da1/bodyrigid3_d_8cpp"/>
+      </node>
+      <node id="5954">
+        <label>readerflex.h</label>
+        <link refid="d9/ddf/readerflex_8h"/>
+        <childnode refid="5950" relation="include">
+        </childnode>
+        <childnode refid="5955" relation="include">
+        </childnode>
+      </node>
+      <node id="5952">
+        <label>simulation.cpp</label>
+        <link refid="d2/d93/simulation_8cpp"/>
+      </node>
+      <node id="5923">
+        <label>analysisstatic.cpp</label>
+        <link refid="d4/dce/analysisstatic_8cpp"/>
+      </node>
+      <node id="5943">
+        <label>gausspoint.cpp</label>
+        <link refid="df/dfb/gausspoint_8cpp"/>
+      </node>
+      <node id="5928">
+        <label>bodyflexglobalgalerkin.cpp</label>
+        <link refid="db/dcf/bodyflexglobalgalerkin_8cpp"/>
+      </node>
+      <node id="5936">
+        <label>constraint.cpp</label>
+        <link refid="d9/dab/constraint_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="de/db4/classmknix_1_1_cell_triang" prot="public">mknix::CellTriang</innerclass>
+    <innernamespace refid="d2/dde/namespacemknix">mknix</innernamespace>
+    <briefdescription>
+<para>Background cells for integration. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Daniel Iglesias </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//--<sp/>Licencia<sp/>--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CELLTRIANG_H</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>CELLTRIANG_H</highlight></codeline>
+<codeline lineno="4"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&quot;LMX/lmx.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d0/ddd/cell_8h" kindref="compound" tooltip="Background cells for integration. ">cell.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&quot;gausspoint.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>#include<sp/>&quot;material.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mknix<sp/>{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="de/db4/classmknix_1_1_cell_triang" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="de/db4/classmknix_1_1_cell_triang" kindref="compound">CellTriang</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="db/dd4/classmknix_1_1_cell" kindref="compound">Cell</ref>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="29" refid="de/db4/classmknix_1_1_cell_triang_1a6f3e6ae0d06cbd4703c073e0860e38ed" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>cofe::TensorRank2&lt;3,double&gt;<sp/><ref refid="de/db4/classmknix_1_1_cell_triang_1a6f3e6ae0d06cbd4703c073e0860e38ed" kindref="member">points</ref>;<sp/></highlight></codeline>
+<codeline lineno="31"><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="de/db4/classmknix_1_1_cell_triang_1a17a2c3768e9f2aad3a7bfd8041775fb6" kindref="member">CellTriang</ref>();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="de/db4/classmknix_1_1_cell_triang_1a17a2c3768e9f2aad3a7bfd8041775fb6" kindref="member">CellTriang</ref>(<sp/><ref refid="d6/d4a/classmknix_1_1_material" kindref="compound">Material</ref>&amp;,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal">,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="de/db4/classmknix_1_1_cell_triang_1af0a12b3f4f6106291f3252716c4be025" kindref="member">~CellTriang</ref>();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/db4/classmknix_1_1_cell_triang_1a374f66822e2e37d94a2cfe09c5173e8a" kindref="member">gnuplotOut</ref>(<sp/>std::ofstream&amp;,<sp/>std::ofstream&amp;<sp/>);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/db4/classmknix_1_1_cell_triang_1a2a2c65fbd2682eba8225473a7dc841f0" kindref="member">createGaussPoints</ref>(<sp/>);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}<sp/></highlight><highlight class="comment">//Namespace<sp/>mknix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/celltriang.h"/>
+  </compounddef>
+</doxygen>

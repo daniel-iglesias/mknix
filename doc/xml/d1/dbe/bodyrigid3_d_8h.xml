@@ -1,0 +1,422 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="d1/dbe/bodyrigid3_d_8h" kind="file">
+    <compoundname>bodyrigid3D.h</compoundname>
+    <includes refid="d1/d67/bodyrigid_8h" local="yes">bodyrigid.h</includes>
+    <includes refid="d1/d77/node_8h" local="yes">node.h</includes>
+    <includedby refid="dc/db2/system_8h" local="yes">system.h</includedby>
+    <includedby refid="d0/da1/bodyrigid3_d_8cpp" local="yes">bodyrigid3D.cpp</includedby>
+    <incdepgraph>
+      <node id="5506">
+        <label>body.h</label>
+        <link refid="d0/d77/body_8h"/>
+        <childnode refid="5507" relation="include">
+        </childnode>
+        <childnode refid="5508" relation="include">
+        </childnode>
+      </node>
+      <node id="5513">
+        <label>string</label>
+      </node>
+      <node id="5512">
+        <label>map</label>
+      </node>
+      <node id="5511">
+        <label>point.h</label>
+        <link refid="d2/d91/point_8h"/>
+        <childnode refid="5510" relation="include">
+        </childnode>
+        <childnode refid="5512" relation="include">
+        </childnode>
+        <childnode refid="5513" relation="include">
+        </childnode>
+        <childnode refid="5507" relation="include">
+        </childnode>
+      </node>
+      <node id="5507">
+        <label>common.h</label>
+        <link refid="dc/d54/common_8h"/>
+      </node>
+      <node id="5510">
+        <label>vector</label>
+      </node>
+      <node id="5508">
+        <label>LMX/lmx.h</label>
+      </node>
+      <node id="5509">
+        <label>node.h</label>
+        <link refid="d1/d77/node_8h"/>
+        <childnode refid="5510" relation="include">
+        </childnode>
+        <childnode refid="5511" relation="include">
+        </childnode>
+        <childnode refid="5508" relation="include">
+        </childnode>
+      </node>
+      <node id="5505">
+        <label>bodyrigid.h</label>
+        <link refid="d1/d67/bodyrigid_8h"/>
+        <childnode refid="5506" relation="include">
+        </childnode>
+      </node>
+      <node id="5504">
+        <label>bodyrigid3D.h</label>
+        <link refid="bodyrigid3D.h"/>
+        <childnode refid="5505" relation="include">
+        </childnode>
+        <childnode refid="5509" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5521">
+        <label>analysisthermalstatic.cpp</label>
+        <link refid="df/d52/analysisthermalstatic_8cpp"/>
+      </node>
+      <node id="5529">
+        <label>bodyrigid2D.cpp</label>
+        <link refid="dc/d0c/bodyrigid2_d_8cpp"/>
+      </node>
+      <node id="5533">
+        <label>constraintclearance.cpp</label>
+        <link refid="df/d74/constraintclearance_8cpp"/>
+      </node>
+      <node id="5554">
+        <label>shapefunction.cpp</label>
+        <link refid="d1/dde/shapefunction_8cpp"/>
+      </node>
+      <node id="5535">
+        <label>constraintdistance.cpp</label>
+        <link refid="d7/d93/constraintdistance_8cpp"/>
+      </node>
+      <node id="5558">
+        <label>system.cpp</label>
+        <link refid="d6/df8/system_8cpp"/>
+      </node>
+      <node id="5531">
+        <label>bodythermal.cpp</label>
+        <link refid="dd/d15/bodythermal_8cpp"/>
+      </node>
+      <node id="5551">
+        <label>readerflex.cpp</label>
+        <link refid="d6/daf/readerflex_8cpp"/>
+      </node>
+      <node id="5528">
+        <label>bodyrigid1D_bad_1.cpp</label>
+        <link refid="d9/d73/bodyrigid1_d__bad__1_8cpp"/>
+      </node>
+      <node id="5541">
+        <label>load.cpp</label>
+        <link refid="de/dbc/load_8cpp"/>
+      </node>
+      <node id="5536">
+        <label>constraintfixedaxis.cpp</label>
+        <link refid="d8/d02/constraintfixedaxis_8cpp"/>
+      </node>
+      <node id="5549">
+        <label>readerrigid.cpp</label>
+        <link refid="d9/d6a/readerrigid_8cpp"/>
+      </node>
+      <node id="5557">
+        <label>thermalload.cpp</label>
+        <link refid="dd/dbf/thermalload_8cpp"/>
+      </node>
+      <node id="5555">
+        <label>shapefunctiontriangle.cpp</label>
+        <link refid="dc/d70/shapefunctiontriangle_8cpp"/>
+      </node>
+      <node id="5527">
+        <label>bodyrigid1D.cpp</label>
+        <link refid="d5/d29/bodyrigid1_d_8cpp"/>
+      </node>
+      <node id="5537">
+        <label>constraintfixedcoordinates.cpp</label>
+        <link refid="d6/d46/constraintfixedcoordinates_8cpp"/>
+      </node>
+      <node id="5518">
+        <label>analysisdynamic.cpp</label>
+        <link refid="d3/d0b/analysisdynamic_8cpp"/>
+      </node>
+      <node id="5517">
+        <label>analysis.cpp</label>
+        <link refid="d8/d8e/analysis_8cpp"/>
+      </node>
+      <node id="5523">
+        <label>bodyflex.cpp</label>
+        <link refid="d6/d1e/bodyflex_8cpp"/>
+      </node>
+      <node id="5522">
+        <label>body.cpp</label>
+        <link refid="d1/d5f/body_8cpp"/>
+      </node>
+      <node id="5546">
+        <label>reader.h</label>
+        <link refid="d6/dda/reader_8h"/>
+        <childnode refid="5547" relation="include">
+        </childnode>
+        <childnode refid="5548" relation="include">
+        </childnode>
+      </node>
+      <node id="5542">
+        <label>mknix.cpp</label>
+        <link refid="d9/d06/mknix_8cpp"/>
+      </node>
+      <node id="5547">
+        <label>reader.cpp</label>
+        <link refid="d7/dff/reader_8cpp"/>
+      </node>
+      <node id="5534">
+        <label>constraintcontact.cpp</label>
+        <link refid="d8/d8b/constraintcontact_8cpp"/>
+      </node>
+      <node id="5516">
+        <label>simulation.h</label>
+        <link refid="dd/d6a/simulation_8h"/>
+        <childnode refid="5517" relation="include">
+        </childnode>
+        <childnode refid="5518" relation="include">
+        </childnode>
+        <childnode refid="5519" relation="include">
+        </childnode>
+        <childnode refid="5520" relation="include">
+        </childnode>
+        <childnode refid="5521" relation="include">
+        </childnode>
+        <childnode refid="5522" relation="include">
+        </childnode>
+        <childnode refid="5523" relation="include">
+        </childnode>
+        <childnode refid="5524" relation="include">
+        </childnode>
+        <childnode refid="5525" relation="include">
+        </childnode>
+        <childnode refid="5526" relation="include">
+        </childnode>
+        <childnode refid="5527" relation="include">
+        </childnode>
+        <childnode refid="5528" relation="include">
+        </childnode>
+        <childnode refid="5529" relation="include">
+        </childnode>
+        <childnode refid="5530" relation="include">
+        </childnode>
+        <childnode refid="5531" relation="include">
+        </childnode>
+        <childnode refid="5532" relation="include">
+        </childnode>
+        <childnode refid="5533" relation="include">
+        </childnode>
+        <childnode refid="5534" relation="include">
+        </childnode>
+        <childnode refid="5535" relation="include">
+        </childnode>
+        <childnode refid="5536" relation="include">
+        </childnode>
+        <childnode refid="5537" relation="include">
+        </childnode>
+        <childnode refid="5538" relation="include">
+        </childnode>
+        <childnode refid="5539" relation="include">
+        </childnode>
+        <childnode refid="5540" relation="include">
+        </childnode>
+        <childnode refid="5541" relation="include">
+        </childnode>
+        <childnode refid="5542" relation="include">
+        </childnode>
+        <childnode refid="5543" relation="include">
+        </childnode>
+        <childnode refid="5544" relation="include">
+        </childnode>
+        <childnode refid="5545" relation="include">
+        </childnode>
+        <childnode refid="5550" relation="include">
+        </childnode>
+        <childnode refid="5552" relation="include">
+        </childnode>
+        <childnode refid="5554" relation="include">
+        </childnode>
+        <childnode refid="5555" relation="include">
+        </childnode>
+        <childnode refid="5556" relation="include">
+        </childnode>
+        <childnode refid="5548" relation="include">
+        </childnode>
+        <childnode refid="5557" relation="include">
+        </childnode>
+      </node>
+      <node id="5543">
+        <label>node.cpp</label>
+        <link refid="d7/d70/node_8cpp"/>
+      </node>
+      <node id="5552">
+        <label>readerconstraints.h</label>
+        <link refid="de/d6c/readerconstraints_8h"/>
+        <childnode refid="5546" relation="include">
+        </childnode>
+        <childnode refid="5553" relation="include">
+        </childnode>
+      </node>
+      <node id="5526">
+        <label>bodyrigid0D.cpp</label>
+        <link refid="dc/d48/bodyrigid0_d_8cpp"/>
+      </node>
+      <node id="5544">
+        <label>point.cpp</label>
+        <link refid="d5/d55/point_8cpp"/>
+      </node>
+      <node id="5525">
+        <label>bodyrigid.cpp</label>
+        <link refid="da/d4a/bodyrigid_8cpp"/>
+      </node>
+      <node id="5556">
+        <label>shapefunctiontriangle3D.cpp</label>
+        <link refid="d5/d04/shapefunctiontriangle3_d_8cpp"/>
+      </node>
+      <node id="5520">
+        <label>analysisthermaldynamic.cpp</label>
+        <link refid="d0/d09/analysisthermaldynamic_8cpp"/>
+      </node>
+      <node id="5515">
+        <label>system.h</label>
+        <link refid="dc/db2/system_8h"/>
+        <childnode refid="5516" relation="include">
+        </childnode>
+        <childnode refid="5558" relation="include">
+        </childnode>
+      </node>
+      <node id="5545">
+        <label>readerrigid.h</label>
+        <link refid="dd/dd9/readerrigid_8h"/>
+        <childnode refid="5546" relation="include">
+        </childnode>
+        <childnode refid="5549" relation="include">
+        </childnode>
+      </node>
+      <node id="5538">
+        <label>force.cpp</label>
+        <link refid="df/d4d/force_8cpp"/>
+      </node>
+      <node id="5553">
+        <label>readerconstraints.cpp</label>
+        <link refid="d2/d38/readerconstraints_8cpp"/>
+      </node>
+      <node id="5540">
+        <label>generalcontact.cpp</label>
+        <link refid="de/d37/generalcontact_8cpp"/>
+      </node>
+      <node id="5530">
+        <label>bodyrigid3D.cpp</label>
+        <link refid="d0/da1/bodyrigid3_d_8cpp"/>
+      </node>
+      <node id="5550">
+        <label>readerflex.h</label>
+        <link refid="d9/ddf/readerflex_8h"/>
+        <childnode refid="5546" relation="include">
+        </childnode>
+        <childnode refid="5551" relation="include">
+        </childnode>
+      </node>
+      <node id="5548">
+        <label>simulation.cpp</label>
+        <link refid="d2/d93/simulation_8cpp"/>
+      </node>
+      <node id="5519">
+        <label>analysisstatic.cpp</label>
+        <link refid="d4/dce/analysisstatic_8cpp"/>
+      </node>
+      <node id="5539">
+        <label>gausspoint.cpp</label>
+        <link refid="df/dfb/gausspoint_8cpp"/>
+      </node>
+      <node id="5524">
+        <label>bodyflexglobalgalerkin.cpp</label>
+        <link refid="db/dcf/bodyflexglobalgalerkin_8cpp"/>
+      </node>
+      <node id="5532">
+        <label>constraint.cpp</label>
+        <link refid="d9/dab/constraint_8cpp"/>
+      </node>
+      <node id="5514">
+        <label>bodyrigid3D.h</label>
+        <link refid="bodyrigid3D.h"/>
+        <childnode refid="5515" relation="include">
+        </childnode>
+        <childnode refid="5530" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="dd/d2a/classmknix_1_1_rigid_body3_d" prot="public">mknix::RigidBody3D</innerclass>
+    <innernamespace refid="d2/dde/namespacemknix">mknix</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>-*-<sp/>Mode:<sp/>C;<sp/>indent-tabs-mode:<sp/>t;<sp/>c-basic-offset:<sp/>4;<sp/>tab-width:<sp/>4<sp/>-*-<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>MkniX-develop</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(C)<sp/>Roberto<sp/>Ortega<sp/>2008<sp/>&lt;roberto.ortega@inbox.com&gt;</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>MkniX-develop<sp/>is<sp/>free<sp/>software.</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/>You<sp/>may<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>GNU<sp/>General<sp/>Public<sp/>License,<sp/>as<sp/>published<sp/>by<sp/>the<sp/>Free<sp/>Software</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/>(at<sp/>your<sp/>option)</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/>any<sp/>later<sp/>version.</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/>MkniX-develop<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/>See<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*<sp/>along<sp/>with<sp/>MkniX-develop.<sp/><sp/>If<sp/>not,<sp/>write<sp/>to:</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/><sp/>The<sp/>Free<sp/>Software<sp/>Foundation,<sp/>Inc.,</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/><sp/>51<sp/>Franklin<sp/>Street,<sp/>Fifth<sp/>Floor</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/><sp/>Boston,<sp/>MA<sp/><sp/>02110-1301,<sp/>USA.</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>_RIGIDBODY3D_H_</highlight></codeline>
+<codeline lineno="26"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>_RIGIDBODY3D_H_</highlight></codeline>
+<codeline lineno="27"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d1/d67/bodyrigid_8h" kindref="compound">bodyrigid.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d1/d77/node_8h" kindref="compound">node.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mknix<sp/>{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="dd/d2a/classmknix_1_1_rigid_body3_d" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d" kindref="compound">RigidBody3D</ref>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="d0/d13/classmknix_1_1_rigid_body" kindref="compound">RigidBody</ref><sp/></highlight></codeline>
+<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a7132ea2cee0893fa935fccb25cf314f9" kindref="member">RigidBody3D</ref>();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a7132ea2cee0893fa935fccb25cf314f9" kindref="member">RigidBody3D</ref>(<sp/>std::string<sp/>,<sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*,<sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*,<sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*,<sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a34e8faafa4f7be677eca2b1400f85863" kindref="member">~RigidBody3D</ref>();</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1aa76bf1fe9fe4783d647d84c925540515" kindref="member">setInertia</ref>(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1ac69cc57cafc9c9783da8d7e66124151d" kindref="member">setPosition</ref>(<sp/>std::vector&lt;double&gt;&amp;<sp/>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a257d9b0bb9fe27664227270cd73194a4" kindref="member">calcMassMatrix</ref>();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a66bff0110ce5d201875f068050c84c96" kindref="member">calcExternalForces</ref>();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a3cdb37910a3ed061017926d67932ad06" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a3cdb37910a3ed061017926d67932ad06" kindref="member">getType</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::string(</highlight><highlight class="stringliteral">&quot;GENERIC3D&quot;</highlight><highlight class="normal">);<sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1abd7a5b8547154b5b56c30d87f9ce0e65" kindref="member">getBoundaryNode</ref>(<sp/>std::string<sp/>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mass;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Ixx,<sp/>Iyy,<sp/>Izz;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>Pxx,<sp/>Pyy,<sp/>Pzz;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>_RIGIDBODY3D_H_</highlight></codeline>
+    </programlisting>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid3D.h"/>
+  </compounddef>
+</doxygen>

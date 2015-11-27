@@ -1,0 +1,164 @@
+\hypertarget{classmknix_1_1_constraint_contact}{\subsection{mknix\-:\-:Constraint\-Contact Class Reference}
+\label{classmknix_1_1_constraint_contact}\index{mknix\-::\-Constraint\-Contact@{mknix\-::\-Constraint\-Contact}}
+}
+
+
+{\ttfamily \#include $<$constraintcontact.\-h$>$}
+
+
+
+Inheritance diagram for mknix\-:\-:Constraint\-Contact\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{d2/d65/classmknix_1_1_constraint_contact__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mknix\-:\-:Constraint\-Contact\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=208pt]{d1/d4f/classmknix_1_1_constraint_contact__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmknix_1_1_constraint_contact_a76498ab5af03df8fd8c850f67ac54d33}{Constraint\-Contact} ()
+\item 
+\hyperlink{classmknix_1_1_constraint_contact_a2570dc3ad5c593871f1d5dd4e6302f07}{$\sim$\-Constraint\-Contact} ()
+\item 
+\hyperlink{classmknix_1_1_constraint_contact_abfcda7ac9dc63a790078f2fb26497a6e}{Constraint\-Contact} (\hyperlink{classmknix_1_1_node}{Node} $\ast$, \hyperlink{classmknix_1_1_node}{Node} $\ast$, \hyperlink{classmknix_1_1_node}{Node} $\ast$, double \&, std\-::string \&)
+\item 
+void \hyperlink{classmknix_1_1_constraint_contact_a21a89037754ef5d968bda199ad3f1858}{calc\-Phi} ()
+\item 
+void \hyperlink{classmknix_1_1_constraint_contact_a88c495ea01a5f8f8807dd72ae3e7240f}{calc\-Phiq} ()
+\item 
+void \hyperlink{classmknix_1_1_constraint_contact_ad9b4db34bf76f2d8ea9532d5d3e0449f}{calc\-Phiqq} ()
+\item 
+lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \& \hyperlink{classmknix_1_1_constraint_contact_ae4ebea11a39b4cf89ce317154abc99e3}{get\-Internal\-Forces} ()
+\item 
+lmx\-::\-Dense\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \& \hyperlink{classmknix_1_1_constraint_contact_abb4cb7497d2cbef540add289fdf8492e}{get\-Stiffness\-Matrix} ()
+\item 
+double \hyperlink{classmknix_1_1_constraint_contact_a4fcfe47c1421fd375ff806b8ef411f47}{get\-Gap} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::vector$<$ double $>$ \hyperlink{classmknix_1_1_constraint_contact_a06ba5460d950b98b85226e7b9b520df2}{normal}
+\item 
+double \hyperlink{classmknix_1_1_constraint_contact_a86b0413ea70c74a38f8610a88cba48c6}{rh}
+\item 
+double \hyperlink{classmknix_1_1_constraint_contact_a0a2b6bbee4925e12f4921aa58f0f3426}{rt}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+A\-U\-T\-H\-O\-R\-S $<$\-M\-A\-I\-L\-S$>$ 
+\end{DoxyAuthor}
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{classmknix_1_1_constraint_contact_a76498ab5af03df8fd8c850f67ac54d33}{\index{mknix\-::\-Constraint\-Contact@{mknix\-::\-Constraint\-Contact}!Constraint\-Contact@{Constraint\-Contact}}
+\index{Constraint\-Contact@{Constraint\-Contact}!mknix::ConstraintContact@{mknix\-::\-Constraint\-Contact}}
+\paragraph[{Constraint\-Contact}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Constraint\-Contact\-::\-Constraint\-Contact (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_constraint_contact_a76498ab5af03df8fd8c850f67ac54d33}
+\hypertarget{classmknix_1_1_constraint_contact_a2570dc3ad5c593871f1d5dd4e6302f07}{\index{mknix\-::\-Constraint\-Contact@{mknix\-::\-Constraint\-Contact}!$\sim$\-Constraint\-Contact@{$\sim$\-Constraint\-Contact}}
+\index{$\sim$\-Constraint\-Contact@{$\sim$\-Constraint\-Contact}!mknix::ConstraintContact@{mknix\-::\-Constraint\-Contact}}
+\paragraph[{$\sim$\-Constraint\-Contact}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Constraint\-Contact\-::$\sim$\-Constraint\-Contact (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_constraint_contact_a2570dc3ad5c593871f1d5dd4e6302f07}
+\hypertarget{classmknix_1_1_constraint_contact_abfcda7ac9dc63a790078f2fb26497a6e}{\index{mknix\-::\-Constraint\-Contact@{mknix\-::\-Constraint\-Contact}!Constraint\-Contact@{Constraint\-Contact}}
+\index{Constraint\-Contact@{Constraint\-Contact}!mknix::ConstraintContact@{mknix\-::\-Constraint\-Contact}}
+\paragraph[{Constraint\-Contact}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Constraint\-Contact\-::\-Constraint\-Contact (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{q1\-\_\-in, }
+\item[{{\bf Node} $\ast$}]{q2\-\_\-in, }
+\item[{{\bf Node} $\ast$}]{p\-\_\-in, }
+\item[{double \&}]{alpha\-\_\-in, }
+\item[{std\-::string \&}]{method\-\_\-in}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_constraint_contact_abfcda7ac9dc63a790078f2fb26497a6e}
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classmknix_1_1_constraint_contact_a21a89037754ef5d968bda199ad3f1858}{\index{mknix\-::\-Constraint\-Contact@{mknix\-::\-Constraint\-Contact}!calc\-Phi@{calc\-Phi}}
+\index{calc\-Phi@{calc\-Phi}!mknix::ConstraintContact@{mknix\-::\-Constraint\-Contact}}
+\paragraph[{calc\-Phi}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Constraint\-Contact\-::calc\-Phi (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_constraint_contact_a21a89037754ef5d968bda199ad3f1858}
+
+
+Implements \hyperlink{classmknix_1_1_constraint_a7f2b34d256d5eec54b34b0440b562ec1}{mknix\-::\-Constraint}.
+
+\hypertarget{classmknix_1_1_constraint_contact_a88c495ea01a5f8f8807dd72ae3e7240f}{\index{mknix\-::\-Constraint\-Contact@{mknix\-::\-Constraint\-Contact}!calc\-Phiq@{calc\-Phiq}}
+\index{calc\-Phiq@{calc\-Phiq}!mknix::ConstraintContact@{mknix\-::\-Constraint\-Contact}}
+\paragraph[{calc\-Phiq}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Constraint\-Contact\-::calc\-Phiq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_constraint_contact_a88c495ea01a5f8f8807dd72ae3e7240f}
+
+
+Implements \hyperlink{classmknix_1_1_constraint_ab129143960df2b9459e274275608bcf2}{mknix\-::\-Constraint}.
+
+\hypertarget{classmknix_1_1_constraint_contact_ad9b4db34bf76f2d8ea9532d5d3e0449f}{\index{mknix\-::\-Constraint\-Contact@{mknix\-::\-Constraint\-Contact}!calc\-Phiqq@{calc\-Phiqq}}
+\index{calc\-Phiqq@{calc\-Phiqq}!mknix::ConstraintContact@{mknix\-::\-Constraint\-Contact}}
+\paragraph[{calc\-Phiqq}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Constraint\-Contact\-::calc\-Phiqq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_constraint_contact_ad9b4db34bf76f2d8ea9532d5d3e0449f}
+
+
+Implements \hyperlink{classmknix_1_1_constraint_a73ff21573b5e9c4acda789bd5ac46ea8}{mknix\-::\-Constraint}.
+
+\hypertarget{classmknix_1_1_constraint_contact_a4fcfe47c1421fd375ff806b8ef411f47}{\index{mknix\-::\-Constraint\-Contact@{mknix\-::\-Constraint\-Contact}!get\-Gap@{get\-Gap}}
+\index{get\-Gap@{get\-Gap}!mknix::ConstraintContact@{mknix\-::\-Constraint\-Contact}}
+\paragraph[{get\-Gap}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Constraint\-Contact\-::get\-Gap (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_constraint_contact_a4fcfe47c1421fd375ff806b8ef411f47}
+\hypertarget{classmknix_1_1_constraint_contact_ae4ebea11a39b4cf89ce317154abc99e3}{\index{mknix\-::\-Constraint\-Contact@{mknix\-::\-Constraint\-Contact}!get\-Internal\-Forces@{get\-Internal\-Forces}}
+\index{get\-Internal\-Forces@{get\-Internal\-Forces}!mknix::ConstraintContact@{mknix\-::\-Constraint\-Contact}}
+\paragraph[{get\-Internal\-Forces}]{\setlength{\rightskip}{0pt plus 5cm}lmx\-::\-Vector$<${\bf data\-\_\-type}$>$\& mknix\-::\-Constraint\-Contact\-::get\-Internal\-Forces (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_constraint_contact_ae4ebea11a39b4cf89ce317154abc99e3}
+\hypertarget{classmknix_1_1_constraint_contact_abb4cb7497d2cbef540add289fdf8492e}{\index{mknix\-::\-Constraint\-Contact@{mknix\-::\-Constraint\-Contact}!get\-Stiffness\-Matrix@{get\-Stiffness\-Matrix}}
+\index{get\-Stiffness\-Matrix@{get\-Stiffness\-Matrix}!mknix::ConstraintContact@{mknix\-::\-Constraint\-Contact}}
+\paragraph[{get\-Stiffness\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}lmx\-::\-Dense\-Matrix$<${\bf data\-\_\-type}$>$\& mknix\-::\-Constraint\-Contact\-::get\-Stiffness\-Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_constraint_contact_abb4cb7497d2cbef540add289fdf8492e}
+
+
+\subsubsection{Member Data Documentation}
+\hypertarget{classmknix_1_1_constraint_contact_a06ba5460d950b98b85226e7b9b520df2}{\index{mknix\-::\-Constraint\-Contact@{mknix\-::\-Constraint\-Contact}!normal@{normal}}
+\index{normal@{normal}!mknix::ConstraintContact@{mknix\-::\-Constraint\-Contact}}
+\paragraph[{normal}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$double$>$ mknix\-::\-Constraint\-Contact\-::normal\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_constraint_contact_a06ba5460d950b98b85226e7b9b520df2}
+\hypertarget{classmknix_1_1_constraint_contact_a86b0413ea70c74a38f8610a88cba48c6}{\index{mknix\-::\-Constraint\-Contact@{mknix\-::\-Constraint\-Contact}!rh@{rh}}
+\index{rh@{rh}!mknix::ConstraintContact@{mknix\-::\-Constraint\-Contact}}
+\paragraph[{rh}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Constraint\-Contact\-::rh\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_constraint_contact_a86b0413ea70c74a38f8610a88cba48c6}
+\hypertarget{classmknix_1_1_constraint_contact_a0a2b6bbee4925e12f4921aa58f0f3426}{\index{mknix\-::\-Constraint\-Contact@{mknix\-::\-Constraint\-Contact}!rt@{rt}}
+\index{rt@{rt}!mknix::ConstraintContact@{mknix\-::\-Constraint\-Contact}}
+\paragraph[{rt}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Constraint\-Contact\-::rt\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_constraint_contact_a0a2b6bbee4925e12f4921aa58f0f3426}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{constraintcontact_8h}{constraintcontact.\-h}\item 
+\hyperlink{constraintcontact_8cpp}{constraintcontact.\-cpp}\end{DoxyCompactItemize}

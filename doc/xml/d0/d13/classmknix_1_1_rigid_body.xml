@@ -1,0 +1,556 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="d0/d13/classmknix_1_1_rigid_body" kind="class" prot="public" abstract="yes">
+    <compoundname>mknix::RigidBody</compoundname>
+    <basecompoundref refid="dd/de3/classmknix_1_1_body" prot="public" virt="non-virtual">mknix::Body</basecompoundref>
+    <derivedcompoundref refid="d6/dd9/classmknix_1_1_rigid_bar" prot="public" virt="non-virtual">mknix::RigidBar</derivedcompoundref>
+    <derivedcompoundref refid="d6/dd9/classmknix_1_1_rigid_bar" prot="public" virt="non-virtual">mknix::RigidBar</derivedcompoundref>
+    <derivedcompoundref refid="d6/d6d/classmknix_1_1_rigid_body2_d" prot="public" virt="non-virtual">mknix::RigidBody2D</derivedcompoundref>
+    <derivedcompoundref refid="dd/d2a/classmknix_1_1_rigid_body3_d" prot="public" virt="non-virtual">mknix::RigidBody3D</derivedcompoundref>
+    <derivedcompoundref refid="d8/de9/classmknix_1_1_rigid_body_mass_point" prot="public" virt="non-virtual">mknix::RigidBodyMassPoint</derivedcompoundref>
+    <includes refid="d1/d67/bodyrigid_8h" local="no">bodyrigid.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="d0/d13/classmknix_1_1_rigid_body_1abdb2cd12b0d4c08b6ba7a7c3fd84b2e2" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mknix::RigidBody::dim</definition>
+        <argsstring></argsstring>
+        <name>dim</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="66" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" bodystart="66" bodyend="-1"/>
+        <referencedby refid="d0/d13/classmknix_1_1_rigid_body_1a605ed074fed7570c6620a6a6f6cd4bb0" compoundref="da/d4a/bodyrigid_8cpp" startline="148" endline="176">outputStep</referencedby>
+        <referencedby refid="d8/de9/classmknix_1_1_rigid_body_mass_point_1a4cd5dda763fcc9f796952f209bd7b2dc" compoundref="dc/d48/bodyrigid0_d_8cpp" startline="34" endline="44">mknix::RigidBodyMassPoint::RigidBodyMassPoint</referencedby>
+        <referencedby refid="d8/de9/classmknix_1_1_rigid_body_mass_point_1aed37447f963c4393b30febe281589b99" compoundref="dc/d48/bodyrigid0_d_8cpp" startline="62" endline="80">mknix::RigidBodyMassPoint::calcMassMatrix</referencedby>
+        <referencedby refid="d8/de9/classmknix_1_1_rigid_body_mass_point_1a281842fc7cf1367bbed4c5e477ac8da9" compoundref="dc/d48/bodyrigid0_d_8cpp" startline="82" endline="92">mknix::RigidBodyMassPoint::calcExternalForces</referencedby>
+        <referencedby refid="d6/dd9/classmknix_1_1_rigid_bar_1ac47bc0c8fc15e799f67a76925b5919bf" compoundref="d5/d29/bodyrigid1_d_8cpp" startline="31" endline="81">mknix::RigidBar::RigidBar</referencedby>
+        <referencedby refid="d6/d6d/classmknix_1_1_rigid_body2_d_1ae8506521fc62c80097857eccaffaa1db" compoundref="dc/d0c/bodyrigid2_d_8cpp" startline="34" endline="61">mknix::RigidBody2D::RigidBody2D</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::RigidBody::mass</definition>
+        <argsstring></argsstring>
+        <name>mass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="67" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" bodystart="67" bodyend="-1"/>
+        <referencedby refid="d0/d13/classmknix_1_1_rigid_body_1a414c67125617203f207508c35c38180e" compoundref="d1/d67/bodyrigid_8h" startline="48" endline="48">setMass</referencedby>
+        <referencedby refid="d8/de9/classmknix_1_1_rigid_body_mass_point_1a4cd5dda763fcc9f796952f209bd7b2dc" compoundref="dc/d48/bodyrigid0_d_8cpp" startline="34" endline="44">mknix::RigidBodyMassPoint::RigidBodyMassPoint</referencedby>
+        <referencedby refid="d8/de9/classmknix_1_1_rigid_body_mass_point_1aed37447f963c4393b30febe281589b99" compoundref="dc/d48/bodyrigid0_d_8cpp" startline="62" endline="80">mknix::RigidBodyMassPoint::calcMassMatrix</referencedby>
+        <referencedby refid="d8/de9/classmknix_1_1_rigid_body_mass_point_1a281842fc7cf1367bbed4c5e477ac8da9" compoundref="dc/d48/bodyrigid0_d_8cpp" startline="82" endline="92">mknix::RigidBodyMassPoint::calcExternalForces</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d13/classmknix_1_1_rigid_body_1a278b4b0d27aaecfae2be58c8a9275a8c" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> * &gt;</type>
+        <definition>std::vector&lt;Node*&gt; mknix::RigidBody::domainNodes</definition>
+        <argsstring></argsstring>
+        <name>domainNodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="68" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" bodystart="68" bodyend="-1"/>
+        <referencedby refid="d0/d13/classmknix_1_1_rigid_body_1a88b0dfc0af5002ee8d060df5e520434f" compoundref="da/d4a/bodyrigid_8cpp" startline="85" endline="88">addNode</referencedby>
+        <referencedby refid="d0/d13/classmknix_1_1_rigid_body_1a605ed074fed7570c6620a6a6f6cd4bb0" compoundref="da/d4a/bodyrigid_8cpp" startline="148" endline="176">outputStep</referencedby>
+        <referencedby refid="d0/d13/classmknix_1_1_rigid_body_1ae58c1bff0a98afdd0f4174e1fabd7f0a" compoundref="da/d4a/bodyrigid_8cpp" startline="214" endline="223">writeBoundaryNodes</referencedby>
+        <referencedby refid="d0/d13/classmknix_1_1_rigid_body_1a60ad96e6110f259021c31568d3a3bcfb" compoundref="da/d4a/bodyrigid_8cpp" startline="225" endline="235">writeBoundaryConnectivity</referencedby>
+        <referencedby refid="d6/dd9/classmknix_1_1_rigid_bar_1ac47bc0c8fc15e799f67a76925b5919bf" compoundref="d5/d29/bodyrigid1_d_8cpp" startline="31" endline="81">mknix::RigidBar::RigidBar</referencedby>
+        <referencedby refid="d6/dd9/classmknix_1_1_rigid_bar_1a1f05aae37c654229c4f6c3ef32944125" compoundref="d5/d29/bodyrigid1_d_8cpp" startline="149" endline="154">mknix::RigidBar::addNode</referencedby>
+        <referencedby refid="d6/dd9/classmknix_1_1_rigid_bar_1a59e73c31c6acea5b9d6ca1dbfa6421a4" compoundref="d5/d29/bodyrigid1_d_8cpp" startline="157" endline="162">mknix::RigidBar::getBoundaryNode</referencedby>
+        <referencedby refid="d6/d6d/classmknix_1_1_rigid_body2_d_1ae8506521fc62c80097857eccaffaa1db" compoundref="dc/d0c/bodyrigid2_d_8cpp" startline="34" endline="61">mknix::RigidBody2D::RigidBody2D</referencedby>
+        <referencedby refid="d6/d6d/classmknix_1_1_rigid_body2_d_1ab9ec8413811820b9f9b915df86b8372b" compoundref="dc/d0c/bodyrigid2_d_8cpp" startline="133" endline="138">mknix::RigidBody2D::getBoundaryNode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d13/classmknix_1_1_rigid_body_1a36a9d72e5203dc087748cb7fddafee71" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; * &gt;</type>
+        <definition>std::vector&lt; lmx::Vector&lt;data_type&gt;* &gt; mknix::RigidBody::boundaryConf</definition>
+        <argsstring></argsstring>
+        <name>boundaryConf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="69" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" bodystart="69" bodyend="-1"/>
+        <referencedby refid="d0/d13/classmknix_1_1_rigid_body_1a605ed074fed7570c6620a6a6f6cd4bb0" compoundref="da/d4a/bodyrigid_8cpp" startline="148" endline="176">outputStep</referencedby>
+        <referencedby refid="d0/d13/classmknix_1_1_rigid_body_1a0b0df6ee53217187a301f224b8fe0d92" compoundref="da/d4a/bodyrigid_8cpp" startline="178" endline="212">outputToFile</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" prot="protected" static="no" mutable="no">
+        <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt;</type>
+        <definition>lmx::Vector&lt;data_type&gt; mknix::RigidBody::externalForces</definition>
+        <argsstring></argsstring>
+        <name>externalForces</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="70" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" bodystart="70" bodyend="-1"/>
+        <referencedby refid="d0/d13/classmknix_1_1_rigid_body_1a605ed074fed7570c6620a6a6f6cd4bb0" compoundref="da/d4a/bodyrigid_8cpp" startline="148" endline="176">outputStep</referencedby>
+        <referencedby refid="d8/de9/classmknix_1_1_rigid_body_mass_point_1a4cd5dda763fcc9f796952f209bd7b2dc" compoundref="dc/d48/bodyrigid0_d_8cpp" startline="34" endline="44">mknix::RigidBodyMassPoint::RigidBodyMassPoint</referencedby>
+        <referencedby refid="d8/de9/classmknix_1_1_rigid_body_mass_point_1a281842fc7cf1367bbed4c5e477ac8da9" compoundref="dc/d48/bodyrigid0_d_8cpp" startline="82" endline="92">mknix::RigidBodyMassPoint::calcExternalForces</referencedby>
+        <referencedby refid="d6/dd9/classmknix_1_1_rigid_bar_1ac47bc0c8fc15e799f67a76925b5919bf" compoundref="d5/d29/bodyrigid1_d_8cpp" startline="31" endline="81">mknix::RigidBar::RigidBar</referencedby>
+        <referencedby refid="d6/dd9/classmknix_1_1_rigid_bar_1a4325fbe1df7832ce09bd2bf72b00cf67" compoundref="d5/d29/bodyrigid1_d_8cpp" startline="132" endline="146">mknix::RigidBar::calcExternalForces</referencedby>
+        <referencedby refid="d6/d6d/classmknix_1_1_rigid_body2_d_1ae8506521fc62c80097857eccaffaa1db" compoundref="dc/d0c/bodyrigid2_d_8cpp" startline="34" endline="61">mknix::RigidBody2D::RigidBody2D</referencedby>
+        <referencedby refid="d6/d6d/classmknix_1_1_rigid_body2_d_1a2d1b7d48c98c3e0ef63dc2c975637793" compoundref="dc/d0c/bodyrigid2_d_8cpp" startline="117" endline="131">mknix::RigidBody2D::calcExternalForces</referencedby>
+        <referencedby refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a2bafc82c39bdd654b7577b69170a00ca" compoundref="d0/da1/bodyrigid3_d_8cpp" startline="34" endline="51">mknix::RigidBody3D::RigidBody3D</referencedby>
+        <referencedby refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a66bff0110ce5d201875f068050c84c96" compoundref="d0/da1/bodyrigid3_d_8cpp" startline="136" endline="163">mknix::RigidBody3D::calcExternalForces</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d13/classmknix_1_1_rigid_body_1a372052707d7e00a97db50ce6d323cdf3" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; * &gt;</type>
+        <definition>std::vector&lt; lmx::Vector&lt;data_type&gt;* &gt; mknix::RigidBody::energy</definition>
+        <argsstring></argsstring>
+        <name>energy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="71" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" bodystart="71" bodyend="-1"/>
+        <referencedby refid="d0/d13/classmknix_1_1_rigid_body_1a605ed074fed7570c6620a6a6f6cd4bb0" compoundref="da/d4a/bodyrigid_8cpp" startline="148" endline="176">outputStep</referencedby>
+        <referencedby refid="d0/d13/classmknix_1_1_rigid_body_1a0b0df6ee53217187a301f224b8fe0d92" compoundref="da/d4a/bodyrigid_8cpp" startline="178" endline="212">outputToFile</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d13/classmknix_1_1_rigid_body_1a569b96d28e2b0c008240a001c3a87eb3" prot="protected" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool mknix::RigidBody::computeEnergy</definition>
+        <argsstring></argsstring>
+        <name>computeEnergy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="72" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" bodystart="72" bodyend="-1"/>
+        <referencedby refid="d0/d13/classmknix_1_1_rigid_body_1a7d3b331008d65caf46f5575fec6943b5" compoundref="da/d4a/bodyrigid_8cpp" startline="91" endline="94">setOutput</referencedby>
+        <referencedby refid="d0/d13/classmknix_1_1_rigid_body_1a605ed074fed7570c6620a6a6f6cd4bb0" compoundref="da/d4a/bodyrigid_8cpp" startline="148" endline="176">outputStep</referencedby>
+        <referencedby refid="d0/d13/classmknix_1_1_rigid_body_1a0b0df6ee53217187a301f224b8fe0d92" compoundref="da/d4a/bodyrigid_8cpp" startline="178" endline="212">outputToFile</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d0/d13/classmknix_1_1_rigid_body_1a4e30b93577cba2bdf87201621a5b637c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::RigidBody::RigidBody</definition>
+        <argsstring>()</argsstring>
+        <name>RigidBody</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="34" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.cpp" bodystart="26" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d13/classmknix_1_1_rigid_body_1a2b343858ebee91bb44df59d7a19a5f10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::RigidBody::RigidBody</definition>
+        <argsstring>(std::string)</argsstring>
+        <name>RigidBody</name>
+        <param>
+          <type>std::string</type>
+          <defname>title_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="36" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.cpp" bodystart="33" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d13/classmknix_1_1_rigid_body_1a61c219dee02f49659bc34528c2d0af49" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>mknix::RigidBody::~RigidBody</definition>
+        <argsstring>()</argsstring>
+        <name>~RigidBody</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="38" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.cpp" bodystart="40" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d13/classmknix_1_1_rigid_body_1ac20200b40e6e222261bb8257e339d7b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::RigidBody::assembleMassMatrix</definition>
+        <argsstring>(lmx::Matrix&lt; data_type &gt; &amp;)</argsstring>
+        <name>assembleMassMatrix</name>
+        <reimplements refid="dd/de3/classmknix_1_1_body_1acd6c47f4e0a25e927141cb325df896a9">assembleMassMatrix</reimplements>
+        <param>
+          <type>lmx::Matrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>globalMass</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="40" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.cpp" bodystart="45" bodyend="67"/>
+        <references refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" compoundref="d0/d77/body_8h" startline="113">mknix::Body::nodes</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" compoundref="dd/d6a/simulation_8h" startline="150" endline="150">mknix::Simulation::getDim</references>
+        <references refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" compoundref="d0/d77/body_8h" startline="116">mknix::Body::localMassMatrix</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/d13/classmknix_1_1_rigid_body_1a18c7ffa5b9f2d3df008a92f421404fac" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::RigidBody::assembleExternalForces</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; &amp;)</argsstring>
+        <name>assembleExternalForces</name>
+        <reimplements refid="dd/de3/classmknix_1_1_body_1a46a17ef341d6ea217e1548108a4e9efc">assembleExternalForces</reimplements>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>globalExternalForces</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="42" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.cpp" bodystart="70" bodyend="83"/>
+        <references refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" compoundref="dd/d6a/simulation_8h" startline="150" endline="150">mknix::Simulation::getDim</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/d13/classmknix_1_1_rigid_body_1a88b0dfc0af5002ee8d060df5e520434f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::RigidBody::addNode</definition>
+        <argsstring>(Node *)</argsstring>
+        <name>addNode</name>
+        <reimplements refid="dd/de3/classmknix_1_1_body_1abf7eec507e5fc918e4901864a6db0f84">addNode</reimplements>
+        <reimplementedby refid="d6/dd9/classmknix_1_1_rigid_bar_1a1f05aae37c654229c4f6c3ef32944125">addNode</reimplementedby>
+        <param>
+          <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+          <defname>node_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="44" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.cpp" bodystart="85" bodyend="88"/>
+        <references refid="d0/d13/classmknix_1_1_rigid_body_1a278b4b0d27aaecfae2be58c8a9275a8c" compoundref="d1/d67/bodyrigid_8h" startline="68">domainNodes</references>
+        <referencedby refid="d6/dd9/classmknix_1_1_rigid_bar_1a1f05aae37c654229c4f6c3ef32944125" compoundref="d5/d29/bodyrigid1_d_8cpp" startline="149" endline="154">mknix::RigidBar::addNode</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d0/d13/classmknix_1_1_rigid_body_1a1a0f0fa9c789fbb7aa6c3404939d7b36" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+        <definition>virtual Node* mknix::RigidBody::getBoundaryNode</definition>
+        <argsstring>(std::string)=0</argsstring>
+        <name>getBoundaryNode</name>
+        <reimplementedby refid="d6/d6d/classmknix_1_1_rigid_body2_d_1ab9ec8413811820b9f9b915df86b8372b">getBoundaryNode</reimplementedby>
+        <reimplementedby refid="d8/de9/classmknix_1_1_rigid_body_mass_point_1a9b94042419a54e3d75634028dcc27533">getBoundaryNode</reimplementedby>
+        <reimplementedby refid="d6/dd9/classmknix_1_1_rigid_bar_1a59e73c31c6acea5b9d6ca1dbfa6421a4">getBoundaryNode</reimplementedby>
+        <reimplementedby refid="dd/d2a/classmknix_1_1_rigid_body3_d_1abd7a5b8547154b5b56c30d87f9ce0e65">getBoundaryNode</reimplementedby>
+        <param>
+          <type>std::string</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="46" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d13/classmknix_1_1_rigid_body_1a414c67125617203f207508c35c38180e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::RigidBody::setMass</definition>
+        <argsstring>(double mass_in)</argsstring>
+        <name>setMass</name>
+        <param>
+          <type>double</type>
+          <declname>mass_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="48" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" bodystart="48" bodyend="48"/>
+        <references refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" compoundref="d1/d67/bodyrigid_8h" startline="67">mass</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/d13/classmknix_1_1_rigid_body_1a3c41ec0b893b6376614dd5d560d6f011" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void mknix::RigidBody::setInertia</definition>
+        <argsstring>(double, int)=0</argsstring>
+        <name>setInertia</name>
+        <reimplementedby refid="d6/d6d/classmknix_1_1_rigid_body2_d_1a82c95b95d891532a73ec8dedc281aec4">setInertia</reimplementedby>
+        <reimplementedby refid="d6/dd9/classmknix_1_1_rigid_bar_1a0b125aafa37253d47041ba107f8eaed4">setInertia</reimplementedby>
+        <reimplementedby refid="d8/de9/classmknix_1_1_rigid_body_mass_point_1a1d06b28d8a37323aba31649518ff4b85">setInertia</reimplementedby>
+        <reimplementedby refid="dd/d2a/classmknix_1_1_rigid_body3_d_1aa76bf1fe9fe4783d647d84c925540515">setInertia</reimplementedby>
+        <param>
+          <type>double</type>
+        </param>
+        <param>
+          <type>int</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="49" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d13/classmknix_1_1_rigid_body_1a43249b2d83145ec87c8204da2f6a048c" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void mknix::RigidBody::setPosition</definition>
+        <argsstring>(std::vector&lt; double &gt; &amp;)=0</argsstring>
+        <name>setPosition</name>
+        <reimplementedby refid="d6/d6d/classmknix_1_1_rigid_body2_d_1a485001c8c9639f1be3afebd185b3b921">setPosition</reimplementedby>
+        <reimplementedby refid="d6/dd9/classmknix_1_1_rigid_bar_1a7cee7a990c62bdac1ebf6a90903a9e15">setPosition</reimplementedby>
+        <reimplementedby refid="d8/de9/classmknix_1_1_rigid_body_mass_point_1a74fcf74f09c6c5abaa0cd0fe7383e2a5">setPosition</reimplementedby>
+        <reimplementedby refid="dd/d2a/classmknix_1_1_rigid_body3_d_1ac69cc57cafc9c9783da8d7e66124151d">setPosition</reimplementedby>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="50" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d13/classmknix_1_1_rigid_body_1a7d3b331008d65caf46f5575fec6943b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::RigidBody::setOutput</definition>
+        <argsstring>(std::string)</argsstring>
+        <name>setOutput</name>
+        <reimplements refid="dd/de3/classmknix_1_1_body_1a689970a0729d557ed56492bbfeae4ecd">setOutput</reimplements>
+        <param>
+          <type>std::string</type>
+          <defname>outputType_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="52" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.cpp" bodystart="91" bodyend="94"/>
+        <references refid="d0/d13/classmknix_1_1_rigid_body_1a569b96d28e2b0c008240a001c3a87eb3" compoundref="d1/d67/bodyrigid_8h" startline="72">computeEnergy</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/d13/classmknix_1_1_rigid_body_1a721e9f81cfba9a3d425df36f7cf5ef71" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::RigidBody::outputStep</definition>
+        <argsstring>(const lmx::Vector&lt; data_type &gt; &amp;, const lmx::Vector&lt; data_type &gt; &amp;)</argsstring>
+        <name>outputStep</name>
+        <reimplements refid="dd/de3/classmknix_1_1_body_1a2655307ec61a79f8d2e5716c984a44df">outputStep</reimplements>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>q</defname>
+        </param>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>qdot</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="54" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.cpp" bodystart="98" bodyend="146"/>
+        <references refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" compoundref="dd/d6a/simulation_8h" startline="150" endline="150">mknix::Simulation::getDim</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/d13/classmknix_1_1_rigid_body_1a605ed074fed7570c6620a6a6f6cd4bb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::RigidBody::outputStep</definition>
+        <argsstring>(const lmx::Vector&lt; data_type &gt; &amp;)</argsstring>
+        <name>outputStep</name>
+        <reimplements refid="dd/de3/classmknix_1_1_body_1a0570075194360f453b763866969548e7">outputStep</reimplements>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>q</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="56" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.cpp" bodystart="148" bodyend="176"/>
+        <references refid="d0/d13/classmknix_1_1_rigid_body_1a278b4b0d27aaecfae2be58c8a9275a8c" compoundref="d1/d67/bodyrigid_8h" startline="68">domainNodes</references>
+        <references refid="d0/d13/classmknix_1_1_rigid_body_1a36a9d72e5203dc087748cb7fddafee71" compoundref="d1/d67/bodyrigid_8h" startline="69">boundaryConf</references>
+        <references refid="d0/d13/classmknix_1_1_rigid_body_1abdb2cd12b0d4c08b6ba7a7c3fd84b2e2" compoundref="d1/d67/bodyrigid_8h" startline="66">dim</references>
+        <references refid="d0/d13/classmknix_1_1_rigid_body_1a569b96d28e2b0c008240a001c3a87eb3" compoundref="d1/d67/bodyrigid_8h" startline="72">computeEnergy</references>
+        <references refid="d0/d13/classmknix_1_1_rigid_body_1a372052707d7e00a97db50ce6d323cdf3" compoundref="d1/d67/bodyrigid_8h" startline="71">energy</references>
+        <references refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" compoundref="d0/d77/body_8h" startline="113">mknix::Body::nodes</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" compoundref="dd/d6a/simulation_8h" startline="150" endline="150">mknix::Simulation::getDim</references>
+        <references refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" compoundref="d1/d67/bodyrigid_8h" startline="70">externalForces</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/d13/classmknix_1_1_rigid_body_1a0b0df6ee53217187a301f224b8fe0d92" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::RigidBody::outputToFile</definition>
+        <argsstring>(std::ofstream *)</argsstring>
+        <name>outputToFile</name>
+        <reimplements refid="dd/de3/classmknix_1_1_body_1acc0dd60d384ec11bf1ea71fed9ae27b3">outputToFile</reimplements>
+        <param>
+          <type>std::ofstream *</type>
+          <defname>outFile</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="58" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.cpp" bodystart="178" bodyend="212"/>
+        <references refid="dd/de3/classmknix_1_1_body_1a3c05cdff2d5f2b150046cd734d0ed7ce" compoundref="d0/d77/body_8h" startline="112">mknix::Body::title</references>
+        <references refid="d0/d13/classmknix_1_1_rigid_body_1a36a9d72e5203dc087748cb7fddafee71" compoundref="d1/d67/bodyrigid_8h" startline="69">boundaryConf</references>
+        <references refid="d0/d13/classmknix_1_1_rigid_body_1a569b96d28e2b0c008240a001c3a87eb3" compoundref="d1/d67/bodyrigid_8h" startline="72">computeEnergy</references>
+        <references refid="d0/d13/classmknix_1_1_rigid_body_1a372052707d7e00a97db50ce6d323cdf3" compoundref="d1/d67/bodyrigid_8h" startline="71">energy</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/d13/classmknix_1_1_rigid_body_1ae58c1bff0a98afdd0f4174e1fabd7f0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::RigidBody::writeBoundaryNodes</definition>
+        <argsstring>(std::vector&lt; Node * &gt; &amp;)</argsstring>
+        <name>writeBoundaryNodes</name>
+        <reimplements refid="dd/de3/classmknix_1_1_body_1ada574d09e98568156185eb7eef398c8f">writeBoundaryNodes</reimplements>
+        <param>
+          <type>std::vector&lt; <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> * &gt; &amp;</type>
+          <defname>global_boundary_nodes</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="60" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.cpp" bodystart="214" bodyend="223"/>
+        <references refid="d0/d13/classmknix_1_1_rigid_body_1a278b4b0d27aaecfae2be58c8a9275a8c" compoundref="d1/d67/bodyrigid_8h" startline="68">domainNodes</references>
+      </memberdef>
+      <memberdef kind="function" id="d0/d13/classmknix_1_1_rigid_body_1a60ad96e6110f259021c31568d3a3bcfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::RigidBody::writeBoundaryConnectivity</definition>
+        <argsstring>(std::vector&lt; std::vector&lt; Node * &gt; &gt; &amp;)</argsstring>
+        <name>writeBoundaryConnectivity</name>
+        <reimplements refid="dd/de3/classmknix_1_1_body_1ab95b00050cf3841c1b931e04eebe57e1">writeBoundaryConnectivity</reimplements>
+        <param>
+          <type>std::vector&lt; std::vector&lt; <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> * &gt; &gt; &amp;</type>
+          <defname>global_connectivity_nodes</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="62" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.cpp" bodystart="225" bodyend="235"/>
+        <references refid="d0/d13/classmknix_1_1_rigid_body_1a278b4b0d27aaecfae2be58c8a9275a8c" compoundref="d1/d67/bodyrigid_8h" startline="68">domainNodes</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="390">
+        <label>mknix::RigidBody</label>
+        <link refid="d0/d13/classmknix_1_1_rigid_body"/>
+        <childnode refid="391" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="392">
+        <label>mknix::RigidBar</label>
+        <link refid="d6/dd9/classmknix_1_1_rigid_bar"/>
+        <childnode refid="390" relation="public-inheritance">
+        </childnode>
+        <childnode refid="390" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="393">
+        <label>mknix::RigidBody2D</label>
+        <link refid="d6/d6d/classmknix_1_1_rigid_body2_d"/>
+        <childnode refid="390" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="394">
+        <label>mknix::RigidBody3D</label>
+        <link refid="dd/d2a/classmknix_1_1_rigid_body3_d"/>
+        <childnode refid="390" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="391">
+        <label>mknix::Body</label>
+        <link refid="dd/de3/classmknix_1_1_body"/>
+      </node>
+      <node id="395">
+        <label>mknix::RigidBodyMassPoint</label>
+        <link refid="d8/de9/classmknix_1_1_rigid_body_mass_point"/>
+        <childnode refid="390" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="396">
+        <label>mknix::RigidBody</label>
+        <link refid="d0/d13/classmknix_1_1_rigid_body"/>
+        <childnode refid="397" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="397">
+        <label>mknix::Body</label>
+        <link refid="dd/de3/classmknix_1_1_body"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" line="32" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid.h" bodystart="32" bodyend="73"/>
+    <listofallmembers>
+      <member refid="dd/de3/classmknix_1_1_body_1a0303c5d1de1c19cff7448baf2564f213" prot="public" virt="virtual"><scope>mknix::RigidBody</scope><name>addBoundaryLine</name></member>
+      <member refid="dd/de3/classmknix_1_1_body_1abb4237e7f457287766e29bfe0cbb0f01" prot="public" virt="virtual"><scope>mknix::RigidBody</scope><name>addCell</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1a88b0dfc0af5002ee8d060df5e520434f" prot="public" virt="virtual"><scope>mknix::RigidBody</scope><name>addNode</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1a18c7ffa5b9f2d3df008a92f421404fac" prot="public" virt="virtual"><scope>mknix::RigidBody</scope><name>assembleExternalForces</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1ac20200b40e6e222261bb8257e339d7b4" prot="public" virt="virtual"><scope>mknix::RigidBody</scope><name>assembleMassMatrix</name></member>
+      <member refid="dd/de3/classmknix_1_1_body_1a5f11ba30f14169c567d8e3f84afbbf40" prot="public" virt="non-virtual"><scope>mknix::RigidBody</scope><name>Body</name></member>
+      <member refid="dd/de3/classmknix_1_1_body_1a121c49df553ac35ca246052168eccb7f" prot="public" virt="non-virtual"><scope>mknix::RigidBody</scope><name>Body</name></member>
+      <member refid="dd/de3/classmknix_1_1_body_1abaacc346d058cdabb8d0273b1440e323" prot="protected" virt="non-virtual"><scope>mknix::RigidBody</scope><name>boundary</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1a36a9d72e5203dc087748cb7fddafee71" prot="protected" virt="non-virtual"><scope>mknix::RigidBody</scope><name>boundaryConf</name></member>
+      <member refid="dd/de3/classmknix_1_1_body_1a71d21e817523058098bcec62fb377187" prot="public" virt="pure-virtual"><scope>mknix::RigidBody</scope><name>calcExternalForces</name></member>
+      <member refid="dd/de3/classmknix_1_1_body_1ad34fa07c6620c9fcc2268bfdbfd42194" prot="public" virt="pure-virtual"><scope>mknix::RigidBody</scope><name>calcMassMatrix</name></member>
+      <member refid="dd/de3/classmknix_1_1_body_1afa538e2bc24cd6623e63b44704037a73" prot="protected" virt="non-virtual"><scope>mknix::RigidBody</scope><name>cells</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1a569b96d28e2b0c008240a001c3a87eb3" prot="protected" virt="non-virtual"><scope>mknix::RigidBody</scope><name>computeEnergy</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1abdb2cd12b0d4c08b6ba7a7c3fd84b2e2" prot="protected" virt="non-virtual"><scope>mknix::RigidBody</scope><name>dim</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1a278b4b0d27aaecfae2be58c8a9275a8c" prot="protected" virt="non-virtual"><scope>mknix::RigidBody</scope><name>domainNodes</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1a372052707d7e00a97db50ce6d323cdf3" prot="protected" virt="non-virtual"><scope>mknix::RigidBody</scope><name>energy</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" prot="protected" virt="non-virtual"><scope>mknix::RigidBody</scope><name>externalForces</name></member>
+      <member refid="dd/de3/classmknix_1_1_body_1a0cd2969a179a3d6a44607e038593028b" prot="public" virt="virtual"><scope>mknix::RigidBody</scope><name>getBoundaryFirstNode</name></member>
+      <member refid="dd/de3/classmknix_1_1_body_1aac3a9453cb1a13464fa56449112188f1" prot="public" virt="virtual"><scope>mknix::RigidBody</scope><name>getBoundaryNextNode</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1a1a0f0fa9c789fbb7aa6c3404939d7b36" prot="public" virt="pure-virtual"><scope>mknix::RigidBody</scope><name>getBoundaryNode</name></member>
+      <member refid="dd/de3/classmknix_1_1_body_1aa7de934eb85ec4e68741d0c7395a9a10" prot="public" virt="virtual"><scope>mknix::RigidBody</scope><name>getBoundarySize</name></member>
+      <member refid="dd/de3/classmknix_1_1_body_1a95fad3fdd4c18a0adcbeba2891b55140" prot="public" virt="virtual"><scope>mknix::RigidBody</scope><name>getLastNode</name></member>
+      <member refid="dd/de3/classmknix_1_1_body_1ac996b024251ecd5bcb9af4a932e916c2" prot="public" virt="non-virtual"><scope>mknix::RigidBody</scope><name>getNode</name></member>
+      <member refid="dd/de3/classmknix_1_1_body_1a603ed0a11eee91957b2655a0e4667cd4" prot="public" virt="pure-virtual"><scope>mknix::RigidBody</scope><name>getType</name></member>
+      <member refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" prot="protected" virt="non-virtual"><scope>mknix::RigidBody</scope><name>localMassMatrix</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" prot="protected" virt="non-virtual"><scope>mknix::RigidBody</scope><name>mass</name></member>
+      <member refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" prot="protected" virt="non-virtual"><scope>mknix::RigidBody</scope><name>nodes</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1a721e9f81cfba9a3d425df36f7cf5ef71" prot="public" virt="virtual"><scope>mknix::RigidBody</scope><name>outputStep</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1a605ed074fed7570c6620a6a6f6cd4bb0" prot="public" virt="virtual"><scope>mknix::RigidBody</scope><name>outputStep</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1a0b0df6ee53217187a301f224b8fe0d92" prot="public" virt="virtual"><scope>mknix::RigidBody</scope><name>outputToFile</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1a4e30b93577cba2bdf87201621a5b637c" prot="public" virt="non-virtual"><scope>mknix::RigidBody</scope><name>RigidBody</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1a2b343858ebee91bb44df59d7a19a5f10" prot="public" virt="non-virtual"><scope>mknix::RigidBody</scope><name>RigidBody</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1a3c41ec0b893b6376614dd5d560d6f011" prot="public" virt="pure-virtual"><scope>mknix::RigidBody</scope><name>setInertia</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1a414c67125617203f207508c35c38180e" prot="public" virt="non-virtual"><scope>mknix::RigidBody</scope><name>setMass</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1a7d3b331008d65caf46f5575fec6943b5" prot="public" virt="virtual"><scope>mknix::RigidBody</scope><name>setOutput</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1a43249b2d83145ec87c8204da2f6a048c" prot="public" virt="pure-virtual"><scope>mknix::RigidBody</scope><name>setPosition</name></member>
+      <member refid="dd/de3/classmknix_1_1_body_1a3c05cdff2d5f2b150046cd734d0ed7ce" prot="protected" virt="non-virtual"><scope>mknix::RigidBody</scope><name>title</name></member>
+      <member refid="dd/de3/classmknix_1_1_body_1a5f58f8e5398bbacc973b046be600eb5f" prot="public" virt="virtual"><scope>mknix::RigidBody</scope><name>translate</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1a60ad96e6110f259021c31568d3a3bcfb" prot="public" virt="virtual"><scope>mknix::RigidBody</scope><name>writeBoundaryConnectivity</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1ae58c1bff0a98afdd0f4174e1fabd7f0a" prot="public" virt="virtual"><scope>mknix::RigidBody</scope><name>writeBoundaryNodes</name></member>
+      <member refid="dd/de3/classmknix_1_1_body_1ad58a0a50a821e1adaa5abd1320e5a837" prot="public" virt="virtual"><scope>mknix::RigidBody</scope><name>~Body</name></member>
+      <member refid="d0/d13/classmknix_1_1_rigid_body_1a61c219dee02f49659bc34528c2d0af49" prot="public" virt="virtual"><scope>mknix::RigidBody</scope><name>~RigidBody</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

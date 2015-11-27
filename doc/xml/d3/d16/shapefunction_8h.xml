@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="d3/d16/shapefunction_8h" kind="file">
+    <compoundname>shapefunction.h</compoundname>
+    <includes local="yes">LMX/lmx.h</includes>
+    <includedby refid="d9/d2f/shapefunction_r_b_f_8h" local="yes">shapefunctionRBF.h</includedby>
+    <includedby refid="db/da5/shapefunction_m_l_s_8h" local="yes">shapefunctionMLS.h</includedby>
+    <includedby refid="d1/db5/shapefunctiontriangle_8h" local="no">shapefunctiontriangle.h</includedby>
+    <includedby refid="db/d91/shapefunctiontetrahedron_8h" local="no">shapefunctiontetrahedron.h</includedby>
+    <includedby refid="d7/d70/node_8cpp" local="yes">node.cpp</includedby>
+    <includedby refid="d0/d2e/shapefunctionlinear_8h" local="no">shapefunctionlinear.h</includedby>
+    <includedby refid="d1/dde/shapefunction_8cpp" local="yes">shapefunction.cpp</includedby>
+    <includedby refid="da/dfb/shapefunctionrigidbar_8h" local="no">shapefunctionrigidbar.h</includedby>
+    <includedby refid="d8/db5/shapefunctiontriangle3_d_8h" local="no">shapefunctiontriangle3D.h</includedby>
+    <incdepgraph>
+      <node id="7934">
+        <label>shapefunction.h</label>
+        <link refid="shapefunction.h"/>
+        <childnode refid="7935" relation="include">
+        </childnode>
+      </node>
+      <node id="7935">
+        <label>LMX/lmx.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="7952">
+        <label>shapefunctiontriangle3D.h</label>
+        <link refid="d8/db5/shapefunctiontriangle3_d_8h"/>
+        <childnode refid="7953" relation="include">
+        </childnode>
+      </node>
+      <node id="7937">
+        <label>shapefunctionRBF.h</label>
+        <link refid="d9/d2f/shapefunction_r_b_f_8h"/>
+        <childnode refid="7938" relation="include">
+        </childnode>
+        <childnode refid="7939" relation="include">
+        </childnode>
+        <childnode refid="7940" relation="include">
+        </childnode>
+      </node>
+      <node id="7940">
+        <label>shapefunctionRBF.cpp</label>
+        <link refid="db/d27/shapefunction_r_b_f_8cpp"/>
+      </node>
+      <node id="7950">
+        <label>shapefunction.cpp</label>
+        <link refid="d1/dde/shapefunction_8cpp"/>
+      </node>
+      <node id="7941">
+        <label>shapefunctionMLS.h</label>
+        <link refid="db/da5/shapefunction_m_l_s_8h"/>
+        <childnode refid="7938" relation="include">
+        </childnode>
+        <childnode refid="7939" relation="include">
+        </childnode>
+        <childnode refid="7942" relation="include">
+        </childnode>
+      </node>
+      <node id="7936">
+        <label>shapefunction.h</label>
+        <link refid="shapefunction.h"/>
+        <childnode refid="7937" relation="include">
+        </childnode>
+        <childnode refid="7941" relation="include">
+        </childnode>
+        <childnode refid="7943" relation="include">
+        </childnode>
+        <childnode refid="7945" relation="include">
+        </childnode>
+        <childnode refid="7947" relation="include">
+        </childnode>
+        <childnode refid="7948" relation="include">
+        </childnode>
+        <childnode refid="7950" relation="include">
+        </childnode>
+        <childnode refid="7951" relation="include">
+        </childnode>
+        <childnode refid="7952" relation="include">
+        </childnode>
+      </node>
+      <node id="7944">
+        <label>shapefunctiontriangle.cpp</label>
+        <link refid="dc/d70/shapefunctiontriangle_8cpp"/>
+      </node>
+      <node id="7951">
+        <label>shapefunctionrigidbar.h</label>
+        <link refid="da/dfb/shapefunctionrigidbar_8h"/>
+      </node>
+      <node id="7943">
+        <label>shapefunctiontriangle.h</label>
+        <link refid="d1/db5/shapefunctiontriangle_8h"/>
+        <childnode refid="7938" relation="include">
+        </childnode>
+        <childnode refid="7939" relation="include">
+        </childnode>
+        <childnode refid="7944" relation="include">
+        </childnode>
+      </node>
+      <node id="7945">
+        <label>shapefunctiontetrahedron.h</label>
+        <link refid="db/d91/shapefunctiontetrahedron_8h"/>
+        <childnode refid="7938" relation="include">
+        </childnode>
+        <childnode refid="7939" relation="include">
+        </childnode>
+        <childnode refid="7946" relation="include">
+        </childnode>
+      </node>
+      <node id="7947">
+        <label>node.cpp</label>
+        <link refid="d7/d70/node_8cpp"/>
+      </node>
+      <node id="7942">
+        <label>shapefunctionMLS.cpp</label>
+        <link refid="d1/d8f/shapefunction_m_l_s_8cpp"/>
+      </node>
+      <node id="7939">
+        <label>point.cpp</label>
+        <link refid="d5/d55/point_8cpp"/>
+      </node>
+      <node id="7948">
+        <label>shapefunctionlinear.h</label>
+        <link refid="d0/d2e/shapefunctionlinear_8h"/>
+        <childnode refid="7939" relation="include">
+        </childnode>
+        <childnode refid="7949" relation="include">
+        </childnode>
+      </node>
+      <node id="7953">
+        <label>shapefunctiontriangle3D.cpp</label>
+        <link refid="d5/d04/shapefunctiontriangle3_d_8cpp"/>
+      </node>
+      <node id="7949">
+        <label>shapefunctionlinear.cpp</label>
+        <link refid="dc/deb/shapefunctionlinear_8cpp"/>
+      </node>
+      <node id="7938">
+        <label>gausspoint.cpp</label>
+        <link refid="df/dfb/gausspoint_8cpp"/>
+      </node>
+      <node id="7946">
+        <label>shapefunctiontetrahedron.cpp</label>
+        <link refid="d1/d85/shapefunctiontetrahedron_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="dd/d8d/classmknix_1_1_shape_function" prot="public">mknix::ShapeFunction</innerclass>
+    <innernamespace refid="d2/dde/namespacemknix">mknix</innernamespace>
+    <briefdescription>
+<para>Function for interpolation of basic variables. </para>    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Daniel Iglesias </para></simplesect>
+</para>    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//--<sp/>Licencia<sp/>--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>SHAPEFUNCTION_H</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>SHAPEFUNCTION_H</highlight></codeline>
+<codeline lineno="4"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;LMX/lmx.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mknix<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal">Point;</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="dd/d8d/classmknix_1_1_shape_function" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="dd/d8d/classmknix_1_1_shape_function" kindref="compound">ShapeFunction</ref>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="28" refid="dd/d8d/classmknix_1_1_shape_function_1a1ca9a4d7bc5f82c887ac7e9bdd54aa1e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a1ca9a4d7bc5f82c887ac7e9bdd54aa1e" kindref="member">dim</ref>;</highlight></codeline>
+<codeline lineno="29" refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>lmx::DenseMatrix&lt;double&gt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>;</highlight></codeline>
+<codeline lineno="30" refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref>*<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a4a35da60e8eb2645a217cce36e6e323a" kindref="member">ShapeFunction</ref>();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a4a35da60e8eb2645a217cce36e6e323a" kindref="member">ShapeFunction</ref>(<sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref>*<sp/>);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac5762f37f460aa48b8d2a53a1f422220" kindref="member">~ShapeFunction</ref>();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac4a0d1b43ff7d4adf788e677912a87f7" kindref="member">calc</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="dd/d8d/classmknix_1_1_shape_function_1a13f35e2b1cfc89c26ee03ede4bfff586" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a13f35e2b1cfc89c26ee03ede4bfff586" kindref="member">getPhi</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j)<sp/></highlight><highlight class="comment">//<sp/>i<sp/>=<sp/>derivative<sp/>order,<sp/>j<sp/>=<sp/>node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.readElement(i,<sp/>j);<sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="dd/d8d/classmknix_1_1_shape_function_1a45248275e5e6fcaed37195155009e72e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a45248275e5e6fcaed37195155009e72e" kindref="member">setPhi</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>value_in,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j)<sp/></highlight><highlight class="comment">//<sp/>i<sp/>=<sp/>derivative<sp/>order,<sp/>j<sp/>=<sp/>node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>{<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(value_in,<sp/>i,<sp/>j);<sp/>}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a50beef3ce4e90c4f884df14f727296f6" kindref="member">outputValues</ref>();</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a6b287c3758e7d16be4c7c8e86bbb7077" kindref="member">gnuplotOut</ref>();</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal">}<sp/></highlight><highlight class="comment">//Namespace<sp/>mknix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunction.h"/>
+  </compounddef>
+</doxygen>

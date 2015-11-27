@@ -1,0 +1,414 @@
+\hypertarget{classmknix_1_1_point}{\subsection{mknix\-:\-:Point Class Reference}
+\label{classmknix_1_1_point}\index{mknix\-::\-Point@{mknix\-::\-Point}}
+}
+
+
+{\ttfamily \#include $<$point.\-h$>$}
+
+
+
+Inheritance diagram for mknix\-:\-:Point\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{d1/d48/classmknix_1_1_point__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mknix\-:\-:Point\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=194pt]{d6/d9a/classmknix_1_1_point__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmknix_1_1_point_ade62bb71dbbd34efa4ed5090f37f2d9a}{Point} ()
+\item 
+\hyperlink{classmknix_1_1_point_ae9012b54d57e557b16d47e56857cd624}{Point} (double coor\-\_\-x, double coor\-\_\-y, double coor\-\_\-z)
+\item 
+\hyperlink{classmknix_1_1_point_ad47e79bd02cbfe8e668caf9d5b9c13f0}{Point} (int \hyperlink{classmknix_1_1_point_ab97e4bca7f299237ff3f8cc2449b1be1}{dim}, double coor\-\_\-x, double coor\-\_\-y, double coor\-\_\-z, double alpha\-\_\-in, double dc\-\_\-in)
+\item 
+\hyperlink{classmknix_1_1_point_ad20e0663241df1986b8250a0ab7f2358}{$\sim$\-Point} ()
+\item 
+const double \& \hyperlink{classmknix_1_1_point_a2942110ac86c21e11986081670bb3a82}{get\-X} () const 
+\item 
+const double \& \hyperlink{classmknix_1_1_point_a16955d7ef56edea059119f93905e1196}{get\-Y} () const 
+\item 
+const double \& \hyperlink{classmknix_1_1_point_a739698b4f6a21b40e7fc7c82af69c479}{get\-Z} () const 
+\item 
+double \hyperlink{classmknix_1_1_point_a93551900ae5e76ec764af9eb894cd0c0}{distance} (\hyperlink{classmknix_1_1_point}{Point} \&)
+\item 
+void \hyperlink{classmknix_1_1_point_ac8cc95650eac1e676c11f2874d899a7b}{set\-Shape\-Fun\-Type} (std\-::string type\-\_\-in)
+\item 
+std\-::string \hyperlink{classmknix_1_1_point_af432e99d48f5db21728db72ec0d49025}{get\-Shape\-Fun\-Type} ()
+\item 
+void \hyperlink{classmknix_1_1_point_abf06bbd55297ab42ecf0ef49a258ad09}{set\-Dc} (double dc\-\_\-in)
+\item 
+void \hyperlink{classmknix_1_1_point_aeed553d37db81fa6f7ea08834ec98724}{set\-Alphai} (double alphai\-\_\-in)
+\item 
+void \hyperlink{classmknix_1_1_point_a41f06a5ee1993d52db1c629a1ab8ae3f}{add\-Support\-Node} (\hyperlink{classmknix_1_1_node}{Node} $\ast$)
+\item 
+void \hyperlink{classmknix_1_1_point_a88289f6649c16591f708e2a6f5eb749e}{find\-Support\-Nodes} (std\-::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \&)
+\item 
+void \hyperlink{classmknix_1_1_point_a13907374f703f15ffda3bb376bd19073}{find\-Support\-Nodes} (std\-::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \&, double, double, double, double)
+\item 
+virtual void \hyperlink{classmknix_1_1_point_a1843d81646fbca9519358eb3c8787e18}{shape\-Fun\-Solve} (std\-::string, double)
+\item 
+void \hyperlink{classmknix_1_1_point_aea25863c7bab8e63c09ca394546a5502}{set\-Jacobian} (double jac\-\_\-in)
+\item 
+void \hyperlink{classmknix_1_1_point_ad985b1bb6595c64f6bfc60b557e86ec9}{gnuplot\-Out} (std\-::ofstream \&)
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classmknix_1_1_point_ab97e4bca7f299237ff3f8cc2449b1be1}{dim}
+\item 
+double \hyperlink{classmknix_1_1_point_a1ab5edb86e6de2df07c3d11ed7c2ca99}{X}
+\item 
+double \hyperlink{classmknix_1_1_point_aeb9947adb5c6a4cd01ca81f4c4934ed5}{Y}
+\item 
+double \hyperlink{classmknix_1_1_point_a1742974a0d33897c3b04bc420ef87d31}{Z}
+\item 
+double \hyperlink{classmknix_1_1_point_afbd74e8b9e7081984e5b03d802f7ae14}{alphai}
+\item 
+double \hyperlink{classmknix_1_1_point_a310b40e3859627d344de048bbdb1db6f}{dc}
+\item 
+std\-::string \hyperlink{classmknix_1_1_point_a60c4d06445f397a9813b9a7f2a563d0d}{shape\-Fun\-Type}
+\item 
+std\-::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \hyperlink{classmknix_1_1_point_ad258bb20504bbe5c32360f73ec62671a}{support\-Nodes}
+\item 
+\hyperlink{classmknix_1_1_shape_function}{Shape\-Function} $\ast$ \hyperlink{classmknix_1_1_point_a852c997f667d6029c6062ef68582c275}{shape\-Fun}
+\item 
+int \hyperlink{classmknix_1_1_point_af2f2861988d3dfd6625822140f8e04d3}{support\-Nodes\-Size}
+\item 
+double \hyperlink{classmknix_1_1_point_a7afc6bd82b8e3619d384a41d9c2f1601}{jacobian}
+\end{DoxyCompactItemize}
+\subsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classmknix_1_1_point_a49d4fb4846aabd1919c5358170ff9da7}{Gauss\-Point}
+\item 
+class \hyperlink{classmknix_1_1_point_a65b2654dc4464f92687e22eb5a247f20}{Shape\-Function}
+\item 
+class \hyperlink{classmknix_1_1_point_ad76d1b525e65d47484187892160efd74}{Shape\-Function\-R\-B\-F}
+\item 
+class \hyperlink{classmknix_1_1_point_a07440917ac5f62def0ce649ad0066552}{Shape\-Function\-M\-L\-S}
+\item 
+class \hyperlink{classmknix_1_1_point_aa3a0c73566e859e80c29b9e691b31451}{Shape\-Function\-Tetrahedron}
+\item 
+class \hyperlink{classmknix_1_1_point_a64bc125443b7c740a25d032c8294c4db}{Shape\-Function\-Triangle}
+\item 
+class \hyperlink{classmknix_1_1_point_a141afa4d313293225cc307a84fa17756}{Shape\-Function\-Linear}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Daniel Iglesias 
+\end{DoxyAuthor}
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{classmknix_1_1_point_ade62bb71dbbd34efa4ed5090f37f2d9a}{\index{mknix\-::\-Point@{mknix\-::\-Point}!Point@{Point}}
+\index{Point@{Point}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{Point}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Point\-::\-Point (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_point_ade62bb71dbbd34efa4ed5090f37f2d9a}
+\hypertarget{classmknix_1_1_point_ae9012b54d57e557b16d47e56857cd624}{\index{mknix\-::\-Point@{mknix\-::\-Point}!Point@{Point}}
+\index{Point@{Point}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{Point}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Point\-::\-Point (
+\begin{DoxyParamCaption}
+\item[{double}]{coor\-\_\-x, }
+\item[{double}]{coor\-\_\-y, }
+\item[{double}]{coor\-\_\-z}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_point_ae9012b54d57e557b16d47e56857cd624}
+\hypertarget{classmknix_1_1_point_ad47e79bd02cbfe8e668caf9d5b9c13f0}{\index{mknix\-::\-Point@{mknix\-::\-Point}!Point@{Point}}
+\index{Point@{Point}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{Point}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Point\-::\-Point (
+\begin{DoxyParamCaption}
+\item[{int}]{dim, }
+\item[{double}]{coor\-\_\-x, }
+\item[{double}]{coor\-\_\-y, }
+\item[{double}]{coor\-\_\-z, }
+\item[{double}]{alpha\-\_\-in, }
+\item[{double}]{dc\-\_\-in}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_point_ad47e79bd02cbfe8e668caf9d5b9c13f0}
+\hypertarget{classmknix_1_1_point_ad20e0663241df1986b8250a0ab7f2358}{\index{mknix\-::\-Point@{mknix\-::\-Point}!$\sim$\-Point@{$\sim$\-Point}}
+\index{$\sim$\-Point@{$\sim$\-Point}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{$\sim$\-Point}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Point\-::$\sim$\-Point (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_point_ad20e0663241df1986b8250a0ab7f2358}
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classmknix_1_1_point_a41f06a5ee1993d52db1c629a1ab8ae3f}{\index{mknix\-::\-Point@{mknix\-::\-Point}!add\-Support\-Node@{add\-Support\-Node}}
+\index{add\-Support\-Node@{add\-Support\-Node}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{add\-Support\-Node}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Point\-::add\-Support\-Node (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{node\-\_\-in}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_point_a41f06a5ee1993d52db1c629a1ab8ae3f}
+\hypertarget{classmknix_1_1_point_a93551900ae5e76ec764af9eb894cd0c0}{\index{mknix\-::\-Point@{mknix\-::\-Point}!distance@{distance}}
+\index{distance@{distance}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{distance}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Point\-::distance (
+\begin{DoxyParamCaption}
+\item[{{\bf Point} \&}]{node\-\_\-in}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_point_a93551900ae5e76ec764af9eb894cd0c0}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{d3/d19/classmknix_1_1_point_a93551900ae5e76ec764af9eb894cd0c0_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d19/classmknix_1_1_point_a93551900ae5e76ec764af9eb894cd0c0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_point_a88289f6649c16591f708e2a6f5eb749e}{\index{mknix\-::\-Point@{mknix\-::\-Point}!find\-Support\-Nodes@{find\-Support\-Nodes}}
+\index{find\-Support\-Nodes@{find\-Support\-Nodes}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{find\-Support\-Nodes}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Point\-::find\-Support\-Nodes (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Node} $\ast$ $>$ \&}]{domain\-Nodes}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_point_a88289f6649c16591f708e2a6f5eb749e}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d19/classmknix_1_1_point_a88289f6649c16591f708e2a6f5eb749e_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_point_a13907374f703f15ffda3bb376bd19073}{\index{mknix\-::\-Point@{mknix\-::\-Point}!find\-Support\-Nodes@{find\-Support\-Nodes}}
+\index{find\-Support\-Nodes@{find\-Support\-Nodes}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{find\-Support\-Nodes}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Point\-::find\-Support\-Nodes (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Node} $\ast$ $>$ \&}]{domain\-Nodes, }
+\item[{double}]{domain\-\_\-min\-X, }
+\item[{double}]{domain\-\_\-max\-X, }
+\item[{double}]{domain\-\_\-min\-Y, }
+\item[{double}]{domain\-\_\-max\-Y}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_point_a13907374f703f15ffda3bb376bd19073}
+\hypertarget{classmknix_1_1_point_af432e99d48f5db21728db72ec0d49025}{\index{mknix\-::\-Point@{mknix\-::\-Point}!get\-Shape\-Fun\-Type@{get\-Shape\-Fun\-Type}}
+\index{get\-Shape\-Fun\-Type@{get\-Shape\-Fun\-Type}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{get\-Shape\-Fun\-Type}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mknix\-::\-Point\-::get\-Shape\-Fun\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_point_af432e99d48f5db21728db72ec0d49025}
+\hypertarget{classmknix_1_1_point_a2942110ac86c21e11986081670bb3a82}{\index{mknix\-::\-Point@{mknix\-::\-Point}!get\-X@{get\-X}}
+\index{get\-X@{get\-X}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{get\-X}]{\setlength{\rightskip}{0pt plus 5cm}const double\& mknix\-::\-Point\-::get\-X (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_point_a2942110ac86c21e11986081670bb3a82}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d19/classmknix_1_1_point_a2942110ac86c21e11986081670bb3a82_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_point_a16955d7ef56edea059119f93905e1196}{\index{mknix\-::\-Point@{mknix\-::\-Point}!get\-Y@{get\-Y}}
+\index{get\-Y@{get\-Y}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{get\-Y}]{\setlength{\rightskip}{0pt plus 5cm}const double\& mknix\-::\-Point\-::get\-Y (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_point_a16955d7ef56edea059119f93905e1196}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d19/classmknix_1_1_point_a16955d7ef56edea059119f93905e1196_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_point_a739698b4f6a21b40e7fc7c82af69c479}{\index{mknix\-::\-Point@{mknix\-::\-Point}!get\-Z@{get\-Z}}
+\index{get\-Z@{get\-Z}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{get\-Z}]{\setlength{\rightskip}{0pt plus 5cm}const double\& mknix\-::\-Point\-::get\-Z (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_point_a739698b4f6a21b40e7fc7c82af69c479}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d19/classmknix_1_1_point_a739698b4f6a21b40e7fc7c82af69c479_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_point_ad985b1bb6595c64f6bfc60b557e86ec9}{\index{mknix\-::\-Point@{mknix\-::\-Point}!gnuplot\-Out@{gnuplot\-Out}}
+\index{gnuplot\-Out@{gnuplot\-Out}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{gnuplot\-Out}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Point\-::gnuplot\-Out (
+\begin{DoxyParamCaption}
+\item[{std\-::ofstream \&}]{gpdata}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_point_ad985b1bb6595c64f6bfc60b557e86ec9}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d19/classmknix_1_1_point_ad985b1bb6595c64f6bfc60b557e86ec9_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_point_aeed553d37db81fa6f7ea08834ec98724}{\index{mknix\-::\-Point@{mknix\-::\-Point}!set\-Alphai@{set\-Alphai}}
+\index{set\-Alphai@{set\-Alphai}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{set\-Alphai}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Point\-::set\-Alphai (
+\begin{DoxyParamCaption}
+\item[{double}]{alphai\-\_\-in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_point_aeed553d37db81fa6f7ea08834ec98724}
+\hypertarget{classmknix_1_1_point_abf06bbd55297ab42ecf0ef49a258ad09}{\index{mknix\-::\-Point@{mknix\-::\-Point}!set\-Dc@{set\-Dc}}
+\index{set\-Dc@{set\-Dc}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{set\-Dc}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Point\-::set\-Dc (
+\begin{DoxyParamCaption}
+\item[{double}]{dc\-\_\-in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_point_abf06bbd55297ab42ecf0ef49a258ad09}
+\hypertarget{classmknix_1_1_point_aea25863c7bab8e63c09ca394546a5502}{\index{mknix\-::\-Point@{mknix\-::\-Point}!set\-Jacobian@{set\-Jacobian}}
+\index{set\-Jacobian@{set\-Jacobian}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{set\-Jacobian}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Point\-::set\-Jacobian (
+\begin{DoxyParamCaption}
+\item[{double}]{jac\-\_\-in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_point_aea25863c7bab8e63c09ca394546a5502}
+\hypertarget{classmknix_1_1_point_ac8cc95650eac1e676c11f2874d899a7b}{\index{mknix\-::\-Point@{mknix\-::\-Point}!set\-Shape\-Fun\-Type@{set\-Shape\-Fun\-Type}}
+\index{set\-Shape\-Fun\-Type@{set\-Shape\-Fun\-Type}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{set\-Shape\-Fun\-Type}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Point\-::set\-Shape\-Fun\-Type (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{type\-\_\-in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_point_ac8cc95650eac1e676c11f2874d899a7b}
+\hypertarget{classmknix_1_1_point_a1843d81646fbca9519358eb3c8787e18}{\index{mknix\-::\-Point@{mknix\-::\-Point}!shape\-Fun\-Solve@{shape\-Fun\-Solve}}
+\index{shape\-Fun\-Solve@{shape\-Fun\-Solve}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{shape\-Fun\-Solve}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Point\-::shape\-Fun\-Solve (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{type\-\_\-in, }
+\item[{double}]{q\-\_\-in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_point_a1843d81646fbca9519358eb3c8787e18}
+
+
+Reimplemented in \hyperlink{classmknix_1_1_gauss_point_a57e21322f3c898490257853fb2777077}{mknix\-::\-Gauss\-Point}.
+
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d19/classmknix_1_1_point_a1843d81646fbca9519358eb3c8787e18_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsubsection{Friends And Related Function Documentation}
+\hypertarget{classmknix_1_1_point_a49d4fb4846aabd1919c5358170ff9da7}{\index{mknix\-::\-Point@{mknix\-::\-Point}!Gauss\-Point@{Gauss\-Point}}
+\index{Gauss\-Point@{Gauss\-Point}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{Gauss\-Point}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Gauss\-Point}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmknix_1_1_point_a49d4fb4846aabd1919c5358170ff9da7}
+\hypertarget{classmknix_1_1_point_a65b2654dc4464f92687e22eb5a247f20}{\index{mknix\-::\-Point@{mknix\-::\-Point}!Shape\-Function@{Shape\-Function}}
+\index{Shape\-Function@{Shape\-Function}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{Shape\-Function}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Shape\-Function}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmknix_1_1_point_a65b2654dc4464f92687e22eb5a247f20}
+\hypertarget{classmknix_1_1_point_a141afa4d313293225cc307a84fa17756}{\index{mknix\-::\-Point@{mknix\-::\-Point}!Shape\-Function\-Linear@{Shape\-Function\-Linear}}
+\index{Shape\-Function\-Linear@{Shape\-Function\-Linear}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{Shape\-Function\-Linear}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Shape\-Function\-Linear}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmknix_1_1_point_a141afa4d313293225cc307a84fa17756}
+\hypertarget{classmknix_1_1_point_a07440917ac5f62def0ce649ad0066552}{\index{mknix\-::\-Point@{mknix\-::\-Point}!Shape\-Function\-M\-L\-S@{Shape\-Function\-M\-L\-S}}
+\index{Shape\-Function\-M\-L\-S@{Shape\-Function\-M\-L\-S}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{Shape\-Function\-M\-L\-S}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Shape\-Function\-M\-L\-S}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmknix_1_1_point_a07440917ac5f62def0ce649ad0066552}
+\hypertarget{classmknix_1_1_point_ad76d1b525e65d47484187892160efd74}{\index{mknix\-::\-Point@{mknix\-::\-Point}!Shape\-Function\-R\-B\-F@{Shape\-Function\-R\-B\-F}}
+\index{Shape\-Function\-R\-B\-F@{Shape\-Function\-R\-B\-F}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{Shape\-Function\-R\-B\-F}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Shape\-Function\-R\-B\-F}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmknix_1_1_point_ad76d1b525e65d47484187892160efd74}
+\hypertarget{classmknix_1_1_point_aa3a0c73566e859e80c29b9e691b31451}{\index{mknix\-::\-Point@{mknix\-::\-Point}!Shape\-Function\-Tetrahedron@{Shape\-Function\-Tetrahedron}}
+\index{Shape\-Function\-Tetrahedron@{Shape\-Function\-Tetrahedron}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{Shape\-Function\-Tetrahedron}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Shape\-Function\-Tetrahedron}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmknix_1_1_point_aa3a0c73566e859e80c29b9e691b31451}
+\hypertarget{classmknix_1_1_point_a64bc125443b7c740a25d032c8294c4db}{\index{mknix\-::\-Point@{mknix\-::\-Point}!Shape\-Function\-Triangle@{Shape\-Function\-Triangle}}
+\index{Shape\-Function\-Triangle@{Shape\-Function\-Triangle}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{Shape\-Function\-Triangle}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Shape\-Function\-Triangle}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmknix_1_1_point_a64bc125443b7c740a25d032c8294c4db}
+
+
+\subsubsection{Member Data Documentation}
+\hypertarget{classmknix_1_1_point_afbd74e8b9e7081984e5b03d802f7ae14}{\index{mknix\-::\-Point@{mknix\-::\-Point}!alphai@{alphai}}
+\index{alphai@{alphai}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{alphai}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Point\-::alphai\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_point_afbd74e8b9e7081984e5b03d802f7ae14}
+\hypertarget{classmknix_1_1_point_a310b40e3859627d344de048bbdb1db6f}{\index{mknix\-::\-Point@{mknix\-::\-Point}!dc@{dc}}
+\index{dc@{dc}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{dc}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Point\-::dc\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_point_a310b40e3859627d344de048bbdb1db6f}
+\hypertarget{classmknix_1_1_point_ab97e4bca7f299237ff3f8cc2449b1be1}{\index{mknix\-::\-Point@{mknix\-::\-Point}!dim@{dim}}
+\index{dim@{dim}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{dim}]{\setlength{\rightskip}{0pt plus 5cm}int mknix\-::\-Point\-::dim\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_point_ab97e4bca7f299237ff3f8cc2449b1be1}
+\hypertarget{classmknix_1_1_point_a7afc6bd82b8e3619d384a41d9c2f1601}{\index{mknix\-::\-Point@{mknix\-::\-Point}!jacobian@{jacobian}}
+\index{jacobian@{jacobian}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{jacobian}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Point\-::jacobian\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_point_a7afc6bd82b8e3619d384a41d9c2f1601}
+\hypertarget{classmknix_1_1_point_a852c997f667d6029c6062ef68582c275}{\index{mknix\-::\-Point@{mknix\-::\-Point}!shape\-Fun@{shape\-Fun}}
+\index{shape\-Fun@{shape\-Fun}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{shape\-Fun}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Shape\-Function}$\ast$ mknix\-::\-Point\-::shape\-Fun\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_point_a852c997f667d6029c6062ef68582c275}
+\hypertarget{classmknix_1_1_point_a60c4d06445f397a9813b9a7f2a563d0d}{\index{mknix\-::\-Point@{mknix\-::\-Point}!shape\-Fun\-Type@{shape\-Fun\-Type}}
+\index{shape\-Fun\-Type@{shape\-Fun\-Type}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{shape\-Fun\-Type}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mknix\-::\-Point\-::shape\-Fun\-Type\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_point_a60c4d06445f397a9813b9a7f2a563d0d}
+\hypertarget{classmknix_1_1_point_ad258bb20504bbe5c32360f73ec62671a}{\index{mknix\-::\-Point@{mknix\-::\-Point}!support\-Nodes@{support\-Nodes}}
+\index{support\-Nodes@{support\-Nodes}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{support\-Nodes}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Node}$\ast$$>$ mknix\-::\-Point\-::support\-Nodes\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_point_ad258bb20504bbe5c32360f73ec62671a}
+\hypertarget{classmknix_1_1_point_af2f2861988d3dfd6625822140f8e04d3}{\index{mknix\-::\-Point@{mknix\-::\-Point}!support\-Nodes\-Size@{support\-Nodes\-Size}}
+\index{support\-Nodes\-Size@{support\-Nodes\-Size}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{support\-Nodes\-Size}]{\setlength{\rightskip}{0pt plus 5cm}int mknix\-::\-Point\-::support\-Nodes\-Size\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_point_af2f2861988d3dfd6625822140f8e04d3}
+\hypertarget{classmknix_1_1_point_a1ab5edb86e6de2df07c3d11ed7c2ca99}{\index{mknix\-::\-Point@{mknix\-::\-Point}!X@{X}}
+\index{X@{X}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{X}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Point\-::\-X\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_point_a1ab5edb86e6de2df07c3d11ed7c2ca99}
+\hypertarget{classmknix_1_1_point_aeb9947adb5c6a4cd01ca81f4c4934ed5}{\index{mknix\-::\-Point@{mknix\-::\-Point}!Y@{Y}}
+\index{Y@{Y}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{Y}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Point\-::\-Y\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_point_aeb9947adb5c6a4cd01ca81f4c4934ed5}
+\hypertarget{classmknix_1_1_point_a1742974a0d33897c3b04bc420ef87d31}{\index{mknix\-::\-Point@{mknix\-::\-Point}!Z@{Z}}
+\index{Z@{Z}!mknix::Point@{mknix\-::\-Point}}
+\paragraph[{Z}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Point\-::\-Z\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_point_a1742974a0d33897c3b04bc420ef87d31}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{point_8h}{point.\-h}\item 
+\hyperlink{point_8cpp}{point.\-cpp}\end{DoxyCompactItemize}

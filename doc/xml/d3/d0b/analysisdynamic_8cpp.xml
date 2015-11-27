@@ -1,0 +1,454 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="d3/d0b/analysisdynamic_8cpp" kind="file">
+    <compoundname>analysisdynamic.cpp</compoundname>
+    <includes refid="da/d83/analysisdynamic_8h" local="yes">analysisdynamic.h</includes>
+    <includes refid="dd/d6a/simulation_8h" local="yes">simulation.h</includes>
+    <incdepgraph>
+      <node id="4359">
+        <label>celltriang.h</label>
+        <link refid="dc/d6a/celltriang_8h"/>
+        <childnode refid="4353" relation="include">
+        </childnode>
+      </node>
+      <node id="4366">
+        <label>bodyrigid2D.h</label>
+        <link refid="d3/d80/bodyrigid2_d_8h"/>
+        <childnode refid="4364" relation="include">
+        </childnode>
+        <childnode refid="4356" relation="include">
+        </childnode>
+      </node>
+      <node id="4374">
+        <label>constraintclearance.h</label>
+        <link refid="df/de4/constraintclearance_8h"/>
+        <childnode refid="4371" relation="include">
+        </childnode>
+      </node>
+      <node id="4349">
+        <label>bodyflexglobalgalerkin.h</label>
+        <link refid="df/d1c/bodyflexglobalgalerkin_8h"/>
+        <childnode refid="4350" relation="include">
+        </childnode>
+      </node>
+      <node id="4358">
+        <label>material.h</label>
+        <link refid="d3/d65/material_8h"/>
+        <childnode refid="4339" relation="include">
+        </childnode>
+      </node>
+      <node id="4351">
+        <label>body.h</label>
+        <link refid="d0/d77/body_8h"/>
+        <childnode refid="4338" relation="include">
+        </childnode>
+        <childnode refid="4339" relation="include">
+        </childnode>
+      </node>
+      <node id="4353">
+        <label>cell.h</label>
+        <link refid="d0/ddd/cell_8h"/>
+        <childnode refid="4354" relation="include">
+        </childnode>
+      </node>
+      <node id="4371">
+        <label>constraint.h</label>
+        <link refid="dc/d4d/constraint_8h"/>
+        <childnode refid="4338" relation="include">
+        </childnode>
+        <childnode refid="4339" relation="include">
+        </childnode>
+      </node>
+      <node id="4348">
+        <label>string</label>
+      </node>
+      <node id="4347">
+        <label>map</label>
+      </node>
+      <node id="4357">
+        <label>point.h</label>
+        <link refid="d2/d91/point_8h"/>
+        <childnode refid="4355" relation="include">
+        </childnode>
+        <childnode refid="4347" relation="include">
+        </childnode>
+        <childnode refid="4348" relation="include">
+        </childnode>
+        <childnode refid="4338" relation="include">
+        </childnode>
+      </node>
+      <node id="4343">
+        <label>analysisthermaldynamic.h</label>
+        <link refid="d1/d1f/analysisthermaldynamic_8h"/>
+        <childnode refid="4337" relation="include">
+        </childnode>
+      </node>
+      <node id="4335">
+        <label>analysisdynamic.cpp</label>
+        <link refid="analysisdynamic.cpp"/>
+        <childnode refid="4336" relation="include">
+        </childnode>
+        <childnode refid="4342" relation="include">
+        </childnode>
+      </node>
+      <node id="4338">
+        <label>common.h</label>
+        <link refid="dc/d54/common_8h"/>
+      </node>
+      <node id="4368">
+        <label>bodythermal.h</label>
+        <link refid="d3/d0b/bodythermal_8h"/>
+        <childnode refid="4339" relation="include">
+        </childnode>
+        <childnode refid="4352" relation="include">
+        </childnode>
+        <childnode refid="4359" relation="include">
+        </childnode>
+        <childnode refid="4360" relation="include">
+        </childnode>
+        <childnode refid="4361" relation="include">
+        </childnode>
+        <childnode refid="4362" relation="include">
+        </childnode>
+        <childnode refid="4356" relation="include">
+        </childnode>
+        <childnode refid="4369" relation="include">
+        </childnode>
+      </node>
+      <node id="4342">
+        <label>simulation.h</label>
+        <link refid="dd/d6a/simulation_8h"/>
+        <childnode refid="4336" relation="include">
+        </childnode>
+        <childnode refid="4343" relation="include">
+        </childnode>
+        <childnode refid="4344" relation="include">
+        </childnode>
+        <childnode refid="4345" relation="include">
+        </childnode>
+        <childnode refid="4346" relation="include">
+        </childnode>
+        <childnode refid="4356" relation="include">
+        </childnode>
+        <childnode refid="4358" relation="include">
+        </childnode>
+      </node>
+      <node id="4345">
+        <label>analysisthermalstatic.h</label>
+        <link refid="db/d65/analysisthermalstatic_8h"/>
+        <childnode refid="4337" relation="include">
+        </childnode>
+      </node>
+      <node id="4369">
+        <label>thermalload.h</label>
+        <link refid="de/df4/thermalload_8h"/>
+        <childnode refid="4338" relation="include">
+        </childnode>
+        <childnode refid="4339" relation="include">
+        </childnode>
+        <childnode refid="4347" relation="include">
+        </childnode>
+      </node>
+      <node id="4336">
+        <label>analysisdynamic.h</label>
+        <link refid="da/d83/analysisdynamic_8h"/>
+        <childnode refid="4337" relation="include">
+        </childnode>
+      </node>
+      <node id="4362">
+        <label>elemtetrahedron.h</label>
+        <link refid="d3/d9f/elemtetrahedron_8h"/>
+        <childnode refid="4360" relation="include">
+        </childnode>
+      </node>
+      <node id="4344">
+        <label>analysisstatic.h</label>
+        <link refid="d4/d87/analysisstatic_8h"/>
+        <childnode refid="4337" relation="include">
+        </childnode>
+      </node>
+      <node id="4375">
+        <label>force.h</label>
+        <link refid="dd/d0d/force_8h"/>
+        <childnode refid="4376" relation="include">
+        </childnode>
+      </node>
+      <node id="4361">
+        <label>elemtriangle.h</label>
+        <link refid="df/d03/elemtriangle_8h"/>
+        <childnode refid="4359" relation="include">
+        </childnode>
+      </node>
+      <node id="4355">
+        <label>vector</label>
+      </node>
+      <node id="4372">
+        <label>constraintfixedcoordinates.h</label>
+        <link refid="d4/d28/constraintfixedcoordinates_8h"/>
+        <childnode refid="4371" relation="include">
+        </childnode>
+      </node>
+      <node id="4352">
+        <label>cellrect.h</label>
+        <link refid="d8/d84/cellrect_8h"/>
+        <childnode refid="4353" relation="include">
+        </childnode>
+      </node>
+      <node id="4370">
+        <label>constraintdistance.h</label>
+        <link refid="da/df6/constraintdistance_8h"/>
+        <childnode refid="4371" relation="include">
+        </childnode>
+      </node>
+      <node id="4339">
+        <label>LMX/lmx.h</label>
+      </node>
+      <node id="4350">
+        <label>bodyflex.h</label>
+        <link refid="dd/dbc/bodyflex_8h"/>
+        <childnode refid="4351" relation="include">
+        </childnode>
+        <childnode refid="4352" relation="include">
+        </childnode>
+        <childnode refid="4359" relation="include">
+        </childnode>
+        <childnode refid="4360" relation="include">
+        </childnode>
+        <childnode refid="4361" relation="include">
+        </childnode>
+        <childnode refid="4362" relation="include">
+        </childnode>
+        <childnode refid="4356" relation="include">
+        </childnode>
+      </node>
+      <node id="4340">
+        <label>LMX/lmx_diff_problem_first.h</label>
+      </node>
+      <node id="4346">
+        <label>system.h</label>
+        <link refid="dc/db2/system_8h"/>
+        <childnode refid="4347" relation="include">
+        </childnode>
+        <childnode refid="4348" relation="include">
+        </childnode>
+        <childnode refid="4339" relation="include">
+        </childnode>
+        <childnode refid="4349" relation="include">
+        </childnode>
+        <childnode refid="4363" relation="include">
+        </childnode>
+        <childnode refid="4365" relation="include">
+        </childnode>
+        <childnode refid="4366" relation="include">
+        </childnode>
+        <childnode refid="4367" relation="include">
+        </childnode>
+        <childnode refid="4368" relation="include">
+        </childnode>
+        <childnode refid="4370" relation="include">
+        </childnode>
+        <childnode refid="4372" relation="include">
+        </childnode>
+        <childnode refid="4373" relation="include">
+        </childnode>
+        <childnode refid="4374" relation="include">
+        </childnode>
+        <childnode refid="4375" relation="include">
+        </childnode>
+        <childnode refid="4369" relation="include">
+        </childnode>
+      </node>
+      <node id="4373">
+        <label>constraintfixedaxis.h</label>
+        <link refid="d8/dfb/constraintfixedaxis_8h"/>
+        <childnode refid="4371" relation="include">
+        </childnode>
+      </node>
+      <node id="4360">
+        <label>celltetrahedron.h</label>
+        <link refid="d1/d94/celltetrahedron_8h"/>
+        <childnode refid="4353" relation="include">
+        </childnode>
+      </node>
+      <node id="4365">
+        <label>bodyrigid1D.h</label>
+        <link refid="d7/d1c/bodyrigid1_d_8h"/>
+        <childnode refid="4364" relation="include">
+        </childnode>
+        <childnode refid="4356" relation="include">
+        </childnode>
+      </node>
+      <node id="4354">
+        <label>gausspoint.h</label>
+        <link refid="d4/dc6/gausspoint_8h"/>
+        <childnode refid="4355" relation="include">
+        </childnode>
+        <childnode refid="4347" relation="include">
+        </childnode>
+        <childnode refid="4356" relation="include">
+        </childnode>
+        <childnode refid="4357" relation="include">
+        </childnode>
+        <childnode refid="4338" relation="include">
+        </childnode>
+        <childnode refid="4358" relation="include">
+        </childnode>
+      </node>
+      <node id="4356">
+        <label>node.h</label>
+        <link refid="d1/d77/node_8h"/>
+        <childnode refid="4355" relation="include">
+        </childnode>
+        <childnode refid="4357" relation="include">
+        </childnode>
+        <childnode refid="4339" relation="include">
+        </childnode>
+      </node>
+      <node id="4341">
+        <label>LMX/lmx_diff_problem_second.h</label>
+      </node>
+      <node id="4363">
+        <label>bodyrigid0D.h</label>
+        <link refid="da/d60/bodyrigid0_d_8h"/>
+        <childnode refid="4364" relation="include">
+        </childnode>
+        <childnode refid="4356" relation="include">
+        </childnode>
+      </node>
+      <node id="4337">
+        <label>analysis.h</label>
+        <link refid="d2/d40/analysis_8h"/>
+        <childnode refid="4338" relation="include">
+        </childnode>
+        <childnode refid="4339" relation="include">
+        </childnode>
+        <childnode refid="4340" relation="include">
+        </childnode>
+        <childnode refid="4341" relation="include">
+        </childnode>
+      </node>
+      <node id="4364">
+        <label>bodyrigid.h</label>
+        <link refid="d1/d67/bodyrigid_8h"/>
+        <childnode refid="4351" relation="include">
+        </childnode>
+      </node>
+      <node id="4367">
+        <label>bodyrigid3D.h</label>
+        <link refid="d1/dbe/bodyrigid3_d_8h"/>
+        <childnode refid="4364" relation="include">
+        </childnode>
+        <childnode refid="4356" relation="include">
+        </childnode>
+      </node>
+      <node id="4376">
+        <label>load.h</label>
+        <link refid="dc/d61/load_8h"/>
+        <childnode refid="4338" relation="include">
+        </childnode>
+        <childnode refid="4339" relation="include">
+        </childnode>
+        <childnode refid="4356" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="d2/dde/namespacemknix">mknix</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2013<sp/>by<sp/>Daniel<sp/>Iglesias<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/>http://code.google.com/p/mknix<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,<sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/>along<sp/>with<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/><sp/>Free<sp/>Software<sp/>Foundation,<sp/>Inc.,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/>59<sp/>Temple<sp/>Place<sp/>-<sp/>Suite<sp/>330,<sp/>Boston,<sp/>MA<sp/><sp/>02111-1307,<sp/>USA.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="da/d83/analysisdynamic_8h" kindref="compound">analysisdynamic.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="dd/d6a/simulation_8h" kindref="compound">simulation.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mknix<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a1457ddff8dfa14a90605248f4b953851" refkind="member"><highlight class="normal"><ref refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a1457ddff8dfa14a90605248f4b953851" kindref="member">AnalysisDynamic::AnalysisDynamic</ref>()</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/>:<sp/><ref refid="df/d86/classmknix_1_1_analysis" kindref="compound">Analysis</ref>()</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a452203e81d27283089fe500b32c7ab55" refkind="member"><highlight class="normal"><ref refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a1457ddff8dfa14a90605248f4b953851" kindref="member">AnalysisDynamic::AnalysisDynamic</ref>(<sp/><ref refid="db/d0b/classmknix_1_1_simulation" kindref="compound">Simulation</ref>*<sp/>simulation_in,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>to_in,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>tf_in,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>At_in,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*<sp/>integrator_in,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>par1<sp/>=<sp/>-1.,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>par2<sp/>=<sp/>-1.,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>par3<sp/>=<sp/>-1.<sp/>)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/>:<sp/><sp/><sp/><ref refid="df/d86/classmknix_1_1_analysis" kindref="compound">Analysis</ref>(simulation_in)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>integratorType(integrator_in)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>to(to_in)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>tf(tf_in)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>At(At_in)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>theProblem.setDiffSystem(<sp/>*<ref refid="df/d86/classmknix_1_1_analysis_1a1abc29e3b8565590b6bf0ce2d8b3b68f" kindref="member">theSimulation</ref><sp/>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(par1<sp/>==<sp/>-1.){</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>theProblem.setIntegrator(<sp/>integrator_in<sp/>);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(par2<sp/>==<sp/>-1.){</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>theProblem.setIntegrator(<sp/>integrator_in,<sp/>par1<sp/>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(par3<sp/>==<sp/>-1.){</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>theProblem.setIntegrator(<sp/>integrator_in,<sp/>par1,<sp/>par2<sp/>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>theProblem.setIntegrator(<sp/>integrator_in,<sp/>par1,<sp/>par2,<sp/>par3<sp/>);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/>theProblem.setTimeParameters(<sp/>to_in,<sp/>tf_in,<sp/>At_in<sp/>);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>theProblem.setOutputFile(&quot;dis.dat&quot;,<sp/>0);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/>theProblem.setOutputFile(</highlight><highlight class="stringliteral">&quot;vel.dat&quot;</highlight><highlight class="normal">,<sp/>1);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/>theProblem.setOutputFile(</highlight><highlight class="stringliteral">&quot;acc.dat&quot;</highlight><highlight class="normal">,<sp/>2);</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/>theProblem.setEvaluation(<sp/>&amp;<ref refid="db/d0b/classmknix_1_1_simulation_1ace4ce2a959690e14c443b3c6e83c2690" kindref="member">Simulation::dynamicAcceleration</ref><sp/>);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/>theProblem.setResidue(<sp/>&amp;<ref refid="db/d0b/classmknix_1_1_simulation_1ae78bef0d5f80665be4a0c2d926e99973" kindref="member">Simulation::dynamicResidue</ref><sp/>);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/>theProblem.setJacobian(<sp/>&amp;<ref refid="db/d0b/classmknix_1_1_simulation_1a226a281591cb1b0bac253a3dcce19e5b" kindref="member">Simulation::dynamicTangent</ref><sp/>);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="df/d86/classmknix_1_1_analysis_1a7e0439caf5fa5f90d808acec6d75b72f" kindref="member">epsilon</ref><sp/>==<sp/>0.0)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>theProblem.setConvergence(<sp/>&amp;<ref refid="db/d0b/classmknix_1_1_simulation_1a0bb5d6c4c6eccc35e892b710af40616f" kindref="member">Simulation::dynamicConvergence</ref><sp/>);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>theProblem.setConvergence(<sp/><ref refid="df/d86/classmknix_1_1_analysis_1a7e0439caf5fa5f90d808acec6d75b72f" kindref="member">epsilon</ref><sp/>);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/>theProblem.setStepTriggered(<sp/>&amp;<ref refid="db/d0b/classmknix_1_1_simulation_1a9fd95351d7fe3ce2ba1991d6aae6a804" kindref="member">Simulation::stepTriggered</ref><sp/>);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a85fd7662ea3228c608c6761ffc4e46d4" refkind="member"><highlight class="normal"><ref refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a85fd7662ea3228c608c6761ffc4e46d4" kindref="member">AnalysisDynamic::~AnalysisDynamic</ref>()</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79" refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a43c9ab1907cb3cd72f3f4d605d2fa8ae" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a43c9ab1907cb3cd72f3f4d605d2fa8ae" kindref="member">AnalysisDynamic::solve</ref>(<sp/>lmx::Vector&lt;<sp/>data_type<sp/>&gt;<sp/>*<sp/>q_in,</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lmx::Vector&lt;<sp/>data_type<sp/>&gt;<sp/>*<sp/>qdot_in</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>lmx::getMatrixType()<sp/>==<sp/>1<sp/>)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>theProblem.setSparsePatternJacobian(<sp/><ref refid="df/d86/classmknix_1_1_analysis_1a1abc29e3b8565590b6bf0ce2d8b3b68f" kindref="member">theSimulation</ref>-&gt;<ref refid="db/d0b/classmknix_1_1_simulation_1a7531cdc469c142e3b2d7f4e1738d65c9" kindref="member">getSparsePattern</ref>()<sp/>);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>theProblem.setInitialConfiguration(<sp/>*q_in,<sp/>*qdot_in<sp/>);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/>theProblem.solve();</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.cpp"/>
+  </compounddef>
+</doxygen>

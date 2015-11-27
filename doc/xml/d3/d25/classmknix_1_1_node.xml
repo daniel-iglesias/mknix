@@ -1,0 +1,737 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="d3/d25/classmknix_1_1_node" kind="class" prot="public">
+    <compoundname>mknix::Node</compoundname>
+    <basecompoundref refid="d3/d19/classmknix_1_1_point" prot="public" virt="non-virtual">mknix::Point</basecompoundref>
+    <includes refid="d1/d77/node_8h" local="no">node.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d3/d25/classmknix_1_1_node_1ad2c14bb15387bdc1fb4a2c049fca8609" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mknix::Node::num</definition>
+        <argsstring></argsstring>
+        <name>num</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="111" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d3/d25/classmknix_1_1_node_1aedb2e4802acce673a73365718f53a2ff" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Node::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="112" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d3/d25/classmknix_1_1_node_1a45ad0400275cfb9c6d978eb916ca37bc" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Node::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="112" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d3/d25/classmknix_1_1_node_1a36c385e9abfb27cfcb6e2d8d4741d234" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Node::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="112" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d3/d25/classmknix_1_1_node_1a67f8bec7a6d4ee1b66ffd87794f96431" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Node::weight</definition>
+        <argsstring></argsstring>
+        <name>weight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="114" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1ad5856bda16e785c0900ee1d6c18ccecb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Node::Node</definition>
+        <argsstring>()</argsstring>
+        <name>Node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="34" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.cpp" bodystart="28" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1a2e851819b5478c2110bbbd71fec6a3bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Node::Node</definition>
+        <argsstring>(const Node &amp;)</argsstring>
+        <name>Node</name>
+        <param>
+          <type>const <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> &amp;</type>
+          <defname>p_node_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="36" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.cpp" bodystart="31" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1a25d1e3213d5db7c7d29d68c00036f4cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Node::Node</definition>
+        <argsstring>(Node *)</argsstring>
+        <name>Node</name>
+        <param>
+          <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+          <defname>p_node_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="38" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.cpp" bodystart="40" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1a14799609698201dafea7d60684c12708" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Node::Node</definition>
+        <argsstring>(int i_in, double x_in, double y_in, double z_in)</argsstring>
+        <name>Node</name>
+        <param>
+          <type>int</type>
+          <declname>i_in</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>x_in</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>y_in</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>z_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="40" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.cpp" bodystart="49" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1adb415bbf3cd9031c1b45f3b2d36282e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Node::~Node</definition>
+        <argsstring>()</argsstring>
+        <name>~Node</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="42" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.cpp" bodystart="59" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1a53140afb6f6f4dcffb1003e7fc86172d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Node::addWeight</definition>
+        <argsstring>(double w_in)</argsstring>
+        <name>addWeight</name>
+        <param>
+          <type>double</type>
+          <declname>w_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="44" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="44" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1ae8b387a63a6c6e1daaa4b33360dd6cd3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const double &amp;</type>
+        <definition>const double&amp; mknix::Node::getWeight</definition>
+        <argsstring>()</argsstring>
+        <name>getWeight</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="46" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1a05e294322b5a045037da041beaaff9f8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const int &amp;</type>
+        <definition>const int&amp; mknix::Node::getNumber</definition>
+        <argsstring>() const </argsstring>
+        <name>getNumber</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="48" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="48" bodyend="48"/>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1a209f5158efc66c282da2be880535c392" compoundref="d7/d70/node_8cpp" startline="105" endline="125">getSupportNodeNumber</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1a6c08fe7fdeb154268c4a0a6e435bc561" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const void</type>
+        <definition>const void mknix::Node::setNumber</definition>
+        <argsstring>(int num_in)</argsstring>
+        <name>setNumber</name>
+        <param>
+          <type>int</type>
+          <declname>num_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="50" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="50" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const double &amp;</type>
+        <definition>const double&amp; mknix::Node::getx</definition>
+        <argsstring>() const </argsstring>
+        <name>getx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="52" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="52" bodyend="52"/>
+        <referencedby refid="d6/dd9/classmknix_1_1_rigid_bar_1ac47bc0c8fc15e799f67a76925b5919bf" compoundref="d5/d29/bodyrigid1_d_8cpp" startline="31" endline="81">mknix::RigidBar::RigidBar</referencedby>
+        <referencedby refid="d9/d39/classmknix_1_1_cell_tetrahedron_1aa462fd7b0dffd4896100e413e60b55d1" compoundref="d3/d93/celltetrahedron_8cpp" startline="11" endline="59">mknix::CellTetrahedron::CellTetrahedron</referencedby>
+        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a419492f1358e31432d6f686ee8ef1609" compoundref="d0/ddf/celltriang_8cpp" startline="11" endline="40">mknix::CellTriang::CellTriang</referencedby>
+        <referencedby refid="d1/d90/classmknix_1_1_comp_bar_1afdb8c9aeaa0ac6aec90075dad6e35c92" compoundref="db/dcb/compbar_8cpp" startline="40" endline="64">mknix::CompBar::CompBar</referencedby>
+        <referencedby refid="d1/d90/classmknix_1_1_comp_bar_1aadfecc285b6aecc94d45df348f1974b3" compoundref="db/dcb/compbar_8cpp" startline="72" endline="82">mknix::CompBar::actualizePoints</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1aec7a69d8e7b6ea71636b1b2ac6d30e1a" compoundref="d7/d70/node_8cpp" startline="62" endline="81">getConf</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const double &amp;</type>
+        <definition>const double&amp; mknix::Node::gety</definition>
+        <argsstring>() const </argsstring>
+        <name>gety</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="54" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="54" bodyend="54"/>
+        <referencedby refid="d6/dd9/classmknix_1_1_rigid_bar_1ac47bc0c8fc15e799f67a76925b5919bf" compoundref="d5/d29/bodyrigid1_d_8cpp" startline="31" endline="81">mknix::RigidBar::RigidBar</referencedby>
+        <referencedby refid="d9/d39/classmknix_1_1_cell_tetrahedron_1aa462fd7b0dffd4896100e413e60b55d1" compoundref="d3/d93/celltetrahedron_8cpp" startline="11" endline="59">mknix::CellTetrahedron::CellTetrahedron</referencedby>
+        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a419492f1358e31432d6f686ee8ef1609" compoundref="d0/ddf/celltriang_8cpp" startline="11" endline="40">mknix::CellTriang::CellTriang</referencedby>
+        <referencedby refid="d1/d90/classmknix_1_1_comp_bar_1afdb8c9aeaa0ac6aec90075dad6e35c92" compoundref="db/dcb/compbar_8cpp" startline="40" endline="64">mknix::CompBar::CompBar</referencedby>
+        <referencedby refid="d1/d90/classmknix_1_1_comp_bar_1aadfecc285b6aecc94d45df348f1974b3" compoundref="db/dcb/compbar_8cpp" startline="72" endline="82">mknix::CompBar::actualizePoints</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const double &amp;</type>
+        <definition>const double&amp; mknix::Node::getz</definition>
+        <argsstring>() const </argsstring>
+        <name>getz</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="56" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="56" bodyend="56"/>
+        <referencedby refid="d6/dd9/classmknix_1_1_rigid_bar_1ac47bc0c8fc15e799f67a76925b5919bf" compoundref="d5/d29/bodyrigid1_d_8cpp" startline="31" endline="81">mknix::RigidBar::RigidBar</referencedby>
+        <referencedby refid="d9/d39/classmknix_1_1_cell_tetrahedron_1aa462fd7b0dffd4896100e413e60b55d1" compoundref="d3/d93/celltetrahedron_8cpp" startline="11" endline="59">mknix::CellTetrahedron::CellTetrahedron</referencedby>
+        <referencedby refid="d1/d90/classmknix_1_1_comp_bar_1afdb8c9aeaa0ac6aec90075dad6e35c92" compoundref="db/dcb/compbar_8cpp" startline="40" endline="64">mknix::CompBar::CompBar</referencedby>
+        <referencedby refid="d1/d90/classmknix_1_1_comp_bar_1aadfecc285b6aecc94d45df348f1974b3" compoundref="db/dcb/compbar_8cpp" startline="72" endline="82">mknix::CompBar::actualizePoints</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1ae476990e21c07b32a42360f71f356dc4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double mknix::Node::getx</definition>
+        <argsstring>(int i)</argsstring>
+        <name>getx</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="58" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="58" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1a0402cc10656f4f1bf23a3a2e5530d847" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double mknix::Node::getUx</definition>
+        <argsstring>()</argsstring>
+        <name>getUx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="66" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="66" bodyend="66"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" compoundref="d2/d91/point_8h" startline="94">mknix::Point::X</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1a74e1bb5cd1a76a67af2bfac8c4f7531c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double mknix::Node::getUy</definition>
+        <argsstring>()</argsstring>
+        <name>getUy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="68" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="68" bodyend="68"/>
+        <references refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" compoundref="d2/d91/point_8h" startline="94">mknix::Point::Y</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1a66634d10c0cb501e7350de66adf3c09b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double mknix::Node::getUz</definition>
+        <argsstring>()</argsstring>
+        <name>getUz</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="70" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="70" bodyend="70"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" compoundref="d2/d91/point_8h" startline="94">mknix::Point::Z</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1aa89f59c02a90102c9b4aa90848afd79c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double mknix::Node::getU</definition>
+        <argsstring>(int i)</argsstring>
+        <name>getU</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="72" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="72" bodyend="78"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" compoundref="d2/d91/point_8h" startline="94">mknix::Point::X</references>
+        <references refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" compoundref="d2/d91/point_8h" startline="94">mknix::Point::Y</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" compoundref="d2/d91/point_8h" startline="94">mknix::Point::Z</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1aec7a69d8e7b6ea71636b1b2ac6d30e1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double mknix::Node::getConf</definition>
+        <argsstring>(int dof)</argsstring>
+        <name>getConf</name>
+        <param>
+          <type>int</type>
+          <declname>dof</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="80" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.cpp" bodystart="62" bodyend="81"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a60c4d06445f397a9813b9a7f2a563d0d" compoundref="d2/d91/point_8h" startline="97">mknix::Point::shapeFunType</references>
+        <references refid="d3/d19/classmknix_1_1_point_1af2f2861988d3dfd6625822140f8e04d3" compoundref="d2/d91/point_8h" startline="100">mknix::Point::supportNodesSize</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" compoundref="d2/d91/point_8h" startline="99">mknix::Point::shapeFun</references>
+        <references refid="dd/d8d/classmknix_1_1_shape_function_1a13f35e2b1cfc89c26ee03ede4bfff586" compoundref="d3/d16/shapefunction_8h" startline="41" endline="42">mknix::ShapeFunction::getPhi</references>
+        <references refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" compoundref="d2/d91/point_8h" startline="98">mknix::Point::supportNodes</references>
+        <references refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" compoundref="d1/d77/node_8h" startline="52" endline="52">getx</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1aaa7a577ee98149ca2b82711e4aa0e77a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t mknix::Node::getSupportSize</definition>
+        <argsstring>(int deriv)</argsstring>
+        <name>getSupportSize</name>
+        <param>
+          <type>int</type>
+          <declname>deriv</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="82" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.cpp" bodystart="83" bodyend="103"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a60c4d06445f397a9813b9a7f2a563d0d" compoundref="d2/d91/point_8h" startline="97">mknix::Point::shapeFunType</references>
+        <references refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" compoundref="d2/d91/point_8h" startline="98">mknix::Point::supportNodes</references>
+        <referencedby refid="d7/de2/classmknix_1_1_constraint_distance_1adc9113e52374f275b1b79bfdca72b971" compoundref="d7/d93/constraintdistance_8cpp" startline="30" endline="62">mknix::ConstraintDistance::ConstraintDistance</referencedby>
+        <referencedby refid="d7/dcd/classmknix_1_1_constraint_fixed_axis_1aa12bf0a882d86295d28d6c414c4a9d5e" compoundref="d8/d02/constraintfixedaxis_8cpp" startline="31" endline="59">mknix::ConstraintFixedAxis::ConstraintFixedAxis</referencedby>
+        <referencedby refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1a0e45a40d38156a55c34380238d369592" compoundref="d6/d46/constraintfixedcoordinates_8cpp" startline="31" endline="69">mknix::ConstraintFixedCoordinates::ConstraintFixedCoordinates</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1a209f5158efc66c282da2be880535c392" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int mknix::Node::getSupportNodeNumber</definition>
+        <argsstring>(int deriv, int s_node)</argsstring>
+        <name>getSupportNodeNumber</name>
+        <param>
+          <type>int</type>
+          <declname>deriv</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>s_node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="84" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.cpp" bodystart="105" bodyend="125"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a60c4d06445f397a9813b9a7f2a563d0d" compoundref="d2/d91/point_8h" startline="97">mknix::Point::shapeFunType</references>
+        <references refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" compoundref="d2/d91/point_8h" startline="98">mknix::Point::supportNodes</references>
+        <references refid="d3/d25/classmknix_1_1_node_1a05e294322b5a045037da041beaaff9f8" compoundref="d1/d77/node_8h" startline="48" endline="48">getNumber</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1a6051733b173a21813c1d111ae18f0e61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double mknix::Node::getShapeFunValue</definition>
+        <argsstring>(int deriv, int s_node)</argsstring>
+        <name>getShapeFunValue</name>
+        <param>
+          <type>int</type>
+          <declname>deriv</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>s_node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="86" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.cpp" bodystart="127" bodyend="131"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a60c4d06445f397a9813b9a7f2a563d0d" compoundref="d2/d91/point_8h" startline="97">mknix::Point::shapeFunType</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" compoundref="d2/d91/point_8h" startline="99">mknix::Point::shapeFun</references>
+        <references refid="dd/d8d/classmknix_1_1_shape_function_1a13f35e2b1cfc89c26ee03ede4bfff586" compoundref="d3/d16/shapefunction_8h" startline="41" endline="42">mknix::ShapeFunction::getPhi</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1adfbc2fbcbf12becd4a498cbdc6d85cb3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Node::setUx</definition>
+        <argsstring>(double ux_in)</argsstring>
+        <name>setUx</name>
+        <param>
+          <type>double</type>
+          <declname>ux_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="90" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="90" bodyend="90"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" compoundref="d2/d91/point_8h" startline="94">mknix::Point::X</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1a76378e1cb2f9d9021d44789e85a75012" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Node::setUy</definition>
+        <argsstring>(double uy_in)</argsstring>
+        <name>setUy</name>
+        <param>
+          <type>double</type>
+          <declname>uy_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="92" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="92" bodyend="92"/>
+        <references refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" compoundref="d2/d91/point_8h" startline="94">mknix::Point::Y</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1a522e185e16432892a3cee169b442035d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Node::setUz</definition>
+        <argsstring>(double uz_in)</argsstring>
+        <name>setUz</name>
+        <param>
+          <type>double</type>
+          <declname>uz_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="94" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="94" bodyend="94"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" compoundref="d2/d91/point_8h" startline="94">mknix::Point::Z</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1a1c86d8d88d55ab3bfd8dbba79a61743c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Node::setx</definition>
+        <argsstring>(const lmx::Vector&lt; data_type &gt; &amp;globalConf)</argsstring>
+        <name>setx</name>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>globalConf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="96" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.cpp" bodystart="134" bodyend="140"/>
+        <references refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" compoundref="dd/d6a/simulation_8h" startline="150" endline="150">mknix::Simulation::getDim</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1ab9e70316fb81d733fed68dc0ce9e3104" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Node::setx</definition>
+        <argsstring>(double x_in)</argsstring>
+        <name>setx</name>
+        <param>
+          <type>double</type>
+          <declname>x_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="98" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1acd378f389e87b0711acec44969249696" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Node::sety</definition>
+        <argsstring>(double y_in)</argsstring>
+        <name>sety</name>
+        <param>
+          <type>double</type>
+          <declname>y_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="100" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1a592df726bbac32dd5ed5a5e1cd378f6f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Node::setz</definition>
+        <argsstring>(double z_in)</argsstring>
+        <name>setz</name>
+        <param>
+          <type>double</type>
+          <declname>z_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="102" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="102" bodyend="102"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1aac32e597e1ec0bb85fabcbd2f14d0348" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Node::setX</definition>
+        <argsstring>(double X_in)</argsstring>
+        <name>setX</name>
+        <param>
+          <type>double</type>
+          <declname>X_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="104" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="104" bodyend="104"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" compoundref="d2/d91/point_8h" startline="94">mknix::Point::X</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1acd17b4ac110feaa43430839b6aad107b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Node::setY</definition>
+        <argsstring>(double Y_in)</argsstring>
+        <name>setY</name>
+        <param>
+          <type>double</type>
+          <declname>Y_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="106" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="106" bodyend="106"/>
+        <references refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" compoundref="d2/d91/point_8h" startline="94">mknix::Point::Y</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d25/classmknix_1_1_node_1aa294c096ab343766756ca8e5c6ec7f26" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Node::setZ</definition>
+        <argsstring>(double Z_in)</argsstring>
+        <name>setZ</name>
+        <param>
+          <type>double</type>
+          <declname>Z_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="108" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="108" bodyend="108"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" compoundref="d2/d91/point_8h" startline="94">mknix::Point::Z</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="367">
+        <label>mknix::Point</label>
+        <link refid="d3/d19/classmknix_1_1_point"/>
+      </node>
+      <node id="366">
+        <label>mknix::Node</label>
+        <link refid="d3/d25/classmknix_1_1_node"/>
+        <childnode refid="367" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="369">
+        <label>mknix::Point</label>
+        <link refid="d3/d19/classmknix_1_1_point"/>
+        <childnode refid="370" relation="usage">
+          <edgelabel>shapeFun</edgelabel>
+        </childnode>
+      </node>
+      <node id="368">
+        <label>mknix::Node</label>
+        <link refid="d3/d25/classmknix_1_1_node"/>
+        <childnode refid="369" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="370">
+        <label>mknix::ShapeFunction</label>
+        <link refid="dd/d8d/classmknix_1_1_shape_function"/>
+        <childnode refid="369" relation="usage">
+          <edgelabel>gp</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/node.h" line="32" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/node.h" bodystart="32" bodyend="115"/>
+    <listofallmembers>
+      <member refid="d3/d19/classmknix_1_1_point_1a41f06a5ee1993d52db1c629a1ab8ae3f" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>addSupportNode</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a53140afb6f6f4dcffb1003e7fc86172d" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>addWeight</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" prot="protected" virt="non-virtual"><scope>mknix::Node</scope><name>alphai</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" prot="protected" virt="non-virtual"><scope>mknix::Node</scope><name>dc</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1ab97e4bca7f299237ff3f8cc2449b1be1" prot="protected" virt="non-virtual"><scope>mknix::Node</scope><name>dim</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>distance</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a88289f6649c16591f708e2a6f5eb749e" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>findSupportNodes</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a13907374f703f15ffda3bb376bd19073" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>findSupportNodes</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1aec7a69d8e7b6ea71636b1b2ac6d30e1a" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>getConf</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a05e294322b5a045037da041beaaff9f8" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>getNumber</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1af432e99d48f5db21728db72ec0d49025" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>getShapeFunType</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a6051733b173a21813c1d111ae18f0e61" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>getShapeFunValue</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a209f5158efc66c282da2be880535c392" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>getSupportNodeNumber</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1aaa7a577ee98149ca2b82711e4aa0e77a" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>getSupportSize</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1aa89f59c02a90102c9b4aa90848afd79c" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>getU</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a0402cc10656f4f1bf23a3a2e5530d847" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>getUx</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a74e1bb5cd1a76a67af2bfac8c4f7531c" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>getUy</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a66634d10c0cb501e7350de66adf3c09b" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>getUz</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1ae8b387a63a6c6e1daaa4b33360dd6cd3" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>getWeight</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>getX</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>getx</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1ae476990e21c07b32a42360f71f356dc4" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>getx</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>getY</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>gety</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>getZ</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>getz</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1ad985b1bb6595c64f6bfc60b557e86ec9" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>gnuplotOut</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a7afc6bd82b8e3619d384a41d9c2f1601" prot="protected" virt="non-virtual"><scope>mknix::Node</scope><name>jacobian</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1ad5856bda16e785c0900ee1d6c18ccecb" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>Node</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a2e851819b5478c2110bbbd71fec6a3bb" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>Node</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a25d1e3213d5db7c7d29d68c00036f4cf" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>Node</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a14799609698201dafea7d60684c12708" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>Node</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1ad2c14bb15387bdc1fb4a2c049fca8609" prot="private" virt="non-virtual"><scope>mknix::Node</scope><name>num</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1ade62bb71dbbd34efa4ed5090f37f2d9a" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>Point</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1ae9012b54d57e557b16d47e56857cd624" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>Point</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1ad47e79bd02cbfe8e668caf9d5b9c13f0" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>Point</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1aeed553d37db81fa6f7ea08834ec98724" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>setAlphai</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1abf06bbd55297ab42ecf0ef49a258ad09" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>setDc</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1aea25863c7bab8e63c09ca394546a5502" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>setJacobian</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a6c08fe7fdeb154268c4a0a6e435bc561" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>setNumber</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1ac8cc95650eac1e676c11f2874d899a7b" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>setShapeFunType</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1adfbc2fbcbf12becd4a498cbdc6d85cb3" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>setUx</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a76378e1cb2f9d9021d44789e85a75012" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>setUy</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a522e185e16432892a3cee169b442035d" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>setUz</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a1c86d8d88d55ab3bfd8dbba79a61743c" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>setx</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1ab9e70316fb81d733fed68dc0ce9e3104" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>setx</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1aac32e597e1ec0bb85fabcbd2f14d0348" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>setX</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1acd378f389e87b0711acec44969249696" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>sety</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1acd17b4ac110feaa43430839b6aad107b" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>setY</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a592df726bbac32dd5ed5a5e1cd378f6f" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>setz</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1aa294c096ab343766756ca8e5c6ec7f26" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>setZ</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" prot="protected" virt="non-virtual"><scope>mknix::Node</scope><name>shapeFun</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a1843d81646fbca9519358eb3c8787e18" prot="public" virt="virtual"><scope>mknix::Node</scope><name>shapeFunSolve</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a60c4d06445f397a9813b9a7f2a563d0d" prot="protected" virt="non-virtual"><scope>mknix::Node</scope><name>shapeFunType</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" prot="protected" virt="non-virtual"><scope>mknix::Node</scope><name>supportNodes</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1af2f2861988d3dfd6625822140f8e04d3" prot="protected" virt="non-virtual"><scope>mknix::Node</scope><name>supportNodesSize</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a67f8bec7a6d4ee1b66ffd87794f96431" prot="private" virt="non-virtual"><scope>mknix::Node</scope><name>weight</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" prot="protected" virt="non-virtual"><scope>mknix::Node</scope><name>X</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1aedb2e4802acce673a73365718f53a2ff" prot="private" virt="non-virtual"><scope>mknix::Node</scope><name>x</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a45ad0400275cfb9c6d978eb916ca37bc" prot="private" virt="non-virtual"><scope>mknix::Node</scope><name>y</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" prot="protected" virt="non-virtual"><scope>mknix::Node</scope><name>Y</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" prot="protected" virt="non-virtual"><scope>mknix::Node</scope><name>Z</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1a36c385e9abfb27cfcb6e2d8d4741d234" prot="private" virt="non-virtual"><scope>mknix::Node</scope><name>z</name></member>
+      <member refid="d3/d25/classmknix_1_1_node_1adb415bbf3cd9031c1b45f3b2d36282e2" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>~Node</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1ad20e0663241df1986b8250a0ab7f2358" prot="public" virt="non-virtual"><scope>mknix::Node</scope><name>~Point</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

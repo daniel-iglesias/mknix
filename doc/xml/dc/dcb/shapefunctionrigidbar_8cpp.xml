@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="dc/dcb/shapefunctionrigidbar_8cpp" kind="file">
+    <compoundname>shapefunctionrigidbar.cpp</compoundname>
+    <includes local="yes">shapefunctionbodyrigid1D.h</includes>
+    <includes refid="d2/d91/point_8h" local="yes">point.h</includes>
+    <includes refid="d1/d77/node_8h" local="yes">node.h</includes>
+    <incdepgraph>
+      <node id="8007">
+        <label>shapefunctionrigidbar.cpp</label>
+        <link refid="shapefunctionrigidbar.cpp"/>
+        <childnode refid="8008" relation="include">
+        </childnode>
+        <childnode refid="8009" relation="include">
+        </childnode>
+        <childnode refid="8014" relation="include">
+        </childnode>
+      </node>
+      <node id="8008">
+        <label>shapefunctionbodyrigid1D.h</label>
+      </node>
+      <node id="8012">
+        <label>string</label>
+      </node>
+      <node id="8011">
+        <label>map</label>
+      </node>
+      <node id="8009">
+        <label>point.h</label>
+        <link refid="d2/d91/point_8h"/>
+        <childnode refid="8010" relation="include">
+        </childnode>
+        <childnode refid="8011" relation="include">
+        </childnode>
+        <childnode refid="8012" relation="include">
+        </childnode>
+        <childnode refid="8013" relation="include">
+        </childnode>
+      </node>
+      <node id="8013">
+        <label>common.h</label>
+        <link refid="dc/d54/common_8h"/>
+      </node>
+      <node id="8010">
+        <label>vector</label>
+      </node>
+      <node id="8015">
+        <label>LMX/lmx.h</label>
+      </node>
+      <node id="8014">
+        <label>node.h</label>
+        <link refid="d1/d77/node_8h"/>
+        <childnode refid="8010" relation="include">
+        </childnode>
+        <childnode refid="8009" relation="include">
+        </childnode>
+        <childnode refid="8015" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="d2/dde/namespacemknix">mknix</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2013<sp/>by<sp/>Daniel<sp/>Iglesias<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/>http://code.google.com/p/mknix<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,<sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/>along<sp/>with<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/><sp/>Free<sp/>Software<sp/>Foundation,<sp/>Inc.,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/>59<sp/>Temple<sp/>Place<sp/>-<sp/>Suite<sp/>330,<sp/>Boston,<sp/>MA<sp/><sp/>02111-1307,<sp/>USA.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;shapefunctionbodyrigid1D.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d2/d91/point_8h" kindref="compound" tooltip="Point of interest. ">point.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d1/d77/node_8h" kindref="compound">node.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mknix<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="df/d82/classmknix_1_1_shape_function_rigid_bar_1a13dc2ac9712a848c5f870089abfb2129" refkind="member"><highlight class="normal"><ref refid="df/d82/classmknix_1_1_shape_function_rigid_bar_1a13dc2ac9712a848c5f870089abfb2129" kindref="member">ShapeFunctionRigidBar::ShapeFunctionRigidBar</ref>()</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/>:<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function" kindref="compound">ShapeFunction</ref>()</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="df/d82/classmknix_1_1_shape_function_rigid_bar_1aca749e8665ce75cc847d9376dac52ea9" refkind="member"><highlight class="normal"><ref refid="df/d82/classmknix_1_1_shape_function_rigid_bar_1a13dc2ac9712a848c5f870089abfb2129" kindref="member">ShapeFunctionRigidBar::ShapeFunctionRigidBar</ref>(<sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref>*<sp/>gp_in<sp/>)<sp/></highlight><highlight class="comment">//<sp/>It<sp/>is<sp/>really<sp/>a<sp/>node</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/>:<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function" kindref="compound">ShapeFunction</ref>(gp_in)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;node<sp/>created:<sp/>&quot;<sp/>&lt;&lt;<sp/>gp-&gt;getX();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.resize(3,<sp/>2);<sp/></highlight><highlight class="comment">//<sp/>deriv<sp/>0<sp/>and<sp/>dx<sp/>dy<sp/>for<sp/>CdG<sp/>and<sp/>director<sp/>vector<sp/>support</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="df/d82/classmknix_1_1_shape_function_rigid_bar_1ac95778202de9d1afca7c0198f0693365" refkind="member"><highlight class="normal"><ref refid="df/d82/classmknix_1_1_shape_function_rigid_bar_1ac95778202de9d1afca7c0198f0693365" kindref="member">ShapeFunctionRigidBar::~ShapeFunctionRigidBar</ref>()</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="df/d82/classmknix_1_1_shape_function_rigid_bar_1aad8c4377cc329c96dff9afa95b624a43" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="df/d82/classmknix_1_1_shape_function_rigid_bar_1aad8c4377cc329c96dff9afa95b624a43" kindref="member">ShapeFunctionRigidBar::calc</ref>()</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>shape:<sp/>x<sp/>=<sp/>x0<sp/>+<sp/>c1*x1<sp/>,<sp/>where<sp/>x1<sp/>is<sp/>really<sp/>the<sp/>director<sp/>vector<sp/>d1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>phi(0,0)<sp/>=<sp/>1<sp/>,<sp/>as<sp/>x0<sp/>is<sp/>the<sp/>CoG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>1.,<sp/>0,<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>phi(0,1)<sp/>=<sp/>c1<sp/>=<sp/>signed||x<sp/>-<sp/>x0||<sp/>,<sp/>jacobian<sp/>is<sp/>not<sp/>used<sp/>as<sp/>0<sp/>and<sp/>1<sp/>are<sp/>normallized</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;getX()<sp/>&gt;<sp/>1E-3)<sp/></highlight><highlight class="comment">//<sp/>try<sp/>to<sp/>use<sp/>the<sp/>best<sp/>angle<sp/>for<sp/>minimizing<sp/>rounding<sp/>errors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>(<ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[0]-&gt;getX())<sp/>/<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;getX(),<sp/>0,<sp/>1<sp/>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;getY()<sp/>&gt;<sp/>1E-3)<sp/></highlight><highlight class="comment">//<sp/>try<sp/>now<sp/>Y<sp/>for<sp/>minimizing<sp/>rounding<sp/>errors</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>(<ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[0]-&gt;getY())<sp/>/<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;getY(),<sp/>0,<sp/>1<sp/>);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="comment">//<sp/>Z<sp/>should<sp/>work</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>(<ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" kindref="member">getZ</ref>()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[0]-&gt;getZ())<sp/>/<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;getZ(),<sp/>0,<sp/>1<sp/>);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;support<sp/>nodes<sp/>=<sp/>(&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[0]-&gt;getX()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>,&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[0]-&gt;getY()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;)(&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;getX()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>,&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;getY()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;PHI-BAR<sp/>(&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>()<sp/>&lt;&lt;</highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>()<sp/>&lt;&lt;</highlight><highlight class="stringliteral">&quot;<sp/>)<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>(0,0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>(0,1)<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>FIRST<sp/>DERIVATIVES:</highlight></codeline>
+<codeline lineno="64"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>0.,<sp/>1,<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>0.,<sp/>2,<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>1.<sp/>,<sp/>1,<sp/>1<sp/>);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>1.<sp/>,<sp/>2,<sp/>1<sp/>);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;phi<sp/>=<sp/>&quot;<sp/>&lt;&lt;<sp/>phi<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionrigidbar.cpp"/>
+  </compounddef>
+</doxygen>

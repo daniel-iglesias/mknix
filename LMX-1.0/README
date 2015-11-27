@@ -1,0 +1,45 @@
+DESCRIPTION
+-----------
+
+LMX is a library for numerical computations, including matrix and vector 
+algebra, linear and nonlinear solvers, ordinary diﬀerential systems manipu- 
+lation and both explicit and implicit integrators. 
+
+The programming language used is standard C++ and code design fea- 
+tures generic programming by the intense use of templates, allowing the use 
+of diﬀerent numeric types without any change in the way functions are called 
+or operators are used. Top level class design is not full generic as it letting 
+switch between diﬀerent matrix types after compiling the code. 
+
+The goals that where sought during design and development – and hope- 
+fully reached – are mainly the following: 
+
+• Intuitive (math-like) code is generated, not requiring speciﬁc training 
+and reducing maintenance time in LMX-based applications. Eﬃcient 
+functions are also available –replacing overloaded operators– for faster 
+execution. 
+
+• As a consequence of the use of templates, diﬀerent numerical types are 
+treated the same way. 
+
+• Once the code of a LMX-based application has been developed, chang- 
+ing the type of matrices and vectors used doesn’t require any modiﬁ- 
+cation and can be implemented as a run-time option. The same works 
+for linear and non-linear solvers. 
+
+• Any other algebra and numerical solvers library can be linked easily 
+and then used with LMX-like code. 
+
+• All the facilities of object oriented programming (OOP) have been 
+deeply studied and applied since design stage reducing maintenance, 
+support and future development eﬀorts. 
+
+• Code is thorough documented and a (developers) reference manual is 
+available. 
+
+
+Visit our web page for more information:
+http://w3.mecanica.upm.es/lmx
+
+Project site:
+http://code.google.com/p/lmx

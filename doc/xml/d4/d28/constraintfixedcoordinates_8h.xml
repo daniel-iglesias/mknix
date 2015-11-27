@@ -1,0 +1,373 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="d4/d28/constraintfixedcoordinates_8h" kind="file">
+    <compoundname>constraintfixedcoordinates.h</compoundname>
+    <includes refid="dc/d4d/constraint_8h" local="no">constraint.h</includes>
+    <includedby refid="dc/db2/system_8h" local="yes">system.h</includedby>
+    <includedby refid="d6/d46/constraintfixedcoordinates_8cpp" local="yes">constraintfixedcoordinates.cpp</includedby>
+    <incdepgraph>
+      <node id="6549">
+        <label>constraint.h</label>
+        <link refid="dc/d4d/constraint_8h"/>
+        <childnode refid="6550" relation="include">
+        </childnode>
+        <childnode refid="6551" relation="include">
+        </childnode>
+      </node>
+      <node id="6550">
+        <label>common.h</label>
+        <link refid="dc/d54/common_8h"/>
+      </node>
+      <node id="6548">
+        <label>constraintfixedcoordinates.h</label>
+        <link refid="constraintfixedcoordinates.h"/>
+        <childnode refid="6549" relation="include">
+        </childnode>
+      </node>
+      <node id="6551">
+        <label>LMX/lmx.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="6559">
+        <label>analysisthermalstatic.cpp</label>
+        <link refid="df/d52/analysisthermalstatic_8cpp"/>
+      </node>
+      <node id="6567">
+        <label>bodyrigid2D.cpp</label>
+        <link refid="dc/d0c/bodyrigid2_d_8cpp"/>
+      </node>
+      <node id="6571">
+        <label>constraintclearance.cpp</label>
+        <link refid="df/d74/constraintclearance_8cpp"/>
+      </node>
+      <node id="6592">
+        <label>shapefunction.cpp</label>
+        <link refid="d1/dde/shapefunction_8cpp"/>
+      </node>
+      <node id="6573">
+        <label>constraintdistance.cpp</label>
+        <link refid="d7/d93/constraintdistance_8cpp"/>
+      </node>
+      <node id="6596">
+        <label>system.cpp</label>
+        <link refid="d6/df8/system_8cpp"/>
+      </node>
+      <node id="6569">
+        <label>bodythermal.cpp</label>
+        <link refid="dd/d15/bodythermal_8cpp"/>
+      </node>
+      <node id="6589">
+        <label>readerflex.cpp</label>
+        <link refid="d6/daf/readerflex_8cpp"/>
+      </node>
+      <node id="6566">
+        <label>bodyrigid1D_bad_1.cpp</label>
+        <link refid="d9/d73/bodyrigid1_d__bad__1_8cpp"/>
+      </node>
+      <node id="6579">
+        <label>load.cpp</label>
+        <link refid="de/dbc/load_8cpp"/>
+      </node>
+      <node id="6574">
+        <label>constraintfixedaxis.cpp</label>
+        <link refid="d8/d02/constraintfixedaxis_8cpp"/>
+      </node>
+      <node id="6587">
+        <label>readerrigid.cpp</label>
+        <link refid="d9/d6a/readerrigid_8cpp"/>
+      </node>
+      <node id="6595">
+        <label>thermalload.cpp</label>
+        <link refid="dd/dbf/thermalload_8cpp"/>
+      </node>
+      <node id="6593">
+        <label>shapefunctiontriangle.cpp</label>
+        <link refid="dc/d70/shapefunctiontriangle_8cpp"/>
+      </node>
+      <node id="6565">
+        <label>bodyrigid1D.cpp</label>
+        <link refid="d5/d29/bodyrigid1_d_8cpp"/>
+      </node>
+      <node id="6575">
+        <label>constraintfixedcoordinates.cpp</label>
+        <link refid="d6/d46/constraintfixedcoordinates_8cpp"/>
+      </node>
+      <node id="6556">
+        <label>analysisdynamic.cpp</label>
+        <link refid="d3/d0b/analysisdynamic_8cpp"/>
+      </node>
+      <node id="6555">
+        <label>analysis.cpp</label>
+        <link refid="d8/d8e/analysis_8cpp"/>
+      </node>
+      <node id="6561">
+        <label>bodyflex.cpp</label>
+        <link refid="d6/d1e/bodyflex_8cpp"/>
+      </node>
+      <node id="6560">
+        <label>body.cpp</label>
+        <link refid="d1/d5f/body_8cpp"/>
+      </node>
+      <node id="6584">
+        <label>reader.h</label>
+        <link refid="d6/dda/reader_8h"/>
+        <childnode refid="6585" relation="include">
+        </childnode>
+        <childnode refid="6586" relation="include">
+        </childnode>
+      </node>
+      <node id="6580">
+        <label>mknix.cpp</label>
+        <link refid="d9/d06/mknix_8cpp"/>
+      </node>
+      <node id="6585">
+        <label>reader.cpp</label>
+        <link refid="d7/dff/reader_8cpp"/>
+      </node>
+      <node id="6572">
+        <label>constraintcontact.cpp</label>
+        <link refid="d8/d8b/constraintcontact_8cpp"/>
+      </node>
+      <node id="6554">
+        <label>simulation.h</label>
+        <link refid="dd/d6a/simulation_8h"/>
+        <childnode refid="6555" relation="include">
+        </childnode>
+        <childnode refid="6556" relation="include">
+        </childnode>
+        <childnode refid="6557" relation="include">
+        </childnode>
+        <childnode refid="6558" relation="include">
+        </childnode>
+        <childnode refid="6559" relation="include">
+        </childnode>
+        <childnode refid="6560" relation="include">
+        </childnode>
+        <childnode refid="6561" relation="include">
+        </childnode>
+        <childnode refid="6562" relation="include">
+        </childnode>
+        <childnode refid="6563" relation="include">
+        </childnode>
+        <childnode refid="6564" relation="include">
+        </childnode>
+        <childnode refid="6565" relation="include">
+        </childnode>
+        <childnode refid="6566" relation="include">
+        </childnode>
+        <childnode refid="6567" relation="include">
+        </childnode>
+        <childnode refid="6568" relation="include">
+        </childnode>
+        <childnode refid="6569" relation="include">
+        </childnode>
+        <childnode refid="6570" relation="include">
+        </childnode>
+        <childnode refid="6571" relation="include">
+        </childnode>
+        <childnode refid="6572" relation="include">
+        </childnode>
+        <childnode refid="6573" relation="include">
+        </childnode>
+        <childnode refid="6574" relation="include">
+        </childnode>
+        <childnode refid="6575" relation="include">
+        </childnode>
+        <childnode refid="6576" relation="include">
+        </childnode>
+        <childnode refid="6577" relation="include">
+        </childnode>
+        <childnode refid="6578" relation="include">
+        </childnode>
+        <childnode refid="6579" relation="include">
+        </childnode>
+        <childnode refid="6580" relation="include">
+        </childnode>
+        <childnode refid="6581" relation="include">
+        </childnode>
+        <childnode refid="6582" relation="include">
+        </childnode>
+        <childnode refid="6583" relation="include">
+        </childnode>
+        <childnode refid="6588" relation="include">
+        </childnode>
+        <childnode refid="6590" relation="include">
+        </childnode>
+        <childnode refid="6592" relation="include">
+        </childnode>
+        <childnode refid="6593" relation="include">
+        </childnode>
+        <childnode refid="6594" relation="include">
+        </childnode>
+        <childnode refid="6586" relation="include">
+        </childnode>
+        <childnode refid="6595" relation="include">
+        </childnode>
+      </node>
+      <node id="6581">
+        <label>node.cpp</label>
+        <link refid="d7/d70/node_8cpp"/>
+      </node>
+      <node id="6590">
+        <label>readerconstraints.h</label>
+        <link refid="de/d6c/readerconstraints_8h"/>
+        <childnode refid="6584" relation="include">
+        </childnode>
+        <childnode refid="6591" relation="include">
+        </childnode>
+      </node>
+      <node id="6564">
+        <label>bodyrigid0D.cpp</label>
+        <link refid="dc/d48/bodyrigid0_d_8cpp"/>
+      </node>
+      <node id="6552">
+        <label>constraintfixedcoordinates.h</label>
+        <link refid="constraintfixedcoordinates.h"/>
+        <childnode refid="6553" relation="include">
+        </childnode>
+        <childnode refid="6575" relation="include">
+        </childnode>
+      </node>
+      <node id="6582">
+        <label>point.cpp</label>
+        <link refid="d5/d55/point_8cpp"/>
+      </node>
+      <node id="6563">
+        <label>bodyrigid.cpp</label>
+        <link refid="da/d4a/bodyrigid_8cpp"/>
+      </node>
+      <node id="6594">
+        <label>shapefunctiontriangle3D.cpp</label>
+        <link refid="d5/d04/shapefunctiontriangle3_d_8cpp"/>
+      </node>
+      <node id="6558">
+        <label>analysisthermaldynamic.cpp</label>
+        <link refid="d0/d09/analysisthermaldynamic_8cpp"/>
+      </node>
+      <node id="6553">
+        <label>system.h</label>
+        <link refid="dc/db2/system_8h"/>
+        <childnode refid="6554" relation="include">
+        </childnode>
+        <childnode refid="6596" relation="include">
+        </childnode>
+      </node>
+      <node id="6583">
+        <label>readerrigid.h</label>
+        <link refid="dd/dd9/readerrigid_8h"/>
+        <childnode refid="6584" relation="include">
+        </childnode>
+        <childnode refid="6587" relation="include">
+        </childnode>
+      </node>
+      <node id="6576">
+        <label>force.cpp</label>
+        <link refid="df/d4d/force_8cpp"/>
+      </node>
+      <node id="6591">
+        <label>readerconstraints.cpp</label>
+        <link refid="d2/d38/readerconstraints_8cpp"/>
+      </node>
+      <node id="6578">
+        <label>generalcontact.cpp</label>
+        <link refid="de/d37/generalcontact_8cpp"/>
+      </node>
+      <node id="6568">
+        <label>bodyrigid3D.cpp</label>
+        <link refid="d0/da1/bodyrigid3_d_8cpp"/>
+      </node>
+      <node id="6588">
+        <label>readerflex.h</label>
+        <link refid="d9/ddf/readerflex_8h"/>
+        <childnode refid="6584" relation="include">
+        </childnode>
+        <childnode refid="6589" relation="include">
+        </childnode>
+      </node>
+      <node id="6586">
+        <label>simulation.cpp</label>
+        <link refid="d2/d93/simulation_8cpp"/>
+      </node>
+      <node id="6557">
+        <label>analysisstatic.cpp</label>
+        <link refid="d4/dce/analysisstatic_8cpp"/>
+      </node>
+      <node id="6577">
+        <label>gausspoint.cpp</label>
+        <link refid="df/dfb/gausspoint_8cpp"/>
+      </node>
+      <node id="6562">
+        <label>bodyflexglobalgalerkin.cpp</label>
+        <link refid="db/dcf/bodyflexglobalgalerkin_8cpp"/>
+      </node>
+      <node id="6570">
+        <label>constraint.cpp</label>
+        <link refid="d9/dab/constraint_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="de/dda/classmknix_1_1_constraint_fixed_coordinates" prot="public">mknix::ConstraintFixedCoordinates</innerclass>
+    <innernamespace refid="d2/dde/namespacemknix">mknix</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2013<sp/>by<sp/>Daniel<sp/>Iglesias<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/>http://code.google.com/p/mknix<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,<sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/>along<sp/>with<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/><sp/>Free<sp/>Software<sp/>Foundation,<sp/>Inc.,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/>59<sp/>Temple<sp/>Place<sp/>-<sp/>Suite<sp/>330,<sp/>Boston,<sp/>MA<sp/><sp/>02111-1307,<sp/>USA.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MECBRYANCONSTRAINTFIXEDCOORDINATES_H</highlight></codeline>
+<codeline lineno="21"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MECBRYANCONSTRAINTFIXEDCOORDINATES_H</highlight></codeline>
+<codeline lineno="22"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="dc/d4d/constraint_8h" kindref="compound">constraint.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mknix<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="de/dda/classmknix_1_1_constraint_fixed_coordinates" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="de/dda/classmknix_1_1_constraint_fixed_coordinates" kindref="compound">ConstraintFixedCoordinates</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="da/dd3/classmknix_1_1_constraint" kindref="compound">Constraint</ref></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1aaa5e21e995ca95bb8dc45a411987fda2" kindref="member">ConstraintFixedCoordinates</ref>();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1aaa5e21e995ca95bb8dc45a411987fda2" kindref="member">ConstraintFixedCoordinates</ref>(<sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>,<sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&amp;,<sp/>std::string&amp;<sp/>);</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1ab8fcae0a6b615cbc81d1db67887c1a54" kindref="member">~ConstraintFixedCoordinates</ref>();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1ae549d41c12fcc094bdc32bc853ebbd84" kindref="member">calcPhi</ref>(<sp/>)<sp/>;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1a250813aed17ab80b03a9b6b7f4a7ce8b" kindref="member">calcPhiq</ref>(<sp/>)<sp/>;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1a80e20da8642dc3c35b7969f7c2c5affe" kindref="member">calcPhiqq</ref>(<sp/>)<sp/>;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45" refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1a24c5ba96ad8fcdba23d6fbeda1e87583" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>lmx::Vector&lt;data_type&gt;&amp;<sp/><ref refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1a24c5ba96ad8fcdba23d6fbeda1e87583" kindref="member">getInternalForces</ref>(<sp/>)<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="da/dd3/classmknix_1_1_constraint_1a0b0fbbf149c32ce0a9dd6e0c4dd5851e" kindref="member">internalForces</ref>;}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47" refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1a85f3564f2109d0cdf09f99b1ff5eea24" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>lmx::DenseMatrix&lt;data_type&gt;&amp;<sp/><ref refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1a85f3564f2109d0cdf09f99b1ff5eea24" kindref="member">getStiffnessMatrix</ref>(<sp/>)<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" kindref="member">stiffnessMatrix</ref>;}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="50" refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1a1e43b5f72d8064762f0427204f46b3a1" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1a07324acb35594ed9274bc8b79ca356c1" kindref="member">rxo</ref>,<ref refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1a1e5c7b99aad5c0c1752d3fa5154ff77e" kindref="member">ryo</ref>,<ref refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1a1e43b5f72d8064762f0427204f46b3a1" kindref="member">rzo</ref>;</highlight></codeline>
+<codeline lineno="51" refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1a45657121be64f04cf1667a9090ba6451" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1afb8e43d7544941154e51c93e0662ef93" kindref="member">rxt</ref>,<ref refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1ade68140fb4d4f9e0cb0d2996274e222a" kindref="member">ryt</ref>,<ref refid="de/dda/classmknix_1_1_constraint_fixed_coordinates_1a45657121be64f04cf1667a9090ba6451" kindref="member">rzt</ref>;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintfixedcoordinates.h"/>
+  </compounddef>
+</doxygen>

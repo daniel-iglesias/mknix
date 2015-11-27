@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="d4/d8c/classmknix_1_1_analysis_dynamic" kind="class" prot="public">
+    <compoundname>mknix::AnalysisDynamic</compoundname>
+    <basecompoundref refid="df/d86/classmknix_1_1_analysis" prot="public" virt="non-virtual">mknix::Analysis</basecompoundref>
+    <includes refid="da/d83/analysisdynamic_8h" local="no">analysisdynamic.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d4/d8c/classmknix_1_1_analysis_dynamic_1a1e70889ea4253a832ba6bf4b13442dd9" prot="private" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* mknix::AnalysisDynamic::integratorType</definition>
+        <argsstring></argsstring>
+        <name>integratorType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h" line="44" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/d8c/classmknix_1_1_analysis_dynamic_1aaf42ffbb1b089e7cce529963a01b7797" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::AnalysisDynamic::to</definition>
+        <argsstring></argsstring>
+        <name>to</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h" line="45" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/d8c/classmknix_1_1_analysis_dynamic_1ac0df4c3e08a4db1d9fc442fb07a42c96" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::AnalysisDynamic::tf</definition>
+        <argsstring></argsstring>
+        <name>tf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h" line="45" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/d8c/classmknix_1_1_analysis_dynamic_1ae77fe37437d544da2bf7827bffdbd6db" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::AnalysisDynamic::At</definition>
+        <argsstring></argsstring>
+        <name>At</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h" line="45" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d4/d8c/classmknix_1_1_analysis_dynamic_1ad9f1a8debbaf56b7fc334136ce9f0ef9" prot="private" static="no" mutable="no">
+        <type>lmx::DiffProblemSecond&lt; <ref refid="db/d0b/classmknix_1_1_simulation" kindref="compound">Simulation</ref>, <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt;</type>
+        <definition>lmx::DiffProblemSecond&lt; Simulation, data_type &gt; mknix::AnalysisDynamic::theProblem</definition>
+        <argsstring></argsstring>
+        <name>theProblem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h" line="46" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d4/d8c/classmknix_1_1_analysis_dynamic_1a1457ddff8dfa14a90605248f4b953851" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::AnalysisDynamic::AnalysisDynamic</definition>
+        <argsstring>()</argsstring>
+        <name>AnalysisDynamic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h" line="33" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.cpp" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/d8c/classmknix_1_1_analysis_dynamic_1a452203e81d27283089fe500b32c7ab55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::AnalysisDynamic::AnalysisDynamic</definition>
+        <argsstring>(Simulation *, double, double, double, char *, double, double, double)</argsstring>
+        <name>AnalysisDynamic</name>
+        <param>
+          <type><ref refid="db/d0b/classmknix_1_1_simulation" kindref="compound">Simulation</ref> *</type>
+          <defname>simulation_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>to_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>tf_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>At_in</defname>
+        </param>
+        <param>
+          <type>char *</type>
+          <defname>integrator_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>par1</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>par2</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>par3</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h" line="35" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.cpp" bodystart="31" bodyend="71"/>
+        <references refid="df/d86/classmknix_1_1_analysis_1a1abc29e3b8565590b6bf0ce2d8b3b68f" compoundref="d2/d40/analysis_8h" startline="51">mknix::Analysis::theSimulation</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1ace4ce2a959690e14c443b3c6e83c2690" compoundref="d2/d93/simulation_8cpp" startline="483" endline="506">mknix::Simulation::dynamicAcceleration</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1ae78bef0d5f80665be4a0c2d926e99973" compoundref="d2/d93/simulation_8cpp" startline="508" endline="546">mknix::Simulation::dynamicResidue</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a226a281591cb1b0bac253a3dcce19e5b" compoundref="d2/d93/simulation_8cpp" startline="548" endline="560">mknix::Simulation::dynamicTangent</references>
+        <references refid="df/d86/classmknix_1_1_analysis_1a7e0439caf5fa5f90d808acec6d75b72f" compoundref="d2/d40/analysis_8h" startline="52">mknix::Analysis::epsilon</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a0bb5d6c4c6eccc35e892b710af40616f" compoundref="d2/d93/simulation_8cpp" startline="562" endline="600">mknix::Simulation::dynamicConvergence</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a9fd95351d7fe3ce2ba1991d6aae6a804" compoundref="d2/d93/simulation_8cpp" startline="665" endline="680">mknix::Simulation::stepTriggered</references>
+      </memberdef>
+      <memberdef kind="function" id="d4/d8c/classmknix_1_1_analysis_dynamic_1a85fd7662ea3228c608c6761ffc4e46d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::AnalysisDynamic::~AnalysisDynamic</definition>
+        <argsstring>()</argsstring>
+        <name>~AnalysisDynamic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h" line="37" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.cpp" bodystart="74" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/d8c/classmknix_1_1_analysis_dynamic_1a10045ff80be02d24dc08ad7da248844f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string mknix::AnalysisDynamic::type</definition>
+        <argsstring>()</argsstring>
+        <name>type</name>
+        <reimplements refid="df/d86/classmknix_1_1_analysis_1a6dd7026a22ae11f3eef3dad3be370e70">type</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h" line="39" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="d4/d8c/classmknix_1_1_analysis_dynamic_1a43c9ab1907cb3cd72f3f4d605d2fa8ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::AnalysisDynamic::solve</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; *, lmx::Vector&lt; data_type &gt; *)</argsstring>
+        <name>solve</name>
+        <reimplements refid="df/d86/classmknix_1_1_analysis_1a2a02ee6ab0728bc1ab5e6aab010afe87">solve</reimplements>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; *</type>
+          <defname>q_in</defname>
+        </param>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; *</type>
+          <defname>qdot_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h" line="41" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.cpp" bodystart="79" bodyend="87"/>
+        <references refid="df/d86/classmknix_1_1_analysis_1a1abc29e3b8565590b6bf0ce2d8b3b68f" compoundref="d2/d40/analysis_8h" startline="51">mknix::Analysis::theSimulation</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a7531cdc469c142e3b2d7f4e1738d65c9" compoundref="dd/d6a/simulation_8h" startline="140" endline="141">mknix::Simulation::getSparsePattern</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="242">
+        <label>mknix::AnalysisDynamic</label>
+        <link refid="d4/d8c/classmknix_1_1_analysis_dynamic"/>
+        <childnode refid="243" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="243">
+        <label>mknix::Analysis</label>
+        <link refid="df/d86/classmknix_1_1_analysis"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="244">
+        <label>mknix::AnalysisDynamic</label>
+        <link refid="d4/d8c/classmknix_1_1_analysis_dynamic"/>
+        <childnode refid="245" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="246">
+        <label>mknix::Simulation</label>
+        <link refid="db/d0b/classmknix_1_1_simulation"/>
+      </node>
+      <node id="245">
+        <label>mknix::Analysis</label>
+        <link refid="df/d86/classmknix_1_1_analysis"/>
+        <childnode refid="246" relation="usage">
+          <edgelabel>theSimulation</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h" line="31" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h" bodystart="30" bodyend="48"/>
+    <listofallmembers>
+      <member refid="df/d86/classmknix_1_1_analysis_1a524d9cd12f302975c64a0c4266cd91ed" prot="public" virt="non-virtual"><scope>mknix::AnalysisDynamic</scope><name>Analysis</name></member>
+      <member refid="df/d86/classmknix_1_1_analysis_1a58f5b79c2b28457ae18186991306abb3" prot="public" virt="non-virtual"><scope>mknix::AnalysisDynamic</scope><name>Analysis</name></member>
+      <member refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a1457ddff8dfa14a90605248f4b953851" prot="public" virt="non-virtual"><scope>mknix::AnalysisDynamic</scope><name>AnalysisDynamic</name></member>
+      <member refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a452203e81d27283089fe500b32c7ab55" prot="public" virt="non-virtual"><scope>mknix::AnalysisDynamic</scope><name>AnalysisDynamic</name></member>
+      <member refid="d4/d8c/classmknix_1_1_analysis_dynamic_1ae77fe37437d544da2bf7827bffdbd6db" prot="private" virt="non-virtual"><scope>mknix::AnalysisDynamic</scope><name>At</name></member>
+      <member refid="df/d86/classmknix_1_1_analysis_1a7e0439caf5fa5f90d808acec6d75b72f" prot="protected" virt="non-virtual"><scope>mknix::AnalysisDynamic</scope><name>epsilon</name></member>
+      <member refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a1e70889ea4253a832ba6bf4b13442dd9" prot="private" virt="non-virtual"><scope>mknix::AnalysisDynamic</scope><name>integratorType</name></member>
+      <member refid="df/d86/classmknix_1_1_analysis_1a4e6baab7f63725b4ed816bb3bdbdc1d8" prot="public" virt="non-virtual"><scope>mknix::AnalysisDynamic</scope><name>setEpsilon</name></member>
+      <member refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a43c9ab1907cb3cd72f3f4d605d2fa8ae" prot="public" virt="virtual"><scope>mknix::AnalysisDynamic</scope><name>solve</name></member>
+      <member refid="d4/d8c/classmknix_1_1_analysis_dynamic_1ac0df4c3e08a4db1d9fc442fb07a42c96" prot="private" virt="non-virtual"><scope>mknix::AnalysisDynamic</scope><name>tf</name></member>
+      <member refid="d4/d8c/classmknix_1_1_analysis_dynamic_1ad9f1a8debbaf56b7fc334136ce9f0ef9" prot="private" virt="non-virtual"><scope>mknix::AnalysisDynamic</scope><name>theProblem</name></member>
+      <member refid="df/d86/classmknix_1_1_analysis_1a1abc29e3b8565590b6bf0ce2d8b3b68f" prot="protected" virt="non-virtual"><scope>mknix::AnalysisDynamic</scope><name>theSimulation</name></member>
+      <member refid="d4/d8c/classmknix_1_1_analysis_dynamic_1aaf42ffbb1b089e7cce529963a01b7797" prot="private" virt="non-virtual"><scope>mknix::AnalysisDynamic</scope><name>to</name></member>
+      <member refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a10045ff80be02d24dc08ad7da248844f" prot="public" virt="virtual"><scope>mknix::AnalysisDynamic</scope><name>type</name></member>
+      <member refid="df/d86/classmknix_1_1_analysis_1a4813618a04dd0c3098a58b60792f2e34" prot="public" virt="virtual"><scope>mknix::AnalysisDynamic</scope><name>~Analysis</name></member>
+      <member refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a85fd7662ea3228c608c6761ffc4e46d4" prot="public" virt="non-virtual"><scope>mknix::AnalysisDynamic</scope><name>~AnalysisDynamic</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,35 @@
+TITLE 2triangfem
+
+DIMENSION 2
+
+MATERIALS // Total number of materials:
+THERMAL 1 1348 224 0 1750 // material #, Capacity, Conductivity, Thermal expansion and density
+ENDMATERIALS
+
+
+SYSTEM 2triangles
+  FLEXBODIES
+    FEMESH triangle
+      FORMULATION THERMAL
+      MESH
+      1 1 3.5
+      TRIANGLES 2triangles.dat //name of file
+    ENDFEMESH
+  ENDFLEXBODIES
+
+  JOINTS
+  ENDJOINTS
+
+  LOADS
+    THERMALFLUENCE triangle.2 5E6
+  ENDLOADS
+
+ENDSYSTEM
+
+ANALYSIS
+  THERMALDYNAMIC
+    EPSILON 1E-6
+    INTEGRATOR BDF-1
+    TIME 0.0 10E-3 1E-3
+  ENDTHERMALDYNAMIC
+ENDANALYSIS

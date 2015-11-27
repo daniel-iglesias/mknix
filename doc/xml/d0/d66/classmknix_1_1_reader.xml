@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="d0/d66/classmknix_1_1_reader" kind="class" prot="public">
+    <compoundname>mknix::Reader</compoundname>
+    <includes refid="d6/dda/reader_8h" local="no">reader.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d0/d66/classmknix_1_1_reader_1a754efe700474f61ef0dfed44d8af58a1" prot="private" static="no" mutable="no">
+        <type><ref refid="db/d0b/classmknix_1_1_simulation" kindref="compound">Simulation</ref> *</type>
+        <definition>Simulation* mknix::Reader::theSimulation</definition>
+        <argsstring></argsstring>
+        <name>theSimulation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/reader.h" line="72" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/reader.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d66/classmknix_1_1_reader_1a2e586e46fe7e9fec9e27118cd319fc48" prot="private" static="no" mutable="no">
+        <type>std::ofstream</type>
+        <definition>std::ofstream mknix::Reader::output</definition>
+        <argsstring></argsstring>
+        <name>output</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/reader.h" line="73" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/reader.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d66/classmknix_1_1_reader_1ab0be21d0bfcfb1b8132fe250779353b1" prot="private" static="no" mutable="no">
+        <type>std::ifstream</type>
+        <definition>std::ifstream mknix::Reader::input</definition>
+        <argsstring></argsstring>
+        <name>input</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/reader.h" line="74" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/reader.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d66/classmknix_1_1_reader_1a3d9d1d7247504f10660a027e9ac00cf7" prot="private" static="no" mutable="no">
+        <type><ref refid="df/de5/classmknix_1_1_reader_rigid" kindref="compound">ReaderRigid</ref> *</type>
+        <definition>ReaderRigid* mknix::Reader::theReaderRigid</definition>
+        <argsstring></argsstring>
+        <name>theReaderRigid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/reader.h" line="75" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/reader.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d66/classmknix_1_1_reader_1a8d06e939fde52d02c6fb9389170cd18c" prot="private" static="no" mutable="no">
+        <type><ref refid="d7/d17/classmknix_1_1_reader_flex" kindref="compound">ReaderFlex</ref> *</type>
+        <definition>ReaderFlex* mknix::Reader::theReaderFlex</definition>
+        <argsstring></argsstring>
+        <name>theReaderFlex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/reader.h" line="76" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/reader.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d0/d66/classmknix_1_1_reader_1a43b00ee68468e60893459eff51833afb" prot="private" static="no" mutable="no">
+        <type><ref refid="d2/dad/classmknix_1_1_reader_constraints" kindref="compound">ReaderConstraints</ref> *</type>
+        <definition>ReaderConstraints* mknix::Reader::theReaderConstraints</definition>
+        <argsstring></argsstring>
+        <name>theReaderConstraints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/reader.h" line="77" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/reader.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d0/d66/classmknix_1_1_reader_1a6558002baf082327a804cad1ea3ae512" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Reader::Reader</definition>
+        <argsstring>()</argsstring>
+        <name>Reader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/reader.h" line="43" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/reader.cpp" bodystart="24" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d66/classmknix_1_1_reader_1af306d09fdfcd3675ae6c23aa2d5c1ece" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Reader::Reader</definition>
+        <argsstring>(Simulation *)</argsstring>
+        <name>Reader</name>
+        <param>
+          <type><ref refid="db/d0b/classmknix_1_1_simulation" kindref="compound">Simulation</ref> *</type>
+          <defname>simulation_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/reader.h" line="45" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/reader.cpp" bodystart="31" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d66/classmknix_1_1_reader_1a5aa850c593a547a1215a9425e45da74b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Reader::~Reader</definition>
+        <argsstring>()</argsstring>
+        <name>~Reader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/reader.h" line="47" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/reader.cpp" bodystart="39" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d66/classmknix_1_1_reader_1ab8ac24c56853e5101ac4f2a94d172392" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Reader::inputFromFile</definition>
+        <argsstring>(char *)</argsstring>
+        <name>inputFromFile</name>
+        <param>
+          <type>char *</type>
+          <defname>fileIn</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/reader.h" line="49" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/reader.cpp" bodystart="46" bodyend="178"/>
+        <references refid="db/d0b/classmknix_1_1_simulation_1ae1eca795584573082535d83d0705af29" compoundref="dd/d6a/simulation_8h" startline="143" endline="144">mknix::Simulation::getGravity</references>
+        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a5ca9b93b996142dc843eba322b6f81fb" compoundref="d2/d93/simulation_8cpp" startline="63" endline="68">mknix::Simulation::inputFromFile</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="d0/d66/classmknix_1_1_reader_1a3f17247864cebbb302ebd4094d38b0b6" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Reader::readSystem</definition>
+        <argsstring>(System *)</argsstring>
+        <name>readSystem</name>
+        <param>
+          <type><ref refid="df/dd9/classmknix_1_1_system" kindref="compound">System</ref> *</type>
+          <defname>system_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/reader.h" line="52" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/reader.cpp" bodystart="180" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d66/classmknix_1_1_reader_1abaa2232f07390a2ba0220147ccf27519" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Reader::readLoads</definition>
+        <argsstring>(System *)</argsstring>
+        <name>readLoads</name>
+        <param>
+          <type><ref refid="df/dd9/classmknix_1_1_system" kindref="compound">System</ref> *</type>
+          <defname>system_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/reader.h" line="54" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/reader.cpp" bodystart="219" bodyend="276"/>
+      </memberdef>
+      <memberdef kind="function" id="d0/d66/classmknix_1_1_reader_1a79ee1ad02958ce12f4da318b0db35fb7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Reader::readAnalysis</definition>
+        <argsstring>()</argsstring>
+        <name>readAnalysis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/reader.h" line="55" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/reader.cpp" bodystart="279" bodyend="454"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/reader.h" line="41" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/reader.h" bodystart="40" bodyend="78"/>
+    <listofallmembers>
+      <member refid="d0/d66/classmknix_1_1_reader_1ab0be21d0bfcfb1b8132fe250779353b1" prot="private" virt="non-virtual"><scope>mknix::Reader</scope><name>input</name></member>
+      <member refid="d0/d66/classmknix_1_1_reader_1ab8ac24c56853e5101ac4f2a94d172392" prot="public" virt="non-virtual"><scope>mknix::Reader</scope><name>inputFromFile</name></member>
+      <member refid="d0/d66/classmknix_1_1_reader_1a2e586e46fe7e9fec9e27118cd319fc48" prot="private" virt="non-virtual"><scope>mknix::Reader</scope><name>output</name></member>
+      <member refid="d0/d66/classmknix_1_1_reader_1a79ee1ad02958ce12f4da318b0db35fb7" prot="private" virt="non-virtual"><scope>mknix::Reader</scope><name>readAnalysis</name></member>
+      <member refid="d0/d66/classmknix_1_1_reader_1a6558002baf082327a804cad1ea3ae512" prot="public" virt="non-virtual"><scope>mknix::Reader</scope><name>Reader</name></member>
+      <member refid="d0/d66/classmknix_1_1_reader_1af306d09fdfcd3675ae6c23aa2d5c1ece" prot="public" virt="non-virtual"><scope>mknix::Reader</scope><name>Reader</name></member>
+      <member refid="d0/d66/classmknix_1_1_reader_1abaa2232f07390a2ba0220147ccf27519" prot="private" virt="non-virtual"><scope>mknix::Reader</scope><name>readLoads</name></member>
+      <member refid="d0/d66/classmknix_1_1_reader_1a3f17247864cebbb302ebd4094d38b0b6" prot="private" virt="non-virtual"><scope>mknix::Reader</scope><name>readSystem</name></member>
+      <member refid="d0/d66/classmknix_1_1_reader_1a43b00ee68468e60893459eff51833afb" prot="private" virt="non-virtual"><scope>mknix::Reader</scope><name>theReaderConstraints</name></member>
+      <member refid="d0/d66/classmknix_1_1_reader_1a8d06e939fde52d02c6fb9389170cd18c" prot="private" virt="non-virtual"><scope>mknix::Reader</scope><name>theReaderFlex</name></member>
+      <member refid="d0/d66/classmknix_1_1_reader_1a3d9d1d7247504f10660a027e9ac00cf7" prot="private" virt="non-virtual"><scope>mknix::Reader</scope><name>theReaderRigid</name></member>
+      <member refid="d0/d66/classmknix_1_1_reader_1a754efe700474f61ef0dfed44d8af58a1" prot="private" virt="non-virtual"><scope>mknix::Reader</scope><name>theSimulation</name></member>
+      <member refid="d0/d66/classmknix_1_1_reader_1a5aa850c593a547a1215a9425e45da74b" prot="public" virt="non-virtual"><scope>mknix::Reader</scope><name>~Reader</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

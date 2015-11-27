@@ -1,0 +1,341 @@
+K 25
+svn:wc:ra_dav:version-url
+V 29
+/svn/!svn/ver/2/trunk/src/LMX
+END
+lmx_mat_data_vec.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/2/trunk/src/LMX/lmx_mat_data_vec.h
+END
+lmx_diff_integrator_am.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/2/trunk/src/LMX/lmx_diff_integrator_am.h
+END
+lmx_linsolvers_gauss.h.old2
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/2/trunk/src/LMX/lmx_linsolvers_gauss.h.old2
+END
+cofe_fmc.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/2/trunk/src/LMX/cofe_fmc.h
+END
+lmx_mat_data_mat.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/2/trunk/src/LMX/lmx_mat_data_mat.h
+END
+lmx_linsolvers_gauss.h.old
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/2/trunk/src/LMX/lmx_linsolvers_gauss.h.old
+END
+cofe_CofeUtils.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/2/trunk/src/LMX/cofe_CofeUtils.h
+END
+lmx_linsolvers_gauss.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/2/trunk/src/LMX/lmx_linsolvers_gauss.h
+END
+cofe_jpjacobi.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/2/trunk/src/LMX/cofe_jpjacobi.h
+END
+lmx_mat_type_dense.h.old
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/2/trunk/src/LMX/lmx_mat_type_dense.h.old
+END
+lmx_mat_elem_ref.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/2/trunk/src/LMX/lmx_mat_elem_ref.h
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/2/trunk/src/LMX/Makefile.am
+END
+lmx_mat_data.h
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/!svn/ver/2/trunk/src/LMX/lmx_mat_data.h
+END
+lmx_mat_type_gmm_sparse1.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/2/trunk/src/LMX/lmx_mat_type_gmm_sparse1.h
+END
+lmx_mat_data_blas.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/7/trunk/src/LMX/lmx_mat_data_blas.h
+END
+lmx_mat_type_csc.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/2/trunk/src/LMX/lmx_mat_type_csc.h
+END
+lmx_linsolvers_system.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/2/trunk/src/LMX/lmx_linsolvers_system.h
+END
+lmx_linsolvers_superlu_interface.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/2/trunk/src/LMX/lmx_linsolvers_superlu_interface.h
+END
+lmx_diff_problem.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/6/trunk/src/LMX/lmx_diff_problem.h
+END
+lmx_diff_integrator_bdf.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/6/trunk/src/LMX/lmx_diff_integrator_bdf.h
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/2/trunk/src/LMX/Makefile.in
+END
+lmx_mat_matrix.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/7/trunk/src/LMX/lmx_mat_matrix.h
+END
+lmx_mat_vector.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/2/trunk/src/LMX/lmx_mat_vector.h
+END
+lmx_mat_type_gmm.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/2/trunk/src/LMX/lmx_mat_type_gmm.h
+END
+lmx_diff_problem.h.old
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/2/trunk/src/LMX/lmx_diff_problem.h.old
+END
+lmx_diff_problem_second.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/6/trunk/src/LMX/lmx_diff_problem_second.h
+END
+cofe_gausselim.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/2/trunk/src/LMX/cofe_gausselim.h
+END
+lmx_linsolvers_cg.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/2/trunk/src/LMX/lmx_linsolvers_cg.h
+END
+lmx_mat_aux_getmem.h.old
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/2/trunk/src/LMX/lmx_mat_aux_getmem.h.old
+END
+lmx_mat_type_stdvector.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/2/trunk/src/LMX/lmx_mat_type_stdvector.h
+END
+lmx_diff_integrator_newmark.h
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/2/trunk/src/LMX/lmx_diff_integrator_newmark.h
+END
+lmx_diff_integrator_ab.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/2/trunk/src/LMX/lmx_diff_integrator_ab.h
+END
+lmx_linsolvers.h
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/2/trunk/src/LMX/lmx_linsolvers.h
+END
+lmx_linsolvers_lapack.h
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/2/trunk/src/LMX/lmx_linsolvers_lapack.h
+END
+lmx_mat_type_cvector.h.old
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/2/trunk/src/LMX/lmx_mat_type_cvector.h.old
+END
+cofe_TensorRank2.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/2/trunk/src/LMX/cofe_TensorRank2.h
+END
+lmx_base_stopwatch.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/2/trunk/src/LMX/lmx_base_stopwatch.h
+END
+cofe_TensorRank2Sym.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/2/trunk/src/LMX/cofe_TensorRank2Sym.h
+END
+lmx_diff_problem_first.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/6/trunk/src/LMX/lmx_diff_problem_first.h
+END
+lmx_diff_integrator_bdf.h.old
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/2/trunk/src/LMX/lmx_diff_integrator_bdf.h.old
+END
+lmx_mat_aux_require.h.old
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/2/trunk/src/LMX/lmx_mat_aux_require.h.old
+END
+lmx_nlsolvers.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/6/trunk/src/LMX/lmx_nlsolvers.h
+END
+lmx_diff_configuration.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/6/trunk/src/LMX/lmx_diff_configuration.h
+END
+lmx_linsolvers_gauss.h.bak
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/2/trunk/src/LMX/lmx_linsolvers_gauss.h.bak
+END
+lmx_diff_integrator_base_implicit.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/2/trunk/src/LMX/lmx_diff_integrator_base_implicit.h
+END
+lmx_base_iohb.h
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/!svn/ver/7/trunk/src/LMX/lmx_base_iohb.h
+END
+lmx_except.h
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/2/trunk/src/LMX/lmx_except.h
+END
+lmx_mat_type_cmatrix.h.old
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/2/trunk/src/LMX/lmx_mat_type_cmatrix.h.old
+END
+lmx_base_selector.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/2/trunk/src/LMX/lmx_base_selector.h
+END
+lmx_diff_integrator_centraldiff.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/2/trunk/src/LMX/lmx_diff_integrator_centraldiff.h
+END
+lmx.h
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/2/trunk/src/LMX/lmx.h
+END
+lmx_diff_integrator_base.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/2/trunk/src/LMX/lmx_diff_integrator_base.h
+END
+lmx_mat_type_stdmatrix.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/7/trunk/src/LMX/lmx_mat_type_stdmatrix.h
+END
+lmx_mat_type_gmmvector_sparse1.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/2/trunk/src/LMX/lmx_mat_type_gmmvector_sparse1.h
+END
+cofe_TensorRank1.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/2/trunk/src/LMX/cofe_TensorRank1.h
+END
+lmx_mat_dense_matrix.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/2/trunk/src/LMX/lmx_mat_dense_matrix.h
+END

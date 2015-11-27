@@ -1,0 +1,10 @@
+<map id="mknix::System::clearAugmented" name="mknix::System::clearAugmented">
+<area shape="rect" id="node3" href="$db/d0b/classmknix_1_1_simulation.html#adc5bcdaba46bc9e5332e7e142dd4558f" title="mknix::Simulation::\lstaticThermalConvergence" alt="" coords="275,5,453,51"/>
+<area shape="rect" id="node7" href="$db/d0b/classmknix_1_1_simulation.html#ac54cb3aace5dd45148abc3a85766a107" title="mknix::Simulation::\ldynamicThermalConvergence" alt="" coords="267,74,461,121"/>
+<area shape="rect" id="node11" href="$db/d0b/classmknix_1_1_simulation.html#a0bb5d6c4c6eccc35e892b710af40616f" title="mknix::Simulation::\ldynamicConvergence" alt="" coords="291,143,437,190"/>
+<area shape="rect" id="node15" href="$db/d0b/classmknix_1_1_simulation.html#a3a9b6e1b8cf5a63ad6e3a7d2cce5d171" title="mknix::Simulation::\lstaticConvergence" alt="" coords="297,213,431,259"/>
+<area shape="rect" id="node5" href="$d4/d3e/classmknix_1_1_analysis_thermal_static.html#a340001a574c5c2ad92020c6bc8b99602" title="mknix::AnalysisThermalStatic\l::AnalysisThermalStatic" alt="" coords="520,5,715,51"/>
+<area shape="rect" id="node9" href="$d5/dd9/classmknix_1_1_analysis_thermal_dynamic.html#a161ebe1ed696232ed05ef778cdcabcb8" title="mknix::AnalysisThermalDynamic\l::AnalysisThermalDynamic" alt="" coords="511,74,724,121"/>
+<area shape="rect" id="node13" href="$d4/d8c/classmknix_1_1_analysis_dynamic.html#a452203e81d27283089fe500b32c7ab55" title="mknix::AnalysisDynamic\l::AnalysisDynamic" alt="" coords="535,143,700,190"/>
+<area shape="rect" id="node17" href="$db/d8f/classmknix_1_1_analysis_static.html#a18cfe64c3b4b6b3f54acc3caa6780e92" title="mknix::AnalysisStatic\l::AnalysisStatic" alt="" coords="543,213,692,259"/>
+</map>

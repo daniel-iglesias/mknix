@@ -1,0 +1,2480 @@
+\begin{theindex}
+
+  \item {$\sim $\discretionary {-}{}{}Analysis}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis}, 
+		\hyperpage{11}
+  \item {$\sim $\discretionary {-}{}{}Analysis\discretionary {-}{}{}Dynamic}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Dynamic}, 
+		\hyperpage{14}
+  \item {$\sim $\discretionary {-}{}{}Analysis\discretionary {-}{}{}Static}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Static}, 
+		\hyperpage{17}
+  \item {$\sim $\discretionary {-}{}{}Analysis\discretionary {-}{}{}Thermal\discretionary {-}{}{}Dynamic}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Thermal\discretionary {-}{}{}Dynamic}, 
+		\hyperpage{19}
+  \item {$\sim $\discretionary {-}{}{}Analysis\discretionary {-}{}{}Thermal\discretionary {-}{}{}Static}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Thermal\discretionary {-}{}{}Static}, 
+		\hyperpage{21}
+  \item {$\sim $\discretionary {-}{}{}Body}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{23}
+  \item {$\sim $\discretionary {-}{}{}Cell}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{26}
+  \item {$\sim $\discretionary {-}{}{}Cell\discretionary {-}{}{}Rect}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell\discretionary {-}{}{}Rect}, 
+		\hyperpage{29}
+  \item {$\sim $\discretionary {-}{}{}Cell\discretionary {-}{}{}Tetrahedron}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{31}
+  \item {$\sim $\discretionary {-}{}{}Cell\discretionary {-}{}{}Triang}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell\discretionary {-}{}{}Triang}, 
+		\hyperpage{34}
+  \item {$\sim $\discretionary {-}{}{}Comp\discretionary {-}{}{}Bar}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Comp\discretionary {-}{}{}Bar}, 
+		\hyperpage{35}
+  \item {$\sim $\discretionary {-}{}{}Constraint}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{37}
+  \item {$\sim $\discretionary {-}{}{}Constraint\discretionary {-}{}{}Clearance}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Clearance}, 
+		\hyperpage{42}
+  \item {$\sim $\discretionary {-}{}{}Constraint\discretionary {-}{}{}Contact}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Contact}, 
+		\hyperpage{43}
+  \item {$\sim $\discretionary {-}{}{}Constraint\discretionary {-}{}{}Distance}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Distance}, 
+		\hyperpage{45}
+  \item {$\sim $\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Axis}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Axis}, 
+		\hyperpage{48}
+  \item {$\sim $\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Coordinates}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Coordinates}, 
+		\hyperpage{50}
+  \item {$\sim $\discretionary {-}{}{}Contact}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Contact}, 
+		\hyperpage{51}
+  \item {$\sim $\discretionary {-}{}{}Elem\discretionary {-}{}{}Tetrahedron}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Elem\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{56}
+  \item {$\sim $\discretionary {-}{}{}Elem\discretionary {-}{}{}Triangle}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Elem\discretionary {-}{}{}Triangle}, 
+		\hyperpage{58}
+  \item {$\sim $\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{60}
+  \item {$\sim $\discretionary {-}{}{}Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}, 
+		\hyperpage{62}
+  \item {$\sim $\discretionary {-}{}{}Force}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Force}, 
+		\hyperpage{66}
+  \item {$\sim $\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{68}
+  \item {$\sim $\discretionary {-}{}{}Load}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Load}, 
+		\hyperpage{76}
+  \item {$\sim $\discretionary {-}{}{}Material}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Material}, 
+		\hyperpage{77}
+  \item {$\sim $\discretionary {-}{}{}Node}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{83}
+  \item {$\sim $\discretionary {-}{}{}Point}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{89}
+  \item {$\sim $\discretionary {-}{}{}Reader}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Reader}, 
+		\hyperpage{94}
+  \item {$\sim $\discretionary {-}{}{}Reader\discretionary {-}{}{}Constraints}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Reader\discretionary {-}{}{}Constraints}, 
+		\hyperpage{95}
+  \item {$\sim $\discretionary {-}{}{}Reader\discretionary {-}{}{}Flex}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Reader\discretionary {-}{}{}Flex}, 
+		\hyperpage{96}
+  \item {$\sim $\discretionary {-}{}{}Reader\discretionary {-}{}{}Rigid}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Reader\discretionary {-}{}{}Rigid}, 
+		\hyperpage{97}
+  \item {$\sim $\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}, 
+		\hyperpage{100}
+  \item {$\sim $\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{103}
+  \item {$\sim $\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body2\discretionary {-}{}{}D}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body2\discretionary {-}{}{}D}, 
+		\hyperpage{107}
+  \item {$\sim $\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body3\discretionary {-}{}{}D}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body3\discretionary {-}{}{}D}, 
+		\hyperpage{110}
+  \item {$\sim $\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body\discretionary {-}{}{}Mass\discretionary {-}{}{}Point}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body\discretionary {-}{}{}Mass\discretionary {-}{}{}Point}, 
+		\hyperpage{112}
+  \item {$\sim $\discretionary {-}{}{}Shape\discretionary {-}{}{}Function}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function}, 
+		\hyperpage{114}
+  \item {$\sim $\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Linear}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Linear}, 
+		\hyperpage{118}
+  \item {$\sim $\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}M\discretionary {-}{}{}L\discretionary {-}{}{}S}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}M\discretionary {-}{}{}L\discretionary {-}{}{}S}, 
+		\hyperpage{120}
+  \item {$\sim $\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}R\discretionary {-}{}{}B\discretionary {-}{}{}F}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}R\discretionary {-}{}{}B\discretionary {-}{}{}F}, 
+		\hyperpage{122}
+  \item {$\sim $\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}, 
+		\hyperpage{123}
+  \item {$\sim $\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Tetrahedron}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{125}
+  \item {$\sim $\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Triangle}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Triangle}, 
+		\hyperpage{127}
+  \item {$\sim $\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Triangle\discretionary {-}{}{}Signed}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Triangle\discretionary {-}{}{}Signed}, 
+		\hyperpage{129}
+  \item {$\sim $\discretionary {-}{}{}Simulation}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{130}
+  \item {$\sim $\discretionary {-}{}{}System}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{153}
+  \item {$\sim $\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {$\sim $\discretionary {-}{}{}Thermal\discretionary {-}{}{}Load}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Load}, 
+		\hyperpage{164}
+
+  \indexspace
+
+  \item {actualize\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Comp\discretionary {-}{}{}Bar}, 
+		\hyperpage{35}
+  \item {add\discretionary {-}{}{}Boundary\discretionary {-}{}{}Line}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{23}
+  \item {add\discretionary {-}{}{}Cell}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{23}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {add\discretionary {-}{}{}Node}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{23}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}, 
+		\hyperpage{100}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{103}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {add\discretionary {-}{}{}Support\discretionary {-}{}{}Node}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{89}
+  \item {add\discretionary {-}{}{}To\discretionary {-}{}{}Render}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Comp\discretionary {-}{}{}Bar}, 
+		\hyperpage{36}
+  \item {add\discretionary {-}{}{}Weight}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{83}
+  \item {alpha}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{40}
+  \item {alphai}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{93}
+  \item {Analysis}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis}, 
+		\hyperpage{11}
+  \item {analysis.\discretionary {-}{}{}cpp}, \hyperpage{165}
+  \item {analysis.\discretionary {-}{}{}h}, \hyperpage{166}
+  \item {Analysis\discretionary {-}{}{}Dynamic}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Dynamic}, 
+		\hyperpage{14}
+  \item {Analysis\discretionary {-}{}{}Static}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Static}, 
+		\hyperpage{17}
+  \item {Analysis\discretionary {-}{}{}Thermal\discretionary {-}{}{}Dynamic}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Thermal\discretionary {-}{}{}Dynamic}, 
+		\hyperpage{19}
+  \item {Analysis\discretionary {-}{}{}Thermal\discretionary {-}{}{}Static}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Thermal\discretionary {-}{}{}Static}, 
+		\hyperpage{21}
+  \item {analysisdynamic.\discretionary {-}{}{}cpp}, \hyperpage{167}
+  \item {analysisdynamic.\discretionary {-}{}{}h}, \hyperpage{167}
+  \item {analysisstatic.\discretionary {-}{}{}cpp}, \hyperpage{168}
+  \item {analysisstatic.\discretionary {-}{}{}h}, \hyperpage{168}
+  \item {analysisthermaldynamic.\discretionary {-}{}{}cpp}, 
+		\hyperpage{169}
+  \item {analysisthermaldynamic.\discretionary {-}{}{}h}, 
+		\hyperpage{170}
+  \item {analysisthermalstatic.\discretionary {-}{}{}cpp}, 
+		\hyperpage{170}
+  \item {analysisthermalstatic.\discretionary {-}{}{}h}, 
+		\hyperpage{171}
+  \item {assemble\discretionary {-}{}{}Capacity\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{26}
+  \item {assemble\discretionary {-}{}{}Capacity\discretionary {-}{}{}Matrix}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{153}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {assemble\discretionary {-}{}{}Cij}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{68}
+  \item {assemble\discretionary {-}{}{}Conductivity\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{26}
+  \item {assemble\discretionary {-}{}{}Conductivity\discretionary {-}{}{}Matrix}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{153}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {assemble\discretionary {-}{}{}Constraint\discretionary {-}{}{}Forces}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{154}
+  \item {assemble\discretionary {-}{}{}External\discretionary {-}{}{}Forces}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{23}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}, 
+		\hyperpage{62}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Load}, 
+		\hyperpage{76}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{103}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{154}
+  \item {assemble\discretionary {-}{}{}External\discretionary {-}{}{}Heat}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{154}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {assemble\discretionary {-}{}{}Fext}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{68}
+  \item {assemble\discretionary {-}{}{}Fext\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{26}
+  \item {assemble\discretionary {-}{}{}Fint}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{68}
+  \item {assemble\discretionary {-}{}{}Fint\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{26}
+  \item {assemble\discretionary {-}{}{}Hij}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{68}
+  \item {assemble\discretionary {-}{}{}Internal\discretionary {-}{}{}Forces}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{37}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{60}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}, 
+		\hyperpage{62}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{155}
+  \item {assemble\discretionary {-}{}{}K\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{26}
+  \item {assemble\discretionary {-}{}{}Kij}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{68}
+  \item {assemble\discretionary {-}{}{}M\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{26}
+  \item {assemble\discretionary {-}{}{}Mass\discretionary {-}{}{}Matrix}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{23}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}, 
+		\hyperpage{62}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{104}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{155}
+  \item {assemble\discretionary {-}{}{}Mij}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{68}
+  \item {assemble\discretionary {-}{}{}N\discretionary {-}{}{}L\discretionary {-}{}{}R\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{26}
+  \item {assemble\discretionary {-}{}{}Qext}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{68}
+  \item {assemble\discretionary {-}{}{}Qext\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{26}
+  \item {assemble\discretionary {-}{}{}R\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{26}
+  \item {assemble\discretionary {-}{}{}Ri}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{68}
+  \item {assemble\discretionary {-}{}{}Tangent\discretionary {-}{}{}Matrix}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{38}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{60}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}, 
+		\hyperpage{63}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{155}
+  \item {axis\discretionary {-}{}{}Name}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Axis}, 
+		\hyperpage{48}
+
+  \indexspace
+
+  \item {Body}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{23}
+  \item {body.\discretionary {-}{}{}cpp}, \hyperpage{172}
+  \item {body.\discretionary {-}{}{}h}, \hyperpage{172}
+  \item {bodyflex.\discretionary {-}{}{}cpp}, \hyperpage{173}
+  \item {bodyflex.\discretionary {-}{}{}h}, \hyperpage{174}
+  \item {bodyflexglobalgalerkin.\discretionary {-}{}{}cpp}, 
+		\hyperpage{176}
+  \item {bodyflexglobalgalerkin.\discretionary {-}{}{}h}, 
+		\hyperpage{176}
+  \item {bodyrigid.\discretionary {-}{}{}cpp}, \hyperpage{178}
+  \item {bodyrigid.\discretionary {-}{}{}h}, \hyperpage{178}
+  \item {bodyrigid0\discretionary {-}{}{}D.\discretionary {-}{}{}cpp}, 
+		\hyperpage{179}
+  \item {bodyrigid0\discretionary {-}{}{}D.\discretionary {-}{}{}h}, 
+		\hyperpage{180}
+  \item {bodyrigid1\discretionary {-}{}{}D.\discretionary {-}{}{}cpp}, 
+		\hyperpage{181}
+  \item {bodyrigid1\discretionary {-}{}{}D.\discretionary {-}{}{}h}, 
+		\hyperpage{181}
+  \item {bodyrigid1\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}bad\discretionary {-}{}{}\_\discretionary {-}{}{}1.\discretionary {-}{}{}cpp}, 
+		\hyperpage{182}
+  \item {bodyrigid1\discretionary {-}{}{}D\discretionary {-}{}{}\_\discretionary {-}{}{}bad\discretionary {-}{}{}\_\discretionary {-}{}{}1.\discretionary {-}{}{}h}, 
+		\hyperpage{183}
+  \item {bodyrigid2\discretionary {-}{}{}D.\discretionary {-}{}{}cpp}, 
+		\hyperpage{184}
+  \item {bodyrigid2\discretionary {-}{}{}D.\discretionary {-}{}{}h}, 
+		\hyperpage{184}
+  \item {bodyrigid3\discretionary {-}{}{}D.\discretionary {-}{}{}cpp}, 
+		\hyperpage{185}
+  \item {bodyrigid3\discretionary {-}{}{}D.\discretionary {-}{}{}h}, 
+		\hyperpage{186}
+  \item {bodythermal.\discretionary {-}{}{}cpp}, \hyperpage{187}
+  \item {bodythermal.\discretionary {-}{}{}h}, \hyperpage{187}
+  \item {boundary}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{24}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {boundary\discretionary {-}{}{}Conf}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{105}
+
+  \indexspace
+
+  \item {calc}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function}, 
+		\hyperpage{114}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Linear}, 
+		\hyperpage{118}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}M\discretionary {-}{}{}L\discretionary {-}{}{}S}, 
+		\hyperpage{120}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}R\discretionary {-}{}{}B\discretionary {-}{}{}F}, 
+		\hyperpage{122}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}, 
+		\hyperpage{123}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{125}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Triangle}, 
+		\hyperpage{127}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Triangle\discretionary {-}{}{}Signed}, 
+		\hyperpage{129}
+  \item {calc\discretionary {-}{}{}Capacity\discretionary {-}{}{}Matrix}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{156}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {calc\discretionary {-}{}{}Conductivity\discretionary {-}{}{}Matrix}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{156}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {calc\discretionary {-}{}{}Elastic\discretionary {-}{}{}E}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{68}
+  \item {calc\discretionary {-}{}{}Elastic\discretionary {-}{}{}E\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{26}
+  \item {calc\discretionary {-}{}{}External\discretionary {-}{}{}Forces}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{23}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}, 
+		\hyperpage{63}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}, 
+		\hyperpage{100}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body2\discretionary {-}{}{}D}, 
+		\hyperpage{107}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body3\discretionary {-}{}{}D}, 
+		\hyperpage{110}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body\discretionary {-}{}{}Mass\discretionary {-}{}{}Point}, 
+		\hyperpage{112}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{156}
+  \item {calc\discretionary {-}{}{}External\discretionary {-}{}{}Heat}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{157}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {calc\discretionary {-}{}{}Internal\discretionary {-}{}{}Forces}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{38}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{60}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}, 
+		\hyperpage{63}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{157}
+  \item {calc\discretionary {-}{}{}Kinetic\discretionary {-}{}{}E}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{68}
+  \item {calc\discretionary {-}{}{}Kinetic\discretionary {-}{}{}E\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+  \item {calc\discretionary {-}{}{}Mass\discretionary {-}{}{}Matrix}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{23}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}, 
+		\hyperpage{63}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}, 
+		\hyperpage{101}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body2\discretionary {-}{}{}D}, 
+		\hyperpage{107}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body3\discretionary {-}{}{}D}, 
+		\hyperpage{110}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body\discretionary {-}{}{}Mass\discretionary {-}{}{}Point}, 
+		\hyperpage{112}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{157}
+  \item {calc\discretionary {-}{}{}Phi}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{38}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Clearance}, 
+		\hyperpage{42}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Contact}, 
+		\hyperpage{43}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Distance}, 
+		\hyperpage{46}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Axis}, 
+		\hyperpage{48}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Coordinates}, 
+		\hyperpage{50}
+  \item {calc\discretionary {-}{}{}Phiq}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{39}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Clearance}, 
+		\hyperpage{42}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Contact}, 
+		\hyperpage{43}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Distance}, 
+		\hyperpage{46}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Axis}, 
+		\hyperpage{48}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Coordinates}, 
+		\hyperpage{50}
+  \item {calc\discretionary {-}{}{}Phiqq}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{39}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Clearance}, 
+		\hyperpage{42}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Contact}, 
+		\hyperpage{44}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Distance}, 
+		\hyperpage{46}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Axis}, 
+		\hyperpage{48}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Coordinates}, 
+		\hyperpage{50}
+  \item {calc\discretionary {-}{}{}Potential\discretionary {-}{}{}E}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{68}
+  \item {calc\discretionary {-}{}{}Potential\discretionary {-}{}{}E\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+  \item {calc\discretionary {-}{}{}Ro}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Distance}, 
+		\hyperpage{46}
+  \item {calc\discretionary {-}{}{}Tangent\discretionary {-}{}{}Matrix}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{39}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{60}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}, 
+		\hyperpage{63}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{158}
+  \item {Cell}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{26}
+  \item {cell.\discretionary {-}{}{}cpp}, \hyperpage{189}
+  \item {cell.\discretionary {-}{}{}h}, \hyperpage{189}
+  \item {Cell\discretionary {-}{}{}Rect}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell\discretionary {-}{}{}Rect}, 
+		\hyperpage{29}
+  \item {Cell\discretionary {-}{}{}Tetrahedron}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{31}
+  \item {Cell\discretionary {-}{}{}Triang}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell\discretionary {-}{}{}Triang}, 
+		\hyperpage{33}
+  \item {cellrect.\discretionary {-}{}{}cpp}, \hyperpage{191}
+  \item {cellrect.\discretionary {-}{}{}h}, \hyperpage{192}
+  \item {cells}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{24}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {celltetrahedron.\discretionary {-}{}{}cpp}, \hyperpage{193}
+  \item {celltetrahedron.\discretionary {-}{}{}h}, \hyperpage{194}
+  \item {celltriang.\discretionary {-}{}{}cpp}, \hyperpage{196}
+  \item {celltriang.\discretionary {-}{}{}h}, \hyperpage{196}
+  \item {check\discretionary {-}{}{}Augmented}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{40}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{158}
+  \item {clear\discretionary {-}{}{}Augmented}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{40}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{158}
+  \item {common.\discretionary {-}{}{}h}, \hyperpage{198}
+  \item {Comp\discretionary {-}{}{}Bar}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Comp\discretionary {-}{}{}Bar}, 
+		\hyperpage{35}
+  \item {compbar.\discretionary {-}{}{}cpp}, \hyperpage{198}
+  \item {compbar.\discretionary {-}{}{}h}, \hyperpage{199}
+  \item {compute\discretionary {-}{}{}\_\discretionary {-}{}{}abcd}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{126}
+  \item {compute\discretionary {-}{}{}C}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Material}, 
+		\hyperpage{77}
+  \item {compute\discretionary {-}{}{}Capacity\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+  \item {compute\discretionary {-}{}{}Cij}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{68}
+  \item {compute\discretionary {-}{}{}Conductivity\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+  \item {compute\discretionary {-}{}{}D}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Material}, 
+		\hyperpage{78}
+  \item {compute\discretionary {-}{}{}Energy}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{60}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Material}, 
+		\hyperpage{78}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{105}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {compute\discretionary {-}{}{}Fext}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{69}
+  \item {compute\discretionary {-}{}{}Fext\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+  \item {compute\discretionary {-}{}{}Fint}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{69}
+  \item {compute\discretionary {-}{}{}Fint\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+  \item {compute\discretionary {-}{}{}Hij}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{69}
+  \item {compute\discretionary {-}{}{}K\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+  \item {compute\discretionary {-}{}{}Kij}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{70}
+  \item {compute\discretionary {-}{}{}M\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+  \item {compute\discretionary {-}{}{}Mij}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{70}
+  \item {compute\discretionary {-}{}{}N\discretionary {-}{}{}L\discretionary {-}{}{}Fint}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{71}
+  \item {compute\discretionary {-}{}{}N\discretionary {-}{}{}L\discretionary {-}{}{}Fint\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+  \item {compute\discretionary {-}{}{}N\discretionary {-}{}{}L\discretionary {-}{}{}K\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+  \item {compute\discretionary {-}{}{}N\discretionary {-}{}{}L\discretionary {-}{}{}Kij}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{71}
+  \item {compute\discretionary {-}{}{}N\discretionary {-}{}{}L\discretionary {-}{}{}Stress}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{72}
+  \item {compute\discretionary {-}{}{}Qext}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{72}
+  \item {compute\discretionary {-}{}{}Qext\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+  \item {compute\discretionary {-}{}{}S}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Material}, 
+		\hyperpage{78, 79}
+  \item {compute\discretionary {-}{}{}Shape\discretionary {-}{}{}Functions}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Elem\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{56}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Elem\discretionary {-}{}{}Triangle}, 
+		\hyperpage{58}
+  \item {compute\discretionary {-}{}{}Stress}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{60}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{73}
+  \item {Constraint}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{37}
+  \item {constraint.\discretionary {-}{}{}cpp}, \hyperpage{199}
+  \item {constraint.\discretionary {-}{}{}h}, \hyperpage{200}
+  \item {Constraint\discretionary {-}{}{}Clearance}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Clearance}, 
+		\hyperpage{42}
+  \item {Constraint\discretionary {-}{}{}Contact}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Contact}, 
+		\hyperpage{43}
+  \item {Constraint\discretionary {-}{}{}Distance}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Distance}, 
+		\hyperpage{45}
+  \item {Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Axis}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Axis}, 
+		\hyperpage{48}
+  \item {Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Coordinates}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Coordinates}, 
+		\hyperpage{50}
+  \item {constraintclearance.\discretionary {-}{}{}cpp}, 
+		\hyperpage{201}
+  \item {constraintclearance.\discretionary {-}{}{}h}, \hyperpage{201}
+  \item {constraintcontact.\discretionary {-}{}{}cpp}, \hyperpage{202}
+  \item {constraintcontact.\discretionary {-}{}{}h}, \hyperpage{203}
+  \item {constraintdistance.\discretionary {-}{}{}cpp}, \hyperpage{204}
+  \item {constraintdistance.\discretionary {-}{}{}h}, \hyperpage{205}
+  \item {constraintfixedaxis.\discretionary {-}{}{}cpp}, 
+		\hyperpage{205}
+  \item {constraintfixedaxis.\discretionary {-}{}{}h}, \hyperpage{206}
+  \item {constraintfixedcoordinates.\discretionary {-}{}{}cpp}, 
+		\hyperpage{207}
+  \item {constraintfixedcoordinates.\discretionary {-}{}{}h}, 
+		\hyperpage{207}
+  \item {Contact}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Contact}, 
+		\hyperpage{51}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{152}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{161}
+  \item {create\discretionary {-}{}{}Delaunay}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Contact}, 
+		\hyperpage{51}
+  \item {create\discretionary {-}{}{}Drawing\discretionary {-}{}{}Contact\discretionary {-}{}{}Objects}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Contact}, 
+		\hyperpage{51}
+  \item {create\discretionary {-}{}{}Drawing\discretionary {-}{}{}Objects}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Contact}, 
+		\hyperpage{52}
+  \item {create\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{31}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell\discretionary {-}{}{}Triang}, 
+		\hyperpage{34}
+  \item {create\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Contact}, 
+		\hyperpage{52}
+  \item {create\discretionary {-}{}{}Polys}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Contact}, 
+		\hyperpage{52}
+
+  \indexspace
+
+  \item {data\discretionary {-}{}{}\_\discretionary {-}{}{}type}
+    \subitem {mknix}, \hyperpage{10}
+  \item {dc}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{94}
+  \item {dictionary.\discretionary {-}{}{}h}, \hyperpage{208}
+  \item {dim}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{40}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{94}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{105}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function}, 
+		\hyperpage{117}
+  \item {distance}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{89}
+  \item {domain\discretionary {-}{}{}Nodes}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{105}
+  \item {draw\discretionary {-}{}{}Objects}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Contact}, 
+		\hyperpage{53}
+  \item {dynamic\discretionary {-}{}{}Acceleration}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{130}
+  \item {dynamic\discretionary {-}{}{}Convergence}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{131}
+  \item {dynamic\discretionary {-}{}{}Residue}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{132}
+  \item {dynamic\discretionary {-}{}{}Tangent}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{133}
+  \item {dynamic\discretionary {-}{}{}Thermal\discretionary {-}{}{}Convergence}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{134}
+  \item {dynamic\discretionary {-}{}{}Thermal\discretionary {-}{}{}Evaluation}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{135}
+  \item {dynamic\discretionary {-}{}{}Thermal\discretionary {-}{}{}Residue}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{135}
+  \item {dynamic\discretionary {-}{}{}Thermal\discretionary {-}{}{}Tangent}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{136}
+
+  \indexspace
+
+  \item {Elem\discretionary {-}{}{}Tetrahedron}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Elem\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{56}
+  \item {Elem\discretionary {-}{}{}Triangle}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Elem\discretionary {-}{}{}Triangle}, 
+		\hyperpage{58}
+  \item {elemtetrahedron.\discretionary {-}{}{}cpp}, \hyperpage{209}
+  \item {elemtetrahedron.\discretionary {-}{}{}h}, \hyperpage{210}
+  \item {elemtriangle.\discretionary {-}{}{}cpp}, \hyperpage{211}
+  \item {elemtriangle.\discretionary {-}{}{}h}, \hyperpage{212}
+  \item {energy}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{60}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{105}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{164}
+  \item {epsilon}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis}, 
+		\hyperpage{12}
+  \item {external\discretionary {-}{}{}Forces}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Load}, 
+		\hyperpage{76}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{105}
+
+  \indexspace
+
+  \item {fill\discretionary {-}{}{}B\discretionary {-}{}{}Tetrahedron\discretionary {-}{}{}F\discretionary {-}{}{}E}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{73}
+  \item {fill\discretionary {-}{}{}B\discretionary {-}{}{}Triangle\discretionary {-}{}{}F\discretionary {-}{}{}E}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{74}
+  \item {find\discretionary {-}{}{}Support\discretionary {-}{}{}Nodes}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{90, 91}
+  \item {Flex\discretionary {-}{}{}Body}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{60}
+  \item {Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}, 
+		\hyperpage{62}
+  \item {Force}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Force}, 
+		\hyperpage{65}
+  \item {force.\discretionary {-}{}{}cpp}, \hyperpage{213}
+  \item {force.\discretionary {-}{}{}h}, \hyperpage{214}
+  \item {formulation}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{60}
+
+  \indexspace
+
+  \item {g\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+  \item {Gauss\discretionary {-}{}{}Point}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{68}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{93}
+  \item {gausspoint.\discretionary {-}{}{}cpp}, \hyperpage{215}
+  \item {gausspoint.\discretionary {-}{}{}h}, \hyperpage{215}
+  \item {generalcontact.\discretionary {-}{}{}cpp}, \hyperpage{217}
+  \item {generalcontact.\discretionary {-}{}{}h}, \hyperpage{217}
+  \item {get\discretionary {-}{}{}Alpha}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{136}
+  \item {get\discretionary {-}{}{}Boundary\discretionary {-}{}{}First\discretionary {-}{}{}Node}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{23}
+  \item {get\discretionary {-}{}{}Boundary\discretionary {-}{}{}Next\discretionary {-}{}{}Node}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{23}
+  \item {get\discretionary {-}{}{}Boundary\discretionary {-}{}{}Node}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}, 
+		\hyperpage{101}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{104}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body2\discretionary {-}{}{}D}, 
+		\hyperpage{108}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body3\discretionary {-}{}{}D}, 
+		\hyperpage{110}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body\discretionary {-}{}{}Mass\discretionary {-}{}{}Point}, 
+		\hyperpage{112}
+  \item {get\discretionary {-}{}{}Boundary\discretionary {-}{}{}Size}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{23}
+  \item {get\discretionary {-}{}{}C}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Material}, 
+		\hyperpage{79}
+  \item {get\discretionary {-}{}{}Capacity}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Material}, 
+		\hyperpage{79}
+  \item {get\discretionary {-}{}{}Conf}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{83}
+  \item {get\discretionary {-}{}{}Constraint\discretionary {-}{}{}Method}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{137}
+  \item {get\discretionary {-}{}{}Csym}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Material}, 
+		\hyperpage{79}
+  \item {get\discretionary {-}{}{}D}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Material}, 
+		\hyperpage{79}
+  \item {get\discretionary {-}{}{}Density}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Material}, 
+		\hyperpage{80}
+  \item {get\discretionary {-}{}{}Dim}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{137}
+  \item {get\discretionary {-}{}{}E}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Material}, 
+		\hyperpage{80}
+  \item {get\discretionary {-}{}{}Gap}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Contact}, 
+		\hyperpage{44}
+  \item {get\discretionary {-}{}{}Gravity}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{138}
+  \item {get\discretionary {-}{}{}Internal\discretionary {-}{}{}Forces}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Clearance}, 
+		\hyperpage{42}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Contact}, 
+		\hyperpage{44}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Distance}, 
+		\hyperpage{46}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Axis}, 
+		\hyperpage{48}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Coordinates}, 
+		\hyperpage{50}
+  \item {get\discretionary {-}{}{}Kappa}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Material}, 
+		\hyperpage{80}
+  \item {get\discretionary {-}{}{}Last\discretionary {-}{}{}Node}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{23}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {get\discretionary {-}{}{}Mu}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Material}, 
+		\hyperpage{81}
+  \item {get\discretionary {-}{}{}Node}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{23}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{40}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}, 
+		\hyperpage{101}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {get\discretionary {-}{}{}Number}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{83}
+  \item {get\discretionary {-}{}{}Phi}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function}, 
+		\hyperpage{115}
+  \item {get\discretionary {-}{}{}Shape\discretionary {-}{}{}Fun\discretionary {-}{}{}Type}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{91}
+  \item {get\discretionary {-}{}{}Shape\discretionary {-}{}{}Fun\discretionary {-}{}{}Value}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{83}
+  \item {get\discretionary {-}{}{}Smoothing\discretionary {-}{}{}Type}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{139}
+  \item {get\discretionary {-}{}{}Sparse\discretionary {-}{}{}Pattern}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{140}
+  \item {get\discretionary {-}{}{}Stiffness\discretionary {-}{}{}Matrix}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Clearance}, 
+		\hyperpage{42}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Contact}, 
+		\hyperpage{44}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Distance}, 
+		\hyperpage{46}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Axis}, 
+		\hyperpage{48}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Coordinates}, 
+		\hyperpage{50}
+  \item {get\discretionary {-}{}{}Support\discretionary {-}{}{}Node\discretionary {-}{}{}Number}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{84}
+  \item {get\discretionary {-}{}{}Support\discretionary {-}{}{}Size}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{84}
+  \item {get\discretionary {-}{}{}Thermal\discretionary {-}{}{}Load}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Load}, 
+		\hyperpage{164}
+  \item {get\discretionary {-}{}{}Time}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{140}
+  \item {get\discretionary {-}{}{}Title}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{159}
+  \item {get\discretionary {-}{}{}Type}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{23}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}, 
+		\hyperpage{63}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}, 
+		\hyperpage{101}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body2\discretionary {-}{}{}D}, 
+		\hyperpage{108}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body3\discretionary {-}{}{}D}, 
+		\hyperpage{110}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body\discretionary {-}{}{}Mass\discretionary {-}{}{}Point}, 
+		\hyperpage{112}
+  \item {get\discretionary {-}{}{}U}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{84}
+  \item {get\discretionary {-}{}{}Ux}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{84}
+  \item {get\discretionary {-}{}{}Uy}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{84}
+  \item {get\discretionary {-}{}{}Uz}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{84}
+  \item {get\discretionary {-}{}{}Weight}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{85}
+  \item {get\discretionary {-}{}{}X}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{91}
+  \item {get\discretionary {-}{}{}Y}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{91}
+  \item {get\discretionary {-}{}{}Z}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{92}
+  \item {getx}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{85}
+  \item {gety}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{85}
+  \item {getz}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{86}
+  \item {gnuplot\discretionary {-}{}{}Out}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell\discretionary {-}{}{}Rect}, 
+		\hyperpage{29}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{31}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell\discretionary {-}{}{}Triang}, 
+		\hyperpage{34}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{92}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function}, 
+		\hyperpage{116}
+  \item {gnuplot\discretionary {-}{}{}Out\discretionary {-}{}{}Stress}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{74}
+  \item {gp}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function}, 
+		\hyperpage{117}
+
+  \indexspace
+
+  \item {initialize}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell\discretionary {-}{}{}Rect}, 
+		\hyperpage{29}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Elem\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{56}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Elem\discretionary {-}{}{}Triangle}, 
+		\hyperpage{58}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{60}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}, 
+		\hyperpage{63}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {input\discretionary {-}{}{}From\discretionary {-}{}{}File}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Reader}, 
+		\hyperpage{94}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{141}
+  \item {internal\discretionary {-}{}{}Forces}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{40}
+
+  \indexspace
+
+  \item {jacobian}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{94}
+
+  \indexspace
+
+  \item {lambda}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{40}
+  \item {Load}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Load}, 
+		\hyperpage{76}
+  \item {load.\discretionary {-}{}{}cpp}, \hyperpage{218}
+  \item {load.\discretionary {-}{}{}h}, \hyperpage{219}
+  \item {local\discretionary {-}{}{}Mass\discretionary {-}{}{}Matrix}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{24}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{164}
+
+  \indexspace
+
+  \item {main}
+    \subitem {mknix.\discretionary {-}{}{}cpp}, \hyperpage{222}
+  \item {mass}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{105}
+  \item {mat}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+  \item {Material}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Material}, 
+		\hyperpage{77}
+  \item {material.\discretionary {-}{}{}cpp}, \hyperpage{220}
+  \item {material.\discretionary {-}{}{}h}, \hyperpage{221}
+  \item {method}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{40}
+  \item {mknix}, \hyperpage{8}
+    \subitem {data\discretionary {-}{}{}\_\discretionary {-}{}{}type}, 
+		\hyperpage{10}
+  \item {mknix.\discretionary {-}{}{}cpp}, \hyperpage{221}
+    \subitem {main}, \hyperpage{222}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis}, 
+		\hyperpage{10}
+    \subitem {$\sim $\discretionary {-}{}{}Analysis}, \hyperpage{11}
+    \subitem {Analysis}, \hyperpage{11}
+    \subitem {epsilon}, \hyperpage{12}
+    \subitem {set\discretionary {-}{}{}Epsilon}, \hyperpage{11}
+    \subitem {solve}, \hyperpage{11}
+    \subitem {the\discretionary {-}{}{}Simulation}, \hyperpage{12}
+    \subitem {type}, \hyperpage{11}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Dynamic}, 
+		\hyperpage{12}
+    \subitem {$\sim $\discretionary {-}{}{}Analysis\discretionary {-}{}{}Dynamic}, 
+		\hyperpage{14}
+    \subitem {Analysis\discretionary {-}{}{}Dynamic}, \hyperpage{14}
+    \subitem {solve}, \hyperpage{15}
+    \subitem {type}, \hyperpage{15}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Static}, 
+		\hyperpage{15}
+    \subitem {$\sim $\discretionary {-}{}{}Analysis\discretionary {-}{}{}Static}, 
+		\hyperpage{17}
+    \subitem {Analysis\discretionary {-}{}{}Static}, \hyperpage{17}
+    \subitem {solve}, \hyperpage{17}
+    \subitem {type}, \hyperpage{17}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Thermal\discretionary {-}{}{}Dynamic}, 
+		\hyperpage{18}
+    \subitem {$\sim $\discretionary {-}{}{}Analysis\discretionary {-}{}{}Thermal\discretionary {-}{}{}Dynamic}, 
+		\hyperpage{19}
+    \subitem {Analysis\discretionary {-}{}{}Thermal\discretionary {-}{}{}Dynamic}, 
+		\hyperpage{19}
+    \subitem {solve}, \hyperpage{19}
+    \subitem {type}, \hyperpage{19}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Thermal\discretionary {-}{}{}Static}, 
+		\hyperpage{20}
+    \subitem {$\sim $\discretionary {-}{}{}Analysis\discretionary {-}{}{}Thermal\discretionary {-}{}{}Static}, 
+		\hyperpage{21}
+    \subitem {Analysis\discretionary {-}{}{}Thermal\discretionary {-}{}{}Static}, 
+		\hyperpage{21}
+    \subitem {solve}, \hyperpage{21}
+    \subitem {type}, \hyperpage{21}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{21}
+    \subitem {$\sim $\discretionary {-}{}{}Body}, \hyperpage{23}
+    \subitem {add\discretionary {-}{}{}Boundary\discretionary {-}{}{}Line}, 
+		\hyperpage{23}
+    \subitem {add\discretionary {-}{}{}Cell}, \hyperpage{23}
+    \subitem {add\discretionary {-}{}{}Node}, \hyperpage{23}
+    \subitem {assemble\discretionary {-}{}{}External\discretionary {-}{}{}Forces}, 
+		\hyperpage{23}
+    \subitem {assemble\discretionary {-}{}{}Mass\discretionary {-}{}{}Matrix}, 
+		\hyperpage{23}
+    \subitem {Body}, \hyperpage{23}
+    \subitem {boundary}, \hyperpage{24}
+    \subitem {calc\discretionary {-}{}{}External\discretionary {-}{}{}Forces}, 
+		\hyperpage{23}
+    \subitem {calc\discretionary {-}{}{}Mass\discretionary {-}{}{}Matrix}, 
+		\hyperpage{23}
+    \subitem {cells}, \hyperpage{24}
+    \subitem {get\discretionary {-}{}{}Boundary\discretionary {-}{}{}First\discretionary {-}{}{}Node}, 
+		\hyperpage{23}
+    \subitem {get\discretionary {-}{}{}Boundary\discretionary {-}{}{}Next\discretionary {-}{}{}Node}, 
+		\hyperpage{23}
+    \subitem {get\discretionary {-}{}{}Boundary\discretionary {-}{}{}Size}, 
+		\hyperpage{23}
+    \subitem {get\discretionary {-}{}{}Last\discretionary {-}{}{}Node}, 
+		\hyperpage{23}
+    \subitem {get\discretionary {-}{}{}Node}, \hyperpage{23}
+    \subitem {get\discretionary {-}{}{}Type}, \hyperpage{23}
+    \subitem {local\discretionary {-}{}{}Mass\discretionary {-}{}{}Matrix}, 
+		\hyperpage{24}
+    \subitem {nodes}, \hyperpage{24}
+    \subitem {output\discretionary {-}{}{}Step}, \hyperpage{23}
+    \subitem {output\discretionary {-}{}{}To\discretionary {-}{}{}File}, 
+		\hyperpage{24}
+    \subitem {set\discretionary {-}{}{}Output}, \hyperpage{24}
+    \subitem {title}, \hyperpage{24}
+    \subitem {translate}, \hyperpage{24}
+    \subitem {write\discretionary {-}{}{}Boundary\discretionary {-}{}{}Connectivity}, 
+		\hyperpage{24}
+    \subitem {write\discretionary {-}{}{}Boundary\discretionary {-}{}{}Nodes}, 
+		\hyperpage{24}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{24}
+    \subitem {$\sim $\discretionary {-}{}{}Cell}, \hyperpage{26}
+    \subitem {alpha}, \hyperpage{27}
+    \subitem {assemble\discretionary {-}{}{}Capacity\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{26}
+    \subitem {assemble\discretionary {-}{}{}Conductivity\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{26}
+    \subitem {assemble\discretionary {-}{}{}Fext\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{26}
+    \subitem {assemble\discretionary {-}{}{}Fint\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{26}
+    \subitem {assemble\discretionary {-}{}{}K\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{26}
+    \subitem {assemble\discretionary {-}{}{}M\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{26}
+    \subitem {assemble\discretionary {-}{}{}N\discretionary {-}{}{}L\discretionary {-}{}{}R\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{26}
+    \subitem {assemble\discretionary {-}{}{}Qext\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{26}
+    \subitem {assemble\discretionary {-}{}{}R\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{26}
+    \subitem {calc\discretionary {-}{}{}Elastic\discretionary {-}{}{}E\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{26}
+    \subitem {calc\discretionary {-}{}{}Kinetic\discretionary {-}{}{}E\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{27}
+    \subitem {calc\discretionary {-}{}{}Potential\discretionary {-}{}{}E\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{27}
+    \subitem {Cell}, \hyperpage{26}
+    \subitem {compute\discretionary {-}{}{}Capacity\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{27}
+    \subitem {compute\discretionary {-}{}{}Conductivity\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{27}
+    \subitem {compute\discretionary {-}{}{}Fext\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{27}
+    \subitem {compute\discretionary {-}{}{}Fint\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{27}
+    \subitem {compute\discretionary {-}{}{}K\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{27}
+    \subitem {compute\discretionary {-}{}{}M\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{27}
+    \subitem {compute\discretionary {-}{}{}N\discretionary {-}{}{}L\discretionary {-}{}{}Fint\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{27}
+    \subitem {compute\discretionary {-}{}{}N\discretionary {-}{}{}L\discretionary {-}{}{}K\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{27}
+    \subitem {compute\discretionary {-}{}{}Qext\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{27}
+    \subitem {compute\discretionary {-}{}{}Shape\discretionary {-}{}{}Functions}, 
+		\hyperpage{27}
+    \subitem {dc}, \hyperpage{27}
+    \subitem {formulation}, \hyperpage{27}
+    \subitem {g\discretionary {-}{}{}Points}, \hyperpage{27}
+    \subitem {gnuplot\discretionary {-}{}{}Out}, \hyperpage{27}
+    \subitem {gnuplot\discretionary {-}{}{}Out\discretionary {-}{}{}Stress}, 
+		\hyperpage{27}
+    \subitem {initialize}, \hyperpage{27}
+    \subitem {jacobian}, \hyperpage{27}
+    \subitem {mat}, \hyperpage{27}
+    \subitem {n\discretionary {-}{}{}G\discretionary {-}{}{}Points}, 
+		\hyperpage{27}
+    \subitem {nodes}, \hyperpage{27}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell\discretionary {-}{}{}Rect}, 
+		\hyperpage{28}
+    \subitem {$\sim $\discretionary {-}{}{}Cell\discretionary {-}{}{}Rect}, 
+		\hyperpage{29}
+    \subitem {Cell\discretionary {-}{}{}Rect}, \hyperpage{29}
+    \subitem {gnuplot\discretionary {-}{}{}Out}, \hyperpage{29}
+    \subitem {initialize}, \hyperpage{29}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{29}
+    \subitem {$\sim $\discretionary {-}{}{}Cell\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{31}
+    \subitem {Cell\discretionary {-}{}{}Tetrahedron}, \hyperpage{31}
+    \subitem {create\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{31}
+    \subitem {gnuplot\discretionary {-}{}{}Out}, \hyperpage{31}
+    \subitem {points}, \hyperpage{32}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell\discretionary {-}{}{}Triang}, 
+		\hyperpage{32}
+    \subitem {$\sim $\discretionary {-}{}{}Cell\discretionary {-}{}{}Triang}, 
+		\hyperpage{34}
+    \subitem {Cell\discretionary {-}{}{}Triang}, \hyperpage{33}
+    \subitem {create\discretionary {-}{}{}Gauss\discretionary {-}{}{}Points}, 
+		\hyperpage{34}
+    \subitem {gnuplot\discretionary {-}{}{}Out}, \hyperpage{34}
+    \subitem {points}, \hyperpage{34}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Comp\discretionary {-}{}{}Bar}, 
+		\hyperpage{35}
+    \subitem {$\sim $\discretionary {-}{}{}Comp\discretionary {-}{}{}Bar}, 
+		\hyperpage{35}
+    \subitem {actualize\discretionary {-}{}{}Points}, \hyperpage{35}
+    \subitem {add\discretionary {-}{}{}To\discretionary {-}{}{}Render}, 
+		\hyperpage{36}
+    \subitem {Comp\discretionary {-}{}{}Bar}, \hyperpage{35}
+    \subitem {remove\discretionary {-}{}{}From\discretionary {-}{}{}Render}, 
+		\hyperpage{36}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{36}
+    \subitem {$\sim $\discretionary {-}{}{}Constraint}, \hyperpage{37}
+    \subitem {alpha}, \hyperpage{40}
+    \subitem {assemble\discretionary {-}{}{}Internal\discretionary {-}{}{}Forces}, 
+		\hyperpage{37}
+    \subitem {assemble\discretionary {-}{}{}Tangent\discretionary {-}{}{}Matrix}, 
+		\hyperpage{38}
+    \subitem {calc\discretionary {-}{}{}Internal\discretionary {-}{}{}Forces}, 
+		\hyperpage{38}
+    \subitem {calc\discretionary {-}{}{}Phi}, \hyperpage{38}
+    \subitem {calc\discretionary {-}{}{}Phiq}, \hyperpage{39}
+    \subitem {calc\discretionary {-}{}{}Phiqq}, \hyperpage{39}
+    \subitem {calc\discretionary {-}{}{}Tangent\discretionary {-}{}{}Matrix}, 
+		\hyperpage{39}
+    \subitem {check\discretionary {-}{}{}Augmented}, \hyperpage{40}
+    \subitem {clear\discretionary {-}{}{}Augmented}, \hyperpage{40}
+    \subitem {Constraint}, \hyperpage{37}
+    \subitem {dim}, \hyperpage{40}
+    \subitem {get\discretionary {-}{}{}Node}, \hyperpage{40}
+    \subitem {internal\discretionary {-}{}{}Forces}, \hyperpage{40}
+    \subitem {lambda}, \hyperpage{40}
+    \subitem {method}, \hyperpage{40}
+    \subitem {nodes}, \hyperpage{40}
+    \subitem {phi}, \hyperpage{40}
+    \subitem {phi\discretionary {-}{}{}\_\discretionary {-}{}{}q}, 
+		\hyperpage{40}
+    \subitem {phi\discretionary {-}{}{}\_\discretionary {-}{}{}qq}, 
+		\hyperpage{40}
+    \subitem {stiffness\discretionary {-}{}{}Matrix}, \hyperpage{40}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Clearance}, 
+		\hyperpage{40}
+    \subitem {$\sim $\discretionary {-}{}{}Constraint\discretionary {-}{}{}Clearance}, 
+		\hyperpage{42}
+    \subitem {calc\discretionary {-}{}{}Phi}, \hyperpage{42}
+    \subitem {calc\discretionary {-}{}{}Phiq}, \hyperpage{42}
+    \subitem {calc\discretionary {-}{}{}Phiqq}, \hyperpage{42}
+    \subitem {Constraint\discretionary {-}{}{}Clearance}, 
+		\hyperpage{42}
+    \subitem {get\discretionary {-}{}{}Internal\discretionary {-}{}{}Forces}, 
+		\hyperpage{42}
+    \subitem {get\discretionary {-}{}{}Stiffness\discretionary {-}{}{}Matrix}, 
+		\hyperpage{42}
+    \subitem {rh}, \hyperpage{42}
+    \subitem {rt}, \hyperpage{42}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Contact}, 
+		\hyperpage{42}
+    \subitem {$\sim $\discretionary {-}{}{}Constraint\discretionary {-}{}{}Contact}, 
+		\hyperpage{43}
+    \subitem {calc\discretionary {-}{}{}Phi}, \hyperpage{43}
+    \subitem {calc\discretionary {-}{}{}Phiq}, \hyperpage{43}
+    \subitem {calc\discretionary {-}{}{}Phiqq}, \hyperpage{44}
+    \subitem {Constraint\discretionary {-}{}{}Contact}, \hyperpage{43}
+    \subitem {get\discretionary {-}{}{}Gap}, \hyperpage{44}
+    \subitem {get\discretionary {-}{}{}Internal\discretionary {-}{}{}Forces}, 
+		\hyperpage{44}
+    \subitem {get\discretionary {-}{}{}Stiffness\discretionary {-}{}{}Matrix}, 
+		\hyperpage{44}
+    \subitem {normal}, \hyperpage{44}
+    \subitem {rh}, \hyperpage{44}
+    \subitem {rt}, \hyperpage{44}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Distance}, 
+		\hyperpage{44}
+    \subitem {$\sim $\discretionary {-}{}{}Constraint\discretionary {-}{}{}Distance}, 
+		\hyperpage{45}
+    \subitem {calc\discretionary {-}{}{}Phi}, \hyperpage{46}
+    \subitem {calc\discretionary {-}{}{}Phiq}, \hyperpage{46}
+    \subitem {calc\discretionary {-}{}{}Phiqq}, \hyperpage{46}
+    \subitem {calc\discretionary {-}{}{}Ro}, \hyperpage{46}
+    \subitem {Constraint\discretionary {-}{}{}Distance}, \hyperpage{45}
+    \subitem {get\discretionary {-}{}{}Internal\discretionary {-}{}{}Forces}, 
+		\hyperpage{46}
+    \subitem {get\discretionary {-}{}{}Stiffness\discretionary {-}{}{}Matrix}, 
+		\hyperpage{46}
+    \subitem {ro}, \hyperpage{46}
+    \subitem {rt}, \hyperpage{46}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Axis}, 
+		\hyperpage{47}
+    \subitem {$\sim $\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Axis}, 
+		\hyperpage{48}
+    \subitem {axis\discretionary {-}{}{}Name}, \hyperpage{48}
+    \subitem {calc\discretionary {-}{}{}Phi}, \hyperpage{48}
+    \subitem {calc\discretionary {-}{}{}Phiq}, \hyperpage{48}
+    \subitem {calc\discretionary {-}{}{}Phiqq}, \hyperpage{48}
+    \subitem {Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Axis}, 
+		\hyperpage{48}
+    \subitem {get\discretionary {-}{}{}Internal\discretionary {-}{}{}Forces}, 
+		\hyperpage{48}
+    \subitem {get\discretionary {-}{}{}Stiffness\discretionary {-}{}{}Matrix}, 
+		\hyperpage{48}
+    \subitem {ro}, \hyperpage{48}
+    \subitem {rt}, \hyperpage{48}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Coordinates}, 
+		\hyperpage{49}
+    \subitem {$\sim $\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Coordinates}, 
+		\hyperpage{50}
+    \subitem {calc\discretionary {-}{}{}Phi}, \hyperpage{50}
+    \subitem {calc\discretionary {-}{}{}Phiq}, \hyperpage{50}
+    \subitem {calc\discretionary {-}{}{}Phiqq}, \hyperpage{50}
+    \subitem {Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Coordinates}, 
+		\hyperpage{50}
+    \subitem {get\discretionary {-}{}{}Internal\discretionary {-}{}{}Forces}, 
+		\hyperpage{50}
+    \subitem {get\discretionary {-}{}{}Stiffness\discretionary {-}{}{}Matrix}, 
+		\hyperpage{50}
+    \subitem {rxo}, \hyperpage{50}
+    \subitem {rxt}, \hyperpage{50}
+    \subitem {ryo}, \hyperpage{50}
+    \subitem {ryt}, \hyperpage{50}
+    \subitem {rzo}, \hyperpage{51}
+    \subitem {rzt}, \hyperpage{51}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Contact}, 
+		\hyperpage{51}
+    \subitem {$\sim $\discretionary {-}{}{}Contact}, \hyperpage{51}
+    \subitem {Contact}, \hyperpage{51}
+    \subitem {create\discretionary {-}{}{}Delaunay}, \hyperpage{51}
+    \subitem {create\discretionary {-}{}{}Drawing\discretionary {-}{}{}Contact\discretionary {-}{}{}Objects}, 
+		\hyperpage{51}
+    \subitem {create\discretionary {-}{}{}Drawing\discretionary {-}{}{}Objects}, 
+		\hyperpage{52}
+    \subitem {create\discretionary {-}{}{}Points}, \hyperpage{52}
+    \subitem {create\discretionary {-}{}{}Polys}, \hyperpage{52}
+    \subitem {draw\discretionary {-}{}{}Objects}, \hyperpage{53}
+    \subitem {update\discretionary {-}{}{}Delaunay}, \hyperpage{53}
+    \subitem {update\discretionary {-}{}{}Lines}, \hyperpage{54}
+    \subitem {update\discretionary {-}{}{}Points}, \hyperpage{54}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Elem\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{55}
+    \subitem {$\sim $\discretionary {-}{}{}Elem\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{56}
+    \subitem {compute\discretionary {-}{}{}Shape\discretionary {-}{}{}Functions}, 
+		\hyperpage{56}
+    \subitem {Elem\discretionary {-}{}{}Tetrahedron}, \hyperpage{56}
+    \subitem {initialize}, \hyperpage{56}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Elem\discretionary {-}{}{}Triangle}, 
+		\hyperpage{56}
+    \subitem {$\sim $\discretionary {-}{}{}Elem\discretionary {-}{}{}Triangle}, 
+		\hyperpage{58}
+    \subitem {compute\discretionary {-}{}{}Shape\discretionary {-}{}{}Functions}, 
+		\hyperpage{58}
+    \subitem {Elem\discretionary {-}{}{}Triangle}, \hyperpage{58}
+    \subitem {initialize}, \hyperpage{58}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{58}
+    \subitem {$\sim $\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{60}
+    \subitem {assemble\discretionary {-}{}{}Internal\discretionary {-}{}{}Forces}, 
+		\hyperpage{60}
+    \subitem {assemble\discretionary {-}{}{}Tangent\discretionary {-}{}{}Matrix}, 
+		\hyperpage{60}
+    \subitem {calc\discretionary {-}{}{}Internal\discretionary {-}{}{}Forces}, 
+		\hyperpage{60}
+    \subitem {calc\discretionary {-}{}{}Tangent\discretionary {-}{}{}Matrix}, 
+		\hyperpage{60}
+    \subitem {compute\discretionary {-}{}{}Energy}, \hyperpage{60}
+    \subitem {compute\discretionary {-}{}{}Stress}, \hyperpage{60}
+    \subitem {energy}, \hyperpage{60}
+    \subitem {Flex\discretionary {-}{}{}Body}, \hyperpage{60}
+    \subitem {formulation}, \hyperpage{60}
+    \subitem {initialize}, \hyperpage{60}
+    \subitem {output\discretionary {-}{}{}To\discretionary {-}{}{}File}, 
+		\hyperpage{60}
+    \subitem {set\discretionary {-}{}{}Formulation}, \hyperpage{60}
+    \subitem {set\discretionary {-}{}{}Output}, \hyperpage{60}
+    \subitem {set\discretionary {-}{}{}Type}, \hyperpage{60}
+    \subitem {stress}, \hyperpage{61}
+    \subitem {write\discretionary {-}{}{}Boundary\discretionary {-}{}{}Connectivity}, 
+		\hyperpage{60}
+    \subitem {write\discretionary {-}{}{}Boundary\discretionary {-}{}{}Nodes}, 
+		\hyperpage{60}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}, 
+		\hyperpage{61}
+    \subitem {$\sim $\discretionary {-}{}{}Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}, 
+		\hyperpage{62}
+    \subitem {assemble\discretionary {-}{}{}External\discretionary {-}{}{}Forces}, 
+		\hyperpage{62}
+    \subitem {assemble\discretionary {-}{}{}Internal\discretionary {-}{}{}Forces}, 
+		\hyperpage{62}
+    \subitem {assemble\discretionary {-}{}{}Mass\discretionary {-}{}{}Matrix}, 
+		\hyperpage{62}
+    \subitem {assemble\discretionary {-}{}{}Tangent\discretionary {-}{}{}Matrix}, 
+		\hyperpage{63}
+    \subitem {calc\discretionary {-}{}{}External\discretionary {-}{}{}Forces}, 
+		\hyperpage{63}
+    \subitem {calc\discretionary {-}{}{}Internal\discretionary {-}{}{}Forces}, 
+		\hyperpage{63}
+    \subitem {calc\discretionary {-}{}{}Mass\discretionary {-}{}{}Matrix}, 
+		\hyperpage{63}
+    \subitem {calc\discretionary {-}{}{}Tangent\discretionary {-}{}{}Matrix}, 
+		\hyperpage{63}
+    \subitem {Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}, 
+		\hyperpage{62}
+    \subitem {get\discretionary {-}{}{}Type}, \hyperpage{63}
+    \subitem {initialize}, \hyperpage{63}
+    \subitem {output\discretionary {-}{}{}Step}, \hyperpage{63, 64}
+    \subitem {set\discretionary {-}{}{}Type}, \hyperpage{64}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Force}, 
+		\hyperpage{64}
+    \subitem {$\sim $\discretionary {-}{}{}Force}, \hyperpage{66}
+    \subitem {Force}, \hyperpage{65}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{66}
+    \subitem {$\sim $\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{68}
+    \subitem {assemble\discretionary {-}{}{}Cij}, \hyperpage{68}
+    \subitem {assemble\discretionary {-}{}{}Fext}, \hyperpage{68}
+    \subitem {assemble\discretionary {-}{}{}Fint}, \hyperpage{68}
+    \subitem {assemble\discretionary {-}{}{}Hij}, \hyperpage{68}
+    \subitem {assemble\discretionary {-}{}{}Kij}, \hyperpage{68}
+    \subitem {assemble\discretionary {-}{}{}Mij}, \hyperpage{68}
+    \subitem {assemble\discretionary {-}{}{}Qext}, \hyperpage{68}
+    \subitem {assemble\discretionary {-}{}{}Ri}, \hyperpage{68}
+    \subitem {calc\discretionary {-}{}{}Elastic\discretionary {-}{}{}E}, 
+		\hyperpage{68}
+    \subitem {calc\discretionary {-}{}{}Kinetic\discretionary {-}{}{}E}, 
+		\hyperpage{68}
+    \subitem {calc\discretionary {-}{}{}Potential\discretionary {-}{}{}E}, 
+		\hyperpage{68}
+    \subitem {compute\discretionary {-}{}{}Cij}, \hyperpage{68}
+    \subitem {compute\discretionary {-}{}{}Fext}, \hyperpage{69}
+    \subitem {compute\discretionary {-}{}{}Fint}, \hyperpage{69}
+    \subitem {compute\discretionary {-}{}{}Hij}, \hyperpage{69}
+    \subitem {compute\discretionary {-}{}{}Kij}, \hyperpage{70}
+    \subitem {compute\discretionary {-}{}{}Mij}, \hyperpage{70}
+    \subitem {compute\discretionary {-}{}{}N\discretionary {-}{}{}L\discretionary {-}{}{}Fint}, 
+		\hyperpage{71}
+    \subitem {compute\discretionary {-}{}{}N\discretionary {-}{}{}L\discretionary {-}{}{}Kij}, 
+		\hyperpage{71}
+    \subitem {compute\discretionary {-}{}{}N\discretionary {-}{}{}L\discretionary {-}{}{}Stress}, 
+		\hyperpage{72}
+    \subitem {compute\discretionary {-}{}{}Qext}, \hyperpage{72}
+    \subitem {compute\discretionary {-}{}{}Stress}, \hyperpage{73}
+    \subitem {fill\discretionary {-}{}{}B\discretionary {-}{}{}Tetrahedron\discretionary {-}{}{}F\discretionary {-}{}{}E}, 
+		\hyperpage{73}
+    \subitem {fill\discretionary {-}{}{}B\discretionary {-}{}{}Triangle\discretionary {-}{}{}F\discretionary {-}{}{}E}, 
+		\hyperpage{74}
+    \subitem {Gauss\discretionary {-}{}{}Point}, \hyperpage{68}
+    \subitem {gnuplot\discretionary {-}{}{}Out\discretionary {-}{}{}Stress}, 
+		\hyperpage{74}
+    \subitem {shape\discretionary {-}{}{}Fun\discretionary {-}{}{}Solve}, 
+		\hyperpage{74}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Load}, 
+		\hyperpage{75}
+    \subitem {$\sim $\discretionary {-}{}{}Load}, \hyperpage{76}
+    \subitem {assemble\discretionary {-}{}{}External\discretionary {-}{}{}Forces}, 
+		\hyperpage{76}
+    \subitem {external\discretionary {-}{}{}Forces}, \hyperpage{76}
+    \subitem {Load}, \hyperpage{76}
+    \subitem {nodes}, \hyperpage{76}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Material}, 
+		\hyperpage{76}
+    \subitem {$\sim $\discretionary {-}{}{}Material}, \hyperpage{77}
+    \subitem {compute\discretionary {-}{}{}C}, \hyperpage{77}
+    \subitem {compute\discretionary {-}{}{}D}, \hyperpage{78}
+    \subitem {compute\discretionary {-}{}{}Energy}, \hyperpage{78}
+    \subitem {compute\discretionary {-}{}{}S}, \hyperpage{78, 79}
+    \subitem {get\discretionary {-}{}{}C}, \hyperpage{79}
+    \subitem {get\discretionary {-}{}{}Capacity}, \hyperpage{79}
+    \subitem {get\discretionary {-}{}{}Csym}, \hyperpage{79}
+    \subitem {get\discretionary {-}{}{}D}, \hyperpage{79}
+    \subitem {get\discretionary {-}{}{}Density}, \hyperpage{80}
+    \subitem {get\discretionary {-}{}{}E}, \hyperpage{80}
+    \subitem {get\discretionary {-}{}{}Kappa}, \hyperpage{80}
+    \subitem {get\discretionary {-}{}{}Mu}, \hyperpage{81}
+    \subitem {Material}, \hyperpage{77}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{81}
+    \subitem {$\sim $\discretionary {-}{}{}Node}, \hyperpage{83}
+    \subitem {add\discretionary {-}{}{}Weight}, \hyperpage{83}
+    \subitem {get\discretionary {-}{}{}Conf}, \hyperpage{83}
+    \subitem {get\discretionary {-}{}{}Number}, \hyperpage{83}
+    \subitem {get\discretionary {-}{}{}Shape\discretionary {-}{}{}Fun\discretionary {-}{}{}Value}, 
+		\hyperpage{83}
+    \subitem {get\discretionary {-}{}{}Support\discretionary {-}{}{}Node\discretionary {-}{}{}Number}, 
+		\hyperpage{84}
+    \subitem {get\discretionary {-}{}{}Support\discretionary {-}{}{}Size}, 
+		\hyperpage{84}
+    \subitem {get\discretionary {-}{}{}U}, \hyperpage{84}
+    \subitem {get\discretionary {-}{}{}Ux}, \hyperpage{84}
+    \subitem {get\discretionary {-}{}{}Uy}, \hyperpage{84}
+    \subitem {get\discretionary {-}{}{}Uz}, \hyperpage{84}
+    \subitem {get\discretionary {-}{}{}Weight}, \hyperpage{85}
+    \subitem {getx}, \hyperpage{85}
+    \subitem {gety}, \hyperpage{85}
+    \subitem {getz}, \hyperpage{86}
+    \subitem {Node}, \hyperpage{83}
+    \subitem {set\discretionary {-}{}{}Number}, \hyperpage{86}
+    \subitem {set\discretionary {-}{}{}Ux}, \hyperpage{87}
+    \subitem {set\discretionary {-}{}{}Uy}, \hyperpage{87}
+    \subitem {set\discretionary {-}{}{}Uz}, \hyperpage{87}
+    \subitem {set\discretionary {-}{}{}X}, \hyperpage{87}
+    \subitem {set\discretionary {-}{}{}Y}, \hyperpage{87}
+    \subitem {set\discretionary {-}{}{}Z}, \hyperpage{87}
+    \subitem {setx}, \hyperpage{87}
+    \subitem {sety}, \hyperpage{87}
+    \subitem {setz}, \hyperpage{87}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{87}
+    \subitem {$\sim $\discretionary {-}{}{}Point}, \hyperpage{89}
+    \subitem {add\discretionary {-}{}{}Support\discretionary {-}{}{}Node}, 
+		\hyperpage{89}
+    \subitem {alphai}, \hyperpage{93}
+    \subitem {dc}, \hyperpage{94}
+    \subitem {dim}, \hyperpage{94}
+    \subitem {distance}, \hyperpage{89}
+    \subitem {find\discretionary {-}{}{}Support\discretionary {-}{}{}Nodes}, 
+		\hyperpage{90, 91}
+    \subitem {Gauss\discretionary {-}{}{}Point}, \hyperpage{93}
+    \subitem {get\discretionary {-}{}{}Shape\discretionary {-}{}{}Fun\discretionary {-}{}{}Type}, 
+		\hyperpage{91}
+    \subitem {get\discretionary {-}{}{}X}, \hyperpage{91}
+    \subitem {get\discretionary {-}{}{}Y}, \hyperpage{91}
+    \subitem {get\discretionary {-}{}{}Z}, \hyperpage{92}
+    \subitem {gnuplot\discretionary {-}{}{}Out}, \hyperpage{92}
+    \subitem {jacobian}, \hyperpage{94}
+    \subitem {Point}, \hyperpage{89}
+    \subitem {set\discretionary {-}{}{}Alphai}, \hyperpage{93}
+    \subitem {set\discretionary {-}{}{}Dc}, \hyperpage{93}
+    \subitem {set\discretionary {-}{}{}Jacobian}, \hyperpage{93}
+    \subitem {set\discretionary {-}{}{}Shape\discretionary {-}{}{}Fun\discretionary {-}{}{}Type}, 
+		\hyperpage{93}
+    \subitem {shape\discretionary {-}{}{}Fun}, \hyperpage{94}
+    \subitem {shape\discretionary {-}{}{}Fun\discretionary {-}{}{}Solve}, 
+		\hyperpage{93}
+    \subitem {shape\discretionary {-}{}{}Fun\discretionary {-}{}{}Type}, 
+		\hyperpage{94}
+    \subitem {Shape\discretionary {-}{}{}Function}, \hyperpage{93}
+    \subitem {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Linear}, 
+		\hyperpage{93}
+    \subitem {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}M\discretionary {-}{}{}L\discretionary {-}{}{}S}, 
+		\hyperpage{93}
+    \subitem {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}R\discretionary {-}{}{}B\discretionary {-}{}{}F}, 
+		\hyperpage{93}
+    \subitem {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{93}
+    \subitem {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Triangle}, 
+		\hyperpage{93}
+    \subitem {support\discretionary {-}{}{}Nodes}, \hyperpage{94}
+    \subitem {support\discretionary {-}{}{}Nodes\discretionary {-}{}{}Size}, 
+		\hyperpage{94}
+    \subitem {X}, \hyperpage{94}
+    \subitem {Y}, \hyperpage{94}
+    \subitem {Z}, \hyperpage{94}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Reader}, 
+		\hyperpage{94}
+    \subitem {$\sim $\discretionary {-}{}{}Reader}, \hyperpage{94}
+    \subitem {input\discretionary {-}{}{}From\discretionary {-}{}{}File}, 
+		\hyperpage{94}
+    \subitem {Reader}, \hyperpage{94}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Reader\discretionary {-}{}{}Constraints}, 
+		\hyperpage{95}
+    \subitem {$\sim $\discretionary {-}{}{}Reader\discretionary {-}{}{}Constraints}, 
+		\hyperpage{95}
+    \subitem {read\discretionary {-}{}{}Constraints}, \hyperpage{96}
+    \subitem {Reader\discretionary {-}{}{}Constraints}, \hyperpage{95}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Reader\discretionary {-}{}{}Flex}, 
+		\hyperpage{96}
+    \subitem {$\sim $\discretionary {-}{}{}Reader\discretionary {-}{}{}Flex}, 
+		\hyperpage{96}
+    \subitem {read\discretionary {-}{}{}Flex\discretionary {-}{}{}Bodies}, 
+		\hyperpage{96}
+    \subitem {Reader\discretionary {-}{}{}Flex}, \hyperpage{96}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Reader\discretionary {-}{}{}Rigid}, 
+		\hyperpage{97}
+    \subitem {$\sim $\discretionary {-}{}{}Reader\discretionary {-}{}{}Rigid}, 
+		\hyperpage{97}
+    \subitem {read\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bodies}, 
+		\hyperpage{97}
+    \subitem {Reader\discretionary {-}{}{}Rigid}, \hyperpage{97}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}, 
+		\hyperpage{98}
+    \subitem {$\sim $\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}, 
+		\hyperpage{100}
+    \subitem {add\discretionary {-}{}{}Node}, \hyperpage{100}
+    \subitem {calc\discretionary {-}{}{}External\discretionary {-}{}{}Forces}, 
+		\hyperpage{100}
+    \subitem {calc\discretionary {-}{}{}Mass\discretionary {-}{}{}Matrix}, 
+		\hyperpage{101}
+    \subitem {get\discretionary {-}{}{}Boundary\discretionary {-}{}{}Node}, 
+		\hyperpage{101}
+    \subitem {get\discretionary {-}{}{}Node}, \hyperpage{101}
+    \subitem {get\discretionary {-}{}{}Type}, \hyperpage{101}
+    \subitem {Rigid\discretionary {-}{}{}Bar}, \hyperpage{99, 100}
+    \subitem {set\discretionary {-}{}{}Inertia}, \hyperpage{101}
+    \subitem {set\discretionary {-}{}{}Position}, \hyperpage{101}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{102}
+    \subitem {$\sim $\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{103}
+    \subitem {add\discretionary {-}{}{}Node}, \hyperpage{103}
+    \subitem {assemble\discretionary {-}{}{}External\discretionary {-}{}{}Forces}, 
+		\hyperpage{103}
+    \subitem {assemble\discretionary {-}{}{}Mass\discretionary {-}{}{}Matrix}, 
+		\hyperpage{104}
+    \subitem {boundary\discretionary {-}{}{}Conf}, \hyperpage{105}
+    \subitem {compute\discretionary {-}{}{}Energy}, \hyperpage{105}
+    \subitem {dim}, \hyperpage{105}
+    \subitem {domain\discretionary {-}{}{}Nodes}, \hyperpage{105}
+    \subitem {energy}, \hyperpage{105}
+    \subitem {external\discretionary {-}{}{}Forces}, \hyperpage{105}
+    \subitem {get\discretionary {-}{}{}Boundary\discretionary {-}{}{}Node}, 
+		\hyperpage{104}
+    \subitem {mass}, \hyperpage{105}
+    \subitem {output\discretionary {-}{}{}Step}, \hyperpage{104}
+    \subitem {output\discretionary {-}{}{}To\discretionary {-}{}{}File}, 
+		\hyperpage{105}
+    \subitem {Rigid\discretionary {-}{}{}Body}, \hyperpage{103}
+    \subitem {set\discretionary {-}{}{}Inertia}, \hyperpage{105}
+    \subitem {set\discretionary {-}{}{}Mass}, \hyperpage{105}
+    \subitem {set\discretionary {-}{}{}Output}, \hyperpage{105}
+    \subitem {set\discretionary {-}{}{}Position}, \hyperpage{105}
+    \subitem {write\discretionary {-}{}{}Boundary\discretionary {-}{}{}Connectivity}, 
+		\hyperpage{105}
+    \subitem {write\discretionary {-}{}{}Boundary\discretionary {-}{}{}Nodes}, 
+		\hyperpage{105}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body2\discretionary {-}{}{}D}, 
+		\hyperpage{106}
+    \subitem {$\sim $\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body2\discretionary {-}{}{}D}, 
+		\hyperpage{107}
+    \subitem {calc\discretionary {-}{}{}External\discretionary {-}{}{}Forces}, 
+		\hyperpage{107}
+    \subitem {calc\discretionary {-}{}{}Mass\discretionary {-}{}{}Matrix}, 
+		\hyperpage{107}
+    \subitem {get\discretionary {-}{}{}Boundary\discretionary {-}{}{}Node}, 
+		\hyperpage{108}
+    \subitem {get\discretionary {-}{}{}Type}, \hyperpage{108}
+    \subitem {Rigid\discretionary {-}{}{}Body2\discretionary {-}{}{}D}, 
+		\hyperpage{107}
+    \subitem {set\discretionary {-}{}{}Inertia}, \hyperpage{108}
+    \subitem {set\discretionary {-}{}{}Position}, \hyperpage{108}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body3\discretionary {-}{}{}D}, 
+		\hyperpage{108}
+    \subitem {$\sim $\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body3\discretionary {-}{}{}D}, 
+		\hyperpage{110}
+    \subitem {calc\discretionary {-}{}{}External\discretionary {-}{}{}Forces}, 
+		\hyperpage{110}
+    \subitem {calc\discretionary {-}{}{}Mass\discretionary {-}{}{}Matrix}, 
+		\hyperpage{110}
+    \subitem {get\discretionary {-}{}{}Boundary\discretionary {-}{}{}Node}, 
+		\hyperpage{110}
+    \subitem {get\discretionary {-}{}{}Type}, \hyperpage{110}
+    \subitem {Rigid\discretionary {-}{}{}Body3\discretionary {-}{}{}D}, 
+		\hyperpage{110}
+    \subitem {set\discretionary {-}{}{}Inertia}, \hyperpage{110}
+    \subitem {set\discretionary {-}{}{}Position}, \hyperpage{110}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body\discretionary {-}{}{}Mass\discretionary {-}{}{}Point}, 
+		\hyperpage{111}
+    \subitem {$\sim $\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body\discretionary {-}{}{}Mass\discretionary {-}{}{}Point}, 
+		\hyperpage{112}
+    \subitem {calc\discretionary {-}{}{}External\discretionary {-}{}{}Forces}, 
+		\hyperpage{112}
+    \subitem {calc\discretionary {-}{}{}Mass\discretionary {-}{}{}Matrix}, 
+		\hyperpage{112}
+    \subitem {get\discretionary {-}{}{}Boundary\discretionary {-}{}{}Node}, 
+		\hyperpage{112}
+    \subitem {get\discretionary {-}{}{}Type}, \hyperpage{112}
+    \subitem {Rigid\discretionary {-}{}{}Body\discretionary {-}{}{}Mass\discretionary {-}{}{}Point}, 
+		\hyperpage{112}
+    \subitem {set\discretionary {-}{}{}Inertia}, \hyperpage{112}
+    \subitem {set\discretionary {-}{}{}Position}, \hyperpage{112}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function}, 
+		\hyperpage{113}
+    \subitem {$\sim $\discretionary {-}{}{}Shape\discretionary {-}{}{}Function}, 
+		\hyperpage{114}
+    \subitem {calc}, \hyperpage{114}
+    \subitem {dim}, \hyperpage{117}
+    \subitem {get\discretionary {-}{}{}Phi}, \hyperpage{115}
+    \subitem {gnuplot\discretionary {-}{}{}Out}, \hyperpage{116}
+    \subitem {gp}, \hyperpage{117}
+    \subitem {output\discretionary {-}{}{}Values}, \hyperpage{117}
+    \subitem {phi}, \hyperpage{117}
+    \subitem {set\discretionary {-}{}{}Phi}, \hyperpage{117}
+    \subitem {Shape\discretionary {-}{}{}Function}, \hyperpage{114}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Linear}, 
+		\hyperpage{117}
+    \subitem {$\sim $\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Linear}, 
+		\hyperpage{118}
+    \subitem {calc}, \hyperpage{118}
+    \subitem {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Linear}, 
+		\hyperpage{118}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}M\discretionary {-}{}{}L\discretionary {-}{}{}S}, 
+		\hyperpage{119}
+    \subitem {$\sim $\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}M\discretionary {-}{}{}L\discretionary {-}{}{}S}, 
+		\hyperpage{120}
+    \subitem {calc}, \hyperpage{120}
+    \subitem {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}M\discretionary {-}{}{}L\discretionary {-}{}{}S}, 
+		\hyperpage{120}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}R\discretionary {-}{}{}B\discretionary {-}{}{}F}, 
+		\hyperpage{121}
+    \subitem {$\sim $\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}R\discretionary {-}{}{}B\discretionary {-}{}{}F}, 
+		\hyperpage{122}
+    \subitem {calc}, \hyperpage{122}
+    \subitem {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}R\discretionary {-}{}{}B\discretionary {-}{}{}F}, 
+		\hyperpage{122}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}, 
+		\hyperpage{122}
+    \subitem {$\sim $\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}, 
+		\hyperpage{123}
+    \subitem {calc}, \hyperpage{123}
+    \subitem {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}, 
+		\hyperpage{123}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{124}
+    \subitem {$\sim $\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{125}
+    \subitem {calc}, \hyperpage{125}
+    \subitem {compute\discretionary {-}{}{}\_\discretionary {-}{}{}abcd}, 
+		\hyperpage{126}
+    \subitem {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{125}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Triangle}, 
+		\hyperpage{126}
+    \subitem {$\sim $\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Triangle}, 
+		\hyperpage{127}
+    \subitem {calc}, \hyperpage{127}
+    \subitem {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Triangle}, 
+		\hyperpage{127}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Triangle\discretionary {-}{}{}Signed}, 
+		\hyperpage{127}
+    \subitem {$\sim $\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Triangle\discretionary {-}{}{}Signed}, 
+		\hyperpage{129}
+    \subitem {calc}, \hyperpage{129}
+    \subitem {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Triangle\discretionary {-}{}{}Signed}, 
+		\hyperpage{128}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{129}
+    \subitem {$\sim $\discretionary {-}{}{}Simulation}, \hyperpage{130}
+    \subitem {Contact}, \hyperpage{152}
+    \subitem {dynamic\discretionary {-}{}{}Acceleration}, 
+		\hyperpage{130}
+    \subitem {dynamic\discretionary {-}{}{}Convergence}, 
+		\hyperpage{131}
+    \subitem {dynamic\discretionary {-}{}{}Residue}, \hyperpage{132}
+    \subitem {dynamic\discretionary {-}{}{}Tangent}, \hyperpage{133}
+    \subitem {dynamic\discretionary {-}{}{}Thermal\discretionary {-}{}{}Convergence}, 
+		\hyperpage{134}
+    \subitem {dynamic\discretionary {-}{}{}Thermal\discretionary {-}{}{}Evaluation}, 
+		\hyperpage{135}
+    \subitem {dynamic\discretionary {-}{}{}Thermal\discretionary {-}{}{}Residue}, 
+		\hyperpage{135}
+    \subitem {dynamic\discretionary {-}{}{}Thermal\discretionary {-}{}{}Tangent}, 
+		\hyperpage{136}
+    \subitem {get\discretionary {-}{}{}Alpha}, \hyperpage{136}
+    \subitem {get\discretionary {-}{}{}Constraint\discretionary {-}{}{}Method}, 
+		\hyperpage{137}
+    \subitem {get\discretionary {-}{}{}Dim}, \hyperpage{137}
+    \subitem {get\discretionary {-}{}{}Gravity}, \hyperpage{138}
+    \subitem {get\discretionary {-}{}{}Smoothing\discretionary {-}{}{}Type}, 
+		\hyperpage{139}
+    \subitem {get\discretionary {-}{}{}Sparse\discretionary {-}{}{}Pattern}, 
+		\hyperpage{140}
+    \subitem {get\discretionary {-}{}{}Time}, \hyperpage{140}
+    \subitem {input\discretionary {-}{}{}From\discretionary {-}{}{}File}, 
+		\hyperpage{141}
+    \subitem {Reader}, \hyperpage{152}
+    \subitem {Reader\discretionary {-}{}{}Constraints}, \hyperpage{152}
+    \subitem {Reader\discretionary {-}{}{}Flex}, \hyperpage{152}
+    \subitem {Reader\discretionary {-}{}{}Rigid}, \hyperpage{152}
+    \subitem {run}, \hyperpage{141}
+    \subitem {run\discretionary {-}{}{}Mechanical\discretionary {-}{}{}Analysis}, 
+		\hyperpage{143}
+    \subitem {run\discretionary {-}{}{}Thermal\discretionary {-}{}{}Analysis}, 
+		\hyperpage{144}
+    \subitem {Simulation}, \hyperpage{130}
+    \subitem {static\discretionary {-}{}{}Convergence}, \hyperpage{146}
+    \subitem {static\discretionary {-}{}{}Residue}, \hyperpage{146}
+    \subitem {static\discretionary {-}{}{}Tangent}, \hyperpage{147}
+    \subitem {static\discretionary {-}{}{}Thermal\discretionary {-}{}{}Convergence}, 
+		\hyperpage{148}
+    \subitem {static\discretionary {-}{}{}Thermal\discretionary {-}{}{}Residue}, 
+		\hyperpage{149}
+    \subitem {static\discretionary {-}{}{}Thermal\discretionary {-}{}{}Tangent}, 
+		\hyperpage{149}
+    \subitem {step\discretionary {-}{}{}Triggered}, \hyperpage{150}
+    \subitem {write\discretionary {-}{}{}Conf\discretionary {-}{}{}Step}, 
+		\hyperpage{151}
+    \subitem {write\discretionary {-}{}{}System}, \hyperpage{151}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{152}
+    \subitem {$\sim $\discretionary {-}{}{}System}, \hyperpage{153}
+    \subitem {assemble\discretionary {-}{}{}Capacity\discretionary {-}{}{}Matrix}, 
+		\hyperpage{153}
+    \subitem {assemble\discretionary {-}{}{}Conductivity\discretionary {-}{}{}Matrix}, 
+		\hyperpage{153}
+    \subitem {assemble\discretionary {-}{}{}Constraint\discretionary {-}{}{}Forces}, 
+		\hyperpage{154}
+    \subitem {assemble\discretionary {-}{}{}External\discretionary {-}{}{}Forces}, 
+		\hyperpage{154}
+    \subitem {assemble\discretionary {-}{}{}External\discretionary {-}{}{}Heat}, 
+		\hyperpage{154}
+    \subitem {assemble\discretionary {-}{}{}Internal\discretionary {-}{}{}Forces}, 
+		\hyperpage{155}
+    \subitem {assemble\discretionary {-}{}{}Mass\discretionary {-}{}{}Matrix}, 
+		\hyperpage{155}
+    \subitem {assemble\discretionary {-}{}{}Tangent\discretionary {-}{}{}Matrix}, 
+		\hyperpage{155}
+    \subitem {calc\discretionary {-}{}{}Capacity\discretionary {-}{}{}Matrix}, 
+		\hyperpage{156}
+    \subitem {calc\discretionary {-}{}{}Conductivity\discretionary {-}{}{}Matrix}, 
+		\hyperpage{156}
+    \subitem {calc\discretionary {-}{}{}External\discretionary {-}{}{}Forces}, 
+		\hyperpage{156}
+    \subitem {calc\discretionary {-}{}{}External\discretionary {-}{}{}Heat}, 
+		\hyperpage{157}
+    \subitem {calc\discretionary {-}{}{}Internal\discretionary {-}{}{}Forces}, 
+		\hyperpage{157}
+    \subitem {calc\discretionary {-}{}{}Mass\discretionary {-}{}{}Matrix}, 
+		\hyperpage{157}
+    \subitem {calc\discretionary {-}{}{}Tangent\discretionary {-}{}{}Matrix}, 
+		\hyperpage{158}
+    \subitem {check\discretionary {-}{}{}Augmented}, \hyperpage{158}
+    \subitem {clear\discretionary {-}{}{}Augmented}, \hyperpage{158}
+    \subitem {Contact}, \hyperpage{161}
+    \subitem {get\discretionary {-}{}{}Title}, \hyperpage{159}
+    \subitem {output\discretionary {-}{}{}Step}, \hyperpage{159, 160}
+    \subitem {output\discretionary {-}{}{}To\discretionary {-}{}{}File}, 
+		\hyperpage{160}
+    \subitem {Reader}, \hyperpage{161}
+    \subitem {Reader\discretionary {-}{}{}Constraints}, \hyperpage{161}
+    \subitem {Reader\discretionary {-}{}{}Flex}, \hyperpage{161}
+    \subitem {Reader\discretionary {-}{}{}Rigid}, \hyperpage{161}
+    \subitem {System}, \hyperpage{153}
+    \subitem {write\discretionary {-}{}{}Boundary\discretionary {-}{}{}Connectivity}, 
+		\hyperpage{160}
+    \subitem {write\discretionary {-}{}{}Boundary\discretionary {-}{}{}Nodes}, 
+		\hyperpage{160}
+    \subitem {write\discretionary {-}{}{}Flex\discretionary {-}{}{}Bodies}, 
+		\hyperpage{161}
+    \subitem {write\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bodies}, 
+		\hyperpage{161}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{161}
+    \subitem {$\sim $\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+    \subitem {add\discretionary {-}{}{}Cell}, \hyperpage{163}
+    \subitem {add\discretionary {-}{}{}Node}, \hyperpage{163}
+    \subitem {assemble\discretionary {-}{}{}Capacity\discretionary {-}{}{}Matrix}, 
+		\hyperpage{163}
+    \subitem {assemble\discretionary {-}{}{}Conductivity\discretionary {-}{}{}Matrix}, 
+		\hyperpage{163}
+    \subitem {assemble\discretionary {-}{}{}External\discretionary {-}{}{}Heat}, 
+		\hyperpage{163}
+    \subitem {boundary}, \hyperpage{163}
+    \subitem {calc\discretionary {-}{}{}Capacity\discretionary {-}{}{}Matrix}, 
+		\hyperpage{163}
+    \subitem {calc\discretionary {-}{}{}Conductivity\discretionary {-}{}{}Matrix}, 
+		\hyperpage{163}
+    \subitem {calc\discretionary {-}{}{}External\discretionary {-}{}{}Heat}, 
+		\hyperpage{163}
+    \subitem {cells}, \hyperpage{163}
+    \subitem {compute\discretionary {-}{}{}Energy}, \hyperpage{163}
+    \subitem {energy}, \hyperpage{164}
+    \subitem {get\discretionary {-}{}{}Last\discretionary {-}{}{}Node}, 
+		\hyperpage{163}
+    \subitem {get\discretionary {-}{}{}Node}, \hyperpage{163}
+    \subitem {initialize}, \hyperpage{163}
+    \subitem {local\discretionary {-}{}{}Mass\discretionary {-}{}{}Matrix}, 
+		\hyperpage{164}
+    \subitem {nodes}, \hyperpage{164}
+    \subitem {output\discretionary {-}{}{}Step}, \hyperpage{163}
+    \subitem {output\discretionary {-}{}{}To\discretionary {-}{}{}File}, 
+		\hyperpage{163}
+    \subitem {set\discretionary {-}{}{}Output}, \hyperpage{163}
+    \subitem {set\discretionary {-}{}{}Thermal\discretionary {-}{}{}Load}, 
+		\hyperpage{163}
+    \subitem {temperature}, \hyperpage{164}
+    \subitem {Thermal\discretionary {-}{}{}Body}, \hyperpage{163}
+    \subitem {thermal\discretionary {-}{}{}Load}, \hyperpage{164}
+    \subitem {title}, \hyperpage{164}
+  \item {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Load}, 
+		\hyperpage{164}
+    \subitem {$\sim $\discretionary {-}{}{}Thermal\discretionary {-}{}{}Load}, 
+		\hyperpage{164}
+    \subitem {get\discretionary {-}{}{}Thermal\discretionary {-}{}{}Load}, 
+		\hyperpage{164}
+    \subitem {srim}, \hyperpage{165}
+    \subitem {Thermal\discretionary {-}{}{}Load}, \hyperpage{164}
+
+  \indexspace
+
+  \item {n\discretionary {-}{}{}G\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+  \item {Node}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{83}
+  \item {node.\discretionary {-}{}{}cpp}, \hyperpage{224}
+  \item {node.\discretionary {-}{}{}h}, \hyperpage{224}
+  \item {nodes}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{24}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell}, 
+		\hyperpage{27}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{40}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Load}, 
+		\hyperpage{76}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{164}
+  \item {normal}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Contact}, 
+		\hyperpage{44}
+
+  \indexspace
+
+  \item {output\discretionary {-}{}{}Step}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{23}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}, 
+		\hyperpage{63, 64}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{104}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{159, 160}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {output\discretionary {-}{}{}To\discretionary {-}{}{}File}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{24}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{60}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{105}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{160}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {output\discretionary {-}{}{}Values}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function}, 
+		\hyperpage{117}
+
+  \indexspace
+
+  \item {phi}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{40}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function}, 
+		\hyperpage{117}
+  \item {phi\discretionary {-}{}{}\_\discretionary {-}{}{}q}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{40}
+  \item {phi\discretionary {-}{}{}\_\discretionary {-}{}{}qq}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{40}
+  \item {Point}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{89}
+  \item {point.\discretionary {-}{}{}cpp}, \hyperpage{225}
+  \item {point.\discretionary {-}{}{}h}, \hyperpage{226}
+  \item {points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{32}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Cell\discretionary {-}{}{}Triang}, 
+		\hyperpage{34}
+
+  \indexspace
+
+  \item {read\discretionary {-}{}{}Constraints}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Reader\discretionary {-}{}{}Constraints}, 
+		\hyperpage{96}
+  \item {read\discretionary {-}{}{}Flex\discretionary {-}{}{}Bodies}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Reader\discretionary {-}{}{}Flex}, 
+		\hyperpage{96}
+  \item {read\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bodies}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Reader\discretionary {-}{}{}Rigid}, 
+		\hyperpage{97}
+  \item {Reader}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Reader}, 
+		\hyperpage{94}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{152}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{161}
+  \item {reader.\discretionary {-}{}{}cpp}, \hyperpage{227}
+  \item {reader.\discretionary {-}{}{}h}, \hyperpage{227}
+  \item {Reader\discretionary {-}{}{}Constraints}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Reader\discretionary {-}{}{}Constraints}, 
+		\hyperpage{95}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{152}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{161}
+  \item {Reader\discretionary {-}{}{}Flex}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Reader\discretionary {-}{}{}Flex}, 
+		\hyperpage{96}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{152}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{161}
+  \item {Reader\discretionary {-}{}{}Rigid}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Reader\discretionary {-}{}{}Rigid}, 
+		\hyperpage{97}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{152}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{161}
+  \item {readerconstraints.\discretionary {-}{}{}cpp}, \hyperpage{228}
+  \item {readerconstraints.\discretionary {-}{}{}h}, \hyperpage{229}
+  \item {readerflex.\discretionary {-}{}{}cpp}, \hyperpage{230}
+  \item {readerflex.\discretionary {-}{}{}h}, \hyperpage{230}
+  \item {readerrigid.\discretionary {-}{}{}cpp}, \hyperpage{231}
+  \item {readerrigid.\discretionary {-}{}{}h}, \hyperpage{232}
+  \item {remove\discretionary {-}{}{}From\discretionary {-}{}{}Render}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Comp\discretionary {-}{}{}Bar}, 
+		\hyperpage{36}
+  \item {rh}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Clearance}, 
+		\hyperpage{42}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Contact}, 
+		\hyperpage{44}
+  \item {Rigid\discretionary {-}{}{}Bar}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}, 
+		\hyperpage{99, 100}
+  \item {Rigid\discretionary {-}{}{}Body}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{103}
+  \item {Rigid\discretionary {-}{}{}Body2\discretionary {-}{}{}D}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body2\discretionary {-}{}{}D}, 
+		\hyperpage{107}
+  \item {Rigid\discretionary {-}{}{}Body3\discretionary {-}{}{}D}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body3\discretionary {-}{}{}D}, 
+		\hyperpage{110}
+  \item {Rigid\discretionary {-}{}{}Body\discretionary {-}{}{}Mass\discretionary {-}{}{}Point}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body\discretionary {-}{}{}Mass\discretionary {-}{}{}Point}, 
+		\hyperpage{112}
+  \item {ro}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Distance}, 
+		\hyperpage{46}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Axis}, 
+		\hyperpage{48}
+  \item {rt}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Clearance}, 
+		\hyperpage{42}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Contact}, 
+		\hyperpage{44}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Distance}, 
+		\hyperpage{46}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Axis}, 
+		\hyperpage{48}
+  \item {run}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{141}
+  \item {run\discretionary {-}{}{}Mechanical\discretionary {-}{}{}Analysis}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{143}
+  \item {run\discretionary {-}{}{}Thermal\discretionary {-}{}{}Analysis}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{144}
+  \item {rxo}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Coordinates}, 
+		\hyperpage{50}
+  \item {rxt}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Coordinates}, 
+		\hyperpage{50}
+  \item {ryo}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Coordinates}, 
+		\hyperpage{50}
+  \item {ryt}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Coordinates}, 
+		\hyperpage{50}
+  \item {rzo}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Coordinates}, 
+		\hyperpage{51}
+  \item {rzt}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint\discretionary {-}{}{}Fixed\discretionary {-}{}{}Coordinates}, 
+		\hyperpage{51}
+
+  \indexspace
+
+  \item {set\discretionary {-}{}{}Alphai}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{93}
+  \item {set\discretionary {-}{}{}Dc}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{93}
+  \item {set\discretionary {-}{}{}Epsilon}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis}, 
+		\hyperpage{11}
+  \item {set\discretionary {-}{}{}Formulation}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{60}
+  \item {set\discretionary {-}{}{}Inertia}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}, 
+		\hyperpage{101}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{105}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body2\discretionary {-}{}{}D}, 
+		\hyperpage{108}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body3\discretionary {-}{}{}D}, 
+		\hyperpage{110}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body\discretionary {-}{}{}Mass\discretionary {-}{}{}Point}, 
+		\hyperpage{112}
+  \item {set\discretionary {-}{}{}Jacobian}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{93}
+  \item {set\discretionary {-}{}{}Mass}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{105}
+  \item {set\discretionary {-}{}{}Number}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{86}
+  \item {set\discretionary {-}{}{}Output}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{24}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{60}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{105}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {set\discretionary {-}{}{}Phi}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function}, 
+		\hyperpage{117}
+  \item {set\discretionary {-}{}{}Position}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}, 
+		\hyperpage{101}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{105}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body2\discretionary {-}{}{}D}, 
+		\hyperpage{108}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body3\discretionary {-}{}{}D}, 
+		\hyperpage{110}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body\discretionary {-}{}{}Mass\discretionary {-}{}{}Point}, 
+		\hyperpage{112}
+  \item {set\discretionary {-}{}{}Shape\discretionary {-}{}{}Fun\discretionary {-}{}{}Type}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{93}
+  \item {set\discretionary {-}{}{}Thermal\discretionary {-}{}{}Load}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {set\discretionary {-}{}{}Type}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{60}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Global\discretionary {-}{}{}Galerkin}, 
+		\hyperpage{64}
+  \item {set\discretionary {-}{}{}Ux}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{87}
+  \item {set\discretionary {-}{}{}Uy}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{87}
+  \item {set\discretionary {-}{}{}Uz}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{87}
+  \item {set\discretionary {-}{}{}X}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{87}
+  \item {set\discretionary {-}{}{}Y}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{87}
+  \item {set\discretionary {-}{}{}Z}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{87}
+  \item {setx}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{87}
+  \item {sety}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{87}
+  \item {setz}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Node}, 
+		\hyperpage{87}
+  \item {shape\discretionary {-}{}{}Fun}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{94}
+  \item {shape\discretionary {-}{}{}Fun\discretionary {-}{}{}Solve}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Gauss\discretionary {-}{}{}Point}, 
+		\hyperpage{74}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{93}
+  \item {shape\discretionary {-}{}{}Fun\discretionary {-}{}{}Type}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{94}
+  \item {Shape\discretionary {-}{}{}Function}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{93}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function}, 
+		\hyperpage{114}
+  \item {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Linear}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{93}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Linear}, 
+		\hyperpage{118}
+  \item {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}M\discretionary {-}{}{}L\discretionary {-}{}{}S}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{93}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}M\discretionary {-}{}{}L\discretionary {-}{}{}S}, 
+		\hyperpage{120}
+  \item {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}R\discretionary {-}{}{}B\discretionary {-}{}{}F}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{93}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}R\discretionary {-}{}{}B\discretionary {-}{}{}F}, 
+		\hyperpage{122}
+  \item {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bar}, 
+		\hyperpage{123}
+  \item {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Tetrahedron}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{93}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Tetrahedron}, 
+		\hyperpage{125}
+  \item {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Triangle}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{93}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Triangle}, 
+		\hyperpage{127}
+  \item {Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Triangle\discretionary {-}{}{}Signed}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Shape\discretionary {-}{}{}Function\discretionary {-}{}{}Triangle\discretionary {-}{}{}Signed}, 
+		\hyperpage{128}
+  \item {shapefunction.\discretionary {-}{}{}cpp}, \hyperpage{233}
+  \item {shapefunction.\discretionary {-}{}{}h}, \hyperpage{233}
+  \item {shapefunction\discretionary {-}{}{}M\discretionary {-}{}{}L\discretionary {-}{}{}S.\discretionary {-}{}{}cpp}, 
+		\hyperpage{236}
+  \item {shapefunction\discretionary {-}{}{}M\discretionary {-}{}{}L\discretionary {-}{}{}S.\discretionary {-}{}{}h}, 
+		\hyperpage{237}
+  \item {shapefunction\discretionary {-}{}{}R\discretionary {-}{}{}B\discretionary {-}{}{}F.\discretionary {-}{}{}cpp}, 
+		\hyperpage{238}
+  \item {shapefunction\discretionary {-}{}{}R\discretionary {-}{}{}B\discretionary {-}{}{}F.\discretionary {-}{}{}h}, 
+		\hyperpage{238}
+  \item {shapefunctionlinear.\discretionary {-}{}{}cpp}, 
+		\hyperpage{234}
+  \item {shapefunctionlinear.\discretionary {-}{}{}h}, \hyperpage{235}
+  \item {shapefunctionrigidbar.\discretionary {-}{}{}cpp}, 
+		\hyperpage{240}
+  \item {shapefunctionrigidbar.\discretionary {-}{}{}h}, 
+		\hyperpage{241}
+  \item {shapefunctiontetrahedron.\discretionary {-}{}{}cpp}, 
+		\hyperpage{241}
+  \item {shapefunctiontetrahedron.\discretionary {-}{}{}h}, 
+		\hyperpage{242}
+  \item {shapefunctiontriangle.\discretionary {-}{}{}cpp}, 
+		\hyperpage{243}
+  \item {shapefunctiontriangle.\discretionary {-}{}{}h}, 
+		\hyperpage{244}
+  \item {shapefunctiontriangle3\discretionary {-}{}{}D.\discretionary {-}{}{}cpp}, 
+		\hyperpage{245}
+  \item {shapefunctiontriangle3\discretionary {-}{}{}D.\discretionary {-}{}{}h}, 
+		\hyperpage{245}
+  \item {Simulation}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{130}
+  \item {simulation.\discretionary {-}{}{}cpp}, \hyperpage{246}
+  \item {simulation.\discretionary {-}{}{}h}, \hyperpage{247}
+  \item {solve}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis}, 
+		\hyperpage{11}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Dynamic}, 
+		\hyperpage{15}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Static}, 
+		\hyperpage{17}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Thermal\discretionary {-}{}{}Dynamic}, 
+		\hyperpage{19}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Thermal\discretionary {-}{}{}Static}, 
+		\hyperpage{21}
+  \item {srim}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Load}, 
+		\hyperpage{165}
+  \item {static\discretionary {-}{}{}Convergence}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{146}
+  \item {static\discretionary {-}{}{}Residue}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{146}
+  \item {static\discretionary {-}{}{}Tangent}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{147}
+  \item {static\discretionary {-}{}{}Thermal\discretionary {-}{}{}Convergence}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{148}
+  \item {static\discretionary {-}{}{}Thermal\discretionary {-}{}{}Residue}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{149}
+  \item {static\discretionary {-}{}{}Thermal\discretionary {-}{}{}Tangent}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{149}
+  \item {step\discretionary {-}{}{}Triggered}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{150}
+  \item {stiffness\discretionary {-}{}{}Matrix}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Constraint}, 
+		\hyperpage{40}
+  \item {stress}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{61}
+  \item {support\discretionary {-}{}{}Nodes}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{94}
+  \item {support\discretionary {-}{}{}Nodes\discretionary {-}{}{}Size}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{94}
+  \item {System}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{153}
+  \item {system.\discretionary {-}{}{}cpp}, \hyperpage{248}
+  \item {system.\discretionary {-}{}{}h}, \hyperpage{248}
+
+  \indexspace
+
+  \item {temperature}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{164}
+  \item {the\discretionary {-}{}{}Simulation}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis}, 
+		\hyperpage{12}
+  \item {Thermal\discretionary {-}{}{}Body}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{163}
+  \item {Thermal\discretionary {-}{}{}Load}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Load}, 
+		\hyperpage{164}
+  \item {thermal\discretionary {-}{}{}Load}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{164}
+  \item {thermalload.\discretionary {-}{}{}cpp}, \hyperpage{249}
+  \item {thermalload.\discretionary {-}{}{}h}, \hyperpage{250}
+  \item {title}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{24}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Thermal\discretionary {-}{}{}Body}, 
+		\hyperpage{164}
+  \item {translate}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{24}
+  \item {type}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis}, 
+		\hyperpage{11}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Dynamic}, 
+		\hyperpage{15}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Static}, 
+		\hyperpage{17}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Thermal\discretionary {-}{}{}Dynamic}, 
+		\hyperpage{19}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Analysis\discretionary {-}{}{}Thermal\discretionary {-}{}{}Static}, 
+		\hyperpage{21}
+
+  \indexspace
+
+  \item {update\discretionary {-}{}{}Delaunay}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Contact}, 
+		\hyperpage{53}
+  \item {update\discretionary {-}{}{}Lines}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Contact}, 
+		\hyperpage{54}
+  \item {update\discretionary {-}{}{}Points}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Contact}, 
+		\hyperpage{54}
+
+  \indexspace
+
+  \item {write\discretionary {-}{}{}Boundary\discretionary {-}{}{}Connectivity}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{24}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{60}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{105}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{160}
+  \item {write\discretionary {-}{}{}Boundary\discretionary {-}{}{}Nodes}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Body}, 
+		\hyperpage{24}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Flex\discretionary {-}{}{}Body}, 
+		\hyperpage{60}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Rigid\discretionary {-}{}{}Body}, 
+		\hyperpage{105}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{160}
+  \item {write\discretionary {-}{}{}Conf\discretionary {-}{}{}Step}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{151}
+  \item {write\discretionary {-}{}{}Flex\discretionary {-}{}{}Bodies}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{161}
+  \item {write\discretionary {-}{}{}Rigid\discretionary {-}{}{}Bodies}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}System}, 
+		\hyperpage{161}
+  \item {write\discretionary {-}{}{}System}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Simulation}, 
+		\hyperpage{151}
+
+  \indexspace
+
+  \item {X}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{94}
+
+  \indexspace
+
+  \item {Y}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{94}
+
+  \indexspace
+
+  \item {Z}
+    \subitem {mknix\discretionary {-}{}{}::\discretionary {-}{}{}Point}, 
+		\hyperpage{94}
+
+\end{theindex}

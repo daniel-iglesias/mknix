@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="df/d82/classmknix_1_1_shape_function_rigid_bar" kind="class" prot="public">
+    <compoundname>mknix::ShapeFunctionRigidBar</compoundname>
+    <basecompoundref refid="dd/d8d/classmknix_1_1_shape_function" prot="public" virt="non-virtual">mknix::ShapeFunction</basecompoundref>
+    <includes refid="da/dfb/shapefunctionrigidbar_8h" local="no">shapefunctionrigidbar.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="df/d82/classmknix_1_1_shape_function_rigid_bar_1a13dc2ac9712a848c5f870089abfb2129" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::ShapeFunctionRigidBar::ShapeFunctionRigidBar</definition>
+        <argsstring>()</argsstring>
+        <name>ShapeFunctionRigidBar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionrigidbar.h" line="33" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionrigidbar.cpp" bodystart="26" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="df/d82/classmknix_1_1_shape_function_rigid_bar_1aca749e8665ce75cc847d9376dac52ea9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::ShapeFunctionRigidBar::ShapeFunctionRigidBar</definition>
+        <argsstring>(Point *)</argsstring>
+        <name>ShapeFunctionRigidBar</name>
+        <param>
+          <type><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref> *</type>
+          <defname>gp_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionrigidbar.h" line="35" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionrigidbar.cpp" bodystart="31" bodyend="36"/>
+        <references refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" compoundref="d3/d16/shapefunction_8h" startline="29">mknix::ShapeFunction::phi</references>
+      </memberdef>
+      <memberdef kind="function" id="df/d82/classmknix_1_1_shape_function_rigid_bar_1ac95778202de9d1afca7c0198f0693365" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::ShapeFunctionRigidBar::~ShapeFunctionRigidBar</definition>
+        <argsstring>()</argsstring>
+        <name>~ShapeFunctionRigidBar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionrigidbar.h" line="37" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionrigidbar.cpp" bodystart="39" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="df/d82/classmknix_1_1_shape_function_rigid_bar_1aad8c4377cc329c96dff9afa95b624a43" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::ShapeFunctionRigidBar::calc</definition>
+        <argsstring>()</argsstring>
+        <name>calc</name>
+        <reimplements refid="dd/d8d/classmknix_1_1_shape_function_1ac4a0d1b43ff7d4adf788e677912a87f7">calc</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionrigidbar.h" line="39" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionrigidbar.cpp" bodystart="44" bodyend="70"/>
+        <references refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" compoundref="d3/d16/shapefunction_8h" startline="29">mknix::ShapeFunction::phi</references>
+        <references refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" compoundref="d3/d16/shapefunction_8h" startline="30">mknix::ShapeFunction::gp</references>
+        <references refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" compoundref="d2/d91/point_8h" startline="98">mknix::Point::supportNodes</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" compoundref="d2/d91/point_8h" startline="55" endline="55">mknix::Point::getX</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" compoundref="d2/d91/point_8h" startline="57" endline="57">mknix::Point::getY</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" compoundref="d2/d91/point_8h" startline="59" endline="59">mknix::Point::getZ</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="441">
+        <label>mknix::ShapeFunctionRigidBar</label>
+        <link refid="df/d82/classmknix_1_1_shape_function_rigid_bar"/>
+        <childnode refid="442" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="442">
+        <label>mknix::ShapeFunction</label>
+        <link refid="dd/d8d/classmknix_1_1_shape_function"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="443">
+        <label>mknix::ShapeFunctionRigidBar</label>
+        <link refid="df/d82/classmknix_1_1_shape_function_rigid_bar"/>
+        <childnode refid="444" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="445">
+        <label>mknix::Point</label>
+        <link refid="d3/d19/classmknix_1_1_point"/>
+        <childnode refid="444" relation="usage">
+          <edgelabel>shapeFun</edgelabel>
+        </childnode>
+      </node>
+      <node id="444">
+        <label>mknix::ShapeFunction</label>
+        <link refid="dd/d8d/classmknix_1_1_shape_function"/>
+        <childnode refid="445" relation="usage">
+          <edgelabel>gp</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionrigidbar.h" line="31" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionrigidbar.h" bodystart="30" bodyend="40"/>
+    <listofallmembers>
+      <member refid="df/d82/classmknix_1_1_shape_function_rigid_bar_1aad8c4377cc329c96dff9afa95b624a43" prot="public" virt="virtual"><scope>mknix::ShapeFunctionRigidBar</scope><name>calc</name></member>
+      <member refid="dd/d8d/classmknix_1_1_shape_function_1a1ca9a4d7bc5f82c887ac7e9bdd54aa1e" prot="protected" virt="non-virtual"><scope>mknix::ShapeFunctionRigidBar</scope><name>dim</name></member>
+      <member refid="dd/d8d/classmknix_1_1_shape_function_1a13f35e2b1cfc89c26ee03ede4bfff586" prot="public" virt="virtual"><scope>mknix::ShapeFunctionRigidBar</scope><name>getPhi</name></member>
+      <member refid="dd/d8d/classmknix_1_1_shape_function_1a6b287c3758e7d16be4c7c8e86bbb7077" prot="public" virt="virtual"><scope>mknix::ShapeFunctionRigidBar</scope><name>gnuplotOut</name></member>
+      <member refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" prot="protected" virt="non-virtual"><scope>mknix::ShapeFunctionRigidBar</scope><name>gp</name></member>
+      <member refid="dd/d8d/classmknix_1_1_shape_function_1a50beef3ce4e90c4f884df14f727296f6" prot="public" virt="virtual"><scope>mknix::ShapeFunctionRigidBar</scope><name>outputValues</name></member>
+      <member refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" prot="protected" virt="non-virtual"><scope>mknix::ShapeFunctionRigidBar</scope><name>phi</name></member>
+      <member refid="dd/d8d/classmknix_1_1_shape_function_1a45248275e5e6fcaed37195155009e72e" prot="public" virt="virtual"><scope>mknix::ShapeFunctionRigidBar</scope><name>setPhi</name></member>
+      <member refid="dd/d8d/classmknix_1_1_shape_function_1a4a35da60e8eb2645a217cce36e6e323a" prot="public" virt="non-virtual"><scope>mknix::ShapeFunctionRigidBar</scope><name>ShapeFunction</name></member>
+      <member refid="dd/d8d/classmknix_1_1_shape_function_1adaf264f0f7ae964f9c9dc513e3fe7195" prot="public" virt="non-virtual"><scope>mknix::ShapeFunctionRigidBar</scope><name>ShapeFunction</name></member>
+      <member refid="df/d82/classmknix_1_1_shape_function_rigid_bar_1a13dc2ac9712a848c5f870089abfb2129" prot="public" virt="non-virtual"><scope>mknix::ShapeFunctionRigidBar</scope><name>ShapeFunctionRigidBar</name></member>
+      <member refid="df/d82/classmknix_1_1_shape_function_rigid_bar_1aca749e8665ce75cc847d9376dac52ea9" prot="public" virt="non-virtual"><scope>mknix::ShapeFunctionRigidBar</scope><name>ShapeFunctionRigidBar</name></member>
+      <member refid="dd/d8d/classmknix_1_1_shape_function_1ac5762f37f460aa48b8d2a53a1f422220" prot="public" virt="virtual"><scope>mknix::ShapeFunctionRigidBar</scope><name>~ShapeFunction</name></member>
+      <member refid="df/d82/classmknix_1_1_shape_function_rigid_bar_1ac95778202de9d1afca7c0198f0693365" prot="public" virt="non-virtual"><scope>mknix::ShapeFunctionRigidBar</scope><name>~ShapeFunctionRigidBar</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

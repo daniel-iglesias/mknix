@@ -1,0 +1,220 @@
+\hypertarget{classmknix_1_1FlexBody}{
+\section{mknix::FlexBody Class Reference}
+\label{classmknix_1_1FlexBody}\index{mknix::FlexBody@{mknix::FlexBody}}
+}
+{\tt \#include $<$flexbody.h$>$}
+
+Inheritance diagram for mknix::FlexBody:\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{classmknix_1_1FlexBody_83a9548bf5422f10ab3753d23c1d2f27}{
+\textbf{FlexBody} (std::string)}
+\label{classmknix_1_1FlexBody_83a9548bf5422f10ab3753d23c1d2f27}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_2da6b1d95ba70a5fe2cdfe32173dbfdb}{
+virtual std::string \textbf{type} ()=0}
+\label{classmknix_1_1FlexBody_2da6b1d95ba70a5fe2cdfe32173dbfdb}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_a079c60afebfc32e1282246cb9045c3a}{
+virtual void \textbf{setFormulation} (std::string formulation\_\-in)}
+\label{classmknix_1_1FlexBody_a079c60afebfc32e1282246cb9045c3a}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_87ede86c3ade1e700a706c41ce31b2c1}{
+virtual void \textbf{initialize} ()=0}
+\label{classmknix_1_1FlexBody_87ede86c3ade1e700a706c41ce31b2c1}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_edae7aced2e98611154e5ffcfbe2ff39}{
+virtual void \textbf{calcMassMatrix} ()=0}
+\label{classmknix_1_1FlexBody_edae7aced2e98611154e5ffcfbe2ff39}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_c7bd6a11a097cd7c540d94e2c1f9d617}{
+virtual void \textbf{calcInternalForces} ()=0}
+\label{classmknix_1_1FlexBody_c7bd6a11a097cd7c540d94e2c1f9d617}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_30178d1ff55e8e4c5e1b85ff8c2ec09b}{
+virtual void \textbf{calcExternalForces} ()=0}
+\label{classmknix_1_1FlexBody_30178d1ff55e8e4c5e1b85ff8c2ec09b}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_7717a6111a89fa8bf0f52cd0ba77943e}{
+virtual void \textbf{calcTangentMatrix} ()=0}
+\label{classmknix_1_1FlexBody_7717a6111a89fa8bf0f52cd0ba77943e}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_3c945ec9e62ffc199c0198d0b9c60029}{
+virtual void \textbf{assembleMassMatrix} (lmx::Matrix$<$ data\_\-type $>$ \&)=0}
+\label{classmknix_1_1FlexBody_3c945ec9e62ffc199c0198d0b9c60029}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_1ceddaab1c7db6fadd4eb8bfd3a30c48}{
+virtual void \textbf{assembleInternalForces} (lmx::Vector$<$ data\_\-type $>$ \&)=0}
+\label{classmknix_1_1FlexBody_1ceddaab1c7db6fadd4eb8bfd3a30c48}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_c27d67209359f938c10b66706137732f}{
+virtual void \textbf{assembleExternalForces} (lmx::Vector$<$ data\_\-type $>$ \&)=0}
+\label{classmknix_1_1FlexBody_c27d67209359f938c10b66706137732f}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_f661699307694d1dd08b892132416ad7}{
+virtual void \textbf{assembleTangentMatrix} (lmx::Matrix$<$ data\_\-type $>$ \&)=0}
+\label{classmknix_1_1FlexBody_f661699307694d1dd08b892132416ad7}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_b863f9c782ccffbcea5c5e485fff52bc}{
+virtual void \textbf{setOutput} (std::string)}
+\label{classmknix_1_1FlexBody_b863f9c782ccffbcea5c5e485fff52bc}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_7660a5136822ba11889b9650872ad093}{
+virtual void \textbf{outputStep} (const lmx::Vector$<$ data\_\-type $>$ \&, const lmx::Vector$<$ data\_\-type $>$ \&)=0}
+\label{classmknix_1_1FlexBody_7660a5136822ba11889b9650872ad093}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_3666a6abde087fb97eee2077af231570}{
+virtual void \textbf{outputStep} (const lmx::Vector$<$ data\_\-type $>$ \&)=0}
+\label{classmknix_1_1FlexBody_3666a6abde087fb97eee2077af231570}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_1cf57f024248bbb196e91aac9b9ab9fe}{
+virtual void \textbf{outputToFile} (std::ofstream $\ast$)}
+\label{classmknix_1_1FlexBody_1cf57f024248bbb196e91aac9b9ab9fe}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_05c7a81425fa8d2fa3dc313fe756f58b}{
+virtual void \textbf{addNode} (\hyperlink{classmknix_1_1Node}{Node} $\ast$node\_\-in)}
+\label{classmknix_1_1FlexBody_05c7a81425fa8d2fa3dc313fe756f58b}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_35d251c9e9329d388936af27eee5b5ff}{
+virtual \hyperlink{classmknix_1_1Node}{Node} $\ast$ \textbf{getNode} (int node\_\-number)}
+\label{classmknix_1_1FlexBody_35d251c9e9329d388936af27eee5b5ff}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_0953d49b7f7723176caad1eef9a9e423}{
+virtual \hyperlink{classmknix_1_1Node}{Node} $\ast$ \textbf{getLastNode} ()}
+\label{classmknix_1_1FlexBody_0953d49b7f7723176caad1eef9a9e423}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_ffa80a48ec87ec8d2946a18dfe05d6d5}{
+virtual void \textbf{addBoundaryLine} (\hyperlink{classmknix_1_1Node}{Node} $\ast$node1, \hyperlink{classmknix_1_1Node}{Node} $\ast$node2)}
+\label{classmknix_1_1FlexBody_ffa80a48ec87ec8d2946a18dfe05d6d5}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_a851b4ac6624bcd9f62c6b4a7a0ffa14}{
+virtual int \textbf{getBoundarySize} ()}
+\label{classmknix_1_1FlexBody_a851b4ac6624bcd9f62c6b4a7a0ffa14}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_6d5bfe39a006a9e6fdaf594aa704d7d2}{
+virtual \hyperlink{classmknix_1_1Node}{Node} $\ast$ \textbf{getBoundaryFirstNode} ()}
+\label{classmknix_1_1FlexBody_6d5bfe39a006a9e6fdaf594aa704d7d2}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_c4df2596467cc839fb10f799e43f363a}{
+virtual \hyperlink{classmknix_1_1Node}{Node} $\ast$ \textbf{getBoundaryNextNode} (\hyperlink{classmknix_1_1Node}{Node} $\ast$node\_\-in)}
+\label{classmknix_1_1FlexBody_c4df2596467cc839fb10f799e43f363a}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_caeef83ae5cc2e2f2bb99c8de81d9473}{
+virtual void \textbf{addCell} (int num, \hyperlink{classmknix_1_1Cell}{Cell} $\ast$cell\_\-in)}
+\label{classmknix_1_1FlexBody_caeef83ae5cc2e2f2bb99c8de81d9473}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_47775d5e09cf56522e914d5d7696a2db}{
+virtual void \textbf{writeBoundaryNodes} (std::vector$<$ \hyperlink{classmknix_1_1Node}{Node} $\ast$ $>$ \&)}
+\label{classmknix_1_1FlexBody_47775d5e09cf56522e914d5d7696a2db}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_96fe50707a8b0c5bbab8c455789d42f5}{
+virtual void \textbf{writeBoundaryConnectivity} (std::vector$<$ std::vector$<$ \hyperlink{classmknix_1_1Node}{Node} $\ast$ $>$ $>$ \&)}
+\label{classmknix_1_1FlexBody_96fe50707a8b0c5bbab8c455789d42f5}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_4b7462d418b6b9c2e027e7f7e3e5bdce}{
+virtual void \textbf{translate} (double, double, double)}
+\label{classmknix_1_1FlexBody_4b7462d418b6b9c2e027e7f7e3e5bdce}
+
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+\hypertarget{classmknix_1_1FlexBody_f11fe27b1478f6ce517f723ca657d90b}{
+std::string \textbf{title}}
+\label{classmknix_1_1FlexBody_f11fe27b1478f6ce517f723ca657d90b}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_cb6f1ed2a9f207ceb39d485aabc2fbcf}{
+std::string \textbf{formulation}}
+\label{classmknix_1_1FlexBody_cb6f1ed2a9f207ceb39d485aabc2fbcf}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_aacb11b0809c01edca2c7ef4ea41de7a}{
+bool \textbf{computeStress}}
+\label{classmknix_1_1FlexBody_aacb11b0809c01edca2c7ef4ea41de7a}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_653efdbfbf4f6ec147407a1c7ffb3779}{
+bool \textbf{computeEnergy}}
+\label{classmknix_1_1FlexBody_653efdbfbf4f6ec147407a1c7ffb3779}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_22bdd921d63cf15ae9216320bb69238f}{
+std::vector$<$ \hyperlink{classmknix_1_1Node}{Node} $\ast$ $>$ \textbf{nodes}}
+\label{classmknix_1_1FlexBody_22bdd921d63cf15ae9216320bb69238f}
+
+\item 
+std::map$<$ \hyperlink{classmknix_1_1Node}{Node} $\ast$, \hyperlink{classmknix_1_1Node}{Node} $\ast$ $>$ \hyperlink{classmknix_1_1FlexBody_ceffa0715f6180a5945fe4cccb6723a9}{boundary}
+\item 
+std::map$<$ int, \hyperlink{classmknix_1_1Cell}{Cell} $\ast$ $>$ \hyperlink{classmknix_1_1FlexBody_9ad2c335bec4ab136091934de6379a67}{cells}
+\item 
+\hypertarget{classmknix_1_1FlexBody_b7e82d08982714b26de3fff2a281d4f2}{
+std::vector$<$ lmx::Vector$<$ data\_\-type $>$ $\ast$ $>$ \textbf{stress}}
+\label{classmknix_1_1FlexBody_b7e82d08982714b26de3fff2a281d4f2}
+
+\item 
+\hypertarget{classmknix_1_1FlexBody_9152c5c0047a854fd4875082e6ca191e}{
+std::vector$<$ lmx::Vector$<$ data\_\-type $>$ $\ast$ $>$ \textbf{energy}}
+\label{classmknix_1_1FlexBody_9152c5c0047a854fd4875082e6ca191e}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{Desc}
+\item[Author:]AUTHORS $<$MAILS$>$ \end{Desc}
+
+
+Definition at line 36 of file flexbody.h.
+
+\subsection{Member Data Documentation}
+\hypertarget{classmknix_1_1FlexBody_ceffa0715f6180a5945fe4cccb6723a9}{
+\index{mknix::FlexBody@{mknix::FlexBody}!boundary@{boundary}}
+\index{boundary@{boundary}!mknix::FlexBody@{mknix::FlexBody}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}std::map$<${\bf Node}$\ast$,{\bf Node}$\ast$$>$ {\bf mknix::FlexBody::boundary}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classmknix_1_1FlexBody_ceffa0715f6180a5945fe4cccb6723a9}
+
+
+Map of linear boundary. 
+
+Definition at line 132 of file flexbody.h.\hypertarget{classmknix_1_1FlexBody_9ad2c335bec4ab136091934de6379a67}{
+\index{mknix::FlexBody@{mknix::FlexBody}!cells@{cells}}
+\index{cells@{cells}!mknix::FlexBody@{mknix::FlexBody}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}std::map$<$int,{\bf Cell}$\ast$$>$ {\bf mknix::FlexBody::cells}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classmknix_1_1FlexBody_9ad2c335bec4ab136091934de6379a67}
+
+
+Map of integration cells. 
+
+Definition at line 133 of file flexbody.h.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/flexbody.h\item 
+src/flexbody.cpp\end{CompactItemize}

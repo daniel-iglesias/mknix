@@ -1,0 +1,144 @@
+/***************************************************************************
+ *   Copyright (C) 2005 by Daniel Iglesias                                 *
+ *   dani@localhost.localdomain                                            *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU Library General Public License as       *
+ *   published by the Free Software Foundation; either version 2 of the    *
+ *   License, or (at your option) any later version.                       *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU Library General Public     *
+ *   License along with this program; if not, write to the                 *
+ *   Free Software Foundation, Inc.,                                       *
+ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ ***************************************************************************/
+#ifndef GAUSS_SOLVER_H
+#define GAUSS_SOLVER_H
+
+//////////////////////////////////////////// Doxygen file documentation entry:
+    /*!
+      \file lmx_linsolvers_gauss.h
+
+      \brief Gaussian elimination class implementation
+
+      Implements Gaussian elimination linear solver method.
+
+      \author Daniel Iglesias Ibáñez
+
+     */
+//////////////////////////////////////////// Doxygen file documentation (end)
+
+
+namespace lmx{
+
+/**
+ *
+ * \class Gauss
+ * \brief Template class Gauss for solving linear systems.
+ *
+ * @author Daniel Iglesias Ibáñez.
+ */
+template <typename T> class Gauss{
+  private:
+    DenseMatrix<T> mat;
+    Vector<T> vec;
+    size_type dim;
+
+  public:
+    /**
+     * Empty constructor.
+     */
+    Gauss(){}
+
+    Gauss( Matrix<T>*, Vector<T>* );
+
+    /**
+     * Destructor
+     */
+    ~Gauss(){}
+
+    Vector<T>& solve();
+
+};
+
+template <typename T>
+    /**
+     * Standard constructor.
+     * @param mat_in Pointer to Matrix.
+     * @param vec_in Pointer to Vector.
+     */
+    Gauss<T>::Gauss( Matrix<T>* mat_in, Vector<T>* vec_in )
+  : dim( mat_in->rows() )
+{
+  if( mat_in->rows() != mat_in->cols() ){
+    std::stringstream message;
+    message << "Trying to build a Gauss object with a non-squared matrix.\nSize of matrix(" << mat_in->rows() << ", " << mat_in->cols() << ")." << endl;
+    LMX_THROW(dimension_error, message.str() );
+  }
+
+  mat.resize( dim , dim );
+  for (size_type i=0; i<dim; ++i){
+    for (size_type j=0; j<dim; ++j){
+      mat.writeElement( mat_in->readElement(i,j), i, j );
+    }
+  }
+  vec.resize( *vec_in );
+  vec = *vec_in;
+
+}
+
+
+template <typename T>
+    /**
+     * Solve system
+     * @return Reference to solution vector.
+     */
+    Vector<T>& Gauss<T>::solve()
+{
+  int i, j, k;
+  T mult;
+
+  for(k = 0; k < dim - 1 ;++k)
+  {
+    if ( mat.readElement(k,k) == 0 ){
+      std::stringstream message;
+      message << "Null pivot diagonal term!!. Term position: " << k << ". Squared Matrix dimension: " << dim << "." << endl;
+      LMX_THROW(internal_error, message.str() );
+    }
+
+    for(i = k + 1; i < dim; ++i){
+
+      if( mat.readElement(i,k) != 0 ){
+        mult = mat.readElement(i,k) / mat.readElement(k,k);
+        mat.writeElement(mult, i, k);
+        for(j = k + 1; j < dim; ++j)
+          mat(i,j) -= mult * mat.readElement(k,j);
+      }
+    }
+  }
+
+  for(i = 1; i < dim; ++i){
+    for(j = 0; j < i; ++j)
+      vec(i) -= mat.readElement(i,j) * vec.readElement(j);
+  }
+
+  for(i = dim - 1; i >= 0; --i){
+    for(j = i+1; j<dim; ++j){
+      vec(i) -= mat.readElement(i,j) * vec.readElement(j);
+    }
+    vec(i) /= mat.readElement(i,i);
+  }
+
+  return vec;
+}
+
+
+
+}
+
+#endif

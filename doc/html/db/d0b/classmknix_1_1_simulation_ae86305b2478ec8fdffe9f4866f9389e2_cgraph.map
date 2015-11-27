@@ -1,0 +1,6 @@
+<map id="mknix::Simulation::staticThermalResidue" name="mknix::Simulation::staticThermalResidue">
+<area shape="rect" id="node3" href="$df/dd9/classmknix_1_1_system.html#a0336b3ae44843b0f48d1490072a6fb5f" title="mknix::System::calcConductivity\lMatrix" alt="" coords="221,5,435,51"/>
+<area shape="rect" id="node5" href="$df/dd9/classmknix_1_1_system.html#a8c01b52d2f2fb7de0ac6e1c64bda81a3" title="mknix::System::calcExternalHeat" alt="" coords="219,75,437,104"/>
+<area shape="rect" id="node7" href="$df/dd9/classmknix_1_1_system.html#a6345dce07d1da92c969608340be7a604" title="mknix::System::assembleConductivity\lMatrix" alt="" coords="205,127,451,174"/>
+<area shape="rect" id="node9" href="$df/dd9/classmknix_1_1_system.html#aa32a7ce62666f3a93c4448d2f70ccac8" title="mknix::System::assembleExternalHeat" alt="" coords="203,197,453,227"/>
+</map>

@@ -1,0 +1,180 @@
+\hypertarget{classmknix_1_1_constraint_fixed_coordinates}{\subsection{mknix\-:\-:Constraint\-Fixed\-Coordinates Class Reference}
+\label{classmknix_1_1_constraint_fixed_coordinates}\index{mknix\-::\-Constraint\-Fixed\-Coordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}}
+}
+
+
+{\ttfamily \#include $<$constraintfixedcoordinates.\-h$>$}
+
+
+
+Inheritance diagram for mknix\-:\-:Constraint\-Fixed\-Coordinates\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{dd/da5/classmknix_1_1_constraint_fixed_coordinates__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mknix\-:\-:Constraint\-Fixed\-Coordinates\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{d5/d3d/classmknix_1_1_constraint_fixed_coordinates__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmknix_1_1_constraint_fixed_coordinates_aaa5e21e995ca95bb8dc45a411987fda2}{Constraint\-Fixed\-Coordinates} ()
+\item 
+\hyperlink{classmknix_1_1_constraint_fixed_coordinates_a0e45a40d38156a55c34380238d369592}{Constraint\-Fixed\-Coordinates} (\hyperlink{classmknix_1_1_node}{Node} $\ast$, \hyperlink{classmknix_1_1_node}{Node} $\ast$, double \&, std\-::string \&)
+\item 
+\hyperlink{classmknix_1_1_constraint_fixed_coordinates_ab8fcae0a6b615cbc81d1db67887c1a54}{$\sim$\-Constraint\-Fixed\-Coordinates} ()
+\item 
+void \hyperlink{classmknix_1_1_constraint_fixed_coordinates_ae549d41c12fcc094bdc32bc853ebbd84}{calc\-Phi} ()
+\item 
+void \hyperlink{classmknix_1_1_constraint_fixed_coordinates_a250813aed17ab80b03a9b6b7f4a7ce8b}{calc\-Phiq} ()
+\item 
+void \hyperlink{classmknix_1_1_constraint_fixed_coordinates_a80e20da8642dc3c35b7969f7c2c5affe}{calc\-Phiqq} ()
+\item 
+lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \& \hyperlink{classmknix_1_1_constraint_fixed_coordinates_a24c5ba96ad8fcdba23d6fbeda1e87583}{get\-Internal\-Forces} ()
+\item 
+lmx\-::\-Dense\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \& \hyperlink{classmknix_1_1_constraint_fixed_coordinates_a85f3564f2109d0cdf09f99b1ff5eea24}{get\-Stiffness\-Matrix} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classmknix_1_1_constraint_fixed_coordinates_a07324acb35594ed9274bc8b79ca356c1}{rxo}
+\item 
+double \hyperlink{classmknix_1_1_constraint_fixed_coordinates_a1e5c7b99aad5c0c1752d3fa5154ff77e}{ryo}
+\item 
+double \hyperlink{classmknix_1_1_constraint_fixed_coordinates_a1e43b5f72d8064762f0427204f46b3a1}{rzo}
+\item 
+double \hyperlink{classmknix_1_1_constraint_fixed_coordinates_afb8e43d7544941154e51c93e0662ef93}{rxt}
+\item 
+double \hyperlink{classmknix_1_1_constraint_fixed_coordinates_ade68140fb4d4f9e0cb0d2996274e222a}{ryt}
+\item 
+double \hyperlink{classmknix_1_1_constraint_fixed_coordinates_a45657121be64f04cf1667a9090ba6451}{rzt}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+A\-U\-T\-H\-O\-R\-S $<$\-M\-A\-I\-L\-S$>$ 
+\end{DoxyAuthor}
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{classmknix_1_1_constraint_fixed_coordinates_aaa5e21e995ca95bb8dc45a411987fda2}{\index{mknix\-::\-Constraint\-Fixed\-Coordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}!Constraint\-Fixed\-Coordinates@{Constraint\-Fixed\-Coordinates}}
+\index{Constraint\-Fixed\-Coordinates@{Constraint\-Fixed\-Coordinates}!mknix::ConstraintFixedCoordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}}
+\paragraph[{Constraint\-Fixed\-Coordinates}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Constraint\-Fixed\-Coordinates\-::\-Constraint\-Fixed\-Coordinates (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_constraint_fixed_coordinates_aaa5e21e995ca95bb8dc45a411987fda2}
+\hypertarget{classmknix_1_1_constraint_fixed_coordinates_a0e45a40d38156a55c34380238d369592}{\index{mknix\-::\-Constraint\-Fixed\-Coordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}!Constraint\-Fixed\-Coordinates@{Constraint\-Fixed\-Coordinates}}
+\index{Constraint\-Fixed\-Coordinates@{Constraint\-Fixed\-Coordinates}!mknix::ConstraintFixedCoordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}}
+\paragraph[{Constraint\-Fixed\-Coordinates}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Constraint\-Fixed\-Coordinates\-::\-Constraint\-Fixed\-Coordinates (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{a\-\_\-in, }
+\item[{{\bf Node} $\ast$}]{b\-\_\-in, }
+\item[{double \&}]{alpha\-\_\-in, }
+\item[{std\-::string \&}]{method\-\_\-in}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_constraint_fixed_coordinates_a0e45a40d38156a55c34380238d369592}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/dda/classmknix_1_1_constraint_fixed_coordinates_a0e45a40d38156a55c34380238d369592_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_constraint_fixed_coordinates_ab8fcae0a6b615cbc81d1db67887c1a54}{\index{mknix\-::\-Constraint\-Fixed\-Coordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}!$\sim$\-Constraint\-Fixed\-Coordinates@{$\sim$\-Constraint\-Fixed\-Coordinates}}
+\index{$\sim$\-Constraint\-Fixed\-Coordinates@{$\sim$\-Constraint\-Fixed\-Coordinates}!mknix::ConstraintFixedCoordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}}
+\paragraph[{$\sim$\-Constraint\-Fixed\-Coordinates}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Constraint\-Fixed\-Coordinates\-::$\sim$\-Constraint\-Fixed\-Coordinates (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_constraint_fixed_coordinates_ab8fcae0a6b615cbc81d1db67887c1a54}
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classmknix_1_1_constraint_fixed_coordinates_ae549d41c12fcc094bdc32bc853ebbd84}{\index{mknix\-::\-Constraint\-Fixed\-Coordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}!calc\-Phi@{calc\-Phi}}
+\index{calc\-Phi@{calc\-Phi}!mknix::ConstraintFixedCoordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}}
+\paragraph[{calc\-Phi}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Constraint\-Fixed\-Coordinates\-::calc\-Phi (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_constraint_fixed_coordinates_ae549d41c12fcc094bdc32bc853ebbd84}
+
+
+Implements \hyperlink{classmknix_1_1_constraint_a7f2b34d256d5eec54b34b0440b562ec1}{mknix\-::\-Constraint}.
+
+\hypertarget{classmknix_1_1_constraint_fixed_coordinates_a250813aed17ab80b03a9b6b7f4a7ce8b}{\index{mknix\-::\-Constraint\-Fixed\-Coordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}!calc\-Phiq@{calc\-Phiq}}
+\index{calc\-Phiq@{calc\-Phiq}!mknix::ConstraintFixedCoordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}}
+\paragraph[{calc\-Phiq}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Constraint\-Fixed\-Coordinates\-::calc\-Phiq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_constraint_fixed_coordinates_a250813aed17ab80b03a9b6b7f4a7ce8b}
+
+
+Implements \hyperlink{classmknix_1_1_constraint_ab129143960df2b9459e274275608bcf2}{mknix\-::\-Constraint}.
+
+\hypertarget{classmknix_1_1_constraint_fixed_coordinates_a80e20da8642dc3c35b7969f7c2c5affe}{\index{mknix\-::\-Constraint\-Fixed\-Coordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}!calc\-Phiqq@{calc\-Phiqq}}
+\index{calc\-Phiqq@{calc\-Phiqq}!mknix::ConstraintFixedCoordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}}
+\paragraph[{calc\-Phiqq}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Constraint\-Fixed\-Coordinates\-::calc\-Phiqq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_constraint_fixed_coordinates_a80e20da8642dc3c35b7969f7c2c5affe}
+
+
+Implements \hyperlink{classmknix_1_1_constraint_a73ff21573b5e9c4acda789bd5ac46ea8}{mknix\-::\-Constraint}.
+
+\hypertarget{classmknix_1_1_constraint_fixed_coordinates_a24c5ba96ad8fcdba23d6fbeda1e87583}{\index{mknix\-::\-Constraint\-Fixed\-Coordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}!get\-Internal\-Forces@{get\-Internal\-Forces}}
+\index{get\-Internal\-Forces@{get\-Internal\-Forces}!mknix::ConstraintFixedCoordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}}
+\paragraph[{get\-Internal\-Forces}]{\setlength{\rightskip}{0pt plus 5cm}lmx\-::\-Vector$<${\bf data\-\_\-type}$>$\& mknix\-::\-Constraint\-Fixed\-Coordinates\-::get\-Internal\-Forces (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_constraint_fixed_coordinates_a24c5ba96ad8fcdba23d6fbeda1e87583}
+\hypertarget{classmknix_1_1_constraint_fixed_coordinates_a85f3564f2109d0cdf09f99b1ff5eea24}{\index{mknix\-::\-Constraint\-Fixed\-Coordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}!get\-Stiffness\-Matrix@{get\-Stiffness\-Matrix}}
+\index{get\-Stiffness\-Matrix@{get\-Stiffness\-Matrix}!mknix::ConstraintFixedCoordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}}
+\paragraph[{get\-Stiffness\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}lmx\-::\-Dense\-Matrix$<${\bf data\-\_\-type}$>$\& mknix\-::\-Constraint\-Fixed\-Coordinates\-::get\-Stiffness\-Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_constraint_fixed_coordinates_a85f3564f2109d0cdf09f99b1ff5eea24}
+
+
+\subsubsection{Member Data Documentation}
+\hypertarget{classmknix_1_1_constraint_fixed_coordinates_a07324acb35594ed9274bc8b79ca356c1}{\index{mknix\-::\-Constraint\-Fixed\-Coordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}!rxo@{rxo}}
+\index{rxo@{rxo}!mknix::ConstraintFixedCoordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}}
+\paragraph[{rxo}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Constraint\-Fixed\-Coordinates\-::rxo\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_constraint_fixed_coordinates_a07324acb35594ed9274bc8b79ca356c1}
+\hypertarget{classmknix_1_1_constraint_fixed_coordinates_afb8e43d7544941154e51c93e0662ef93}{\index{mknix\-::\-Constraint\-Fixed\-Coordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}!rxt@{rxt}}
+\index{rxt@{rxt}!mknix::ConstraintFixedCoordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}}
+\paragraph[{rxt}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Constraint\-Fixed\-Coordinates\-::rxt\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_constraint_fixed_coordinates_afb8e43d7544941154e51c93e0662ef93}
+\hypertarget{classmknix_1_1_constraint_fixed_coordinates_a1e5c7b99aad5c0c1752d3fa5154ff77e}{\index{mknix\-::\-Constraint\-Fixed\-Coordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}!ryo@{ryo}}
+\index{ryo@{ryo}!mknix::ConstraintFixedCoordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}}
+\paragraph[{ryo}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Constraint\-Fixed\-Coordinates\-::ryo\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_constraint_fixed_coordinates_a1e5c7b99aad5c0c1752d3fa5154ff77e}
+\hypertarget{classmknix_1_1_constraint_fixed_coordinates_ade68140fb4d4f9e0cb0d2996274e222a}{\index{mknix\-::\-Constraint\-Fixed\-Coordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}!ryt@{ryt}}
+\index{ryt@{ryt}!mknix::ConstraintFixedCoordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}}
+\paragraph[{ryt}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Constraint\-Fixed\-Coordinates\-::ryt\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_constraint_fixed_coordinates_ade68140fb4d4f9e0cb0d2996274e222a}
+\hypertarget{classmknix_1_1_constraint_fixed_coordinates_a1e43b5f72d8064762f0427204f46b3a1}{\index{mknix\-::\-Constraint\-Fixed\-Coordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}!rzo@{rzo}}
+\index{rzo@{rzo}!mknix::ConstraintFixedCoordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}}
+\paragraph[{rzo}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Constraint\-Fixed\-Coordinates\-::rzo\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_constraint_fixed_coordinates_a1e43b5f72d8064762f0427204f46b3a1}
+\hypertarget{classmknix_1_1_constraint_fixed_coordinates_a45657121be64f04cf1667a9090ba6451}{\index{mknix\-::\-Constraint\-Fixed\-Coordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}!rzt@{rzt}}
+\index{rzt@{rzt}!mknix::ConstraintFixedCoordinates@{mknix\-::\-Constraint\-Fixed\-Coordinates}}
+\paragraph[{rzt}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Constraint\-Fixed\-Coordinates\-::rzt\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_constraint_fixed_coordinates_a45657121be64f04cf1667a9090ba6451}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{constraintfixedcoordinates_8h}{constraintfixedcoordinates.\-h}\item 
+\hyperlink{constraintfixedcoordinates_8cpp}{constraintfixedcoordinates.\-cpp}\end{DoxyCompactItemize}

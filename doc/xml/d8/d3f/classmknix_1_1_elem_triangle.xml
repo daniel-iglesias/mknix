@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="d8/d3f/classmknix_1_1_elem_triangle" kind="class" prot="public">
+    <compoundname>mknix::ElemTriangle</compoundname>
+    <basecompoundref refid="de/db4/classmknix_1_1_cell_triang" prot="public" virt="non-virtual">mknix::CellTriang</basecompoundref>
+    <includes refid="df/d03/elemtriangle_8h" local="no">elemtriangle.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/d3f/classmknix_1_1_elem_triangle_1a3f2e00ba6769185cc6dc8f11f073d5cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::ElemTriangle::ElemTriangle</definition>
+        <argsstring>()</argsstring>
+        <name>ElemTriangle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/elemtriangle.h" line="33" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/elemtriangle.cpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d3f/classmknix_1_1_elem_triangle_1a01f7c2e3827dcfbc657b17aa6610b8dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::ElemTriangle::ElemTriangle</definition>
+        <argsstring>(Material &amp;, double, int, Node *, Node *, Node *)</argsstring>
+        <name>ElemTriangle</name>
+        <param>
+          <type><ref refid="d6/d4a/classmknix_1_1_material" kindref="compound">Material</ref> &amp;</type>
+          <defname>material_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>alpha_in</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>nGPoints_in</defname>
+        </param>
+        <param>
+          <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+          <defname>n1_in</defname>
+        </param>
+        <param>
+          <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+          <defname>n2_in</defname>
+        </param>
+        <param>
+          <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+          <defname>n3_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/elemtriangle.h" line="40" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/elemtriangle.cpp" bodystart="30" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d3f/classmknix_1_1_elem_triangle_1a7a29ea213e5eb2567702ab1cd01468c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::ElemTriangle::~ElemTriangle</definition>
+        <argsstring>()</argsstring>
+        <name>~ElemTriangle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/elemtriangle.h" line="46" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/elemtriangle.cpp" bodystart="48" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d3f/classmknix_1_1_elem_triangle_1a5ddf93646f4b35632801fd28bc8e14a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::ElemTriangle::initialize</definition>
+        <argsstring>(std::vector&lt; Node * &gt; &amp;)</argsstring>
+        <name>initialize</name>
+        <reimplements refid="db/dd4/classmknix_1_1_cell_1a77d7851793538f99d8aa0ea664fa0fb7">initialize</reimplements>
+        <param>
+          <type>std::vector&lt; <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> * &gt; &amp;</type>
+          <defname>nodes_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/elemtriangle.h" line="48" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/elemtriangle.cpp" bodystart="53" bodyend="66"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">mknix::Cell::gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d3f/classmknix_1_1_elem_triangle_1a6d97673aa922fca3c84ae23255b76223" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::ElemTriangle::computeShapeFunctions</definition>
+        <argsstring>()</argsstring>
+        <name>computeShapeFunctions</name>
+        <reimplements refid="db/dd4/classmknix_1_1_cell_1a6772f09fe6965faff4b53486b09f7235">computeShapeFunctions</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/elemtriangle.h" line="50" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/elemtriangle.cpp" bodystart="69" bodyend="77"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">mknix::Cell::gPoints</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="335">
+        <label>mknix::CellTriang</label>
+        <link refid="de/db4/classmknix_1_1_cell_triang"/>
+        <childnode refid="336" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="336">
+        <label>mknix::Cell</label>
+        <link refid="db/dd4/classmknix_1_1_cell"/>
+      </node>
+      <node id="334">
+        <label>mknix::ElemTriangle</label>
+        <link refid="d8/d3f/classmknix_1_1_elem_triangle"/>
+        <childnode refid="335" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="338">
+        <label>mknix::CellTriang</label>
+        <link refid="de/db4/classmknix_1_1_cell_triang"/>
+        <childnode refid="339" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="339">
+        <label>mknix::Cell</label>
+        <link refid="db/dd4/classmknix_1_1_cell"/>
+        <childnode refid="340" relation="usage">
+          <edgelabel>mat</edgelabel>
+        </childnode>
+      </node>
+      <node id="340">
+        <label>mknix::Material</label>
+        <link refid="d6/d4a/classmknix_1_1_material"/>
+      </node>
+      <node id="337">
+        <label>mknix::ElemTriangle</label>
+        <link refid="d8/d3f/classmknix_1_1_elem_triangle"/>
+        <childnode refid="338" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/elemtriangle.h" line="31" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/elemtriangle.h" bodystart="30" bodyend="52"/>
+    <listofallmembers>
+      <member refid="db/dd4/classmknix_1_1_cell_1a79afef7ecbdfee69e687bb2e7559520b" prot="protected" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>alpha</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a4d4af2c299e451b91a81819ccf5d6358" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>assembleCapacityGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1aae283c2a89beb517ed41b42bfdb19957" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>assembleConductivityGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a7c381e6cbcdb2478505645cad57a2c6e" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>assembleFextGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a1bf285b7dd7f06ece2f92e2b4389d6f5" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>assembleFintGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a8b703b97535562245382523c3702a054" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>assembleKGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a0b44063103766cd26b0411156c6d6004" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>assembleMGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1af65d528a607f3215d04449551db94dcd" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>assembleNLRGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a130944ac8867e93ce882e7cc8c3555ca" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>assembleQextGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a97fdd8bbf158f3b03b1af601177c2585" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>assembleRGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a1b59c56aa8983a27571c6809b03604c5" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>calcElasticEGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1aa0b40b9534a376333490fe73d921e552" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>calcKineticEGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a9aba982ff2a54738ec8b38446d333f8d" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>calcPotentialEGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a1c285cc4f38656550e8e2926058e8612" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>Cell</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1ad0988ed8a4aac7c7440bee9413e1189f" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>Cell</name></member>
+      <member refid="de/db4/classmknix_1_1_cell_triang_1a17a2c3768e9f2aad3a7bfd8041775fb6" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>CellTriang</name></member>
+      <member refid="de/db4/classmknix_1_1_cell_triang_1a419492f1358e31432d6f686ee8ef1609" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>CellTriang</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a675db1cafb39d5abab7b13994df21045" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>computeCapacityGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a5d8c11ba58bbaa6f70d5dc2b530868e7" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>computeConductivityGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a19b4ed719612fe2e0043d0cebcbe1537" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>computeFextGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a1c3123f613acd57332a6e84dc3736b86" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>computeFintGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a379600644881412c03608d3d32c36d49" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>computeKGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a32a01eb5f854fc23353c0eb64b65e2da" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>computeMGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a84014b9ed9c8a49c604f4ddb91b524fe" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>computeNLFintGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a56231c1df8cd13f6b3f04356da6c2955" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>computeNLKGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a45c2f8b146cafa0ba3a6503f70eb38a7" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>computeQextGaussPoints</name></member>
+      <member refid="d8/d3f/classmknix_1_1_elem_triangle_1a6d97673aa922fca3c84ae23255b76223" prot="public" virt="virtual"><scope>mknix::ElemTriangle</scope><name>computeShapeFunctions</name></member>
+      <member refid="de/db4/classmknix_1_1_cell_triang_1a2a2c65fbd2682eba8225473a7dc841f0" prot="protected" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>createGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a7108fef12b0319adebeff93cab664314" prot="protected" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>dc</name></member>
+      <member refid="d8/d3f/classmknix_1_1_elem_triangle_1a3f2e00ba6769185cc6dc8f11f073d5cd" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>ElemTriangle</name></member>
+      <member refid="d8/d3f/classmknix_1_1_elem_triangle_1a01f7c2e3827dcfbc657b17aa6610b8dc" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>ElemTriangle</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1ad637a730575145fbc61f884b2edac8f8" prot="protected" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>formulation</name></member>
+      <member refid="de/db4/classmknix_1_1_cell_triang_1a374f66822e2e37d94a2cfe09c5173e8a" prot="public" virt="virtual"><scope>mknix::ElemTriangle</scope><name>gnuplotOut</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a6dd6795d452d5bd8ff26de1419baef31" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>gnuplotOutStress</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" prot="protected" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>gPoints</name></member>
+      <member refid="d8/d3f/classmknix_1_1_elem_triangle_1a5ddf93646f4b35632801fd28bc8e14a2" prot="public" virt="virtual"><scope>mknix::ElemTriangle</scope><name>initialize</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" prot="protected" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>jacobian</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a83ca13ff89196b3ab378d2a28820a08e" prot="protected" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>mat</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" prot="protected" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>nGPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" prot="protected" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>nodes</name></member>
+      <member refid="de/db4/classmknix_1_1_cell_triang_1a6f3e6ae0d06cbd4703c073e0860e38ed" prot="protected" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>points</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1ab4efc3f7c10212304dd776e7b58bb57b" prot="public" virt="virtual"><scope>mknix::ElemTriangle</scope><name>~Cell</name></member>
+      <member refid="de/db4/classmknix_1_1_cell_triang_1af0a12b3f4f6106291f3252716c4be025" prot="public" virt="virtual"><scope>mknix::ElemTriangle</scope><name>~CellTriang</name></member>
+      <member refid="d8/d3f/classmknix_1_1_elem_triangle_1a7a29ea213e5eb2567702ab1cd01468c4" prot="public" virt="non-virtual"><scope>mknix::ElemTriangle</scope><name>~ElemTriangle</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

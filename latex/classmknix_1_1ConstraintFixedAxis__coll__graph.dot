@@ -1,0 +1,8 @@
+digraph G
+{
+  edge [fontname="FreeSans.ttf",fontsize=10,labelfontname="FreeSans.ttf",labelfontsize=10];
+  node [fontname="FreeSans.ttf",fontsize=10,shape=record];
+  Node1 [label="{mknix::ConstraintFixedAxis\n|# axisName\l# ro\l# rt\l|+ ConstraintFixedAxis()\l+ ConstraintFixedAxis()\l+ ~ConstraintFixedAxis()\l+ calcPhi()\l+ calcPhiq()\l+ calcPhiqq()\l+ getInternalForces()\l+ getStiffnessMatrix()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node2 -> Node1 [dir=back,color="midnightblue",fontsize=10,style="solid",arrowtail="empty"];
+  Node2 [label="{mknix::Constraint\n|# dim\l# alpha\l# method\l# nodes\l# internalForces\l# stiffnessMatrix\l# lambda\l# phi\l# phi_q\l# phi_qq\l|+ Constraint()\l+ Constraint()\l+ ~Constraint()\l+ calcPhi()\l+ calcPhiq()\l+ calcPhiqq()\l+ calcInternalForces()\l+ calcTangentMatrix()\l+ assembleInternalForces()\l+ assembleTangentMatrix()\l+ checkAugmented()\l+ clearAugmented()\l+ getNode()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classmknix_1_1Constraint.html"];
+}

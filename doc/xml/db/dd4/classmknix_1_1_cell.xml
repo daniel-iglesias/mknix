@@ -1,0 +1,747 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="db/dd4/classmknix_1_1_cell" kind="class" prot="public" abstract="yes">
+    <compoundname>mknix::Cell</compoundname>
+    <derivedcompoundref refid="dd/d89/classmknix_1_1_cell_rect" prot="public" virt="non-virtual">mknix::CellRect</derivedcompoundref>
+    <derivedcompoundref refid="d9/d39/classmknix_1_1_cell_tetrahedron" prot="public" virt="non-virtual">mknix::CellTetrahedron</derivedcompoundref>
+    <derivedcompoundref refid="de/db4/classmknix_1_1_cell_triang" prot="public" virt="non-virtual">mknix::CellTriang</derivedcompoundref>
+    <includes refid="d0/ddd/cell_8h" local="no">cell.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="db/dd4/classmknix_1_1_cell_1a83ca13ff89196b3ab378d2a28820a08e" prot="protected" static="no" mutable="no">
+        <type><ref refid="d6/d4a/classmknix_1_1_material" kindref="compound">Material</ref> *</type>
+        <definition>Material* mknix::Cell::mat</definition>
+        <argsstring></argsstring>
+        <name>mat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="30" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.h" bodystart="30" bodyend="-1"/>
+        <referencedby refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a933dde9cb028e9be1f0f9024fb7b898d" compoundref="d3/d93/celltetrahedron_8cpp" startline="66" endline="119">mknix::CellTetrahedron::createGaussPoints</referencedby>
+        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a2a2c65fbd2682eba8225473a7dc841f0" compoundref="d0/ddf/celltriang_8cpp" startline="47" endline="109">mknix::CellTriang::createGaussPoints</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="db/dd4/classmknix_1_1_cell_1ad637a730575145fbc61f884b2edac8f8" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string mknix::Cell::formulation</definition>
+        <argsstring></argsstring>
+        <name>formulation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="31" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.h" bodystart="31" bodyend="-1"/>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a6772f09fe6965faff4b53486b09f7235" compoundref="d6/d68/cell_8cpp" startline="58" endline="69">computeShapeFunctions</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="db/dd4/classmknix_1_1_cell_1a79afef7ecbdfee69e687bb2e7559520b" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Cell::alpha</definition>
+        <argsstring></argsstring>
+        <name>alpha</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="32" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.h" bodystart="32" bodyend="-1"/>
+        <referencedby refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a933dde9cb028e9be1f0f9024fb7b898d" compoundref="d3/d93/celltetrahedron_8cpp" startline="66" endline="119">mknix::CellTetrahedron::createGaussPoints</referencedby>
+        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a2a2c65fbd2682eba8225473a7dc841f0" compoundref="d0/ddf/celltriang_8cpp" startline="47" endline="109">mknix::CellTriang::createGaussPoints</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mknix::Cell::nGPoints</definition>
+        <argsstring></argsstring>
+        <name>nGPoints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>number of Gauss Points </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="33" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.h" bodystart="33" bodyend="-1"/>
+        <referencedby refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a933dde9cb028e9be1f0f9024fb7b898d" compoundref="d3/d93/celltetrahedron_8cpp" startline="66" endline="119">mknix::CellTetrahedron::createGaussPoints</referencedby>
+        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a2a2c65fbd2682eba8225473a7dc841f0" compoundref="d0/ddf/celltriang_8cpp" startline="47" endline="109">mknix::CellTriang::createGaussPoints</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="d2/da4/classmknix_1_1_gauss_point" kindref="compound">GaussPoint</ref> * &gt;</type>
+        <definition>std::vector&lt;GaussPoint*&gt; mknix::Cell::gPoints</definition>
+        <argsstring></argsstring>
+        <name>gPoints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="34" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.h" bodystart="34" bodyend="-1"/>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a77d7851793538f99d8aa0ea664fa0fb7" compoundref="d6/d68/cell_8cpp" startline="29" endline="55">initialize</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a6772f09fe6965faff4b53486b09f7235" compoundref="d6/d68/cell_8cpp" startline="58" endline="69">computeShapeFunctions</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a675db1cafb39d5abab7b13994df21045" compoundref="d6/d68/cell_8cpp" startline="72" endline="80">computeCapacityGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a4d4af2c299e451b91a81819ccf5d6358" compoundref="d6/d68/cell_8cpp" startline="82" endline="90">assembleCapacityGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a5d8c11ba58bbaa6f70d5dc2b530868e7" compoundref="d6/d68/cell_8cpp" startline="93" endline="101">computeConductivityGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1aae283c2a89beb517ed41b42bfdb19957" compoundref="d6/d68/cell_8cpp" startline="103" endline="111">assembleConductivityGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a45c2f8b146cafa0ba3a6503f70eb38a7" compoundref="d6/d68/cell_8cpp" startline="114" endline="122">computeQextGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a130944ac8867e93ce882e7cc8c3555ca" compoundref="d6/d68/cell_8cpp" startline="124" endline="132">assembleQextGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a32a01eb5f854fc23353c0eb64b65e2da" compoundref="d6/d68/cell_8cpp" startline="135" endline="143">computeMGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a0b44063103766cd26b0411156c6d6004" compoundref="d6/d68/cell_8cpp" startline="146" endline="154">assembleMGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a1c3123f613acd57332a6e84dc3736b86" compoundref="d6/d68/cell_8cpp" startline="157" endline="165">computeFintGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a84014b9ed9c8a49c604f4ddb91b524fe" compoundref="d6/d68/cell_8cpp" startline="168" endline="176">computeNLFintGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a1bf285b7dd7f06ece2f92e2b4389d6f5" compoundref="d6/d68/cell_8cpp" startline="179" endline="187">assembleFintGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a19b4ed719612fe2e0043d0cebcbe1537" compoundref="d6/d68/cell_8cpp" startline="190" endline="198">computeFextGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a7c381e6cbcdb2478505645cad57a2c6e" compoundref="d6/d68/cell_8cpp" startline="201" endline="209">assembleFextGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a379600644881412c03608d3d32c36d49" compoundref="d6/d68/cell_8cpp" startline="212" endline="220">computeKGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a56231c1df8cd13f6b3f04356da6c2955" compoundref="d6/d68/cell_8cpp" startline="223" endline="231">computeNLKGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a8b703b97535562245382523c3702a054" compoundref="d6/d68/cell_8cpp" startline="234" endline="242">assembleKGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a97fdd8bbf158f3b03b1af601177c2585" compoundref="d6/d68/cell_8cpp" startline="245" endline="256">assembleRGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1af65d528a607f3215d04449551db94dcd" compoundref="d6/d68/cell_8cpp" startline="259" endline="270">assembleNLRGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a9aba982ff2a54738ec8b38446d333f8d" compoundref="d6/d68/cell_8cpp" startline="273" endline="284">calcPotentialEGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1aa0b40b9534a376333490fe73d921e552" compoundref="d6/d68/cell_8cpp" startline="287" endline="298">calcKineticEGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a1b59c56aa8983a27571c6809b03604c5" compoundref="d6/d68/cell_8cpp" startline="301" endline="312">calcElasticEGaussPoints</referencedby>
+        <referencedby refid="db/dd4/classmknix_1_1_cell_1a6dd6795d452d5bd8ff26de1419baef31" compoundref="d6/d68/cell_8cpp" startline="315" endline="326">gnuplotOutStress</referencedby>
+        <referencedby refid="dd/d89/classmknix_1_1_cell_rect_1a599daac72085b935a90afe8ffcecdd20" compoundref="d4/d83/cellrect_8cpp" startline="219" endline="231">mknix::CellRect::initialize</referencedby>
+        <referencedby refid="dd/d89/classmknix_1_1_cell_rect_1aff6050da82b250a264f856743b0225e0" compoundref="d4/d83/cellrect_8cpp" startline="233" endline="249">mknix::CellRect::gnuplotOut</referencedby>
+        <referencedby refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a933dde9cb028e9be1f0f9024fb7b898d" compoundref="d3/d93/celltetrahedron_8cpp" startline="66" endline="119">mknix::CellTetrahedron::createGaussPoints</referencedby>
+        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a2a2c65fbd2682eba8225473a7dc841f0" compoundref="d0/ddf/celltriang_8cpp" startline="47" endline="109">mknix::CellTriang::createGaussPoints</referencedby>
+        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a374f66822e2e37d94a2cfe09c5173e8a" compoundref="d0/ddf/celltriang_8cpp" startline="112" endline="125">mknix::CellTriang::gnuplotOut</referencedby>
+        <referencedby refid="dd/d4d/classmknix_1_1_elem_tetrahedron_1a1f42683d35b87bfd4ddd4e83824d040d" compoundref="d3/d50/elemtetrahedron_8cpp" startline="55" endline="68">mknix::ElemTetrahedron::initialize</referencedby>
+        <referencedby refid="dd/d4d/classmknix_1_1_elem_tetrahedron_1a09d199d493dd9642da2ccb7190306b18" compoundref="d3/d50/elemtetrahedron_8cpp" startline="71" endline="79">mknix::ElemTetrahedron::computeShapeFunctions</referencedby>
+        <referencedby refid="d8/d3f/classmknix_1_1_elem_triangle_1a5ddf93646f4b35632801fd28bc8e14a2" compoundref="d9/d6d/elemtriangle_8cpp" startline="53" endline="66">mknix::ElemTriangle::initialize</referencedby>
+        <referencedby refid="d8/d3f/classmknix_1_1_elem_triangle_1a6d97673aa922fca3c84ae23255b76223" compoundref="d9/d6d/elemtriangle_8cpp" startline="69" endline="77">mknix::ElemTriangle::computeShapeFunctions</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Cell::jacobian</definition>
+        <argsstring></argsstring>
+        <name>jacobian</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="35" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.h" bodystart="35" bodyend="-1"/>
+        <referencedby refid="dd/d89/classmknix_1_1_cell_rect_1a5242df2938d1f9f60cd089c5309fa1c2" compoundref="d4/d83/cellrect_8cpp" startline="11" endline="49">mknix::CellRect::CellRect</referencedby>
+        <referencedby refid="d9/d39/classmknix_1_1_cell_tetrahedron_1aa462fd7b0dffd4896100e413e60b55d1" compoundref="d3/d93/celltetrahedron_8cpp" startline="11" endline="59">mknix::CellTetrahedron::CellTetrahedron</referencedby>
+        <referencedby refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a933dde9cb028e9be1f0f9024fb7b898d" compoundref="d3/d93/celltetrahedron_8cpp" startline="66" endline="119">mknix::CellTetrahedron::createGaussPoints</referencedby>
+        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a419492f1358e31432d6f686ee8ef1609" compoundref="d0/ddf/celltriang_8cpp" startline="11" endline="40">mknix::CellTriang::CellTriang</referencedby>
+        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a2a2c65fbd2682eba8225473a7dc841f0" compoundref="d0/ddf/celltriang_8cpp" startline="47" endline="109">mknix::CellTriang::createGaussPoints</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> * &gt;</type>
+        <definition>std::vector&lt; Node* &gt; mknix::Cell::nodes</definition>
+        <argsstring></argsstring>
+        <name>nodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="36" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.h" bodystart="36" bodyend="-1"/>
+        <referencedby refid="d9/d39/classmknix_1_1_cell_tetrahedron_1aa462fd7b0dffd4896100e413e60b55d1" compoundref="d3/d93/celltetrahedron_8cpp" startline="11" endline="59">mknix::CellTetrahedron::CellTetrahedron</referencedby>
+        <referencedby refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a933dde9cb028e9be1f0f9024fb7b898d" compoundref="d3/d93/celltetrahedron_8cpp" startline="66" endline="119">mknix::CellTetrahedron::createGaussPoints</referencedby>
+        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a419492f1358e31432d6f686ee8ef1609" compoundref="d0/ddf/celltriang_8cpp" startline="11" endline="40">mknix::CellTriang::CellTriang</referencedby>
+        <referencedby refid="dd/d4d/classmknix_1_1_elem_tetrahedron_1a1f42683d35b87bfd4ddd4e83824d040d" compoundref="d3/d50/elemtetrahedron_8cpp" startline="55" endline="68">mknix::ElemTetrahedron::initialize</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="db/dd4/classmknix_1_1_cell_1a7108fef12b0319adebeff93cab664314" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Cell::dc</definition>
+        <argsstring></argsstring>
+        <name>dc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="37" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.h" bodystart="37" bodyend="-1"/>
+        <referencedby refid="d9/d39/classmknix_1_1_cell_tetrahedron_1aa462fd7b0dffd4896100e413e60b55d1" compoundref="d3/d93/celltetrahedron_8cpp" startline="11" endline="59">mknix::CellTetrahedron::CellTetrahedron</referencedby>
+        <referencedby refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a933dde9cb028e9be1f0f9024fb7b898d" compoundref="d3/d93/celltetrahedron_8cpp" startline="66" endline="119">mknix::CellTetrahedron::createGaussPoints</referencedby>
+        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a419492f1358e31432d6f686ee8ef1609" compoundref="d0/ddf/celltriang_8cpp" startline="11" endline="40">mknix::CellTriang::CellTriang</referencedby>
+        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a2a2c65fbd2682eba8225473a7dc841f0" compoundref="d0/ddf/celltriang_8cpp" startline="47" endline="109">mknix::CellTriang::createGaussPoints</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a1c285cc4f38656550e8e2926058e8612" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Cell::Cell</definition>
+        <argsstring>()</argsstring>
+        <name>Cell</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="41" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="6" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1ad0988ed8a4aac7c7440bee9413e1189f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Cell::Cell</definition>
+        <argsstring>(Material &amp;, std::string, double, int)</argsstring>
+        <name>Cell</name>
+        <param>
+          <type><ref refid="d6/d4a/classmknix_1_1_material" kindref="compound">Material</ref> &amp;</type>
+          <defname>material_in</defname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <defname>formulation_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>alpha_in</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>nGPoints_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="43" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="11" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1ab4efc3f7c10212304dd776e7b58bb57b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>mknix::Cell::~Cell</definition>
+        <argsstring>()</argsstring>
+        <name>~Cell</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="45" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="24" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a77d7851793538f99d8aa0ea664fa0fb7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::initialize</definition>
+        <argsstring>(std::vector&lt; Node * &gt; &amp;)</argsstring>
+        <name>initialize</name>
+        <reimplementedby refid="d8/d3f/classmknix_1_1_elem_triangle_1a5ddf93646f4b35632801fd28bc8e14a2">initialize</reimplementedby>
+        <reimplementedby refid="dd/d4d/classmknix_1_1_elem_tetrahedron_1a1f42683d35b87bfd4ddd4e83824d040d">initialize</reimplementedby>
+        <reimplementedby refid="dd/d89/classmknix_1_1_cell_rect_1a599daac72085b935a90afe8ffcecdd20">initialize</reimplementedby>
+        <param>
+          <type>std::vector&lt; <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> * &gt; &amp;</type>
+          <defname>nodes_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="47" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="29" bodyend="55"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a6772f09fe6965faff4b53486b09f7235" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::computeShapeFunctions</definition>
+        <argsstring>()</argsstring>
+        <name>computeShapeFunctions</name>
+        <reimplementedby refid="d8/d3f/classmknix_1_1_elem_triangle_1a6d97673aa922fca3c84ae23255b76223">computeShapeFunctions</reimplementedby>
+        <reimplementedby refid="dd/d4d/classmknix_1_1_elem_tetrahedron_1a09d199d493dd9642da2ccb7190306b18">computeShapeFunctions</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="49" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="58" bodyend="69"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1ad637a730575145fbc61f884b2edac8f8" compoundref="d0/ddd/cell_8h" startline="31">formulation</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a675db1cafb39d5abab7b13994df21045" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::computeCapacityGaussPoints</definition>
+        <argsstring>()</argsstring>
+        <name>computeCapacityGaussPoints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="51" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="72" bodyend="80"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a4d4af2c299e451b91a81819ccf5d6358" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::assembleCapacityGaussPoints</definition>
+        <argsstring>(lmx::Matrix&lt; data_type &gt; &amp;)</argsstring>
+        <name>assembleCapacityGaussPoints</name>
+        <param>
+          <type>lmx::Matrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>globalCapacity</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="53" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="82" bodyend="90"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a5d8c11ba58bbaa6f70d5dc2b530868e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::computeConductivityGaussPoints</definition>
+        <argsstring>()</argsstring>
+        <name>computeConductivityGaussPoints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="55" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="93" bodyend="101"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1aae283c2a89beb517ed41b42bfdb19957" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::assembleConductivityGaussPoints</definition>
+        <argsstring>(lmx::Matrix&lt; data_type &gt; &amp;)</argsstring>
+        <name>assembleConductivityGaussPoints</name>
+        <param>
+          <type>lmx::Matrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>globalConductivity</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="57" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="103" bodyend="111"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a45c2f8b146cafa0ba3a6503f70eb38a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::computeQextGaussPoints</definition>
+        <argsstring>(ThermalLoad *)</argsstring>
+        <name>computeQextGaussPoints</name>
+        <param>
+          <type><ref refid="df/d32/classmknix_1_1_thermal_load" kindref="compound">ThermalLoad</ref> *</type>
+          <defname>thermalLoad_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="59" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="114" bodyend="122"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a130944ac8867e93ce882e7cc8c3555ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::assembleQextGaussPoints</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; &amp;)</argsstring>
+        <name>assembleQextGaussPoints</name>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>globalQext</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="61" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="124" bodyend="132"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a32a01eb5f854fc23353c0eb64b65e2da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::computeMGaussPoints</definition>
+        <argsstring>()</argsstring>
+        <name>computeMGaussPoints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="63" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="135" bodyend="143"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a0b44063103766cd26b0411156c6d6004" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::assembleMGaussPoints</definition>
+        <argsstring>(lmx::Matrix&lt; data_type &gt; &amp;)</argsstring>
+        <name>assembleMGaussPoints</name>
+        <param>
+          <type>lmx::Matrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>globalMass</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="65" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="146" bodyend="154"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a1c3123f613acd57332a6e84dc3736b86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::computeFintGaussPoints</definition>
+        <argsstring>()</argsstring>
+        <name>computeFintGaussPoints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="67" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="157" bodyend="165"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a84014b9ed9c8a49c604f4ddb91b524fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::computeNLFintGaussPoints</definition>
+        <argsstring>()</argsstring>
+        <name>computeNLFintGaussPoints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="69" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="168" bodyend="176"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a1bf285b7dd7f06ece2f92e2b4389d6f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::assembleFintGaussPoints</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; &amp;)</argsstring>
+        <name>assembleFintGaussPoints</name>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>globalFint</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="71" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="179" bodyend="187"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a19b4ed719612fe2e0043d0cebcbe1537" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::computeFextGaussPoints</definition>
+        <argsstring>()</argsstring>
+        <name>computeFextGaussPoints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="73" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="190" bodyend="198"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a7c381e6cbcdb2478505645cad57a2c6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::assembleFextGaussPoints</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; &amp;)</argsstring>
+        <name>assembleFextGaussPoints</name>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>globalFext</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="75" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="201" bodyend="209"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a379600644881412c03608d3d32c36d49" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::computeKGaussPoints</definition>
+        <argsstring>()</argsstring>
+        <name>computeKGaussPoints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="77" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="212" bodyend="220"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a56231c1df8cd13f6b3f04356da6c2955" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::computeNLKGaussPoints</definition>
+        <argsstring>()</argsstring>
+        <name>computeNLKGaussPoints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="79" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="223" bodyend="231"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a8b703b97535562245382523c3702a054" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::assembleKGaussPoints</definition>
+        <argsstring>(lmx::Matrix&lt; data_type &gt; &amp;)</argsstring>
+        <name>assembleKGaussPoints</name>
+        <param>
+          <type>lmx::Matrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>globalTangent</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="81" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="234" bodyend="242"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a97fdd8bbf158f3b03b1af601177c2585" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::assembleRGaussPoints</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; &amp;, int)</argsstring>
+        <name>assembleRGaussPoints</name>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>globalStress</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>firstNode</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="83" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="245" bodyend="256"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1af65d528a607f3215d04449551db94dcd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::assembleNLRGaussPoints</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; &amp;, int)</argsstring>
+        <name>assembleNLRGaussPoints</name>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>globalStress</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>firstNode</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="85" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="259" bodyend="270"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a9aba982ff2a54738ec8b38446d333f8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double mknix::Cell::calcPotentialEGaussPoints</definition>
+        <argsstring>(const lmx::Vector&lt; data_type &gt; &amp;)</argsstring>
+        <name>calcPotentialEGaussPoints</name>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>q</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="87" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="273" bodyend="284"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1aa0b40b9534a376333490fe73d921e552" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double mknix::Cell::calcKineticEGaussPoints</definition>
+        <argsstring>(const lmx::Vector&lt; data_type &gt; &amp;)</argsstring>
+        <name>calcKineticEGaussPoints</name>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>qdot</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="89" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="287" bodyend="298"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a1b59c56aa8983a27571c6809b03604c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double mknix::Cell::calcElasticEGaussPoints</definition>
+        <argsstring>()</argsstring>
+        <name>calcElasticEGaussPoints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="91" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="301" bodyend="312"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a345a938d058d10f60d6c302a715290de" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void mknix::Cell::gnuplotOut</definition>
+        <argsstring>(std::ofstream &amp;, std::ofstream &amp;)=0</argsstring>
+        <name>gnuplotOut</name>
+        <reimplementedby refid="de/db4/classmknix_1_1_cell_triang_1a374f66822e2e37d94a2cfe09c5173e8a">gnuplotOut</reimplementedby>
+        <reimplementedby refid="d9/d39/classmknix_1_1_cell_tetrahedron_1aba4f93f294a8ceea377cc2feb44f56db">gnuplotOut</reimplementedby>
+        <reimplementedby refid="dd/d89/classmknix_1_1_cell_rect_1aff6050da82b250a264f856743b0225e0">gnuplotOut</reimplementedby>
+        <param>
+          <type>std::ofstream &amp;</type>
+        </param>
+        <param>
+          <type>std::ofstream &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="93" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="db/dd4/classmknix_1_1_cell_1a6dd6795d452d5bd8ff26de1419baef31" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Cell::gnuplotOutStress</definition>
+        <argsstring>(std::ofstream &amp;)</argsstring>
+        <name>gnuplotOutStress</name>
+        <param>
+          <type>std::ofstream &amp;</type>
+          <defname>gptension</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="95" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.cpp" bodystart="315" bodyend="326"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">gPoints</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Daniel Iglesias </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="272">
+        <label>mknix::CellRect</label>
+        <link refid="dd/d89/classmknix_1_1_cell_rect"/>
+        <childnode refid="271" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="275">
+        <label>mknix::CellTriang</label>
+        <link refid="de/db4/classmknix_1_1_cell_triang"/>
+        <childnode refid="271" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="271">
+        <label>mknix::Cell</label>
+        <link refid="db/dd4/classmknix_1_1_cell"/>
+      </node>
+      <node id="273">
+        <label>mknix::CellTetrahedron</label>
+        <link refid="d9/d39/classmknix_1_1_cell_tetrahedron"/>
+        <childnode refid="271" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="274">
+        <label>mknix::ElemTetrahedron</label>
+        <link refid="dd/d4d/classmknix_1_1_elem_tetrahedron"/>
+        <childnode refid="273" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="276">
+        <label>mknix::ElemTriangle</label>
+        <link refid="d8/d3f/classmknix_1_1_elem_triangle"/>
+        <childnode refid="275" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="277">
+        <label>mknix::Cell</label>
+        <link refid="db/dd4/classmknix_1_1_cell"/>
+        <childnode refid="278" relation="usage">
+          <edgelabel>mat</edgelabel>
+        </childnode>
+      </node>
+      <node id="278">
+        <label>mknix::Material</label>
+        <link refid="d6/d4a/classmknix_1_1_material"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/cell.h" line="28" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cell.h" bodystart="28" bodyend="97"/>
+    <listofallmembers>
+      <member refid="db/dd4/classmknix_1_1_cell_1a79afef7ecbdfee69e687bb2e7559520b" prot="protected" virt="non-virtual"><scope>mknix::Cell</scope><name>alpha</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a4d4af2c299e451b91a81819ccf5d6358" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>assembleCapacityGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1aae283c2a89beb517ed41b42bfdb19957" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>assembleConductivityGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a7c381e6cbcdb2478505645cad57a2c6e" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>assembleFextGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a1bf285b7dd7f06ece2f92e2b4389d6f5" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>assembleFintGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a8b703b97535562245382523c3702a054" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>assembleKGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a0b44063103766cd26b0411156c6d6004" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>assembleMGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1af65d528a607f3215d04449551db94dcd" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>assembleNLRGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a130944ac8867e93ce882e7cc8c3555ca" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>assembleQextGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a97fdd8bbf158f3b03b1af601177c2585" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>assembleRGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a1b59c56aa8983a27571c6809b03604c5" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>calcElasticEGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1aa0b40b9534a376333490fe73d921e552" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>calcKineticEGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a9aba982ff2a54738ec8b38446d333f8d" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>calcPotentialEGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a1c285cc4f38656550e8e2926058e8612" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>Cell</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1ad0988ed8a4aac7c7440bee9413e1189f" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>Cell</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a675db1cafb39d5abab7b13994df21045" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>computeCapacityGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a5d8c11ba58bbaa6f70d5dc2b530868e7" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>computeConductivityGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a19b4ed719612fe2e0043d0cebcbe1537" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>computeFextGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a1c3123f613acd57332a6e84dc3736b86" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>computeFintGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a379600644881412c03608d3d32c36d49" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>computeKGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a32a01eb5f854fc23353c0eb64b65e2da" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>computeMGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a84014b9ed9c8a49c604f4ddb91b524fe" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>computeNLFintGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a56231c1df8cd13f6b3f04356da6c2955" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>computeNLKGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a45c2f8b146cafa0ba3a6503f70eb38a7" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>computeQextGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a6772f09fe6965faff4b53486b09f7235" prot="public" virt="virtual"><scope>mknix::Cell</scope><name>computeShapeFunctions</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a7108fef12b0319adebeff93cab664314" prot="protected" virt="non-virtual"><scope>mknix::Cell</scope><name>dc</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1ad637a730575145fbc61f884b2edac8f8" prot="protected" virt="non-virtual"><scope>mknix::Cell</scope><name>formulation</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a345a938d058d10f60d6c302a715290de" prot="public" virt="pure-virtual"><scope>mknix::Cell</scope><name>gnuplotOut</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a6dd6795d452d5bd8ff26de1419baef31" prot="public" virt="non-virtual"><scope>mknix::Cell</scope><name>gnuplotOutStress</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" prot="protected" virt="non-virtual"><scope>mknix::Cell</scope><name>gPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a77d7851793538f99d8aa0ea664fa0fb7" prot="public" virt="virtual"><scope>mknix::Cell</scope><name>initialize</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" prot="protected" virt="non-virtual"><scope>mknix::Cell</scope><name>jacobian</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a83ca13ff89196b3ab378d2a28820a08e" prot="protected" virt="non-virtual"><scope>mknix::Cell</scope><name>mat</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" prot="protected" virt="non-virtual"><scope>mknix::Cell</scope><name>nGPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" prot="protected" virt="non-virtual"><scope>mknix::Cell</scope><name>nodes</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1ab4efc3f7c10212304dd776e7b58bb57b" prot="public" virt="virtual"><scope>mknix::Cell</scope><name>~Cell</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

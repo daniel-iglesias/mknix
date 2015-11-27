@@ -1,0 +1,229 @@
+/***************************************************************************
+ *   Copyright (C) 2005 by Daniel Iglesias                                 *
+ *   diglesiasib@mecanica.upm.es                                           *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU Library General Public License as       *
+ *   published by the Free Software Foundation; either version 2 of the    *
+ *   License, or (at your option) any later version.                       *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU Library General Public     *
+ *   License along with this program; if not, write to the                 *
+ *   Free Software Foundation, Inc.,                                       *
+ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ ***************************************************************************/
+
+#ifndef LMXDIFF_PROBLEM_H
+#define LMXDIFF_PROBLEM_H
+
+
+//////////////////////////////////////////// Doxygen file documentation entry:
+    /*!
+      \file lmx_diff_problem.h
+
+      \brief DiffProblem class implementation
+
+      Describes an initial value for a dynamic system with an ODE or DAE description.
+
+      This is the base file of lmx_diff systems' manipulation and solution.
+
+      \author Daniel Iglesias Ibáñez
+
+    */
+//////////////////////////////////////////// Doxygen file documentation (end)
+
+#include "lmx_diff_configuration.h"
+#include "lmx_diff_integrator_ab.h"
+#include "lmx_nlsolvers.h"
+
+namespace lmx {
+
+    /**
+    \class DiffProblem 
+    \brief Template class DiffProblem.
+    Implementation for ODE system solvers.
+    
+    This class implements methods for defining and solving initial value problems described by a TotalDiff class' derivided object, and initial conditions in the form \f$ \dot{q}(t_o) = \dot{q}_o, q(t_o) = q_o \f$.
+    
+    @author Daniel Iglesias Ibáñez.
+    */
+template <typename Sys, typename T=double> class DiffProblem{
+
+  public:
+
+    /** Empty constructor. */
+    DiffProblem() : theConfiguration(0), theIntegrator(0), theNLSolver(0), theSystem(0)
+    {}
+
+    /** Destructor. */
+    ~DiffProblem()
+    {}
+
+    void setDiffSystem( Sys& system_in ) { theSystem = &system_in; }
+    void setIntegrator( int type, int opt1=0, int opt2=0 );
+    void setInitialConfiguration( lmx::Vector<T>& q_o );
+    void setInitialConfiguration( lmx::Vector<T>& q_o, lmx::Vector<T>& qdot_o );
+    void setOutputFile( char* filename );
+    void setTimeParameters( double to_in, double tf_in, double step_size_in );
+    void setResidue( void (Sys::*residue_in)(void) );
+    void setJacobian( void (Sys::*jacobian_in)(void) );
+    void setEvaluation( void (Sys::*eval_in)(lmx::Vector<double>& q, lmx::Vector<double>& qdot, lmx::Vector<double>& qddot, double& time));
+    void setConvergenceEvaluation( void (Sys::*convergence)(void) );
+
+    void solve( );
+
+  private:
+    void solveExplicit( );
+      //{ // index-"i" iteration:
+      //  theConfiguration->setConf(
+      //         2, (theSystem->*eval)( theConfiguration->getConf(0),
+      //                                theConfiguration->getConf(1),
+      //                                theConfiguration->getTime( )
+      //                              )
+      //                           );
+      //  theConfiguration.nextStep();
+      //}
+    void solveImplicit( );
+      //{
+      //  if (solveInitialEquilibrium)
+      //    qddot = (theSystem->*eval)();
+    //
+      //  // index-"i" iteration:
+      //  theConfiguration.nextStep();
+      //  theNLSolver.solve();
+      //  theIntegrator.actualize();
+      //}
+
+  private:
+    lmx::Configuration<T>* theConfiguration;
+    lmx::IntegratorBase<T>* theIntegrator;
+    lmx::NLSolver<T>* theNLSolver;
+    Sys* theSystem;
+    void (Sys::*res)(void);
+    void (Sys::*jac)(void);
+    void (Sys::*eval)(lmx::Vector<double>& q, lmx::Vector<double>& qdot, lmx::Vector<double>& qddot, double& time);
+    double to, tf, stepSize;
+
+};
+
+
+/////////////////////////////// Implementation of the methods defined previously
+
+template <typename Sys, typename T>
+    void DiffProblem<Sys,T>::setIntegrator( int type, int opt1, int opt2 )
+{
+  switch (type) {
+    case 0 : // integrator == 0 -> Adams-Bashford
+      theIntegrator = new IntegratorAB<T>( opt1 );
+  }
+
+}
+
+template <typename Sys, typename T>
+    void DiffProblem<Sys,T>::setInitialConfiguration( lmx::Vector<T>& q_o )
+{
+  if (theConfiguration=0)
+  theConfiguration = new Configuration<double>;
+
+  theConfiguration->setInitialCondition(0, q_o);
+
+}
+
+template <typename Sys, typename T>
+    void DiffProblem<Sys,T>::setInitialConfiguration( lmx::Vector<T>& q_o, lmx::Vector<T>& qdot_o )
+{
+  if (theConfiguration==0)
+    theConfiguration = new Configuration<double>;
+
+  theConfiguration->setInitialCondition(0, q_o);
+  theConfiguration->setInitialCondition(1, qdot_o);
+
+}
+
+template <typename Sys, typename T>
+    void DiffProblem<Sys,T>::setOutputFile( char* filename )
+{
+}
+
+template <typename Sys, typename T>
+    void DiffProblem<Sys,T>::setTimeParameters( double to_in, double tf_in, double step_size_in )
+{
+  this->to = to_in;
+  this->tf = tf_in;
+  this->stepSize = step_size_in;
+}
+
+template <typename Sys, typename T>
+    void DiffProblem<Sys,T>::setResidue( void (Sys::*residue_in)(void) )
+{
+}
+
+template <typename Sys, typename T>
+    void DiffProblem<Sys,T>::setJacobian( void (Sys::*jacobian_in)(void) )
+{
+}
+
+template <typename Sys, typename T>
+    void DiffProblem<Sys,T>::setEvaluation( void (Sys::*eval_in)(lmx::Vector<double>& q, lmx::Vector<double>& qdot, lmx::Vector<double>& qddot, double& time))
+{
+  this->eval = eval_in;
+}
+
+template <typename Sys, typename T>
+    void DiffProblem<Sys,T>::setConvergenceEvaluation( void (Sys::*convergence)(void) )
+{
+}
+
+/** Solve function */
+template <typename Sys, typename T>
+    void DiffProblem<Sys,T>::solve( )
+{
+  this->theConfiguration->setTime( to );
+  theIntegrator->initialize( theConfiguration );
+  if ( theIntegrator->isExplicit() )
+    this->solveExplicit();
+  else this->solveImplicit();
+}
+
+template <typename Sys, typename T>
+    void DiffProblem<Sys,T>::solveExplicit( )
+{
+  int max = (int)((tf - to) / stepSize);
+// index-"i" iteration:
+  for ( int i=0; i<max; ++i){
+    theConfiguration->setConf( 2,
+              (theSystem->*eval)( theConfiguration->getTime( ),
+                                  theConfiguration->getConf(0),
+                                  theConfiguration->getConf(1)
+                                )
+                             );
+    cout << "Derivative order = " << 2 << ", q_t = " << theConfiguration->getConf( 2, 0 ) << endl;
+
+    theConfiguration->nextStep( stepSize );
+    theIntegrator->advance( );
+  }
+
+
+}
+
+template <typename Sys, typename T>
+    void DiffProblem<Sys,T>::solveImplicit( )
+{
+  //  if (solveInitialEquilibrium)
+  //    qddot = (theSystem->*eval)();
+
+  //  // index-"i" iteration:
+  //  theConfiguration.nextStep();
+  //  theNLSolver.solve();
+  //  theIntegrator.actualize();
+}
+
+}; // namespace lmx
+
+
+#endif

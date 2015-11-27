@@ -1,0 +1,289 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="d8/d6a/classmknix_1_1_constraint_contact" kind="class" prot="public">
+    <compoundname>mknix::ConstraintContact</compoundname>
+    <basecompoundref refid="da/dd3/classmknix_1_1_constraint" prot="public" virt="non-virtual">mknix::Constraint</basecompoundref>
+    <includes refid="d4/de0/constraintcontact_8h" local="no">constraintcontact.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="d8/d6a/classmknix_1_1_constraint_contact_1a06ba5460d950b98b85226e7b9b520df2" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; mknix::ConstraintContact::normal</definition>
+        <argsstring></argsstring>
+        <name>normal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" line="52" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" bodystart="52" bodyend="-1"/>
+        <referencedby refid="d8/d6a/classmknix_1_1_constraint_contact_1abfcda7ac9dc63a790078f2fb26497a6e" compoundref="d8/d8b/constraintcontact_8cpp" startline="30" endline="47">ConstraintContact</referencedby>
+        <referencedby refid="d8/d6a/classmknix_1_1_constraint_contact_1a21a89037754ef5d968bda199ad3f1858" compoundref="d8/d8b/constraintcontact_8cpp" startline="53" endline="69">calcPhi</referencedby>
+        <referencedby refid="d8/d6a/classmknix_1_1_constraint_contact_1a88c495ea01a5f8f8807dd72ae3e7240f" compoundref="d8/d8b/constraintcontact_8cpp" startline="71" endline="106">calcPhiq</referencedby>
+        <referencedby refid="d8/d6a/classmknix_1_1_constraint_contact_1ad9b4db34bf76f2d8ea9532d5d3e0449f" compoundref="d8/d8b/constraintcontact_8cpp" startline="108" endline="186">calcPhiqq</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d6a/classmknix_1_1_constraint_contact_1a86b0413ea70c74a38f8610a88cba48c6" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::ConstraintContact::rh</definition>
+        <argsstring></argsstring>
+        <name>rh</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" line="53" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" bodystart="53" bodyend="-1"/>
+        <referencedby refid="d8/d6a/classmknix_1_1_constraint_contact_1a21a89037754ef5d968bda199ad3f1858" compoundref="d8/d8b/constraintcontact_8cpp" startline="53" endline="69">calcPhi</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d6a/classmknix_1_1_constraint_contact_1a0a2b6bbee4925e12f4921aa58f0f3426" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::ConstraintContact::rt</definition>
+        <argsstring></argsstring>
+        <name>rt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" line="54" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" bodystart="54" bodyend="-1"/>
+        <referencedby refid="d8/d6a/classmknix_1_1_constraint_contact_1a21a89037754ef5d968bda199ad3f1858" compoundref="d8/d8b/constraintcontact_8cpp" startline="53" endline="69">calcPhi</referencedby>
+        <referencedby refid="d8/d6a/classmknix_1_1_constraint_contact_1a88c495ea01a5f8f8807dd72ae3e7240f" compoundref="d8/d8b/constraintcontact_8cpp" startline="71" endline="106">calcPhiq</referencedby>
+        <referencedby refid="d8/d6a/classmknix_1_1_constraint_contact_1ad9b4db34bf76f2d8ea9532d5d3e0449f" compoundref="d8/d8b/constraintcontact_8cpp" startline="108" endline="186">calcPhiqq</referencedby>
+        <referencedby refid="d8/d6a/classmknix_1_1_constraint_contact_1a4fcfe47c1421fd375ff806b8ef411f47" compoundref="d4/de0/constraintcontact_8h" startline="49" endline="49">getGap</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/d6a/classmknix_1_1_constraint_contact_1a76498ab5af03df8fd8c850f67ac54d33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::ConstraintContact::ConstraintContact</definition>
+        <argsstring>()</argsstring>
+        <name>ConstraintContact</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" line="33" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.cpp" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6a/classmknix_1_1_constraint_contact_1a2570dc3ad5c593871f1d5dd4e6302f07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::ConstraintContact::~ConstraintContact</definition>
+        <argsstring>()</argsstring>
+        <name>~ConstraintContact</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" line="35" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.cpp" bodystart="49" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6a/classmknix_1_1_constraint_contact_1abfcda7ac9dc63a790078f2fb26497a6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::ConstraintContact::ConstraintContact</definition>
+        <argsstring>(Node *, Node *, Node *, double &amp;, std::string &amp;)</argsstring>
+        <name>ConstraintContact</name>
+        <param>
+          <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+          <defname>q1_in</defname>
+        </param>
+        <param>
+          <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+          <defname>q2_in</defname>
+        </param>
+        <param>
+          <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+          <defname>p_in</defname>
+        </param>
+        <param>
+          <type>double &amp;</type>
+          <defname>alpha_in</defname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <defname>method_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" line="37" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.cpp" bodystart="30" bodyend="47"/>
+        <references refid="da/dd3/classmknix_1_1_constraint_1aa4aa16e121963acf4c086f63137d4ac1" compoundref="dc/d4d/constraint_8h" startline="67">mknix::Constraint::nodes</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" compoundref="dc/d4d/constraint_8h" startline="69">mknix::Constraint::stiffnessMatrix</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a5fa3727603b390206e6431141b892517" compoundref="dc/d4d/constraint_8h" startline="64">mknix::Constraint::dim</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a0b0fbbf149c32ce0a9dd6e0c4dd5851e" compoundref="dc/d4d/constraint_8h" startline="68">mknix::Constraint::internalForces</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1aeee7c3bdd61194e3df0e958ff237040a" compoundref="dc/d4d/constraint_8h" startline="70">mknix::Constraint::lambda</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" compoundref="dc/d4d/constraint_8h" startline="71">mknix::Constraint::phi</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a667ecb78177b06981c30e23cb194b806" compoundref="dc/d4d/constraint_8h" startline="72">mknix::Constraint::phi_q</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a9173b52da189652951ce51b1d69fcde4" compoundref="dc/d4d/constraint_8h" startline="73">mknix::Constraint::phi_qq</references>
+        <references refid="d8/d6a/classmknix_1_1_constraint_contact_1a06ba5460d950b98b85226e7b9b520df2" compoundref="d4/de0/constraintcontact_8h" startline="52">normal</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6a/classmknix_1_1_constraint_contact_1a21a89037754ef5d968bda199ad3f1858" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::ConstraintContact::calcPhi</definition>
+        <argsstring>()</argsstring>
+        <name>calcPhi</name>
+        <reimplements refid="da/dd3/classmknix_1_1_constraint_1a7f2b34d256d5eec54b34b0440b562ec1">calcPhi</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" line="39" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.cpp" bodystart="53" bodyend="69"/>
+        <references refid="d8/d6a/classmknix_1_1_constraint_contact_1a06ba5460d950b98b85226e7b9b520df2" compoundref="d4/de0/constraintcontact_8h" startline="52">normal</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1aa4aa16e121963acf4c086f63137d4ac1" compoundref="dc/d4d/constraint_8h" startline="67">mknix::Constraint::nodes</references>
+        <references refid="d8/d6a/classmknix_1_1_constraint_contact_1a86b0413ea70c74a38f8610a88cba48c6" compoundref="d4/de0/constraintcontact_8h" startline="53">rh</references>
+        <references refid="d8/d6a/classmknix_1_1_constraint_contact_1a0a2b6bbee4925e12f4921aa58f0f3426" compoundref="d4/de0/constraintcontact_8h" startline="54">rt</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" compoundref="dc/d4d/constraint_8h" startline="71">mknix::Constraint::phi</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6a/classmknix_1_1_constraint_contact_1a88c495ea01a5f8f8807dd72ae3e7240f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::ConstraintContact::calcPhiq</definition>
+        <argsstring>()</argsstring>
+        <name>calcPhiq</name>
+        <reimplements refid="da/dd3/classmknix_1_1_constraint_1ab129143960df2b9459e274275608bcf2">calcPhiq</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" line="41" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.cpp" bodystart="71" bodyend="106"/>
+        <references refid="d8/d6a/classmknix_1_1_constraint_contact_1a0a2b6bbee4925e12f4921aa58f0f3426" compoundref="d4/de0/constraintcontact_8h" startline="54">rt</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a667ecb78177b06981c30e23cb194b806" compoundref="dc/d4d/constraint_8h" startline="72">mknix::Constraint::phi_q</references>
+        <references refid="d8/d6a/classmknix_1_1_constraint_contact_1a06ba5460d950b98b85226e7b9b520df2" compoundref="d4/de0/constraintcontact_8h" startline="52">normal</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a5fa3727603b390206e6431141b892517" compoundref="dc/d4d/constraint_8h" startline="64">mknix::Constraint::dim</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6a/classmknix_1_1_constraint_contact_1ad9b4db34bf76f2d8ea9532d5d3e0449f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::ConstraintContact::calcPhiqq</definition>
+        <argsstring>()</argsstring>
+        <name>calcPhiqq</name>
+        <reimplements refid="da/dd3/classmknix_1_1_constraint_1a73ff21573b5e9c4acda789bd5ac46ea8">calcPhiqq</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" line="43" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.cpp" bodystart="108" bodyend="186"/>
+        <references refid="d8/d6a/classmknix_1_1_constraint_contact_1a0a2b6bbee4925e12f4921aa58f0f3426" compoundref="d4/de0/constraintcontact_8h" startline="54">rt</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a9173b52da189652951ce51b1d69fcde4" compoundref="dc/d4d/constraint_8h" startline="73">mknix::Constraint::phi_qq</references>
+        <references refid="d8/d6a/classmknix_1_1_constraint_contact_1a06ba5460d950b98b85226e7b9b520df2" compoundref="d4/de0/constraintcontact_8h" startline="52">normal</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a5fa3727603b390206e6431141b892517" compoundref="dc/d4d/constraint_8h" startline="64">mknix::Constraint::dim</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6a/classmknix_1_1_constraint_contact_1ae4ebea11a39b4cf89ce317154abc99e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+        <definition>lmx::Vector&lt;data_type&gt;&amp; mknix::ConstraintContact::getInternalForces</definition>
+        <argsstring>()</argsstring>
+        <name>getInternalForces</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" line="45" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" bodystart="45" bodyend="45"/>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a0b0fbbf149c32ce0a9dd6e0c4dd5851e" compoundref="dc/d4d/constraint_8h" startline="68">mknix::Constraint::internalForces</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6a/classmknix_1_1_constraint_contact_1abb4cb7497d2cbef540add289fdf8492e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>lmx::DenseMatrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+        <definition>lmx::DenseMatrix&lt;data_type&gt;&amp; mknix::ConstraintContact::getStiffnessMatrix</definition>
+        <argsstring>()</argsstring>
+        <name>getStiffnessMatrix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" line="47" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" bodystart="47" bodyend="47"/>
+        <references refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" compoundref="dc/d4d/constraint_8h" startline="69">mknix::Constraint::stiffnessMatrix</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6a/classmknix_1_1_constraint_contact_1a4fcfe47c1421fd375ff806b8ef411f47" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double mknix::ConstraintContact::getGap</definition>
+        <argsstring>()</argsstring>
+        <name>getGap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" line="49" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" bodystart="49" bodyend="49"/>
+        <references refid="d8/d6a/classmknix_1_1_constraint_contact_1a0a2b6bbee4925e12f4921aa58f0f3426" compoundref="d4/de0/constraintcontact_8h" startline="54">rt</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="310">
+        <label>mknix::Constraint</label>
+        <link refid="da/dd3/classmknix_1_1_constraint"/>
+      </node>
+      <node id="309">
+        <label>mknix::ConstraintContact</label>
+        <link refid="d8/d6a/classmknix_1_1_constraint_contact"/>
+        <childnode refid="310" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="312">
+        <label>mknix::Constraint</label>
+        <link refid="da/dd3/classmknix_1_1_constraint"/>
+      </node>
+      <node id="311">
+        <label>mknix::ConstraintContact</label>
+        <link refid="d8/d6a/classmknix_1_1_constraint_contact"/>
+        <childnode refid="312" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" line="31" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h" bodystart="30" bodyend="55"/>
+    <listofallmembers>
+      <member refid="da/dd3/classmknix_1_1_constraint_1ab76845f20e7a29693b9161e09074d55a" prot="protected" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>alpha</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1aca5d35f6ecd8f8f3852c150c7901b890" prot="public" virt="virtual"><scope>mknix::ConstraintContact</scope><name>assembleInternalForces</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1ac376643d6d73cb3b591ba80aae9f7166" prot="public" virt="virtual"><scope>mknix::ConstraintContact</scope><name>assembleTangentMatrix</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1a00ea21a19168bc3cfd3ba97c6a2be31d" prot="public" virt="virtual"><scope>mknix::ConstraintContact</scope><name>calcInternalForces</name></member>
+      <member refid="d8/d6a/classmknix_1_1_constraint_contact_1a21a89037754ef5d968bda199ad3f1858" prot="public" virt="virtual"><scope>mknix::ConstraintContact</scope><name>calcPhi</name></member>
+      <member refid="d8/d6a/classmknix_1_1_constraint_contact_1a88c495ea01a5f8f8807dd72ae3e7240f" prot="public" virt="virtual"><scope>mknix::ConstraintContact</scope><name>calcPhiq</name></member>
+      <member refid="d8/d6a/classmknix_1_1_constraint_contact_1ad9b4db34bf76f2d8ea9532d5d3e0449f" prot="public" virt="virtual"><scope>mknix::ConstraintContact</scope><name>calcPhiqq</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1a9b7594c65aa792ffb56d3a598996a969" prot="public" virt="virtual"><scope>mknix::ConstraintContact</scope><name>calcTangentMatrix</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1a26923b449734b9f11ed5ca2556585dcb" prot="public" virt="virtual"><scope>mknix::ConstraintContact</scope><name>checkAugmented</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1a2e1f0de7e983151fb892468774dcdf12" prot="public" virt="virtual"><scope>mknix::ConstraintContact</scope><name>clearAugmented</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1ae4a69ed64d7746a7f8e2d23f04bc6de6" prot="public" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>Constraint</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1a093b4ffce363485f60ba251356ff88d1" prot="public" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>Constraint</name></member>
+      <member refid="d8/d6a/classmknix_1_1_constraint_contact_1a76498ab5af03df8fd8c850f67ac54d33" prot="public" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>ConstraintContact</name></member>
+      <member refid="d8/d6a/classmknix_1_1_constraint_contact_1abfcda7ac9dc63a790078f2fb26497a6e" prot="public" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>ConstraintContact</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1a5fa3727603b390206e6431141b892517" prot="protected" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>dim</name></member>
+      <member refid="d8/d6a/classmknix_1_1_constraint_contact_1a4fcfe47c1421fd375ff806b8ef411f47" prot="public" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>getGap</name></member>
+      <member refid="d8/d6a/classmknix_1_1_constraint_contact_1ae4ebea11a39b4cf89ce317154abc99e3" prot="public" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>getInternalForces</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1a0e81d924dad26b7b5b0749d4580dd63c" prot="public" virt="virtual"><scope>mknix::ConstraintContact</scope><name>getNode</name></member>
+      <member refid="d8/d6a/classmknix_1_1_constraint_contact_1abb4cb7497d2cbef540add289fdf8492e" prot="public" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>getStiffnessMatrix</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1a0b0fbbf149c32ce0a9dd6e0c4dd5851e" prot="protected" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>internalForces</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1aeee7c3bdd61194e3df0e958ff237040a" prot="protected" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>lambda</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1ab05c0dcc5cc535f4e3bed2fd34ed6d75" prot="protected" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>method</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1aa4aa16e121963acf4c086f63137d4ac1" prot="protected" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>nodes</name></member>
+      <member refid="d8/d6a/classmknix_1_1_constraint_contact_1a06ba5460d950b98b85226e7b9b520df2" prot="protected" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>normal</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" prot="protected" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>phi</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1a667ecb78177b06981c30e23cb194b806" prot="protected" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>phi_q</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1a9173b52da189652951ce51b1d69fcde4" prot="protected" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>phi_qq</name></member>
+      <member refid="d8/d6a/classmknix_1_1_constraint_contact_1a86b0413ea70c74a38f8610a88cba48c6" prot="protected" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>rh</name></member>
+      <member refid="d8/d6a/classmknix_1_1_constraint_contact_1a0a2b6bbee4925e12f4921aa58f0f3426" prot="protected" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>rt</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" prot="protected" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>stiffnessMatrix</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1a84cbe5af8074dc229f583d119bbde3e1" prot="public" virt="virtual"><scope>mknix::ConstraintContact</scope><name>~Constraint</name></member>
+      <member refid="d8/d6a/classmknix_1_1_constraint_contact_1a2570dc3ad5c593871f1d5dd4e6302f07" prot="public" virt="non-virtual"><scope>mknix::ConstraintContact</scope><name>~ConstraintContact</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

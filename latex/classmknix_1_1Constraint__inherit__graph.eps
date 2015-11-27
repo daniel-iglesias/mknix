@@ -1,0 +1,853 @@
+%!PS-Adobe-2.0
+%%Creator: dot version 2.8 (Tue Jul  4 20:16:49 GMT 2006)
+%%For: (dani) Daniel Iglesias Ibáñez
+%%Title: G
+%%Pages: (atend)
+%%BoundingBox: 36 36 840 596
+%%EndComments
+save
+%%BeginProlog
+/DotDict 200 dict def
+DotDict begin
+
+/setupLatin1 {
+mark
+/EncodingVector 256 array def
+ EncodingVector 0
+
+ISOLatin1Encoding 0 255 getinterval putinterval
+EncodingVector 45 /hyphen put
+
+% Set up ISO Latin 1 character encoding
+/starnetISO {
+        dup dup findfont dup length dict begin
+        { 1 index /FID ne { def }{ pop pop } ifelse
+        } forall
+        /Encoding EncodingVector def
+        currentdict end definefont
+} def
+/Times-Roman starnetISO def
+/Times-Italic starnetISO def
+/Times-Bold starnetISO def
+/Times-BoldItalic starnetISO def
+/Helvetica starnetISO def
+/Helvetica-Oblique starnetISO def
+/Helvetica-Bold starnetISO def
+/Helvetica-BoldOblique starnetISO def
+/Courier starnetISO def
+/Courier-Oblique starnetISO def
+/Courier-Bold starnetISO def
+/Courier-BoldOblique starnetISO def
+cleartomark
+} bind def
+
+%%BeginResource: procset graphviz 0 0
+/coord-font-family /Times-Roman def
+/default-font-family /Times-Roman def
+/coordfont coord-font-family findfont 8 scalefont def
+
+/InvScaleFactor 1.0 def
+/set_scale {
+	dup 1 exch div /InvScaleFactor exch def
+	dup scale
+} bind def
+
+% styles
+/solid { [] 0 setdash } bind def
+/dashed { [9 InvScaleFactor mul dup ] 0 setdash } bind def
+/dotted { [1 InvScaleFactor mul 6 InvScaleFactor mul] 0 setdash } bind def
+/invis {/fill {newpath} def /stroke {newpath} def /show {pop newpath} def} bind def
+/bold { 2 setlinewidth } bind def
+/filled { } bind def
+/unfilled { } bind def
+/rounded { } bind def
+/diagonals { } bind def
+
+% hooks for setting color 
+/nodecolor { sethsbcolor } bind def
+/edgecolor { sethsbcolor } bind def
+/graphcolor { sethsbcolor } bind def
+/nopcolor {pop pop pop} bind def
+
+/beginpage {	% i j npages
+	/npages exch def
+	/j exch def
+	/i exch def
+	/str 10 string def
+	npages 1 gt {
+		gsave
+			coordfont setfont
+			0 0 moveto
+			(\() show i str cvs show (,) show j str cvs show (\)) show
+		grestore
+	} if
+} bind def
+
+/set_font {
+	findfont exch
+	scalefont setfont
+} def
+
+% draw aligned label in bounding box aligned to current point
+/alignedtext {			% width adj text
+	/text exch def
+	/adj exch def
+	/width exch def
+	gsave
+		width 0 gt {
+			text stringwidth pop adj mul 0 rmoveto
+		} if
+		[] 0 setdash
+		text show
+	grestore
+} def
+
+/boxprim {				% xcorner ycorner xsize ysize
+		4 2 roll
+		moveto
+		2 copy
+		exch 0 rlineto
+		0 exch rlineto
+		pop neg 0 rlineto
+		closepath
+} bind def
+
+/ellipse_path {
+	/ry exch def
+	/rx exch def
+	/y exch def
+	/x exch def
+	matrix currentmatrix
+	newpath
+	x y translate
+	rx ry scale
+	0 0 1 0 360 arc
+	setmatrix
+} bind def
+
+/endpage { showpage } bind def
+/showpage { } def
+
+/layercolorseq
+	[	% layer color sequence - darkest to lightest
+		[0 0 0]
+		[.2 .8 .8]
+		[.4 .8 .8]
+		[.6 .8 .8]
+		[.8 .8 .8]
+	]
+def
+
+/layerlen layercolorseq length def
+
+/setlayer {/maxlayer exch def /curlayer exch def
+	layercolorseq curlayer 1 sub layerlen mod get
+	aload pop sethsbcolor
+	/nodecolor {nopcolor} def
+	/edgecolor {nopcolor} def
+	/graphcolor {nopcolor} def
+} bind def
+
+/onlayer { curlayer ne {invis} if } def
+
+/onlayers {
+	/myupper exch def
+	/mylower exch def
+	curlayer mylower lt
+	curlayer myupper gt
+	or
+	{invis} if
+} def
+
+/curlayer 0 def
+
+%%EndResource
+%%EndProlog
+%%BeginSetup
+14 default-font-family set_font
+1 setmiterlimit
+% /arrowlength 10 def
+% /arrowwidth 5 def
+
+% make sure pdfmark is harmless for PS-interpreters other than Distiller
+/pdfmark where {pop} {userdict /pdfmark /cleartomark load put} ifelse
+% make '<<' and '>>' safe on PS Level 1 devices
+/languagelevel where {pop languagelevel}{1} ifelse
+2 lt {
+    userdict (<<) cvn ([) cvn load put
+    userdict (>>) cvn ([) cvn load put
+} if
+
+%%EndSetup
+%%Page: 1 1
+%%PageBoundingBox: 36 36 840 596
+%%PageOrientation: Portrait
+gsave
+36 36 804 560 boxprim clip newpath
+36 36 translate
+0 0 1 beginpage
+1.0000 set_scale
+4 4 translate 0 rotate
+0.000 0.000 1.000 graphcolor
+0.000 0.000 1.000 graphcolor
+newpath -6 -6 moveto
+-6 558 lineto
+802 558 lineto
+802 -6 lineto
+closepath
+fill
+0.000 0.000 1.000 graphcolor
+newpath -6 -6 moveto
+-6 558 lineto
+802 558 lineto
+802 -6 lineto
+closepath
+stroke
+0.000 0.000 0.000 graphcolor
+10.00 /FreeSans.ttf set_font
+% Node1
+gsave 10 dict begin
+filled
+0.000 0.000 0.749 nodecolor
+newpath 306 240 moveto
+447 240 lineto
+447 552 lineto
+306 552 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 306 240 moveto
+447 240 lineto
+447 552 lineto
+306 552 lineto
+closepath
+stroke
+gsave 10 dict begin
+336 539 moveto
+(mknix::Constraint)
+[8.4 5.04 5.76 2.4 5.04 2.88 2.88 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88]
+xshow
+end grestore
+newpath 306 532 moveto
+447 532 lineto
+stroke
+gsave 10 dict begin
+314 519 moveto
+(# dim)
+[5.76 2.88 5.76 2.4 8.4]
+xshow
+314 507 moveto
+(# alpha)
+[5.76 2.88 5.76 2.4 5.52 5.76 5.76]
+xshow
+314 495 moveto
+(# method)
+[5.76 2.88 8.4 5.52 2.88 5.76 5.76 5.76]
+xshow
+314 483 moveto
+(# nodes)
+[5.76 2.88 5.76 5.76 5.76 5.52 5.04]
+xshow
+314 471 moveto
+(# internalForces)
+[5.76 2.88 2.4 5.76 2.88 5.52 3.6 5.76 5.76 2.4 6.24 5.76 3.6 5.04 5.52 5.04]
+xshow
+314 459 moveto
+(# stiffnessMatrix)
+[5.76 2.88 5.04 2.88 2.4 2.88 2.88 5.76 5.52 5.04 5.04 8.4 5.76 2.88 3.6 2.4 5.04]
+xshow
+314 447 moveto
+(# lambda)
+[5.76 2.88 2.4 5.76 8.4 5.52 5.76 5.76]
+xshow
+314 435 moveto
+(# phi)
+[5.76 2.88 5.52 5.76 2.4]
+xshow
+314 423 moveto
+(# phi_q)
+[5.76 2.88 5.52 5.76 2.4 5.52 5.76]
+xshow
+314 411 moveto
+(# phi_qq)
+[5.76 2.88 5.52 5.76 2.4 5.52 5.76 5.76]
+xshow
+end grestore
+newpath 306 404 moveto
+447 404 lineto
+stroke
+gsave 10 dict begin
+314 391 moveto
+(+ Constraint\(\))
+[5.76 2.88 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 3.36 3.36]
+xshow
+314 379 moveto
+(+ Constraint\(\))
+[5.76 2.88 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 3.36 3.36]
+xshow
+314 367 moveto
+(+ ~Constraint\(\))
+[5.76 2.88 5.76 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 3.36 3.36]
+xshow
+314 355 moveto
+(+ calcPhi\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.72 5.76 2.4 3.36 3.36]
+xshow
+314 343 moveto
+(+ calcPhiq\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.72 5.76 2.4 5.76 3.36 3.36]
+xshow
+314 331 moveto
+(+ calcPhiqq\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.72 5.76 2.4 5.76 5.76 3.36 3.36]
+xshow
+314 319 moveto
+(+ calcInternalForces\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 2.64 5.76 2.88 5.52 3.6 5.76 5.76 2.4 6.24 5.76 3.6 5.04 5.52 5.04 3.36 3.36]
+xshow
+314 307 moveto
+(+ calcTangentMatrix\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.24 5.76 5.76 5.52 5.52 5.76 2.88 8.4 5.76 2.88 3.6 2.4 5.04 3.36 3.36]
+xshow
+314 295 moveto
+(+ assembleInternalForces\(\))
+[5.76 2.88 5.76 5.04 5.04 5.52 8.4 5.52 2.4 5.52 2.64 5.76 2.88 5.52 3.6 5.76 5.76 2.4 6.24 5.76 3.6 5.04 5.52 5.04 3.36 3.36]
+xshow
+314 283 moveto
+(+ assembleTangentMatrix\(\))
+[5.76 2.88 5.76 5.04 5.04 5.52 8.4 5.52 2.4 5.52 6.24 5.76 5.76 5.52 5.52 5.76 2.88 8.4 5.76 2.88 3.6 2.4 5.04 3.36 3.36]
+xshow
+314 271 moveto
+(+ checkAugmented\(\))
+[5.76 2.88 5.04 5.76 5.52 5.04 5.04 6.72 5.76 5.52 8.4 5.52 5.76 2.88 5.52 5.76 3.36 3.36]
+xshow
+314 259 moveto
+(+ clearAugmented\(\))
+[5.76 2.88 5.04 2.4 5.52 5.76 3.6 6.72 5.76 5.52 8.4 5.52 5.76 2.88 5.52 5.76 3.36 3.36]
+xshow
+314 247 moveto
+(+ getNode\(\))
+[5.76 2.88 5.52 5.52 2.88 7.2 5.76 5.76 5.52 3.36 3.36]
+xshow
+end grestore
+end grestore
+% Node2
+[ /Rect [ 0 24 142 180 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($classmknix_1_1ConstraintClearance.html) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 0 24 moveto
+143 24 lineto
+143 180 lineto
+0 180 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 0 24 moveto
+143 24 lineto
+143 180 lineto
+0 180 lineto
+closepath
+stroke
+gsave 10 dict begin
+7 167 moveto
+(mknix::ConstraintClearance)
+[8.4 5.04 5.76 2.4 5.04 2.88 2.88 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 7.2 2.4 5.52 5.76 3.6 5.76 5.76 5.04 5.52]
+xshow
+end grestore
+newpath 0 160 moveto
+143 160 lineto
+stroke
+gsave 10 dict begin
+8 147 moveto
+(# rh)
+[5.76 2.88 3.6 5.76]
+xshow
+8 135 moveto
+(# rt)
+[5.76 2.88 3.6 2.88]
+xshow
+end grestore
+newpath 0 128 moveto
+143 128 lineto
+stroke
+gsave 10 dict begin
+8 115 moveto
+(+ ConstraintClearance\(\))
+[5.76 2.88 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 7.2 2.4 5.52 5.76 3.6 5.76 5.76 5.04 5.52 3.36 3.36]
+xshow
+8 103 moveto
+(+ ~ConstraintClearance\(\))
+[5.76 2.88 5.76 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 7.2 2.4 5.52 5.76 3.6 5.76 5.76 5.04 5.52 3.36 3.36]
+xshow
+8 91 moveto
+(+ ConstraintClearance\(\))
+[5.76 2.88 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 7.2 2.4 5.52 5.76 3.6 5.76 5.76 5.04 5.52 3.36 3.36]
+xshow
+8 79 moveto
+(+ calcPhi\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.72 5.76 2.4 3.36 3.36]
+xshow
+8 67 moveto
+(+ calcPhiq\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.72 5.76 2.4 5.76 3.36 3.36]
+xshow
+8 55 moveto
+(+ calcPhiqq\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.72 5.76 2.4 5.76 5.76 3.36 3.36]
+xshow
+8 43 moveto
+(+ getInternalForces\(\))
+[5.76 2.88 5.52 5.52 2.88 2.64 5.76 2.88 5.52 3.6 5.76 5.76 2.4 6.24 5.76 3.6 5.04 5.52 5.04 3.36 3.36]
+xshow
+8 31 moveto
+(+ getStiffnessMatrix\(\))
+[5.76 2.88 5.52 5.52 2.88 6.72 2.88 2.4 2.88 2.88 5.76 5.52 5.04 5.04 8.4 5.76 2.88 3.6 2.4 5.04 3.36 3.36]
+xshow
+end grestore
+end grestore
+% Node1->Node2
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 298 336 moveto
+253 299 197 251 151 204 curveto
+144 196 137 188 130 180 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+newpath 296 339 moveto
+306 342 lineto
+300 333 lineto
+closepath
+stroke
+end grestore
+end grestore
+% Node3
+[ /Rect [ 160 12 290 192 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($classmknix_1_1ConstraintContact.html) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 160 12 moveto
+291 12 lineto
+291 192 lineto
+160 192 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 160 12 moveto
+291 12 lineto
+291 192 lineto
+160 192 lineto
+closepath
+stroke
+gsave 10 dict begin
+167 179 moveto
+(mknix::ConstraintContact)
+[8.4 5.04 5.76 2.4 5.04 2.88 2.88 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 7.2 5.76 5.76 2.88 5.76 5.04 2.88]
+xshow
+end grestore
+newpath 160 172 moveto
+291 172 lineto
+stroke
+gsave 10 dict begin
+168 159 moveto
+(# normal)
+[5.76 2.88 5.76 5.76 3.6 8.4 5.76 2.4]
+xshow
+168 147 moveto
+(# rh)
+[5.76 2.88 3.6 5.76]
+xshow
+168 135 moveto
+(# rt)
+[5.76 2.88 3.6 2.88]
+xshow
+end grestore
+newpath 160 128 moveto
+291 128 lineto
+stroke
+gsave 10 dict begin
+168 115 moveto
+(+ ConstraintContact\(\))
+[5.76 2.88 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 7.2 5.76 5.76 2.88 5.76 5.04 2.88 3.36 3.36]
+xshow
+168 103 moveto
+(+ ~ConstraintContact\(\))
+[5.76 2.88 5.76 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 7.2 5.76 5.76 2.88 5.76 5.04 2.88 3.36 3.36]
+xshow
+168 91 moveto
+(+ ConstraintContact\(\))
+[5.76 2.88 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 7.2 5.76 5.76 2.88 5.76 5.04 2.88 3.36 3.36]
+xshow
+168 79 moveto
+(+ calcPhi\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.72 5.76 2.4 3.36 3.36]
+xshow
+168 67 moveto
+(+ calcPhiq\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.72 5.76 2.4 5.76 3.36 3.36]
+xshow
+168 55 moveto
+(+ calcPhiqq\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.72 5.76 2.4 5.76 5.76 3.36 3.36]
+xshow
+168 43 moveto
+(+ getInternalForces\(\))
+[5.76 2.88 5.52 5.52 2.88 2.64 5.76 2.88 5.52 3.6 5.76 5.76 2.4 6.24 5.76 3.6 5.04 5.52 5.04 3.36 3.36]
+xshow
+168 31 moveto
+(+ getStiffnessMatrix\(\))
+[5.76 2.88 5.52 5.52 2.88 6.72 2.88 2.4 2.88 2.88 5.76 5.52 5.04 5.04 8.4 5.76 2.88 3.6 2.4 5.04 3.36 3.36]
+xshow
+168 19 moveto
+(+ getGap\(\))
+[5.76 2.88 5.52 5.52 2.88 7.92 5.76 5.52 3.36 3.36]
+xshow
+end grestore
+end grestore
+% Node1->Node3
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 301 250 moveto
+291 230 281 210 271 192 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+newpath 298 252 moveto
+306 259 lineto
+304 249 lineto
+closepath
+stroke
+end grestore
+end grestore
+% Node4
+[ /Rect [ 308 24 444 180 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($classmknix_1_1ConstraintDistance.html) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 308 24 moveto
+444 24 lineto
+444 180 lineto
+308 180 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 308 24 moveto
+444 24 lineto
+444 180 lineto
+308 180 lineto
+closepath
+stroke
+gsave 10 dict begin
+316 167 moveto
+(mknix::ConstraintDistance)
+[8.4 5.04 5.76 2.4 5.04 2.88 2.88 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 7.2 2.4 5.04 2.88 5.76 5.76 5.04 5.52]
+xshow
+end grestore
+newpath 308 160 moveto
+444 160 lineto
+stroke
+gsave 10 dict begin
+316 147 moveto
+(# ro)
+[5.76 2.88 3.6 5.76]
+xshow
+316 135 moveto
+(# rt)
+[5.76 2.88 3.6 2.88]
+xshow
+end grestore
+newpath 308 128 moveto
+444 128 lineto
+stroke
+gsave 10 dict begin
+316 115 moveto
+(+ ConstraintDistance\(\))
+[5.76 2.88 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 7.2 2.4 5.04 2.88 5.76 5.76 5.04 5.52 3.36 3.36]
+xshow
+316 103 moveto
+(+ ~ConstraintDistance\(\))
+[5.76 2.88 5.76 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 7.2 2.4 5.04 2.88 5.76 5.76 5.04 5.52 3.36 3.36]
+xshow
+316 91 moveto
+(+ ConstraintDistance\(\))
+[5.76 2.88 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 7.2 2.4 5.04 2.88 5.76 5.76 5.04 5.52 3.36 3.36]
+xshow
+316 79 moveto
+(+ calcPhi\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.72 5.76 2.4 3.36 3.36]
+xshow
+316 67 moveto
+(+ calcPhiq\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.72 5.76 2.4 5.76 3.36 3.36]
+xshow
+316 55 moveto
+(+ calcPhiqq\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.72 5.76 2.4 5.76 5.76 3.36 3.36]
+xshow
+316 43 moveto
+(+ getInternalForces\(\))
+[5.76 2.88 5.52 5.52 2.88 2.64 5.76 2.88 5.52 3.6 5.76 5.76 2.4 6.24 5.76 3.6 5.04 5.52 5.04 3.36 3.36]
+xshow
+316 31 moveto
+(+ getStiffnessMatrix\(\))
+[5.76 2.88 5.52 5.52 2.88 6.72 2.88 2.4 2.88 2.88 5.76 5.52 5.04 5.04 8.4 5.76 2.88 3.6 2.4 5.04 3.36 3.36]
+xshow
+end grestore
+end grestore
+% Node1->Node4
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 376 230 moveto
+376 212 376 196 376 180 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+newpath 373 230 moveto
+376 240 lineto
+380 230 lineto
+closepath
+stroke
+end grestore
+end grestore
+% Node5
+[ /Rect [ 462 18 602 186 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($classmknix_1_1ConstraintFixedAxis.html) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 462 18 moveto
+602 18 lineto
+602 186 lineto
+462 186 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 462 18 moveto
+602 18 lineto
+602 186 lineto
+462 186 lineto
+closepath
+stroke
+gsave 10 dict begin
+470 173 moveto
+(mknix::ConstraintFixedAxis)
+[8.4 5.04 5.76 2.4 5.04 2.88 2.88 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 6.24 2.4 5.04 5.52 5.76 6.72 5.04 2.4 5.04]
+xshow
+end grestore
+newpath 462 166 moveto
+602 166 lineto
+stroke
+gsave 10 dict begin
+470 153 moveto
+(# axisName)
+[5.76 2.88 5.76 5.04 2.4 5.04 7.2 5.76 8.4 5.52]
+xshow
+470 141 moveto
+(# ro)
+[5.76 2.88 3.6 5.76]
+xshow
+470 129 moveto
+(# rt)
+[5.76 2.88 3.6 2.88]
+xshow
+end grestore
+newpath 462 122 moveto
+602 122 lineto
+stroke
+gsave 10 dict begin
+470 109 moveto
+(+ ConstraintFixedAxis\(\))
+[5.76 2.88 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 6.24 2.4 5.04 5.52 5.76 6.72 5.04 2.4 5.04 3.36 3.36]
+xshow
+470 97 moveto
+(+ ConstraintFixedAxis\(\))
+[5.76 2.88 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 6.24 2.4 5.04 5.52 5.76 6.72 5.04 2.4 5.04 3.36 3.36]
+xshow
+470 85 moveto
+(+ ~ConstraintFixedAxis\(\))
+[5.76 2.88 5.76 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 6.24 2.4 5.04 5.52 5.76 6.72 5.04 2.4 5.04 3.36 3.36]
+xshow
+470 73 moveto
+(+ calcPhi\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.72 5.76 2.4 3.36 3.36]
+xshow
+470 61 moveto
+(+ calcPhiq\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.72 5.76 2.4 5.76 3.36 3.36]
+xshow
+470 49 moveto
+(+ calcPhiqq\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.72 5.76 2.4 5.76 5.76 3.36 3.36]
+xshow
+470 37 moveto
+(+ getInternalForces\(\))
+[5.76 2.88 5.52 5.52 2.88 2.64 5.76 2.88 5.52 3.6 5.76 5.76 2.4 6.24 5.76 3.6 5.04 5.52 5.04 3.36 3.36]
+xshow
+470 25 moveto
+(+ getStiffnessMatrix\(\))
+[5.76 2.88 5.52 5.52 2.88 6.72 2.88 2.4 2.88 2.88 5.76 5.52 5.04 5.04 8.4 5.76 2.88 3.6 2.4 5.04 3.36 3.36]
+xshow
+end grestore
+end grestore
+% Node1->Node5
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 452 253 moveto
+464 230 476 207 487 186 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+newpath 449 252 moveto
+447 262 lineto
+455 255 lineto
+closepath
+stroke
+end grestore
+end grestore
+% Node6
+[ /Rect [ 620 0 796 204 ]
+  /Border [ 0 0 0 ]
+  /Action << /Subtype /URI /URI ($classmknix_1_1ConstraintFixedCoordinates.html) >>
+  /Subtype /Link
+/ANN pdfmark
+gsave 10 dict begin
+filled
+0.000 0.000 1.000 nodecolor
+newpath 620 0 moveto
+796 0 lineto
+796 204 lineto
+620 204 lineto
+closepath
+fill
+0.000 0.000 0.000 nodecolor
+newpath 620 0 moveto
+796 0 lineto
+796 204 lineto
+620 204 lineto
+closepath
+stroke
+gsave 10 dict begin
+628 191 moveto
+(mknix::ConstraintFixedCoordinates)
+[8.4 5.04 5.76 2.4 5.04 2.88 2.88 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 6.24 2.4 5.04 5.52 5.76 7.2 5.76 5.76 3.6 5.76 2.4 5.76 5.76 2.88 5.52 5.04]
+xshow
+end grestore
+newpath 620 184 moveto
+796 184 lineto
+stroke
+gsave 10 dict begin
+628 171 moveto
+(# rxo)
+[5.76 2.88 3.6 5.04 5.76]
+xshow
+628 159 moveto
+(# ryo)
+[5.76 2.88 3.6 5.04 5.76]
+xshow
+628 147 moveto
+(# rzo)
+[5.76 2.88 3.6 5.04 5.76]
+xshow
+628 135 moveto
+(# rxt)
+[5.76 2.88 3.6 5.04 2.88]
+xshow
+628 123 moveto
+(# ryt)
+[5.76 2.88 3.6 5.04 2.88]
+xshow
+628 111 moveto
+(# rzt)
+[5.76 2.88 3.6 5.04 2.88]
+xshow
+end grestore
+newpath 620 104 moveto
+796 104 lineto
+stroke
+gsave 10 dict begin
+628 91 moveto
+(+ ConstraintFixedCoordinates\(\))
+[5.76 2.88 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 6.24 2.4 5.04 5.52 5.76 7.2 5.76 5.76 3.6 5.76 2.4 5.76 5.76 2.88 5.52 5.04 3.36 3.36]
+xshow
+628 79 moveto
+(+ ConstraintFixedCoordinates\(\))
+[5.76 2.88 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 6.24 2.4 5.04 5.52 5.76 7.2 5.76 5.76 3.6 5.76 2.4 5.76 5.76 2.88 5.52 5.04 3.36 3.36]
+xshow
+628 67 moveto
+(+ ~ConstraintFixedCoordinates\(\))
+[5.76 2.88 5.76 7.2 5.76 5.76 5.04 2.88 3.6 5.76 2.4 5.76 2.88 6.24 2.4 5.04 5.52 5.76 7.2 5.76 5.76 3.6 5.76 2.4 5.76 5.76 2.88 5.52 5.04 3.36 3.36]
+xshow
+628 55 moveto
+(+ calcPhi\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.72 5.76 2.4 3.36 3.36]
+xshow
+628 43 moveto
+(+ calcPhiq\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.72 5.76 2.4 5.76 3.36 3.36]
+xshow
+628 31 moveto
+(+ calcPhiqq\(\))
+[5.76 2.88 5.04 5.76 2.4 5.04 6.72 5.76 2.4 5.76 5.76 3.36 3.36]
+xshow
+628 19 moveto
+(+ getInternalForces\(\))
+[5.76 2.88 5.52 5.52 2.88 2.64 5.76 2.88 5.52 3.6 5.76 5.76 2.4 6.24 5.76 3.6 5.04 5.52 5.04 3.36 3.36]
+xshow
+628 7 moveto
+(+ getStiffnessMatrix\(\))
+[5.76 2.88 5.52 5.52 2.88 6.72 2.88 2.4 2.88 2.88 5.76 5.52 5.04 5.04 8.4 5.76 2.88 3.6 2.4 5.04 3.36 3.36]
+xshow
+end grestore
+end grestore
+% Node1->Node6
+gsave 10 dict begin
+solid
+0.667 0.776 0.439 edgecolor
+newpath 455 335 moveto
+502 298 561 250 611 204 curveto
+614 201 617 198 620 196 curveto
+stroke
+gsave 10 dict begin
+solid
+1 setlinewidth
+newpath 453 332 moveto
+447 341 lineto
+457 338 lineto
+closepath
+stroke
+end grestore
+end grestore
+endpage
+showpage
+grestore
+%%PageTrailer
+%%EndPage: 1
+%%Trailer
+%%Pages: 1
+end
+restore
+%%EOF

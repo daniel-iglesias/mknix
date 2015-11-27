@@ -1,0 +1,328 @@
+\hypertarget{classmknix_1_1_body}{\subsection{mknix\-:\-:Body Class Reference}
+\label{classmknix_1_1_body}\index{mknix\-::\-Body@{mknix\-::\-Body}}
+}
+
+
+{\ttfamily \#include $<$body.\-h$>$}
+
+
+
+Inheritance diagram for mknix\-:\-:Body\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d9/d1c/classmknix_1_1_body__inherit__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmknix_1_1_body_a5f11ba30f14169c567d8e3f84afbbf40}{Body} ()
+\item 
+\hyperlink{classmknix_1_1_body_a121c49df553ac35ca246052168eccb7f}{Body} (std\-::string)
+\item 
+virtual \hyperlink{classmknix_1_1_body_ad58a0a50a821e1adaa5abd1320e5a837}{$\sim$\-Body} ()
+\item 
+virtual std\-::string \hyperlink{classmknix_1_1_body_a603ed0a11eee91957b2655a0e4667cd4}{get\-Type} ()=0
+\item 
+virtual void \hyperlink{classmknix_1_1_body_ad34fa07c6620c9fcc2268bfdbfd42194}{calc\-Mass\-Matrix} ()=0
+\item 
+virtual void \hyperlink{classmknix_1_1_body_a71d21e817523058098bcec62fb377187}{calc\-External\-Forces} ()=0
+\item 
+virtual void \hyperlink{classmknix_1_1_body_acd6c47f4e0a25e927141cb325df896a9}{assemble\-Mass\-Matrix} (lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)=0
+\item 
+virtual void \hyperlink{classmknix_1_1_body_a46a17ef341d6ea217e1548108a4e9efc}{assemble\-External\-Forces} (lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)=0
+\item 
+virtual void \hyperlink{classmknix_1_1_body_a689970a0729d557ed56492bbfeae4ecd}{set\-Output} (std\-::string)=0
+\item 
+virtual void \hyperlink{classmknix_1_1_body_a2655307ec61a79f8d2e5716c984a44df}{output\-Step} (const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&, const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)=0
+\item 
+virtual void \hyperlink{classmknix_1_1_body_a0570075194360f453b763866969548e7}{output\-Step} (const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)=0
+\item 
+virtual void \hyperlink{classmknix_1_1_body_acc0dd60d384ec11bf1ea71fed9ae27b3}{output\-To\-File} (std\-::ofstream $\ast$)=0
+\item 
+virtual void \hyperlink{classmknix_1_1_body_abf7eec507e5fc918e4901864a6db0f84}{add\-Node} (\hyperlink{classmknix_1_1_node}{Node} $\ast$node\-\_\-in)
+\item 
+\hyperlink{classmknix_1_1_node}{Node} $\ast$ \hyperlink{classmknix_1_1_body_ac996b024251ecd5bcb9af4a932e916c2}{get\-Node} (int node\-\_\-number)
+\item 
+virtual \hyperlink{classmknix_1_1_node}{Node} $\ast$ \hyperlink{classmknix_1_1_body_a95fad3fdd4c18a0adcbeba2891b55140}{get\-Last\-Node} ()
+\item 
+virtual void \hyperlink{classmknix_1_1_body_a0303c5d1de1c19cff7448baf2564f213}{add\-Boundary\-Line} (\hyperlink{classmknix_1_1_node}{Node} $\ast$node1, \hyperlink{classmknix_1_1_node}{Node} $\ast$node2)
+\item 
+virtual int \hyperlink{classmknix_1_1_body_aa7de934eb85ec4e68741d0c7395a9a10}{get\-Boundary\-Size} ()
+\item 
+virtual \hyperlink{classmknix_1_1_node}{Node} $\ast$ \hyperlink{classmknix_1_1_body_a0cd2969a179a3d6a44607e038593028b}{get\-Boundary\-First\-Node} ()
+\item 
+virtual \hyperlink{classmknix_1_1_node}{Node} $\ast$ \hyperlink{classmknix_1_1_body_aac3a9453cb1a13464fa56449112188f1}{get\-Boundary\-Next\-Node} (\hyperlink{classmknix_1_1_node}{Node} $\ast$node\-\_\-in)
+\item 
+virtual void \hyperlink{classmknix_1_1_body_abb4237e7f457287766e29bfe0cbb0f01}{add\-Cell} (int num, \hyperlink{classmknix_1_1_cell}{Cell} $\ast$cell\-\_\-in)
+\item 
+virtual void \hyperlink{classmknix_1_1_body_ada574d09e98568156185eb7eef398c8f}{write\-Boundary\-Nodes} (std\-::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \&)=0
+\item 
+virtual void \hyperlink{classmknix_1_1_body_ab95b00050cf3841c1b931e04eebe57e1}{write\-Boundary\-Connectivity} (std\-::vector$<$ std\-::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ $>$ \&)=0
+\item 
+virtual void \hyperlink{classmknix_1_1_body_a5f58f8e5398bbacc973b046be600eb5f}{translate} (double, double, double)
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\-::string \hyperlink{classmknix_1_1_body_a3c05cdff2d5f2b150046cd734d0ed7ce}{title}
+\item 
+std\-::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \hyperlink{classmknix_1_1_body_a3393da3459cbf7b35ee3dedb982180bf}{nodes}
+\item 
+std\-::map$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$, \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \hyperlink{classmknix_1_1_body_abaacc346d058cdabb8d0273b1440e323}{boundary}
+\item 
+std\-::map$<$ int, \hyperlink{classmknix_1_1_cell}{Cell} $\ast$ $>$ \hyperlink{classmknix_1_1_body_afa538e2bc24cd6623e63b44704037a73}{cells}
+\item 
+lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \hyperlink{classmknix_1_1_body_abf69d9fd5ede2c511d85c5d644902c6e}{local\-Mass\-Matrix}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+A\-U\-T\-H\-O\-R\-S $<$\-M\-A\-I\-L\-S$>$ 
+\end{DoxyAuthor}
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{classmknix_1_1_body_a5f11ba30f14169c567d8e3f84afbbf40}{\index{mknix\-::\-Body@{mknix\-::\-Body}!Body@{Body}}
+\index{Body@{Body}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{Body}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Body\-::\-Body (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_body_a5f11ba30f14169c567d8e3f84afbbf40}
+\hypertarget{classmknix_1_1_body_a121c49df553ac35ca246052168eccb7f}{\index{mknix\-::\-Body@{mknix\-::\-Body}!Body@{Body}}
+\index{Body@{Body}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{Body}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Body\-::\-Body (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{title\-\_\-in}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_body_a121c49df553ac35ca246052168eccb7f}
+\hypertarget{classmknix_1_1_body_ad58a0a50a821e1adaa5abd1320e5a837}{\index{mknix\-::\-Body@{mknix\-::\-Body}!$\sim$\-Body@{$\sim$\-Body}}
+\index{$\sim$\-Body@{$\sim$\-Body}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{$\sim$\-Body}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Body\-::$\sim$\-Body (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_body_ad58a0a50a821e1adaa5abd1320e5a837}
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classmknix_1_1_body_a0303c5d1de1c19cff7448baf2564f213}{\index{mknix\-::\-Body@{mknix\-::\-Body}!add\-Boundary\-Line@{add\-Boundary\-Line}}
+\index{add\-Boundary\-Line@{add\-Boundary\-Line}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{add\-Boundary\-Line}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::add\-Boundary\-Line (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{node1, }
+\item[{{\bf Node} $\ast$}]{node2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_body_a0303c5d1de1c19cff7448baf2564f213}
+\hypertarget{classmknix_1_1_body_abb4237e7f457287766e29bfe0cbb0f01}{\index{mknix\-::\-Body@{mknix\-::\-Body}!add\-Cell@{add\-Cell}}
+\index{add\-Cell@{add\-Cell}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{add\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::add\-Cell (
+\begin{DoxyParamCaption}
+\item[{int}]{num, }
+\item[{{\bf Cell} $\ast$}]{cell\-\_\-in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_body_abb4237e7f457287766e29bfe0cbb0f01}
+\hypertarget{classmknix_1_1_body_abf7eec507e5fc918e4901864a6db0f84}{\index{mknix\-::\-Body@{mknix\-::\-Body}!add\-Node@{add\-Node}}
+\index{add\-Node@{add\-Node}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{add\-Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::add\-Node (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{node\-\_\-in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_body_abf7eec507e5fc918e4901864a6db0f84}
+
+
+Reimplemented in \hyperlink{classmknix_1_1_rigid_bar_a1f05aae37c654229c4f6c3ef32944125}{mknix\-::\-Rigid\-Bar}, and \hyperlink{classmknix_1_1_rigid_body_a88b0dfc0af5002ee8d060df5e520434f}{mknix\-::\-Rigid\-Body}.
+
+\hypertarget{classmknix_1_1_body_a46a17ef341d6ea217e1548108a4e9efc}{\index{mknix\-::\-Body@{mknix\-::\-Body}!assemble\-External\-Forces@{assemble\-External\-Forces}}
+\index{assemble\-External\-Forces@{assemble\-External\-Forces}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{assemble\-External\-Forces}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::assemble\-External\-Forces (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_a46a17ef341d6ea217e1548108a4e9efc}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_global_galerkin_acc0254dbedc2543be9051aab1acb7d99}{mknix\-::\-Flex\-Global\-Galerkin}, and \hyperlink{classmknix_1_1_rigid_body_a18c7ffa5b9f2d3df008a92f421404fac}{mknix\-::\-Rigid\-Body}.
+
+\hypertarget{classmknix_1_1_body_acd6c47f4e0a25e927141cb325df896a9}{\index{mknix\-::\-Body@{mknix\-::\-Body}!assemble\-Mass\-Matrix@{assemble\-Mass\-Matrix}}
+\index{assemble\-Mass\-Matrix@{assemble\-Mass\-Matrix}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{assemble\-Mass\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::assemble\-Mass\-Matrix (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_acd6c47f4e0a25e927141cb325df896a9}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_global_galerkin_a689a56babe9734eb504a9c948b6a3587}{mknix\-::\-Flex\-Global\-Galerkin}, and \hyperlink{classmknix_1_1_rigid_body_ac20200b40e6e222261bb8257e339d7b4}{mknix\-::\-Rigid\-Body}.
+
+\hypertarget{classmknix_1_1_body_a71d21e817523058098bcec62fb377187}{\index{mknix\-::\-Body@{mknix\-::\-Body}!calc\-External\-Forces@{calc\-External\-Forces}}
+\index{calc\-External\-Forces@{calc\-External\-Forces}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{calc\-External\-Forces}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::calc\-External\-Forces (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_a71d21e817523058098bcec62fb377187}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_global_galerkin_a2ed7079f0f2674c3556ff8dbbf3a63d3}{mknix\-::\-Flex\-Global\-Galerkin}, \hyperlink{classmknix_1_1_rigid_body3_d_a66bff0110ce5d201875f068050c84c96}{mknix\-::\-Rigid\-Body3\-D}, \hyperlink{classmknix_1_1_rigid_body_mass_point_a281842fc7cf1367bbed4c5e477ac8da9}{mknix\-::\-Rigid\-Body\-Mass\-Point}, \hyperlink{classmknix_1_1_rigid_bar_a4325fbe1df7832ce09bd2bf72b00cf67}{mknix\-::\-Rigid\-Bar}, \hyperlink{classmknix_1_1_rigid_body2_d_a2d1b7d48c98c3e0ef63dc2c975637793}{mknix\-::\-Rigid\-Body2\-D}, and \hyperlink{classmknix_1_1_rigid_bar_a4325fbe1df7832ce09bd2bf72b00cf67}{mknix\-::\-Rigid\-Bar}.
+
+\hypertarget{classmknix_1_1_body_ad34fa07c6620c9fcc2268bfdbfd42194}{\index{mknix\-::\-Body@{mknix\-::\-Body}!calc\-Mass\-Matrix@{calc\-Mass\-Matrix}}
+\index{calc\-Mass\-Matrix@{calc\-Mass\-Matrix}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{calc\-Mass\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::calc\-Mass\-Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_ad34fa07c6620c9fcc2268bfdbfd42194}
+
+
+Implemented in \hyperlink{classmknix_1_1_rigid_body3_d_a257d9b0bb9fe27664227270cd73194a4}{mknix\-::\-Rigid\-Body3\-D}, \hyperlink{classmknix_1_1_rigid_body_mass_point_aed37447f963c4393b30febe281589b99}{mknix\-::\-Rigid\-Body\-Mass\-Point}, \hyperlink{classmknix_1_1_flex_global_galerkin_ae5bb8c27e7494b233a96d971833a0d0d}{mknix\-::\-Flex\-Global\-Galerkin}, \hyperlink{classmknix_1_1_rigid_bar_a3d368a1a10b600179fbb7e901472c301}{mknix\-::\-Rigid\-Bar}, \hyperlink{classmknix_1_1_rigid_body2_d_a9ee8593743364a723107d307c12d8ad1}{mknix\-::\-Rigid\-Body2\-D}, and \hyperlink{classmknix_1_1_rigid_bar_a3d368a1a10b600179fbb7e901472c301}{mknix\-::\-Rigid\-Bar}.
+
+\hypertarget{classmknix_1_1_body_a0cd2969a179a3d6a44607e038593028b}{\index{mknix\-::\-Body@{mknix\-::\-Body}!get\-Boundary\-First\-Node@{get\-Boundary\-First\-Node}}
+\index{get\-Boundary\-First\-Node@{get\-Boundary\-First\-Node}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{get\-Boundary\-First\-Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Node}$\ast$ mknix\-::\-Body\-::get\-Boundary\-First\-Node (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_body_a0cd2969a179a3d6a44607e038593028b}
+\hypertarget{classmknix_1_1_body_aac3a9453cb1a13464fa56449112188f1}{\index{mknix\-::\-Body@{mknix\-::\-Body}!get\-Boundary\-Next\-Node@{get\-Boundary\-Next\-Node}}
+\index{get\-Boundary\-Next\-Node@{get\-Boundary\-Next\-Node}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{get\-Boundary\-Next\-Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Node}$\ast$ mknix\-::\-Body\-::get\-Boundary\-Next\-Node (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{node\-\_\-in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_body_aac3a9453cb1a13464fa56449112188f1}
+\hypertarget{classmknix_1_1_body_aa7de934eb85ec4e68741d0c7395a9a10}{\index{mknix\-::\-Body@{mknix\-::\-Body}!get\-Boundary\-Size@{get\-Boundary\-Size}}
+\index{get\-Boundary\-Size@{get\-Boundary\-Size}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{get\-Boundary\-Size}]{\setlength{\rightskip}{0pt plus 5cm}virtual int mknix\-::\-Body\-::get\-Boundary\-Size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_body_aa7de934eb85ec4e68741d0c7395a9a10}
+\hypertarget{classmknix_1_1_body_a95fad3fdd4c18a0adcbeba2891b55140}{\index{mknix\-::\-Body@{mknix\-::\-Body}!get\-Last\-Node@{get\-Last\-Node}}
+\index{get\-Last\-Node@{get\-Last\-Node}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{get\-Last\-Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Node}$\ast$ mknix\-::\-Body\-::get\-Last\-Node (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_body_a95fad3fdd4c18a0adcbeba2891b55140}
+\hypertarget{classmknix_1_1_body_ac996b024251ecd5bcb9af4a932e916c2}{\index{mknix\-::\-Body@{mknix\-::\-Body}!get\-Node@{get\-Node}}
+\index{get\-Node@{get\-Node}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{get\-Node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node}$\ast$ mknix\-::\-Body\-::get\-Node (
+\begin{DoxyParamCaption}
+\item[{int}]{node\-\_\-number}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_body_ac996b024251ecd5bcb9af4a932e916c2}
+\hypertarget{classmknix_1_1_body_a603ed0a11eee91957b2655a0e4667cd4}{\index{mknix\-::\-Body@{mknix\-::\-Body}!get\-Type@{get\-Type}}
+\index{get\-Type@{get\-Type}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{get\-Type}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\-::string mknix\-::\-Body\-::get\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_a603ed0a11eee91957b2655a0e4667cd4}
+
+
+Implemented in \hyperlink{classmknix_1_1_rigid_body_mass_point_aa97f367f1f1701f5d7981c994a96fb5e}{mknix\-::\-Rigid\-Body\-Mass\-Point}, \hyperlink{classmknix_1_1_rigid_body3_d_a3cdb37910a3ed061017926d67932ad06}{mknix\-::\-Rigid\-Body3\-D}, \hyperlink{classmknix_1_1_rigid_bar_acc95a2895043626253a4bb8ee1eb341a}{mknix\-::\-Rigid\-Bar}, \hyperlink{classmknix_1_1_rigid_bar_acc95a2895043626253a4bb8ee1eb341a}{mknix\-::\-Rigid\-Bar}, \hyperlink{classmknix_1_1_rigid_body2_d_a36d7142c5123c4055c019109fb6169dc}{mknix\-::\-Rigid\-Body2\-D}, and \hyperlink{classmknix_1_1_flex_global_galerkin_a31c93b0ce740217ce4cd12e71646d8cf}{mknix\-::\-Flex\-Global\-Galerkin}.
+
+\hypertarget{classmknix_1_1_body_a2655307ec61a79f8d2e5716c984a44df}{\index{mknix\-::\-Body@{mknix\-::\-Body}!output\-Step@{output\-Step}}
+\index{output\-Step@{output\-Step}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{output\-Step}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::output\-Step (
+\begin{DoxyParamCaption}
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{, }
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_a2655307ec61a79f8d2e5716c984a44df}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_global_galerkin_a031a130b73e3fe0fc862393f94d235cb}{mknix\-::\-Flex\-Global\-Galerkin}, and \hyperlink{classmknix_1_1_rigid_body_a721e9f81cfba9a3d425df36f7cf5ef71}{mknix\-::\-Rigid\-Body}.
+
+\hypertarget{classmknix_1_1_body_a0570075194360f453b763866969548e7}{\index{mknix\-::\-Body@{mknix\-::\-Body}!output\-Step@{output\-Step}}
+\index{output\-Step@{output\-Step}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{output\-Step}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::output\-Step (
+\begin{DoxyParamCaption}
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_a0570075194360f453b763866969548e7}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_global_galerkin_a1882efa0a8f8c8832f6116b8f7874d2a}{mknix\-::\-Flex\-Global\-Galerkin}, and \hyperlink{classmknix_1_1_rigid_body_a605ed074fed7570c6620a6a6f6cd4bb0}{mknix\-::\-Rigid\-Body}.
+
+\hypertarget{classmknix_1_1_body_acc0dd60d384ec11bf1ea71fed9ae27b3}{\index{mknix\-::\-Body@{mknix\-::\-Body}!output\-To\-File@{output\-To\-File}}
+\index{output\-To\-File@{output\-To\-File}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{output\-To\-File}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::output\-To\-File (
+\begin{DoxyParamCaption}
+\item[{std\-::ofstream $\ast$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_acc0dd60d384ec11bf1ea71fed9ae27b3}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_body_a1cf57f024248bbb196e91aac9b9ab9fe}{mknix\-::\-Flex\-Body}, and \hyperlink{classmknix_1_1_rigid_body_a0b0df6ee53217187a301f224b8fe0d92}{mknix\-::\-Rigid\-Body}.
+
+\hypertarget{classmknix_1_1_body_a689970a0729d557ed56492bbfeae4ecd}{\index{mknix\-::\-Body@{mknix\-::\-Body}!set\-Output@{set\-Output}}
+\index{set\-Output@{set\-Output}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{set\-Output}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::set\-Output (
+\begin{DoxyParamCaption}
+\item[{std\-::string}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_a689970a0729d557ed56492bbfeae4ecd}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_body_ab863f9c782ccffbcea5c5e485fff52bc}{mknix\-::\-Flex\-Body}, and \hyperlink{classmknix_1_1_rigid_body_a7d3b331008d65caf46f5575fec6943b5}{mknix\-::\-Rigid\-Body}.
+
+\hypertarget{classmknix_1_1_body_a5f58f8e5398bbacc973b046be600eb5f}{\index{mknix\-::\-Body@{mknix\-::\-Body}!translate@{translate}}
+\index{translate@{translate}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{translate}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Body\-::translate (
+\begin{DoxyParamCaption}
+\item[{double}]{x\-\_\-in, }
+\item[{double}]{y\-\_\-in, }
+\item[{double}]{z\-\_\-in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_body_a5f58f8e5398bbacc973b046be600eb5f}
+\hypertarget{classmknix_1_1_body_ab95b00050cf3841c1b931e04eebe57e1}{\index{mknix\-::\-Body@{mknix\-::\-Body}!write\-Boundary\-Connectivity@{write\-Boundary\-Connectivity}}
+\index{write\-Boundary\-Connectivity@{write\-Boundary\-Connectivity}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{write\-Boundary\-Connectivity}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::write\-Boundary\-Connectivity (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ std\-::vector$<$ {\bf Node} $\ast$ $>$ $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_ab95b00050cf3841c1b931e04eebe57e1}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_body_a96fe50707a8b0c5bbab8c455789d42f5}{mknix\-::\-Flex\-Body}, and \hyperlink{classmknix_1_1_rigid_body_a60ad96e6110f259021c31568d3a3bcfb}{mknix\-::\-Rigid\-Body}.
+
+\hypertarget{classmknix_1_1_body_ada574d09e98568156185eb7eef398c8f}{\index{mknix\-::\-Body@{mknix\-::\-Body}!write\-Boundary\-Nodes@{write\-Boundary\-Nodes}}
+\index{write\-Boundary\-Nodes@{write\-Boundary\-Nodes}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{write\-Boundary\-Nodes}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::write\-Boundary\-Nodes (
+\begin{DoxyParamCaption}
+\item[{std\-::vector$<$ {\bf Node} $\ast$ $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_ada574d09e98568156185eb7eef398c8f}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_body_a47775d5e09cf56522e914d5d7696a2db}{mknix\-::\-Flex\-Body}, and \hyperlink{classmknix_1_1_rigid_body_ae58c1bff0a98afdd0f4174e1fabd7f0a}{mknix\-::\-Rigid\-Body}.
+
+
+
+\subsubsection{Member Data Documentation}
+\hypertarget{classmknix_1_1_body_abaacc346d058cdabb8d0273b1440e323}{\index{mknix\-::\-Body@{mknix\-::\-Body}!boundary@{boundary}}
+\index{boundary@{boundary}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{boundary}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<${\bf Node}$\ast$,{\bf Node}$\ast$$>$ mknix\-::\-Body\-::boundary\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_body_abaacc346d058cdabb8d0273b1440e323}
+Map of linear boundary. \hypertarget{classmknix_1_1_body_afa538e2bc24cd6623e63b44704037a73}{\index{mknix\-::\-Body@{mknix\-::\-Body}!cells@{cells}}
+\index{cells@{cells}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{cells}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int,{\bf Cell}$\ast$$>$ mknix\-::\-Body\-::cells\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_body_afa538e2bc24cd6623e63b44704037a73}
+Map of integration cells. \hypertarget{classmknix_1_1_body_abf69d9fd5ede2c511d85c5d644902c6e}{\index{mknix\-::\-Body@{mknix\-::\-Body}!local\-Mass\-Matrix@{local\-Mass\-Matrix}}
+\index{local\-Mass\-Matrix@{local\-Mass\-Matrix}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{local\-Mass\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ mknix\-::\-Body\-::local\-Mass\-Matrix\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_body_abf69d9fd5ede2c511d85c5d644902c6e}
+\hypertarget{classmknix_1_1_body_a3393da3459cbf7b35ee3dedb982180bf}{\index{mknix\-::\-Body@{mknix\-::\-Body}!nodes@{nodes}}
+\index{nodes@{nodes}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{nodes}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Node}$\ast$$>$ mknix\-::\-Body\-::nodes\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_body_a3393da3459cbf7b35ee3dedb982180bf}
+\hypertarget{classmknix_1_1_body_a3c05cdff2d5f2b150046cd734d0ed7ce}{\index{mknix\-::\-Body@{mknix\-::\-Body}!title@{title}}
+\index{title@{title}!mknix::Body@{mknix\-::\-Body}}
+\paragraph[{title}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mknix\-::\-Body\-::title\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_body_a3c05cdff2d5f2b150046cd734d0ed7ce}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{body_8h}{body.\-h}\item 
+\hyperlink{body_8cpp}{body.\-cpp}\end{DoxyCompactItemize}

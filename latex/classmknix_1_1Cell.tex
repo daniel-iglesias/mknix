@@ -1,0 +1,173 @@
+\hypertarget{classmknix_1_1Cell}{
+\section{mknix::Cell Class Reference}
+\label{classmknix_1_1Cell}\index{mknix::Cell@{mknix::Cell}}
+}
+{\tt \#include $<$cell.h$>$}
+
+Inheritance diagram for mknix::Cell:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=400pt]{classmknix_1_1Cell__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for mknix::Cell:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=400pt]{classmknix_1_1Cell__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{classmknix_1_1Cell_388c9370182f98c5bb06e81c1b11b4b3}{
+\textbf{Cell} (\hyperlink{classmknix_1_1Material}{Material} \&, double, int)}
+\label{classmknix_1_1Cell_388c9370182f98c5bb06e81c1b11b4b3}
+
+\item 
+\hypertarget{classmknix_1_1Cell_d187b0ab3e1965166bff48711ee9d223}{
+virtual void \textbf{initialize} (std::vector$<$ \hyperlink{classmknix_1_1Node}{Node} $\ast$ $>$ \&)=0}
+\label{classmknix_1_1Cell_d187b0ab3e1965166bff48711ee9d223}
+
+\item 
+\hypertarget{classmknix_1_1Cell_6772f09fe6965faff4b53486b09f7235}{
+virtual void \textbf{computeShapeFunctions} ()}
+\label{classmknix_1_1Cell_6772f09fe6965faff4b53486b09f7235}
+
+\item 
+\hypertarget{classmknix_1_1Cell_32a01eb5f854fc23353c0eb64b65e2da}{
+void \textbf{computeMGaussPoints} ()}
+\label{classmknix_1_1Cell_32a01eb5f854fc23353c0eb64b65e2da}
+
+\item 
+\hypertarget{classmknix_1_1Cell_0b44063103766cd26b0411156c6d6004}{
+void \textbf{assembleMGaussPoints} (lmx::Matrix$<$ data\_\-type $>$ \&)}
+\label{classmknix_1_1Cell_0b44063103766cd26b0411156c6d6004}
+
+\item 
+\hypertarget{classmknix_1_1Cell_1c3123f613acd57332a6e84dc3736b86}{
+void \textbf{computeFintGaussPoints} ()}
+\label{classmknix_1_1Cell_1c3123f613acd57332a6e84dc3736b86}
+
+\item 
+\hypertarget{classmknix_1_1Cell_84014b9ed9c8a49c604f4ddb91b524fe}{
+void \textbf{computeNLFintGaussPoints} ()}
+\label{classmknix_1_1Cell_84014b9ed9c8a49c604f4ddb91b524fe}
+
+\item 
+\hypertarget{classmknix_1_1Cell_1bf285b7dd7f06ece2f92e2b4389d6f5}{
+void \textbf{assembleFintGaussPoints} (lmx::Vector$<$ data\_\-type $>$ \&)}
+\label{classmknix_1_1Cell_1bf285b7dd7f06ece2f92e2b4389d6f5}
+
+\item 
+\hypertarget{classmknix_1_1Cell_19b4ed719612fe2e0043d0cebcbe1537}{
+void \textbf{computeFextGaussPoints} ()}
+\label{classmknix_1_1Cell_19b4ed719612fe2e0043d0cebcbe1537}
+
+\item 
+\hypertarget{classmknix_1_1Cell_7c381e6cbcdb2478505645cad57a2c6e}{
+void \textbf{assembleFextGaussPoints} (lmx::Vector$<$ data\_\-type $>$ \&)}
+\label{classmknix_1_1Cell_7c381e6cbcdb2478505645cad57a2c6e}
+
+\item 
+\hypertarget{classmknix_1_1Cell_379600644881412c03608d3d32c36d49}{
+void \textbf{computeKGaussPoints} ()}
+\label{classmknix_1_1Cell_379600644881412c03608d3d32c36d49}
+
+\item 
+\hypertarget{classmknix_1_1Cell_56231c1df8cd13f6b3f04356da6c2955}{
+void \textbf{computeNLKGaussPoints} ()}
+\label{classmknix_1_1Cell_56231c1df8cd13f6b3f04356da6c2955}
+
+\item 
+\hypertarget{classmknix_1_1Cell_8b703b97535562245382523c3702a054}{
+void \textbf{assembleKGaussPoints} (lmx::Matrix$<$ data\_\-type $>$ \&)}
+\label{classmknix_1_1Cell_8b703b97535562245382523c3702a054}
+
+\item 
+\hypertarget{classmknix_1_1Cell_97fdd8bbf158f3b03b1af601177c2585}{
+void \textbf{assembleRGaussPoints} (lmx::Vector$<$ data\_\-type $>$ \&, int)}
+\label{classmknix_1_1Cell_97fdd8bbf158f3b03b1af601177c2585}
+
+\item 
+\hypertarget{classmknix_1_1Cell_f65d528a607f3215d04449551db94dcd}{
+void \textbf{assembleNLRGaussPoints} (lmx::Vector$<$ data\_\-type $>$ \&, int)}
+\label{classmknix_1_1Cell_f65d528a607f3215d04449551db94dcd}
+
+\item 
+\hypertarget{classmknix_1_1Cell_9aba982ff2a54738ec8b38446d333f8d}{
+double \textbf{calcPotentialEGaussPoints} (const lmx::Vector$<$ data\_\-type $>$ \&)}
+\label{classmknix_1_1Cell_9aba982ff2a54738ec8b38446d333f8d}
+
+\item 
+\hypertarget{classmknix_1_1Cell_a0b40b9534a376333490fe73d921e552}{
+double \textbf{calcKineticEGaussPoints} (const lmx::Vector$<$ data\_\-type $>$ \&)}
+\label{classmknix_1_1Cell_a0b40b9534a376333490fe73d921e552}
+
+\item 
+\hypertarget{classmknix_1_1Cell_1b59c56aa8983a27571c6809b03604c5}{
+double \textbf{calcElasticEGaussPoints} ()}
+\label{classmknix_1_1Cell_1b59c56aa8983a27571c6809b03604c5}
+
+\item 
+\hypertarget{classmknix_1_1Cell_345a938d058d10f60d6c302a715290de}{
+virtual void \textbf{gnuplotOut} (std::ofstream \&, std::ofstream \&)=0}
+\label{classmknix_1_1Cell_345a938d058d10f60d6c302a715290de}
+
+\item 
+\hypertarget{classmknix_1_1Cell_9dc3873b837d37c3843c33e5e6538f1c}{
+void \textbf{gnuplotOutTension} (std::ofstream \&)}
+\label{classmknix_1_1Cell_9dc3873b837d37c3843c33e5e6538f1c}
+
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+\hypertarget{classmknix_1_1Cell_83ca13ff89196b3ab378d2a28820a08e}{
+\hyperlink{classmknix_1_1Material}{Material} $\ast$ \textbf{mat}}
+\label{classmknix_1_1Cell_83ca13ff89196b3ab378d2a28820a08e}
+
+\item 
+\hypertarget{classmknix_1_1Cell_79afef7ecbdfee69e687bb2e7559520b}{
+double \textbf{alpha}}
+\label{classmknix_1_1Cell_79afef7ecbdfee69e687bb2e7559520b}
+
+\item 
+int \hyperlink{classmknix_1_1Cell_7d406d6e6f58c14da07387723986ae38}{nGPoints}
+\item 
+\hypertarget{classmknix_1_1Cell_980ae62ad7e6dda296257455ee173f86}{
+std::vector$<$ \hyperlink{classmknix_1_1GaussPoint}{GaussPoint} $\ast$ $>$ \textbf{gPoints}}
+\label{classmknix_1_1Cell_980ae62ad7e6dda296257455ee173f86}
+
+\item 
+\hypertarget{classmknix_1_1Cell_4922bf34ba543606a8d9c5ca4847b589}{
+double \textbf{jacobian}}
+\label{classmknix_1_1Cell_4922bf34ba543606a8d9c5ca4847b589}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{Desc}
+\item[Author:]Daniel Iglesias \end{Desc}
+
+
+Definition at line 26 of file cell.h.
+
+\subsection{Member Data Documentation}
+\hypertarget{classmknix_1_1Cell_7d406d6e6f58c14da07387723986ae38}{
+\index{mknix::Cell@{mknix::Cell}!nGPoints@{nGPoints}}
+\index{nGPoints@{nGPoints}!mknix::Cell@{mknix::Cell}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}int {\bf mknix::Cell::nGPoints}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classmknix_1_1Cell_7d406d6e6f58c14da07387723986ae38}
+
+
+number of Gauss Points 
+
+Definition at line 30 of file cell.h.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/\hyperlink{cell_8h}{cell.h}\item 
+src/cell.cpp\end{CompactItemize}

@@ -1,0 +1,1316 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="db/d0b/classmknix_1_1_simulation" kind="class" prot="public">
+    <compoundname>mknix::Simulation</compoundname>
+    <includes refid="dd/d6a/simulation_8h" local="no">simulation.h</includes>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="db/d0b/classmknix_1_1_simulation_1a35cb182752752c74a30050705acc3c06" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class Reader</definition>
+        <argsstring></argsstring>
+        <name>Reader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="41" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="41" bodyend="-1"/>
+        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a5ca9b93b996142dc843eba322b6f81fb" compoundref="d2/d93/simulation_8cpp" startline="63" endline="68">inputFromFile</referencedby>
+      </memberdef>
+      <memberdef kind="friend" id="db/d0b/classmknix_1_1_simulation_1ae164a82e4890f6fbab13f95a18656edf" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class ReaderConstraints</definition>
+        <argsstring></argsstring>
+        <name>ReaderConstraints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="42" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="db/d0b/classmknix_1_1_simulation_1a1150cceac3e81192653459c61f428621" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class ReaderFlex</definition>
+        <argsstring></argsstring>
+        <name>ReaderFlex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="43" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="db/d0b/classmknix_1_1_simulation_1a6a45b3f2d8b6c9e516334b46caf0cbb7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class ReaderRigid</definition>
+        <argsstring></argsstring>
+        <name>ReaderRigid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="44" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="db/d0b/classmknix_1_1_simulation_1a76d4b1c8c6040df20040808941b7e764" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class Contact</definition>
+        <argsstring></argsstring>
+        <name>Contact</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="45" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="45" bodyend="-1"/>
+        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a616f0712431201275269aa05eadb8779" compoundref="d2/d93/simulation_8cpp" startline="71" endline="98">run</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1ad17956845f8ad35ebe14bcc4953fc18b" prot="private" static="no" mutable="no">
+        <type>char</type>
+        <definition>char mknix::Simulation::title[40]</definition>
+        <argsstring>[40]</argsstring>
+        <name>title</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="157" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1aeb9a458b707fc63d6b8c47087ec7dc71" prot="private" static="no" mutable="no">
+        <type><ref refid="d0/d66/classmknix_1_1_reader" kindref="compound">Reader</ref> *</type>
+        <definition>Reader* mknix::Simulation::theReader</definition>
+        <argsstring></argsstring>
+        <name>theReader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="158" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a01b30a8278beb97354f2b2f563e1a992" prot="private" static="no" mutable="no">
+        <type><ref refid="df/dd9/classmknix_1_1_system" kindref="compound">System</ref> *</type>
+        <definition>System* mknix::Simulation::baseSystem</definition>
+        <argsstring></argsstring>
+        <name>baseSystem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="159" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="159" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a0b852427fbe39ab2d1036dee9af90109" prot="private" static="no" mutable="no">
+        <type><ref refid="df/dde/classmknix_1_1_contact" kindref="compound">Contact</ref> *</type>
+        <definition>Contact* mknix::Simulation::theContact</definition>
+        <argsstring></argsstring>
+        <name>theContact</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="160" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="160" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a4974adc268f5288ea01ec1eccf302eba" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="df/d86/classmknix_1_1_analysis" kindref="compound">Analysis</ref> * &gt;</type>
+        <definition>std::vector&lt;Analysis*&gt; mknix::Simulation::analysis</definition>
+        <argsstring></argsstring>
+        <name>analysis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="161" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a2ae528cf72d6a6065d505ae7a3bdaba3" prot="private" static="no" mutable="no">
+        <type>std::map&lt; int, <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> * &gt;</type>
+        <definition>std::map&lt;int,Node*&gt; mknix::Simulation::nodes</definition>
+        <argsstring></argsstring>
+        <name>nodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="162" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="162" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a598461e6aa402f201036662121b88064" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> * &gt;</type>
+        <definition>std::vector&lt;Node*&gt; mknix::Simulation::groundNodes</definition>
+        <argsstring></argsstring>
+        <name>groundNodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="163" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a737ef17854f152aa8b67a008679bf5b6" prot="private" static="no" mutable="no">
+        <type>std::map&lt; int, <ref refid="d6/d4a/classmknix_1_1_material" kindref="compound">Material</ref> &gt;</type>
+        <definition>std::map&lt;int,Material&gt; mknix::Simulation::materials</definition>
+        <argsstring></argsstring>
+        <name>materials</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Map of materials. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="164" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a232440984854e628c62b8c20d963d1a8" prot="private" static="no" mutable="no">
+        <type>lmx::ExactStopwatch *</type>
+        <definition>lmx::ExactStopwatch* mknix::Simulation::globalTimer</definition>
+        <argsstring></argsstring>
+        <name>globalTimer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="166" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="166" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1adf9320f1297980e176242d43b56f60bb" prot="private" static="no" mutable="no">
+        <type>std::ofstream *</type>
+        <definition>std::ofstream* mknix::Simulation::timerFile</definition>
+        <argsstring></argsstring>
+        <name>timerFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="167" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a64c9d9b9e4c8d4bcca0b35d9627d1ba3" prot="private" static="no" mutable="no">
+        <type>std::ofstream *</type>
+        <definition>std::ofstream* mknix::Simulation::configurationFile</definition>
+        <argsstring></argsstring>
+        <name>configurationFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="168" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a5325065be5808420beb48c9d19c01a15" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mknix::Simulation::iterationsNLSolver</definition>
+        <argsstring></argsstring>
+        <name>iterationsNLSolver</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="170" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a815a0f9a2190446f4f7a521cb3e3e414" prot="private" static="no" mutable="no">
+        <type>lmx::Matrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt;</type>
+        <definition>lmx::Matrix&lt;data_type&gt; mknix::Simulation::globalCapacity</definition>
+        <argsstring></argsstring>
+        <name>globalCapacity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="172" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1ae36f7988478c882533fd77362b885db1" prot="private" static="no" mutable="no">
+        <type>lmx::Matrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt;</type>
+        <definition>lmx::Matrix&lt;data_type&gt; mknix::Simulation::globalConductivity</definition>
+        <argsstring></argsstring>
+        <name>globalConductivity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="173" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="173" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a8c0b9801a0c3c77229d87611ce7a5f7f" prot="private" static="no" mutable="no">
+        <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt;</type>
+        <definition>lmx::Vector&lt;data_type&gt; mknix::Simulation::globalRHSHeat</definition>
+        <argsstring></argsstring>
+        <name>globalRHSHeat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="174" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="174" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a241f54da7a2d499db61663077480d914" prot="private" static="no" mutable="no">
+        <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt;</type>
+        <definition>lmx::Vector&lt;data_type&gt; mknix::Simulation::globalExternalHeat</definition>
+        <argsstring></argsstring>
+        <name>globalExternalHeat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="175" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="175" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a4aa04d37e2e0ddbc4806860a83354f3d" prot="private" static="no" mutable="no">
+        <type>lmx::Matrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt;</type>
+        <definition>lmx::Matrix&lt;data_type&gt; mknix::Simulation::globalMass</definition>
+        <argsstring></argsstring>
+        <name>globalMass</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="176" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="176" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a2a7c1c114541b4cd958d92f0c8199401" prot="private" static="no" mutable="no">
+        <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt;</type>
+        <definition>lmx::Vector&lt;data_type&gt; mknix::Simulation::globalRHSForces</definition>
+        <argsstring></argsstring>
+        <name>globalRHSForces</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="177" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1ac1aedb8c1e890bcf319767f737eeb651" prot="private" static="no" mutable="no">
+        <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt;</type>
+        <definition>lmx::Vector&lt;data_type&gt; mknix::Simulation::globalInternalForces</definition>
+        <argsstring></argsstring>
+        <name>globalInternalForces</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="178" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a92bf365415bcaf0c9405db0209ef7619" prot="private" static="no" mutable="no">
+        <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt;</type>
+        <definition>lmx::Vector&lt;data_type&gt; mknix::Simulation::globalExternalForces</definition>
+        <argsstring></argsstring>
+        <name>globalExternalForces</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="179" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1ab074097cd53ad470ccc34b86837641ab" prot="private" static="no" mutable="no">
+        <type>lmx::DenseMatrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt;</type>
+        <definition>lmx::DenseMatrix&lt;data_type&gt; mknix::Simulation::globalSparsePattern</definition>
+        <argsstring></argsstring>
+        <name>globalSparsePattern</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="180" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="180" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1aa9728b4df019a6c7818c2adf4159ffc5" prot="private" static="no" mutable="no">
+        <type>std::ofstream *</type>
+        <definition>std::ofstream* mknix::Simulation::outFile</definition>
+        <argsstring></argsstring>
+        <name>outFile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="182" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="182" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a5381ded938d498b4ba9321f03ee7d5a6" prot="private" static="yes" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Simulation::stepTime</definition>
+        <argsstring></argsstring>
+        <name>stepTime</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="169" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="169" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1ae88868510fdf54271f64693d8e6b5248" prot="private" static="yes" mutable="no">
+        <type>lmx::Vector&lt; double &gt;</type>
+        <definition>lmx::Vector&lt; double &gt; mknix::Simulation::gravity</definition>
+        <argsstring></argsstring>
+        <name>gravity</name>
+        <initializer>= lmx::Vector&lt;double&gt;(3)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="184" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="184" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1ae5057f678d06e7551ed8f1f1a4529354" prot="private" static="yes" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Simulation::alpha</definition>
+        <argsstring></argsstring>
+        <name>alpha</name>
+        <initializer>= 1E4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="185" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="185" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1aaf78bdaf1510deade86716cf558d2535" prot="private" static="yes" mutable="no">
+        <type>int</type>
+        <definition>int mknix::Simulation::dimension</definition>
+        <argsstring></argsstring>
+        <name>dimension</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="186" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="186" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a5b80cd942cc722dbfaab4ba3495a516e" prot="private" static="yes" mutable="no">
+        <type>std::string</type>
+        <definition>std::string mknix::Simulation::contact</definition>
+        <argsstring></argsstring>
+        <name>contact</name>
+        <initializer>= &quot;NONE&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="187" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a0c9b6c73f8f0f0a392353f62f1a1bc0d" prot="private" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool mknix::Simulation::visualization</definition>
+        <argsstring></argsstring>
+        <name>visualization</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="188" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a4e9efd115000d649cc8035f86c056040" prot="private" static="yes" mutable="no">
+        <type>bool</type>
+        <definition>bool mknix::Simulation::outputMatrices</definition>
+        <argsstring></argsstring>
+        <name>outputMatrices</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="189" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a9a40ce16cf3fe5afb8a6795f60eb3b26" prot="private" static="yes" mutable="no">
+        <type>std::string</type>
+        <definition>std::string mknix::Simulation::constraintMethod</definition>
+        <argsstring></argsstring>
+        <name>constraintMethod</name>
+        <initializer>= &quot;PENALTY&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="190" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a30b32d19fe3493d188119a43936a2c49" prot="private" static="yes" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Simulation::epsilon</definition>
+        <argsstring></argsstring>
+        <name>epsilon</name>
+        <initializer>= 1E-5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="191" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="db/d0b/classmknix_1_1_simulation_1a43a1de41b959fba38d26ca3913433c47" prot="private" static="yes" mutable="no">
+        <type>std::string</type>
+        <definition>std::string mknix::Simulation::smoothingType</definition>
+        <argsstring></argsstring>
+        <name>smoothingType</name>
+        <initializer>= &quot;GLOBAL&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="192" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1a8741379faa5cd9695a9dc4f9be3fdc11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Simulation::Simulation</definition>
+        <argsstring>()</argsstring>
+        <name>Simulation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="48" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="39" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1a8ab58ea5b4557c72b2a8f00cb8ef3e75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Simulation::~Simulation</definition>
+        <argsstring>()</argsstring>
+        <name>~Simulation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="50" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="54" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1a5ca9b93b996142dc843eba322b6f81fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Simulation::inputFromFile</definition>
+        <argsstring>(char *)</argsstring>
+        <name>inputFromFile</name>
+        <param>
+          <type>char *</type>
+          <defname>FileIn</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="52" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="63" bodyend="68"/>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a35cb182752752c74a30050705acc3c06" compoundref="dd/d6a/simulation_8h" startline="41">Reader</references>
+        <references refid="d0/d66/classmknix_1_1_reader_1ab8ac24c56853e5101ac4f2a94d172392" compoundref="d7/dff/reader_8cpp" startline="46" endline="178">mknix::Reader::inputFromFile</references>
+        <referencedby refid="d9/d06/mknix_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="d9/d06/mknix_8cpp" startline="33" endline="55">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1a616f0712431201275269aa05eadb8779" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Simulation::run</definition>
+        <argsstring>()</argsstring>
+        <name>run</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="55" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="71" bodyend="98"/>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a76d4b1c8c6040df20040808941b7e764" compoundref="dd/d6a/simulation_8h" startline="45">Contact</references>
+        <references refid="df/dde/classmknix_1_1_contact_1aff0010eaf0d50819b7cc502449443b71" compoundref="de/d37/generalcontact_8cpp" startline="57" endline="124">mknix::Contact::createPoints</references>
+        <references refid="df/dde/classmknix_1_1_contact_1a5334a5c12debb8d064345929201673f6" compoundref="de/d37/generalcontact_8cpp" startline="172" endline="229">mknix::Contact::createPolys</references>
+        <references refid="df/dde/classmknix_1_1_contact_1a3489052672cf092120e096649448eebb" compoundref="de/d37/generalcontact_8cpp" startline="474" endline="499">mknix::Contact::createDrawingObjects</references>
+        <references refid="df/dde/classmknix_1_1_contact_1aac0574d8683e781d6f811c782f9604c8" compoundref="de/d37/generalcontact_8cpp" startline="439" endline="455">mknix::Contact::createDelaunay</references>
+        <references refid="df/dde/classmknix_1_1_contact_1a17e1256371ff92d395ef71e23396b509" compoundref="de/d37/generalcontact_8cpp" startline="501" endline="529">mknix::Contact::createDrawingContactObjects</references>
+        <references refid="df/dde/classmknix_1_1_contact_1a86ab86ad903f956284324fc2fb69e195" compoundref="de/d37/generalcontact_8cpp" startline="532" endline="557">mknix::Contact::drawObjects</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1acef86e75795b95441e06f1055402a43b" compoundref="d2/d93/simulation_8cpp" startline="288" endline="330">writeSystem</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1ae769b1ff16dc5eada23b3aae69da8168" compoundref="d2/d93/simulation_8cpp" startline="100" endline="191">runThermalAnalysis</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a5b02493acba04c0dd6a1450eb2ae548a" compoundref="d2/d93/simulation_8cpp" startline="193" endline="286">runMechanicalAnalysis</references>
+        <referencedby refid="d9/d06/mknix_8cpp_1a0ddf1224851353fc92bfbff6f499fa97" compoundref="d9/d06/mknix_8cpp" startline="33" endline="55">main</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1ae769b1ff16dc5eada23b3aae69da8168" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Simulation::runThermalAnalysis</definition>
+        <argsstring>(Analysis *)</argsstring>
+        <name>runThermalAnalysis</name>
+        <param>
+          <type><ref refid="df/d86/classmknix_1_1_analysis" kindref="compound">Analysis</ref> *</type>
+          <defname>theAnalysis</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="57" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="100" bodyend="191"/>
+        <references refid="df/dd9/classmknix_1_1_system_1a062011eba2b5bd9399705f9e725af4e8" compoundref="d6/df8/system_8cpp" startline="114" endline="131">mknix::System::calcCapacityMatrix</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a354c0df800fe9729c73f7260d76273df" compoundref="d6/df8/system_8cpp" startline="179" endline="197">mknix::System::assembleCapacityMatrix</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a0336b3ae44843b0f48d1490072a6fb5f" compoundref="d6/df8/system_8cpp" startline="133" endline="158">mknix::System::calcConductivityMatrix</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a6345dce07d1da92c969608340be7a604" compoundref="d6/df8/system_8cpp" startline="199" endline="225">mknix::System::assembleConductivityMatrix</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a5d4227d2d500003664587afadecb1081" compoundref="d2/d93/simulation_8cpp" startline="682" endline="698">writeConfStep</references>
+        <references refid="df/d86/classmknix_1_1_analysis_1a6dd7026a22ae11f3eef3dad3be370e70">mknix::Analysis::type</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a22677dbc55080b00290652416ee8bb90" compoundref="d6/df8/system_8cpp" startline="521" endline="546">mknix::System::outputStep</references>
+        <references refid="df/d86/classmknix_1_1_analysis_1a2a02ee6ab0728bc1ab5e6aab010afe87">mknix::Analysis::solve</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" compoundref="dd/d6a/simulation_8h" startline="150" endline="150">getDim</references>
+        <references refid="df/dd9/classmknix_1_1_system_1af08300f28c64abfc4065888a643b4bbf" compoundref="d6/df8/system_8cpp" startline="577" endline="602">mknix::System::outputToFile</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a24b1a9bcb9279bbb2384d2bbf94b157c" compoundref="d6/df8/system_8cpp" startline="491" endline="518">mknix::System::assembleConstraintForces</references>
+        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a616f0712431201275269aa05eadb8779" compoundref="d2/d93/simulation_8cpp" startline="71" endline="98">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1a5b02493acba04c0dd6a1450eb2ae548a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Simulation::runMechanicalAnalysis</definition>
+        <argsstring>(Analysis *)</argsstring>
+        <name>runMechanicalAnalysis</name>
+        <param>
+          <type><ref refid="df/d86/classmknix_1_1_analysis" kindref="compound">Analysis</ref> *</type>
+          <defname>theAnalysis</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="59" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="193" bodyend="286"/>
+        <references refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" compoundref="dd/d6a/simulation_8h" startline="150" endline="150">getDim</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a3da01e379f5c907be67439ae2b0770c8" compoundref="d6/df8/system_8cpp" startline="256" endline="281">mknix::System::calcMassMatrix</references>
+        <references refid="df/dd9/classmknix_1_1_system_1ae7d34bdd8c9c12ba24663f3f2e3ef75c" compoundref="d6/df8/system_8cpp" startline="368" endline="394">mknix::System::assembleMassMatrix</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a2dcf37e480b19ef48aab29e484a68f7d" compoundref="d6/df8/system_8cpp" startline="339" endline="366">mknix::System::calcTangentMatrix</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a4311a423d3a9d7072c0d49031e3bba32" compoundref="d6/df8/system_8cpp" startline="463" endline="488">mknix::System::assembleTangentMatrix</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a5d4227d2d500003664587afadecb1081" compoundref="d2/d93/simulation_8cpp" startline="682" endline="698">writeConfStep</references>
+        <references refid="df/d86/classmknix_1_1_analysis_1a6dd7026a22ae11f3eef3dad3be370e70">mknix::Analysis::type</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a22677dbc55080b00290652416ee8bb90" compoundref="d6/df8/system_8cpp" startline="521" endline="546">mknix::System::outputStep</references>
+        <references refid="df/d86/classmknix_1_1_analysis_1a4e6baab7f63725b4ed816bb3bdbdc1d8" compoundref="d2/d40/analysis_8h" startline="45" endline="45">mknix::Analysis::setEpsilon</references>
+        <references refid="df/d86/classmknix_1_1_analysis_1a2a02ee6ab0728bc1ab5e6aab010afe87">mknix::Analysis::solve</references>
+        <references refid="df/dd9/classmknix_1_1_system_1af08300f28c64abfc4065888a643b4bbf" compoundref="d6/df8/system_8cpp" startline="577" endline="602">mknix::System::outputToFile</references>
+        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a616f0712431201275269aa05eadb8779" compoundref="d2/d93/simulation_8cpp" startline="71" endline="98">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1acef86e75795b95441e06f1055402a43b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Simulation::writeSystem</definition>
+        <argsstring>()</argsstring>
+        <name>writeSystem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="61" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="288" bodyend="330"/>
+        <references refid="df/dd9/classmknix_1_1_system_1a848d086b44d1a4d656cb6357a738188b" compoundref="d6/df8/system_8cpp" startline="38" endline="64">mknix::System::writeRigidBodies</references>
+        <references refid="df/dd9/classmknix_1_1_system_1aa68577edc1818bbe8d4bd9b6f716b5de" compoundref="d6/df8/system_8cpp" startline="66" endline="109">mknix::System::writeFlexBodies</references>
+        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a616f0712431201275269aa05eadb8779" compoundref="d2/d93/simulation_8cpp" startline="71" endline="98">run</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1ae86305b2478ec8fdffe9f4866f9389e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Simulation::staticThermalResidue</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; &amp;residue, lmx::Vector&lt; data_type &gt; &amp;q)</argsstring>
+        <name>staticThermalResidue</name>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>residue</declname>
+        </param>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="63" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="332" bodyend="350"/>
+        <references refid="df/dd9/classmknix_1_1_system_1a0336b3ae44843b0f48d1490072a6fb5f" compoundref="d6/df8/system_8cpp" startline="133" endline="158">mknix::System::calcConductivityMatrix</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a8c01b52d2f2fb7de0ac6e1c64bda81a3" compoundref="d6/df8/system_8cpp" startline="160" endline="177">mknix::System::calcExternalHeat</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a6345dce07d1da92c969608340be7a604" compoundref="d6/df8/system_8cpp" startline="199" endline="225">mknix::System::assembleConductivityMatrix</references>
+        <references refid="df/dd9/classmknix_1_1_system_1aa32a7ce62666f3a93c4448d2f70ccac8" compoundref="d6/df8/system_8cpp" startline="227" endline="253">mknix::System::assembleExternalHeat</references>
+        <referencedby refid="d4/d3e/classmknix_1_1_analysis_thermal_static_1a340001a574c5c2ad92020c6bc8b99602" compoundref="df/d52/analysisthermalstatic_8cpp" startline="31" endline="40">mknix::AnalysisThermalStatic::AnalysisThermalStatic</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1a382593c555de33392bccdcbbdf244737" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Simulation::staticThermalTangent</definition>
+        <argsstring>(lmx::Matrix&lt; data_type &gt; &amp;tangent_in, lmx::Vector&lt; data_type &gt; &amp;q)</argsstring>
+        <name>staticThermalTangent</name>
+        <param>
+          <type>lmx::Matrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>tangent_in</declname>
+        </param>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="67" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="352" bodyend="360"/>
+        <referencedby refid="d4/d3e/classmknix_1_1_analysis_thermal_static_1a340001a574c5c2ad92020c6bc8b99602" compoundref="df/d52/analysisthermalstatic_8cpp" startline="31" endline="40">mknix::AnalysisThermalStatic::AnalysisThermalStatic</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1adc5bcdaba46bc9e5332e7e142dd4558f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mknix::Simulation::staticThermalConvergence</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; &amp;res, lmx::Vector&lt; data_type &gt; &amp;q)</argsstring>
+        <name>staticThermalConvergence</name>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>res</declname>
+        </param>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="71" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="362" bodyend="380"/>
+        <references refid="df/dd9/classmknix_1_1_system_1a477db1887fa5858d2708f50397aa6ebf" compoundref="d6/df8/system_8cpp" startline="605" endline="628">mknix::System::checkAugmented</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a22677dbc55080b00290652416ee8bb90" compoundref="d6/df8/system_8cpp" startline="521" endline="546">mknix::System::outputStep</references>
+        <references refid="df/dd9/classmknix_1_1_system_1afbf67e600535664daa11f57170ce28b1" compoundref="d6/df8/system_8cpp" startline="630" endline="647">mknix::System::clearAugmented</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a9fd95351d7fe3ce2ba1991d6aae6a804" compoundref="d2/d93/simulation_8cpp" startline="665" endline="680">stepTriggered</references>
+        <referencedby refid="d4/d3e/classmknix_1_1_analysis_thermal_static_1a340001a574c5c2ad92020c6bc8b99602" compoundref="df/d52/analysisthermalstatic_8cpp" startline="31" endline="40">mknix::AnalysisThermalStatic::AnalysisThermalStatic</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1a4b2297b6adf5b7c2f0c65bae5ea75f7f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Simulation::dynamicThermalEvaluation</definition>
+        <argsstring>(const lmx::Vector&lt; data_type &gt; &amp;q, lmx::Vector&lt; data_type &gt; &amp;qdot, double time)</argsstring>
+        <name>dynamicThermalEvaluation</name>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>qdot</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="75" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="383" bodyend="406"/>
+        <references refid="df/dd9/classmknix_1_1_system_1a062011eba2b5bd9399705f9e725af4e8" compoundref="d6/df8/system_8cpp" startline="114" endline="131">mknix::System::calcCapacityMatrix</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a0336b3ae44843b0f48d1490072a6fb5f" compoundref="d6/df8/system_8cpp" startline="133" endline="158">mknix::System::calcConductivityMatrix</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a8c01b52d2f2fb7de0ac6e1c64bda81a3" compoundref="d6/df8/system_8cpp" startline="160" endline="177">mknix::System::calcExternalHeat</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a354c0df800fe9729c73f7260d76273df" compoundref="d6/df8/system_8cpp" startline="179" endline="197">mknix::System::assembleCapacityMatrix</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a6345dce07d1da92c969608340be7a604" compoundref="d6/df8/system_8cpp" startline="199" endline="225">mknix::System::assembleConductivityMatrix</references>
+        <references refid="df/dd9/classmknix_1_1_system_1aa32a7ce62666f3a93c4448d2f70ccac8" compoundref="d6/df8/system_8cpp" startline="227" endline="253">mknix::System::assembleExternalHeat</references>
+        <referencedby refid="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a161ebe1ed696232ed05ef778cdcabcb8" compoundref="d0/d09/analysisthermaldynamic_8cpp" startline="31" endline="56">mknix::AnalysisThermalDynamic::AnalysisThermalDynamic</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1abc0f23c897ee438c5cb5c889134ad436" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Simulation::dynamicThermalResidue</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; &amp;residue, const lmx::Vector&lt; data_type &gt; &amp;q, const lmx::Vector&lt; data_type &gt; &amp;qdot, double time)</argsstring>
+        <name>dynamicThermalResidue</name>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>residue</declname>
+        </param>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>qdot</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="80" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="408" bodyend="431"/>
+        <references refid="df/dd9/classmknix_1_1_system_1a8c01b52d2f2fb7de0ac6e1c64bda81a3" compoundref="d6/df8/system_8cpp" startline="160" endline="177">mknix::System::calcExternalHeat</references>
+        <references refid="df/dd9/classmknix_1_1_system_1aa32a7ce62666f3a93c4448d2f70ccac8" compoundref="d6/df8/system_8cpp" startline="227" endline="253">mknix::System::assembleExternalHeat</references>
+        <referencedby refid="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a161ebe1ed696232ed05ef778cdcabcb8" compoundref="d0/d09/analysisthermaldynamic_8cpp" startline="31" endline="56">mknix::AnalysisThermalDynamic::AnalysisThermalDynamic</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1afcf44a0289808f80bf6789a9671c9c55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Simulation::dynamicThermalTangent</definition>
+        <argsstring>(lmx::Matrix&lt; data_type &gt; &amp;tangent_in, const lmx::Vector&lt; data_type &gt; &amp;q, double partial_qdot, double time)</argsstring>
+        <name>dynamicThermalTangent</name>
+        <param>
+          <type>lmx::Matrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>tangent_in</declname>
+        </param>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>partial_qdot</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="86" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="433" bodyend="444"/>
+        <referencedby refid="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a161ebe1ed696232ed05ef778cdcabcb8" compoundref="d0/d09/analysisthermaldynamic_8cpp" startline="31" endline="56">mknix::AnalysisThermalDynamic::AnalysisThermalDynamic</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1ac54cb3aace5dd45148abc3a85766a107" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mknix::Simulation::dynamicThermalConvergence</definition>
+        <argsstring>(const lmx::Vector&lt; data_type &gt; &amp;q, const lmx::Vector&lt; data_type &gt; &amp;qdot, double time)</argsstring>
+        <name>dynamicThermalConvergence</name>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>qdot</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="92" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="446" bodyend="480"/>
+        <references refid="df/dd9/classmknix_1_1_system_1a477db1887fa5858d2708f50397aa6ebf" compoundref="d6/df8/system_8cpp" startline="605" endline="628">mknix::System::checkAugmented</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a22677dbc55080b00290652416ee8bb90" compoundref="d6/df8/system_8cpp" startline="521" endline="546">mknix::System::outputStep</references>
+        <references refid="df/dd9/classmknix_1_1_system_1afbf67e600535664daa11f57170ce28b1" compoundref="d6/df8/system_8cpp" startline="630" endline="647">mknix::System::clearAugmented</references>
+        <referencedby refid="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a161ebe1ed696232ed05ef778cdcabcb8" compoundref="d0/d09/analysisthermaldynamic_8cpp" startline="31" endline="56">mknix::AnalysisThermalDynamic::AnalysisThermalDynamic</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1ace4ce2a959690e14c443b3c6e83c2690" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Simulation::dynamicAcceleration</definition>
+        <argsstring>(const lmx::Vector&lt; data_type &gt; &amp;q, const lmx::Vector&lt; data_type &gt; &amp;qdot, lmx::Vector&lt; data_type &gt; &amp;qddot, double time)</argsstring>
+        <name>dynamicAcceleration</name>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>qdot</declname>
+        </param>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>qddot</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="97" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="483" bodyend="506"/>
+        <references refid="df/dd9/classmknix_1_1_system_1a3da01e379f5c907be67439ae2b0770c8" compoundref="d6/df8/system_8cpp" startline="256" endline="281">mknix::System::calcMassMatrix</references>
+        <references refid="df/dd9/classmknix_1_1_system_1acbc22a9f660d0f818d461934eb0f1193" compoundref="d6/df8/system_8cpp" startline="283" endline="309">mknix::System::calcInternalForces</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a1f8741218772bc4d2b5a61b1ded98bc4" compoundref="d6/df8/system_8cpp" startline="311" endline="337">mknix::System::calcExternalForces</references>
+        <references refid="df/dd9/classmknix_1_1_system_1ae7d34bdd8c9c12ba24663f3f2e3ef75c" compoundref="d6/df8/system_8cpp" startline="368" endline="394">mknix::System::assembleMassMatrix</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a045a56838910627b66dc981205358b78" compoundref="d6/df8/system_8cpp" startline="396" endline="422">mknix::System::assembleInternalForces</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a3f8ef449040805bcc58e3a36a6276888" compoundref="d6/df8/system_8cpp" startline="424" endline="461">mknix::System::assembleExternalForces</references>
+        <referencedby refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a452203e81d27283089fe500b32c7ab55" compoundref="d3/d0b/analysisdynamic_8cpp" startline="31" endline="71">mknix::AnalysisDynamic::AnalysisDynamic</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1ae78bef0d5f80665be4a0c2d926e99973" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Simulation::dynamicResidue</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; &amp;residue, const lmx::Vector&lt; data_type &gt; &amp;q, const lmx::Vector&lt; data_type &gt; &amp;qdot, const lmx::Vector&lt; data_type &gt; &amp;qddot, double time)</argsstring>
+        <name>dynamicResidue</name>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>residue</declname>
+        </param>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>qdot</declname>
+        </param>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>qddot</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="103" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="508" bodyend="546"/>
+        <references refid="df/dd9/classmknix_1_1_system_1acbc22a9f660d0f818d461934eb0f1193" compoundref="d6/df8/system_8cpp" startline="283" endline="309">mknix::System::calcInternalForces</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a1f8741218772bc4d2b5a61b1ded98bc4" compoundref="d6/df8/system_8cpp" startline="311" endline="337">mknix::System::calcExternalForces</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a045a56838910627b66dc981205358b78" compoundref="d6/df8/system_8cpp" startline="396" endline="422">mknix::System::assembleInternalForces</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a3f8ef449040805bcc58e3a36a6276888" compoundref="d6/df8/system_8cpp" startline="424" endline="461">mknix::System::assembleExternalForces</references>
+        <referencedby refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a452203e81d27283089fe500b32c7ab55" compoundref="d3/d0b/analysisdynamic_8cpp" startline="31" endline="71">mknix::AnalysisDynamic::AnalysisDynamic</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1a226a281591cb1b0bac253a3dcce19e5b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Simulation::dynamicTangent</definition>
+        <argsstring>(lmx::Matrix&lt; data_type &gt; &amp;tangent_in, const lmx::Vector&lt; data_type &gt; &amp;q, const lmx::Vector&lt; data_type &gt; &amp;qdot, double partial_qdot, double partial_qddot, double time)</argsstring>
+        <name>dynamicTangent</name>
+        <param>
+          <type>lmx::Matrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>tangent_in</declname>
+        </param>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>qdot</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>partial_qdot</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>partial_qddot</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="110" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="548" bodyend="560"/>
+        <references refid="df/dd9/classmknix_1_1_system_1a2dcf37e480b19ef48aab29e484a68f7d" compoundref="d6/df8/system_8cpp" startline="339" endline="366">mknix::System::calcTangentMatrix</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a4311a423d3a9d7072c0d49031e3bba32" compoundref="d6/df8/system_8cpp" startline="463" endline="488">mknix::System::assembleTangentMatrix</references>
+        <referencedby refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a452203e81d27283089fe500b32c7ab55" compoundref="d3/d0b/analysisdynamic_8cpp" startline="31" endline="71">mknix::AnalysisDynamic::AnalysisDynamic</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1a0bb5d6c4c6eccc35e892b710af40616f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mknix::Simulation::dynamicConvergence</definition>
+        <argsstring>(const lmx::Vector&lt; data_type &gt; &amp;q, const lmx::Vector&lt; data_type &gt; &amp;qdot, const lmx::Vector&lt; data_type &gt; &amp;qddot, double time)</argsstring>
+        <name>dynamicConvergence</name>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>qdot</declname>
+        </param>
+        <param>
+          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>qddot</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="118" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="562" bodyend="600"/>
+        <references refid="df/dd9/classmknix_1_1_system_1a477db1887fa5858d2708f50397aa6ebf" compoundref="d6/df8/system_8cpp" startline="605" endline="628">mknix::System::checkAugmented</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a22677dbc55080b00290652416ee8bb90" compoundref="d6/df8/system_8cpp" startline="521" endline="546">mknix::System::outputStep</references>
+        <references refid="df/dd9/classmknix_1_1_system_1afbf67e600535664daa11f57170ce28b1" compoundref="d6/df8/system_8cpp" startline="630" endline="647">mknix::System::clearAugmented</references>
+        <referencedby refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a452203e81d27283089fe500b32c7ab55" compoundref="d3/d0b/analysisdynamic_8cpp" startline="31" endline="71">mknix::AnalysisDynamic::AnalysisDynamic</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1a1a65d519f553ac9d060c526ae508f152" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Simulation::staticResidue</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; &amp;residue, lmx::Vector&lt; data_type &gt; &amp;q)</argsstring>
+        <name>staticResidue</name>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>residue</declname>
+        </param>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="124" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="603" bodyend="632"/>
+        <references refid="df/dd9/classmknix_1_1_system_1acbc22a9f660d0f818d461934eb0f1193" compoundref="d6/df8/system_8cpp" startline="283" endline="309">mknix::System::calcInternalForces</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a1f8741218772bc4d2b5a61b1ded98bc4" compoundref="d6/df8/system_8cpp" startline="311" endline="337">mknix::System::calcExternalForces</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a045a56838910627b66dc981205358b78" compoundref="d6/df8/system_8cpp" startline="396" endline="422">mknix::System::assembleInternalForces</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a3f8ef449040805bcc58e3a36a6276888" compoundref="d6/df8/system_8cpp" startline="424" endline="461">mknix::System::assembleExternalForces</references>
+        <referencedby refid="db/d8f/classmknix_1_1_analysis_static_1a18cfe64c3b4b6b3f54acc3caa6780e92" compoundref="d4/dce/analysisstatic_8cpp" startline="31" endline="40">mknix::AnalysisStatic::AnalysisStatic</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1a4ec8a62eed31911238142b362f60f43e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Simulation::staticTangent</definition>
+        <argsstring>(lmx::Matrix&lt; data_type &gt; &amp;tangent_in, lmx::Vector&lt; data_type &gt; &amp;q)</argsstring>
+        <name>staticTangent</name>
+        <param>
+          <type>lmx::Matrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>tangent_in</declname>
+        </param>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="128" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="634" bodyend="642"/>
+        <references refid="df/dd9/classmknix_1_1_system_1a2dcf37e480b19ef48aab29e484a68f7d" compoundref="d6/df8/system_8cpp" startline="339" endline="366">mknix::System::calcTangentMatrix</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a4311a423d3a9d7072c0d49031e3bba32" compoundref="d6/df8/system_8cpp" startline="463" endline="488">mknix::System::assembleTangentMatrix</references>
+        <referencedby refid="db/d8f/classmknix_1_1_analysis_static_1a18cfe64c3b4b6b3f54acc3caa6780e92" compoundref="d4/dce/analysisstatic_8cpp" startline="31" endline="40">mknix::AnalysisStatic::AnalysisStatic</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1a3a9b6e1b8cf5a63ad6e3a7d2cce5d171" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool mknix::Simulation::staticConvergence</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; &amp;res, lmx::Vector&lt; data_type &gt; &amp;q)</argsstring>
+        <name>staticConvergence</name>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>res</declname>
+        </param>
+        <param>
+          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="132" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="644" bodyend="662"/>
+        <references refid="df/dd9/classmknix_1_1_system_1a477db1887fa5858d2708f50397aa6ebf" compoundref="d6/df8/system_8cpp" startline="605" endline="628">mknix::System::checkAugmented</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a22677dbc55080b00290652416ee8bb90" compoundref="d6/df8/system_8cpp" startline="521" endline="546">mknix::System::outputStep</references>
+        <references refid="df/dd9/classmknix_1_1_system_1afbf67e600535664daa11f57170ce28b1" compoundref="d6/df8/system_8cpp" startline="630" endline="647">mknix::System::clearAugmented</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a9fd95351d7fe3ce2ba1991d6aae6a804" compoundref="d2/d93/simulation_8cpp" startline="665" endline="680">stepTriggered</references>
+        <referencedby refid="db/d8f/classmknix_1_1_analysis_static_1a18cfe64c3b4b6b3f54acc3caa6780e92" compoundref="d4/dce/analysisstatic_8cpp" startline="31" endline="40">mknix::AnalysisStatic::AnalysisStatic</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1a9fd95351d7fe3ce2ba1991d6aae6a804" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Simulation::stepTriggered</definition>
+        <argsstring>()</argsstring>
+        <name>stepTriggered</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="136" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="665" bodyend="680"/>
+        <references refid="df/dde/classmknix_1_1_contact_1a0a9eb3950c6d13b5241cb8a58d9ad11e" compoundref="de/d37/generalcontact_8cpp" startline="126" endline="170">mknix::Contact::updatePoints</references>
+        <references refid="df/dde/classmknix_1_1_contact_1a1f363d51121555347584e34cd880ef12" compoundref="de/d37/generalcontact_8cpp" startline="231" endline="239">mknix::Contact::updateLines</references>
+        <references refid="df/dde/classmknix_1_1_contact_1acd4f6166d705a7641a84aae19fb0ffb3" compoundref="de/d37/generalcontact_8cpp" startline="457" endline="471">mknix::Contact::updateDelaunay</references>
+        <references refid="df/dde/classmknix_1_1_contact_1a86ab86ad903f956284324fc2fb69e195" compoundref="de/d37/generalcontact_8cpp" startline="532" endline="557">mknix::Contact::drawObjects</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a5d4227d2d500003664587afadecb1081" compoundref="d2/d93/simulation_8cpp" startline="682" endline="698">writeConfStep</references>
+        <referencedby refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a452203e81d27283089fe500b32c7ab55" compoundref="d3/d0b/analysisdynamic_8cpp" startline="31" endline="71">mknix::AnalysisDynamic::AnalysisDynamic</referencedby>
+        <referencedby refid="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a161ebe1ed696232ed05ef778cdcabcb8" compoundref="d0/d09/analysisthermaldynamic_8cpp" startline="31" endline="56">mknix::AnalysisThermalDynamic::AnalysisThermalDynamic</referencedby>
+        <referencedby refid="db/d0b/classmknix_1_1_simulation_1adc5bcdaba46bc9e5332e7e142dd4558f" compoundref="d2/d93/simulation_8cpp" startline="362" endline="380">staticThermalConvergence</referencedby>
+        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a3a9b6e1b8cf5a63ad6e3a7d2cce5d171" compoundref="d2/d93/simulation_8cpp" startline="644" endline="662">staticConvergence</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1a5d4227d2d500003664587afadecb1081" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Simulation::writeConfStep</definition>
+        <argsstring>()</argsstring>
+        <name>writeConfStep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="138" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.cpp" bodystart="682" bodyend="698"/>
+        <referencedby refid="db/d0b/classmknix_1_1_simulation_1ae769b1ff16dc5eada23b3aae69da8168" compoundref="d2/d93/simulation_8cpp" startline="100" endline="191">runThermalAnalysis</referencedby>
+        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a5b02493acba04c0dd6a1450eb2ae548a" compoundref="d2/d93/simulation_8cpp" startline="193" endline="286">runMechanicalAnalysis</referencedby>
+        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a9fd95351d7fe3ce2ba1991d6aae6a804" compoundref="d2/d93/simulation_8cpp" startline="665" endline="680">stepTriggered</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1a7531cdc469c142e3b2d7f4e1738d65c9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>lmx::DenseMatrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+        <definition>lmx::DenseMatrix&lt;data_type&gt;&amp; mknix::Simulation::getSparsePattern</definition>
+        <argsstring>()</argsstring>
+        <name>getSparsePattern</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="140" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="140" bodyend="141"/>
+        <referencedby refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a43c9ab1907cb3cd72f3f4d605d2fa8ae" compoundref="d3/d0b/analysisdynamic_8cpp" startline="79" endline="87">mknix::AnalysisDynamic::solve</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1ae1eca795584573082535d83d0705af29" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>static double mknix::Simulation::getGravity</definition>
+        <argsstring>(int component)</argsstring>
+        <name>getGravity</name>
+        <param>
+          <type>int</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="143" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="143" bodyend="144"/>
+        <referencedby refid="d8/de9/classmknix_1_1_rigid_body_mass_point_1a281842fc7cf1367bbed4c5e477ac8da9" compoundref="dc/d48/bodyrigid0_d_8cpp" startline="82" endline="92">mknix::RigidBodyMassPoint::calcExternalForces</referencedby>
+        <referencedby refid="d6/dd9/classmknix_1_1_rigid_bar_1a4325fbe1df7832ce09bd2bf72b00cf67" compoundref="d5/d29/bodyrigid1_d_8cpp" startline="132" endline="146">mknix::RigidBar::calcExternalForces</referencedby>
+        <referencedby refid="d6/d6d/classmknix_1_1_rigid_body2_d_1a2d1b7d48c98c3e0ef63dc2c975637793" compoundref="dc/d0c/bodyrigid2_d_8cpp" startline="117" endline="131">mknix::RigidBody2D::calcExternalForces</referencedby>
+        <referencedby refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a66bff0110ce5d201875f068050c84c96" compoundref="d0/da1/bodyrigid3_d_8cpp" startline="136" endline="163">mknix::RigidBody3D::calcExternalForces</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a7bfb2560bce7b5eb2ee9e5245e691976" compoundref="df/dfb/gausspoint_8cpp" startline="436" endline="450">mknix::GaussPoint::computeFext</referencedby>
+        <referencedby refid="d0/d66/classmknix_1_1_reader_1ab8ac24c56853e5101ac4f2a94d172392" compoundref="d7/dff/reader_8cpp" startline="46" endline="178">mknix::Reader::inputFromFile</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1ac2dcb63d177765da23658f6a552ad124" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>static double mknix::Simulation::getAlpha</definition>
+        <argsstring>()</argsstring>
+        <name>getAlpha</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="146" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="146" bodyend="146"/>
+        <referencedby refid="d2/dad/classmknix_1_1_reader_constraints_1a6661437710a3faf4792236e7b2bf760f" compoundref="d2/d38/readerconstraints_8cpp" startline="53" endline="216">mknix::ReaderConstraints::readConstraints</referencedby>
+        <referencedby refid="df/de5/classmknix_1_1_reader_rigid_1a1ba28c15299f94ef88eecf51604e8c82" compoundref="d9/d6a/readerrigid_8cpp" startline="49" endline="102">mknix::ReaderRigid::readRigidBodies</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1a916afeb12a5ac4c6abb5eaca2cc52e7b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>static double mknix::Simulation::getTime</definition>
+        <argsstring>()</argsstring>
+        <name>getTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="148" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="148" bodyend="148"/>
+        <referencedby refid="df/d32/classmknix_1_1_thermal_load_1aa0c9087704913f2f675e4dd2da25661a" compoundref="dd/dbf/thermalload_8cpp" startline="52" endline="75">mknix::ThermalLoad::getThermalLoad</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int mknix::Simulation::getDim</definition>
+        <argsstring>()</argsstring>
+        <name>getDim</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="150" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="150" bodyend="150"/>
+        <referencedby refid="d6/d4a/classmknix_1_1_flex_global_galerkin_1a689a56babe9734eb504a9c948b6a3587" compoundref="db/dcf/bodyflexglobalgalerkin_8cpp" startline="170" endline="197">mknix::FlexGlobalGalerkin::assembleMassMatrix</referencedby>
+        <referencedby refid="d6/d4a/classmknix_1_1_flex_global_galerkin_1a031a130b73e3fe0fc862393f94d235cb" compoundref="db/dcf/bodyflexglobalgalerkin_8cpp" startline="240" endline="303">mknix::FlexGlobalGalerkin::outputStep</referencedby>
+        <referencedby refid="d0/d13/classmknix_1_1_rigid_body_1ac20200b40e6e222261bb8257e339d7b4" compoundref="da/d4a/bodyrigid_8cpp" startline="45" endline="67">mknix::RigidBody::assembleMassMatrix</referencedby>
+        <referencedby refid="d0/d13/classmknix_1_1_rigid_body_1a18c7ffa5b9f2d3df008a92f421404fac" compoundref="da/d4a/bodyrigid_8cpp" startline="70" endline="83">mknix::RigidBody::assembleExternalForces</referencedby>
+        <referencedby refid="d0/d13/classmknix_1_1_rigid_body_1a721e9f81cfba9a3d425df36f7cf5ef71" compoundref="da/d4a/bodyrigid_8cpp" startline="98" endline="146">mknix::RigidBody::outputStep</referencedby>
+        <referencedby refid="d6/dd9/classmknix_1_1_rigid_bar_1a3d368a1a10b600179fbb7e901472c301" compoundref="d5/d29/bodyrigid1_d_8cpp" startline="101" endline="130">mknix::RigidBar::calcMassMatrix</referencedby>
+        <referencedby refid="d6/dd9/classmknix_1_1_rigid_bar_1a4325fbe1df7832ce09bd2bf72b00cf67" compoundref="d5/d29/bodyrigid1_d_8cpp" startline="132" endline="146">mknix::RigidBar::calcExternalForces</referencedby>
+        <referencedby refid="d6/d6d/classmknix_1_1_rigid_body2_d_1a9ee8593743364a723107d307c12d8ad1" compoundref="dc/d0c/bodyrigid2_d_8cpp" startline="86" endline="115">mknix::RigidBody2D::calcMassMatrix</referencedby>
+        <referencedby refid="d6/d6d/classmknix_1_1_rigid_body2_d_1a2d1b7d48c98c3e0ef63dc2c975637793" compoundref="dc/d0c/bodyrigid2_d_8cpp" startline="117" endline="131">mknix::RigidBody2D::calcExternalForces</referencedby>
+        <referencedby refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a2bafc82c39bdd654b7577b69170a00ca" compoundref="d0/da1/bodyrigid3_d_8cpp" startline="34" endline="51">mknix::RigidBody3D::RigidBody3D</referencedby>
+        <referencedby refid="da/dd3/classmknix_1_1_constraint_1aca5d35f6ecd8f8f3852c150c7901b890" compoundref="d9/dab/constraint_8cpp" startline="79" endline="103">mknix::Constraint::assembleInternalForces</referencedby>
+        <referencedby refid="da/dd3/classmknix_1_1_constraint_1ac376643d6d73cb3b591ba80aae9f7166" compoundref="d9/dab/constraint_8cpp" startline="106" endline="145">mknix::Constraint::assembleTangentMatrix</referencedby>
+        <referencedby refid="d5/d3b/classmknix_1_1_force_1a6d00b4232959ddd151e239b278423600" compoundref="df/d4d/force_8cpp" startline="30" endline="39">mknix::Force::Force</referencedby>
+        <referencedby refid="db/d1c/classmknix_1_1_load_1a93aeafe41cb8ea7c97ae20b5870c5c9e" compoundref="de/dbc/load_8cpp" startline="36" endline="48">mknix::Load::assembleExternalForces</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1a1c86d8d88d55ab3bfd8dbba79a61743c" compoundref="d7/d70/node_8cpp" startline="134" endline="140">mknix::Node::setx</referencedby>
+        <referencedby refid="db/d0b/classmknix_1_1_simulation_1ae769b1ff16dc5eada23b3aae69da8168" compoundref="d2/d93/simulation_8cpp" startline="100" endline="191">runThermalAnalysis</referencedby>
+        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a5b02493acba04c0dd6a1450eb2ae548a" compoundref="d2/d93/simulation_8cpp" startline="193" endline="286">runMechanicalAnalysis</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1a4f86c458f83403c391f10495dd15f9e9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string mknix::Simulation::getConstraintMethod</definition>
+        <argsstring>()</argsstring>
+        <name>getConstraintMethod</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="152" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="152" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="db/d0b/classmknix_1_1_simulation_1a49263e8630678644836bbba466e6ab4b" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string mknix::Simulation::getSmoothingType</definition>
+        <argsstring>()</argsstring>
+        <name>getSmoothingType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="154" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="154" bodyend="154"/>
+        <referencedby refid="d6/d4a/classmknix_1_1_flex_global_galerkin_1a689a56babe9734eb504a9c948b6a3587" compoundref="db/dcf/bodyflexglobalgalerkin_8cpp" startline="170" endline="197">mknix::FlexGlobalGalerkin::assembleMassMatrix</referencedby>
+        <referencedby refid="d6/d4a/classmknix_1_1_flex_global_galerkin_1a031a130b73e3fe0fc862393f94d235cb" compoundref="db/dcf/bodyflexglobalgalerkin_8cpp" startline="240" endline="303">mknix::FlexGlobalGalerkin::outputStep</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a57e21322f3c898490257853fb2777077" compoundref="df/dfb/gausspoint_8cpp" startline="63" endline="132">mknix::GaussPoint::shapeFunSolve</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a2c7657d7897b22f27427c612b67a2956" compoundref="df/dfb/gausspoint_8cpp" startline="135" endline="168">mknix::GaussPoint::fillBTriangleFE</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a0ea2abbe3c96295050f7cae7601a0713" compoundref="df/dfb/gausspoint_8cpp" startline="171" endline="198">mknix::GaussPoint::fillBTetrahedronFE</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a4ed005e06a27c61eaf650dc841caf897" compoundref="df/dfb/gausspoint_8cpp" startline="332" endline="380">mknix::GaussPoint::computeStress</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a36987660a0561548f737c065d0e7ccfd" compoundref="df/dfb/gausspoint_8cpp" startline="382" endline="418">mknix::GaussPoint::computeNLStress</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" line="39" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/simulation.h" bodystart="39" bodyend="193"/>
+    <listofallmembers>
+      <member refid="db/d0b/classmknix_1_1_simulation_1ae5057f678d06e7551ed8f1f1a4529354" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>alpha</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a4974adc268f5288ea01ec1eccf302eba" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>analysis</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a01b30a8278beb97354f2b2f563e1a992" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>baseSystem</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a64c9d9b9e4c8d4bcca0b35d9627d1ba3" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>configurationFile</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a9a40ce16cf3fe5afb8a6795f60eb3b26" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>constraintMethod</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a5b80cd942cc722dbfaab4ba3495a516e" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>contact</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a76d4b1c8c6040df20040808941b7e764" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>Contact</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1aaf78bdaf1510deade86716cf558d2535" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>dimension</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1ace4ce2a959690e14c443b3c6e83c2690" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>dynamicAcceleration</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a0bb5d6c4c6eccc35e892b710af40616f" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>dynamicConvergence</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1ae78bef0d5f80665be4a0c2d926e99973" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>dynamicResidue</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a226a281591cb1b0bac253a3dcce19e5b" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>dynamicTangent</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1ac54cb3aace5dd45148abc3a85766a107" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>dynamicThermalConvergence</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a4b2297b6adf5b7c2f0c65bae5ea75f7f" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>dynamicThermalEvaluation</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1abc0f23c897ee438c5cb5c889134ad436" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>dynamicThermalResidue</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1afcf44a0289808f80bf6789a9671c9c55" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>dynamicThermalTangent</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a30b32d19fe3493d188119a43936a2c49" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>epsilon</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1ac2dcb63d177765da23658f6a552ad124" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>getAlpha</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a4f86c458f83403c391f10495dd15f9e9" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>getConstraintMethod</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>getDim</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1ae1eca795584573082535d83d0705af29" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>getGravity</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a49263e8630678644836bbba466e6ab4b" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>getSmoothingType</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a7531cdc469c142e3b2d7f4e1738d65c9" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>getSparsePattern</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a916afeb12a5ac4c6abb5eaca2cc52e7b" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>getTime</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a815a0f9a2190446f4f7a521cb3e3e414" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>globalCapacity</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1ae36f7988478c882533fd77362b885db1" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>globalConductivity</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a92bf365415bcaf0c9405db0209ef7619" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>globalExternalForces</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a241f54da7a2d499db61663077480d914" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>globalExternalHeat</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1ac1aedb8c1e890bcf319767f737eeb651" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>globalInternalForces</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a4aa04d37e2e0ddbc4806860a83354f3d" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>globalMass</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a2a7c1c114541b4cd958d92f0c8199401" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>globalRHSForces</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a8c0b9801a0c3c77229d87611ce7a5f7f" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>globalRHSHeat</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1ab074097cd53ad470ccc34b86837641ab" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>globalSparsePattern</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a232440984854e628c62b8c20d963d1a8" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>globalTimer</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1ae88868510fdf54271f64693d8e6b5248" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>gravity</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a598461e6aa402f201036662121b88064" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>groundNodes</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a5ca9b93b996142dc843eba322b6f81fb" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>inputFromFile</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a5325065be5808420beb48c9d19c01a15" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>iterationsNLSolver</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a737ef17854f152aa8b67a008679bf5b6" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>materials</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a2ae528cf72d6a6065d505ae7a3bdaba3" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>nodes</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1aa9728b4df019a6c7818c2adf4159ffc5" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>outFile</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a4e9efd115000d649cc8035f86c056040" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>outputMatrices</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a35cb182752752c74a30050705acc3c06" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>Reader</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1ae164a82e4890f6fbab13f95a18656edf" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>ReaderConstraints</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a1150cceac3e81192653459c61f428621" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>ReaderFlex</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a6a45b3f2d8b6c9e516334b46caf0cbb7" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>ReaderRigid</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a616f0712431201275269aa05eadb8779" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>run</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a5b02493acba04c0dd6a1450eb2ae548a" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>runMechanicalAnalysis</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1ae769b1ff16dc5eada23b3aae69da8168" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>runThermalAnalysis</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a8741379faa5cd9695a9dc4f9be3fdc11" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>Simulation</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a43a1de41b959fba38d26ca3913433c47" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>smoothingType</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a3a9b6e1b8cf5a63ad6e3a7d2cce5d171" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>staticConvergence</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a1a65d519f553ac9d060c526ae508f152" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>staticResidue</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a4ec8a62eed31911238142b362f60f43e" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>staticTangent</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1adc5bcdaba46bc9e5332e7e142dd4558f" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>staticThermalConvergence</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1ae86305b2478ec8fdffe9f4866f9389e2" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>staticThermalResidue</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a382593c555de33392bccdcbbdf244737" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>staticThermalTangent</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a5381ded938d498b4ba9321f03ee7d5a6" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>stepTime</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a9fd95351d7fe3ce2ba1991d6aae6a804" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>stepTriggered</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a0b852427fbe39ab2d1036dee9af90109" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>theContact</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1aeb9a458b707fc63d6b8c47087ec7dc71" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>theReader</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1adf9320f1297980e176242d43b56f60bb" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>timerFile</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1ad17956845f8ad35ebe14bcc4953fc18b" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>title</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a0c9b6c73f8f0f0a392353f62f1a1bc0d" prot="private" virt="non-virtual"><scope>mknix::Simulation</scope><name>visualization</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a5d4227d2d500003664587afadecb1081" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>writeConfStep</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1acef86e75795b95441e06f1055402a43b" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>writeSystem</name></member>
+      <member refid="db/d0b/classmknix_1_1_simulation_1a8ab58ea5b4557c72b2a8f00cb8ef3e75" prot="public" virt="non-virtual"><scope>mknix::Simulation</scope><name>~Simulation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,193 @@
+/***************************************************************************
+ *   Copyright (C) 2005 by Daniel Iglesias                                 *
+ *   diglesiasib@mecanica.upm.es                                           *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU Library General Public License as       *
+ *   published by the Free Software Foundation; either version 2 of the    *
+ *   License, or (at your option) any later version.                       *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU Library General Public     *
+ *   License along with this program; if not, write to the                 *
+ *   Free Software Foundation, Inc.,                                       *
+ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ ***************************************************************************/
+
+#ifndef LMXINTEGRATOR_BDF_H
+#define LMXINTEGRATOR_BDF_H
+
+
+//////////////////////////////////////////// Doxygen file documentation entry:
+    /*!
+      \file lmx_diff_integrator_bdf.h
+      
+      \brief IntegratorBDF class implementation
+
+      Implements BDF integrator class for solving dynamic systems.
+
+      \author Daniel Iglesias Ibï¿½ez
+      
+    */
+//////////////////////////////////////////// Doxygen file documentation (end)
+
+#include<cmath>
+
+#include"lmx_diff_integrator_base_implicit.h"
+#include"lmx_nlsolvers.h"
+
+namespace lmx {
+
+    /**
+    \class IntegratorBDF
+    \brief Template class IntegratorBDF.
+    Gear's BDF integrator implementation for ODE systems.
+    
+    @author Daniel Iglesias Ibáñez.
+    */
+template <class T> class IntegratorBDF : public IntegratorBaseImplicit<T>
+{
+private:
+  int order;
+  T b[5];  /**< Array of method's RHS coefficients.*/
+  T a[5][5];  /**< Array (of arrays) of method's coefficients.*/
+  Configuration<T>* theConfiguration;
+
+public:
+
+  /** Empty constructor. */
+  IntegratorBDF(){}
+
+  /** Standard constructor. */
+  IntegratorBDF(int ord);
+
+  /** Destructor. */
+  ~IntegratorBDF(){}
+
+  /** Initialize integration function. */
+  void initialize( Configuration<T>* );
+//   void initialize(lmx::Vector<T>& q_o, lmx::Vector<T>& qdot_o, T& to, T& h_in);
+
+  /** Advance to next time-step function. */
+  void advance();
+
+  /** Calculates the factor (\partial qdot_n) / (\partial q_n). */
+  double getPartialQdot( )
+  { double temp = (theConfiguration->getTimeSize() > this->order) ?
+        1./ ( theConfiguration->getLastStepSize()*b[order-1] ) :
+        1./ ( theConfiguration->getLastStepSize()*b[theConfiguration->getTimeSize()-2] );
+    cout << " temp_qdot = " <<  temp  << endl;
+    return temp;
+  }
+  
+  /** Calculates the factor (\partial qddot_n) / (\partial q_n). */
+  double getPartialQddot( )
+  { cout << "timesize = " << theConfiguration->getTimeSize() << ", order = " << order << endl;
+    double temp = (theConfiguration->getTimeSize() > this->order) ?
+        1./ ( std::pow( theConfiguration->getLastStepSize()*b[order-1],2. ) ) :
+        1./ ( std::pow( theConfiguration->getLastStepSize()*b[theConfiguration->getTimeSize()-2],2. ) );
+    cout << " temp_qddot = " <<  temp  << endl;
+    return temp;
+  }
+
+};
+
+}; // namespace lmx
+
+/////////////////////////////// Implementation of the methods defined previously
+
+namespace lmx {
+
+  template <class T> IntegratorBDF<T>::IntegratorBDF(int ord) : order(ord)
+  {
+        // order == 1 -> Euler Implicit
+          b[0] = (1.); // b = 1
+          a[0][0] = (1.); // a[0] = 1
+        
+        // order == 2
+          b[1] = (2./3.); // b
+          a[1][0] = (4./3.); // a[0]
+          a[1][1] = (-1./3.); // a[1]
+        
+        // order == 3
+          b[2] = (6./11.); // b
+          a[2][0] = (18./11.); // a[0]
+          a[2][1] = (-9./11.); // a[1]
+          a[2][2] = (2./11.); // a[2]
+        
+        // order == 4
+          b[3] = (12./25.); // b
+          a[3][0] = (48./25.); // a[0]
+          a[3][1] = (-36./25.); // a[1]
+          a[3][2] = (16./25.); // a[2]
+          a[3][3] = (-3./25.); // a[3]
+        
+        // order == 5
+          b[4] = (60./137.); // b
+          a[4][0] = (300./137.); // a[0]
+          a[4][1] = (-300./137.); // a[1]
+          a[4][2] = (200./137.); // a[2]
+          a[4][3] = (-75./137.); // a[3]
+          a[4][4] = (-12./137.); // a[4]
+  }
+
+  template <class T>
+      void IntegratorBDF<T>::initialize( Configuration<T>* configuration_in )
+  {
+    theConfiguration = configuration_in;
+    theConfiguration->setStoredSteps( order+1, order+1, 1 );
+  }
+
+
+  template <class T>
+      void IntegratorBDF<T>::advance( )
+  { int i, j;
+    if( theConfiguration->getTimeSize() > this->order){
+      for ( i = 0; i < theConfiguration->getDiffOrder(); ++i ){
+        theConfiguration->setConf( i+1,
+                                  theConfiguration->getConf(i, 0) * ( 1./ theConfiguration->getLastStepSize()*b[order-1] )
+                                 );
+        //  *q[i+1][0] = *q[i][0] / ( h*b[order-1] );
+        // f{n} = q{n} / ( h*b ) - ...
+        for ( j=0; j < this->order; ++j){
+          theConfiguration->setConf( i+1,
+                                     theConfiguration->getConf( i+1, 0 ) -
+                                       a[order-1][j] * theConfiguration->getConf( i, j+1 ) * ( 1. /
+                                       ( theConfiguration->getLastStepSize() * b[order-1] ) ) );
+          // *q[i+1][0] -= ( a[order-1][j] * (*q[i][j+1]) / (h*b[order-1])
+          // ... - a_j*x_{n-j} / (h*b)
+        }
+        cout << "Derivative order = " << i+1 << ", q_t = " << theConfiguration->getConf( i+1, 0 ) << endl;
+      }
+    }
+    // Si se está arrancando no se puede aplicar el orden completo de integración:
+    else
+    {
+      for ( i = 0; i < theConfiguration->getDiffOrder(); ++i ){
+      theConfiguration->setConf( i+1,
+                                 theConfiguration->getConf(i, 0) * ( 1./ theConfiguration->getLastStepSize()*b[theConfiguration->getTimeSize()-2] )
+                               );
+        //  *q[i+1][0] = *q[i][0] / ( h*b[order-1] );
+        // f{n} = q{n} / ( h*b ) - ...
+        for ( j=0; j < theConfiguration->getTimeSize()-1; ++j){
+          theConfiguration->setConf( i+1,
+                                     theConfiguration->getConf( i+1, 0 ) -
+                                         a[theConfiguration->getTimeSize()-2][j] *
+                                         theConfiguration->getConf( i, j+1 ) * ( 1. /
+                                         ( theConfiguration->getLastStepSize() * b[theConfiguration->getTimeSize()-2] ) ) );
+                                     // *q[i+1][0] -= ( a[step-1][j] * (*q[i][j+1]) / (h*b[step-1])
+        }
+        cout << "Derivative order = " << i+1 << ", q_t = " << theConfiguration->getConf( i+1, 0 ) << endl;
+      }
+
+    }
+  }
+
+}; // namespace lmx
+
+
+#endif

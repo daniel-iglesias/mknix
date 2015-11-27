@@ -1,0 +1,858 @@
+\hypertarget{classmknix_1_1_simulation}{\subsection{mknix\-:\-:Simulation Class Reference}
+\label{classmknix_1_1_simulation}\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}}
+}
+
+
+{\ttfamily \#include $<$simulation.\-h$>$}
+
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmknix_1_1_simulation_a8741379faa5cd9695a9dc4f9be3fdc11}{Simulation} ()
+\item 
+\hyperlink{classmknix_1_1_simulation_a8ab58ea5b4557c72b2a8f00cb8ef3e75}{$\sim$\-Simulation} ()
+\item 
+void \hyperlink{classmknix_1_1_simulation_a5ca9b93b996142dc843eba322b6f81fb}{input\-From\-File} (char $\ast$)
+\item 
+void \hyperlink{classmknix_1_1_simulation_a616f0712431201275269aa05eadb8779}{run} ()
+\item 
+void \hyperlink{classmknix_1_1_simulation_ae769b1ff16dc5eada23b3aae69da8168}{run\-Thermal\-Analysis} (\hyperlink{classmknix_1_1_analysis}{Analysis} $\ast$)
+\item 
+void \hyperlink{classmknix_1_1_simulation_a5b02493acba04c0dd6a1450eb2ae548a}{run\-Mechanical\-Analysis} (\hyperlink{classmknix_1_1_analysis}{Analysis} $\ast$)
+\item 
+void \hyperlink{classmknix_1_1_simulation_acef86e75795b95441e06f1055402a43b}{write\-System} ()
+\item 
+void \hyperlink{classmknix_1_1_simulation_ae86305b2478ec8fdffe9f4866f9389e2}{static\-Thermal\-Residue} (lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&residue, lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&q)
+\item 
+void \hyperlink{classmknix_1_1_simulation_a382593c555de33392bccdcbbdf244737}{static\-Thermal\-Tangent} (lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&tangent\-\_\-in, lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&q)
+\item 
+bool \hyperlink{classmknix_1_1_simulation_adc5bcdaba46bc9e5332e7e142dd4558f}{static\-Thermal\-Convergence} (lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&res, lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&q)
+\item 
+void \hyperlink{classmknix_1_1_simulation_a4b2297b6adf5b7c2f0c65bae5ea75f7f}{dynamic\-Thermal\-Evaluation} (const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&q, lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&qdot, double time)
+\item 
+void \hyperlink{classmknix_1_1_simulation_abc0f23c897ee438c5cb5c889134ad436}{dynamic\-Thermal\-Residue} (lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&residue, const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&q, const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&qdot, double time)
+\item 
+void \hyperlink{classmknix_1_1_simulation_afcf44a0289808f80bf6789a9671c9c55}{dynamic\-Thermal\-Tangent} (lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&tangent\-\_\-in, const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&q, double partial\-\_\-qdot, double time)
+\item 
+bool \hyperlink{classmknix_1_1_simulation_ac54cb3aace5dd45148abc3a85766a107}{dynamic\-Thermal\-Convergence} (const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&q, const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&qdot, double time)
+\item 
+void \hyperlink{classmknix_1_1_simulation_ace4ce2a959690e14c443b3c6e83c2690}{dynamic\-Acceleration} (const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&q, const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&qdot, lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&qddot, double time)
+\item 
+void \hyperlink{classmknix_1_1_simulation_ae78bef0d5f80665be4a0c2d926e99973}{dynamic\-Residue} (lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&residue, const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&q, const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&qdot, const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&qddot, double time)
+\item 
+void \hyperlink{classmknix_1_1_simulation_a226a281591cb1b0bac253a3dcce19e5b}{dynamic\-Tangent} (lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&tangent\-\_\-in, const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&q, const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&qdot, double partial\-\_\-qdot, double partial\-\_\-qddot, double time)
+\item 
+bool \hyperlink{classmknix_1_1_simulation_a0bb5d6c4c6eccc35e892b710af40616f}{dynamic\-Convergence} (const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&q, const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&qdot, const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&qddot, double time)
+\item 
+void \hyperlink{classmknix_1_1_simulation_a1a65d519f553ac9d060c526ae508f152}{static\-Residue} (lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&residue, lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&q)
+\item 
+void \hyperlink{classmknix_1_1_simulation_a4ec8a62eed31911238142b362f60f43e}{static\-Tangent} (lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&tangent\-\_\-in, lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&q)
+\item 
+bool \hyperlink{classmknix_1_1_simulation_a3a9b6e1b8cf5a63ad6e3a7d2cce5d171}{static\-Convergence} (lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&res, lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&q)
+\item 
+void \hyperlink{classmknix_1_1_simulation_a9fd95351d7fe3ce2ba1991d6aae6a804}{step\-Triggered} ()
+\item 
+void \hyperlink{classmknix_1_1_simulation_a5d4227d2d500003664587afadecb1081}{write\-Conf\-Step} ()
+\item 
+lmx\-::\-Dense\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \& \hyperlink{classmknix_1_1_simulation_a7531cdc469c142e3b2d7f4e1738d65c9}{get\-Sparse\-Pattern} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{classmknix_1_1_simulation_ae1eca795584573082535d83d0705af29}{get\-Gravity} (int component)
+\item 
+static double \hyperlink{classmknix_1_1_simulation_ac2dcb63d177765da23658f6a552ad124}{get\-Alpha} ()
+\item 
+static double \hyperlink{classmknix_1_1_simulation_a916afeb12a5ac4c6abb5eaca2cc52e7b}{get\-Time} ()
+\item 
+static int \hyperlink{classmknix_1_1_simulation_adda4efbeb29fecf80bcd8552703bfed4}{get\-Dim} ()
+\item 
+static std\-::string \hyperlink{classmknix_1_1_simulation_a4f86c458f83403c391f10495dd15f9e9}{get\-Constraint\-Method} ()
+\item 
+static std\-::string \hyperlink{classmknix_1_1_simulation_a49263e8630678644836bbba466e6ab4b}{get\-Smoothing\-Type} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classmknix_1_1_simulation_a35cb182752752c74a30050705acc3c06}{Reader}
+\item 
+class \hyperlink{classmknix_1_1_simulation_ae164a82e4890f6fbab13f95a18656edf}{Reader\-Constraints}
+\item 
+class \hyperlink{classmknix_1_1_simulation_a1150cceac3e81192653459c61f428621}{Reader\-Flex}
+\item 
+class \hyperlink{classmknix_1_1_simulation_a6a45b3f2d8b6c9e516334b46caf0cbb7}{Reader\-Rigid}
+\item 
+class \hyperlink{classmknix_1_1_simulation_a76d4b1c8c6040df20040808941b7e764}{Contact}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+A\-U\-T\-H\-O\-R\-S $<$\-M\-A\-I\-L\-S$>$ 
+\end{DoxyAuthor}
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{classmknix_1_1_simulation_a8741379faa5cd9695a9dc4f9be3fdc11}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!Simulation@{Simulation}}
+\index{Simulation@{Simulation}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{Simulation}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Simulation\-::\-Simulation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_a8741379faa5cd9695a9dc4f9be3fdc11}
+\hypertarget{classmknix_1_1_simulation_a8ab58ea5b4557c72b2a8f00cb8ef3e75}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!$\sim$\-Simulation@{$\sim$\-Simulation}}
+\index{$\sim$\-Simulation@{$\sim$\-Simulation}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{$\sim$\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Simulation\-::$\sim$\-Simulation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_a8ab58ea5b4557c72b2a8f00cb8ef3e75}
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classmknix_1_1_simulation_ace4ce2a959690e14c443b3c6e83c2690}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!dynamic\-Acceleration@{dynamic\-Acceleration}}
+\index{dynamic\-Acceleration@{dynamic\-Acceleration}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{dynamic\-Acceleration}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Simulation\-::dynamic\-Acceleration (
+\begin{DoxyParamCaption}
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q, }
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{qdot, }
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{qddot, }
+\item[{double}]{time}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_ace4ce2a959690e14c443b3c6e83c2690}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_ace4ce2a959690e14c443b3c6e83c2690_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_ace4ce2a959690e14c443b3c6e83c2690_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_a0bb5d6c4c6eccc35e892b710af40616f}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!dynamic\-Convergence@{dynamic\-Convergence}}
+\index{dynamic\-Convergence@{dynamic\-Convergence}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{dynamic\-Convergence}]{\setlength{\rightskip}{0pt plus 5cm}bool mknix\-::\-Simulation\-::dynamic\-Convergence (
+\begin{DoxyParamCaption}
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q, }
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{qdot, }
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{qddot, }
+\item[{double}]{time}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_a0bb5d6c4c6eccc35e892b710af40616f}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_a0bb5d6c4c6eccc35e892b710af40616f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_a0bb5d6c4c6eccc35e892b710af40616f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_ae78bef0d5f80665be4a0c2d926e99973}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!dynamic\-Residue@{dynamic\-Residue}}
+\index{dynamic\-Residue@{dynamic\-Residue}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{dynamic\-Residue}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Simulation\-::dynamic\-Residue (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{residue, }
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q, }
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{qdot, }
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{qddot, }
+\item[{double}]{time}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_ae78bef0d5f80665be4a0c2d926e99973}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_ae78bef0d5f80665be4a0c2d926e99973_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{db/d0b/classmknix_1_1_simulation_ae78bef0d5f80665be4a0c2d926e99973_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_a226a281591cb1b0bac253a3dcce19e5b}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!dynamic\-Tangent@{dynamic\-Tangent}}
+\index{dynamic\-Tangent@{dynamic\-Tangent}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{dynamic\-Tangent}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Simulation\-::dynamic\-Tangent (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ \&}]{tangent\-\_\-in, }
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q, }
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{qdot, }
+\item[{double}]{partial\-\_\-qdot, }
+\item[{double}]{partial\-\_\-qddot, }
+\item[{double}]{time}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_a226a281591cb1b0bac253a3dcce19e5b}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_a226a281591cb1b0bac253a3dcce19e5b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{db/d0b/classmknix_1_1_simulation_a226a281591cb1b0bac253a3dcce19e5b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_ac54cb3aace5dd45148abc3a85766a107}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!dynamic\-Thermal\-Convergence@{dynamic\-Thermal\-Convergence}}
+\index{dynamic\-Thermal\-Convergence@{dynamic\-Thermal\-Convergence}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{dynamic\-Thermal\-Convergence}]{\setlength{\rightskip}{0pt plus 5cm}bool mknix\-::\-Simulation\-::dynamic\-Thermal\-Convergence (
+\begin{DoxyParamCaption}
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q, }
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{qdot, }
+\item[{double}]{time}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_ac54cb3aace5dd45148abc3a85766a107}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_ac54cb3aace5dd45148abc3a85766a107_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_ac54cb3aace5dd45148abc3a85766a107_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_a4b2297b6adf5b7c2f0c65bae5ea75f7f}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!dynamic\-Thermal\-Evaluation@{dynamic\-Thermal\-Evaluation}}
+\index{dynamic\-Thermal\-Evaluation@{dynamic\-Thermal\-Evaluation}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{dynamic\-Thermal\-Evaluation}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Simulation\-::dynamic\-Thermal\-Evaluation (
+\begin{DoxyParamCaption}
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q, }
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{qdot, }
+\item[{double}]{time}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_a4b2297b6adf5b7c2f0c65bae5ea75f7f}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_a4b2297b6adf5b7c2f0c65bae5ea75f7f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_a4b2297b6adf5b7c2f0c65bae5ea75f7f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_abc0f23c897ee438c5cb5c889134ad436}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!dynamic\-Thermal\-Residue@{dynamic\-Thermal\-Residue}}
+\index{dynamic\-Thermal\-Residue@{dynamic\-Thermal\-Residue}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{dynamic\-Thermal\-Residue}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Simulation\-::dynamic\-Thermal\-Residue (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{residue, }
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q, }
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{qdot, }
+\item[{double}]{time}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_abc0f23c897ee438c5cb5c889134ad436}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_abc0f23c897ee438c5cb5c889134ad436_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_abc0f23c897ee438c5cb5c889134ad436_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_afcf44a0289808f80bf6789a9671c9c55}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!dynamic\-Thermal\-Tangent@{dynamic\-Thermal\-Tangent}}
+\index{dynamic\-Thermal\-Tangent@{dynamic\-Thermal\-Tangent}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{dynamic\-Thermal\-Tangent}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Simulation\-::dynamic\-Thermal\-Tangent (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ \&}]{tangent\-\_\-in, }
+\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q, }
+\item[{double}]{partial\-\_\-qdot, }
+\item[{double}]{time}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_afcf44a0289808f80bf6789a9671c9c55}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_afcf44a0289808f80bf6789a9671c9c55_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_ac2dcb63d177765da23658f6a552ad124}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!get\-Alpha@{get\-Alpha}}
+\index{get\-Alpha@{get\-Alpha}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{get\-Alpha}]{\setlength{\rightskip}{0pt plus 5cm}static double mknix\-::\-Simulation\-::get\-Alpha (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{classmknix_1_1_simulation_ac2dcb63d177765da23658f6a552ad124}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_ac2dcb63d177765da23658f6a552ad124_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_a4f86c458f83403c391f10495dd15f9e9}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!get\-Constraint\-Method@{get\-Constraint\-Method}}
+\index{get\-Constraint\-Method@{get\-Constraint\-Method}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{get\-Constraint\-Method}]{\setlength{\rightskip}{0pt plus 5cm}static std\-::string mknix\-::\-Simulation\-::get\-Constraint\-Method (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{classmknix_1_1_simulation_a4f86c458f83403c391f10495dd15f9e9}
+\hypertarget{classmknix_1_1_simulation_adda4efbeb29fecf80bcd8552703bfed4}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!get\-Dim@{get\-Dim}}
+\index{get\-Dim@{get\-Dim}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{get\-Dim}]{\setlength{\rightskip}{0pt plus 5cm}static int mknix\-::\-Simulation\-::get\-Dim (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{classmknix_1_1_simulation_adda4efbeb29fecf80bcd8552703bfed4}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_adda4efbeb29fecf80bcd8552703bfed4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_ae1eca795584573082535d83d0705af29}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!get\-Gravity@{get\-Gravity}}
+\index{get\-Gravity@{get\-Gravity}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{get\-Gravity}]{\setlength{\rightskip}{0pt plus 5cm}static double mknix\-::\-Simulation\-::get\-Gravity (
+\begin{DoxyParamCaption}
+\item[{int}]{component}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{classmknix_1_1_simulation_ae1eca795584573082535d83d0705af29}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_ae1eca795584573082535d83d0705af29_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_a49263e8630678644836bbba466e6ab4b}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!get\-Smoothing\-Type@{get\-Smoothing\-Type}}
+\index{get\-Smoothing\-Type@{get\-Smoothing\-Type}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{get\-Smoothing\-Type}]{\setlength{\rightskip}{0pt plus 5cm}static std\-::string mknix\-::\-Simulation\-::get\-Smoothing\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{classmknix_1_1_simulation_a49263e8630678644836bbba466e6ab4b}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_a49263e8630678644836bbba466e6ab4b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_a7531cdc469c142e3b2d7f4e1738d65c9}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!get\-Sparse\-Pattern@{get\-Sparse\-Pattern}}
+\index{get\-Sparse\-Pattern@{get\-Sparse\-Pattern}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{get\-Sparse\-Pattern}]{\setlength{\rightskip}{0pt plus 5cm}lmx\-::\-Dense\-Matrix$<${\bf data\-\_\-type}$>$\& mknix\-::\-Simulation\-::get\-Sparse\-Pattern (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_simulation_a7531cdc469c142e3b2d7f4e1738d65c9}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{db/d0b/classmknix_1_1_simulation_a7531cdc469c142e3b2d7f4e1738d65c9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_a916afeb12a5ac4c6abb5eaca2cc52e7b}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!get\-Time@{get\-Time}}
+\index{get\-Time@{get\-Time}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{get\-Time}]{\setlength{\rightskip}{0pt plus 5cm}static double mknix\-::\-Simulation\-::get\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}}\label{classmknix_1_1_simulation_a916afeb12a5ac4c6abb5eaca2cc52e7b}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_a916afeb12a5ac4c6abb5eaca2cc52e7b_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_a5ca9b93b996142dc843eba322b6f81fb}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!input\-From\-File@{input\-From\-File}}
+\index{input\-From\-File@{input\-From\-File}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{input\-From\-File}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Simulation\-::input\-From\-File (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{File\-In}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_a5ca9b93b996142dc843eba322b6f81fb}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_a5ca9b93b996142dc843eba322b6f81fb_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{db/d0b/classmknix_1_1_simulation_a5ca9b93b996142dc843eba322b6f81fb_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_a616f0712431201275269aa05eadb8779}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!run@{run}}
+\index{run@{run}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{run}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Simulation\-::run (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_a616f0712431201275269aa05eadb8779}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{db/d0b/classmknix_1_1_simulation_a616f0712431201275269aa05eadb8779_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=268pt]{db/d0b/classmknix_1_1_simulation_a616f0712431201275269aa05eadb8779_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_a5b02493acba04c0dd6a1450eb2ae548a}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!run\-Mechanical\-Analysis@{run\-Mechanical\-Analysis}}
+\index{run\-Mechanical\-Analysis@{run\-Mechanical\-Analysis}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{run\-Mechanical\-Analysis}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Simulation\-::run\-Mechanical\-Analysis (
+\begin{DoxyParamCaption}
+\item[{{\bf Analysis} $\ast$}]{the\-Analysis}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_a5b02493acba04c0dd6a1450eb2ae548a}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_a5b02493acba04c0dd6a1450eb2ae548a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_a5b02493acba04c0dd6a1450eb2ae548a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_ae769b1ff16dc5eada23b3aae69da8168}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!run\-Thermal\-Analysis@{run\-Thermal\-Analysis}}
+\index{run\-Thermal\-Analysis@{run\-Thermal\-Analysis}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{run\-Thermal\-Analysis}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Simulation\-::run\-Thermal\-Analysis (
+\begin{DoxyParamCaption}
+\item[{{\bf Analysis} $\ast$}]{the\-Analysis}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_ae769b1ff16dc5eada23b3aae69da8168}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_ae769b1ff16dc5eada23b3aae69da8168_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_ae769b1ff16dc5eada23b3aae69da8168_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_a3a9b6e1b8cf5a63ad6e3a7d2cce5d171}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!static\-Convergence@{static\-Convergence}}
+\index{static\-Convergence@{static\-Convergence}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{static\-Convergence}]{\setlength{\rightskip}{0pt plus 5cm}bool mknix\-::\-Simulation\-::static\-Convergence (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{res, }
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_a3a9b6e1b8cf5a63ad6e3a7d2cce5d171}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_a3a9b6e1b8cf5a63ad6e3a7d2cce5d171_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{db/d0b/classmknix_1_1_simulation_a3a9b6e1b8cf5a63ad6e3a7d2cce5d171_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_a1a65d519f553ac9d060c526ae508f152}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!static\-Residue@{static\-Residue}}
+\index{static\-Residue@{static\-Residue}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{static\-Residue}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Simulation\-::static\-Residue (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{residue, }
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_a1a65d519f553ac9d060c526ae508f152}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_a1a65d519f553ac9d060c526ae508f152_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{db/d0b/classmknix_1_1_simulation_a1a65d519f553ac9d060c526ae508f152_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_a4ec8a62eed31911238142b362f60f43e}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!static\-Tangent@{static\-Tangent}}
+\index{static\-Tangent@{static\-Tangent}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{static\-Tangent}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Simulation\-::static\-Tangent (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ \&}]{tangent\-\_\-in, }
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_a4ec8a62eed31911238142b362f60f43e}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_a4ec8a62eed31911238142b362f60f43e_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=330pt]{db/d0b/classmknix_1_1_simulation_a4ec8a62eed31911238142b362f60f43e_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_adc5bcdaba46bc9e5332e7e142dd4558f}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!static\-Thermal\-Convergence@{static\-Thermal\-Convergence}}
+\index{static\-Thermal\-Convergence@{static\-Thermal\-Convergence}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{static\-Thermal\-Convergence}]{\setlength{\rightskip}{0pt plus 5cm}bool mknix\-::\-Simulation\-::static\-Thermal\-Convergence (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{res, }
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_adc5bcdaba46bc9e5332e7e142dd4558f}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_adc5bcdaba46bc9e5332e7e142dd4558f_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_adc5bcdaba46bc9e5332e7e142dd4558f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_ae86305b2478ec8fdffe9f4866f9389e2}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!static\-Thermal\-Residue@{static\-Thermal\-Residue}}
+\index{static\-Thermal\-Residue@{static\-Thermal\-Residue}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{static\-Thermal\-Residue}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Simulation\-::static\-Thermal\-Residue (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{residue, }
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_ae86305b2478ec8fdffe9f4866f9389e2}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_ae86305b2478ec8fdffe9f4866f9389e2_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_ae86305b2478ec8fdffe9f4866f9389e2_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_a382593c555de33392bccdcbbdf244737}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!static\-Thermal\-Tangent@{static\-Thermal\-Tangent}}
+\index{static\-Thermal\-Tangent@{static\-Thermal\-Tangent}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{static\-Thermal\-Tangent}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Simulation\-::static\-Thermal\-Tangent (
+\begin{DoxyParamCaption}
+\item[{lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ \&}]{tangent\-\_\-in, }
+\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_a382593c555de33392bccdcbbdf244737}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_a382593c555de33392bccdcbbdf244737_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_a9fd95351d7fe3ce2ba1991d6aae6a804}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!step\-Triggered@{step\-Triggered}}
+\index{step\-Triggered@{step\-Triggered}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{step\-Triggered}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Simulation\-::step\-Triggered (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_a9fd95351d7fe3ce2ba1991d6aae6a804}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_a9fd95351d7fe3ce2ba1991d6aae6a804_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_a9fd95351d7fe3ce2ba1991d6aae6a804_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_a5d4227d2d500003664587afadecb1081}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!write\-Conf\-Step@{write\-Conf\-Step}}
+\index{write\-Conf\-Step@{write\-Conf\-Step}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{write\-Conf\-Step}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Simulation\-::write\-Conf\-Step (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_a5d4227d2d500003664587afadecb1081}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_a5d4227d2d500003664587afadecb1081_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_simulation_acef86e75795b95441e06f1055402a43b}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!write\-System@{write\-System}}
+\index{write\-System@{write\-System}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{write\-System}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Simulation\-::write\-System (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_simulation_acef86e75795b95441e06f1055402a43b}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_acef86e75795b95441e06f1055402a43b_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d0b/classmknix_1_1_simulation_acef86e75795b95441e06f1055402a43b_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsubsection{Friends And Related Function Documentation}
+\hypertarget{classmknix_1_1_simulation_a76d4b1c8c6040df20040808941b7e764}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!Contact@{Contact}}
+\index{Contact@{Contact}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{Contact}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Contact}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmknix_1_1_simulation_a76d4b1c8c6040df20040808941b7e764}
+\hypertarget{classmknix_1_1_simulation_a35cb182752752c74a30050705acc3c06}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!Reader@{Reader}}
+\index{Reader@{Reader}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{Reader}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Reader}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmknix_1_1_simulation_a35cb182752752c74a30050705acc3c06}
+\hypertarget{classmknix_1_1_simulation_ae164a82e4890f6fbab13f95a18656edf}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!Reader\-Constraints@{Reader\-Constraints}}
+\index{Reader\-Constraints@{Reader\-Constraints}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{Reader\-Constraints}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Reader\-Constraints}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmknix_1_1_simulation_ae164a82e4890f6fbab13f95a18656edf}
+\hypertarget{classmknix_1_1_simulation_a1150cceac3e81192653459c61f428621}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!Reader\-Flex@{Reader\-Flex}}
+\index{Reader\-Flex@{Reader\-Flex}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{Reader\-Flex}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Reader\-Flex}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmknix_1_1_simulation_a1150cceac3e81192653459c61f428621}
+\hypertarget{classmknix_1_1_simulation_a6a45b3f2d8b6c9e516334b46caf0cbb7}{\index{mknix\-::\-Simulation@{mknix\-::\-Simulation}!Reader\-Rigid@{Reader\-Rigid}}
+\index{Reader\-Rigid@{Reader\-Rigid}!mknix::Simulation@{mknix\-::\-Simulation}}
+\paragraph[{Reader\-Rigid}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Reader\-Rigid}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmknix_1_1_simulation_a6a45b3f2d8b6c9e516334b46caf0cbb7}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{simulation_8h}{simulation.\-h}\item 
+\hyperlink{simulation_8cpp}{simulation.\-cpp}\end{DoxyCompactItemize}

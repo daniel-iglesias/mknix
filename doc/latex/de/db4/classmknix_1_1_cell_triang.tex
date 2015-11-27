@@ -1,0 +1,138 @@
+\hypertarget{classmknix_1_1_cell_triang}{\subsection{mknix\-:\-:Cell\-Triang Class Reference}
+\label{classmknix_1_1_cell_triang}\index{mknix\-::\-Cell\-Triang@{mknix\-::\-Cell\-Triang}}
+}
+
+
+{\ttfamily \#include $<$celltriang.\-h$>$}
+
+
+
+Inheritance diagram for mknix\-:\-:Cell\-Triang\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=186pt]{d9/d69/classmknix_1_1_cell_triang__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mknix\-:\-:Cell\-Triang\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=172pt]{d0/db3/classmknix_1_1_cell_triang__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmknix_1_1_cell_triang_a17a2c3768e9f2aad3a7bfd8041775fb6}{Cell\-Triang} ()
+\item 
+\hyperlink{classmknix_1_1_cell_triang_a419492f1358e31432d6f686ee8ef1609}{Cell\-Triang} (\hyperlink{classmknix_1_1_material}{Material} \&, std\-::string, double, int, \hyperlink{classmknix_1_1_node}{Node} $\ast$, \hyperlink{classmknix_1_1_node}{Node} $\ast$, \hyperlink{classmknix_1_1_node}{Node} $\ast$)
+\item 
+virtual \hyperlink{classmknix_1_1_cell_triang_af0a12b3f4f6106291f3252716c4be025}{$\sim$\-Cell\-Triang} ()
+\item 
+void \hyperlink{classmknix_1_1_cell_triang_a374f66822e2e37d94a2cfe09c5173e8a}{gnuplot\-Out} (std\-::ofstream \&, std\-::ofstream \&)
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classmknix_1_1_cell_triang_a2a2c65fbd2682eba8225473a7dc841f0}{create\-Gauss\-Points} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+cofe\-::\-Tensor\-Rank2$<$ 3, double $>$ \hyperlink{classmknix_1_1_cell_triang_a6f3e6ae0d06cbd4703c073e0860e38ed}{points}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Daniel Iglesias 
+\end{DoxyAuthor}
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{classmknix_1_1_cell_triang_a17a2c3768e9f2aad3a7bfd8041775fb6}{\index{mknix\-::\-Cell\-Triang@{mknix\-::\-Cell\-Triang}!Cell\-Triang@{Cell\-Triang}}
+\index{Cell\-Triang@{Cell\-Triang}!mknix::CellTriang@{mknix\-::\-Cell\-Triang}}
+\paragraph[{Cell\-Triang}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Cell\-Triang\-::\-Cell\-Triang (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_cell_triang_a17a2c3768e9f2aad3a7bfd8041775fb6}
+\hypertarget{classmknix_1_1_cell_triang_a419492f1358e31432d6f686ee8ef1609}{\index{mknix\-::\-Cell\-Triang@{mknix\-::\-Cell\-Triang}!Cell\-Triang@{Cell\-Triang}}
+\index{Cell\-Triang@{Cell\-Triang}!mknix::CellTriang@{mknix\-::\-Cell\-Triang}}
+\paragraph[{Cell\-Triang}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Cell\-Triang\-::\-Cell\-Triang (
+\begin{DoxyParamCaption}
+\item[{{\bf Material} \&}]{material\-\_\-in, }
+\item[{std\-::string}]{formulation\-\_\-in, }
+\item[{double}]{alpha\-\_\-in, }
+\item[{int}]{n\-G\-Points\-\_\-in, }
+\item[{{\bf Node} $\ast$}]{n1\-\_\-in, }
+\item[{{\bf Node} $\ast$}]{n2\-\_\-in, }
+\item[{{\bf Node} $\ast$}]{n3\-\_\-in}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_cell_triang_a419492f1358e31432d6f686ee8ef1609}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{de/db4/classmknix_1_1_cell_triang_a419492f1358e31432d6f686ee8ef1609_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_cell_triang_af0a12b3f4f6106291f3252716c4be025}{\index{mknix\-::\-Cell\-Triang@{mknix\-::\-Cell\-Triang}!$\sim$\-Cell\-Triang@{$\sim$\-Cell\-Triang}}
+\index{$\sim$\-Cell\-Triang@{$\sim$\-Cell\-Triang}!mknix::CellTriang@{mknix\-::\-Cell\-Triang}}
+\paragraph[{$\sim$\-Cell\-Triang}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Cell\-Triang\-::$\sim$\-Cell\-Triang (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_cell_triang_af0a12b3f4f6106291f3252716c4be025}
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classmknix_1_1_cell_triang_a2a2c65fbd2682eba8225473a7dc841f0}{\index{mknix\-::\-Cell\-Triang@{mknix\-::\-Cell\-Triang}!create\-Gauss\-Points@{create\-Gauss\-Points}}
+\index{create\-Gauss\-Points@{create\-Gauss\-Points}!mknix::CellTriang@{mknix\-::\-Cell\-Triang}}
+\paragraph[{create\-Gauss\-Points}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Cell\-Triang\-::create\-Gauss\-Points (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_cell_triang_a2a2c65fbd2682eba8225473a7dc841f0}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{de/db4/classmknix_1_1_cell_triang_a2a2c65fbd2682eba8225473a7dc841f0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_cell_triang_a374f66822e2e37d94a2cfe09c5173e8a}{\index{mknix\-::\-Cell\-Triang@{mknix\-::\-Cell\-Triang}!gnuplot\-Out@{gnuplot\-Out}}
+\index{gnuplot\-Out@{gnuplot\-Out}!mknix::CellTriang@{mknix\-::\-Cell\-Triang}}
+\paragraph[{gnuplot\-Out}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Cell\-Triang\-::gnuplot\-Out (
+\begin{DoxyParamCaption}
+\item[{std\-::ofstream \&}]{data, }
+\item[{std\-::ofstream \&}]{gpdata}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_cell_triang_a374f66822e2e37d94a2cfe09c5173e8a}
+
+
+Implements \hyperlink{classmknix_1_1_cell_a345a938d058d10f60d6c302a715290de}{mknix\-::\-Cell}.
+
+
+
+\subsubsection{Member Data Documentation}
+\hypertarget{classmknix_1_1_cell_triang_a6f3e6ae0d06cbd4703c073e0860e38ed}{\index{mknix\-::\-Cell\-Triang@{mknix\-::\-Cell\-Triang}!points@{points}}
+\index{points@{points}!mknix::CellTriang@{mknix\-::\-Cell\-Triang}}
+\paragraph[{points}]{\setlength{\rightskip}{0pt plus 5cm}cofe\-::\-Tensor\-Rank2$<$3,double$>$ mknix\-::\-Cell\-Triang\-::points\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_cell_triang_a6f3e6ae0d06cbd4703c073e0860e38ed}
+position of vertex points 
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{celltriang_8h}{celltriang.\-h}\item 
+\hyperlink{celltriang_8cpp}{celltriang.\-cpp}\end{DoxyCompactItemize}

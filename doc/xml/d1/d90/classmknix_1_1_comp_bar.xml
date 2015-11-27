@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="d1/d90/classmknix_1_1_comp_bar" kind="class" prot="public">
+    <compoundname>mknix::CompBar</compoundname>
+    <includes refid="d9/d92/compbar_8h" local="no">compbar.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d1/d90/classmknix_1_1_comp_bar_1a3a9db8a4ca32bb2667d2cea8d3c97790" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mknix::CompBar::mat</definition>
+        <argsstring></argsstring>
+        <name>mat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" line="52" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/d90/classmknix_1_1_comp_bar_1acbff7ca8e7fcb48981561a5984029175" prot="private" static="no" mutable="no">
+        <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+        <definition>Node* mknix::CompBar::nodeA</definition>
+        <argsstring></argsstring>
+        <name>nodeA</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" line="53" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/d90/classmknix_1_1_comp_bar_1ab3580aa5b1785bcf40c71db90939bfe2" prot="private" static="no" mutable="no">
+        <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+        <definition>Node* mknix::CompBar::nodeB</definition>
+        <argsstring></argsstring>
+        <name>nodeB</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" line="54" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/d90/classmknix_1_1_comp_bar_1afb9fdd4c86705e4854f12501a2745a71" prot="private" static="no" mutable="no">
+        <type>vtkLineSource *</type>
+        <definition>vtkLineSource* mknix::CompBar::line</definition>
+        <argsstring></argsstring>
+        <name>line</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" line="55" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/d90/classmknix_1_1_comp_bar_1af660acbd8b107014357e19f8c3e185a6" prot="private" static="no" mutable="no">
+        <type>vtkTubeFilter *</type>
+        <definition>vtkTubeFilter* mknix::CompBar::lineTubes</definition>
+        <argsstring></argsstring>
+        <name>lineTubes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" line="56" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/d90/classmknix_1_1_comp_bar_1a4f1d8540f597f534714133291257e78f" prot="private" static="no" mutable="no">
+        <type>vtkPolyDataMapper *</type>
+        <definition>vtkPolyDataMapper* mknix::CompBar::lineMapper</definition>
+        <argsstring></argsstring>
+        <name>lineMapper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" line="57" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d1/d90/classmknix_1_1_comp_bar_1a2cac2407d7134d11497a9ffe8f533fc0" prot="private" static="no" mutable="no">
+        <type>vtkActor *</type>
+        <definition>vtkActor* mknix::CompBar::lineActor</definition>
+        <argsstring></argsstring>
+        <name>lineActor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" line="58" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d1/d90/classmknix_1_1_comp_bar_1ab72db97465fe7f1bfa97204bad5528c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::CompBar::CompBar</definition>
+        <argsstring>()</argsstring>
+        <name>CompBar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" line="39" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/compbar.cpp" bodystart="35" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/d90/classmknix_1_1_comp_bar_1afdb8c9aeaa0ac6aec90075dad6e35c92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::CompBar::CompBar</definition>
+        <argsstring>(int, Node *, Node *)</argsstring>
+        <name>CompBar</name>
+        <param>
+          <type>int</type>
+          <defname>mat_in</defname>
+        </param>
+        <param>
+          <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+          <defname>nodeA_in</defname>
+        </param>
+        <param>
+          <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+          <defname>nodeB_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" line="41" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/compbar.cpp" bodystart="40" bodyend="64"/>
+        <references refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" compoundref="d1/d77/node_8h" startline="52" endline="52">mknix::Node::getx</references>
+        <references refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" compoundref="d1/d77/node_8h" startline="54" endline="54">mknix::Node::gety</references>
+        <references refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" compoundref="d1/d77/node_8h" startline="56" endline="56">mknix::Node::getz</references>
+      </memberdef>
+      <memberdef kind="function" id="d1/d90/classmknix_1_1_comp_bar_1aad258dca0df1e017f189fc743baaf150" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::CompBar::~CompBar</definition>
+        <argsstring>()</argsstring>
+        <name>~CompBar</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" line="43" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/compbar.cpp" bodystart="67" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/d90/classmknix_1_1_comp_bar_1adb7f828038ec2b850d93af242ce29faa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::CompBar::addToRender</definition>
+        <argsstring>(vtkRenderer *)</argsstring>
+        <name>addToRender</name>
+        <param>
+          <type>vtkRenderer *</type>
+          <defname>renderer_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" line="45" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/compbar.cpp" bodystart="84" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/d90/classmknix_1_1_comp_bar_1a8642880b1f8a552dc2e955dcf9f31331" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::CompBar::removeFromRender</definition>
+        <argsstring>(vtkRenderer *)</argsstring>
+        <name>removeFromRender</name>
+        <param>
+          <type>vtkRenderer *</type>
+          <defname>renderer_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" line="47" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/compbar.cpp" bodystart="90" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/d90/classmknix_1_1_comp_bar_1aadfecc285b6aecc94d45df348f1974b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::CompBar::actualizePoints</definition>
+        <argsstring>()</argsstring>
+        <name>actualizePoints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" line="49" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/compbar.cpp" bodystart="72" bodyend="82"/>
+        <references refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" compoundref="d1/d77/node_8h" startline="52" endline="52">mknix::Node::getx</references>
+        <references refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" compoundref="d1/d77/node_8h" startline="54" endline="54">mknix::Node::gety</references>
+        <references refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" compoundref="d1/d77/node_8h" startline="56" endline="56">mknix::Node::getz</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" line="37" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/compbar.h" bodystart="37" bodyend="59"/>
+    <listofallmembers>
+      <member refid="d1/d90/classmknix_1_1_comp_bar_1aadfecc285b6aecc94d45df348f1974b3" prot="public" virt="non-virtual"><scope>mknix::CompBar</scope><name>actualizePoints</name></member>
+      <member refid="d1/d90/classmknix_1_1_comp_bar_1adb7f828038ec2b850d93af242ce29faa" prot="public" virt="non-virtual"><scope>mknix::CompBar</scope><name>addToRender</name></member>
+      <member refid="d1/d90/classmknix_1_1_comp_bar_1ab72db97465fe7f1bfa97204bad5528c3" prot="public" virt="non-virtual"><scope>mknix::CompBar</scope><name>CompBar</name></member>
+      <member refid="d1/d90/classmknix_1_1_comp_bar_1afdb8c9aeaa0ac6aec90075dad6e35c92" prot="public" virt="non-virtual"><scope>mknix::CompBar</scope><name>CompBar</name></member>
+      <member refid="d1/d90/classmknix_1_1_comp_bar_1afb9fdd4c86705e4854f12501a2745a71" prot="private" virt="non-virtual"><scope>mknix::CompBar</scope><name>line</name></member>
+      <member refid="d1/d90/classmknix_1_1_comp_bar_1a2cac2407d7134d11497a9ffe8f533fc0" prot="private" virt="non-virtual"><scope>mknix::CompBar</scope><name>lineActor</name></member>
+      <member refid="d1/d90/classmknix_1_1_comp_bar_1a4f1d8540f597f534714133291257e78f" prot="private" virt="non-virtual"><scope>mknix::CompBar</scope><name>lineMapper</name></member>
+      <member refid="d1/d90/classmknix_1_1_comp_bar_1af660acbd8b107014357e19f8c3e185a6" prot="private" virt="non-virtual"><scope>mknix::CompBar</scope><name>lineTubes</name></member>
+      <member refid="d1/d90/classmknix_1_1_comp_bar_1a3a9db8a4ca32bb2667d2cea8d3c97790" prot="private" virt="non-virtual"><scope>mknix::CompBar</scope><name>mat</name></member>
+      <member refid="d1/d90/classmknix_1_1_comp_bar_1acbff7ca8e7fcb48981561a5984029175" prot="private" virt="non-virtual"><scope>mknix::CompBar</scope><name>nodeA</name></member>
+      <member refid="d1/d90/classmknix_1_1_comp_bar_1ab3580aa5b1785bcf40c71db90939bfe2" prot="private" virt="non-virtual"><scope>mknix::CompBar</scope><name>nodeB</name></member>
+      <member refid="d1/d90/classmknix_1_1_comp_bar_1a8642880b1f8a552dc2e955dcf9f31331" prot="public" virt="non-virtual"><scope>mknix::CompBar</scope><name>removeFromRender</name></member>
+      <member refid="d1/d90/classmknix_1_1_comp_bar_1aad258dca0df1e017f189fc743baaf150" prot="public" virt="non-virtual"><scope>mknix::CompBar</scope><name>~CompBar</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

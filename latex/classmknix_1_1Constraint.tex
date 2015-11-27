@@ -1,0 +1,130 @@
+\hypertarget{classmknix_1_1Constraint}{
+\section{mknix::Constraint Class Reference}
+\label{classmknix_1_1Constraint}\index{mknix::Constraint@{mknix::Constraint}}
+}
+{\tt \#include $<$constraint.h$>$}
+
+Inheritance diagram for mknix::Constraint:\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{classmknix_1_1Constraint_093b4ffce363485f60ba251356ff88d1}{
+\textbf{Constraint} (double \&, std::string \&)}
+\label{classmknix_1_1Constraint_093b4ffce363485f60ba251356ff88d1}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_7f2b34d256d5eec54b34b0440b562ec1}{
+virtual void \textbf{calcPhi} ()=0}
+\label{classmknix_1_1Constraint_7f2b34d256d5eec54b34b0440b562ec1}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_b129143960df2b9459e274275608bcf2}{
+virtual void \textbf{calcPhiq} ()=0}
+\label{classmknix_1_1Constraint_b129143960df2b9459e274275608bcf2}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_73ff21573b5e9c4acda789bd5ac46ea8}{
+virtual void \textbf{calcPhiqq} ()=0}
+\label{classmknix_1_1Constraint_73ff21573b5e9c4acda789bd5ac46ea8}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_00ea21a19168bc3cfd3ba97c6a2be31d}{
+virtual void \textbf{calcInternalForces} ()}
+\label{classmknix_1_1Constraint_00ea21a19168bc3cfd3ba97c6a2be31d}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_9b7594c65aa792ffb56d3a598996a969}{
+virtual void \textbf{calcTangentMatrix} ()}
+\label{classmknix_1_1Constraint_9b7594c65aa792ffb56d3a598996a969}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_ca5d35f6ecd8f8f3852c150c7901b890}{
+virtual void \textbf{assembleInternalForces} (lmx::Vector$<$ data\_\-type $>$ \&)}
+\label{classmknix_1_1Constraint_ca5d35f6ecd8f8f3852c150c7901b890}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_c376643d6d73cb3b591ba80aae9f7166}{
+virtual void \textbf{assembleTangentMatrix} (lmx::Matrix$<$ data\_\-type $>$ \&)}
+\label{classmknix_1_1Constraint_c376643d6d73cb3b591ba80aae9f7166}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_26923b449734b9f11ed5ca2556585dcb}{
+virtual bool \textbf{checkAugmented} ()}
+\label{classmknix_1_1Constraint_26923b449734b9f11ed5ca2556585dcb}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_2e1f0de7e983151fb892468774dcdf12}{
+virtual void \textbf{clearAugmented} ()}
+\label{classmknix_1_1Constraint_2e1f0de7e983151fb892468774dcdf12}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_0e81d924dad26b7b5b0749d4580dd63c}{
+virtual \hyperlink{classmknix_1_1Node}{Node} $\ast$ \textbf{getNode} (int nodeNumber)}
+\label{classmknix_1_1Constraint_0e81d924dad26b7b5b0749d4580dd63c}
+
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+\hypertarget{classmknix_1_1Constraint_5fa3727603b390206e6431141b892517}{
+int \textbf{dim}}
+\label{classmknix_1_1Constraint_5fa3727603b390206e6431141b892517}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_b76845f20e7a29693b9161e09074d55a}{
+double \textbf{alpha}}
+\label{classmknix_1_1Constraint_b76845f20e7a29693b9161e09074d55a}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_b05c0dcc5cc535f4e3bed2fd34ed6d75}{
+std::string \textbf{method}}
+\label{classmknix_1_1Constraint_b05c0dcc5cc535f4e3bed2fd34ed6d75}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_a4aa16e121963acf4c086f63137d4ac1}{
+std::vector$<$ \hyperlink{classmknix_1_1Node}{Node} $\ast$ $>$ \textbf{nodes}}
+\label{classmknix_1_1Constraint_a4aa16e121963acf4c086f63137d4ac1}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_0b0fbbf149c32ce0a9dd6e0c4dd5851e}{
+lmx::Vector$<$ data\_\-type $>$ \textbf{internalForces}}
+\label{classmknix_1_1Constraint_0b0fbbf149c32ce0a9dd6e0c4dd5851e}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_0d3ae52c353e897c96d4b0bd6beae94d}{
+lmx::Matrix$<$ data\_\-type $>$ \textbf{stiffnessMatrix}}
+\label{classmknix_1_1Constraint_0d3ae52c353e897c96d4b0bd6beae94d}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_eee7c3bdd61194e3df0e958ff237040a}{
+std::vector$<$ double $>$ \textbf{lambda}}
+\label{classmknix_1_1Constraint_eee7c3bdd61194e3df0e958ff237040a}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_10e027fc12cb248a49a1ded049f0a161}{
+std::vector$<$ double $>$ \textbf{phi}}
+\label{classmknix_1_1Constraint_10e027fc12cb248a49a1ded049f0a161}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_667ecb78177b06981c30e23cb194b806}{
+std::vector$<$ lmx::Vector$<$ data\_\-type $>$ $>$ \textbf{phi\_\-q}}
+\label{classmknix_1_1Constraint_667ecb78177b06981c30e23cb194b806}
+
+\item 
+\hypertarget{classmknix_1_1Constraint_bcc6bafd4cb222abb5bb0d1a0576a4bb}{
+std::vector$<$ lmx::Matrix$<$ data\_\-type $>$ $>$ \textbf{phi\_\-qq}}
+\label{classmknix_1_1Constraint_bcc6bafd4cb222abb5bb0d1a0576a4bb}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{Desc}
+\item[Author:]AUTHORS $<$MAILS$>$ \end{Desc}
+
+
+Definition at line 33 of file constraint.h.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/constraint.h\item 
+src/constraint.cpp\end{CompactItemize}

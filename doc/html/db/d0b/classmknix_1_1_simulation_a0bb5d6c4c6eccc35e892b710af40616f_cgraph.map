@@ -1,0 +1,5 @@
+<map id="mknix::Simulation::dynamicConvergence" name="mknix::Simulation::dynamicConvergence">
+<area shape="rect" id="node3" href="$df/dd9/classmknix_1_1_system.html#a477db1887fa5858d2708f50397aa6ebf" title="mknix::System::checkAugmented" alt="" coords="203,5,421,35"/>
+<area shape="rect" id="node5" href="$df/dd9/classmknix_1_1_system.html#a22677dbc55080b00290652416ee8bb90" title="mknix::System::outputStep" alt="" coords="221,59,403,88"/>
+<area shape="rect" id="node7" href="$df/dd9/classmknix_1_1_system.html#afbf67e600535664daa11f57170ce28b1" title="mknix::System::clearAugmented" alt="" coords="207,112,417,141"/>
+</map>

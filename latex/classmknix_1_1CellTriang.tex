@@ -1,0 +1,91 @@
+\hypertarget{classmknix_1_1CellTriang}{
+\section{mknix::CellTriang Class Reference}
+\label{classmknix_1_1CellTriang}\index{mknix::CellTriang@{mknix::CellTriang}}
+}
+{\tt \#include $<$celltriang.h$>$}
+
+Inheritance diagram for mknix::CellTriang:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=400pt]{classmknix_1_1CellTriang__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for mknix::CellTriang:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=400pt]{classmknix_1_1CellTriang__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{classmknix_1_1CellTriang_642114215cc1b204e7d47eaf4acdac33}{
+\textbf{CellTriang} (\hyperlink{classmknix_1_1Material}{Material} \&, double, int, double, double, double, double, double, double)}
+\label{classmknix_1_1CellTriang_642114215cc1b204e7d47eaf4acdac33}
+
+\item 
+\hypertarget{classmknix_1_1CellTriang_09b96d01eca58fb69f7f1981ed136723}{
+\textbf{CellTriang} (\hyperlink{classmknix_1_1Material}{Material} \&, double, int, \hyperlink{classmknix_1_1Node}{Node} $\ast$, \hyperlink{classmknix_1_1Node}{Node} $\ast$, \hyperlink{classmknix_1_1Node}{Node} $\ast$)}
+\label{classmknix_1_1CellTriang_09b96d01eca58fb69f7f1981ed136723}
+
+\item 
+\hypertarget{classmknix_1_1CellTriang_722c140e2f0e5b57f57212328dbd9761}{
+virtual void \textbf{initialize} (std::vector$<$ \hyperlink{classmknix_1_1Node}{Node} $\ast$ $>$ \&)}
+\label{classmknix_1_1CellTriang_722c140e2f0e5b57f57212328dbd9761}
+
+\item 
+\hypertarget{classmknix_1_1CellTriang_8a0238310df095b94643ac7003442d4e}{
+virtual void \textbf{computeShapeFunctions} ()}
+\label{classmknix_1_1CellTriang_8a0238310df095b94643ac7003442d4e}
+
+\item 
+\hypertarget{classmknix_1_1CellTriang_374f66822e2e37d94a2cfe09c5173e8a}{
+void \textbf{gnuplotOut} (std::ofstream \&, std::ofstream \&)}
+\label{classmknix_1_1CellTriang_374f66822e2e37d94a2cfe09c5173e8a}
+
+\end{CompactItemize}
+\subsection*{Protected Member Functions}
+\begin{CompactItemize}
+\item 
+\hypertarget{classmknix_1_1CellTriang_ed10e1a88d83ece304fa0b88bc7ab2b3}{
+void \textbf{createGaussPoints} (double \&, double \&, double=0)}
+\label{classmknix_1_1CellTriang_ed10e1a88d83ece304fa0b88bc7ab2b3}
+
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+cofe::TensorRank2$<$ 3, double $>$ \hyperlink{classmknix_1_1CellTriang_6f3e6ae0d06cbd4703c073e0860e38ed}{points}
+\item 
+\hypertarget{classmknix_1_1CellTriang_9e003f8d21f4f2a0f2f6d3212b751993}{
+std::vector$<$ \hyperlink{classmknix_1_1Node}{Node} $\ast$ $>$ \textbf{threeNodes}}
+\label{classmknix_1_1CellTriang_9e003f8d21f4f2a0f2f6d3212b751993}
+
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{Desc}
+\item[Author:]Daniel Iglesias \end{Desc}
+
+
+Definition at line 27 of file celltriang.h.
+
+\subsection{Member Data Documentation}
+\hypertarget{classmknix_1_1CellTriang_6f3e6ae0d06cbd4703c073e0860e38ed}{
+\index{mknix::CellTriang@{mknix::CellTriang}!points@{points}}
+\index{points@{points}!mknix::CellTriang@{mknix::CellTriang}}
+\subsubsection{\setlength{\rightskip}{0pt plus 5cm}cofe::TensorRank2$<$3,double$>$ {\bf mknix::CellTriang::points}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{classmknix_1_1CellTriang_6f3e6ae0d06cbd4703c073e0860e38ed}
+
+
+position of vertex points 
+
+Definition at line 29 of file celltriang.h.
+
+The documentation for this class was generated from the following files:\begin{CompactItemize}
+\item 
+src/\hyperlink{celltriang_8h}{celltriang.h}\item 
+src/celltriang.cpp\end{CompactItemize}

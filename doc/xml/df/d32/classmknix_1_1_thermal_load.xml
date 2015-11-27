@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="df/d32/classmknix_1_1_thermal_load" kind="class" prot="public">
+    <compoundname>mknix::ThermalLoad</compoundname>
+    <includes refid="de/df4/thermalload_8h" local="no">thermalload.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="df/d32/classmknix_1_1_thermal_load_1a96b2bf86fa9a1e4b2543c4c1f822dd0e" prot="protected" static="no" mutable="no">
+        <type>std::map&lt; double, double &gt;</type>
+        <definition>std::map&lt;double, double&gt; mknix::ThermalLoad::srim</definition>
+        <argsstring></argsstring>
+        <name>srim</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/thermalload.h" line="47" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/thermalload.h" bodystart="47" bodyend="-1"/>
+        <referencedby refid="df/d32/classmknix_1_1_thermal_load_1aa285b4200931ad7cd734d7eea28a9cf4" compoundref="dd/dbf/thermalload_8cpp" startline="27" endline="45">ThermalLoad</referencedby>
+        <referencedby refid="df/d32/classmknix_1_1_thermal_load_1aa0c9087704913f2f675e4dd2da25661a" compoundref="dd/dbf/thermalload_8cpp" startline="52" endline="75">getThermalLoad</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="df/d32/classmknix_1_1_thermal_load_1aa285b4200931ad7cd734d7eea28a9cf4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::ThermalLoad::ThermalLoad</definition>
+        <argsstring>()</argsstring>
+        <name>ThermalLoad</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/thermalload.h" line="38" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/thermalload.cpp" bodystart="27" bodyend="45"/>
+        <references refid="df/d32/classmknix_1_1_thermal_load_1a96b2bf86fa9a1e4b2543c4c1f822dd0e" compoundref="de/df4/thermalload_8h" startline="47">srim</references>
+      </memberdef>
+      <memberdef kind="function" id="df/d32/classmknix_1_1_thermal_load_1a6932bfdd9473e55e2182bce35ad0a1bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::ThermalLoad::~ThermalLoad</definition>
+        <argsstring>()</argsstring>
+        <name>~ThermalLoad</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/thermalload.h" line="42" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/thermalload.cpp" bodystart="48" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="df/d32/classmknix_1_1_thermal_load_1aa0c9087704913f2f675e4dd2da25661a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double mknix::ThermalLoad::getThermalLoad</definition>
+        <argsstring>(Point *)</argsstring>
+        <name>getThermalLoad</name>
+        <param>
+          <type><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref> *</type>
+          <defname>thePoint</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/thermalload.h" line="44" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/thermalload.cpp" bodystart="52" bodyend="75"/>
+        <references refid="df/d32/classmknix_1_1_thermal_load_1a96b2bf86fa9a1e4b2543c4c1f822dd0e" compoundref="de/df4/thermalload_8h" startline="47">srim</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a916afeb12a5ac4c6abb5eaca2cc52e7b" compoundref="dd/d6a/simulation_8h" startline="148" endline="148">mknix::Simulation::getTime</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" compoundref="d2/d91/point_8h" startline="55" endline="55">mknix::Point::getX</references>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1abb5b248896056fd76d2e4ec8280a17f5" compoundref="df/dfb/gausspoint_8cpp" startline="242" endline="251">mknix::GaussPoint::computeQext</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/thermalload.h" line="36" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/thermalload.h" bodystart="36" bodyend="48"/>
+    <listofallmembers>
+      <member refid="df/d32/classmknix_1_1_thermal_load_1aa0c9087704913f2f675e4dd2da25661a" prot="public" virt="non-virtual"><scope>mknix::ThermalLoad</scope><name>getThermalLoad</name></member>
+      <member refid="df/d32/classmknix_1_1_thermal_load_1a96b2bf86fa9a1e4b2543c4c1f822dd0e" prot="protected" virt="non-virtual"><scope>mknix::ThermalLoad</scope><name>srim</name></member>
+      <member refid="df/d32/classmknix_1_1_thermal_load_1aa285b4200931ad7cd734d7eea28a9cf4" prot="public" virt="non-virtual"><scope>mknix::ThermalLoad</scope><name>ThermalLoad</name></member>
+      <member refid="df/d32/classmknix_1_1_thermal_load_1a6932bfdd9473e55e2182bce35ad0a1bf" prot="public" virt="non-virtual"><scope>mknix::ThermalLoad</scope><name>~ThermalLoad</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

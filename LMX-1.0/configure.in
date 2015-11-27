@@ -1,0 +1,11 @@
+AC_INIT(configure.in)
+
+AM_CONFIG_HEADER(config.h)
+AM_INIT_AUTOMAKE(LMX, 1.0.6)
+
+AC_LANG_CPLUSPLUS
+AC_PROG_CXX
+AM_PROG_LIBTOOL
+
+AC_OUTPUT(Makefile src/Makefile tests/Makefile src/LMX/Makefile \
+          tests/lapack/Makefile tests/gmm/Makefile)

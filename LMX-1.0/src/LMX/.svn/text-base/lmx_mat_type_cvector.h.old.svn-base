@@ -1,0 +1,248 @@
+/***************************************************************************
+ *   Copyright (C) 2005 by Daniel Iglesias                                 *
+ *   diglesiasib@mecanica.upm.es                                           *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU Library General Public License as       *
+ *   published by the Free Software Foundation; either version 2 of the    *
+ *   License, or (at your option) any later version.                       *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU Library General Public     *
+ *   License along with this program; if not, write to the                 *
+ *   Free Software Foundation, Inc.,                                       *
+ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ ***************************************************************************/
+#ifndef LMXTYPE_CVECTOR_H
+#define LMXTYPE_CVECTOR_H
+
+#include<fstream>
+#include<iostream>
+#include<cstdlib>
+#include"lmx_mat_data_vec.h"
+#include"lmx_mat_aux_getmem.h"
+
+//////////////////////////////////////////// Doxygen file documentation entry:
+    /*!
+      \file type_cvector.h
+      
+      \brief This file contains both the declaration and implementation for type_cVector (dense vector) class member functions.
+      
+      \author Daniel Iglesias Ib�ez
+      
+    */
+//////////////////////////////////////////// Doxygen file documentation (end)
+
+
+namespace lmx {
+
+    /**
+    \class Type_cVector
+    \brief Template class Type_cVector
+    
+    This class implements the methods defined in virtual class data_vec so the c-array style vector can be used in lmx.
+
+    @param contents Corresponds to a plain c-array and it's the base of the methods implemented for this class.
+    
+    @author Daniel Iglesias Ib�ez.
+    */
+template <typename T> class Type_cVector : public Data_vec<T>
+{
+private:
+  /** Matrix data contents */
+  size_type rows;
+  T* contents;
+    
+public:
+    /// Empty constructor.
+  Type_cVector() : rows(0), contents(0)
+  {}
+
+    Type_cVector(size_type, size_type);
+
+    Type_cVector(char*);
+
+    /// Destructor.
+    ~Type_cVector()
+    {
+      getmem(contents, 0);
+    }
+
+  void resize(size_type, size_type);
+
+    /** Read element method.
+      * Implements a method for reading vector's data.
+      * \param ncolumns Column position in dense vector.
+      * \return Value of the element in the position given by the parameter. */
+  T readElement(size_type mrows, size_type ncolumns) const
+   { return contents[mrows]; }
+
+    /** Write element method.
+      * Implements a method for writing data on the dense vector.
+      * \param mrows Row position in dense vector.
+      * \param ncolumns Column position in dense vector.
+      * \param value Numerical type value. */
+  void writeElement(T value, size_type mrows, size_type ncolumns)
+   { contents[mrows] = value; }
+  
+   /** Method for knowing the number of data rows. 
+    * \returns Number of rows.
+    */
+   size_type getRows() const
+   { return rows; }
+
+   /** Method for knowing the number of data columns. 
+    * \returns Number of columns.
+    */
+   size_type getCols() const
+   { return 1; }
+
+    /** Copy method.
+      * Equals the data in the object's contents to those given by the input vector's parameter.
+      * \param vector_in pointer to an object that belongs to a class derived from Data. */
+  void equals(const Data<T>* vector_in)
+  { for (size_type i=0; i<rows; ++i){
+      contents[i] = vector_in->readElement(i,1);
+    }
+  }
+
+    /** Add method.
+      * Adds the the input vector parameter's elements to the object's contents.
+      * Necessary for overloading the "+=" operator.
+      * \param vector_in_1 pointer to an object that belongs to a class derived from Data. */
+  void add(const Data<T>* vector_in)
+  { for (size_type i=0; i<rows; ++i){
+      contents[i] += vector_in->readElement(i,1);
+    }
+  }
+
+
+    /** Substract method.
+      * Substracts the the input vector parameter's elements to the object's contents.
+      * Necessary for overloading the "-=" operator.
+      * \param vector_in_1 pointer to an object that belongs to a class derived from Data. */
+  void substract(const Data<T>* vector_in)
+  { for (size_type i=0; i<rows; ++i){
+      contents[i] -= vector_in->readElement(i,1);
+    }
+  }
+
+
+    /** Multiply scalar method.
+      * Multiplies the object's vector (contents) with a scalar.
+      * Necessary for overloading the "*" operator.
+      * \param scalar A scalar factor of template's class. */
+   void multiplyScalar(const T& scalar)
+   { for (size_type i=0; i<rows; ++i){
+      contents[i] *= scalar;
+    }
+   }
+
+  /** Method multiplying element-by-element of two arrays. One would be the object's contents and the other the parameter's contents.
+   * Necessary for implementing  Vector to Vector multElem.
+   * \param vector_in pointer to an object that belongs to a class derived from Data.
+   */
+   void multiplyElements(const Data<T>* vector_in)
+   {
+     for (size_type i=0; i<rows; ++i)
+       contents[i] *= vector_in->readElement(i,1);
+   }
+
+
+//    void trn()
+//    { } // Can't transpose a vector. 
+
+
+   void cleanBelow(const double factor)
+   { for (size_type i=0; i<rows; ++i){
+      if (contents[i] < factor) contents[i] = 0.;
+    }
+   }
+
+
+   /** Read data method.
+   * Opens the file specified and reads the vector's data in it.
+   * 
+   * @param input_file Name of the file to be read.
+   */
+  void read_data_file(const char* input_file)
+  { 
+    std::ifstream file_input(input_file); /* New stream for reading data from file. */
+    
+    char file_type[100]; /* Array for storing file type. */
+    char crap[100]; /* Array for temporary storing data not to be used. */
+    T temp; /* Class T variable for temporary storing vector's values. */
+    size_type rows; /* Variable for storing number of rows of file's vector. */
+
+//     file_input >> file_type;
+
+//     if (!strcmp(file_type,"%%MatrixMarket")) {
+//       file_input.getline(crap,99);
+//     }
+
+    if (file_input >> rows);
+    else file_input.getline(crap,99);
+
+    this->resize(rows, 1);
+
+    for(int i=0; i<rows ; ++i) {
+        file_input >> temp;
+        contents[i] = temp;
+
+    }
+    file_input.close();
+
+  }
+
+  
+
+  /** Data pointer method
+   * Gives the direction in memory of (pointer to) the object.
+   * @return A pointer to the vector's contents (Type_cVector).
+   */
+  T* data_pointer()
+  {return &(this->contents);}
+
+  friend void lmx::mat_vec_mult<>( const Type_csc<T>*,
+                                    const Type_cVector<T>*,
+                                          Type_cVector<T>*);
+
+}; // End class Type_cVector definitions.
+
+  ////////////////////////////////////////////////
+  // Implementing the methods defined previously:
+
+    /** Standard constructor.
+      * Creates a new object with parameter contents resized to (columns) dimension.
+      * \param columns Columns of dense cVector. */
+  template <typename T> Type_cVector<T>::Type_cVector(size_type mrows, size_type columns) : Data<T>(), contents(0)
+    {
+      getmem(contents, mrows);
+      rows = mrows;
+    }
+
+    /** Constructor from a data file.
+      * Creates a new object reading data from a file.
+      * \param input_file Name of file to read from. */
+  template <typename T> Type_cVector<T>::Type_cVector(char* input_file) : Data<T>(), contents(0)
+     {
+       read_data_file(input_file);
+     }
+
+    /** Resize method.
+      * Changes the size of the contents parameter.
+      * \param ncolumns New value for vector's columns. */
+  template <typename T> void Type_cVector<T>::resize(size_type mrows, size_type ncolumns)
+  { getmem(contents, mrows);
+    rows = mrows;
+  }
+
+
+}; // namespace lmx
+
+
+#endif

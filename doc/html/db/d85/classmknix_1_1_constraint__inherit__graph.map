@@ -1,0 +1,7 @@
+<map id="mknix::Constraint" name="mknix::Constraint">
+<area shape="rect" id="node3" href="$d2/d2c/classmknix_1_1_constraint_clearance.html" title="mknix::ConstraintClearance" alt="" coords="200,5,384,35"/>
+<area shape="rect" id="node5" href="$d8/d6a/classmknix_1_1_constraint_contact.html" title="mknix::ConstraintContact" alt="" coords="207,59,377,88"/>
+<area shape="rect" id="node7" href="$d7/de2/classmknix_1_1_constraint_distance.html" title="mknix::ConstraintDistance" alt="" coords="204,112,380,141"/>
+<area shape="rect" id="node9" href="$d7/dcd/classmknix_1_1_constraint_fixed_axis.html" title="mknix::ConstraintFixedAxis" alt="" coords="201,165,383,195"/>
+<area shape="rect" id="node11" href="$de/dda/classmknix_1_1_constraint_fixed_coordinates.html" title="mknix::ConstraintFixedCoordinates" alt="" coords="179,219,405,248"/>
+</map>

@@ -1,0 +1,890 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="d3/d19/classmknix_1_1_point" kind="class" prot="public">
+    <compoundname>mknix::Point</compoundname>
+    <derivedcompoundref refid="d2/da4/classmknix_1_1_gauss_point" prot="public" virt="non-virtual">mknix::GaussPoint</derivedcompoundref>
+    <derivedcompoundref refid="d3/d25/classmknix_1_1_node" prot="public" virt="non-virtual">mknix::Node</derivedcompoundref>
+    <includes refid="d2/d91/point_8h" local="no">point.h</includes>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="d3/d19/classmknix_1_1_point_1a49d4fb4846aabd1919c5358170ff9da7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class GaussPoint</definition>
+        <argsstring></argsstring>
+        <name>GaussPoint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="37" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="d3/d19/classmknix_1_1_point_1a65b2654dc4464f92687e22eb5a247f20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class ShapeFunction</definition>
+        <argsstring></argsstring>
+        <name>ShapeFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="38" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="friend" id="d3/d19/classmknix_1_1_point_1ad76d1b525e65d47484187892160efd74" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class ShapeFunctionRBF</definition>
+        <argsstring></argsstring>
+        <name>ShapeFunctionRBF</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="39" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="39" bodyend="-1"/>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a57e21322f3c898490257853fb2777077" compoundref="df/dfb/gausspoint_8cpp" startline="63" endline="132">mknix::GaussPoint::shapeFunSolve</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a1843d81646fbca9519358eb3c8787e18" compoundref="d5/d55/point_8cpp" startline="160" endline="191">shapeFunSolve</referencedby>
+      </memberdef>
+      <memberdef kind="friend" id="d3/d19/classmknix_1_1_point_1a07440917ac5f62def0ce649ad0066552" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class ShapeFunctionMLS</definition>
+        <argsstring></argsstring>
+        <name>ShapeFunctionMLS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="40" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="40" bodyend="-1"/>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a57e21322f3c898490257853fb2777077" compoundref="df/dfb/gausspoint_8cpp" startline="63" endline="132">mknix::GaussPoint::shapeFunSolve</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a1843d81646fbca9519358eb3c8787e18" compoundref="d5/d55/point_8cpp" startline="160" endline="191">shapeFunSolve</referencedby>
+      </memberdef>
+      <memberdef kind="friend" id="d3/d19/classmknix_1_1_point_1aa3a0c73566e859e80c29b9e691b31451" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class ShapeFunctionTetrahedron</definition>
+        <argsstring></argsstring>
+        <name>ShapeFunctionTetrahedron</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="41" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="41" bodyend="-1"/>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a0ea2abbe3c96295050f7cae7601a0713" compoundref="df/dfb/gausspoint_8cpp" startline="171" endline="198">mknix::GaussPoint::fillBTetrahedronFE</referencedby>
+      </memberdef>
+      <memberdef kind="friend" id="d3/d19/classmknix_1_1_point_1a64bc125443b7c740a25d032c8294c4db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class ShapeFunctionTriangle</definition>
+        <argsstring></argsstring>
+        <name>ShapeFunctionTriangle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="42" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="42" bodyend="-1"/>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a2c7657d7897b22f27427c612b67a2956" compoundref="df/dfb/gausspoint_8cpp" startline="135" endline="168">mknix::GaussPoint::fillBTriangleFE</referencedby>
+      </memberdef>
+      <memberdef kind="friend" id="d3/d19/classmknix_1_1_point_1a141afa4d313293225cc307a84fa17756" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend class</type>
+        <definition>friend class ShapeFunctionLinear</definition>
+        <argsstring></argsstring>
+        <name>ShapeFunctionLinear</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="43" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="43" bodyend="-1"/>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a1843d81646fbca9519358eb3c8787e18" compoundref="d5/d55/point_8cpp" startline="160" endline="191">shapeFunSolve</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="d3/d19/classmknix_1_1_point_1ab97e4bca7f299237ff3f8cc2449b1be1" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mknix::Point::dim</definition>
+        <argsstring></argsstring>
+        <name>dim</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="93" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="93" bodyend="-1"/>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a57e21322f3c898490257853fb2777077" compoundref="df/dfb/gausspoint_8cpp" startline="63" endline="132">mknix::GaussPoint::shapeFunSolve</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a0ea2abbe3c96295050f7cae7601a0713" compoundref="df/dfb/gausspoint_8cpp" startline="171" endline="198">mknix::GaussPoint::fillBTetrahedronFE</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a92a5358c2a4305b15d33d265e4603621" compoundref="df/dfb/gausspoint_8cpp" startline="216" endline="240">mknix::GaussPoint::computeHij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a9a01f1ad9df5669317e8aa41ab8be649" compoundref="df/dfb/gausspoint_8cpp" startline="254" endline="273">mknix::GaussPoint::computeMij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1aec3728abc07b0daa885b5a663916c95e" compoundref="df/dfb/gausspoint_8cpp" startline="276" endline="329">mknix::GaussPoint::computeKij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a88e2b56ce3f05d609307e858de4d52dc" compoundref="df/dfb/gausspoint_8cpp" startline="420" endline="433">mknix::GaussPoint::computeFint</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a7bfb2560bce7b5eb2ee9e5245e691976" compoundref="df/dfb/gausspoint_8cpp" startline="436" endline="450">mknix::GaussPoint::computeFext</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a6114329f1c2757b8a0628d88e9d82339" compoundref="df/dfb/gausspoint_8cpp" startline="453" endline="499">mknix::GaussPoint::computeNLFint</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a2b0667914f2a511167db6049616bf188" compoundref="df/dfb/gausspoint_8cpp" startline="501" endline="716">mknix::GaussPoint::computeNLKij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a62f27768cbdfa9df3c88444b0f270fcf" compoundref="df/dfb/gausspoint_8cpp" startline="755" endline="774">mknix::GaussPoint::assembleMij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1ae995cf148587ed806ad440421c9c0130" compoundref="df/dfb/gausspoint_8cpp" startline="777" endline="797">mknix::GaussPoint::assembleKij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1af42b26bb5560437cd24a05a6ec5a12df" compoundref="df/dfb/gausspoint_8cpp" startline="815" endline="825">mknix::GaussPoint::assembleFint</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a95ea27055e2b71b521b5d5e500cdcc42" compoundref="df/dfb/gausspoint_8cpp" startline="828" endline="838">mknix::GaussPoint::assembleFext</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a8b0e8f05d6fe32c24fc5a4f5912c306b" compoundref="df/dfb/gausspoint_8cpp" startline="841" endline="852">mknix::GaussPoint::calcPotentialE</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a0c646ea6fd6888438b2f51ff7e3c0e9d" compoundref="df/dfb/gausspoint_8cpp" startline="855" endline="873">mknix::GaussPoint::calcKineticE</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a43f19e4df71c710f9150b834cb956f89" compoundref="df/dfb/gausspoint_8cpp" startline="875" endline="888">mknix::GaussPoint::calcElasticE</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Point::X</definition>
+        <argsstring></argsstring>
+        <name>X</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="94" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="94" bodyend="-1"/>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a57e21322f3c898490257853fb2777077" compoundref="df/dfb/gausspoint_8cpp" startline="63" endline="132">mknix::GaussPoint::shapeFunSolve</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a6d80a71224082e0ff5ab6c69d8a5bf58" compoundref="df/dfb/gausspoint_8cpp" startline="891" endline="894">mknix::GaussPoint::gnuplotOutStress</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1a0402cc10656f4f1bf23a3a2e5530d847" compoundref="d1/d77/node_8h" startline="66" endline="66">mknix::Node::getUx</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1aa89f59c02a90102c9b4aa90848afd79c" compoundref="d1/d77/node_8h" startline="72" endline="78">mknix::Node::getU</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1adfbc2fbcbf12becd4a498cbdc6d85cb3" compoundref="d1/d77/node_8h" startline="90" endline="90">mknix::Node::setUx</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1aac32e597e1ec0bb85fabcbd2f14d0348" compoundref="d1/d77/node_8h" startline="104" endline="104">mknix::Node::setX</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" compoundref="d5/d55/point_8cpp" startline="57" endline="62">distance</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a88289f6649c16591f708e2a6f5eb749e" compoundref="d5/d55/point_8cpp" startline="71" endline="105">findSupportNodes</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a1843d81646fbca9519358eb3c8787e18" compoundref="d5/d55/point_8cpp" startline="160" endline="191">shapeFunSolve</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1ad985b1bb6595c64f6bfc60b557e86ec9" compoundref="d5/d55/point_8cpp" startline="193" endline="240">gnuplotOut</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" compoundref="d2/d91/point_8h" startline="55" endline="55">getX</referencedby>
+        <referencedby refid="dd/d8d/classmknix_1_1_shape_function_1a50beef3ce4e90c4f884df14f727296f6" compoundref="d1/dde/shapefunction_8cpp" startline="26" endline="50">mknix::ShapeFunction::outputValues</referencedby>
+        <referencedby refid="db/d02/classmknix_1_1_shape_function_m_l_s_1a45b9a5887f30125379ec7ba0ed6fb8c9" compoundref="d1/d8f/shapefunction_m_l_s_8cpp" startline="62" endline="69">mknix::ShapeFunctionMLS::calc</referencedby>
+        <referencedby refid="db/d4a/classmknix_1_1_shape_function_r_b_f_1a84441360824f4a8b754d0ae9f547c4ee" compoundref="db/d27/shapefunction_r_b_f_8cpp" startline="57" endline="63">mknix::ShapeFunctionRBF::calc</referencedby>
+        <referencedby refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a9b09613d74f957f733a03bec83557850" compoundref="d1/d85/shapefunctiontetrahedron_8cpp" startline="46" endline="82">mknix::ShapeFunctionTetrahedron::calc</referencedby>
+        <referencedby refid="d4/d8b/classmknix_1_1_shape_function_triangle_1a7ebaa0c670cb55ee1988d9a0a5400f62" compoundref="dc/d70/shapefunctiontriangle_8cpp" startline="46" endline="105">mknix::ShapeFunctionTriangle::calc</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Point::Y</definition>
+        <argsstring></argsstring>
+        <name>Y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="94" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="94" bodyend="-1"/>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a57e21322f3c898490257853fb2777077" compoundref="df/dfb/gausspoint_8cpp" startline="63" endline="132">mknix::GaussPoint::shapeFunSolve</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a6d80a71224082e0ff5ab6c69d8a5bf58" compoundref="df/dfb/gausspoint_8cpp" startline="891" endline="894">mknix::GaussPoint::gnuplotOutStress</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1a74e1bb5cd1a76a67af2bfac8c4f7531c" compoundref="d1/d77/node_8h" startline="68" endline="68">mknix::Node::getUy</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1aa89f59c02a90102c9b4aa90848afd79c" compoundref="d1/d77/node_8h" startline="72" endline="78">mknix::Node::getU</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1a76378e1cb2f9d9021d44789e85a75012" compoundref="d1/d77/node_8h" startline="92" endline="92">mknix::Node::setUy</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1acd17b4ac110feaa43430839b6aad107b" compoundref="d1/d77/node_8h" startline="106" endline="106">mknix::Node::setY</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" compoundref="d5/d55/point_8cpp" startline="57" endline="62">distance</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a88289f6649c16591f708e2a6f5eb749e" compoundref="d5/d55/point_8cpp" startline="71" endline="105">findSupportNodes</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a1843d81646fbca9519358eb3c8787e18" compoundref="d5/d55/point_8cpp" startline="160" endline="191">shapeFunSolve</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1ad985b1bb6595c64f6bfc60b557e86ec9" compoundref="d5/d55/point_8cpp" startline="193" endline="240">gnuplotOut</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" compoundref="d2/d91/point_8h" startline="57" endline="57">getY</referencedby>
+        <referencedby refid="dd/d8d/classmknix_1_1_shape_function_1a50beef3ce4e90c4f884df14f727296f6" compoundref="d1/dde/shapefunction_8cpp" startline="26" endline="50">mknix::ShapeFunction::outputValues</referencedby>
+        <referencedby refid="db/d02/classmknix_1_1_shape_function_m_l_s_1a45b9a5887f30125379ec7ba0ed6fb8c9" compoundref="d1/d8f/shapefunction_m_l_s_8cpp" startline="62" endline="69">mknix::ShapeFunctionMLS::calc</referencedby>
+        <referencedby refid="db/d4a/classmknix_1_1_shape_function_r_b_f_1a84441360824f4a8b754d0ae9f547c4ee" compoundref="db/d27/shapefunction_r_b_f_8cpp" startline="57" endline="63">mknix::ShapeFunctionRBF::calc</referencedby>
+        <referencedby refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a9b09613d74f957f733a03bec83557850" compoundref="d1/d85/shapefunctiontetrahedron_8cpp" startline="46" endline="82">mknix::ShapeFunctionTetrahedron::calc</referencedby>
+        <referencedby refid="d4/d8b/classmknix_1_1_shape_function_triangle_1a7ebaa0c670cb55ee1988d9a0a5400f62" compoundref="dc/d70/shapefunctiontriangle_8cpp" startline="46" endline="105">mknix::ShapeFunctionTriangle::calc</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Point::Z</definition>
+        <argsstring></argsstring>
+        <name>Z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="94" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="94" bodyend="-1"/>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1a66634d10c0cb501e7350de66adf3c09b" compoundref="d1/d77/node_8h" startline="70" endline="70">mknix::Node::getUz</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1aa89f59c02a90102c9b4aa90848afd79c" compoundref="d1/d77/node_8h" startline="72" endline="78">mknix::Node::getU</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1a522e185e16432892a3cee169b442035d" compoundref="d1/d77/node_8h" startline="94" endline="94">mknix::Node::setUz</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1aa294c096ab343766756ca8e5c6ec7f26" compoundref="d1/d77/node_8h" startline="108" endline="108">mknix::Node::setZ</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" compoundref="d5/d55/point_8cpp" startline="57" endline="62">distance</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a88289f6649c16591f708e2a6f5eb749e" compoundref="d5/d55/point_8cpp" startline="71" endline="105">findSupportNodes</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1ad985b1bb6595c64f6bfc60b557e86ec9" compoundref="d5/d55/point_8cpp" startline="193" endline="240">gnuplotOut</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" compoundref="d2/d91/point_8h" startline="59" endline="59">getZ</referencedby>
+        <referencedby refid="db/d4a/classmknix_1_1_shape_function_r_b_f_1a84441360824f4a8b754d0ae9f547c4ee" compoundref="db/d27/shapefunction_r_b_f_8cpp" startline="57" endline="63">mknix::ShapeFunctionRBF::calc</referencedby>
+        <referencedby refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a9b09613d74f957f733a03bec83557850" compoundref="d1/d85/shapefunctiontetrahedron_8cpp" startline="46" endline="82">mknix::ShapeFunctionTetrahedron::calc</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Point::alphai</definition>
+        <argsstring></argsstring>
+        <name>alphai</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="95" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="95" bodyend="-1"/>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a57e21322f3c898490257853fb2777077" compoundref="df/dfb/gausspoint_8cpp" startline="63" endline="132">mknix::GaussPoint::shapeFunSolve</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a88289f6649c16591f708e2a6f5eb749e" compoundref="d5/d55/point_8cpp" startline="71" endline="105">findSupportNodes</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a1843d81646fbca9519358eb3c8787e18" compoundref="d5/d55/point_8cpp" startline="160" endline="191">shapeFunSolve</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1aeed553d37db81fa6f7ea08834ec98724" compoundref="d2/d91/point_8h" startline="74" endline="75">setAlphai</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Point::dc</definition>
+        <argsstring></argsstring>
+        <name>dc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="96" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="96" bodyend="-1"/>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a57e21322f3c898490257853fb2777077" compoundref="df/dfb/gausspoint_8cpp" startline="63" endline="132">mknix::GaussPoint::shapeFunSolve</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a88289f6649c16591f708e2a6f5eb749e" compoundref="d5/d55/point_8cpp" startline="71" endline="105">findSupportNodes</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a1843d81646fbca9519358eb3c8787e18" compoundref="d5/d55/point_8cpp" startline="160" endline="191">shapeFunSolve</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1abf06bbd55297ab42ecf0ef49a258ad09" compoundref="d2/d91/point_8h" startline="69" endline="72">setDc</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d3/d19/classmknix_1_1_point_1a60c4d06445f397a9813b9a7f2a563d0d" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string mknix::Point::shapeFunType</definition>
+        <argsstring></argsstring>
+        <name>shapeFunType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="97" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="97" bodyend="-1"/>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1aec7a69d8e7b6ea71636b1b2ac6d30e1a" compoundref="d7/d70/node_8cpp" startline="62" endline="81">mknix::Node::getConf</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1aaa7a577ee98149ca2b82711e4aa0e77a" compoundref="d7/d70/node_8cpp" startline="83" endline="103">mknix::Node::getSupportSize</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1a209f5158efc66c282da2be880535c392" compoundref="d7/d70/node_8cpp" startline="105" endline="125">mknix::Node::getSupportNodeNumber</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1a6051733b173a21813c1d111ae18f0e61" compoundref="d7/d70/node_8cpp" startline="127" endline="131">mknix::Node::getShapeFunValue</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1ac8cc95650eac1e676c11f2874d899a7b" compoundref="d2/d91/point_8h" startline="63" endline="64">setShapeFunType</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1af432e99d48f5db21728db72ec0d49025" compoundref="d2/d91/point_8h" startline="66" endline="67">getShapeFunType</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> * &gt;</type>
+        <definition>std::vector&lt;Node*&gt; mknix::Point::supportNodes</definition>
+        <argsstring></argsstring>
+        <name>supportNodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="98" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="98" bodyend="-1"/>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a57e21322f3c898490257853fb2777077" compoundref="df/dfb/gausspoint_8cpp" startline="63" endline="132">mknix::GaussPoint::shapeFunSolve</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a2c7657d7897b22f27427c612b67a2956" compoundref="df/dfb/gausspoint_8cpp" startline="135" endline="168">mknix::GaussPoint::fillBTriangleFE</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a0ea2abbe3c96295050f7cae7601a0713" compoundref="df/dfb/gausspoint_8cpp" startline="171" endline="198">mknix::GaussPoint::fillBTetrahedronFE</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a4ed005e06a27c61eaf650dc841caf897" compoundref="df/dfb/gausspoint_8cpp" startline="332" endline="380">mknix::GaussPoint::computeStress</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a36987660a0561548f737c065d0e7ccfd" compoundref="df/dfb/gausspoint_8cpp" startline="382" endline="418">mknix::GaussPoint::computeNLStress</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a88e2b56ce3f05d609307e858de4d52dc" compoundref="df/dfb/gausspoint_8cpp" startline="420" endline="433">mknix::GaussPoint::computeFint</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a6114329f1c2757b8a0628d88e9d82339" compoundref="df/dfb/gausspoint_8cpp" startline="453" endline="499">mknix::GaussPoint::computeNLFint</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1aec8b4913cc95ba20cff54736f63f1547" compoundref="df/dfb/gausspoint_8cpp" startline="719" endline="730">mknix::GaussPoint::assembleCij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a1e1448cd0c3e4d5014cf1bfe21b4d166" compoundref="df/dfb/gausspoint_8cpp" startline="732" endline="743">mknix::GaussPoint::assembleHij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a1c39b381deef9d070fa4a28816b8bb2f" compoundref="df/dfb/gausspoint_8cpp" startline="745" endline="753">mknix::GaussPoint::assembleQext</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a62f27768cbdfa9df3c88444b0f270fcf" compoundref="df/dfb/gausspoint_8cpp" startline="755" endline="774">mknix::GaussPoint::assembleMij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1ae995cf148587ed806ad440421c9c0130" compoundref="df/dfb/gausspoint_8cpp" startline="777" endline="797">mknix::GaussPoint::assembleKij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a750508df5aa985421babfed3135fe1f5" compoundref="df/dfb/gausspoint_8cpp" startline="799" endline="812">mknix::GaussPoint::assembleRi</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1af42b26bb5560437cd24a05a6ec5a12df" compoundref="df/dfb/gausspoint_8cpp" startline="815" endline="825">mknix::GaussPoint::assembleFint</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a95ea27055e2b71b521b5d5e500cdcc42" compoundref="df/dfb/gausspoint_8cpp" startline="828" endline="838">mknix::GaussPoint::assembleFext</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a8b0e8f05d6fe32c24fc5a4f5912c306b" compoundref="df/dfb/gausspoint_8cpp" startline="841" endline="852">mknix::GaussPoint::calcPotentialE</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a0c646ea6fd6888438b2f51ff7e3c0e9d" compoundref="df/dfb/gausspoint_8cpp" startline="855" endline="873">mknix::GaussPoint::calcKineticE</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1aec7a69d8e7b6ea71636b1b2ac6d30e1a" compoundref="d7/d70/node_8cpp" startline="62" endline="81">mknix::Node::getConf</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1aaa7a577ee98149ca2b82711e4aa0e77a" compoundref="d7/d70/node_8cpp" startline="83" endline="103">mknix::Node::getSupportSize</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1a209f5158efc66c282da2be880535c392" compoundref="d7/d70/node_8cpp" startline="105" endline="125">mknix::Node::getSupportNodeNumber</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a41f06a5ee1993d52db1c629a1ab8ae3f" compoundref="d5/d55/point_8cpp" startline="64" endline="68">addSupportNode</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a88289f6649c16591f708e2a6f5eb749e" compoundref="d5/d55/point_8cpp" startline="71" endline="105">findSupportNodes</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1ad985b1bb6595c64f6bfc60b557e86ec9" compoundref="d5/d55/point_8cpp" startline="193" endline="240">gnuplotOut</referencedby>
+        <referencedby refid="dd/d8d/classmknix_1_1_shape_function_1a50beef3ce4e90c4f884df14f727296f6" compoundref="d1/dde/shapefunction_8cpp" startline="26" endline="50">mknix::ShapeFunction::outputValues</referencedby>
+        <referencedby refid="dd/d8d/classmknix_1_1_shape_function_1a6b287c3758e7d16be4c7c8e86bbb7077" compoundref="d1/dde/shapefunction_8cpp" startline="53" endline="84">mknix::ShapeFunction::gnuplotOut</referencedby>
+        <referencedby refid="d8/d0e/classmknix_1_1_shape_function_linear_1a10cfcd17fcdd6482e7f36b3eaaa9fb9c" compoundref="dc/deb/shapefunctionlinear_8cpp" startline="45" endline="76">mknix::ShapeFunctionLinear::calc</referencedby>
+        <referencedby refid="df/d82/classmknix_1_1_shape_function_rigid_bar_1aad8c4377cc329c96dff9afa95b624a43" compoundref="dc/dcb/shapefunctionrigidbar_8cpp" startline="44" endline="70">mknix::ShapeFunctionRigidBar::calc</referencedby>
+        <referencedby refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a0173ff8fc55470c6d46684cd28eeb345" compoundref="d1/d85/shapefunctiontetrahedron_8cpp" startline="84" endline="126">mknix::ShapeFunctionTetrahedron::compute_abcd</referencedby>
+        <referencedby refid="d4/d8b/classmknix_1_1_shape_function_triangle_1a7ebaa0c670cb55ee1988d9a0a5400f62" compoundref="dc/d70/shapefunctiontriangle_8cpp" startline="46" endline="105">mknix::ShapeFunctionTriangle::calc</referencedby>
+        <referencedby refid="d0/dbb/classmknix_1_1_shape_function_triangle_signed_1a2dd45be9fb2789ac1579f1104c731c3d" compoundref="d5/d04/shapefunctiontriangle3_d_8cpp" startline="46" endline="100">mknix::ShapeFunctionTriangleSigned::calc</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" prot="protected" static="no" mutable="no">
+        <type><ref refid="dd/d8d/classmknix_1_1_shape_function" kindref="compound">ShapeFunction</ref> *</type>
+        <definition>ShapeFunction* mknix::Point::shapeFun</definition>
+        <argsstring></argsstring>
+        <name>shapeFun</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="99" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="99" bodyend="-1"/>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a57e21322f3c898490257853fb2777077" compoundref="df/dfb/gausspoint_8cpp" startline="63" endline="132">mknix::GaussPoint::shapeFunSolve</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a2c7657d7897b22f27427c612b67a2956" compoundref="df/dfb/gausspoint_8cpp" startline="135" endline="168">mknix::GaussPoint::fillBTriangleFE</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a0ea2abbe3c96295050f7cae7601a0713" compoundref="df/dfb/gausspoint_8cpp" startline="171" endline="198">mknix::GaussPoint::fillBTetrahedronFE</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1ab82f09f4b4f9ae25f78551e1aa2e4ee6" compoundref="df/dfb/gausspoint_8cpp" startline="201" endline="214">mknix::GaussPoint::computeCij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a92a5358c2a4305b15d33d265e4603621" compoundref="df/dfb/gausspoint_8cpp" startline="216" endline="240">mknix::GaussPoint::computeHij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1abb5b248896056fd76d2e4ec8280a17f5" compoundref="df/dfb/gausspoint_8cpp" startline="242" endline="251">mknix::GaussPoint::computeQext</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a9a01f1ad9df5669317e8aa41ab8be649" compoundref="df/dfb/gausspoint_8cpp" startline="254" endline="273">mknix::GaussPoint::computeMij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a4ed005e06a27c61eaf650dc841caf897" compoundref="df/dfb/gausspoint_8cpp" startline="332" endline="380">mknix::GaussPoint::computeStress</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a36987660a0561548f737c065d0e7ccfd" compoundref="df/dfb/gausspoint_8cpp" startline="382" endline="418">mknix::GaussPoint::computeNLStress</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a6114329f1c2757b8a0628d88e9d82339" compoundref="df/dfb/gausspoint_8cpp" startline="453" endline="499">mknix::GaussPoint::computeNLFint</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a2b0667914f2a511167db6049616bf188" compoundref="df/dfb/gausspoint_8cpp" startline="501" endline="716">mknix::GaussPoint::computeNLKij</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1aec7a69d8e7b6ea71636b1b2ac6d30e1a" compoundref="d7/d70/node_8cpp" startline="62" endline="81">mknix::Node::getConf</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1a6051733b173a21813c1d111ae18f0e61" compoundref="d7/d70/node_8cpp" startline="127" endline="131">mknix::Node::getShapeFunValue</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a1843d81646fbca9519358eb3c8787e18" compoundref="d5/d55/point_8cpp" startline="160" endline="191">shapeFunSolve</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1ad985b1bb6595c64f6bfc60b557e86ec9" compoundref="d5/d55/point_8cpp" startline="193" endline="240">gnuplotOut</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d3/d19/classmknix_1_1_point_1af2f2861988d3dfd6625822140f8e04d3" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mknix::Point::supportNodesSize</definition>
+        <argsstring></argsstring>
+        <name>supportNodesSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="100" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="100" bodyend="-1"/>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a57e21322f3c898490257853fb2777077" compoundref="df/dfb/gausspoint_8cpp" startline="63" endline="132">mknix::GaussPoint::shapeFunSolve</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a2c7657d7897b22f27427c612b67a2956" compoundref="df/dfb/gausspoint_8cpp" startline="135" endline="168">mknix::GaussPoint::fillBTriangleFE</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a0ea2abbe3c96295050f7cae7601a0713" compoundref="df/dfb/gausspoint_8cpp" startline="171" endline="198">mknix::GaussPoint::fillBTetrahedronFE</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1ab82f09f4b4f9ae25f78551e1aa2e4ee6" compoundref="df/dfb/gausspoint_8cpp" startline="201" endline="214">mknix::GaussPoint::computeCij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a92a5358c2a4305b15d33d265e4603621" compoundref="df/dfb/gausspoint_8cpp" startline="216" endline="240">mknix::GaussPoint::computeHij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1abb5b248896056fd76d2e4ec8280a17f5" compoundref="df/dfb/gausspoint_8cpp" startline="242" endline="251">mknix::GaussPoint::computeQext</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a9a01f1ad9df5669317e8aa41ab8be649" compoundref="df/dfb/gausspoint_8cpp" startline="254" endline="273">mknix::GaussPoint::computeMij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1aec3728abc07b0daa885b5a663916c95e" compoundref="df/dfb/gausspoint_8cpp" startline="276" endline="329">mknix::GaussPoint::computeKij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a4ed005e06a27c61eaf650dc841caf897" compoundref="df/dfb/gausspoint_8cpp" startline="332" endline="380">mknix::GaussPoint::computeStress</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a36987660a0561548f737c065d0e7ccfd" compoundref="df/dfb/gausspoint_8cpp" startline="382" endline="418">mknix::GaussPoint::computeNLStress</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a88e2b56ce3f05d609307e858de4d52dc" compoundref="df/dfb/gausspoint_8cpp" startline="420" endline="433">mknix::GaussPoint::computeFint</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a7bfb2560bce7b5eb2ee9e5245e691976" compoundref="df/dfb/gausspoint_8cpp" startline="436" endline="450">mknix::GaussPoint::computeFext</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a6114329f1c2757b8a0628d88e9d82339" compoundref="df/dfb/gausspoint_8cpp" startline="453" endline="499">mknix::GaussPoint::computeNLFint</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a2b0667914f2a511167db6049616bf188" compoundref="df/dfb/gausspoint_8cpp" startline="501" endline="716">mknix::GaussPoint::computeNLKij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1aec8b4913cc95ba20cff54736f63f1547" compoundref="df/dfb/gausspoint_8cpp" startline="719" endline="730">mknix::GaussPoint::assembleCij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a1e1448cd0c3e4d5014cf1bfe21b4d166" compoundref="df/dfb/gausspoint_8cpp" startline="732" endline="743">mknix::GaussPoint::assembleHij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a1c39b381deef9d070fa4a28816b8bb2f" compoundref="df/dfb/gausspoint_8cpp" startline="745" endline="753">mknix::GaussPoint::assembleQext</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a62f27768cbdfa9df3c88444b0f270fcf" compoundref="df/dfb/gausspoint_8cpp" startline="755" endline="774">mknix::GaussPoint::assembleMij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1ae995cf148587ed806ad440421c9c0130" compoundref="df/dfb/gausspoint_8cpp" startline="777" endline="797">mknix::GaussPoint::assembleKij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a750508df5aa985421babfed3135fe1f5" compoundref="df/dfb/gausspoint_8cpp" startline="799" endline="812">mknix::GaussPoint::assembleRi</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1af42b26bb5560437cd24a05a6ec5a12df" compoundref="df/dfb/gausspoint_8cpp" startline="815" endline="825">mknix::GaussPoint::assembleFint</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a95ea27055e2b71b521b5d5e500cdcc42" compoundref="df/dfb/gausspoint_8cpp" startline="828" endline="838">mknix::GaussPoint::assembleFext</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a8b0e8f05d6fe32c24fc5a4f5912c306b" compoundref="df/dfb/gausspoint_8cpp" startline="841" endline="852">mknix::GaussPoint::calcPotentialE</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a0c646ea6fd6888438b2f51ff7e3c0e9d" compoundref="df/dfb/gausspoint_8cpp" startline="855" endline="873">mknix::GaussPoint::calcKineticE</referencedby>
+        <referencedby refid="d3/d25/classmknix_1_1_node_1aec7a69d8e7b6ea71636b1b2ac6d30e1a" compoundref="d7/d70/node_8cpp" startline="62" endline="81">mknix::Node::getConf</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a41f06a5ee1993d52db1c629a1ab8ae3f" compoundref="d5/d55/point_8cpp" startline="64" endline="68">addSupportNode</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a88289f6649c16591f708e2a6f5eb749e" compoundref="d5/d55/point_8cpp" startline="71" endline="105">findSupportNodes</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a1843d81646fbca9519358eb3c8787e18" compoundref="d5/d55/point_8cpp" startline="160" endline="191">shapeFunSolve</referencedby>
+        <referencedby refid="db/d02/classmknix_1_1_shape_function_m_l_s_1aa650080de7f2243efce2e14c17e9e2c5" compoundref="d1/d8f/shapefunction_m_l_s_8cpp" startline="15" endline="55">mknix::ShapeFunctionMLS::ShapeFunctionMLS</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d3/d19/classmknix_1_1_point_1a7afc6bd82b8e3619d384a41d9c2f1601" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Point::jacobian</definition>
+        <argsstring></argsstring>
+        <name>jacobian</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="101" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="101" bodyend="-1"/>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a41f2a35d335cd9e2c9880beca96b3a29" compoundref="df/dfb/gausspoint_8cpp" startline="16" endline="35">mknix::GaussPoint::GaussPoint</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a57e21322f3c898490257853fb2777077" compoundref="df/dfb/gausspoint_8cpp" startline="63" endline="132">mknix::GaussPoint::shapeFunSolve</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a2c7657d7897b22f27427c612b67a2956" compoundref="df/dfb/gausspoint_8cpp" startline="135" endline="168">mknix::GaussPoint::fillBTriangleFE</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a0ea2abbe3c96295050f7cae7601a0713" compoundref="df/dfb/gausspoint_8cpp" startline="171" endline="198">mknix::GaussPoint::fillBTetrahedronFE</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1ab82f09f4b4f9ae25f78551e1aa2e4ee6" compoundref="df/dfb/gausspoint_8cpp" startline="201" endline="214">mknix::GaussPoint::computeCij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a92a5358c2a4305b15d33d265e4603621" compoundref="df/dfb/gausspoint_8cpp" startline="216" endline="240">mknix::GaussPoint::computeHij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1abb5b248896056fd76d2e4ec8280a17f5" compoundref="df/dfb/gausspoint_8cpp" startline="242" endline="251">mknix::GaussPoint::computeQext</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a9a01f1ad9df5669317e8aa41ab8be649" compoundref="df/dfb/gausspoint_8cpp" startline="254" endline="273">mknix::GaussPoint::computeMij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1aec3728abc07b0daa885b5a663916c95e" compoundref="df/dfb/gausspoint_8cpp" startline="276" endline="329">mknix::GaussPoint::computeKij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a4ed005e06a27c61eaf650dc841caf897" compoundref="df/dfb/gausspoint_8cpp" startline="332" endline="380">mknix::GaussPoint::computeStress</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a36987660a0561548f737c065d0e7ccfd" compoundref="df/dfb/gausspoint_8cpp" startline="382" endline="418">mknix::GaussPoint::computeNLStress</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a6114329f1c2757b8a0628d88e9d82339" compoundref="df/dfb/gausspoint_8cpp" startline="453" endline="499">mknix::GaussPoint::computeNLFint</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a2b0667914f2a511167db6049616bf188" compoundref="df/dfb/gausspoint_8cpp" startline="501" endline="716">mknix::GaussPoint::computeNLKij</referencedby>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a43f19e4df71c710f9150b834cb956f89" compoundref="df/dfb/gausspoint_8cpp" startline="875" endline="888">mknix::GaussPoint::calcElasticE</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1aea25863c7bab8e63c09ca394546a5502" compoundref="d2/d91/point_8h" startline="87" endline="88">setJacobian</referencedby>
+        <referencedby refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a9b09613d74f957f733a03bec83557850" compoundref="d1/d85/shapefunctiontetrahedron_8cpp" startline="46" endline="82">mknix::ShapeFunctionTetrahedron::calc</referencedby>
+        <referencedby refid="d4/d8b/classmknix_1_1_shape_function_triangle_1a7ebaa0c670cb55ee1988d9a0a5400f62" compoundref="dc/d70/shapefunctiontriangle_8cpp" startline="46" endline="105">mknix::ShapeFunctionTriangle::calc</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d3/d19/classmknix_1_1_point_1ade62bb71dbbd34efa4ed5090f37f2d9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Point::Point</definition>
+        <argsstring>()</argsstring>
+        <name>Point</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="46" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.cpp" bodystart="13" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d19/classmknix_1_1_point_1ae9012b54d57e557b16d47e56857cd624" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Point::Point</definition>
+        <argsstring>(double coor_x, double coor_y, double coor_z)</argsstring>
+        <name>Point</name>
+        <param>
+          <type>double</type>
+          <declname>coor_x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>coor_y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>coor_z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="48" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.cpp" bodystart="18" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d19/classmknix_1_1_point_1ad47e79bd02cbfe8e668caf9d5b9c13f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Point::Point</definition>
+        <argsstring>(int dim, double coor_x, double coor_y, double coor_z, double alpha_in, double dc_in)</argsstring>
+        <name>Point</name>
+        <param>
+          <type>int</type>
+          <declname>dim</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>coor_x</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>coor_y</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>coor_z</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>alpha_in</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>dc_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="50" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.cpp" bodystart="34" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d19/classmknix_1_1_point_1ad20e0663241df1986b8250a0ab7f2358" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Point::~Point</definition>
+        <argsstring>()</argsstring>
+        <name>~Point</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="53" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.cpp" bodystart="53" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const double &amp;</type>
+        <definition>const double&amp; mknix::Point::getX</definition>
+        <argsstring>() const </argsstring>
+        <name>getX</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="55" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="55" bodyend="55"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" compoundref="d2/d91/point_8h" startline="94">X</references>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" compoundref="d5/d55/point_8cpp" startline="57" endline="62">distance</referencedby>
+        <referencedby refid="d8/d0e/classmknix_1_1_shape_function_linear_1a10cfcd17fcdd6482e7f36b3eaaa9fb9c" compoundref="dc/deb/shapefunctionlinear_8cpp" startline="45" endline="76">mknix::ShapeFunctionLinear::calc</referencedby>
+        <referencedby refid="df/d82/classmknix_1_1_shape_function_rigid_bar_1aad8c4377cc329c96dff9afa95b624a43" compoundref="dc/dcb/shapefunctionrigidbar_8cpp" startline="44" endline="70">mknix::ShapeFunctionRigidBar::calc</referencedby>
+        <referencedby refid="d0/dbb/classmknix_1_1_shape_function_triangle_signed_1a2dd45be9fb2789ac1579f1104c731c3d" compoundref="d5/d04/shapefunctiontriangle3_d_8cpp" startline="46" endline="100">mknix::ShapeFunctionTriangleSigned::calc</referencedby>
+        <referencedby refid="df/d32/classmknix_1_1_thermal_load_1aa0c9087704913f2f675e4dd2da25661a" compoundref="dd/dbf/thermalload_8cpp" startline="52" endline="75">mknix::ThermalLoad::getThermalLoad</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const double &amp;</type>
+        <definition>const double&amp; mknix::Point::getY</definition>
+        <argsstring>() const </argsstring>
+        <name>getY</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="57" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="57" bodyend="57"/>
+        <references refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" compoundref="d2/d91/point_8h" startline="94">Y</references>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" compoundref="d5/d55/point_8cpp" startline="57" endline="62">distance</referencedby>
+        <referencedby refid="d8/d0e/classmknix_1_1_shape_function_linear_1a10cfcd17fcdd6482e7f36b3eaaa9fb9c" compoundref="dc/deb/shapefunctionlinear_8cpp" startline="45" endline="76">mknix::ShapeFunctionLinear::calc</referencedby>
+        <referencedby refid="df/d82/classmknix_1_1_shape_function_rigid_bar_1aad8c4377cc329c96dff9afa95b624a43" compoundref="dc/dcb/shapefunctionrigidbar_8cpp" startline="44" endline="70">mknix::ShapeFunctionRigidBar::calc</referencedby>
+        <referencedby refid="d0/dbb/classmknix_1_1_shape_function_triangle_signed_1a2dd45be9fb2789ac1579f1104c731c3d" compoundref="d5/d04/shapefunctiontriangle3_d_8cpp" startline="46" endline="100">mknix::ShapeFunctionTriangleSigned::calc</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const double &amp;</type>
+        <definition>const double&amp; mknix::Point::getZ</definition>
+        <argsstring>() const </argsstring>
+        <name>getZ</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="59" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="59" bodyend="59"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" compoundref="d2/d91/point_8h" startline="94">Z</references>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" compoundref="d5/d55/point_8cpp" startline="57" endline="62">distance</referencedby>
+        <referencedby refid="d8/d0e/classmknix_1_1_shape_function_linear_1a10cfcd17fcdd6482e7f36b3eaaa9fb9c" compoundref="dc/deb/shapefunctionlinear_8cpp" startline="45" endline="76">mknix::ShapeFunctionLinear::calc</referencedby>
+        <referencedby refid="df/d82/classmknix_1_1_shape_function_rigid_bar_1aad8c4377cc329c96dff9afa95b624a43" compoundref="dc/dcb/shapefunctionrigidbar_8cpp" startline="44" endline="70">mknix::ShapeFunctionRigidBar::calc</referencedby>
+        <referencedby refid="d0/dbb/classmknix_1_1_shape_function_triangle_signed_1a2dd45be9fb2789ac1579f1104c731c3d" compoundref="d5/d04/shapefunctiontriangle3_d_8cpp" startline="46" endline="100">mknix::ShapeFunctionTriangleSigned::calc</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double mknix::Point::distance</definition>
+        <argsstring>(Point &amp;)</argsstring>
+        <name>distance</name>
+        <param>
+          <type><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref> &amp;</type>
+          <defname>node_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="61" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.cpp" bodystart="57" bodyend="62"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" compoundref="d2/d91/point_8h" startline="55" endline="55">getX</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" compoundref="d2/d91/point_8h" startline="94">X</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" compoundref="d2/d91/point_8h" startline="57" endline="57">getY</references>
+        <references refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" compoundref="d2/d91/point_8h" startline="94">Y</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" compoundref="d2/d91/point_8h" startline="59" endline="59">getZ</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" compoundref="d2/d91/point_8h" startline="94">Z</references>
+        <referencedby refid="d9/d39/classmknix_1_1_cell_tetrahedron_1aa462fd7b0dffd4896100e413e60b55d1" compoundref="d3/d93/celltetrahedron_8cpp" startline="11" endline="59">mknix::CellTetrahedron::CellTetrahedron</referencedby>
+        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a419492f1358e31432d6f686ee8ef1609" compoundref="d0/ddf/celltriang_8cpp" startline="11" endline="40">mknix::CellTriang::CellTriang</referencedby>
+        <referencedby refid="d3/d19/classmknix_1_1_point_1a88289f6649c16591f708e2a6f5eb749e" compoundref="d5/d55/point_8cpp" startline="71" endline="105">findSupportNodes</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d3/d19/classmknix_1_1_point_1ac8cc95650eac1e676c11f2874d899a7b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Point::setShapeFunType</definition>
+        <argsstring>(std::string type_in)</argsstring>
+        <name>setShapeFunType</name>
+        <param>
+          <type>std::string</type>
+          <declname>type_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="63" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="63" bodyend="64"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a60c4d06445f397a9813b9a7f2a563d0d" compoundref="d2/d91/point_8h" startline="97">shapeFunType</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d19/classmknix_1_1_point_1af432e99d48f5db21728db72ec0d49025" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string mknix::Point::getShapeFunType</definition>
+        <argsstring>()</argsstring>
+        <name>getShapeFunType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="66" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="66" bodyend="67"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a60c4d06445f397a9813b9a7f2a563d0d" compoundref="d2/d91/point_8h" startline="97">shapeFunType</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d19/classmknix_1_1_point_1abf06bbd55297ab42ecf0ef49a258ad09" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Point::setDc</definition>
+        <argsstring>(double dc_in)</argsstring>
+        <name>setDc</name>
+        <param>
+          <type>double</type>
+          <declname>dc_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="69" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="69" bodyend="72"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" compoundref="d2/d91/point_8h" startline="96">dc</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d19/classmknix_1_1_point_1aeed553d37db81fa6f7ea08834ec98724" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Point::setAlphai</definition>
+        <argsstring>(double alphai_in)</argsstring>
+        <name>setAlphai</name>
+        <param>
+          <type>double</type>
+          <declname>alphai_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="74" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="74" bodyend="75"/>
+        <references refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" compoundref="d2/d91/point_8h" startline="95">alphai</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d19/classmknix_1_1_point_1a41f06a5ee1993d52db1c629a1ab8ae3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Point::addSupportNode</definition>
+        <argsstring>(Node *)</argsstring>
+        <name>addSupportNode</name>
+        <param>
+          <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+          <defname>node_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="77" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.cpp" bodystart="64" bodyend="68"/>
+        <references refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" compoundref="d2/d91/point_8h" startline="98">supportNodes</references>
+        <references refid="d3/d19/classmknix_1_1_point_1af2f2861988d3dfd6625822140f8e04d3" compoundref="d2/d91/point_8h" startline="100">supportNodesSize</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d19/classmknix_1_1_point_1a88289f6649c16591f708e2a6f5eb749e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Point::findSupportNodes</definition>
+        <argsstring>(std::vector&lt; Node * &gt; &amp;)</argsstring>
+        <name>findSupportNodes</name>
+        <param>
+          <type>std::vector&lt; <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> * &gt; &amp;</type>
+          <defname>domainNodes</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="79" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.cpp" bodystart="71" bodyend="105"/>
+        <references refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" compoundref="d2/d91/point_8h" startline="95">alphai</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" compoundref="d2/d91/point_8h" startline="96">dc</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" compoundref="d5/d55/point_8cpp" startline="57" endline="62">distance</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" compoundref="d2/d91/point_8h" startline="94">X</references>
+        <references refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" compoundref="d2/d91/point_8h" startline="94">Y</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" compoundref="d2/d91/point_8h" startline="94">Z</references>
+        <references refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" compoundref="d2/d91/point_8h" startline="98">supportNodes</references>
+        <references refid="d3/d19/classmknix_1_1_point_1af2f2861988d3dfd6625822140f8e04d3" compoundref="d2/d91/point_8h" startline="100">supportNodesSize</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d19/classmknix_1_1_point_1a13907374f703f15ffda3bb376bd19073" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Point::findSupportNodes</definition>
+        <argsstring>(std::vector&lt; Node * &gt; &amp;, double, double, double, double)</argsstring>
+        <name>findSupportNodes</name>
+        <param>
+          <type>std::vector&lt; <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> * &gt; &amp;</type>
+          <defname>domainNodes</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>domain_minX</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>domain_maxX</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>domain_minY</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>domain_maxY</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="82" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.cpp" bodystart="109" bodyend="158"/>
+        <references refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" compoundref="d2/d91/point_8h" startline="95">alphai</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" compoundref="d2/d91/point_8h" startline="96">dc</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" compoundref="d2/d91/point_8h" startline="94">X</references>
+        <references refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" compoundref="d2/d91/point_8h" startline="94">Y</references>
+        <references refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" compoundref="d2/d91/point_8h" startline="98">supportNodes</references>
+        <references refid="d3/d19/classmknix_1_1_point_1af2f2861988d3dfd6625822140f8e04d3" compoundref="d2/d91/point_8h" startline="100">supportNodesSize</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d19/classmknix_1_1_point_1a1843d81646fbca9519358eb3c8787e18" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::Point::shapeFunSolve</definition>
+        <argsstring>(std::string, double)</argsstring>
+        <name>shapeFunSolve</name>
+        <reimplementedby refid="d2/da4/classmknix_1_1_gauss_point_1a57e21322f3c898490257853fb2777077">shapeFunSolve</reimplementedby>
+        <param>
+          <type>std::string</type>
+          <defname>type_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>q_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="85" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.cpp" bodystart="160" bodyend="191"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" compoundref="d2/d91/point_8h" startline="94">X</references>
+        <references refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" compoundref="d2/d91/point_8h" startline="94">Y</references>
+        <references refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" compoundref="d2/d91/point_8h" startline="95">alphai</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" compoundref="d2/d91/point_8h" startline="96">dc</references>
+        <references refid="d3/d19/classmknix_1_1_point_1af2f2861988d3dfd6625822140f8e04d3" compoundref="d2/d91/point_8h" startline="100">supportNodesSize</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" compoundref="d2/d91/point_8h" startline="99">shapeFun</references>
+        <references refid="d3/d19/classmknix_1_1_point_1ad76d1b525e65d47484187892160efd74" compoundref="d2/d91/point_8h" startline="39">ShapeFunctionRBF</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a07440917ac5f62def0ce649ad0066552" compoundref="d2/d91/point_8h" startline="40">ShapeFunctionMLS</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a141afa4d313293225cc307a84fa17756" compoundref="d2/d91/point_8h" startline="43">ShapeFunctionLinear</references>
+        <references refid="dd/d8d/classmknix_1_1_shape_function_1ac4a0d1b43ff7d4adf788e677912a87f7">mknix::ShapeFunction::calc</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d19/classmknix_1_1_point_1aea25863c7bab8e63c09ca394546a5502" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Point::setJacobian</definition>
+        <argsstring>(double jac_in)</argsstring>
+        <name>setJacobian</name>
+        <param>
+          <type>double</type>
+          <declname>jac_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="87" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="87" bodyend="88"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a7afc6bd82b8e3619d384a41d9c2f1601" compoundref="d2/d91/point_8h" startline="101">jacobian</references>
+      </memberdef>
+      <memberdef kind="function" id="d3/d19/classmknix_1_1_point_1ad985b1bb6595c64f6bfc60b557e86ec9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Point::gnuplotOut</definition>
+        <argsstring>(std::ofstream &amp;)</argsstring>
+        <name>gnuplotOut</name>
+        <param>
+          <type>std::ofstream &amp;</type>
+          <defname>gpdata</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="90" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.cpp" bodystart="193" bodyend="240"/>
+        <references refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" compoundref="d2/d91/point_8h" startline="94">X</references>
+        <references refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" compoundref="d2/d91/point_8h" startline="94">Y</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" compoundref="d2/d91/point_8h" startline="94">Z</references>
+        <references refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" compoundref="d2/d91/point_8h" startline="98">supportNodes</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" compoundref="d2/d91/point_8h" startline="99">shapeFun</references>
+        <references refid="dd/d8d/classmknix_1_1_shape_function_1a6b287c3758e7d16be4c7c8e86bbb7077" compoundref="d1/dde/shapefunction_8cpp" startline="53" endline="84">mknix::ShapeFunction::gnuplotOut</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Daniel Iglesias </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="371">
+        <label>mknix::Point</label>
+        <link refid="d3/d19/classmknix_1_1_point"/>
+      </node>
+      <node id="373">
+        <label>mknix::Node</label>
+        <link refid="d3/d25/classmknix_1_1_node"/>
+        <childnode refid="371" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="372">
+        <label>mknix::GaussPoint</label>
+        <link refid="d2/da4/classmknix_1_1_gauss_point"/>
+        <childnode refid="371" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="374">
+        <label>mknix::Point</label>
+        <link refid="d3/d19/classmknix_1_1_point"/>
+        <childnode refid="375" relation="usage">
+          <edgelabel>shapeFun</edgelabel>
+        </childnode>
+      </node>
+      <node id="375">
+        <label>mknix::ShapeFunction</label>
+        <link refid="dd/d8d/classmknix_1_1_shape_function"/>
+        <childnode refid="374" relation="usage">
+          <edgelabel>gp</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/dani/Dropbox/MkniX_cmake/src/point.h" line="33" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/point.h" bodystart="33" bodyend="104"/>
+    <listofallmembers>
+      <member refid="d3/d19/classmknix_1_1_point_1a41f06a5ee1993d52db1c629a1ab8ae3f" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>addSupportNode</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" prot="protected" virt="non-virtual"><scope>mknix::Point</scope><name>alphai</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" prot="protected" virt="non-virtual"><scope>mknix::Point</scope><name>dc</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1ab97e4bca7f299237ff3f8cc2449b1be1" prot="protected" virt="non-virtual"><scope>mknix::Point</scope><name>dim</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>distance</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a88289f6649c16591f708e2a6f5eb749e" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>findSupportNodes</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a13907374f703f15ffda3bb376bd19073" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>findSupportNodes</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a49d4fb4846aabd1919c5358170ff9da7" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>GaussPoint</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1af432e99d48f5db21728db72ec0d49025" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>getShapeFunType</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>getX</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>getY</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>getZ</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1ad985b1bb6595c64f6bfc60b557e86ec9" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>gnuplotOut</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a7afc6bd82b8e3619d384a41d9c2f1601" prot="protected" virt="non-virtual"><scope>mknix::Point</scope><name>jacobian</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1ade62bb71dbbd34efa4ed5090f37f2d9a" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>Point</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1ae9012b54d57e557b16d47e56857cd624" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>Point</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1ad47e79bd02cbfe8e668caf9d5b9c13f0" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>Point</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1aeed553d37db81fa6f7ea08834ec98724" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>setAlphai</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1abf06bbd55297ab42ecf0ef49a258ad09" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>setDc</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1aea25863c7bab8e63c09ca394546a5502" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>setJacobian</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1ac8cc95650eac1e676c11f2874d899a7b" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>setShapeFunType</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" prot="protected" virt="non-virtual"><scope>mknix::Point</scope><name>shapeFun</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a65b2654dc4464f92687e22eb5a247f20" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>ShapeFunction</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a141afa4d313293225cc307a84fa17756" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>ShapeFunctionLinear</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a07440917ac5f62def0ce649ad0066552" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>ShapeFunctionMLS</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1ad76d1b525e65d47484187892160efd74" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>ShapeFunctionRBF</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1aa3a0c73566e859e80c29b9e691b31451" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>ShapeFunctionTetrahedron</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a64bc125443b7c740a25d032c8294c4db" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>ShapeFunctionTriangle</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a1843d81646fbca9519358eb3c8787e18" prot="public" virt="virtual"><scope>mknix::Point</scope><name>shapeFunSolve</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a60c4d06445f397a9813b9a7f2a563d0d" prot="protected" virt="non-virtual"><scope>mknix::Point</scope><name>shapeFunType</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" prot="protected" virt="non-virtual"><scope>mknix::Point</scope><name>supportNodes</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1af2f2861988d3dfd6625822140f8e04d3" prot="protected" virt="non-virtual"><scope>mknix::Point</scope><name>supportNodesSize</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" prot="protected" virt="non-virtual"><scope>mknix::Point</scope><name>X</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" prot="protected" virt="non-virtual"><scope>mknix::Point</scope><name>Y</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" prot="protected" virt="non-virtual"><scope>mknix::Point</scope><name>Z</name></member>
+      <member refid="d3/d19/classmknix_1_1_point_1ad20e0663241df1986b8250a0ab7f2358" prot="public" virt="non-virtual"><scope>mknix::Point</scope><name>~Point</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

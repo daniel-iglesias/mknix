@@ -1,0 +1,180 @@
+\hypertarget{classmknix_1_1_constraint_distance}{\subsection{mknix\-:\-:Constraint\-Distance Class Reference}
+\label{classmknix_1_1_constraint_distance}\index{mknix\-::\-Constraint\-Distance@{mknix\-::\-Constraint\-Distance}}
+}
+
+
+{\ttfamily \#include $<$constraintdistance.\-h$>$}
+
+
+
+Inheritance diagram for mknix\-:\-:Constraint\-Distance\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{dd/dfd/classmknix_1_1_constraint_distance__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mknix\-:\-:Constraint\-Distance\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{da/d3d/classmknix_1_1_constraint_distance__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmknix_1_1_constraint_distance_ad89b1d56b296625e72fe0bcf4cea3c5c}{Constraint\-Distance} ()
+\item 
+\hyperlink{classmknix_1_1_constraint_distance_aa39735f682295e2c7b839fddb9eba545}{$\sim$\-Constraint\-Distance} ()
+\item 
+\hyperlink{classmknix_1_1_constraint_distance_adc9113e52374f275b1b79bfdca72b971}{Constraint\-Distance} (\hyperlink{classmknix_1_1_node}{Node} $\ast$, \hyperlink{classmknix_1_1_node}{Node} $\ast$, double \&, std\-::string \&)
+\item 
+void \hyperlink{classmknix_1_1_constraint_distance_a32df0e5f0198ce5c7871e2b6a5cafb7c}{calc\-Ro} ()
+\item 
+void \hyperlink{classmknix_1_1_constraint_distance_ad838af34d5ada5ba2f4ce559a472e16a}{calc\-Phi} ()
+\item 
+void \hyperlink{classmknix_1_1_constraint_distance_a6fa6c37266c01a1e8f577418dd886037}{calc\-Phiq} ()
+\item 
+void \hyperlink{classmknix_1_1_constraint_distance_ad4d1eb206239508f7f2f5b4d26b957eb}{calc\-Phiqq} ()
+\item 
+lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \& \hyperlink{classmknix_1_1_constraint_distance_aae757ba28e181259a196fbc0a1e8bfaf}{get\-Internal\-Forces} ()
+\item 
+lmx\-::\-Dense\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \& \hyperlink{classmknix_1_1_constraint_distance_a847365545dcef34ee44bbadd20d819bf}{get\-Stiffness\-Matrix} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{classmknix_1_1_constraint_distance_a2d4a4e3c3b75b23f63a772b71c4badaa}{ro}
+\item 
+double \hyperlink{classmknix_1_1_constraint_distance_ae4054619a2e3205079c4911ad69db4eb}{rt}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+A\-U\-T\-H\-O\-R\-S $<$\-M\-A\-I\-L\-S$>$ 
+\end{DoxyAuthor}
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{classmknix_1_1_constraint_distance_ad89b1d56b296625e72fe0bcf4cea3c5c}{\index{mknix\-::\-Constraint\-Distance@{mknix\-::\-Constraint\-Distance}!Constraint\-Distance@{Constraint\-Distance}}
+\index{Constraint\-Distance@{Constraint\-Distance}!mknix::ConstraintDistance@{mknix\-::\-Constraint\-Distance}}
+\paragraph[{Constraint\-Distance}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Constraint\-Distance\-::\-Constraint\-Distance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_constraint_distance_ad89b1d56b296625e72fe0bcf4cea3c5c}
+\hypertarget{classmknix_1_1_constraint_distance_aa39735f682295e2c7b839fddb9eba545}{\index{mknix\-::\-Constraint\-Distance@{mknix\-::\-Constraint\-Distance}!$\sim$\-Constraint\-Distance@{$\sim$\-Constraint\-Distance}}
+\index{$\sim$\-Constraint\-Distance@{$\sim$\-Constraint\-Distance}!mknix::ConstraintDistance@{mknix\-::\-Constraint\-Distance}}
+\paragraph[{$\sim$\-Constraint\-Distance}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Constraint\-Distance\-::$\sim$\-Constraint\-Distance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_constraint_distance_aa39735f682295e2c7b839fddb9eba545}
+\hypertarget{classmknix_1_1_constraint_distance_adc9113e52374f275b1b79bfdca72b971}{\index{mknix\-::\-Constraint\-Distance@{mknix\-::\-Constraint\-Distance}!Constraint\-Distance@{Constraint\-Distance}}
+\index{Constraint\-Distance@{Constraint\-Distance}!mknix::ConstraintDistance@{mknix\-::\-Constraint\-Distance}}
+\paragraph[{Constraint\-Distance}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Constraint\-Distance\-::\-Constraint\-Distance (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{a\-\_\-in, }
+\item[{{\bf Node} $\ast$}]{b\-\_\-in, }
+\item[{double \&}]{alpha\-\_\-in, }
+\item[{std\-::string \&}]{method\-\_\-in}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_constraint_distance_adc9113e52374f275b1b79bfdca72b971}
+
+
+Here is the call graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/de2/classmknix_1_1_constraint_distance_adc9113e52374f275b1b79bfdca72b971_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classmknix_1_1_constraint_distance_ad838af34d5ada5ba2f4ce559a472e16a}{\index{mknix\-::\-Constraint\-Distance@{mknix\-::\-Constraint\-Distance}!calc\-Phi@{calc\-Phi}}
+\index{calc\-Phi@{calc\-Phi}!mknix::ConstraintDistance@{mknix\-::\-Constraint\-Distance}}
+\paragraph[{calc\-Phi}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Constraint\-Distance\-::calc\-Phi (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_constraint_distance_ad838af34d5ada5ba2f4ce559a472e16a}
+
+
+Implements \hyperlink{classmknix_1_1_constraint_a7f2b34d256d5eec54b34b0440b562ec1}{mknix\-::\-Constraint}.
+
+\hypertarget{classmknix_1_1_constraint_distance_a6fa6c37266c01a1e8f577418dd886037}{\index{mknix\-::\-Constraint\-Distance@{mknix\-::\-Constraint\-Distance}!calc\-Phiq@{calc\-Phiq}}
+\index{calc\-Phiq@{calc\-Phiq}!mknix::ConstraintDistance@{mknix\-::\-Constraint\-Distance}}
+\paragraph[{calc\-Phiq}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Constraint\-Distance\-::calc\-Phiq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_constraint_distance_a6fa6c37266c01a1e8f577418dd886037}
+
+
+Implements \hyperlink{classmknix_1_1_constraint_ab129143960df2b9459e274275608bcf2}{mknix\-::\-Constraint}.
+
+\hypertarget{classmknix_1_1_constraint_distance_ad4d1eb206239508f7f2f5b4d26b957eb}{\index{mknix\-::\-Constraint\-Distance@{mknix\-::\-Constraint\-Distance}!calc\-Phiqq@{calc\-Phiqq}}
+\index{calc\-Phiqq@{calc\-Phiqq}!mknix::ConstraintDistance@{mknix\-::\-Constraint\-Distance}}
+\paragraph[{calc\-Phiqq}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Constraint\-Distance\-::calc\-Phiqq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_constraint_distance_ad4d1eb206239508f7f2f5b4d26b957eb}
+
+
+Implements \hyperlink{classmknix_1_1_constraint_a73ff21573b5e9c4acda789bd5ac46ea8}{mknix\-::\-Constraint}.
+
+\hypertarget{classmknix_1_1_constraint_distance_a32df0e5f0198ce5c7871e2b6a5cafb7c}{\index{mknix\-::\-Constraint\-Distance@{mknix\-::\-Constraint\-Distance}!calc\-Ro@{calc\-Ro}}
+\index{calc\-Ro@{calc\-Ro}!mknix::ConstraintDistance@{mknix\-::\-Constraint\-Distance}}
+\paragraph[{calc\-Ro}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Constraint\-Distance\-::calc\-Ro (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classmknix_1_1_constraint_distance_a32df0e5f0198ce5c7871e2b6a5cafb7c}
+
+
+Here is the caller graph for this function\-:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d7/de2/classmknix_1_1_constraint_distance_a32df0e5f0198ce5c7871e2b6a5cafb7c_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_constraint_distance_aae757ba28e181259a196fbc0a1e8bfaf}{\index{mknix\-::\-Constraint\-Distance@{mknix\-::\-Constraint\-Distance}!get\-Internal\-Forces@{get\-Internal\-Forces}}
+\index{get\-Internal\-Forces@{get\-Internal\-Forces}!mknix::ConstraintDistance@{mknix\-::\-Constraint\-Distance}}
+\paragraph[{get\-Internal\-Forces}]{\setlength{\rightskip}{0pt plus 5cm}lmx\-::\-Vector$<${\bf data\-\_\-type}$>$\& mknix\-::\-Constraint\-Distance\-::get\-Internal\-Forces (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_constraint_distance_aae757ba28e181259a196fbc0a1e8bfaf}
+\hypertarget{classmknix_1_1_constraint_distance_a847365545dcef34ee44bbadd20d819bf}{\index{mknix\-::\-Constraint\-Distance@{mknix\-::\-Constraint\-Distance}!get\-Stiffness\-Matrix@{get\-Stiffness\-Matrix}}
+\index{get\-Stiffness\-Matrix@{get\-Stiffness\-Matrix}!mknix::ConstraintDistance@{mknix\-::\-Constraint\-Distance}}
+\paragraph[{get\-Stiffness\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}lmx\-::\-Dense\-Matrix$<${\bf data\-\_\-type}$>$\& mknix\-::\-Constraint\-Distance\-::get\-Stiffness\-Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_constraint_distance_a847365545dcef34ee44bbadd20d819bf}
+
+
+\subsubsection{Member Data Documentation}
+\hypertarget{classmknix_1_1_constraint_distance_a2d4a4e3c3b75b23f63a772b71c4badaa}{\index{mknix\-::\-Constraint\-Distance@{mknix\-::\-Constraint\-Distance}!ro@{ro}}
+\index{ro@{ro}!mknix::ConstraintDistance@{mknix\-::\-Constraint\-Distance}}
+\paragraph[{ro}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Constraint\-Distance\-::ro\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_constraint_distance_a2d4a4e3c3b75b23f63a772b71c4badaa}
+\hypertarget{classmknix_1_1_constraint_distance_ae4054619a2e3205079c4911ad69db4eb}{\index{mknix\-::\-Constraint\-Distance@{mknix\-::\-Constraint\-Distance}!rt@{rt}}
+\index{rt@{rt}!mknix::ConstraintDistance@{mknix\-::\-Constraint\-Distance}}
+\paragraph[{rt}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\-::\-Constraint\-Distance\-::rt\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_constraint_distance_ae4054619a2e3205079c4911ad69db4eb}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{constraintdistance_8h}{constraintdistance.\-h}\item 
+\hyperlink{constraintdistance_8cpp}{constraintdistance.\-cpp}\end{DoxyCompactItemize}
