@@ -18,12 +18,11 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 #include "loadradiation.h"
-#include "simulation.h"
 
 namespace mknix {
 
 Radiation::Radiation()
-    : Load()
+        : Load()
 {
 }
 
@@ -32,7 +31,7 @@ Radiation::~Radiation()
 }
 
 
-void Radiation::addVoxel( double x_in, double y_in, double z_in, double value_in )
+void Radiation::addVoxel(double x_in, double y_in, double z_in, double value_in)
 {
     radMap[z_in][y_in][x_in] = value_in;
 //  cout << "voxel read: (" << x_in << ", " << y_in << ", " << z_in << ") = " << value_in << endl;
@@ -40,11 +39,6 @@ void Radiation::addVoxel( double x_in, double y_in, double z_in, double value_in
 
 void Radiation::outputToFile(std::ofstream * outFile)
 {
-    std::map<double, std::map<double, std::map<double, double> > >::iterator it_z;
-    std::map<double, std::map<double, double> >::iterator it_y;
-    std::map<double, double>::iterator it_x;
-
-
     *outFile << "RADIATION" << "\t";
     // Computing size of regular grid
     *outFile
@@ -52,22 +46,13 @@ void Radiation::outputToFile(std::ofstream * outFile)
             << radMap.begin()->second.size() << "\t"
             << radMap.size() << endl;
 
-    for( it_z = radMap.begin();
-            it_z!= radMap.end();
-            ++it_z)
-    {
-        for(it_y = it_z->second.begin();
-                it_y!= it_z->second.end();
-                ++it_y)
-        {
-            for(it_x = it_y->second.begin();
-                    it_x!= it_y->second.end();
-                    ++it_x)
-            {
-                *outFile << it_x->first << "\t"
-                         << it_y->first << "\t"
-                         << it_z->first << "\t"
-                         << it_x->second << endl;
+    for (auto& z : radMap) {
+        for (auto& y : z.second) {
+            for (auto& x : y.second) {
+                *outFile << x.first << "\t"
+                        << y.first << "\t"
+                        << z.first << "\t"
+                        << x.second << endl;
             }
         }
     }

@@ -13,46 +13,37 @@ Cell::Cell()
 }
 
 
-Cell::Cell( Material& material_in,
-            std::string formulation_in,
-            double alpha_in,
-            int nGPoints_in
-          )
-    : mat(&material_in)
-    , formulation(formulation_in)
-    , alpha(alpha_in)
-    , nGPoints(nGPoints_in)
-    , dc(0)
+Cell::Cell(Material& material_in,
+           std::string formulation_in,
+           double alpha_in,
+           int nGPoints_in)
+        : mat(&material_in)
+        , formulation(formulation_in)
+        , alpha(alpha_in)
+        , nGPoints(nGPoints_in)
+        , dc(0)
 {
 }
 
 Cell::~Cell()
 {
-  std::vector< GaussPoint* >::iterator it_gPoints;
-  for(it_gPoints=gPoints.begin();
-      it_gPoints!=gPoints.end();
-      ++it_gPoints){
-    delete(*it_gPoints);
-  }
-    for(it_gPoints=gPoints_MC.begin();
-      it_gPoints!=gPoints_MC.end();
-      ++it_gPoints){
-    delete(*it_gPoints);
-  }
+    for (auto& point : gPoints) {
+        delete point;
+    }
+    /*
+    for (auto& point : gPoints_MC) {
+        delete point;
+    }
+    */
 }
 
 // Only for Meshfree Cells, function is specialized for FEM elements
-void Cell::initialize( std::vector<Node*> & nodes_in )
+void Cell::initialize(std::vector<Node *>& nodes_in)
 {
     // This function can be joined with assembleGaussPoints so the Gpoints are iterated only once...
-    std::vector<GaussPoint*>::iterator it_gp;
-
-    for ( it_gp = gPoints.begin();
-            it_gp != gPoints.end();
-            ++it_gp)
-    {
-        gPoints_MC.push_back(*it_gp); // use same GP for all matrices
-        (*it_gp)->findSupportNodes( nodes_in );
+    for (auto& point : gPoints) {
+        gPoints_MC.push_back(point); // use same GP for all matrices
+        point->findSupportNodes(nodes_in);
     }
     // Set the dc and alpha parameteres for cell nodes. This way, the values will
     // be greater than zero only for meshfree nodes which need shapefunctions to be
@@ -73,286 +64,215 @@ void Cell::initialize( std::vector<Node*> & nodes_in )
 }
 
 
-void Cell::computeShapeFunctions(  )
+void Cell::computeShapeFunctions()
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints.begin();
-            it != gPoints.end();
-            ++it)
-    {
-        if( formulation == "RPIM" )
-            (*it)->shapeFunSolve( "RBF", 1.03 );
-        else if( formulation == "EFG" )
-            (*it)->shapeFunSolve( "MLS", 1.03 );
+    for (auto& point : gPoints) {
+        if (formulation == "RPIM") {
+            point->shapeFunSolve("RBF", 1.03);
+        } else if (formulation == "EFG") {
+            point->shapeFunSolve("MLS", 1.03);
+        }
     }
 }
 
 
-void Cell::computeCapacityGaussPoints(  )
+void Cell::computeCapacityGaussPoints()
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints_MC.begin();
-            it != gPoints_MC.end();
-            ++it)
-    {
-        (*it)->computeCij( );
+    for (auto& point : gPoints_MC) {
+        point->computeCij();
     }
 }
 
-void Cell::assembleCapacityGaussPoints( lmx::Matrix< data_type > & globalCapacity )
+void Cell::assembleCapacityGaussPoints(lmx::Matrix<data_type>& globalCapacity)
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints_MC.begin();
-            it != gPoints_MC.end();
-            ++it)
-    {
-        (*it)->assembleCij( globalCapacity );
+    for (auto& point : gPoints_MC) {
+        point->assembleCij(globalCapacity);
     }
 }
 
 
-void Cell::computeConductivityGaussPoints(  )
+void Cell::computeConductivityGaussPoints()
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints.begin();
-            it != gPoints.end();
-            ++it)
-    {
-        (*it)->computeHij( );
+    for (auto& point : gPoints) {
+        point->computeHij();
     }
 }
 
-void Cell::assembleConductivityGaussPoints( lmx::Matrix< data_type > & globalConductivity )
+void Cell::assembleConductivityGaussPoints(lmx::Matrix<data_type>& globalConductivity)
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints.begin();
-            it != gPoints.end();
-            ++it)
-    {
-        (*it)->assembleHij( globalConductivity );
+    for (auto& point : gPoints) {
+        point->assembleHij(globalConductivity);
     }
 }
 
 
-void Cell::computeQextGaussPoints( LoadThermalBody* loadThermalBody_in )
+void Cell::computeQextGaussPoints(LoadThermalBody * loadThermalBody_in)
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints.begin();
-            it != gPoints.end();
-            ++it)
-    {
-        (*it)->computeQext( loadThermalBody_in );
+    for (auto& point : gPoints) {
+        point->computeQext(loadThermalBody_in);
     }
 }
 
-void Cell::assembleQextGaussPoints( lmx::Vector< data_type > & globalQext )
+void Cell::assembleQextGaussPoints(lmx::Vector<data_type>& globalQext)
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints.begin();
-            it != gPoints.end();
-            ++it)
-    {
-        (*it)->assembleQext( globalQext );
+    for (auto& point : gPoints) {
+        point->assembleQext(globalQext);
     }
 }
 
 
-void Cell::computeMGaussPoints(  )
+void Cell::computeMGaussPoints()
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints_MC.begin();
-            it != gPoints_MC.end();
-            ++it)
-    {
-        (*it)->computeMij( );
+    for (auto& point : gPoints_MC) {
+        point->computeMij();
     }
 }
 
 
-void Cell::assembleMGaussPoints( lmx::Matrix< data_type > & globalMass )
+void Cell::assembleMGaussPoints(lmx::Matrix<data_type>& globalMass)
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints_MC.begin();
-            it != gPoints_MC.end();
-            ++it)
-    {
-        (*it)->assembleMij( globalMass );
+    for (auto& point : gPoints_MC) {
+        point->assembleMij(globalMass);
     }
 }
 
 
-void Cell::computeFintGaussPoints(  )
+void Cell::computeFintGaussPoints()
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints.begin();
-            it != gPoints.end();
-            ++it)
-    {
-        (*it)->computeFint( );
+    for (auto& point : gPoints) {
+        point->computeFint();
     }
 }
 
 
-void Cell::computeNLFintGaussPoints(  )
+void Cell::computeNLFintGaussPoints()
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints.begin();
-            it != gPoints.end();
-            ++it)
-    {
-        (*it)->computeNLFint( );
+    for (auto& point : gPoints) {
+        point->computeNLFint();
     }
 }
 
 
-void Cell::assembleFintGaussPoints( lmx::Vector< data_type > & globalFint )
+void Cell::assembleFintGaussPoints(lmx::Vector<data_type>& globalFint)
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints.begin();
-            it != gPoints.end();
-            ++it)
-    {
-        (*it)->assembleFint( globalFint );
+    for (auto& point : gPoints) {
+        point->assembleFint(globalFint);
     }
 }
 
 
-void Cell::computeFextGaussPoints(  )
+void Cell::computeFextGaussPoints()
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints_MC.begin();
-            it != gPoints_MC.end();
-            ++it)
-    {
-        (*it)->computeFext( );
+    for (auto& point : gPoints_MC) {
+        point->computeFext();
     }
 }
 
 
-void Cell::assembleFextGaussPoints( lmx::Vector< data_type > & globalFext )
+void Cell::assembleFextGaussPoints(lmx::Vector<data_type>& globalFext)
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints_MC.begin();
-            it != gPoints_MC.end();
-            ++it)
-    {
-        (*it)->assembleFext( globalFext );
+    for (auto& point : gPoints_MC) {
+        point->assembleFext(globalFext);
     }
 }
 
 
-void Cell::computeKGaussPoints(  )
+void Cell::computeKGaussPoints()
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints.begin();
-            it != gPoints.end();
-            ++it)
-    {
-        (*it)->computeKij( );
+    for (auto& point : gPoints) {
+        point->computeKij();
     }
 }
 
 
-void Cell::computeNLKGaussPoints(  )
+void Cell::computeNLKGaussPoints()
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints.begin();
-            it != gPoints.end();
-            ++it)
-    {
-        (*it)->computeNLKij( );
+    for (auto& point : gPoints) {
+        point->computeNLKij();
     }
 }
 
 
-void Cell::assembleKGaussPoints( lmx::Matrix< data_type > & globalTangent )
+void Cell::assembleKGaussPoints(lmx::Matrix<data_type>& globalTangent)
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints.begin();
-            it != gPoints.end();
-            ++it)
-    {
-        (*it)->assembleKij( globalTangent );
+    for (auto& point : gPoints) {
+        point->assembleKij(globalTangent);
     }
 }
 
 
-void Cell::assembleRGaussPoints( lmx::Vector< data_type > & globalStress,
-                                 int firstNode
-                               )
+void Cell::assembleRGaussPoints(lmx::Vector<data_type>& globalStress,
+                                int firstNode
+)
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints.begin();
-            it != gPoints.end();
-            ++it)
-    {
-        (*it)->computeStress( );
-        (*it)->assembleRi( globalStress, firstNode );
+    for (auto& point : gPoints) {
+        point->computeStress();
+        point->assembleRi(globalStress, firstNode);
     }
 }
 
 
-void Cell::assembleNLRGaussPoints( lmx::Vector< data_type > & globalStress,
-                                   int firstNode
-                                 )
+void Cell::assembleNLRGaussPoints(lmx::Vector<data_type>& globalStress,
+                                  int firstNode
+)
 {
-    for ( std::vector<GaussPoint*>::iterator it = gPoints.begin();
-            it != gPoints.end();
-            ++it)
-    {
-        (*it)->computeNLStress( );
-        (*it)->assembleRi( globalStress, firstNode );
+    for (auto& point : gPoints) {
+        point->computeNLStress();
+        point->assembleRi(globalStress, firstNode);
     }
 }
 
 
-double Cell::calcPotentialEGaussPoints( const lmx::Vector<data_type> & q )
+double Cell::calcPotentialEGaussPoints(const lmx::Vector<data_type>& q)
 {
     double potentialEnergy = 0;
 
-    for ( std::vector<GaussPoint*>::iterator it = gPoints.begin();
-            it != gPoints.end();
-            ++it)
-    {
-        potentialEnergy += (*it)->calcPotentialE( q );
+    for (auto& point : gPoints) {
+        potentialEnergy += point->calcPotentialE(q);
     }
     return potentialEnergy;
 }
 
 
-double Cell::calcKineticEGaussPoints( const lmx::Vector<data_type> & qdot )
+double Cell::calcKineticEGaussPoints(const lmx::Vector<data_type>& qdot)
 {
     double kineticEnergy = 0;
 
-    for ( std::vector<GaussPoint*>::iterator it = gPoints.begin();
-            it != gPoints.end();
-            ++it)
-    {
-        kineticEnergy += (*it)->calcKineticE( qdot );
+    for (auto& point : gPoints) {
+        kineticEnergy += point->calcKineticE(qdot);
     }
     return kineticEnergy;
 }
 
 
-double Cell::calcElasticEGaussPoints( )
+double Cell::calcElasticEGaussPoints()
 {
     double elasticEnergy = 0;
 
-    for ( std::vector<GaussPoint*>::iterator it = gPoints.begin();
-            it != gPoints.end();
-            ++it)
-    {
-        elasticEnergy += (*it)->calcElasticE( );
+    for (auto& point : gPoints) {
+        elasticEnergy += point->calcElasticE();
     }
     return elasticEnergy;
 }
 
 
-void Cell::outputConnectivityToFile(std::ofstream* outfile)
+void Cell::outputConnectivityToFile(std::ofstream * outfile)
 {
-  std::vector< Point* >::iterator it_points;
-  *outfile << "\t\t\t";
-  for(it_points=bodyPoints.begin();
-      it_points!=bodyPoints.end();
-      ++it_points){
-    *outfile << (*it_points)->getNumber() << " ";
-  }
-  *outfile << std::endl;
+    *outfile << "\t\t\t";
+    for (auto& point : bodyPoints) {
+        *outfile << point->getNumber() << " ";
+    }
+    *outfile << std::endl;
 }
 
 
-void Cell::gnuplotOutStress( std::ofstream & gptension )
+void Cell::gnuplotOutStress(std::ofstream& gptension)
 {
     int counter;
-    for(std::vector<GaussPoint*>::iterator it=gPoints.begin();
-            it!=gPoints.end();
-            ++it)
-    {
+    for (auto& point : gPoints) {
         ++counter;
-        (*it)->gnuplotOutStress( gptension );
-        if (counter%4 == 0) gptension << endl;
+        point->gnuplotOutStress(gptension);
+        if (counter % 4 == 0) gptension << endl;
     }
 }
 

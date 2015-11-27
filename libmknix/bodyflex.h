@@ -109,8 +109,8 @@ protected:
     bool computeEnergy;
 //     std::vector<Node*> points; 
     lmx::Matrix< data_type > smoothingMassMatrix;
-    std::vector< lmx::Vector<data_type> > stress;
-    std::vector< lmx::Vector<data_type>* > energy;
+    std::vector< lmx::Vector<data_type> > stresses;
+    std::vector< lmx::Vector<data_type>* > energies;
 };
 
 }

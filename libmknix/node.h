@@ -32,9 +32,9 @@ class Node : public Point {
 public:
     Node();
 
-    Node( /*const*/ Node& );
+    Node(const Node&);
 
-    Node( /*const*/ Node* );
+    Node(const Node*);
 
     Node(int i_in, double x_in, double y_in, double z_in);
 
@@ -44,7 +44,7 @@ public:
         this->weight += w_in;
     }
 
-    inline const double& getWeight() {
+    inline const double& getWeight() const {
         return this->weight;
     }
 
@@ -76,7 +76,7 @@ public:
         return this->qt;
     }
 
-    inline double getqx(int i)
+    inline double getqx(int i) const
     {
         if(i==0) return qx;
         if(i==1) return qy;
@@ -84,19 +84,19 @@ public:
         else return 1E10;
     }
 
-    inline double getUx() {
+    inline double getUx() const {
         return getConf(0)-X;
     }
 
-    inline double getUy() {
+    inline double getUy() const {
         return getConf(1)-Y;
     }
 
-    inline double getUz() {
+    inline double getUz() const {
         return getConf(2)-Z;
     }
 
-    inline double getU(int i)
+    inline double getU(int i) const
     {
         if(i==0) return getConf(0)-X;
         if(i==1) return getConf(1)-Y;
@@ -104,9 +104,9 @@ public:
         else return 1E10;
     }
 
-    double getConf(int dof);
+    double getConf(int dof) const override;
 
-    double getTemp();
+    double getTemp() const override;
 
     size_t getSupportSize( int deriv );
 

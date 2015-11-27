@@ -27,53 +27,57 @@
 namespace mknix {
 
 class Point;
+
 class Node;
+
 class CellBoundary;
+
 class LoadThermalBoundary1D;
 
 /**
 	@author AUTHORS <MAILS>
 */
-class BoundaryGroup{
+class BoundaryGroup
+{
 
 public:
     BoundaryGroup();
 
 //     BoundaryGroup( std::string );
 
-    ~BoundaryGroup();
+    virtual ~BoundaryGroup();
 
-    virtual void initialize( );
+    virtual void initialize();
 
-    virtual void calcExternalHeat( );
+    virtual void calcExternalHeat();
 
-    virtual void assembleExternalHeat( lmx::Vector<data_type> & );
+    virtual void assembleExternalHeat(lmx::Vector<data_type>&);
 
 //     virtual void assembleExternalForces( lmx::Vector<data_type> & ) = 0;
 
-    virtual void addNode( Node* node_in )
+    virtual void addNode(Node * node_in)
     {
-        this->nodes.push_back( node_in );
+        this->nodes.push_back(node_in);
     }
 
-    virtual void addCell( CellBoundary* cell_in )
+    virtual void addCell(CellBoundary * cell_in)
     {
-      int num = cells.size();
-      this->cells[num] = cell_in;
+        int num = cells.size();
+        this->cells[num] = cell_in;
     }
 
     // Temporary, should be a pointer to a load class
-    virtual void setLoadThermal( LoadThermalBoundary1D* theLoad )
+    virtual void setLoadThermal(LoadThermalBoundary1D * theLoad)
     {
         loadThermalBoundaryGroup = theLoad;
     }
 
 
-
 protected:
-    std::vector<Node*> nodes;
-    std::map<int,CellBoundary*> cells; /**< Map of integration cells. */
-    LoadThermalBoundary1D* loadThermalBoundaryGroup;
+    std::vector<Node *> nodes;
+    std::map<int, CellBoundary *> cells;
+    /**< Map of integration cells. */
+    LoadThermalBoundary1D * loadThermalBoundaryGroup;
 
 };
 

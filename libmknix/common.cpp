@@ -21,22 +21,21 @@
 
 namespace mknix {
 
-double interpolate1D( double key, const std::map<double,double>& theMap ) {
+double interpolate1D(double key, const std::map<double, double>& theMap)
+{
     typedef std::map<double, double>::const_iterator i_t;
 
-    i_t i=theMap.upper_bound(key);
-    if(i==theMap.end())
-    {
+    i_t i = theMap.upper_bound(key);
+    if (i == theMap.end()) {
         return (--i)->second;
     }
-    if (i==theMap.begin())
-    {
+    if (i == theMap.begin()) {
         return i->second;
     }
-    i_t l=i;
+    i_t l = i;
     --l;
 
-    const double delta=(key - l->first)/(i->first - l->first);
-    return (delta*i->second +(1-delta)*l->second);
+    const double delta = (key - l->first) / (i->first - l->first);
+    return (delta * i->second + (1 - delta) * l->second);
 }
 }

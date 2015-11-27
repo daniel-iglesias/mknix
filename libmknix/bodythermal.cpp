@@ -26,7 +26,7 @@
 namespace mknix {
 
 ThermalBody::ThermalBody()
-    : computeEnergy(0)
+        : computeEnergy(0)
 //   , formulation( "NONLINEAR" )
 {
 }
@@ -37,9 +37,9 @@ ThermalBody::ThermalBody()
  *
  * @param title_in Name of body in the system. Will be the same as the associated material body
  **/
-ThermalBody::ThermalBody( std::string title_in )
-    : title( title_in )
-    , computeEnergy(0)
+ThermalBody::ThermalBody(std::string title_in)
+        : title(title_in)
+        , computeEnergy(0)
 //   , formulation( "NONLINEAR" )
 {
 }
@@ -60,19 +60,17 @@ void ThermalBody::initialize()
     int end_int = this->cells.size();
 
 //     #pragma omp parallel for
-    for (int i=0;
-            i < end_int;
-            ++i)
-    {
-        this->cells[i]->initialize( this->nodes );
+    for (int i = 0;
+         i < end_int;
+         ++i) {
+        this->cells[i]->initialize(this->nodes);
     }
 
 //     #pragma omp parallel for
-    for (int i=0;
-            i < end_int;
-            ++i)
-    {
-        this->cells[i]->computeShapeFunctions( );
+    for (int i = 0;
+         i < end_int;
+         ++i) {
+        this->cells[i]->computeShapeFunctions();
     }
 
 // Checking the output of a shapefunction:
@@ -90,15 +88,14 @@ void ThermalBody::initialize()
  *
  * @return void
  **/
-void ThermalBody::calcCapacityMatrix( )
+void ThermalBody::calcCapacityMatrix()
 {
     int end_int = this->cells.size();
 //     #pragma omp parallel for
-    for (int i=0;
-            i < end_int;
-            ++i)
-    {
-        this->cells[i]->computeCapacityGaussPoints( );
+    for (int i = 0;
+         i < end_int;
+         ++i) {
+        this->cells[i]->computeCapacityGaussPoints();
     }
 }
 
@@ -107,15 +104,14 @@ void ThermalBody::calcCapacityMatrix( )
  *
  * @return void
  **/
-void ThermalBody::calcConductivityMatrix( )
+void ThermalBody::calcConductivityMatrix()
 {
     int end_int = this->cells.size();
 //     #pragma omp parallel for
-    for (int i=0;
-            i < end_int;
-            ++i)
-    {
-        this->cells[i]->computeConductivityGaussPoints( );
+    for (int i = 0;
+         i < end_int;
+         ++i) {
+        this->cells[i]->computeConductivityGaussPoints();
     }
 }
 
@@ -124,15 +120,14 @@ void ThermalBody::calcConductivityMatrix( )
  *
  * @return void
  **/
-void ThermalBody::calcExternalHeat( )
+void ThermalBody::calcExternalHeat()
 {
     int end_int = this->cells.size();
 //     #pragma omp parallel for
-    for (int i=0;
-            i < end_int;
-            ++i)
-    {
-        this->cells[i]->computeQextGaussPoints( this->loadThermalBody );
+    for (int i = 0;
+         i < end_int;
+         ++i) {
+        this->cells[i]->computeQextGaussPoints(this->loadThermalBody);
     }
 
 }
@@ -143,15 +138,14 @@ void ThermalBody::calcExternalHeat( )
  * @param globalCapacity Reference to the global matrix of the thermal simulation.
  * @return void
  **/
-void ThermalBody::assembleCapacityMatrix( lmx::Matrix<data_type> & globalCapacity )
+void ThermalBody::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
 {
     int end_int = this->cells.size();
 //     #pragma omp parallel for
-    for (int i=0;
-            i < end_int;
-            ++i)
-    {
-        this->cells[i]->assembleCapacityGaussPoints( globalCapacity );
+    for (int i = 0;
+         i < end_int;
+         ++i) {
+        this->cells[i]->assembleCapacityGaussPoints(globalCapacity);
     }
 }
 
@@ -161,15 +155,14 @@ void ThermalBody::assembleCapacityMatrix( lmx::Matrix<data_type> & globalCapacit
  * @param globalConductivity Reference to the global matrix of the thermal simulation.
  * @return void
  **/
-void ThermalBody::assembleConductivityMatrix( lmx::Matrix<data_type> & globalConductivity )
+void ThermalBody::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity)
 {
     int end_int = this->cells.size();
 //     #pragma omp parallel for
-    for (int i=0;
-            i < end_int;
-            ++i)
-    {
-        this->cells[i]->assembleConductivityGaussPoints( globalConductivity );
+    for (int i = 0;
+         i < end_int;
+         ++i) {
+        this->cells[i]->assembleConductivityGaussPoints(globalConductivity);
     }
 }
 
@@ -178,15 +171,14 @@ void ThermalBody::assembleConductivityMatrix( lmx::Matrix<data_type> & globalCon
  *
  * @return void
  **/
-void ThermalBody::assembleExternalHeat( lmx::Vector<data_type> & globalExternalHeat )
+void ThermalBody::assembleExternalHeat(lmx::Vector<data_type>& globalExternalHeat)
 {
     int end_int = this->cells.size();
 //     #pragma omp parallel for
-    for (int i=0;
-            i < end_int;
-            ++i)
-    {
-        this->cells[i]->assembleQextGaussPoints( globalExternalHeat );
+    for (int i = 0;
+         i < end_int;
+         ++i) {
+        this->cells[i]->assembleQextGaussPoints(globalExternalHeat);
     }
 }
 
@@ -199,10 +191,11 @@ void ThermalBody::assembleExternalHeat( lmx::Vector<data_type> & globalExternalH
  * @param outputType_in Keyword of the flag. Options are: [ENERGY]
  * @return void
  **/
-void ThermalBody::setOutput(std::string outputType_in )
+void ThermalBody::setOutput(std::string outputType_in)
 {
-    if(outputType_in == "ENERGY")
+    if (outputType_in == "ENERGY") {
         computeEnergy = 1;
+    }
 }
 
 
@@ -235,25 +228,16 @@ void ThermalBody::outputToFile(std::ofstream * outFile)
 //     }
 //   }
 
-    if( temperature.size() != 0 ) {
-        std::vector< lmx::Vector<data_type>* >::iterator itTemps;
-        int i, vectorSize;
-
+    if (temperature.size() != 0) {
         *outFile << "TEMPERATURE " << title << endl;
-        for( itTemps = temperature.begin();
-                itTemps!= temperature.end();
-                ++itTemps
-           )
-        {
-            vectorSize = (*itTemps)->size();
-            for( i=0; i<vectorSize; ++i) {
-                *outFile << (*itTemps)->readElement(i) << " ";
+        for (auto& temp : temperature) {
+            auto vectorSize = temp->size();
+            for (auto i = 0u; i < vectorSize; ++i) {
+                *outFile << temp->readElement(i) << " ";
             }
             *outFile << endl;
         }
-
     }
-
 }
 
 /**
@@ -263,9 +247,9 @@ void ThermalBody::outputToFile(std::ofstream * outFile)
  * @param qdot Global configuration first derivative vector
  * @return void
  **/
-void ThermalBody::outputStep( const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot )
+void ThermalBody::outputStep(const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot)
 {
-    if( computeEnergy ) { // TODO: store thermal energy
+    if (computeEnergy) { // TODO: store thermal energy
 //     energy.push_back( new lmx::Vector<data_type>( 4 ) ); //potential, kinetic, elastic, total
 //
 //     energy.back()->fillIdentity( 0. );
@@ -291,10 +275,10 @@ void ThermalBody::outputStep( const lmx::Vector<data_type>& q, const lmx::Vector
  * @param q Global configuration vector
  * @return void
  **/
-void ThermalBody::outputStep( const lmx::Vector<data_type>& q )
+void ThermalBody::outputStep(const lmx::Vector<data_type>& q)
 {
 
-    if( computeEnergy ) { // TODO: see above
+    if (computeEnergy) { // TODO: see above
     }
 }
 

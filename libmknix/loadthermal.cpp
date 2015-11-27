@@ -27,9 +27,9 @@ LoadThermal::LoadThermal()
 {
 }
 
-LoadThermal::LoadThermal(Node * node_in, double fluence_in )
+LoadThermal::LoadThermal(Node * node_in, double fluence_in)
 {
-    nodes.push_back( node_in );
+    nodes.push_back(node_in);
     externalHeat = fluence_in;
 }
 
@@ -37,46 +37,42 @@ LoadThermal::~LoadThermal()
 {
 }
 
-void LoadThermal::insertNodesXCoordinates( std::vector<double>& x_coordinates )
+void LoadThermal::insertNodesXCoordinates(std::vector<double>& x_coordinates)
 {
-    int nodesSize = nodes.size();
-    int i, m;
-    for (i=0; i<nodesSize; ++i) {
-        if (nodes[i]->getNumber() >= 0 ) {
-            x_coordinates.push_back( nodes[i]->getX() );
+    auto nodesSize = nodes.size();
+    for (auto i = 0u; i < nodesSize; ++i) {
+        if (nodes[i]->getNumber() >= 0) {
+            x_coordinates.push_back(nodes[i]->getX());
         }
     }
 
 }
 
 void LoadThermal::assembleExternalHeat
-(lmx::Vector< data_type > & globalExternalHeat)
+        (lmx::Vector<data_type>& globalExternalHeat)
 {
-    int nodesSize = nodes.size();
-    int i, m;
-    for (i=0; i<nodesSize; ++i) {
-        if (nodes[i]->getNumber() >= 0 ) {
+    auto nodesSize = nodes.size();
+    for (auto i = 0u; i < nodesSize; ++i) {
+        if (nodes[i]->getNumber() >= 0) {
 //             for (m=0; m<Simulation::getDim(); ++m) {
-                globalExternalHeat( nodes[i]->getNumber() )
-                += externalHeat; // change of sign!!
+            globalExternalHeat(nodes[i]->getNumber())
+                    += externalHeat; // change of sign!!
 //             }
         }
     }
 }
 
-void LoadThermal::getMaxTemp( double& maxTemp_in )
+void LoadThermal::getMaxTemp(double& maxTemp_in)
 {
-    int nodesSize = nodes.size();
-    int i;
-    
-    for (i=0; i<nodesSize; ++i) { 
-// can be improved using fmax()
-      if (nodes[i]->getTemp() > maxTemp_in ) {
-	  maxTemp_in = nodes[i]->getTemp();
-        }
-    }  
-}
+    auto nodesSize = nodes.size();
 
+    for (auto i = 0u; i < nodesSize; ++i) {
+// can be improved using fmax()
+        if (nodes[i]->getTemp() > maxTemp_in) {
+            maxTemp_in = nodes[i]->getTemp();
+        }
+    }
+}
 
 
 }

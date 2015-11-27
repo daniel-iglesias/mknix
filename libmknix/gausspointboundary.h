@@ -47,7 +47,7 @@ public:
 
     ~GaussPointBoundary();
 
-    virtual void shapeFunSolve( std::string, double );
+    virtual void shapeFunSolve( std::string, double ) override;
 
     void computeQext( LoadThermalBoundary1D* );
     void assembleQext( lmx::Vector<data_type> & );

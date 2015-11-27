@@ -27,53 +27,39 @@
 #include "load.h"
 #include "loadthermal.h"
 #include "motion.h"
-#include "node.h"
-
 
 namespace mknix {
 
 System::System()
-  : outputMaxInterfaceTemp(false)
+        : outputMaxInterfaceTemp(false)
 {
 }
 
 
-System::System(const char * title_in)
-  : title(title_in)
-  , outputMaxInterfaceTemp(false)
+System::System(const std::string& title_in)
+        : outputMaxInterfaceTemp(false)
+        , title(title_in)
 {
 }
 
 
 System::~System()
 {
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        delete(itSubSystems->second);
+    for (auto& system : subSystems) {
+        delete system.second;
     }
-    for ( itRigidBodies = rigidBodies.begin();
-            itRigidBodies!= rigidBodies.end();
-            ++itRigidBodies
-        )
-    {
-        delete(itRigidBodies->second);
+    for (auto& body : rigidBodies) {
+        delete body.second;
     }
-    for ( itFlexBodies = flexBodies.begin();
-            itFlexBodies!= flexBodies.end();
-            ++itFlexBodies
-        )
-    {
-        delete(itFlexBodies->second);
+    for (auto& body : flexBodies) {
+        delete body.second;
     }
 //     for ( itConstraints = constraints.begin();
 //             itConstraints!= constraints.end();
 //             ++itConstraints
 //         )
 //     {
-//         delete(itConstraints->second);
+//         delete(constraint.second);
 //     }
 //     for ( itConstraintsThermal = constraintsThermal.begin();
 //             itConstraintsThermal!= constraintsThermal.end();
@@ -82,193 +68,117 @@ System::~System()
 //     {
 //         delete(itConstraintsThermal->second);
 //     }
-    for ( itLoads = loads.begin();
-            itLoads!= loads.end();
-            ++itLoads
-        )
-    {
-        delete(*itLoads);
+    for (auto& load : loads) {
+        delete load;
     }
-    for ( itLoadsThermal = loadsThermal.begin();
-            itLoadsThermal!= loadsThermal.end();
-            ++itLoadsThermal
-        )
-    {
-        delete(*itLoadsThermal);
+    for (auto& load : loadsThermal) {
+        delete load;
     }
 }
 
-// BUG: Specific for tiles susbsystem. That can change in input
-void System::getThermalNodes(std::vector< double >& x_coordinates)
+// BUG: Specific for tiles subsystem. That can change in input
+void System::getThermalNodes(std::vector<double>& x_coordinates)
 {
-  for ( itLoadsThermal = subSystems["tiles"]->loadsThermal.begin();
-        itLoadsThermal!= subSystems["tiles"]->loadsThermal.end();
-        ++itLoadsThermal
-      )
-  {
-    (*itLoadsThermal)->insertNodesXCoordinates( x_coordinates );
-  }
-}
-
-
-void System::getOutputSignalThermal(double* vector_in)
-{
-  int counter=0;
-  for ( itOutputSignalThermal = subSystems["tiles"]->outputSignalThermal.begin();
-        itOutputSignalThermal!= subSystems["tiles"]->outputSignalThermal.end();
-        ++itOutputSignalThermal
-      )
-  {
-    vector_in[counter] = (*itOutputSignalThermal)->getTemp();
-    ++counter;
-  }
-  
-  if(subSystems["tiles"]->outputMaxInterfaceTemp){
-    vector_in[counter] = 0;
-    for ( itLoadsThermal = subSystems["tiles"]->loadsThermal.begin();
-        itLoadsThermal!= subSystems["tiles"]->loadsThermal.end();
-        ++itLoadsThermal
-      )
-    {
-      (*itLoadsThermal)->getMaxTemp( vector_in[counter] );
+    for (auto& load : subSystems["tiles"]->loadsThermal) {
+        load->insertNodesXCoordinates(x_coordinates);
     }
-  }
 }
 
-
-void System::updateThermalLoads(double* vector_in)
+void System::getOutputSignalThermal(double * vector_in)
 {
-  int counter=0;
-  for ( itLoadsThermal = subSystems["tiles"]->loadsThermal.begin();
-        itLoadsThermal!= subSystems["tiles"]->loadsThermal.end();
-        ++itLoadsThermal
-      )
-  {
-    (*itLoadsThermal)->updateLoad(vector_in[counter]);
-    ++counter;
-  }
+    int counter = 0;
+    for (auto& signal : subSystems["tiles"]->outputSignalThermal) {
+        vector_in[counter] = signal->getTemp();
+        ++counter;
+    }
+
+    if (subSystems["tiles"]->outputMaxInterfaceTemp) {
+        vector_in[counter] = 0;
+        for (auto& load : subSystems["tiles"]->loadsThermal) {
+            load->getMaxTemp(vector_in[counter]);
+        }
+    }
+}
+
+void System::updateThermalLoads(double * vector_in)
+{
+    int counter = 0;
+    for (auto& load : subSystems["tiles"]->loadsThermal) {
+        load->updateLoad(vector_in[counter]);
+        ++counter;
+    }
 }
 
 void System::update(double time)
 {
-    for ( itMotions = motions.begin();
-            itMotions!= motions.end();
-            ++itMotions
-        )
-    {
-        (*itMotions)->update( time );
+    for (auto& motion : motions) {
+        motion->update(time);
     }
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->update( time );
+    for (auto& subSystem : subSystems) {
+        subSystem.second->update(time);
     }
 }
 
 
 void System::initFlexBodies()
 {
-    for ( itFlexBodies = flexBodies.begin();
-            itFlexBodies!= flexBodies.end();
-            ++itFlexBodies
-        )
-    {
-        itFlexBodies->second->initialize( );
+    for (auto& flexBody : flexBodies) {
+        flexBody.second->initialize();
     }
 }
 
 
-void System::writeRigidBodies( std::ofstream* outFile )
+void System::writeRigidBodies(std::ofstream * outFile)
 {
-    for ( itRigidBodies = rigidBodies.begin();
-            itRigidBodies!= rigidBodies.end();
-            ++itRigidBodies
-        )
-    {
-        itRigidBodies->second->writeBodyInfo( outFile );
+    for (auto& rigidBody : rigidBodies) {
+        rigidBody.second->writeBodyInfo(outFile);
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->writeRigidBodies( outFile );
+    for (auto& subSystem : subSystems) {
+        subSystem.second->writeRigidBodies(outFile);
     }
-
-
 }
 
-void System::writeFlexBodies( std::ofstream* outFile )
+void System::writeFlexBodies(std::ofstream * outFile)
 {
-    for ( itFlexBodies = flexBodies.begin();
-            itFlexBodies!= flexBodies.end();
-            ++itFlexBodies
-        )
-    {
-        itFlexBodies->second->writeBodyInfo( outFile );
+    for (auto& body : flexBodies) {
+        body.second->writeBodyInfo(outFile);
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->writeFlexBodies( outFile );
+    for (auto& system : subSystems) {
+        system.second->writeFlexBodies(outFile);
     }
 }
 
-  void System::writeJoints( std::ofstream* outFile )
-  {
-    for ( itConstraints = constraints.begin();
-         itConstraints!= constraints.end();
-         ++itConstraints
-         )
-    {
-      itConstraints->second->writeJointInfo( outFile );
+void System::writeJoints(std::ofstream * outFile)
+{
+    for (auto& constraint : constraints) {
+        constraint.second->writeJointInfo(outFile);
     }
-    
-    for ( itSubSystems = subSystems.begin();
-         itSubSystems!= subSystems.end();
-         ++itSubSystems
-         )
-    {
-      itSubSystems->second->writeJoints( outFile );
+
+    for (auto& system : subSystems) {
+        system.second->writeJoints(outFile);
     }
-  }
+}
 
 } // Namespace mknix
 
 
-void mknix::System::calcCapacityMatrix( )
+void mknix::System::calcCapacityMatrix()
 {
-    for ( itThermalBodies = thermalBodies.begin();
-            itThermalBodies!= thermalBodies.end();
-            ++itThermalBodies
-        )
-    {
-        itThermalBodies->second->calcCapacityMatrix();
+    for (auto& body : thermalBodies) {
+        body.second->calcCapacityMatrix();
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->calcCapacityMatrix();
+    for (auto& system : subSystems) {
+        system.second->calcCapacityMatrix();
     }
 }
 
-void mknix::System::calcConductivityMatrix( )
+void mknix::System::calcConductivityMatrix()
 {
-    for ( itThermalBodies = thermalBodies.begin();
-            itThermalBodies!= thermalBodies.end();
-            ++itThermalBodies
-        )
-    {
-        itThermalBodies->second->calcConductivityMatrix();
+    for (auto& body : thermalBodies) {
+        body.second->calcConductivityMatrix();
     }
 
 //   for ( itConstraints = constraints.begin();
@@ -276,105 +186,65 @@ void mknix::System::calcConductivityMatrix( )
 //         ++itConstraints
 //       )
 //   {
-//     itConstraints->second->calcConductivityMatrix();
+//     constraint.second->calcConductivityMatrix();
 //   }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->calcConductivityMatrix();
+    for (auto& system : subSystems) {
+        system.second->calcConductivityMatrix();
     }
 }
 
-void mknix::System::calcExternalHeat( )
+void mknix::System::calcExternalHeat()
 {
-    for ( itThermalBodies = thermalBodies.begin();
-            itThermalBodies!= thermalBodies.end();
-            ++itThermalBodies
-        )
-    {
-        itThermalBodies->second->calcExternalHeat();
+    for (auto& body : thermalBodies) {
+        body.second->calcExternalHeat();
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->calcExternalHeat();
+    for (auto& system : subSystems) {
+        system.second->calcExternalHeat();
     }
 }
 
-void mknix::System::calcInternalHeat( )
+void mknix::System::calcInternalHeat()
 {
-    for ( itConstraintsThermal = constraintsThermal.begin();
-            itConstraintsThermal!= constraintsThermal.end();
-            ++itConstraintsThermal
-        )
-    {
-        itConstraintsThermal->second->calcInternalForces();
+    for (auto& constraint : constraintsThermal) {
+        constraint.second->calcInternalForces();
     }
 
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->calcInternalHeat();
+    for (auto& system : subSystems) {
+        system.second->calcInternalHeat();
     }
 }
 
 void mknix::System::calcThermalTangentMatrix()
 {
-    for ( itConstraintsThermal = constraintsThermal.begin();
-            itConstraintsThermal!= constraintsThermal.end();
-            ++itConstraintsThermal
-        )
-    {
-        itConstraintsThermal->second->calcTangentMatrix();
+    for (auto& constraint : constraintsThermal) {
+        constraint.second->calcTangentMatrix();
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->calcThermalTangentMatrix();
+    for (auto& system : subSystems) {
+        system.second->calcThermalTangentMatrix();
     }
 
 }
 
-void mknix::System::assembleCapacityMatrix( lmx::Matrix<data_type>& globalCapacity_in)
+void mknix::System::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity_in)
 {
-    for ( itThermalBodies = thermalBodies.begin();
-            itThermalBodies!= thermalBodies.end();
-            ++itThermalBodies
-        )
-    {
-        itThermalBodies->second->assembleCapacityMatrix(globalCapacity_in);
+    for (auto& body : thermalBodies) {
+        body.second->assembleCapacityMatrix(globalCapacity_in);
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->assembleCapacityMatrix(globalCapacity_in);
+    for (auto& system : subSystems) {
+        system.second->assembleCapacityMatrix(globalCapacity_in);
     }
 
 }
 
-void mknix::System::assembleConductivityMatrix( lmx::Matrix<data_type>& globalConductivity_in)
+void mknix::System::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity_in)
 {
-    for ( itThermalBodies = thermalBodies.begin();
-            itThermalBodies!= thermalBodies.end();
-            ++itThermalBodies
-        )
-    {
-        itThermalBodies->second->assembleConductivityMatrix(globalConductivity_in);
+    for (auto& body : thermalBodies) {
+        body.second->assembleConductivityMatrix(globalConductivity_in);
     }
 
 //   for ( itConstraints = constraints.begin();
@@ -382,332 +252,196 @@ void mknix::System::assembleConductivityMatrix( lmx::Matrix<data_type>& globalCo
 //         ++itConstraints
 //       )
 //   {
-//     itConstraints->second->assembleConductivityMatrix(globalConductivity_in);
+//     constraint.second->assembleConductivityMatrix(globalConductivity_in);
 //   }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->assembleConductivityMatrix(globalConductivity_in);
+    for (auto& system : subSystems) {
+        system.second->assembleConductivityMatrix(globalConductivity_in);
     }
 
 }
 
-void mknix::System::assembleExternalHeat( lmx::Vector<data_type>& externalHeat_in)
+void mknix::System::assembleExternalHeat(lmx::Vector<data_type>& externalHeat_in)
 {
-    for ( itThermalBodies = thermalBodies.begin();
-            itThermalBodies!= thermalBodies.end();
-            ++itThermalBodies
-        )
-    {
-        itThermalBodies->second->assembleExternalHeat(externalHeat_in);
+    for (auto& body : thermalBodies) {
+        body.second->assembleExternalHeat(externalHeat_in);
     }
 
-  for ( itLoadsThermal = loadsThermal.begin();
-        itLoadsThermal!= loadsThermal.end();
-        ++itLoadsThermal
-      )
-  {
-    (*itLoadsThermal)->assembleExternalHeat(externalHeat_in);
-  }
+    for (auto& load : loadsThermal) {
+        load->assembleExternalHeat(externalHeat_in);
+    }
 
 //  cout << "External heat in System (1) = " << externalHeat_in;
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->assembleExternalHeat(externalHeat_in);
+    for (auto& system : subSystems) {
+        system.second->assembleExternalHeat(externalHeat_in);
     }
 }
 
 
-void mknix::System::assembleInternalHeat( lmx::Vector<data_type>& internalHeat_in)
+void mknix::System::assembleInternalHeat(lmx::Vector<data_type>& internalHeat_in)
 {
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->assembleInternalHeat(internalHeat_in);
+    for (auto& system : subSystems) {
+        system.second->assembleInternalHeat(internalHeat_in);
     }
-    for ( itConstraintsThermal = constraintsThermal.begin();
-            itConstraintsThermal!= constraintsThermal.end();
-            ++itConstraintsThermal
-        )
-    {
-        itConstraintsThermal->second->assembleInternalForces(internalHeat_in);
+    for (auto& constraint : constraintsThermal) {
+        constraint.second->assembleInternalForces(internalHeat_in);
     }
 
 }
 
 
-void mknix::System::assembleThermalTangentMatrix(lmx::Matrix< data_type > & globalTangent_in)
+void mknix::System::assembleThermalTangentMatrix(lmx::Matrix<data_type>& globalTangent_in)
 {
-    for ( itConstraintsThermal = constraintsThermal.begin();
-            itConstraintsThermal!= constraintsThermal.end();
-            ++itConstraintsThermal
-        )
-    {
-        itConstraintsThermal->second->assembleTangentMatrix(globalTangent_in);
+    for (auto& constraint : constraintsThermal) {
+        constraint.second->assembleTangentMatrix(globalTangent_in);
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->assembleThermalTangentMatrix(globalTangent_in);
+    for (auto& system : subSystems) {
+        system.second->assembleThermalTangentMatrix(globalTangent_in);
     }
 }
 
 
 void mknix::System::calcMassMatrix()
 {
-    for ( itFlexBodies = flexBodies.begin();
-            itFlexBodies!= flexBodies.end();
-            ++itFlexBodies
-        )
-    {
-        itFlexBodies->second->calcMassMatrix();
+    for (auto& body : flexBodies) {
+        body.second->calcMassMatrix();
     }
 
-    for ( itRigidBodies = rigidBodies.begin();
-            itRigidBodies!= rigidBodies.end();
-            ++itRigidBodies
-        )
-    {
-        itRigidBodies->second->calcMassMatrix();
+    for (auto& body : rigidBodies) {
+        body.second->calcMassMatrix();
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->calcMassMatrix();
+    for (auto& system : subSystems) {
+        system.second->calcMassMatrix();
     }
 }
 
 void mknix::System::calcInternalForces()
 {
-    for ( itFlexBodies = flexBodies.begin();
-            itFlexBodies!= flexBodies.end();
-            ++itFlexBodies
-        )
-    {
-        itFlexBodies->second->calcInternalForces();
+    for (auto& body : flexBodies) {
+        body.second->calcInternalForces();
     }
 
-    for ( itConstraints = constraints.begin();
-            itConstraints!= constraints.end();
-            ++itConstraints
-        )
-    {
-        itConstraints->second->calcInternalForces();
+    for (auto& constraint : constraints) {
+        constraint.second->calcInternalForces();
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->calcInternalForces();
+    for (auto& system : subSystems) {
+        system.second->calcInternalForces();
     }
 
 }
 
 void mknix::System::calcExternalForces()
 {
-    for ( itFlexBodies = flexBodies.begin();
-            itFlexBodies!= flexBodies.end();
-            ++itFlexBodies
-        )
-    {
-        itFlexBodies->second->calcExternalForces();
+    for (auto& body : flexBodies) {
+        body.second->calcExternalForces();
     }
 
-    for ( itRigidBodies = rigidBodies.begin();
-            itRigidBodies!= rigidBodies.end();
-            ++itRigidBodies
-        )
-    {
-        itRigidBodies->second->calcExternalForces();
+    for (auto& body : rigidBodies) {
+        body.second->calcExternalForces();
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->calcExternalForces();
+    for (auto& system : subSystems) {
+        system.second->calcExternalForces();
     }
 
 }
 
 void mknix::System::calcTangentMatrix()
 {
-    for ( itFlexBodies = flexBodies.begin();
-            itFlexBodies!= flexBodies.end();
-            ++itFlexBodies
-        )
-    {
-        itFlexBodies->second->calcTangentMatrix();
+    for (auto& body : flexBodies) {
+        body.second->calcTangentMatrix();
     }
 
 
-    for ( itConstraints = constraints.begin();
-            itConstraints!= constraints.end();
-            ++itConstraints
-        )
-    {
-        itConstraints->second->calcTangentMatrix();
+    for (auto& constraint : constraints) {
+        constraint.second->calcTangentMatrix();
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->calcTangentMatrix();
+    for (auto& system : subSystems) {
+        system.second->calcTangentMatrix();
     }
 
 }
 
-void mknix::System::assembleMassMatrix(lmx::Matrix< data_type > & globalMass_in)
+void mknix::System::assembleMassMatrix(lmx::Matrix<data_type>& globalMass_in)
 {
-    for ( itFlexBodies = flexBodies.begin();
-            itFlexBodies!= flexBodies.end();
-            ++itFlexBodies
-        )
-    {
-        itFlexBodies->second->assembleMassMatrix(globalMass_in);
+    for (auto& body : flexBodies) {
+        body.second->assembleMassMatrix(globalMass_in);
     }
 
-    for ( itRigidBodies = rigidBodies.begin();
-            itRigidBodies!= rigidBodies.end();
-            ++itRigidBodies
-        )
-    {
-        itRigidBodies->second->assembleMassMatrix(globalMass_in);
+    for (auto& body : rigidBodies) {
+        body.second->assembleMassMatrix(globalMass_in);
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->assembleMassMatrix(globalMass_in);
+    for (auto& system : subSystems) {
+        system.second->assembleMassMatrix(globalMass_in);
     }
 
 }
 
-void mknix::System::assembleInternalForces(lmx::Vector< data_type > & internalForces_in)
+void mknix::System::assembleInternalForces(lmx::Vector<data_type>& internalForces_in)
 {
-    for ( itFlexBodies = flexBodies.begin();
-            itFlexBodies!= flexBodies.end();
-            ++itFlexBodies
-        )
-    {
-        itFlexBodies->second->assembleInternalForces(internalForces_in);
+    for (auto& body : flexBodies) {
+        body.second->assembleInternalForces(internalForces_in);
     }
 
-    for ( itConstraints = constraints.begin();
-            itConstraints!= constraints.end();
-            ++itConstraints
-        )
-    {
-        itConstraints->second->assembleInternalForces(internalForces_in);
+    for (auto& constraint : constraints) {
+        constraint.second->assembleInternalForces(internalForces_in);
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->assembleInternalForces(internalForces_in);
+    for (auto& system : subSystems) {
+        system.second->assembleInternalForces(internalForces_in);
     }
 
 }
 
-void mknix::System::assembleExternalForces(lmx::Vector< data_type > & externalForces_in)
+void mknix::System::assembleExternalForces(lmx::Vector<data_type>& externalForces_in)
 {
 
-    for ( itFlexBodies = flexBodies.begin();
-            itFlexBodies!= flexBodies.end();
-            ++itFlexBodies
-        )
-    {
-        itFlexBodies->second->assembleExternalForces(externalForces_in);
+    for (auto& body : flexBodies) {
+        body.second->assembleExternalForces(externalForces_in);
     }
 
-    for ( itRigidBodies = rigidBodies.begin();
-            itRigidBodies!= rigidBodies.end();
-            ++itRigidBodies
-        )
-    {
-        itRigidBodies->second->assembleExternalForces(externalForces_in);
+    for (auto& body : rigidBodies) {
+        body.second->assembleExternalForces(externalForces_in);
     }
 
-    for ( itLoads = loads.begin();
-            itLoads!= loads.end();
-            ++itLoads
-        )
-    {
-        (*itLoads)->assembleExternalForces(externalForces_in);
+    for (auto& load : loads) {
+        load->assembleExternalForces(externalForces_in);
     }
 
 //  cout << "External in System (1) = " << externalForces_in;
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->assembleExternalForces(externalForces_in);
+    for (auto& system : subSystems) {
+        system.second->assembleExternalForces(externalForces_in);
     }
 
 //  cout << "External in System (2) = " << externalForces_in;
 }
 
-void mknix::System::assembleTangentMatrix(lmx::Matrix< data_type > & globalTangent_in)
+void mknix::System::assembleTangentMatrix(lmx::Matrix<data_type>& globalTangent_in)
 {
-    for ( itFlexBodies = flexBodies.begin();
-            itFlexBodies!= flexBodies.end();
-            ++itFlexBodies
-        )
-    {
-        itFlexBodies->second->assembleTangentMatrix(globalTangent_in);
+    for (auto& body : flexBodies) {
+        body.second->assembleTangentMatrix(globalTangent_in);
     }
 
-    for ( itConstraints = constraints.begin();
-            itConstraints!= constraints.end();
-            ++itConstraints
-        )
-    {
-        itConstraints->second->assembleTangentMatrix(globalTangent_in);
+    for (auto& constraint : constraints) {
+        constraint.second->assembleTangentMatrix(globalTangent_in);
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->assembleTangentMatrix(globalTangent_in);
+    for (auto& system : subSystems) {
+        system.second->assembleTangentMatrix(globalTangent_in);
     }
 }
 
 
-void mknix::System::assembleConstraintForces(lmx::Vector< data_type > & internalForces_in)
+void mknix::System::assembleConstraintForces(lmx::Vector<data_type>& internalForces_in)
 {
-    for ( itConstraints = constraints.begin();
-            itConstraints!= constraints.end();
-            ++itConstraints
-        )
-    {
-        itConstraints->second->calcInternalForces();
-        itConstraints->second->assembleInternalForces(internalForces_in);
+    for (auto& constraint : constraints) {
+        constraint.second->calcInternalForces();
+        constraint.second->assembleInternalForces(internalForces_in);
     }
 
 //   for ( itFlexBodies = flexBodies.begin();
@@ -715,159 +449,91 @@ void mknix::System::assembleConstraintForces(lmx::Vector< data_type > & internal
 //         ++itFlexBodies
 //       )
 //   {
-//     itFlexBodies->second->calcInternalForces();
-//     itFlexBodies->second->assembleInternalForces(internalForces_in);
+//     body.second->calcInternalForces();
+//     body.second->assembleInternalForces(internalForces_in);
 //   }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->assembleConstraintForces(internalForces_in);
+    for (auto& system : subSystems) {
+        system.second->assembleConstraintForces(internalForces_in);
     }
 }
 
 
-void mknix::System::setMechanical(  )
+void mknix::System::setMechanical()
 {
-    for ( itRigidBodies = rigidBodies.begin();
-            itRigidBodies!= rigidBodies.end();
-            ++itRigidBodies
-        )
-    {
-        itRigidBodies->second->setMechanical( );
+    for (auto& body : rigidBodies) {
+        body.second->setMechanical();
     }
 
-    for ( itFlexBodies = flexBodies.begin();
-            itFlexBodies!= flexBodies.end();
-            ++itFlexBodies
-        )
-    {
-        itFlexBodies->second->setMechanical( );
+    for (auto& body : flexBodies) {
+        body.second->setMechanical();
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->setMechanical( );
+    for (auto& system : subSystems) {
+        system.second->setMechanical();
     }
 }
 
-void mknix::System::outputStep( const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot )
+void mknix::System::outputStep(const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot)
 {
-    for ( itRigidBodies = rigidBodies.begin();
-            itRigidBodies!= rigidBodies.end();
-            ++itRigidBodies
-        )
-    {
-        itRigidBodies->second->outputStep( q, qdot );
+    for (auto& body : rigidBodies) {
+        body.second->outputStep(q, qdot);
     }
 
-    for ( itFlexBodies = flexBodies.begin();
-            itFlexBodies!= flexBodies.end();
-            ++itFlexBodies
-        )
-    {
-        itFlexBodies->second->outputStep( q, qdot );
+    for (auto& body : flexBodies) {
+        body.second->outputStep(q, qdot);
     }
 
-    for ( itConstraints = constraints.begin();
-            itConstraints!= constraints.end();
-            ++itConstraints
-        )
-    {
-        itConstraints->second->outputStep(q, qdot);
+    for (auto& constraint : constraints) {
+        constraint.second->outputStep(q, qdot);
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->outputStep( q, qdot );
+    for (auto& system : subSystems) {
+        system.second->outputStep(q, qdot);
     }
 }
 
 
-void mknix::System::outputStep( const lmx::Vector<data_type>& q )
+void mknix::System::outputStep(const lmx::Vector<data_type>& q)
 {
-    for ( itRigidBodies = rigidBodies.begin();
-            itRigidBodies!= rigidBodies.end();
-            ++itRigidBodies
-        )
-    {
-        itRigidBodies->second->outputStep( q );
+    for (auto& body : rigidBodies) {
+        body.second->outputStep(q);
     }
 
-    for ( itFlexBodies = flexBodies.begin();
-            itFlexBodies!= flexBodies.end();
-            ++itFlexBodies
-        )
-    {
-        itFlexBodies->second->outputStep( q );
+    for (auto& body : flexBodies) {
+        body.second->outputStep(q);
     }
 
-    for ( itConstraints = constraints.begin();
-            itConstraints!= constraints.end();
-            ++itConstraints
-        )
-    {
-        itConstraints->second->outputStep( q );
+    for (auto& constraint : constraints) {
+        constraint.second->outputStep(q);
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->outputStep( q );
+    for (auto& system : subSystems) {
+        system.second->outputStep(q);
     }
 }
 
 
 void mknix::System::outputToFile(std::ofstream * outFile)
 {
-    for ( itRigidBodies = rigidBodies.begin();
-            itRigidBodies!= rigidBodies.end();
-            ++itRigidBodies
-        )
-    {
-        itRigidBodies->second->outputToFile( outFile );
+    for (auto& body : rigidBodies) {
+        body.second->outputToFile(outFile);
     }
 
-    for ( itFlexBodies = flexBodies.begin();
-            itFlexBodies!= flexBodies.end();
-            ++itFlexBodies
-        )
-    {
-        itFlexBodies->second->outputToFile( outFile );
+    for (auto& body : flexBodies) {
+        body.second->outputToFile(outFile);
     }
 
-    for ( itLoads = loads.begin();
-            itLoads!= loads.end();
-            ++itLoads
-        )
-    {
-        (*itLoads)->outputToFile( outFile );
+    for (auto& load : loads) {
+        load->outputToFile(outFile);
     }
 
-    for ( itConstraints = constraints.begin();
-            itConstraints!= constraints.end();
-            ++itConstraints
-        )
-    {
-        itConstraints->second->outputToFile( outFile );
+    for (auto& constraint : constraints) {
+        constraint.second->outputToFile(outFile);
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->outputToFile( outFile );
+    for (auto& system : subSystems) {
+        system.second->outputToFile(outFile);
     }
 }
 
@@ -876,22 +542,16 @@ bool mknix::System::checkAugmented()
 {
     bool convergence = 1;
 
-    for ( itConstraints = constraints.begin();
-            itConstraints!= constraints.end();
-            ++itConstraints
-        )
-    {
-        if( !itConstraints->second->checkAugmented() )
+    for (auto& constraint : constraints) {
+        if (!constraint.second->checkAugmented()) {
             convergence = 0;
+        }
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        if( !itSubSystems->second->checkAugmented() )
+    for (auto& system : subSystems) {
+        if (!system.second->checkAugmented()) {
             convergence = 0;
+        }
     }
 
     return convergence;
@@ -899,75 +559,43 @@ bool mknix::System::checkAugmented()
 
 void mknix::System::clearAugmented()
 {
-    for ( itConstraints = constraints.begin();
-            itConstraints!= constraints.end();
-            ++itConstraints
-        )
-    {
-        itConstraints->second->clearAugmented();
+    for (auto& constraint : constraints) {
+        constraint.second->clearAugmented();
     }
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->clearAugmented();
+    for (auto& system : subSystems) {
+        system.second->clearAugmented();
     }
 
 }
 
 
-void mknix::System::writeBoundaryNodes( std::vector<Point*>& boundary_nodes )
+void mknix::System::writeBoundaryNodes(std::vector<Point *>& boundary_nodes)
 {
-    for ( itRigidBodies = rigidBodies.begin();
-            itRigidBodies!= rigidBodies.end();
-            ++itRigidBodies
-        )
-    {
-        itRigidBodies->second->writeBoundaryNodes( boundary_nodes );
+    for (auto& body : rigidBodies) {
+        body.second->writeBoundaryNodes(boundary_nodes);
     }
 
-    for ( itFlexBodies = flexBodies.begin();
-            itFlexBodies!= flexBodies.end();
-            ++itFlexBodies
-        )
-    {
-        itFlexBodies->second->writeBoundaryNodes( boundary_nodes );
+    for (auto& body : flexBodies) {
+        body.second->writeBoundaryNodes(boundary_nodes);
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->writeBoundaryNodes( boundary_nodes );
+    for (auto& system : subSystems) {
+        system.second->writeBoundaryNodes(boundary_nodes);
     }
 }
 
 
-void mknix::System::writeBoundaryConnectivity( std::vector< std::vector<Point*> >& connectivity_nodes )
+void mknix::System::writeBoundaryConnectivity(std::vector<std::vector<Point *> >& connectivity_nodes)
 {
-    for ( itRigidBodies = rigidBodies.begin();
-            itRigidBodies!= rigidBodies.end();
-            ++itRigidBodies
-        )
-    {
-        itRigidBodies->second->writeBoundaryConnectivity( connectivity_nodes );
+    for (auto& body : rigidBodies) {
+        body.second->writeBoundaryConnectivity(connectivity_nodes);
     }
 
-    for ( itFlexBodies = flexBodies.begin();
-            itFlexBodies!= flexBodies.end();
-            ++itFlexBodies
-        )
-    {
-        itFlexBodies->second->writeBoundaryConnectivity( connectivity_nodes );
+    for (auto& body : flexBodies) {
+        body.second->writeBoundaryConnectivity(connectivity_nodes);
     }
 
-    for ( itSubSystems = subSystems.begin();
-            itSubSystems!= subSystems.end();
-            ++itSubSystems
-        )
-    {
-        itSubSystems->second->writeBoundaryConnectivity( connectivity_nodes );
+    for (auto& system : subSystems) {
+        system.second->writeBoundaryConnectivity(connectivity_nodes);
     }
 }

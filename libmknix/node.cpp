@@ -20,39 +20,34 @@
 #include "node.h"
 #include "shapefunction.h"
 #include "simulation.h"
-#include <iostream>
-#include <cmath>
 
 namespace mknix {
 
-Node::Node()
-{}
+Node::Node() { }
 
-Node::Node( /*const*/ Node& p_node_in )
-    : Point( p_node_in )
-    , qx( p_node_in.getqx(0) )
-    , qy( p_node_in.getqx(1) )
-    , qz( p_node_in.getqx(2) )
-    , qt( p_node_in.getqt() )
-    , weight(0)
-{}
+Node::Node(const Node& p_node_in)
+        : Point(p_node_in)
+        , qx(p_node_in.getqx(0))
+        , qy(p_node_in.getqx(1))
+        , qz(p_node_in.getqx(2))
+        , qt(p_node_in.getqt())
+        , weight(0) { }
 
-Node::Node(  Node* p_node_in )
-    : Point( p_node_in )
-    , qx( p_node_in->getqx(0) )
-    , qy( p_node_in->getqx(1) )
-    , qz( p_node_in->getqx(2) )
-    , qt( p_node_in->getqt() )
-    , weight(0)
-{}
+Node::Node(const Node * p_node_in)
+        : Point(p_node_in)
+        , qx(p_node_in->getqx(0))
+        , qy(p_node_in->getqx(1))
+        , qz(p_node_in->getqx(2))
+        , qt(p_node_in->getqt())
+        , weight(0) { }
 
 Node::Node(int i_in, double x_in, double y_in, double z_in)
-    : Point(i_in, x_in, y_in, z_in)
-    , qx(x_in)
-    , qy(y_in)
-    , qz(z_in)
-    , qt(0)
-    , weight(0)
+        : Point(i_in, x_in, y_in, z_in)
+        , qx(x_in)
+        , qy(y_in)
+        , qz(z_in)
+        , qt(0)
+        , weight(0)
 {
 }
 
@@ -60,19 +55,17 @@ Node::~Node()
 {   /*std::cout << "---DESTROYED NODE---" << std::endl;*/
 }
 
-double Node::getConf( int gdl )
+double Node::getConf(int gdl) const
 {
     // if not delta_kronecker : x = sum_i( phi_i * q_i )
     double conf_value(0);
 //   cout << this->num << endl;
-    if (  shapeFunType == "MLS"
-            || shapeFunType == "1D"
-            || shapeFunType == "2D"
-            || shapeFunType == "3D" )
-    {
-        int i;
-        for (i=0; i<supportNodesSize; ++i) {
-            conf_value += shapeFun->getPhi(0, i) * (supportNodes[i]->getqx(gdl) );
+    if (shapeFunType == "MLS"
+        || shapeFunType == "1D"
+        || shapeFunType == "2D"
+        || shapeFunType == "3D") {
+        for (auto i = 0u; i < supportNodesSize; ++i) {
+            conf_value += shapeFun->getPhi(0, i) * (supportNodes[i]->getqx(gdl));
 //       cout << endl << "NODE " << num << " conf += (" << shapeFun->getPhi(0, i) <<" * "
 // 	   << (supportNodes[i]->getx(gdl) ) <<" ) = " << conf_value << endl;
 
@@ -85,15 +78,14 @@ double Node::getConf( int gdl )
     return conf_value;
 }
 
-double Node::getTemp( )
+double Node::getTemp() const
 {
     // if not delta_kronecker : x = sum_i( phi_i * q_i )
     double conf_value(0);
 //   cout << this->num << endl;
-    if (  shapeFunType == "MLS" ) {
-        int i;
-        for (i=0; i<supportNodesSize; ++i) {
-            conf_value += shapeFun->getPhi(0, i) * (supportNodes[i]->getqt() );
+    if (shapeFunType == "MLS") {
+        for (auto i = 0u; i < supportNodesSize; ++i) {
+            conf_value += shapeFun->getPhi(0, i) * (supportNodes[i]->getqt());
 //       cout << endl << "conf += (" << shapeFun->getPhi(0, i) <<" * "
 //         << (supportNodes[i]->getx(gdl) ) <<" ) = " << conf_value << endl;
 
@@ -106,16 +98,16 @@ double Node::getTemp( )
     return conf_value;
 }
 
-size_t Node::getSupportSize( int deriv )
+size_t Node::getSupportSize(int deriv)
 {
 //     cout << this->shapeFunType << endl;
-    if (deriv==0) {
+    if (deriv == 0) {
         // if not delta_kronecker : x = sum_i( phi_i * q_i )
-        if (  shapeFunType == "MLS"
-                || shapeFunType == "1D"
-                || shapeFunType == "2D"
-	        || shapeFunType == "3D"
-	   ) {
+        if (shapeFunType == "MLS"
+            || shapeFunType == "1D"
+            || shapeFunType == "2D"
+            || shapeFunType == "3D"
+                ) {
             return this->supportNodes.size();
         }
         else {
@@ -123,24 +115,24 @@ size_t Node::getSupportSize( int deriv )
         }
     }
     else { // derivative order > 1
-        if ( shapeFunType == "MLS" || shapeFunType == "RBF" || shapeFunType == "1D" ) {
+        if (shapeFunType == "MLS" || shapeFunType == "RBF" || shapeFunType == "1D") {
             return this->supportNodes.size();
         }
         else {
-            return 1E10; // Produce an infinite loop
+            return static_cast<size_t>(1E10); // Produce an infinite loop
         }
     }
 
 }
 
-int Node::getSupportNodeNumber( int deriv, int s_node )
+int Node::getSupportNodeNumber(int deriv, int s_node)
 {
-    if (deriv==0) {
+    if (deriv == 0) {
         // if not delta_kronecker : x = sum_i( phi_i * q_i )
-        if (  shapeFunType == "MLS"
-                || shapeFunType == "1D"
-                || shapeFunType == "2D"
-                || shapeFunType == "3D" ) {
+        if (shapeFunType == "MLS"
+            || shapeFunType == "1D"
+            || shapeFunType == "2D"
+            || shapeFunType == "3D") {
             return this->supportNodes[s_node]->getNumber();
         }
         else {
@@ -148,11 +140,11 @@ int Node::getSupportNodeNumber( int deriv, int s_node )
         }
     }
     else { // derivative order > 1
-        if (  shapeFunType == "MLS"
-                || shapeFunType == "RBF"
-                || shapeFunType == "1D"
-                || shapeFunType == "2D"
-                || shapeFunType == "3D" ) {
+        if (shapeFunType == "MLS"
+            || shapeFunType == "RBF"
+            || shapeFunType == "1D"
+            || shapeFunType == "2D"
+            || shapeFunType == "3D") {
             return this->supportNodes[s_node]->getNumber();
         }
         else {
@@ -162,28 +154,30 @@ int Node::getSupportNodeNumber( int deriv, int s_node )
 
 }
 
-double Node::getShapeFunValue( int deriv, int s_node )
+double Node::getShapeFunValue(int deriv, int s_node)
 {
-    if (deriv==0
-            && ( shapeFunType!="MLS"
-                 && shapeFunType != "1D"
-                 && shapeFunType != "2D"
-                 && shapeFunType != "3D") ) return 1.;
-    else return this->shapeFun->getPhi( deriv, s_node );
+    if (deriv == 0
+        && (shapeFunType != "MLS"
+            && shapeFunType != "1D"
+            && shapeFunType != "2D"
+            && shapeFunType != "3D")) {
+                return 1.;
+            } else { return this->shapeFun->getPhi(deriv, s_node); }
 }
 
 
-void Node::setqx( const lmx::Vector<data_type>& globalConf )
+void Node::setqx(const lmx::Vector<data_type>& globalConf)
 {
-    qx = globalConf.readElement( Simulation::getDim()*num );
-    qy = globalConf.readElement( Simulation::getDim()*num + 1 );
-    if(Simulation::getDim()==3)
-        qz = globalConf.readElement( Simulation::getDim()*num + 2 );
+    qx = globalConf.readElement(Simulation::getDim() * num);
+    qy = globalConf.readElement(Simulation::getDim() * num + 1);
+    if (Simulation::getDim() == 3) {
+        qz = globalConf.readElement(Simulation::getDim() * num + 2);
+    }
 }
 
-void Node::setqt( const lmx::Vector<data_type>& globalTemp )
+void Node::setqt(const lmx::Vector<data_type>& globalTemp)
 {
-    qt = globalTemp.readElement( thermalNum );
+    qt = globalTemp.readElement(thermalNum);
 }
 
 /* Function needed to initialize self-supported nodes that are part of

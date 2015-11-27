@@ -30,104 +30,108 @@
 namespace mknix {
 
 class Point;
+
 // class Node;
 class Cell;
+
 // class BoundaryGroup;
 class LoadThermalBody;
+
 class LoadThermalBoundary1D;
 
 /**
 	@author AUTHORS <MAILS>
 */
-class Body {
+class Body
+{
 
 public:
     Body();
 
-    Body( std::string );
+    Body(std::string);
 
     virtual ~Body();
 
     virtual std::string getType() = 0;
 
-    virtual void initialize( );
+    virtual void initialize();
 
-    virtual void calcCapacityMatrix( );
+    virtual void calcCapacityMatrix();
 
-    virtual void calcConductivityMatrix( );
+    virtual void calcConductivityMatrix();
 
-    virtual void calcExternalHeat( );
+    virtual void calcExternalHeat();
 
-    virtual void assembleCapacityMatrix( lmx::Matrix<data_type> & );
+    virtual void assembleCapacityMatrix(lmx::Matrix<data_type>&);
 
-    virtual void assembleConductivityMatrix( lmx::Matrix<data_type> & );
+    virtual void assembleConductivityMatrix(lmx::Matrix<data_type>&);
 
-    virtual void assembleExternalHeat( lmx::Vector<data_type> & );
+    virtual void assembleExternalHeat(lmx::Vector<data_type>&);
 
     virtual void calcMassMatrix() = 0;
 
     virtual void calcExternalForces() = 0;
 
-    virtual void assembleMassMatrix( lmx::Matrix<data_type> & ) = 0;
+    virtual void assembleMassMatrix(lmx::Matrix<data_type>&) = 0;
 
-    virtual void assembleExternalForces( lmx::Vector<data_type> & ) = 0;
+    virtual void assembleExternalForces(lmx::Vector<data_type>&) = 0;
 
-    void setTemperature( double );
-    
+    void setTemperature(double);
+
     virtual void setMechanical()
     {
         this->isThermal = 0;
     }
 
-    virtual void setOutput( std::string ) = 0;
+    virtual void setOutput(std::string) = 0;
 
     virtual void outputStep
-    ( const lmx::Vector<data_type>&, const lmx::Vector<data_type>& ) = 0;
+            (const lmx::Vector<data_type>&, const lmx::Vector<data_type>&) = 0;
 
-    virtual void outputStep( const lmx::Vector<data_type>& ) = 0;
+    virtual void outputStep(const lmx::Vector<data_type>&) = 0;
 
-    virtual void outputStep( );
+    virtual void outputStep();
 
-    virtual void outputToFile( std::ofstream* );
+    virtual void outputToFile(std::ofstream *);
 
-    virtual void addNode( Node* node_in )
+    virtual void addNode(Node * node_in)
     {
-        this->nodes.push_back( node_in );
+        this->nodes.push_back(node_in);
     }
 
-    void addNodes( std::vector<Node*>& nodes_in )
+    void addNodes(std::vector<Node *>& nodes_in)
     {
-        this->bondedBodyNodes.insert( bondedBodyNodes.end(), nodes_in.begin(), nodes_in.end() );
+        this->bondedBodyNodes.insert(bondedBodyNodes.end(), nodes_in.begin(), nodes_in.end());
     }
 
-    virtual int getNodesSize( )
+    virtual int getNodesSize()
     {
         return this->nodes.size();
     }
 
-    std::vector<Node*>& getNodes( )
+    std::vector<Node *>& getNodes()
     {
         return this->nodes;
     }
 
-    virtual Node* getNode( int node_number )
+    virtual Node * getNode(int node_number)
     {
         return this->nodes[node_number];
     }
 
-    virtual Node* getLastNode( )
+    virtual Node * getLastNode()
     {
         return lastNode;
     }
 
-    virtual void addBoundaryLine( Point* node1, Point* node2 )
+    virtual void addBoundaryLine(Point * node1, Point * node2)
     {
         this->linearBoundary[node1] = node2;
 //       cout << "linearBoundary: " << node1->getNumber()
 //      << " " << node2->getNumber() << endl;
     }
 
-    virtual void addBoundaryConnectivity( std::vector<int> connectivity_in );
+    virtual void addBoundaryConnectivity(std::vector<int> connectivity_in);
 
 //     void addBoundaryGroup( std::string boundary_name )
 //     {
@@ -139,61 +143,62 @@ public:
 //       return this->boundaryGroups[boundary_name];
 //     }
 
-    virtual int getBoundarySize( )
+    virtual int getBoundarySize()
     {
         return this->linearBoundary.size();
     }
 
-    virtual Point* getBoundaryFirstNode( )
+    virtual Point * getBoundaryFirstNode()
     {
         return this->linearBoundary.begin()->first;
     }
 
-    virtual Point* getBoundaryNextNode( Point* node_in )
+    virtual Point * getBoundaryNextNode(Point * node_in)
     {
         return this->linearBoundary[node_in];
     }
 
-    void addBoundaryGroup( std::string boundaryName_in ){
-      this->boundaryGroups[boundaryName_in] = new BoundaryGroup;
-    }
-    
-    void addNodeToBoundaryGroup(int nodeNumber_in, std::string boundaryName_in )
+    void addBoundaryGroup(std::string boundaryName_in)
     {
-      Node* temp = nodes[nodeNumber_in];
-      this->boundaryGroups[boundaryName_in]->addNode(temp);
+        this->boundaryGroups[boundaryName_in] = new BoundaryGroup;
     }
 
-    void addCellToBoundaryGroup( CellBoundary* cell_in, std::string boundaryName_in )
+    void addNodeToBoundaryGroup(int nodeNumber_in, std::string boundaryName_in)
     {
-      this->boundaryGroups[boundaryName_in]->addCell(cell_in);
+        Node * temp = nodes[nodeNumber_in];
+        this->boundaryGroups[boundaryName_in]->addNode(temp);
     }
 
-    void setLoadThermalInBoundaryGroup( LoadThermalBoundary1D* load_in, std::string boundaryName_in )
+    void addCellToBoundaryGroup(CellBoundary * cell_in, std::string boundaryName_in)
     {
-      this->boundaryGroups[boundaryName_in]->setLoadThermal(load_in);
-    }
-    
-    int getCellLastNumber( )
-    {
-      return this->cells.end()->first;
+        this->boundaryGroups[boundaryName_in]->addCell(cell_in);
     }
 
-    virtual void addCell( int num, Cell* cell_in )
+    void setLoadThermalInBoundaryGroup(LoadThermalBoundary1D * load_in, std::string boundaryName_in)
+    {
+        this->boundaryGroups[boundaryName_in]->setLoadThermal(load_in);
+    }
+
+    int getCellLastNumber()
+    {
+        return this->cells.end()->first;
+    }
+
+    virtual void addCell(int num, Cell * cell_in)
     {
         this->cells[num] = cell_in;
     }
 
-    virtual void writeBodyInfo( std::ofstream* ) = 0;
+    virtual void writeBodyInfo(std::ofstream *) = 0;
 
-    virtual void writeBoundaryNodes( std::vector<Point*>& ) = 0;
+    virtual void writeBoundaryNodes(std::vector<Point *>&) = 0;
 
-    virtual void writeBoundaryConnectivity(std::vector< std::vector<Point*> >&) = 0;
+    virtual void writeBoundaryConnectivity(std::vector<std::vector<Point *> >&) = 0;
 
-    virtual void translate( double, double, double );
+    virtual void translate(double, double, double);
 
     // Temporary, should be a pointer to a load class
-    virtual void setLoadThermal( LoadThermalBody* theLoad )
+    virtual void setLoadThermal(LoadThermalBody * theLoad)
     {
         loadThermalBody = theLoad;
     }
@@ -201,17 +206,19 @@ public:
 
 protected:
     std::string title;
-    Node* lastNode;
-    std::vector<Node*> nodes;
-    std::vector<Node*> bondedBodyNodes;
-    std::map< std::string, BoundaryGroup*> boundaryGroups;
-    std::vector< std::vector<int> >boundaryConnectivity;
-    std::map<Point*,Point*> linearBoundary; /**< Map of linear boundary. */
-    std::map<int,Cell*> cells; /**< Map of integration cells. */
-    bool isThermal;
+    Node * lastNode;
+    std::vector<Node *> nodes;
+    std::vector<Node *> bondedBodyNodes;
+    std::map<std::string, BoundaryGroup *> boundaryGroups;
+    std::vector<std::vector<int> > boundaryConnectivity;
+    std::map<Point *, Point *> linearBoundary;
+    /**< Map of linear boundary. */
+    std::map<int, Cell *> cells;
+    /**< Map of integration cells. */
     bool computeEnergy;
-    std::vector< lmx::Vector<data_type>* > temperature;
-    LoadThermalBody* loadThermalBody;
+    bool isThermal;
+    std::vector<lmx::Vector<data_type> *> temperature;
+    LoadThermalBody * loadThermalBody;
 
 };
 

@@ -37,9 +37,9 @@ public:
                 Material* mat_in, int num, double coor_x, double coor_y,
                 double coor_z, double dc_in, bool );
 
-    ~GaussPoint();
+    virtual ~GaussPoint();
 
-    virtual void shapeFunSolve( std::string, double );
+    virtual void shapeFunSolve( std::string, double ) override;
 
     virtual void fillFEmatrices( )=0;
 

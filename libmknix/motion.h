@@ -25,44 +25,48 @@
 namespace mknix {
 
 class Node;
+
 /**
   @author AUTHORS <MAILS>
 */
-class Motion : public System {
+class Motion : public System
+{
 
 public:
     Motion();
 
-    Motion( Node* );
+    Motion(Node *);
 
     ~Motion();
 
-    void setNode( Node* node_in )
+    void setNode(Node * node_in)
     {
         theNode = node_in;
     }
 
     // Note: timeLength[0] is updated in populate() function
-    void setTimeUx( std::map<double, double>& timeUX_in )
+    void setTimeUx(std::map<double, double>& timeUX_in)
     {
         timeUx = timeUX_in;
     }
-    void setTimeUy( std::map<double, double>& timeUY_in )
+
+    void setTimeUy(std::map<double, double>& timeUY_in)
     {
         timeUy = timeUY_in;
     }
-    void setTimeUz( std::map<double, double>& timeUZ_in )
+
+    void setTimeUz(std::map<double, double>& timeUZ_in)
     {
         timeUz = timeUZ_in;
     }
 
-    void update( double );
+    void update(double);
 
 private:
-    Node* theNode;
-    std::map< double, double > timeUx;
-    std::map< double, double > timeUy;
-    std::map< double, double > timeUz;
+    Node * theNode;
+    std::map<double, double> timeUx;
+    std::map<double, double> timeUy;
+    std::map<double, double> timeUz;
 
 };
 

@@ -23,88 +23,105 @@
 #include<complex>
 
 //////////////////////////////////////////// Doxygen file documentation entry:
-    /*!
-      \file lmx_base_iohb.h
+/*!
+  \file lmx_base_iohb.h
 
-      \brief This file contains functions for Harwell Boeing format file reading and writing.
+  \brief This file contains functions for Harwell Boeing format file reading and writing.
 
-      Addapted from library Harwell-Boeing File I/O in C, V. 1.0.
+  Addapted from library Harwell-Boeing File I/O in C, V. 1.0.
 
-      \author Adapted by Daniel Iglesias
-      
-    */
+  \author Adapted by Daniel Iglesias
+
+*/
 //////////////////////////////////////////// Doxygen file documentation (end)
 
-namespace lmx{
+namespace lmx {
 
-  /*************************************************************************/
-  /*                                                                       */
-  /*  Functions to read and write Harwell Boeing format.                   */
-  /*                                                                       */
-  /*************************************************************************/
+/*************************************************************************/
+/*                                                                       */
+/*  Functions to read and write Harwell Boeing format.                   */
+/*                                                                       */
+/*************************************************************************/
 
-  // Fri Aug 15 16:29:47 EDT 1997
-  // 
-  //                      Harwell-Boeing File I/O in C
-  //                               V. 1.0
-  // 
-  //          National Institute of Standards and Technology, MD.
-  //                            K.A. Remington
-  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  //                                NOTICE
-  //
-  // Permission to use, copy, modify, and distribute this software and
-  // its documentation for any purpose and without fee is hereby granted
-  // provided that the above copyright notice appear in all copies and
-  // that both the copyright notice and this permission notice appear in
-  // supporting documentation.
-  //
-  // Neither the Author nor the Institution (National Institute of Standards
-  // and Technology) make any representations about the suitability of this 
-  // software for any purpose. This software is provided "as is" without 
-  // expressed or implied warranty.
-  // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  
+// Fri Aug 15 16:29:47 EDT 1997
+//
+//                      Harwell-Boeing File I/O in C
+//                               V. 1.0
+//
+//          National Institute of Standards and Technology, MD.
+//                            K.A. Remington
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//                                NOTICE
+//
+// Permission to use, copy, modify, and distribute this software and
+// its documentation for any purpose and without fee is hereby granted
+// provided that the above copyright notice appear in all copies and
+// that both the copyright notice and this permission notice appear in
+// supporting documentation.
+//
+// Neither the Author nor the Institution (National Institute of Standards
+// and Technology) make any representations about the suitability of this
+// software for any purpose. This software is provided "as is" without
+// expressed or implied warranty.
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 
 /// \cond IOHB
-  inline void IOHBTerminate(const char *a) { LMX_THROW(lmx::failure_error, a); }
+inline void IOHBTerminate(const char * a) {LMX_THROW(lmx::failure_error, a); }
 
-  inline bool is_complex_double__(std::complex<double>) { return true; }
-  inline bool is_complex_double__(double) { return false; }
+inline bool is_complex_double__(std::complex<double>) { return true; }
 
-  inline int ParseIfmt(const char *fmt, int* perline, int* width) {
-    if (sscanf(fmt, " (%dI%d)", perline, width) != 2) 
-      LMX_THROW(lmx::failure_error, "invalid HB I-format : " << fmt);
+inline bool is_complex_double__(double) { return false; }
+
+inline int ParseIfmt(const char * fmt, int * perline, int * width)
+{
+    if (sscanf(fmt, " (%dI%d)", perline, width) != 2) LMX_THROW(lmx::failure_error, "invalid HB I-format : " << fmt);
     return *width;
-  }
-  
-  inline int ParseRfmt(const char *fmt, int* perline, int* width,
-		       int* prec, int* flag) {
+}
+
+inline int ParseRfmt(const char * fmt, int * perline, int * width,
+                     int * prec, int * flag)
+{
     char p;
     *perline = *width = *flag = *prec = 0;
-    if (sscanf(fmt, " (%d%c%d.%d)", perline, &p, width, prec) < 3 || 
-	!strchr("PEDF", p)) 
-      LMX_THROW(lmx::failure_error, "invalid HB REAL format : " << fmt);
+    if (sscanf(fmt, " (%d%c%d.%d)", perline, &p, width, prec) < 3 ||
+        !strchr("PEDF", p)) LMX_THROW(lmx::failure_error, "invalid HB REAL format : " << fmt);
     *flag = p;
     return *width;
-  }
+}
 /// \endcond
 
-  /** matrix input/output for Harwell-Boeing format */
-  struct HarwellBoeing_IO {
+/** matrix input/output for Harwell-Boeing format */
+struct HarwellBoeing_IO
+{
 /// \cond IOHB
     int nrows() const { return Nrow; }
+
     int ncols() const { return Ncol; }
+
     int nnz() const { return Nnzero; }
+
     int is_complex() const { return Type[0] == 'C'; }
+
     int is_symmetric() const { return Type[1] == 'S'; }
+
     int is_hermitian() const { return Type[1] == 'H'; }
+
     HarwellBoeing_IO() { clear(); }
-    HarwellBoeing_IO(const char *filename) { clear(); open(filename); }
+
+    HarwellBoeing_IO(const char * filename)
+    {
+        clear();
+        open(filename);
+    }
+
     ~HarwellBoeing_IO() { close(); }
+
     /* open filename and reads header */
-    void open(const char *filename);
-    template <typename T> void read(int& M, int& N, int& nonzeros, int*& colptr, int*& rowind, T*& val);
+    void open(const char * filename);
+
+    template<typename T>
+    void read(int& M, int& N, int& nonzeros, int *& colptr, int *& rowind, T *& val);
     /* read the opened file */
 /*    template <typename T, int shift> void read(csc_matrix<T, shift>& A);
     template <typename MAT> void read(MAT &M);*/
@@ -112,184 +129,216 @@ namespace lmx{
 //     template <typename T, int shift> static void write(const char *filename, const csc_matrix<T, shift>& A);
 //     template <typename MAT> static void write(const char *filename, const MAT& A);
 /// \endcond
-  private:
-    FILE *f;
+private:
+    FILE * f;
     char Title[73], Key[9], Rhstype[4], Type[4];
     int Nrow, Ncol, Nnzero, Nrhs;
     char Ptrfmt[17], Indfmt[17], Valfmt[21], Rhsfmt[21];
-    int Ptrcrd, Indcrd, Valcrd, Rhscrd; 
+    int Ptrcrd, Indcrd, Valcrd, Rhscrd;
     int lcount;
 
 
-    void close() { if (f) fclose(f); clear(); }
-    void clear() { 
-      Nrow = Ncol = Nnzero = Nrhs = 0; f = 0; lcount = 0;
-      memset(Type, 0, sizeof Type); 
-      memset(Key, 0, sizeof Key); 
-      memset(Title, 0, sizeof Title); 
-    }
-    char *getline(char *buf) { 
-      char* junk = fgets(buf, BUFSIZ, f); ++lcount;
-      if (sscanf(buf,"%*s") < 0) 
-	LMX_THROW(lmx::failure_error, "blank line in HB file at line " << lcount);
-      return buf;
+    void close()
+    {
+        if (f) fclose(f);
+        clear();
     }
 
-    int substrtoi(const char *p, size_type len) {
-      char s[100]; len = std::min(len, sizeof s - 1);
-      strncpy(s,p,len); s[len] = 0; return atoi(s);
+    void clear()
+    {
+        Nrow = Ncol = Nnzero = Nrhs = 0;
+        f = 0;
+        lcount = 0;
+        memset(Type, 0, sizeof Type);
+        memset(Key, 0, sizeof Key);
+        memset(Title, 0, sizeof Title);
     }
-    double substrtod(const char *p, size_type len, int Valflag) {
-      char s[100]; len = std::min(len, sizeof s - 1);
-      strncpy(s,p,len); s[len] = 0;
-      if ( Valflag != 'F' && !strchr(s,'E')) {
-	/* insert a char prefix for exp */
-	int last = strlen(s);
-	for (int j=last+1;j>=0;j--) {
-	  s[j] = s[j-1];
-	  if ( s[j] == '+' || s[j] == '-' ) {
-	    s[j-1] = Valflag;                    
-	    break;
-	  }
-	}
-      }
-      return atof(s);
-    }
-    template <typename IND_TYPE>   
-    int readHB_data(IND_TYPE colptr[], IND_TYPE rowind[], 
-		    double val[]) {
-      /************************************************************************/
-      /*  This function opens and reads the specified file, interpreting its  */
-      /*  contents as a sparse matrix stored in the Harwell/Boeing standard   */
-      /*  format and creating compressed column storage scheme vectors to hold*/
-      /*  the index and nonzero value information.                            */
-      /*                                                                      */
-      /*    ----------                                                        */
-      /*    **CAVEAT**                                                        */
-      /*    ----------                                                        */
-      /*  Parsing real formats from Fortran is tricky, and this file reader   */
-      /*  does not claim to be foolproof.   It has been tested for cases when */
-      /*  the real values are printed consistently and evenly spaced on each  */
-      /*  line, with Fixed (F), and Exponential (E or D) formats.             */
-      /*                                                                      */
-      /*  **  If the input file does not adhere to the H/B format, the  **    */
-      /*  **             results will be unpredictable.                 **    */
-      /*                                                                      */
-      /************************************************************************/
-      int i,ind,col,offset,count;
-      int Ptrperline, Ptrwidth, Indperline, Indwidth;
-      int Valperline, Valwidth, Valprec, Nentries;
-      int Valflag;           /* Indicates 'E','D', or 'F' float format */
-      char line[BUFSIZ];
 
-      /*  Parse the array input formats from Line 3 of HB file  */
-      ParseIfmt(Ptrfmt,&Ptrperline,&Ptrwidth);
-      ParseIfmt(Indfmt,&Indperline,&Indwidth);
-      if ( Type[0] != 'P' ) {          /* Skip if pattern only  */
-	ParseRfmt(Valfmt,&Valperline,&Valwidth,&Valprec,&Valflag);
-      }
-    
-      /*  Read column pointer array:   */
-      offset = 0;         /* if base 0 storage is declared (via macro def),  */
-      /* then storage entries are offset by 1            */
-    
-      for (count = 0, i=0;i<Ptrcrd;i++) {
-	getline(line);
-	for (col = 0, ind = 0;ind<Ptrperline;ind++) {
-	  if (count > Ncol) break;
-	  colptr[count] = substrtoi(line+col,Ptrwidth)-offset;
-	  count++; col += Ptrwidth;
-	}
-      }
-    
-      /*  Read row index array:  */    
-      for (count = 0, i=0;i<Indcrd;i++) {
-	getline(line);
-	for (col = 0, ind = 0;ind<Indperline;ind++) {
-	  if (count == Nnzero) break;
-	  rowind[count] = substrtoi(line+col,Indwidth)-offset;
-	  count++; col += Indwidth;
-	}
-      }
-    
-      /*  Read array of values:  */
-      if ( Type[0] != 'P' ) {          /* Skip if pattern only  */
-	if ( Type[0] == 'C' ) Nentries = 2*Nnzero;
-	else Nentries = Nnzero;
-      
-	count = 0;
-	for (i=0;i<Valcrd;i++) {
-	  getline(line);
-	  if (Valflag == 'D')  {
-            // const_cast Due to aCC excentricity
-	    char *p; while( (p = const_cast<char *>(strchr(line,'D')) )) *p = 'E';
-	  }
-	  for (col = 0, ind = 0;ind<Valperline;ind++) {
-	    if (count == Nentries) break;
-	    val[count] = substrtod(line+col, Valwidth, Valflag);
-	    count++; col += Valwidth;
-	  }
-	}
-      }
-      return 1;
+    char * getline(char * buf)
+    {
+        //char * junk = fgets(buf, BUFSIZ, f);
+        ++lcount;
+        if (sscanf(buf, "%*s") < 0) LMX_THROW(lmx::failure_error, "blank line in HB file at line " << lcount);
+        return buf;
     }
-  };
-  
+
+    int substrtoi(const char * p, size_type len)
+    {
+        char s[100];
+        len = std::min(len, sizeof s - 1);
+        strncpy(s, p, len);
+        s[len] = 0;
+        return atoi(s);
+    }
+
+    double substrtod(const char * p, size_type len, int Valflag)
+    {
+        char s[100];
+        len = std::min(len, sizeof s - 1);
+        strncpy(s, p, len);
+        s[len] = 0;
+        if (Valflag != 'F' && !strchr(s, 'E')) {
+            /* insert a char prefix for exp */
+            auto last = strlen(s);
+            for (auto j = last + 1; j >= 0; j--) {
+                s[j] = s[j - 1];
+                if (s[j] == '+' || s[j] == '-') {
+                    s[j - 1] = (char)Valflag;
+                    break;
+                }
+            }
+        }
+        return atof(s);
+    }
+
+    template<typename IND_TYPE>
+    int readHB_data(IND_TYPE colptr[], IND_TYPE rowind[],
+                    double val[])
+    {
+        /************************************************************************/
+        /*  This function opens and reads the specified file, interpreting its  */
+        /*  contents as a sparse matrix stored in the Harwell/Boeing standard   */
+        /*  format and creating compressed column storage scheme vectors to hold*/
+        /*  the index and nonzero value information.                            */
+        /*                                                                      */
+        /*    ----------                                                        */
+        /*    **CAVEAT**                                                        */
+        /*    ----------                                                        */
+        /*  Parsing real formats from Fortran is tricky, and this file reader   */
+        /*  does not claim to be foolproof.   It has been tested for cases when */
+        /*  the real values are printed consistently and evenly spaced on each  */
+        /*  line, with Fixed (F), and Exponential (E or D) formats.             */
+        /*                                                                      */
+        /*  **  If the input file does not adhere to the H/B format, the  **    */
+        /*  **             results will be unpredictable.                 **    */
+        /*                                                                      */
+        /************************************************************************/
+        int i, ind, col, offset, count;
+        int Ptrperline, Ptrwidth, Indperline, Indwidth;
+        int Valperline = 0, Valwidth = 0, Valprec, Nentries;
+        int Valflag = 0;           /* Indicates 'E','D', or 'F' float format */
+        char line[BUFSIZ];
+
+        /*  Parse the array input formats from Line 3 of HB file  */
+        ParseIfmt(Ptrfmt, &Ptrperline, &Ptrwidth);
+        ParseIfmt(Indfmt, &Indperline, &Indwidth);
+        if (Type[0] != 'P') {          /* Skip if pattern only  */
+            ParseRfmt(Valfmt, &Valperline, &Valwidth, &Valprec, &Valflag);
+        }
+
+        /*  Read column pointer array:   */
+        offset = 0;         /* if base 0 storage is declared (via macro def),  */
+        /* then storage entries are offset by 1            */
+
+        for (count = 0, i = 0; i < Ptrcrd; i++) {
+            getline(line);
+            for (col = 0, ind = 0; ind < Ptrperline; ind++) {
+                if (count > Ncol) break;
+                colptr[count] = substrtoi(line + col, (size_t)Ptrwidth) - offset;
+                count++;
+                col += Ptrwidth;
+            }
+        }
+
+        /*  Read row index array:  */
+        for (count = 0, i = 0; i < Indcrd; i++) {
+            getline(line);
+            for (col = 0, ind = 0; ind < Indperline; ind++) {
+                if (count == Nnzero) break;
+                rowind[count] = substrtoi(line + col, (size_t)Indwidth) - offset;
+                count++;
+                col += Indwidth;
+            }
+        }
+
+        /*  Read array of values:  */
+        if (Type[0] != 'P') {          /* Skip if pattern only  */
+            if (Type[0] == 'C') {
+                Nentries = 2 * Nnzero;
+            } else { Nentries = Nnzero; }
+
+            count = 0;
+            for (i = 0; i < Valcrd; i++) {
+                getline(line);
+                if (Valflag == 'D') {
+                    // const_cast Due to aCC excentricity
+                    char * p;
+                    while ((p = const_cast<char *>(strchr(line, 'D')))) *p = 'E';
+                }
+                for (col = 0, ind = 0; ind < Valperline; ind++) {
+                    if (count == Nentries) break;
+                    val[count] = substrtod(line + col, (size_t)Valwidth, Valflag);
+                    count++;
+                    col += Valwidth;
+                }
+            }
+        }
+        return 1;
+    }
+};
+
 /// \cond IOHB
-  inline void HarwellBoeing_IO::open(const char *filename) {
-    int Totcrd,Neltvl,Nrhsix;
+inline void HarwellBoeing_IO::open(const char * filename)
+{
+    int Totcrd, Neltvl, Nrhsix;
     char line[BUFSIZ];
     close();
     f = fopen(filename, "r");
-    if (!f) { LMX_THROW(lmx::failure_error, "could not open " << filename); }
+    if (!f) {LMX_THROW(lmx::failure_error, "could not open " << filename); }
     /* First line: */
     sscanf(getline(line), "%72c%8s", Title, Key);
     Key[8] = Title[72] = 0;
     /* Second line: */
     Totcrd = Ptrcrd = Indcrd = Valcrd = Rhscrd = 0;
     sscanf(getline(line), "%d%d%d%d%d", &Totcrd, &Ptrcrd, &Indcrd, &Valcrd, &Rhscrd);
-    
+
     /* Third line: */
     Nrow = Ncol = Nnzero = Neltvl = 0;
-    if (sscanf(getline(line), "%3c%d%d%d%d", Type, &Nrow, &Ncol, &Nnzero, &Neltvl) < 1)
-      IOHBTerminate("Invalid Type info, line 3 of Harwell-Boeing file.\n");
-    std::for_each(Type, Type+3, (int(*)(int))toupper);
-//    std::for_each(Type, Type+3, toupper);
-      /*  Fourth line:  */
-    if ( sscanf(getline(line), "%16c%16c%20c%20c",Ptrfmt,Indfmt,Valfmt,Rhsfmt) < 3)
-      IOHBTerminate("Invalid format info, line 4 of Harwell-Boeing file.\n"); 
-    Ptrfmt[16] = Indfmt[16] = Valfmt[20] = Rhsfmt[20] = 0;
-    
-    /*  (Optional) Fifth line: */
-    if (Rhscrd != 0 ) { 
-      Nrhs = Nrhsix = 0;
-      if ( sscanf(getline(line), "%3c%d%d", Rhstype, &Nrhs, &Nrhsix) != 1) 
-	IOHBTerminate("Invalid RHS type information, line 5 of"
-		      " Harwell-Boeing file.\n");
+    if (sscanf(getline(line), "%3c%d%d%d%d", Type, &Nrow, &Ncol, &Nnzero, &Neltvl) < 1) {
+        IOHBTerminate("Invalid Type info, line 3 of Harwell-Boeing file.\n");
     }
-  }
+    std::for_each(Type, Type + 3, (int (*)(int)) toupper);
+//    std::for_each(Type, Type+3, toupper);
+    /*  Fourth line:  */
+    if (sscanf(getline(line), "%16c%16c%20c%20c", Ptrfmt, Indfmt, Valfmt, Rhsfmt) < 3) {
+        IOHBTerminate("Invalid format info, line 4 of Harwell-Boeing file.\n");
+    }
+    Ptrfmt[16] = Indfmt[16] = Valfmt[20] = Rhsfmt[20] = 0;
 
-  /* only valid for double and complex<double> csc matrices */
-  template <typename T> void
-  HarwellBoeing_IO::read(int& M, int& N, int& nonzeros, int*& colptr, int*& rowind, T*& val) {
+    /*  (Optional) Fifth line: */
+    if (Rhscrd != 0) {
+        Nrhs = Nrhsix = 0;
+        if (sscanf(getline(line), "%3c%d%d", Rhstype, &Nrhs, &Nrhsix) != 1) {
+            IOHBTerminate("Invalid RHS type information, line 5 of"
+                                  " Harwell-Boeing file.\n");
+        }
+    }
+}
+
+/* only valid for double and complex<double> csc matrices */
+template<typename T>
+void
+HarwellBoeing_IO::read(int& M, int& N, int& nonzeros, int *& colptr, int *& rowind, T *& val)
+{
 
     typedef int IND_TYPE;
 
-    if (!f) LMX_THROW(lmx::failure_error, "no file opened!");    
-    if (Type[0] == 'P')
-      LMX_THROW(lmx::failure_error, "Bad HB matrix format (pattern matrices not supported)");
-    if (is_complex_double__(T()) && Type[0] == 'R') 
-      LMX_THROW(lmx::failure_error, "Bad HB matrix format (file contains a REAL matrix)");
-    if (!is_complex_double__(T()) && Type[0] == 'C') 
-      LMX_THROW(lmx::failure_error, "Bad HB matrix format (file contains a COMPLEX matrix)");
-	
-    N = ncols(); M = nrows(); nonzeros = nnz();
+    if (!f) LMX_THROW(lmx::failure_error, "no file opened!");
+    if (Type[0] == 'P') LMX_THROW(lmx::failure_error, "Bad HB matrix format (pattern matrices not supported)");
+    if (is_complex_double__(T()) && Type[0] == 'R') LMX_THROW(lmx::failure_error,
+                                                              "Bad HB matrix format (file contains a REAL matrix)");
+    if (!is_complex_double__(T()) && Type[0] == 'C') LMX_THROW(lmx::failure_error,
+                                                               "Bad HB matrix format (file contains a COMPLEX matrix)");
+
+    N = ncols();
+    M = nrows();
+    nonzeros = nnz();
     val = 0;
-    colptr = new IND_TYPE[ncols()+1];
+    colptr = new IND_TYPE[ncols() + 1];
     rowind = new IND_TYPE[nnz()];
     val = new T[nnz()];
-    readHB_data(colptr, rowind, (double*)val);
-  }
+    readHB_data(colptr, rowind, (double *) val);
+}
 
 /*  template <typename MAT> void 
   HarwellBoeing_IO::read(MAT &M) {
@@ -298,7 +347,7 @@ namespace lmx{
     resize(M, mat_nrows(csc), mat_ncols(csc));
     copy(csc, M);
   }*/
-  
+
 //   template <typename IND_TYPE> 
 //   inline int writeHB_mat_double(const char* filename, int M, int N, int nz,
 // 				const IND_TYPE colptr[],

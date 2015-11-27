@@ -18,7 +18,6 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 #include "boundarygroup.h"
-#include "node.h"
 #include "cellboundary.h"
 
 namespace mknix {
@@ -40,12 +39,9 @@ BoundaryGroup::BoundaryGroup()
 
 BoundaryGroup::~BoundaryGroup()
 {
-  std::map<int,CellBoundary*>::iterator it_cells;
-  for(it_cells=cells.begin();
-      it_cells!=cells.end();
-      ++it_cells){
-    delete(it_cells->second);
-  }
+    for (auto& cell : cells) {
+        delete (cell.second);
+    }
 }
 
 /**
@@ -56,22 +52,16 @@ BoundaryGroup::~BoundaryGroup()
  **/
 void BoundaryGroup::initialize()
 {
-    int end_int = this->cells.size();
-    
+    auto end_int = this->cells.size();
+
 //     #pragma omp parallel for
-    for (int i=0;
-            i < end_int;
-            ++i)
-    {
-        this->cells[i]->initialize( this->nodes );
+    for (auto i = 0u; i < end_int; ++i) {
+        this->cells[i]->initialize(this->nodes);
     }
 
 //     #pragma omp parallel for
-    for (int i=0;
-            i < end_int;
-            ++i)
-    {
-        this->cells[i]->computeShapeFunctions( );
+    for (auto i = 0u; i < end_int; ++i) {
+        this->cells[i]->computeShapeFunctions();
     }
 
 //  // Checking the output of a shapefunction:
@@ -87,15 +77,14 @@ void BoundaryGroup::initialize()
  *
  * @return void
  **/
-void BoundaryGroup::calcExternalHeat( )
+void BoundaryGroup::calcExternalHeat()
 {
     int end_int = this->cells.size();
 //     #pragma omp parallel for
-    for (int i=0;
-            i < end_int;
-            ++i)
-    {
-        this->cells[i]->computeQextGaussPoints( this->loadThermalBoundaryGroup );
+    for (int i = 0;
+         i < end_int;
+         ++i) {
+        this->cells[i]->computeQextGaussPoints(this->loadThermalBoundaryGroup);
     }
 
 }
@@ -105,15 +94,14 @@ void BoundaryGroup::calcExternalHeat( )
  *
  * @return void
  **/
-void BoundaryGroup::assembleExternalHeat( lmx::Vector<data_type> & globalExternalHeat )
+void BoundaryGroup::assembleExternalHeat(lmx::Vector<data_type>& globalExternalHeat)
 {
     int end_int = this->cells.size();
 //     #pragma omp parallel for
-    for (int i=0;
-            i < end_int;
-            ++i)
-    {
-        this->cells[i]->assembleQextGaussPoints( globalExternalHeat );
+    for (int i = 0;
+         i < end_int;
+         ++i) {
+        this->cells[i]->assembleQextGaussPoints(globalExternalHeat);
     }
 }
 

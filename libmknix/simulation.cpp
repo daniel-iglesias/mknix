@@ -19,14 +19,10 @@
  ***************************************************************************/
 #include "simulation.h"
 #include "analysisdynamic.h"
-#include "analysisthermaldynamic.h"
-#include "analysisstatic.h"
-#include "analysisthermalstatic.h"
 #include "system.h"
 #include "node.h"
 #include "reader.h"
 #include "generalcontact.h"
-#include "../LMX-1.0/src/LMX/lmx_mat_vector.h"
 
 namespace mknix {
 
@@ -45,90 +41,84 @@ double Simulation::epsilon = 1E-5;
 std::string Simulation::smoothingType = "GLOBAL";
 
 Simulation::Simulation()
-    : theReader(0)
-    , baseSystem(0)
+        : theReader(nullptr)
+        , baseSystem(nullptr)
 //  , stepTime(0.)
-    , iterationsNLSolver(0)
-    , outputFilesDetail(2)
-    , timerFile(0)
+        , timerFile(nullptr)
+        , configurationFile(nullptr)
+        , iterationsNLSolver(0)
+        , outputFilesDetail(2)
 //     , outFile(0)
-    , configurationFile(0)
-    , initialTemperature(0)
+        , initialTemperature(0)
 {
     globalTimer = new lmx::ExactStopwatch;
     globalTimer->setQuiet();
-    if(outputFilesDetail>0){
-      timerFile = new std::ofstream("simulation_times.dat");
-      if(outputFilesDetail>1)
-	configurationFile = new std::ofstream("dis.dat");
+    if (outputFilesDetail > 0) {
+        timerFile = new std::ofstream("simulation_times.dat");
+        if (outputFilesDetail > 1) {
+            configurationFile = new std::ofstream("dis.dat");
+        }
     }
 }
 
 
 Simulation::~Simulation()
 {
-  if (globalTimer)  delete globalTimer;
-  if (timerFile)  delete timerFile;
-  if (configurationFile)  delete configurationFile;
+    if (globalTimer) delete globalTimer;
+    if (timerFile) delete timerFile;
+    if (configurationFile) delete configurationFile;
 //   if (outFile)  delete outFile;
-  if (theReader) delete theReader; 
-  if (baseSystem) delete baseSystem; 
-  std::vector<Analysis*>::iterator it_analysis;
-  for (it_analysis = analysis.begin();
-       it_analysis!= analysis.end();
-       ++it_analysis){
-    if(!(*it_analysis)){
-      delete *(it_analysis);
-      *(it_analysis) = 0;
+    if (theReader) delete theReader;
+    if (baseSystem) delete baseSystem;
+    for (auto& analysis : analyses) {
+        if (!analysis) {
+            delete analysis;
+            analysis = nullptr;
+        }
     }
-  }
 }
 
 
-void Simulation::inputFromFile(char *FileIn)
+void Simulation::inputFromFile(const std::string& FileIn)
 {
-    if(theReader==0)  this->theReader = new Reader(this);
-    if(baseSystem==0)  this->baseSystem = new System( "baseSystem" );
-    theReader->inputFromFile( FileIn );
+    if (theReader == nullptr) this->theReader = new Reader(this);
+    if (baseSystem == nullptr) this->baseSystem = new System("baseSystem");
+    theReader->inputFromFile(FileIn);
 }
+
 std::vector<double> Simulation::getInterfaceNodesCoords()
 {
-  // Loads have access to the nodes, and are part of the system.
-  std::vector<double> temp_x_coordinates;
-  baseSystem->getThermalNodes(temp_x_coordinates);
+    // Loads have access to the nodes, and are part of the system.
+    std::vector<double> temp_x_coordinates;
+    baseSystem->getThermalNodes(temp_x_coordinates);
 
-  return temp_x_coordinates;
+    return temp_x_coordinates;
 }
 
 
 void Simulation::setInitialTemperatures(double temp_in)
 {
-  initialTemperature=temp_in;
+    initialTemperature = temp_in;
 }
 
 // Part copy of run(), limited to preparation and thermal dynamic analysis
 void Simulation::init()
 {
-    if(outputFilesDetail>1){
-      writeSystem();
-      outFile << "ANALYSIS " << endl;
-      outFile << "CONFIGURATION" << endl;
+    if (outputFilesDetail > 1) {
+        writeSystem();
+        outFile << "ANALYSIS " << endl;
+        outFile << "CONFIGURATION" << endl;
     }
-    if(outputFilesDetail>0){
-      *timerFile << stepTime << "\t" << globalTimer->getTime() << std::endl;
+    if (outputFilesDetail > 0) {
+        *timerFile << stepTime << "\t" << globalTimer->getTime() << std::endl;
     }
 
-    std::vector<Analysis*>::iterator itAnalysis;
-    for ( itAnalysis = analysis.begin();
-            itAnalysis!= analysis.end();
-            ++itAnalysis
-        )
-    {   
-      if( (*itAnalysis)->type() == "THERMAL" || (*itAnalysis)->type() == "THERMALSTATIC") {
-        this->initThermalSimulation(*itAnalysis);
-      }
-      else {
-	cout << "ANALYSIS NOT AVAILABLE" << endl;
+    for (auto& analysis : analyses) {
+        if (analysis->type() == "THERMAL" || analysis->type() == "THERMALSTATIC") {
+            this->initThermalSimulation(analysis);
+        }
+        else {
+            cout << "ANALYSIS NOT AVAILABLE" << endl;
 //             if( (*itAnalysis)->type() == "STATIC" || (*itAnalysis)->type() == "DYNAMIC")
 //                 this->baseSystem->setMechanical();
 //             this->runMechanicalAnalysis(*itAnalysis);
@@ -136,76 +126,88 @@ void Simulation::init()
     }
 }
 
-void Simulation::initThermalSimulation(Analysis* theAnalysis_in)
+void Simulation::initThermalSimulation(Analysis * theAnalysis_in)
 {
-  theAnalysis = theAnalysis_in;
-  int gdlSize = nodes.size();
-  lmx::Vector<data_type> q( gdlSize );
-  q.fillIdentity(initialTemperature);
+    theAnalysis = theAnalysis_in;
+    auto gdlSize = nodes.size();
+    lmx::Vector<data_type> q(gdlSize);
+    q.fillIdentity(initialTemperature);
 
-  globalCapacity.resize( gdlSize, gdlSize );
-  globalConductivity.resize( gdlSize, gdlSize );
-  globalRHSHeat.resize( gdlSize );
-  globalExternalHeat.resize( gdlSize );
-  globalInternalHeat.resize( gdlSize );
+    globalCapacity.resize(gdlSize, gdlSize);
+    globalConductivity.resize(gdlSize, gdlSize);
+    globalRHSHeat.resize(gdlSize);
+    globalExternalHeat.resize(gdlSize);
+    globalInternalHeat.resize(gdlSize);
 
-  baseSystem->calcCapacityMatrix();
-  baseSystem->assembleCapacityMatrix( globalCapacity );
-  baseSystem->calcConductivityMatrix();
-  baseSystem->assembleConductivityMatrix( globalConductivity );
+    baseSystem->calcCapacityMatrix();
+    baseSystem->assembleCapacityMatrix(globalCapacity);
+    baseSystem->calcConductivityMatrix();
+    baseSystem->assembleConductivityMatrix(globalConductivity);
 //   cout << globalCapacity << endl;
 //   cout << globalConductivity;
 
-    writeConfStep( );
-  if(outputFilesDetail>1){
-    systemOuputStep( q );
-  }
-  theAnalysis->init( &q );
+    writeConfStep();
+    if (outputFilesDetail > 1) {
+        systemOuputStep(q);
+    }
+    theAnalysis->init(&q);
 
 }
 
-
-void Simulation::solveStep(double* signal, double* outputSignal)
+void setSignal(std::string node, std::vector<double>)
 {
-  baseSystem->updateThermalLoads(signal);
-  theAnalysis->nextStep(  );
-  if(outputSignal){
-    baseSystem->getOutputSignalThermal(outputSignal);
-  }
+    return;
+}
+
+
+std::vector<double> getSignal(std::string node)
+{
+    return {};
+}
+
+void Simulation::solveStep()
+{
+    theAnalysis->nextStep();
+}
+
+void Simulation::solveStep(double * signal, double * outputSignal)
+{
+    baseSystem->updateThermalLoads(signal);
+    theAnalysis->nextStep();
+    if(outputSignal){
+        baseSystem->getOutputSignalThermal(outputSignal);
+    }
 }
 
 void Simulation::endSimulation()
 {
-  configurationFile->close();
-  
-    std::vector<Analysis*>::iterator it_analysis;
-    for (it_analysis = analysis.begin();
-	it_analysis!= analysis.end();
-	++it_analysis){
-      *(it_analysis) = 0;
-      delete *(it_analysis);
+    configurationFile->close();
+
+    for (auto& analysis : analyses) {
+        delete analysis;
+        analysis = nullptr;
     }
-    if(outputFilesDetail>1){
-      std::ifstream disp("dis.dat");
-      
-      char a;
+    if (outputFilesDetail > 1) {
+        std::ifstream disp("dis.dat");
+
+        char a;
 //       std::string aa;
 
-      if(disp.is_open()){
-	if(outFile.is_open() ) {
+        if (disp.is_open()) {
+            if (outFile.is_open()) {
 // 	  while (disp >> aa) {
 // 	    outFile << aa;
 // 	  }
-	  while (disp.get(a)) {
-	      outFile.put(a);
-	      outFile.flush();
-	  }
-	  outFile << "ENDCONFIGURATION" << endl;
+                while (disp.get(a)) {
+                    outFile.put(a);
+                    outFile.flush();
+                }
+                outFile << "ENDCONFIGURATION" << endl;
 
-	  // output extra flexible bodies data...
-	  baseSystem->outputToFile( &outFile );
-	}
-      }
+                // output extra flexible bodies data...
+                baseSystem->outputToFile(&outFile);
+            }
+        }
     }
 
 //       cout << "q(" << q.size()/2 << ") = " << q(q.size()/2) << endl;
@@ -223,7 +225,7 @@ void Simulation::endSimulation()
 
 void Simulation::run()
 {
-#ifdef HAVE_VTK  
+#ifdef HAVE_VTK
     if(Simulation::contact == "GLOBAL" || Simulation::visualization == 1) {
         this->theContact = new Contact(this, 10.);
         this->theContact->createPoints();
@@ -238,45 +240,42 @@ void Simulation::run()
 #endif
     writeSystem();
     outFile << "ANALYSIS " << endl;
-      outFile << "CONFIGURATION" << endl;
+    outFile << "CONFIGURATION" << endl;
 //   << "FILE " << "dis.dat" << endl;
     *timerFile << stepTime << "\t" << globalTimer->getTime() << std::endl;
 
-    std::vector<Analysis*>::iterator itAnalysis;
-    for ( itAnalysis = analysis.begin();
-            itAnalysis!= analysis.end();
-            ++itAnalysis
-        )
-    {   if( (*itAnalysis)->type() == "THERMAL" || (*itAnalysis)->type() == "THERMALSTATIC") {
-            this->runThermalAnalysis(*itAnalysis);
+    for (auto& analysis : analyses) {
+        if (analysis->type() == "THERMAL" || analysis->type() == "THERMALSTATIC") {
+            this->runThermalAnalysis(analysis);
         }
         else {
-            if( (*itAnalysis)->type() == "STATIC" || (*itAnalysis)->type() == "DYNAMIC")
+            if (analysis->type() == "STATIC" || analysis->type() == "DYNAMIC") {
                 this->baseSystem->setMechanical();
-            this->runMechanicalAnalysis(*itAnalysis);
+            }
+            this->runMechanicalAnalysis(analysis);
         }
     }
 }
 
-void Simulation::runThermalAnalysis(Analysis* theAnalysis_in)
+void Simulation::runThermalAnalysis(Analysis * theAnalysis_in)
 {
-  theAnalysis = theAnalysis_in;
-    int gdlSize = nodes.size();
-    lmx::Vector<data_type> q( gdlSize );
+    theAnalysis = theAnalysis_in;
+    auto gdlSize = nodes.size();
+    lmx::Vector<data_type> q(gdlSize);
     q.fillIdentity(initialTemperature);
     {
-        lmx::ExactStopwatch sw;
+        //lmx::ExactStopwatch sw;
 
-        globalCapacity.resize( gdlSize, gdlSize );
-        globalConductivity.resize( gdlSize, gdlSize );
-        globalRHSHeat.resize( gdlSize );
-        globalExternalHeat.resize( gdlSize );
-        globalInternalHeat.resize( gdlSize );
+        globalCapacity.resize(gdlSize, gdlSize);
+        globalConductivity.resize(gdlSize, gdlSize);
+        globalRHSHeat.resize(gdlSize);
+        globalExternalHeat.resize(gdlSize);
+        globalInternalHeat.resize(gdlSize);
 
         baseSystem->calcCapacityMatrix();
-        baseSystem->assembleCapacityMatrix( globalCapacity );
+        baseSystem->assembleCapacityMatrix(globalCapacity);
         baseSystem->calcConductivityMatrix();
-        baseSystem->assembleConductivityMatrix( globalConductivity );
+        baseSystem->assembleConductivityMatrix(globalConductivity);
 
 //         cout << "globalCapacity " << globalCapacity;
 //         cout << "globalConductivity " << globalConductivity;
@@ -300,179 +299,166 @@ void Simulation::runThermalAnalysis(Analysis* theAnalysis_in)
 //           Kfile.close();
 //         }
         // Output to file the initial configuration:
-        writeConfStep( );
+        writeConfStep();
 
         //       cout << "q0 = " << q <<endl;
         //       cout << "qdot0 = " << qdot <<endl;
-        if( theAnalysis->type() == "THERMAL" ) {
-            systemOuputStep( q );
+        if (theAnalysis->type() == "THERMAL") {
+            systemOuputStep(q);
 // 	    cout << q << endl;
-            theAnalysis->solve( &q );
+            theAnalysis->solve(&q);
         }
-        else if( theAnalysis->type() == "THERMALSTATIC" ) {
+        else if (theAnalysis->type() == "THERMALSTATIC") {
             // write initial configuration...
             outFile << "0 "; //time=0
 //           systemOuputStep( q ); // produces output of temperatures, incompatible with mknixpost-static
-            std::map<int,Point*>::iterator it_points;
-            for ( it_points = outputPoints.begin();
-                    it_points!= outputPoints.end();
-                    ++it_points
-                )
-            {
-                outFile << it_points->second->getConf(0) << " ";
-                outFile << it_points->second->getConf(1) << " ";
-                if (Simulation::getDim() == 3)
-                    outFile << it_points->second->getConf(2) << " ";
+            for (auto& point : outputPoints) {
+                outFile << point.second->getConf(0) << " ";
+                outFile << point.second->getConf(1) << " ";
+                if (Simulation::getDim() == 3) {
+                    outFile << point.second->getConf(2) << " ";
+                }
             }
             outFile << endl;
-            theAnalysis->solve( &q );
+            theAnalysis->solve(&q);
         }
     } // Output ExactStopwatch time
-    if(outputFilesDetail>1){
-      std::ifstream disp("dis.dat");
-      char a;
+    if (outputFilesDetail > 1) {
+        std::ifstream disp("dis.dat");
+        char a;
 
-      if(outFile.is_open() ) {
-	  while (disp.get(a)) {
-	      outFile.put(a);
-	      outFile.flush();
-	  }
-	  outFile << "ENDCONFIGURATION" << endl;
+        if (outFile.is_open()) {
+            while (disp.get(a)) {
+                outFile.put(a);
+                outFile.flush();
+            }
+            outFile << "ENDCONFIGURATION" << endl;
 
-	  // output extra flexible bodies data...
-	  baseSystem->outputToFile( &outFile );
-      }
+            // output extra flexible bodies data...
+            baseSystem->outputToFile(&outFile);
+        }
     }
 
 //       cout << "q(" << q.size()/2 << ") = " << q(q.size()/2) << endl;
 //       cout << "q(" << q.size()-1 << ") = " << q(q.size()-1) << endl;
 
     // output f_int of constraints...
-    lmx::Vector<double> constr_forces(nodes.size()*dimension);
-    baseSystem->assembleConstraintForces( constr_forces );
-    for(size_type i=0; i< constr_forces.size(); ++i ) {
+    lmx::Vector<double> constr_forces(nodes.size() * dimension);
+    baseSystem->assembleConstraintForces(constr_forces);
+    for (size_type i = 0; i < constr_forces.size(); ++i) {
 //         if(constr_forces(i) != 0. )
 //             cout << "R(" << i << ") = " << constr_forces(i) << endl;
     }
 }
 
-void Simulation::runMechanicalAnalysis(Analysis* theAnalysis_in)
+void Simulation::runMechanicalAnalysis(Analysis * theAnalysis_in)
 {
-  theAnalysis = theAnalysis_in;
-    int gdlSize = nodes.size() * Simulation::dimension;
-    lmx::Vector<data_type> q( gdlSize );
+    theAnalysis = theAnalysis_in;
+    auto gdlSize = nodes.size() * Simulation::dimension;
+    lmx::Vector<data_type> q(gdlSize);
     {
-        lmx::ExactStopwatch sw;
+        //lmx::ExactStopwatch sw;
 
-        globalMass.resize( gdlSize, gdlSize );
-        globalRHSForces.resize( gdlSize );
-        globalInternalForces.resize( gdlSize );
-        globalExternalForces.resize( gdlSize );
+        globalMass.resize(gdlSize, gdlSize);
+        globalRHSForces.resize(gdlSize);
+        globalInternalForces.resize(gdlSize);
+        globalExternalForces.resize(gdlSize);
 
-        int i=0;
-        std::map<int,Node*>::iterator it_nodes;
-        for ( it_nodes = nodes.begin();
-                it_nodes!= nodes.end();
-                ++it_nodes
-            )
-        {
-            q(Simulation::dimension*i) = it_nodes->second->getqx(0);
-            q(Simulation::dimension*i+1) = it_nodes->second->getqx(1);
-            if (Simulation::getDim() == 3)
-                q(Simulation::dimension*i+2) = it_nodes->second->getqx(2);
+        auto i = 0u;
+        for (auto& node : nodes) {
+            q(Simulation::dimension * i) = node.second->getqx(0);
+            q(Simulation::dimension * i + 1) = node.second->getqx(1);
+            if (Simulation::getDim() == 3) {
+                q(Simulation::dimension * i + 2) = node.second->getqx(2);
+            }
             ++i;
         }
 
         baseSystem->calcMassMatrix();
-        baseSystem->assembleMassMatrix( globalMass );
+        baseSystem->assembleMassMatrix(globalMass);
         // maybe is better to make an specific function call for the sparse
         // pattern, but this should work...
-        if( lmx::getMatrixType() == 1 ) {
-            globalSparsePattern.resize( gdlSize, gdlSize );
-            baseSystem->calcTangentMatrix(  );
-            baseSystem->assembleTangentMatrix( globalSparsePattern );
+        if (lmx::getMatrixType() == 1) {
+            globalSparsePattern.resize(gdlSize, gdlSize);
+            baseSystem->calcTangentMatrix();
+            baseSystem->assembleTangentMatrix(globalSparsePattern);
         }
         // Output matrices in initial configuration:
-        if( outputMatrices ) {
-            lmx::Matrix< data_type > K_temp(gdlSize,gdlSize);
-            baseSystem->calcTangentMatrix(  );
-            baseSystem->assembleTangentMatrix( K_temp );
-            K_temp.harwellBoeingSave( (char *) "K.mat");
-            globalMass.harwellBoeingSave( (char *) "M.mat");
+        if (outputMatrices) {
+            lmx::Matrix<data_type> K_temp(gdlSize, gdlSize);
+            baseSystem->calcTangentMatrix();
+            baseSystem->assembleTangentMatrix(K_temp);
+            K_temp.harwellBoeingSave((char *) "K.mat");
+            globalMass.harwellBoeingSave((char *) "M.mat");
             // save raw matrices:
             std::ofstream Kfile("K");
             Kfile << K_temp;
             Kfile.close();
         }
         // Output to file the initial configuration:
-        writeConfStep( );
+        writeConfStep();
 
         //       cout << "q0 = " << q <<endl;
         //       cout << "qdot0 = " << qdot <<endl;
-        if( theAnalysis->type() == "DYNAMIC" ) {
-            lmx::Vector<data_type> qdot( gdlSize );
+        if (theAnalysis->type() == "DYNAMIC") {
+            lmx::Vector<data_type> qdot(gdlSize);
             // output first step data
-            systemOuputStep( q );
-            theAnalysis->setEpsilon( epsilon );
-            theAnalysis->solve( &q, &qdot );
+            systemOuputStep(q);
+            theAnalysis->setEpsilon(epsilon);
+            theAnalysis->solve(&q, &qdot);
         }
-        else if( theAnalysis->type() == "STATIC" ) {
+        else if (theAnalysis->type() == "STATIC") {
             // write initial configuration...
 //             outFile << "0 "; //time=0
 //             for(size_type i=0; i<q.size(); ++i) {
 //                 outFile << q(i) << " ";
 //             }
 //             outFile << endl;
-            theAnalysis->solve( &q );
+            theAnalysis->solve(&q);
         }
-        else if( theAnalysis->type() == "THERMOMECHANICALDYNAMIC" ) {
+        else if (theAnalysis->type() == "THERMOMECHANICALDYNAMIC") {
             // Init thermal conf vector and a zero velocity vector
-            int thermalSize = thermalNodes.size();
-            lmx::Vector<data_type> qdot( gdlSize );
-            lmx::Vector<data_type> qt( thermalSize );
-            int i=0;
-            std::map<int,Node*>::iterator it_nodes;
-            for ( it_nodes = thermalNodes.begin();
-                    it_nodes!= thermalNodes.end();
-                    ++it_nodes
-                )
-            {
-                qt(i) = it_nodes->second->getqt();
+            auto thermalSize = thermalNodes.size();
+            lmx::Vector<data_type> qdot(gdlSize);
+            lmx::Vector<data_type> qt(thermalSize);
+            i = 0u;
+            for (auto& node : thermalNodes) {
+                qt(i) = node.second->getqt();
                 ++i;
             }
-            globalCapacity.resize( thermalSize, thermalSize );
-            globalConductivity.resize( thermalSize, thermalSize );
-            globalRHSHeat.resize( thermalSize );
-            globalExternalHeat.resize( thermalSize );
-            globalInternalHeat.resize( thermalSize );
+            globalCapacity.resize(thermalSize, thermalSize);
+            globalConductivity.resize(thermalSize, thermalSize);
+            globalRHSHeat.resize(thermalSize);
+            globalExternalHeat.resize(thermalSize);
+            globalInternalHeat.resize(thermalSize);
 
             baseSystem->calcCapacityMatrix();
-            baseSystem->assembleCapacityMatrix( globalCapacity );
+            baseSystem->assembleCapacityMatrix(globalCapacity);
             baseSystem->calcConductivityMatrix();
-            baseSystem->assembleConductivityMatrix( globalConductivity );
+            baseSystem->assembleConductivityMatrix(globalConductivity);
 
             // output first step data
-            systemOuputStep( q );
-            theAnalysis->setEpsilon( epsilon );
-            theAnalysis->solve( &qt, &q, &qdot );
+            systemOuputStep(q);
+            theAnalysis->setEpsilon(epsilon);
+            theAnalysis->solve(&qt, &q, &qdot);
         }
 
     } // Output ExactStopwatch time
 
-    if(outputFilesDetail>1){
-      std::ifstream disp("dis.dat");
-      char a;
+    if (outputFilesDetail > 1) {
+        std::ifstream disp("dis.dat");
+        char a;
 
-      if(outFile.is_open() ) {
-	  while (disp.get(a)) {
-	      outFile.put(a);
-	      outFile.flush();
-	  }
-	  outFile << "ENDCONFIGURATION" << endl;
+        if (outFile.is_open()) {
+            while (disp.get(a)) {
+                outFile.put(a);
+                outFile.flush();
+            }
+            outFile << "ENDCONFIGURATION" << endl;
 
-	  // output extra flexible bodies data...
-	  baseSystem->outputToFile( &outFile );
-      }
+            // output extra flexible bodies data...
+            baseSystem->outputToFile(&outFile);
+        }
     }
 
 //       cout << "q(" << q.size()/2 << ") = " << q(q.size()/2) << endl;
@@ -492,66 +478,55 @@ void Simulation::writeSystem()
     std::stringstream ss;
     ss << title << ".mec";
     outFileName = ss.str();
-    outFile.open( outFileName.c_str(), std::ofstream::out );
+    outFile.open(outFileName.c_str(), std::ofstream::out);
     outFile << "DIMENSION " << Simulation::dimension << endl;
 
     outFile << "SYSTEM" << endl;
 
     outFile << "NODES" << endl;
-    std::map<int,Point*>::iterator it_points;
-    for ( it_points = outputPoints.begin(); 
-	  it_points!= outputPoints.end(); 
-	  ++it_points ) {
+    for (auto& point : outputPoints) {
         outFile
-                << "\t" << it_points->first
-                << "\t" << it_points->second->getConf(0)
-                << "\t" << it_points->second->getConf(1)
-                << "\t" << it_points->second->getConf(2)
-                << endl;
+        << "\t" << point.first
+        << "\t" << point.second->getConf(0)
+        << "\t" << point.second->getConf(1)
+        << "\t" << point.second->getConf(2)
+        << endl;
     }
     outFile << "ENDNODES" << endl;
 
     outFile << "RIGIDBODIES" << endl;
-    baseSystem->writeRigidBodies( &outFile );
+    baseSystem->writeRigidBodies(&outFile);
     outFile << "ENDRIGIDBODIES" << endl;
 
     outFile << "FLEXBODIES" << endl;
-    baseSystem->writeFlexBodies( &outFile );
+    baseSystem->writeFlexBodies(&outFile);
     outFile << "ENDFLEXBODIES" << endl;
 
     outFile << "JOINTS" << endl;
-    baseSystem->writeJoints( &outFile );
+    baseSystem->writeJoints(&outFile);
     outFile << "ENDJOINTS" << endl;
-  
+
     outFile << "ENDSYSTEM" << endl;
 
     // write a standard file for nodal info:
-    std::map<int,Node*>::iterator it_nodes;
     std::ofstream nodeFile("nodes.dat");
-    for ( it_nodes = nodes.begin(); 
-	  it_nodes != nodes.end(); 
-	  ++it_nodes) {
+    for (auto& node : nodes) {
         nodeFile
-                << "\t" << it_nodes->first
-                << "\t" << it_nodes->second->getConf(0)
-                << "\t" << it_nodes->second->getConf(1)
-                << "\t" << it_nodes->second->getConf(2)
-                << endl;
+        << "\t" << node.first
+        << "\t" << node.second->getConf(0)
+        << "\t" << node.second->getConf(1)
+        << "\t" << node.second->getConf(2)
+        << endl;
     }
 
 }
 
-void Simulation::staticThermalResidue ( lmx::Vector< data_type > & residue,
-                                        lmx::Vector< data_type > & q
-                                      )
+void Simulation::staticThermalResidue(lmx::Vector<data_type>& residue,
+                                      lmx::Vector<data_type>& q
+)
 {
-    std::map<int,Node*>::iterator itNodes;
-    for( itNodes = thermalNodes.begin();
-            itNodes!= thermalNodes.end();
-            ++itNodes
-       )
-    {
-        itNodes->second->setqt( q );
+    for (auto& node : thermalNodes) {
+        node.second->setqt(q);
     }
 
     globalConductivity.fillIdentity(0.);
@@ -561,11 +536,11 @@ void Simulation::staticThermalResidue ( lmx::Vector< data_type > & residue,
     baseSystem->calcConductivityMatrix();
     baseSystem->calcExternalHeat();
     baseSystem->calcInternalHeat();
-    baseSystem->assembleConductivityMatrix( globalConductivity );
-    baseSystem->assembleExternalHeat( globalExternalHeat );
-    baseSystem->assembleInternalHeat( globalInternalHeat );
+    baseSystem->assembleConductivityMatrix(globalConductivity);
+    baseSystem->assembleExternalHeat(globalExternalHeat);
+    baseSystem->assembleInternalHeat(globalInternalHeat);
 
-    residue = globalConductivity*q;
+    residue = globalConductivity * q;
     residue += globalInternalHeat;
     residue -= globalExternalHeat;
 
@@ -574,52 +549,45 @@ void Simulation::staticThermalResidue ( lmx::Vector< data_type > & residue,
 
 }
 
-void Simulation::staticThermalTangent ( lmx::Matrix< data_type > & tangent_in,
-                                        lmx::Vector< data_type > & q
-                                      )
+void Simulation::staticThermalTangent(lmx::Matrix<data_type>& tangent_in,
+                                      lmx::Vector<data_type>& q
+)
 {
     tangent_in.fillIdentity(0.);
-    baseSystem->calcThermalTangentMatrix(  );
-    baseSystem->assembleThermalTangentMatrix( tangent_in );
+    baseSystem->calcThermalTangentMatrix();
+    baseSystem->assembleThermalTangentMatrix(tangent_in);
 //     cout << tangent_in << endl;
     tangent_in += globalConductivity;
 //     cout << tangent_in << endl;
 }
 
-bool Simulation::staticThermalConvergence ( lmx::Vector<data_type>& res,
-        lmx::Vector<data_type>& q
-                                          )
+bool Simulation::staticThermalConvergence(lmx::Vector<data_type>& res,
+                                          lmx::Vector<data_type>& q
+)
 {
 //   lmx::Vector<data_type> res( qddot.size() );
 //   res =  globalInternalForces - globalExternalForces;
-    if( res.norm2() <= epsilon ) {
-        if( baseSystem->checkAugmented( ) ) { // if convergence...
+    if (res.norm2() <= epsilon) {
+        if (baseSystem->checkAugmented()) { // if convergence...
             stepTime = 1.;
-            systemOuputStep( q );
+            systemOuputStep(q);
             baseSystem->clearAugmented();
             stepTriggered();
             return 1;
         }
-        else return 0;
+        else { return 0; }
     }
-    else return 0;
+    else { return 0; }
 
 }
 
 
 void Simulation::explicitThermalEvaluation
-( const lmx::Vector<data_type>& qt
-  , lmx::Vector<data_type>& qtdot
-  , double time
-)
+        (const lmx::Vector<data_type>& qt, lmx::Vector<data_type>& qtdot, double time
+        )
 {
-    std::map<int,Node*>::iterator itNodes;
-    for( itNodes = thermalNodes.begin();
-            itNodes!= thermalNodes.end();
-            ++itNodes
-       )
-    {
-        itNodes->second->setqt( qt );
+    for (auto& node : thermalNodes) {
+        node.second->setqt(qt);
     }
 
     globalExternalHeat.fillIdentity(0.);
@@ -627,28 +595,28 @@ void Simulation::explicitThermalEvaluation
 
     baseSystem->calcExternalHeat();
     baseSystem->calcInternalHeat();
-    baseSystem->assembleExternalHeat( globalExternalHeat );
-    baseSystem->assembleInternalHeat( globalInternalHeat );
+    baseSystem->assembleExternalHeat(globalExternalHeat);
+    baseSystem->assembleInternalHeat(globalInternalHeat);
     globalRHSHeat = globalConductivity * qt;
     globalRHSHeat += globalInternalHeat;
     globalRHSHeat -= globalExternalHeat;
 
 //   cout << globalMass << endl;
-    lmx::LinearSystem<data_type> theLSolver( globalCapacity, qtdot, globalRHSHeat );
+    lmx::LinearSystem<data_type> theLSolver(globalCapacity, qtdot, globalRHSHeat);
     theLSolver.solveYourself();
 //  cout << "initial_flux :" << qtdot << endl;
-    if( theAnalysis->type() != "THERMOMECHANICALDYNAMIC" ) { // for regular THERMAL dynamic problems
-      stepTime = time;
-      systemOuputStep( qt );
+    if (theAnalysis->type() != "THERMOMECHANICALDYNAMIC") { // for regular THERMAL dynamic problems
+        stepTime = time;
+        systemOuputStep(qt);
     }
 
 
 }
 
-void Simulation::dynamicThermalEvaluation( const lmx::Vector<data_type>& qt,
-        lmx::Vector<data_type>& qtdot,
-        double time
-                                         )
+void Simulation::dynamicThermalEvaluation(const lmx::Vector<data_type>& qt,
+                                          lmx::Vector<data_type>& qtdot,
+                                          double time
+)
 {
     globalCapacity.fillIdentity(0.);
     globalConductivity.fillIdentity(0.);
@@ -659,10 +627,10 @@ void Simulation::dynamicThermalEvaluation( const lmx::Vector<data_type>& qt,
     baseSystem->calcConductivityMatrix();
     baseSystem->calcExternalHeat();
     baseSystem->calcInternalHeat();
-    baseSystem->assembleCapacityMatrix( globalCapacity );
-    baseSystem->assembleConductivityMatrix( globalConductivity );
-    baseSystem->assembleExternalHeat( globalExternalHeat );
-    baseSystem->assembleInternalHeat( globalInternalHeat );
+    baseSystem->assembleCapacityMatrix(globalCapacity);
+    baseSystem->assembleConductivityMatrix(globalConductivity);
+    baseSystem->assembleExternalHeat(globalExternalHeat);
+    baseSystem->assembleInternalHeat(globalInternalHeat);
     globalRHSHeat = globalConductivity * qt;
     globalRHSHeat += globalInternalHeat;
     globalRHSHeat -= globalExternalHeat;
@@ -670,26 +638,21 @@ void Simulation::dynamicThermalEvaluation( const lmx::Vector<data_type>& qt,
 //     cout << "H = " << globalConductivity << endl;
 //     cout << "C = " << globalCapacity << endl;
 //     cout << globalRHSHeat << endl;
-    lmx::LinearSystem<data_type> theLSolver( globalCapacity, qtdot, globalRHSHeat );
+//    lmx::LinearSystem<data_type> theLSolver(globalCapacity, qtdot, globalRHSHeat);
 //     theLSolver.solveYourself();
 //    cout << "initial_flux :" << qtdot << endl;
 
     stepTime = time;
 }
 
-void Simulation::dynamicThermalResidue  ( lmx::Vector<data_type>& residue,
-        const lmx::Vector<data_type>& q,
-        const lmx::Vector<data_type>& qdot,
-        double time
-                                        )
+void Simulation::dynamicThermalResidue(lmx::Vector<data_type>& residue,
+                                       const lmx::Vector<data_type>& q,
+                                       const lmx::Vector<data_type>& qdot,
+                                       double /*time*/
+)
 {
-    std::map<int,Node*>::iterator itNodes;
-    for( itNodes = thermalNodes.begin();
-            itNodes!= thermalNodes.end();
-            ++itNodes
-       )
-    {
-        itNodes->second->setqt( q );
+    for (auto& node : thermalNodes) {
+        node.second->setqt(q);
     }
 
     globalCapacity.fillIdentity(0.);
@@ -701,14 +664,14 @@ void Simulation::dynamicThermalResidue  ( lmx::Vector<data_type>& residue,
     baseSystem->calcConductivityMatrix();
     baseSystem->calcExternalHeat();
     baseSystem->calcInternalHeat();
-    
-    baseSystem->assembleCapacityMatrix( globalCapacity );
-    baseSystem->assembleConductivityMatrix( globalConductivity );
-    baseSystem->assembleExternalHeat( globalExternalHeat );
-    baseSystem->assembleInternalHeat( globalInternalHeat );
 
-    residue = globalCapacity*qdot;
-    residue += globalConductivity*q;
+    baseSystem->assembleCapacityMatrix(globalCapacity);
+    baseSystem->assembleConductivityMatrix(globalConductivity);
+    baseSystem->assembleExternalHeat(globalExternalHeat);
+    baseSystem->assembleInternalHeat(globalInternalHeat);
+
+    residue = globalCapacity * qdot;
+    residue += globalConductivity * q;
     residue += globalInternalHeat;
     residue -= globalExternalHeat;
 
@@ -725,32 +688,32 @@ void Simulation::dynamicThermalResidue  ( lmx::Vector<data_type>& residue,
 
 }
 
-void Simulation::dynamicThermalTangent  ( lmx::Matrix<data_type>& tangent_in,
-        const lmx::Vector<data_type>& q,
-        double partial_qdot,
-        double time
-                                        )
+void Simulation::dynamicThermalTangent(lmx::Matrix<data_type>& tangent_in,
+                                       const lmx::Vector<data_type>& q,
+                                       double partial_qdot,
+                                       double /*time*/
+)
 {
     tangent_in.fillIdentity(0.);
 //   baseSystem->calcTangentMatrix(  );
 //   baseSystem->assembleTangentMatrix( tangent_in );
-    tangent_in += (data_type)partial_qdot*globalCapacity;
+    tangent_in += (data_type) partial_qdot * globalCapacity;
     tangent_in += globalConductivity;
 }
 
-bool Simulation::dynamicThermalConvergence( const lmx::Vector<data_type>& q,
-        const lmx::Vector<data_type>& qdot,
-        double time
-                                          )
+bool Simulation::dynamicThermalConvergence(const lmx::Vector<data_type>& q,
+                                           const lmx::Vector<data_type>& qdot,
+                                           double time
+)
 {
     ++iterationsNLSolver;
-    lmx::Vector<data_type> res( qdot.size() );
+    lmx::Vector<data_type> res(qdot.size());
 //  double energy_max, energy_sum;
 //  cout << "\n"
 //       << (globalMass*qddot).norm2() << "\t"
 //       << globalInternalForces.norm2() << "\t"
 //       << globalExternalForces.norm2() << "\n";
-    res = globalCapacity*qdot + globalConductivity*q + globalInternalHeat- globalExternalHeat;
+    res = globalCapacity * qdot + globalConductivity * q + globalInternalHeat - globalExternalHeat;
 //  energy_max = std::max( std::fabs(globalMass*qddot*q)
 //                       , std::fabs(globalInternalForces*q) );
 //  energy_max = std::max( energy_max, std::fabs(globalExternalForces*q) );
@@ -759,53 +722,48 @@ bool Simulation::dynamicThermalConvergence( const lmx::Vector<data_type>& q,
 //             + std::fabs(globalExternalForces*q);
 //      cout << "            : MAX_ENERGY = " << energy_max << endl
 //           << "              SUM_ENERGY = " << energy_sum << endl;
-    if( res.norm2() <= epsilon ) {
+    if (res.norm2() <= epsilon) {
 //  if( (energy_max / energy_sum) <= epsilon ){
-        if( baseSystem->checkAugmented() ) {
+        if (baseSystem->checkAugmented()) {
 //      cout << " CONVERGENCE: MAX_ENERGY = " << energy_max << endl
 //           << "              SUM_ENERGY = " << energy_sum << endl;
             stepTime = time;
-            systemOuputStep( q );
+            systemOuputStep(q);
             baseSystem->clearAugmented();
             return 1;
         }
-        else return 0;
+        else { return 0; }
     }
-    else return 0;
+    else { return 0; }
 }
 
-bool Simulation::dynamicThermalConvergenceInThermomechanical( const lmx::Vector<data_type>& q,
-        const lmx::Vector<data_type>& qdot,
-        double time
-                                                            )
+bool Simulation::dynamicThermalConvergenceInThermomechanical(const lmx::Vector<data_type>& q,
+                                                             const lmx::Vector<data_type>& qdot,
+                                                             double time
+)
 {
-    lmx::Vector<data_type> res( qdot.size() );
-    res = globalCapacity*qdot + globalConductivity*q + globalInternalHeat- globalExternalHeat;
-    if( res.norm2() <= epsilon ) {
-        if( baseSystem->checkAugmented() ) {
+    lmx::Vector<data_type> res(qdot.size());
+    res = globalCapacity * qdot + globalConductivity * q + globalInternalHeat - globalExternalHeat;
+    if (res.norm2() <= epsilon) {
+        if (baseSystem->checkAugmented()) {
             stepTime = time;
             baseSystem->clearAugmented();
             return 1;
         }
-        else return 0;
+        else { return 0; }
     }
-    else return 0;
+    else { return 0; }
 }
 
 
-void Simulation::explicitAcceleration( const lmx::Vector< data_type > & q,
-                                       const lmx::Vector< data_type > & qdot,
-                                       lmx::Vector< data_type > & qddot,
-                                       double time
-                                     )
+void Simulation::explicitAcceleration(const lmx::Vector<data_type>& q,
+                                      const lmx::Vector<data_type>& qdot,
+                                      lmx::Vector<data_type>& qddot,
+                                      double time
+)
 {
-    std::map<int,Node*>::iterator itNodes;
-    for( itNodes = nodes.begin();
-            itNodes!= nodes.end();
-            ++itNodes
-       )
-    {
-        itNodes->second->setqx( q );
+    for (auto& node : nodes) {
+        node.second->setqx(q);
     }
 
 //   globalMass.fillIdentity(0.);
@@ -816,67 +774,57 @@ void Simulation::explicitAcceleration( const lmx::Vector< data_type > & q,
     baseSystem->calcInternalForces();
     baseSystem->calcExternalForces();
 //   baseSystem->assembleMassMatrix( globalMass );
-    baseSystem->assembleInternalForces( globalInternalForces );
-    baseSystem->assembleExternalForces( globalExternalForces );
+    baseSystem->assembleInternalForces(globalInternalForces);
+    baseSystem->assembleExternalForces(globalExternalForces);
     globalRHSForces = globalExternalForces;
     globalRHSForces -= globalInternalForces;
 
 //   cout << globalMass << endl;
-    lmx::LinearSystem<data_type> theLSolver( globalMass, qddot, globalRHSForces );
+    lmx::LinearSystem<data_type> theLSolver(globalMass, qddot, globalRHSForces);
     theLSolver.solveYourself();
 
     stepTime = time;
-    systemOuputStep( q, qdot );
+    systemOuputStep(q, qdot);
 
 }
 
-void Simulation::dynamicAcceleration( const lmx::Vector< data_type > & q,
-                                      const lmx::Vector< data_type > & qdot,
-                                      lmx::Vector< data_type > & qddot,
-                                      double time
-                                    )
+void Simulation::dynamicAcceleration(const lmx::Vector<data_type>& q,
+                                     const lmx::Vector<data_type>& qdot,
+                                     lmx::Vector<data_type>& qddot,
+                                     double /*time*/
+)
 {
     globalMass.fillIdentity(0.);
     globalInternalForces.fillIdentity(0.);
     globalExternalForces.fillIdentity(0.);
 
-    std::map<int,Node*>::iterator itNodes;
-    for( itNodes = nodes.begin();
-            itNodes!= nodes.end();
-            ++itNodes
-       )
-    {
-        itNodes->second->setqx( q );
+    for (auto& node : nodes) {
+        node.second->setqx(q);
     }
     baseSystem->calcMassMatrix();
     baseSystem->calcInternalForces();
     baseSystem->calcExternalForces();
-    baseSystem->assembleMassMatrix( globalMass );
-    baseSystem->assembleInternalForces( globalInternalForces );
-    baseSystem->assembleExternalForces( globalExternalForces );
+    baseSystem->assembleMassMatrix(globalMass);
+    baseSystem->assembleInternalForces(globalInternalForces);
+    baseSystem->assembleExternalForces(globalExternalForces);
     globalRHSForces = globalExternalForces;
     globalRHSForces -= globalInternalForces;
 
 //    cout << globalMass << endl;
-    lmx::LinearSystem<data_type> theLSolver( globalMass, qddot, globalRHSForces );
+    lmx::LinearSystem<data_type> theLSolver(globalMass, qddot, globalRHSForces);
     theLSolver.solveYourself();
 //    cout << "initial_acceleration :" << qddot << endl;
 }
 
-void Simulation::dynamicResidue( lmx::Vector< data_type > & residue,
-                                 const lmx::Vector< data_type > & q,
-                                 const lmx::Vector< data_type > & qdot,
-                                 const lmx::Vector< data_type > & qddot,
-                                 double time
-                               )
+void Simulation::dynamicResidue(lmx::Vector<data_type>& residue,
+                                const lmx::Vector<data_type>& q,
+                                const lmx::Vector<data_type>& qdot,
+                                const lmx::Vector<data_type>& qddot,
+                                double time
+)
 {
-    std::map<int,Node*>::iterator itNodes;
-    for( itNodes = nodes.begin();
-            itNodes!= nodes.end();
-            ++itNodes
-       )
-    {
-        itNodes->second->setqx( q );
+    for (auto& node : nodes) {
+        node.second->setqx(q);
     }
 // At this time globalMass is always the same...
 // so the commented lines increment efficiency by 12% aprox.
@@ -885,15 +833,15 @@ void Simulation::dynamicResidue( lmx::Vector< data_type > & residue,
     globalInternalForces.fillIdentity(0.);
     globalExternalForces.fillIdentity(0.);
 
-    baseSystem->update( time );
+    baseSystem->update(time);
 //   baseSystem->calcMassMatrix();
     baseSystem->calcInternalForces();
     baseSystem->calcExternalForces();
 //   baseSystem->assembleMassMatrix( globalMass );
-    baseSystem->assembleInternalForces( globalInternalForces );
-    baseSystem->assembleExternalForces( globalExternalForces );
+    baseSystem->assembleInternalForces(globalInternalForces);
+    baseSystem->assembleExternalForces(globalExternalForces);
 
-    residue = globalMass*qddot;
+    residue = globalMass * qddot;
     residue += globalInternalForces;
     residue -= globalExternalForces;
 
@@ -904,27 +852,28 @@ void Simulation::dynamicResidue( lmx::Vector< data_type > & residue,
 //     cout << "globalExternalForces : " << globalExternalForces;
 }
 
-void Simulation::dynamicTangent( lmx::Matrix< data_type > & tangent_in,
-                                 const lmx::Vector< data_type > & q,
-                                 const lmx::Vector< data_type > & qdot,
-                                 double partial_qdot,
-                                 double partial_qddot,
-                                 double time
-                               )
+void Simulation::dynamicTangent(lmx::Matrix<data_type>& tangent_in,
+                                const lmx::Vector<data_type>& q,
+                                const lmx::Vector<data_type>& qdot,
+                                double /*partial_qdot*/,
+                                double partial_qddot,
+                                double /*time*/
+)
 {
     tangent_in.fillIdentity(0.);
-    baseSystem->calcTangentMatrix(  );
-    baseSystem->assembleTangentMatrix( tangent_in );
-    tangent_in += (data_type)partial_qddot*globalMass;
+    baseSystem->calcTangentMatrix();
+    baseSystem->assembleTangentMatrix(tangent_in);
+    tangent_in += (data_type) partial_qddot * globalMass;
 }
 
-bool Simulation::dynamicConvergence( const lmx::Vector<data_type>& q,
-                                     const lmx::Vector<data_type>& qdot,
-                                     const lmx::Vector<data_type>& qddot,
-                                     double time
-                                   )
-{   ++iterationsNLSolver;
-    lmx::Vector<data_type> res( qddot.size() );
+bool Simulation::dynamicConvergence(const lmx::Vector<data_type>& q,
+                                    const lmx::Vector<data_type>& qdot,
+                                    const lmx::Vector<data_type>& qddot,
+                                    double time
+)
+{
+    ++iterationsNLSolver;
+    lmx::Vector<data_type> res(qddot.size());
 //  double energy_max, energy_sum;
 //  cout << "\n"
 //       << "(globalMass*qddot).norm2() = " << "\t"
@@ -933,7 +882,7 @@ bool Simulation::dynamicConvergence( const lmx::Vector<data_type>& q,
 //       << globalInternalForces.norm2() << "\n"
 //       << "globalExternalForces.norm2() = " << "\t"
 //       << globalExternalForces.norm2() << "\n";
-    res = globalMass*qddot + globalInternalForces - globalExternalForces;
+    res = globalMass * qddot + globalInternalForces - globalExternalForces;
 //  energy_max = std::max( std::fabs(globalMass*qddot*q)
 //                       , std::fabs(globalInternalForces*q) );
 //  energy_max = std::max( energy_max, std::fabs(globalExternalForces*q) );
@@ -942,34 +891,29 @@ bool Simulation::dynamicConvergence( const lmx::Vector<data_type>& q,
 //             + std::fabs(globalExternalForces*q);
 //      cout << "            : MAX_ENERGY = " << energy_max << endl
 //           << "              SUM_ENERGY = " << energy_sum << endl;
-    if( res.norm2() <= epsilon ) {
+    if (res.norm2() <= epsilon) {
 //  if( (energy_max / energy_sum) <= epsilon ){
-        if( baseSystem->checkAugmented() ) {
+        if (baseSystem->checkAugmented()) {
 //      cout << " CONVERGENCE: MAX_ENERGY = " << energy_max << endl
 //           << "              SUM_ENERGY = " << energy_sum << endl;
             stepTime = time;
-            systemOuputStep( q, qdot );
+            systemOuputStep(q, qdot);
             baseSystem->clearAugmented();
             return 1;
         }
-        else return 0;
+        else { return 0; }
     }
-    else return 0;
+    else { return 0; }
 
 }
 
 
-void Simulation::staticResidue ( lmx::Vector< data_type > & residue,
-                                 lmx::Vector< data_type > & q
-                               )
+void Simulation::staticResidue(lmx::Vector<data_type>& residue,
+                               lmx::Vector<data_type>& q
+)
 {
-    std::map<int,Node*>::iterator itNodes;
-    for( itNodes = nodes.begin();
-            itNodes!= nodes.end();
-            ++itNodes
-       )
-    {
-        itNodes->second->setqx( q );
+    for (auto& node : nodes) {
+        node.second->setqx(q);
     }
 
     globalInternalForces.fillIdentity(0.);
@@ -977,8 +921,8 @@ void Simulation::staticResidue ( lmx::Vector< data_type > & residue,
 
     baseSystem->calcInternalForces();
     baseSystem->calcExternalForces();
-    baseSystem->assembleInternalForces( globalInternalForces );
-    baseSystem->assembleExternalForces( globalExternalForces );
+    baseSystem->assembleInternalForces(globalInternalForces);
+    baseSystem->assembleExternalForces(globalExternalForces);
 
     residue = globalInternalForces;
     residue -= globalExternalForces;
@@ -990,40 +934,41 @@ void Simulation::staticResidue ( lmx::Vector< data_type > & residue,
 //   cout << "globalExternalForces : " << globalExternalForces;
 }
 
-void Simulation::staticTangent ( lmx::Matrix< data_type > & tangent_in,
-                                 lmx::Vector< data_type > & q
-                               )
+void Simulation::staticTangent(lmx::Matrix<data_type>& tangent_in,
+                               lmx::Vector<data_type>& q
+)
 {
     tangent_in.fillIdentity(0.);
-    baseSystem->calcTangentMatrix(  );
-    baseSystem->assembleTangentMatrix( tangent_in );
+    baseSystem->calcTangentMatrix();
+    baseSystem->assembleTangentMatrix(tangent_in);
 //  cout << "TANGENT:\n" << tangent_in;
 }
 
-bool Simulation::staticConvergence ( lmx::Vector<data_type>& res,
-                                     lmx::Vector<data_type>& q
-                                   )
+bool Simulation::staticConvergence(lmx::Vector<data_type>& res,
+                                   lmx::Vector<data_type>& q
+)
 {
 //   lmx::Vector<data_type> res( qddot.size() );
 //   res =  globalInternalForces - globalExternalForces;
-    if( res.norm2() <= epsilon ) {
-        if( baseSystem->checkAugmented( ) ) { // if convergence...
+    if (res.norm2() <= epsilon) {
+        if (baseSystem->checkAugmented()) { // if convergence...
             stepTime = 1.;
-            systemOuputStep( q );
+            systemOuputStep(q);
 // 	    this->storeTimeConfiguration(q);
             baseSystem->clearAugmented();
             stepTriggered();
             return 1;
         }
-        else return 0;
+        else { return 0; }
     }
-    else return 0;
+    else { return 0; }
 
 }
 
 
-void Simulation::stepTriggered( ) {
-#ifdef HAVE_VTK  
+void Simulation::stepTriggered()
+{
+#ifdef HAVE_VTK
     if(contact=="GLOBAL" || visualization==1) {
         this->theContact->updatePoints();
         this->theContact->updateLines();
@@ -1033,67 +978,58 @@ void Simulation::stepTriggered( ) {
     }
 #endif
 // Output configuration of time step:
-  writeConfStep( );
+    writeConfStep();
 
     // Output timer info:
-  if(outputFilesDetail>1){
-    double theTime = globalTimer->getTime();
-    *timerFile << stepTime << "\t" 
-	       << theTime-oldClockTime << "\t" 
-	       << theTime<< "\t" 
-               << iterationsNLSolver << std::endl;
-    oldClockTime = theTime;
-    iterationsNLSolver = 0;
-  }
+    if (outputFilesDetail > 1) {
+        double theTime = globalTimer->getTime();
+        *timerFile << stepTime << "\t"
+        << theTime - oldClockTime << "\t"
+        << theTime << "\t"
+        << iterationsNLSolver << std::endl;
+        oldClockTime = theTime;
+        iterationsNLSolver = 0;
+    }
 }
 
-void Simulation::writeConfStep( ) {
-  if(outputFilesDetail>1){
-    configurationFile->setf(std::ios::scientific, std::ios::floatfield);
-    configurationFile->precision(6);
-    *configurationFile << stepTime << "\t";
-    std::map<int,Point*>::iterator it_points;
-    int i;
-    for ( it_points = outputPoints.begin();
-            it_points!= outputPoints.end();
-            ++it_points
-        )
-    {
-        for (i=0; i<dimension; ++i) {
-            *configurationFile << it_points->second->getConf(i) << "\t";
+void Simulation::writeConfStep()
+{
+    if (outputFilesDetail > 1) {
+        configurationFile->setf(std::ios::scientific, std::ios::floatfield);
+        configurationFile->precision(6);
+        *configurationFile << stepTime << "\t";
+        int i;
+        for (auto& point : outputPoints) {
+            for (i = 0; i < dimension; ++i) {
+                *configurationFile << point.second->getConf(i) << "\t";
+            }
         }
+        *configurationFile << endl;
     }
-    *configurationFile << endl;
-  }
-      std::map<int,Node*>::iterator it_nodes;
-        for ( it_nodes = nodes.begin();
-                it_nodes!= nodes.end();
-                ++it_nodes
-            )
-        {
+//    for (auto& node : nodes) {
 // 	    cout << endl;
 //             cout << it_nodes->second->getqx(0) << " "
 // 		 << it_nodes->second->getqx(1) << " ";
 //             if (Simulation::getDim() == 3)
 //               cout << it_nodes->second->getqx(2) << " ";
 // 	    cout << endl;
-        }
+//    }
 
 }
 
-void Simulation::systemOuputStep(const lmx::Vector< data_type >& q)
+void Simulation::systemOuputStep(const lmx::Vector<data_type>& q)
 {
-  if(outputFilesDetail>1){
-    baseSystem->outputStep( q );
-  }
+    if (outputFilesDetail > 1) {
+        baseSystem->outputStep(q);
+    }
 
 }
 
-void Simulation::systemOuputStep(const lmx::Vector< data_type >& q, const lmx::Vector< data_type >& qdot)
+void Simulation::systemOuputStep(const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot)
 {
-  if(outputFilesDetail>1){
-    baseSystem->outputStep( q, qdot );
-  }
+    if (outputFilesDetail > 1) {
+        baseSystem->outputStep(q, qdot);
+    }
 }
 
 }

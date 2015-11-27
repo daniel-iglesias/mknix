@@ -17,6 +17,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+
 #include "constraintclearance.h"
 #include "simulation.h"
 #include "node.h"
@@ -29,8 +30,8 @@ ConstraintClearance::ConstraintClearance()
 }
 
 ConstraintClearance::ConstraintClearance( Node* a_in, Node* b_in, double& rh_in , double& alpha_in, std::string& method_in )
-    : rh(rh_in)
-    , Constraint(alpha_in, method_in)
+    : Constraint(alpha_in, method_in)
+    , rh(rh_in)
 {
     nodes.push_back( a_in );
     nodes.push_back( b_in );
@@ -57,7 +58,6 @@ void ConstraintClearance::calcPhi()
                     + std::pow( nodes[1]->getConf(2) - nodes[0]->getConf(2), 2 ) );
 
     this->phi[0] = rt*rt - rh*rh ;
-
 }
 
 void ConstraintClearance::calcPhiq()

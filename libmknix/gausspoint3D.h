@@ -35,41 +35,41 @@ public:
 
     ~GaussPoint3D();
 
-    void shapeFunSolve( std::string, double );
+    void shapeFunSolve( std::string, double ) override;
 
-    void fillFEmatrices( );
+    void fillFEmatrices( ) override;
 
-    void computeMij( );
+    void computeMij( ) override;
 
-    void computeKij( );
+    void computeKij( ) override;
 
-    void computeStress( );
+    void computeStress( ) override;
 
-    void computeNLStress( );
+    void computeNLStress( ) override;
 
-    void computeFint( );
+    void computeFint( ) override;
 
-    void computeFext( );
+    void computeFext( ) override;
 
-    void computeNLFint( );
+    void computeNLFint( ) override;
 
-    void computeNLKij( );
+    void computeNLKij( ) override;
 
-    void assembleMij( lmx::Matrix<data_type> & );
+    void assembleMij( lmx::Matrix<data_type> & ) override;
 
-    void assembleKij( lmx::Matrix<data_type> & );
+    void assembleKij( lmx::Matrix<data_type> & ) override;
 
-    void assembleRi( lmx::Vector<data_type> &, int );
+    void assembleRi( lmx::Vector<data_type> &, int ) override;
 
-    void assembleFint( lmx::Vector<data_type> & );
+    void assembleFint( lmx::Vector<data_type> & ) override;
 
-    void assembleFext( lmx::Vector<data_type> & );
+    void assembleFext( lmx::Vector<data_type> & ) override;
 
-    double calcPotentialE( const lmx::Vector<data_type> & );
+    double calcPotentialE( const lmx::Vector<data_type> & ) override;
 
-    double calcKineticE( const lmx::Vector<data_type> & );
+    double calcKineticE( const lmx::Vector<data_type> & ) override;
 
-    double calcElasticE( );
+    double calcElasticE( ) override;
 
 private:
     void initializeMatVecs();

@@ -45,7 +45,7 @@ public:
 
     ~Reader();
 
-    void inputFromFile(char*);
+    void inputFromFile(const std::string& fileIn);
 
 private:
     void readSystem( System* );

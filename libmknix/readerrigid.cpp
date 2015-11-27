@@ -27,24 +27,22 @@
 #include "simulation.h"
 #include "system.h"
 #include "systemchain.h"
-#include <map>
 
 namespace mknix {
 
 ReaderRigid::ReaderRigid()
-    : theSimulation(0)
-    , output(0)
-    , input(0)
+        : theSimulation(nullptr)
+        , output(nullptr)
+        , input(nullptr)
 {
 }
 
-ReaderRigid::ReaderRigid( Simulation* simulation_in,
-                          std::ofstream & output_in,
-                          std::ifstream & input_in
-                        )
-    : theSimulation( simulation_in )
-    , output(& output_in)
-    , input(& input_in)
+ReaderRigid::ReaderRigid(Simulation * simulation_in,
+                         std::ofstream& output_in,
+                         std::ifstream& input_in)
+        : theSimulation(simulation_in)
+        , output(&output_in)
+        , input(&input_in)
 {
 }
 
@@ -56,66 +54,54 @@ ReaderRigid::~ReaderRigid()
 
 } // namespace mknix
 
-void mknix::ReaderRigid::readRigidBodies( System * system_in )
+void mknix::ReaderRigid::readRigidBodies(System * system_in)
 {
     char keyword[20];
-    std::string stringKeyword;
 
-    while( *input >> keyword )
-    {
-        if( !strcmp(keyword,"ENDRIGIDBODIES") )
-        {
+    while (*input >> keyword) {
+        if (!strcmp(keyword, "ENDRIGIDBODIES")) {
             return;
         }
-        /*Set Penalty method*/
-        else if( !strcmp(keyword,"PENALTY") )
-        {
+            /*Set Penalty method*/
+        else if (!strcmp(keyword, "PENALTY")) {
             Simulation::constraintMethod = "PENALTY";
             *output << "PENALTY set" << endl;
         }
-        /*Set Augmented Lagrange method*/
-        else if( !strcmp(keyword,"AUGMENTED") )
-        {
+            /*Set Augmented Lagrange method*/
+        else if (!strcmp(keyword, "AUGMENTED")) {
             Simulation::constraintMethod = "AUGMENTED";
             *output << "AUGMENTED set" << endl;
         }
-        /*Set Alpha parameter*/
-        else if( !strcmp(keyword,"ALPHA") )
-        {
-            *input  >> Simulation::alpha;
+            /*Set Alpha parameter*/
+        else if (!strcmp(keyword, "ALPHA")) {
+            *input >> Simulation::alpha;
             *output << "ALPHA: " << Simulation::getAlpha() << endl;
         }
-        /*Defined RigidBody:0D:MassPoint*/
-        else if( !strcmp(keyword,"MASSPOINT") )
-        {
-            this->readRigidBody0DMassPoint( system_in );
+            /*Defined RigidBody:0D:MassPoint*/
+        else if (!strcmp(keyword, "MASSPOINT")) {
+            this->readRigidBody0DMassPoint(system_in);
         }
-        /*Defined RigidBody:1D:Bar*/
-        else if( !strcmp(keyword,"BAR") )
-        {
-            this->readRigidBody1DBar( system_in );
+            /*Defined RigidBody:1D:Bar*/
+        else if (!strcmp(keyword, "BAR")) {
+            this->readRigidBody1DBar(system_in);
         }
-        else if( !strcmp(keyword,"CHAIN") )
-        {
-            this->readRigidBody1DChain( system_in );
+        else if (!strcmp(keyword, "CHAIN")) {
+            this->readRigidBody1DChain(system_in);
         }
-        /*Defined RigidBody:2D:Generic*/
-        else if( !strcmp(keyword,"GENERIC2D") )
-        {
-            this->readRigidBody2DMesh( system_in );
+            /*Defined RigidBody:2D:Generic*/
+        else if (!strcmp(keyword, "GENERIC2D")) {
+            this->readRigidBody2DMesh(system_in);
         }
-        /*Defined RigidBody:3D:Generic*/
-        else if( !strcmp(keyword,"GENERIC3D") )
-        {
-            this->readRigidBody3DGeneric( system_in );
+            /*Defined RigidBody:3D:Generic*/
+        else if (!strcmp(keyword, "GENERIC3D")) {
+            this->readRigidBody3DGeneric(system_in);
         }
-        else if( !strcmp(keyword,"OTRO") )
-        {
+        else if (!strcmp(keyword, "OTRO")) {
         }
     }
 }
 
-void mknix::ReaderRigid::readRigidBody0DMassPoint( System * system_in )
+void mknix::ReaderRigid::readRigidBody0DMassPoint(System * system_in)
 {
     char keyword[20];
 
@@ -123,49 +109,44 @@ void mknix::ReaderRigid::readRigidBody0DMassPoint( System * system_in )
     std::string nameNode;
 
     double xA, yA, zA;
-    double mass;
+    double mass = 0.0;
 
     /*Read Rigid Body Title*/
-    *input  >> rigidTitle;
+    *input >> rigidTitle;
     *output << "MASSPOINT: "
             << system_in->getTitle()
             << "."
             << rigidTitle << std::endl;
 
-    while( *input >> keyword )
-    {
-        if( !strcmp(keyword,"ENDMASSPOINT") )
-        {
+    while (*input >> keyword) {
+        if (!strcmp(keyword, "ENDMASSPOINT")) {
             break;
         }
-        /*Read NodeA*/
-        else if( !strcmp(keyword,"NODEA") )
-        {
+            /*Read NodeA*/
+        else if (!strcmp(keyword, "NODEA")) {
             nameNode = rigidTitle + ".NODEA";
-            this->readNode( xA , yA , zA , nameNode );
+            this->readNode(xA, yA, zA, nameNode);
         }
-        /*Read Mass*/
-        else if( !strcmp(keyword,"MASS") )
-        {
-            *input  >> mass;
+            /*Read Mass*/
+        else if (!strcmp(keyword, "MASS")) {
+            *input >> mass;
             *output << "\t"
-                    << rigidTitle << ".MASS: " << mass << endl;
+            << rigidTitle << ".MASS: " << mass << endl;
         }
     }
 
     /*New Object: MassPoint*/
     int nodeA;
-    nodeA = theSimulation->nodes.end()->first ;
+    nodeA = theSimulation->nodes.end()->first;
 
-    theSimulation->nodes[nodeA] = new Node( nodeA, xA, yA, zA );
+    theSimulation->nodes[nodeA] = new Node(nodeA, xA, yA, zA);
 
-    system_in->rigidBodies[rigidTitle] = new RigidBodyMassPoint( rigidTitle,
-            theSimulation->nodes[nodeA],
-            mass
-                                                               );
+    system_in->rigidBodies[rigidTitle] = new RigidBodyMassPoint(rigidTitle,
+                                                                theSimulation->nodes[nodeA],
+                                                                mass);
 }
 
-void mknix::ReaderRigid::readRigidBody1DBar( System * system_in )
+void mknix::ReaderRigid::readRigidBody1DBar(System * system_in)
 {
     char keyword[20];
 
@@ -178,74 +159,67 @@ void mknix::ReaderRigid::readRigidBody1DBar( System * system_in )
     double mass;
 
     /*Read Rigid Body Title*/
-    *input  >> rigidTitle;
+    *input >> rigidTitle;
     *output << "BAR: "
-            << system_in->getTitle()
-            << "."
-            << rigidTitle << std::endl;
+    << system_in->getTitle()
+    << "."
+    << rigidTitle << std::endl;
 
-    while( *input >> keyword )
-    {
-        if( !strcmp(keyword,"ENDBAR") )
-        {
+    while (*input >> keyword) {
+        if (!strcmp(keyword, "ENDBAR")) {
             break;
         }
-        else if( !strcmp(keyword,"OUTPUT") )
-        {
+        else if (!strcmp(keyword, "OUTPUT")) {
             *input >> energyKeyword;
-            if( energyKeyword == "ENERGY" )
-            {
+            if (energyKeyword == "ENERGY") {
                 *output << "OUTPUT: " << energyKeyword << endl;
             }
         }
-        /*Read NodeA*/
-        else if( !strcmp(keyword,"NODEA") )
-        {
+            /*Read NodeA*/
+        else if (!strcmp(keyword, "NODEA")) {
             nameNode = rigidTitle + ".NODEA";
-            this->readNode( xA , yA , zA , nameNode );
+            this->readNode(xA, yA, zA, nameNode);
         }
-        /*Read NodeB*/
-        else if( !strcmp(keyword,"NODEB") )
-        {
+            /*Read NodeB*/
+        else if (!strcmp(keyword, "NODEB")) {
             nameNode = rigidTitle + ".NODEB";
-            this->readNode( xB , yB , zB , nameNode );
+            this->readNode(xB, yB, zB, nameNode);
         }
-        /*Read Mass*/
-        else if( !strcmp(keyword,"MASS") )
-        {
-            *input  >> mass;
+            /*Read Mass*/
+        else if (!strcmp(keyword, "MASS")) {
+            *input >> mass;
             *output << "\t"
-                    << rigidTitle << ".MASS: " << mass << endl;
+            << rigidTitle << ".MASS: " << mass << endl;
         }
     }
 
     int lastNode;
-    lastNode = theSimulation->nodes.end()->first ;
+    lastNode = theSimulation->nodes.end()->first;
     cout << "LASTNODE: " << lastNode << endl;
 
-    theSimulation->nodes[lastNode] = new Node( lastNode,xA,yA,zA );
-    theSimulation->nodes[lastNode+1] = new Node( lastNode+1,xB,yB,zB );
+    theSimulation->nodes[lastNode] = new Node(lastNode, xA, yA, zA);
+    theSimulation->nodes[lastNode + 1] = new Node(lastNode + 1, xB, yB, zB);
     theSimulation->outputPoints[lastNode] = theSimulation->nodes[lastNode];
-    theSimulation->outputPoints[lastNode+1] = theSimulation->nodes[lastNode+1];
+    theSimulation->outputPoints[lastNode + 1] = theSimulation->nodes[lastNode + 1];
 
-    system_in->rigidBodies[rigidTitle] = new RigidBar( rigidTitle,
-            theSimulation->nodes[lastNode + 0],
-            theSimulation->nodes[lastNode + 1],
-            mass
-                                                     );
-
-    system_in->constraints[rigidTitle] = new ConstraintDistance( // Can be changed to a constraint in state space
-        theSimulation->nodes[lastNode + 0],
-        theSimulation->nodes[lastNode + 1],
-        Simulation::alpha,
-        Simulation::constraintMethod
+    system_in->rigidBodies[rigidTitle] = new RigidBar(rigidTitle,
+                                                      theSimulation->nodes[lastNode + 0],
+                                                      theSimulation->nodes[lastNode + 1],
+                                                      mass
     );
 
-    system_in->rigidBodies[rigidTitle]->setOutput( energyKeyword ); //chapuza
+    system_in->constraints[rigidTitle] = new ConstraintDistance( // Can be changed to a constraint in state space
+            theSimulation->nodes[lastNode + 0],
+            theSimulation->nodes[lastNode + 1],
+            Simulation::alpha,
+            Simulation::constraintMethod
+    );
+
+    system_in->rigidBodies[rigidTitle]->setOutput(energyKeyword); //chapuza
 
 }
 
-void mknix::ReaderRigid::readRigidBody1DChain( System * system_in )
+void mknix::ReaderRigid::readRigidBody1DChain(System * system_in)
 {
     char keyword[20];
 
@@ -256,91 +230,81 @@ void mknix::ReaderRigid::readRigidBody1DChain( System * system_in )
     double xA, yA, zA;
     double xB, yB, zB;
     double mass, length, temp1, temp2;
-    std::map <double,double> timelengths;
+    std::map<double, double> timelengths;
     int segments;
 
     /*Read Rigid Body Title*/
-    *input  >> rigidTitle;
+    *input >> rigidTitle;
     *output << "CHAIN: "
-            << system_in->getTitle()
-            << "."
-            << rigidTitle << std::endl;
+    << system_in->getTitle()
+    << "."
+    << rigidTitle << std::endl;
 
-    while( *input >> keyword )
-    {
-        if( !strcmp(keyword,"ENDCHAIN") )
-        {
+    while (*input >> keyword) {
+        if (!strcmp(keyword, "ENDCHAIN")) {
             break;
         }
-        else if( !strcmp(keyword,"OUTPUT") )
-        {
+        else if (!strcmp(keyword, "OUTPUT")) {
             *input >> energyKeyword;
-            if( energyKeyword == "ENERGY" )
-            {
+            if (energyKeyword == "ENERGY") {
                 *output << "OUTPUT: " << energyKeyword << endl;
             }
         }
-        /*Read NodeA*/
-        else if( !strcmp(keyword,"NODEA") )
-        {
+            /*Read NodeA*/
+        else if (!strcmp(keyword, "NODEA")) {
             nameNode = rigidTitle + ".NODEA";
-            this->readNode( xA , yA , zA , nameNode );
+            this->readNode(xA, yA, zA, nameNode);
         }
-        /*Read NodeB*/
-        else if( !strcmp(keyword,"NODEB") )
-        {
+            /*Read NodeB*/
+        else if (!strcmp(keyword, "NODEB")) {
             nameNode = rigidTitle + ".NODEB";
-            this->readNode( xB , yB , zB , nameNode );
+            this->readNode(xB, yB, zB, nameNode);
         }
-        /*Read Mass*/
-        else if( !strcmp(keyword,"MASS") )
-        {
-            *input  >> mass;
+            /*Read Mass*/
+        else if (!strcmp(keyword, "MASS")) {
+            *input >> mass;
             *output << "\t"
-                    << rigidTitle << ".MASS: " << mass << endl;
+            << rigidTitle << ".MASS: " << mass << endl;
         }
-        else if( !strcmp(keyword,"SEGMENTS") )
-        {
-            *input  >> segments;
+        else if (!strcmp(keyword, "SEGMENTS")) {
+            *input >> segments;
             *output << "\t"
-                    << rigidTitle << ".SEGMENTS: " << segments << endl;
+            << rigidTitle << ".SEGMENTS: " << segments << endl;
         }
-        else if( !strcmp(keyword,"LENGTH") )
-        {
-            *input  >> length;
+        else if (!strcmp(keyword, "LENGTH")) {
+            *input >> length;
             *output << "\t"
-                    << rigidTitle << ".LENGTH: " << length << endl;
+            << rigidTitle << ".LENGTH: " << length << endl;
         }
-        else if( !strcmp(keyword,"TIMELENGTH") )
-        {
-            *input  >> temp1 >> temp2; // time and length
+        else if (!strcmp(keyword, "TIMELENGTH")) {
+            *input >> temp1 >> temp2; // time and length
             timelengths[temp1] = temp2;
             *output << "\t"
-                    << rigidTitle << ".TIMELENGTH: "
-                    << temp1 << ", "
-                    << timelengths[temp1] << endl;
+            << rigidTitle << ".TIMELENGTH: "
+            << temp1 << ", "
+            << timelengths[temp1] << endl;
         }
     }
 
     // Create system in system_in
-    SystemChain* theChain = new SystemChain(rigidTitle.c_str());
-    system_in->subSystems[rigidTitle] = theChain ;
+    SystemChain * theChain = new SystemChain(rigidTitle.c_str());
+    system_in->subSystems[rigidTitle] = theChain;
     // Define the interface nodes
-    theChain->setInterfaceNodeA( xA, yA, zA );
-    theChain->setInterfaceNodeB( xB, yB, zB );
+    theChain->setInterfaceNodeA(xA, yA, zA);
+    theChain->setInterfaceNodeB(xB, yB, zB);
     // Define total mass
-    theChain->setMass( mass );
+    theChain->setMass(mass);
     // Tell the system to populate nodes telling the number of the lastNode in theSimulation
     // and the number of segments
-    theChain->setProperties( segments, length );
-    theChain->populate( theSimulation, energyKeyword );
+    theChain->setProperties(segments, length);
+    theChain->populate(theSimulation, energyKeyword);
     // Define the temporal behaviour
     theChain->setTimeLengths(timelengths);
 }
 
-void mknix::ReaderRigid::readRigidBody2DMesh( System * system_in )
+void mknix::ReaderRigid::readRigidBody2DMesh(System * system_in)
 {
-    char rigidTitle[30], keyword[20], bodyType[20];
+    char rigidTitle[30], keyword[20];
 
     std::string stringKeyword;
     std::string meshfreeFormulation("RPIM");
@@ -350,125 +314,116 @@ void mknix::ReaderRigid::readRigidBody2DMesh( System * system_in )
     std::vector<double> someValues;
 
     /*Read Rigid Body Title*/
-    *input  >> rigidTitle;
+    *input >> rigidTitle;
     *output << "GENERIC2D: "
-            << system_in->getTitle()
-            << "."
-            << rigidTitle << std::endl;
+    << system_in->getTitle()
+    << "."
+    << rigidTitle << std::endl;
 
     int lastNode(0);
-    if(theSimulation->nodes.size() != 0)
-      lastNode = theSimulation->nodes.rbegin()->first+1;
+    if (theSimulation->nodes.size() != 0) {
+        lastNode = theSimulation->nodes.rbegin()->first + 1;
+    }
 //     lastNode = theSimulation->nodes.end()->first ;
-    theSimulation->nodes[lastNode] = new Node( lastNode,0.,0.,1. );
-    theSimulation->nodes[lastNode+1] = new Node( lastNode+1,1.,0.,1. );
-    theSimulation->nodes[lastNode+2] = new Node( lastNode+2,0.,1.,1. );
-    
-    theSimulation->outputPoints[lastNode] = theSimulation->nodes[lastNode];
-    theSimulation->outputPoints[lastNode+1] = theSimulation->nodes[lastNode+1];
-    theSimulation->outputPoints[lastNode+2] = theSimulation->nodes[lastNode+2];
+    theSimulation->nodes[lastNode] = new Node(lastNode, 0., 0., 1.);
+    theSimulation->nodes[lastNode + 1] = new Node(lastNode + 1, 1., 0., 1.);
+    theSimulation->nodes[lastNode + 2] = new Node(lastNode + 2, 0., 1., 1.);
 
-    system_in->rigidBodies[rigidTitle] = new RigidBody2D( rigidTitle,
+    theSimulation->outputPoints[lastNode] = theSimulation->nodes[lastNode];
+    theSimulation->outputPoints[lastNode + 1] = theSimulation->nodes[lastNode + 1];
+    theSimulation->outputPoints[lastNode + 2] = theSimulation->nodes[lastNode + 2];
+
+    system_in->rigidBodies[rigidTitle] = new RigidBody2D(rigidTitle,
+                                                         theSimulation->nodes[lastNode + 0],
+                                                         theSimulation->nodes[lastNode + 1],
+                                                         theSimulation->nodes[lastNode + 2]
+    );
+
+    system_in->constraints[rigidTitle + std::string("A")]
+            = new ConstraintDistance( // Can be changed to a constraint in state space
             theSimulation->nodes[lastNode + 0],
             theSimulation->nodes[lastNode + 1],
-            theSimulation->nodes[lastNode + 2]
-                                                        );
-
-    system_in->constraints[rigidTitle+std::string("A")]
-        = new ConstraintDistance( // Can be changed to a constraint in state space
-        theSimulation->nodes[lastNode + 0],
-        theSimulation->nodes[lastNode + 1],
-        Simulation::alpha,
-        Simulation::constraintMethod
+            Simulation::alpha,
+            Simulation::constraintMethod
     );
-    system_in->constraints[rigidTitle+std::string("B")]
-        = new ConstraintDistance( // Can be changed to a constraint in state space
-        theSimulation->nodes[lastNode + 0],
-        theSimulation->nodes[lastNode + 2],
-        Simulation::alpha,
-        Simulation::constraintMethod
+    system_in->constraints[rigidTitle + std::string("B")]
+            = new ConstraintDistance( // Can be changed to a constraint in state space
+            theSimulation->nodes[lastNode + 0],
+            theSimulation->nodes[lastNode + 2],
+            Simulation::alpha,
+            Simulation::constraintMethod
     );
-    system_in->constraints[rigidTitle+std::string("C")]
-        = new ConstraintDistance( // Can be changed to a constraint in state space
-        theSimulation->nodes[lastNode + 1],
-        theSimulation->nodes[lastNode + 2],
-        Simulation::alpha,
-        Simulation::constraintMethod
+    system_in->constraints[rigidTitle + std::string("C")]
+            = new ConstraintDistance( // Can be changed to a constraint in state space
+            theSimulation->nodes[lastNode + 1],
+            theSimulation->nodes[lastNode + 2],
+            Simulation::alpha,
+            Simulation::constraintMethod
     );
     /*Read Rigid Body Attributes*/
-    while( *input >> keyword )
-    {
-        if( !strcmp(keyword,"ENDGENERIC2D") )
-        {
+    while (*input >> keyword) {
+        if (!strcmp(keyword, "ENDGENERIC2D")) {
             break;
         }
-        else if( !strcmp(keyword,"DENSITY") )
-        {
-            *input  >> aValue;
+        else if (!strcmp(keyword, "DENSITY")) {
+            *input >> aValue;
             *output << "\t"
-                    << rigidTitle << ".DENSITYFACTOR: " << aValue << endl;
-            system_in->rigidBodies[rigidTitle]->setDensityFactor( aValue );
+            << rigidTitle << ".DENSITYFACTOR: " << aValue << endl;
+            system_in->rigidBodies[rigidTitle]->setDensityFactor(aValue);
         }
-        else if(!strcmp(keyword,"OUTPUT")) {
+        else if (!strcmp(keyword, "OUTPUT")) {
             *input >> stringKeyword;
-            if( stringKeyword == "ENERGY" ) {
-                system_in->rigidBodies[rigidTitle]->setOutput( stringKeyword );
+            if (stringKeyword == "ENERGY") {
+                system_in->rigidBodies[rigidTitle]->setOutput(stringKeyword);
                 *output << "OUTPUT: " << stringKeyword << endl;
             }
         }
-        else if( !strcmp(keyword,"MASS") )
-        {
-            *input  >> aValue;
+        else if (!strcmp(keyword, "MASS")) {
+            *input >> aValue;
             *output << "\t"
-                    << rigidTitle << ".MASS: " << aValue << endl;
-            system_in->rigidBodies[rigidTitle]->setMass( aValue );
+            << rigidTitle << ".MASS: " << aValue << endl;
+            system_in->rigidBodies[rigidTitle]->setMass(aValue);
         }
-        else if( !strcmp(keyword,"IXX") )
-        {
-            *input  >> aValue;
+        else if (!strcmp(keyword, "IXX")) {
+            *input >> aValue;
             *output << "\t"
-                    << rigidTitle << ".IXX: " << aValue << endl;
-            system_in->rigidBodies[rigidTitle]->setInertia( aValue, 0 ); // 0 is xx-axis
+            << rigidTitle << ".IXX: " << aValue << endl;
+            system_in->rigidBodies[rigidTitle]->setInertia(aValue, 0); // 0 is xx-axis
         }
-        else if( !strcmp(keyword,"IYY") )
-        {
-            *input  >> aValue;
+        else if (!strcmp(keyword, "IYY")) {
+            *input >> aValue;
             *output << "\t"
-                    << rigidTitle << ".IYY: " << aValue << endl;
-            system_in->rigidBodies[rigidTitle]->setInertia( aValue, 1 ); // 1 is yy-axis
+            << rigidTitle << ".IYY: " << aValue << endl;
+            system_in->rigidBodies[rigidTitle]->setInertia(aValue, 1); // 1 is yy-axis
         }
-        else if( !strcmp(keyword,"IXY") )
-        {
-            *input  >> aValue;
+        else if (!strcmp(keyword, "IXY")) {
+            *input >> aValue;
             *output << "\t"
-                    << rigidTitle << ".IXY: " << aValue << endl;
-            system_in->rigidBodies[rigidTitle]->setInertia( aValue, 2 ); // 2 is xy-axis
+            << rigidTitle << ".IXY: " << aValue << endl;
+            system_in->rigidBodies[rigidTitle]->setInertia(aValue, 2); // 2 is xy-axis
         }
-        else if( !strcmp(keyword,"POSITION") )
-        {
+        else if (!strcmp(keyword, "POSITION")) {
             someValues.clear();
             // Read three values: CoG (x, y) and rotation angle (Theta)
-            *input  >> aValue;
+            *input >> aValue;
             someValues.push_back(aValue);
             *output << "\t"
-                    << rigidTitle << ".POSITION: CoG (" << aValue;
-            *input  >> aValue;
+            << rigidTitle << ".POSITION: CoG (" << aValue;
+            *input >> aValue;
             someValues.push_back(aValue);
             *output << ", " << aValue;
-            *input  >> aValue;
+            *input >> aValue;
             someValues.push_back(aValue);
-            *output << "), Rotation ("<< aValue << ")" << endl;
-            system_in->rigidBodies[rigidTitle]->setPosition( someValues );
+            *output << "), Rotation (" << aValue << ")" << endl;
+            system_in->rigidBodies[rigidTitle]->setPosition(someValues);
         }
-        else if(!strcmp(keyword,"TRIANGLES")) {
+        else if (!strcmp(keyword, "TRIANGLES")) {
             char a;
             std::string boundaryType("CLOCKWISE");
             int totalNodes, totalCells;
-            int material, nGPs;
-            double alpha;
             *input >> keyword;
             *output << "FILE: " << keyword << endl;
-            std::ifstream meshfile( keyword ); // file to read points from
+            std::ifstream meshfile(keyword); // file to read points from
             int number; // read number and use it. Differs from FlexBody
             // Instead of using global numbering, the node is created inside of the body
             // Global number is unknown and is not part of the system formulation
@@ -478,79 +433,80 @@ void mknix::ReaderRigid::readRigidBody2DMesh( System * system_in )
             meshfile >> totalNodes >> totalCells;
             *output << '\t' << "Nodes: " << totalNodes << endl;
             *output << "\tNode\tx\ty\tz \n";
-            for (int i=0; i<totalNodes; ++i) {
+            for (int i = 0; i < totalNodes; ++i) {
                 meshfile >> number >> x >> y >> z;
                 --number;
                 system_in->rigidBodies[rigidTitle]
-                ->addNode( new Node(number, x , y, z) );
+                        ->addNode(new Node(number, x, y, z));
                 *output
-                        << '\t' << system_in->rigidBodies[rigidTitle]->getNode(number)->getNumber()
-                        << "\t" << system_in->rigidBodies[rigidTitle]->getNode(number)->getX()
-                        << "\t" << system_in->rigidBodies[rigidTitle]->getNode(number)->getY()
-                        << "\t" << system_in->rigidBodies[rigidTitle]->getNode(number)->getZ()
-                        << std::endl;
+                << '\t' << system_in->rigidBodies[rigidTitle]->getNode(number)->getNumber()
+                << "\t" << system_in->rigidBodies[rigidTitle]->getNode(number)->getX()
+                << "\t" << system_in->rigidBodies[rigidTitle]->getNode(number)->getY()
+                << "\t" << system_in->rigidBodies[rigidTitle]->getNode(number)->getZ()
+                << std::endl;
             }
 
             // Reading connectivity of the mesh
-            int elementType, node1, node2, node3, cellCount;
-	    std::vector< int > nodes(3);
+            int elementType, node1, node2, node3;
+            std::vector<int> nodes(3);
             *output << '\t' << "Cells: " << totalCells << endl;
             *output << "\tCell\tnode1\tnode2\tnode3 \n";
 //             old_size = theSimulation->cells.end()->first;
-            cellCount = 0;
-            for (int i=0; i<totalCells; ++i) {
+            for (int i = 0; i < totalCells; ++i) {
                 meshfile >> number >> elementType;
-                if(elementType == 203) {
+                if (elementType == 203) {
                     meshfile >> node1 >> node2 >> node3;
                     nodes[0] = --node1;
                     nodes[1] = --node2;
                     nodes[2] = --node3;
                     system_in->rigidBodies[rigidTitle]->addBoundaryConnectivity(nodes);
                     *output << "\t" << i << "\t"
-                            << nodes[0] << "\t"
-                            << nodes[1] << "\t"
-                            << nodes[2] << endl;
+                    << nodes[0] << "\t"
+                    << nodes[1] << "\t"
+                    << nodes[2] << endl;
                 }
-                else if(elementType == 102) {
+                else if (elementType == 102) {
                     meshfile >> node1 >> node2;
-                    if(boundaryType == "CLOCKWISE") {
+                    if (boundaryType == "CLOCKWISE") {
                         system_in->rigidBodies[rigidTitle]->addBoundaryLine
-                        ( system_in->rigidBodies[rigidTitle]->getNode(node1-1),
-                          system_in->rigidBodies[rigidTitle]->getNode(node2-1)
-                        );
+                                (system_in->rigidBodies[rigidTitle]->getNode(node1 - 1),
+                                 system_in->rigidBodies[rigidTitle]->getNode(node2 - 1)
+                                );
                     }
-                    else if(boundaryType == "COUNTERCLOCKWISE") {
+                    else if (boundaryType == "COUNTERCLOCKWISE") {
                         system_in->rigidBodies[rigidTitle]->addBoundaryLine
-                        ( system_in->rigidBodies[rigidTitle]->getNode(node2-1),
-                          system_in->rigidBodies[rigidTitle]->getNode(node1-1)
-                        );
+                                (system_in->rigidBodies[rigidTitle]->getNode(node2 - 1),
+                                 system_in->rigidBodies[rigidTitle]->getNode(node1 - 1)
+                                );
                     }
-                    else
+                    else {
                         cerr << ":::ERROR: BOUNDARY ORIENTATION UNKNOWN:::" << endl;
+                    }
                     *output << "\t Bound"
-                            << "\t" << node1
-                            << "\t" << node2
-                            << std::endl;
+                    << "\t" << node1
+                    << "\t" << node2
+                    << std::endl;
                 }
-                else
+                else {
                     do {
                         meshfile.get(a);
                     }
-                    while(a!='\n');
+                    while (a != '\n');
+                }
             }
             do {
                 input->get(a);
             }
-            while(a!='\n');
+            while (a != '\n');
         }
 
     }
 }
 
 
-void mknix::ReaderRigid::readRigidBody3DGeneric( System * system_in )
+void mknix::ReaderRigid::readRigidBody3DGeneric(System * system_in)
 {
-    char rigidTitle[30], keyword[20], bodyType[20];
+    char rigidTitle[30], keyword[20];
 
     std::string stringKeyword;
     std::string meshfreeFormulation("RPIM");
@@ -560,171 +516,158 @@ void mknix::ReaderRigid::readRigidBody3DGeneric( System * system_in )
     std::vector<double> someValues;
 
     /*Read Rigid Body Title*/
-    *input  >> rigidTitle;
+    *input >> rigidTitle;
     *output << "GENERIC3D: "
-            << system_in->getTitle()
-            << "."
-            << rigidTitle << std::endl;
+    << system_in->getTitle()
+    << "."
+    << rigidTitle << std::endl;
 
     int lastNode(0);
-    if(theSimulation->nodes.size() != 0)
-      lastNode = theSimulation->nodes.rbegin()->first+1;
+    if (theSimulation->nodes.size() != 0) {
+        lastNode = theSimulation->nodes.rbegin()->first + 1;
+    }
 //     lastNode = theSimulation->nodes.end()->first ;
     cout << "lastNode = " << lastNode << endl;
-    
-    theSimulation->nodes[lastNode] = new Node( lastNode,0.,0.,0. );
-    theSimulation->nodes[lastNode+1] = new Node( lastNode+1,1.,0.,0. );
-    theSimulation->nodes[lastNode+2] = new Node( lastNode+2,0.,1.,0. );
-    theSimulation->nodes[lastNode+3] = new Node( lastNode+3,0.,0.,1. );
+
+    theSimulation->nodes[lastNode] = new Node(lastNode, 0., 0., 0.);
+    theSimulation->nodes[lastNode + 1] = new Node(lastNode + 1, 1., 0., 0.);
+    theSimulation->nodes[lastNode + 2] = new Node(lastNode + 2, 0., 1., 0.);
+    theSimulation->nodes[lastNode + 3] = new Node(lastNode + 3, 0., 0., 1.);
 
     theSimulation->outputPoints[lastNode] = theSimulation->nodes[lastNode];
-    theSimulation->outputPoints[lastNode+1] = theSimulation->nodes[lastNode+1];
-    theSimulation->outputPoints[lastNode+2] = theSimulation->nodes[lastNode+2];
-    theSimulation->outputPoints[lastNode+3] = theSimulation->nodes[lastNode+3];
+    theSimulation->outputPoints[lastNode + 1] = theSimulation->nodes[lastNode + 1];
+    theSimulation->outputPoints[lastNode + 2] = theSimulation->nodes[lastNode + 2];
+    theSimulation->outputPoints[lastNode + 3] = theSimulation->nodes[lastNode + 3];
 
-    system_in->rigidBodies[rigidTitle] = new RigidBody3D( rigidTitle,
+    system_in->rigidBodies[rigidTitle] = new RigidBody3D(rigidTitle,
+                                                         theSimulation->nodes[lastNode + 0],
+                                                         theSimulation->nodes[lastNode + 1],
+                                                         theSimulation->nodes[lastNode + 2],
+                                                         theSimulation->nodes[lastNode + 3]
+    );
+
+    system_in->constraints[rigidTitle + std::string("01")]
+            = new ConstraintDistance( // Can be changed to a constraint in state space
             theSimulation->nodes[lastNode + 0],
             theSimulation->nodes[lastNode + 1],
+            Simulation::alpha,
+            Simulation::constraintMethod
+    );
+    system_in->constraints[rigidTitle + std::string("02")]
+            = new ConstraintDistance( // Can be changed to a constraint in state space
+            theSimulation->nodes[lastNode + 0],
             theSimulation->nodes[lastNode + 2],
-            theSimulation->nodes[lastNode + 3]
-                                                        );
-
-    system_in->constraints[rigidTitle+std::string("01")]
-        = new ConstraintDistance( // Can be changed to a constraint in state space
-        theSimulation->nodes[lastNode + 0],
-        theSimulation->nodes[lastNode + 1],
-        Simulation::alpha,
-        Simulation::constraintMethod
+            Simulation::alpha,
+            Simulation::constraintMethod
     );
-    system_in->constraints[rigidTitle+std::string("02")]
-        = new ConstraintDistance( // Can be changed to a constraint in state space
-        theSimulation->nodes[lastNode + 0],
-        theSimulation->nodes[lastNode + 2],
-        Simulation::alpha,
-        Simulation::constraintMethod
+    system_in->constraints[rigidTitle + std::string("03")]
+            = new ConstraintDistance( // Can be changed to a constraint in state space
+            theSimulation->nodes[lastNode + 0],
+            theSimulation->nodes[lastNode + 3],
+            Simulation::alpha,
+            Simulation::constraintMethod
     );
-    system_in->constraints[rigidTitle+std::string("03")]
-        = new ConstraintDistance( // Can be changed to a constraint in state space
-        theSimulation->nodes[lastNode + 0],
-        theSimulation->nodes[lastNode + 3],
-        Simulation::alpha,
-        Simulation::constraintMethod
+    system_in->constraints[rigidTitle + std::string("12")]
+            = new ConstraintDistance( // Can be changed to a constraint in state space
+            theSimulation->nodes[lastNode + 1],
+            theSimulation->nodes[lastNode + 2],
+            Simulation::alpha,
+            Simulation::constraintMethod
     );
-    system_in->constraints[rigidTitle+std::string("12")]
-        = new ConstraintDistance( // Can be changed to a constraint in state space
-        theSimulation->nodes[lastNode + 1],
-        theSimulation->nodes[lastNode + 2],
-        Simulation::alpha,
-        Simulation::constraintMethod
+    system_in->constraints[rigidTitle + std::string("23")]
+            = new ConstraintDistance( // Can be changed to a constraint in state space
+            theSimulation->nodes[lastNode + 2],
+            theSimulation->nodes[lastNode + 3],
+            Simulation::alpha,
+            Simulation::constraintMethod
     );
-    system_in->constraints[rigidTitle+std::string("23")]
-        = new ConstraintDistance( // Can be changed to a constraint in state space
-        theSimulation->nodes[lastNode + 2],
-        theSimulation->nodes[lastNode + 3],
-        Simulation::alpha,
-        Simulation::constraintMethod
-    );
-    system_in->constraints[rigidTitle+std::string("13")]
-        = new ConstraintDistance( // Can be changed to a constraint in state space
-        theSimulation->nodes[lastNode + 1],
-        theSimulation->nodes[lastNode + 3],
-        Simulation::alpha,
-        Simulation::constraintMethod
+    system_in->constraints[rigidTitle + std::string("13")]
+            = new ConstraintDistance( // Can be changed to a constraint in state space
+            theSimulation->nodes[lastNode + 1],
+            theSimulation->nodes[lastNode + 3],
+            Simulation::alpha,
+            Simulation::constraintMethod
     );
     /*Read Rigid Body Attributes*/
-    while( *input >> keyword )
-    {
-        if( !strcmp(keyword,"ENDGENERIC3D") )
-        {
+    while (*input >> keyword) {
+        if (!strcmp(keyword, "ENDGENERIC3D")) {
             break;
         }
-        else if( !strcmp(keyword,"DENSITYFACTOR") )
-        {
-            *input  >> aValue;
+        else if (!strcmp(keyword, "DENSITYFACTOR")) {
+            *input >> aValue;
             *output << "\t"
-                    << rigidTitle << ".DENSITYFACTOR: " << aValue << endl;
-            system_in->rigidBodies[rigidTitle]->setDensityFactor( aValue );
+            << rigidTitle << ".DENSITYFACTOR: " << aValue << endl;
+            system_in->rigidBodies[rigidTitle]->setDensityFactor(aValue);
         }
-        else if(!strcmp(keyword,"OUTPUT")) {
+        else if (!strcmp(keyword, "OUTPUT")) {
             *input >> stringKeyword;
-            if( stringKeyword == "ENERGY" ) {
-                system_in->rigidBodies[rigidTitle]->setOutput( stringKeyword );
+            if (stringKeyword == "ENERGY") {
+                system_in->rigidBodies[rigidTitle]->setOutput(stringKeyword);
                 *output << "OUTPUT: " << stringKeyword << endl;
             }
         }
-        else if( !strcmp(keyword,"MASS") )
-        {
-            *input  >> aValue;
+        else if (!strcmp(keyword, "MASS")) {
+            *input >> aValue;
             *output << "\t"
-                    << rigidTitle << ".MASS: " << aValue << endl;
-            system_in->rigidBodies[rigidTitle]->setMass( aValue );
+            << rigidTitle << ".MASS: " << aValue << endl;
+            system_in->rigidBodies[rigidTitle]->setMass(aValue);
         }
-        else if( !strcmp(keyword,"IXX") )
-        {
-            *input  >> aValue;
+        else if (!strcmp(keyword, "IXX")) {
+            *input >> aValue;
             *output << "\t"
-                    << rigidTitle << ".IXX: " << aValue << endl;
-            system_in->rigidBodies[rigidTitle]->setInertia( aValue, 0 ); // 0 is xx-axis
+            << rigidTitle << ".IXX: " << aValue << endl;
+            system_in->rigidBodies[rigidTitle]->setInertia(aValue, 0); // 0 is xx-axis
         }
-        else if( !strcmp(keyword,"IYY") )
-        {
-            *input  >> aValue;
+        else if (!strcmp(keyword, "IYY")) {
+            *input >> aValue;
             *output << "\t"
-                    << rigidTitle << ".IYY: " << aValue << endl;
-            system_in->rigidBodies[rigidTitle]->setInertia( aValue, 1 ); // 1 is yy-axis
+            << rigidTitle << ".IYY: " << aValue << endl;
+            system_in->rigidBodies[rigidTitle]->setInertia(aValue, 1); // 1 is yy-axis
         }
-        else if( !strcmp(keyword,"IZZ") )
-        {
-            *input  >> aValue;
+        else if (!strcmp(keyword, "IZZ")) {
+            *input >> aValue;
             *output << "\t"
-                    << rigidTitle << ".IZZ: " << aValue << endl;
-            system_in->rigidBodies[rigidTitle]->setInertia( aValue, 2 ); // 2 is zz-axis
+            << rigidTitle << ".IZZ: " << aValue << endl;
+            system_in->rigidBodies[rigidTitle]->setInertia(aValue, 2); // 2 is zz-axis
         }
-        else if( !strcmp(keyword,"IXY") )
-        {
-            *input  >> aValue;
+        else if (!strcmp(keyword, "IXY")) {
+            *input >> aValue;
             *output << "\t"
-                    << rigidTitle << ".IXY: " << aValue << endl;
-            system_in->rigidBodies[rigidTitle]->setInertia( aValue, 3 ); // 3 is xy-axis
+            << rigidTitle << ".IXY: " << aValue << endl;
+            system_in->rigidBodies[rigidTitle]->setInertia(aValue, 3); // 3 is xy-axis
         }
-        else if( !strcmp(keyword,"IYZ") )
-        {
-            *input  >> aValue;
+        else if (!strcmp(keyword, "IYZ")) {
+            *input >> aValue;
             *output << "\t"
-                    << rigidTitle << ".IYZ: " << aValue << endl;
-            system_in->rigidBodies[rigidTitle]->setInertia( aValue, 4 ); // 4 is yz-axis
+            << rigidTitle << ".IYZ: " << aValue << endl;
+            system_in->rigidBodies[rigidTitle]->setInertia(aValue, 4); // 4 is yz-axis
         }
-        else if( !strcmp(keyword,"IXZ") )
-        {
-            *input  >> aValue;
+        else if (!strcmp(keyword, "IXZ")) {
+            *input >> aValue;
             *output << "\t"
-                    << rigidTitle << ".IXZ: " << aValue << endl;
-            system_in->rigidBodies[rigidTitle]->setInertia( aValue, 5 ); // 5 is yz-axis
+            << rigidTitle << ".IXZ: " << aValue << endl;
+            system_in->rigidBodies[rigidTitle]->setInertia(aValue, 5); // 5 is yz-axis
         }
-        else if( !strcmp(keyword,"POSITION") )
-        {
+        else if (!strcmp(keyword, "POSITION")) {
             someValues.clear();
             // Read three values: CoG (x, y, z). No rotation angles yet
-            *input  >> aValue;
+            *input >> aValue;
             someValues.push_back(aValue);
             *output << "\t"
-                    << rigidTitle << ".POSITION: CoG (" << aValue;
-            *input  >> aValue;
+            << rigidTitle << ".POSITION: CoG (" << aValue;
+            *input >> aValue;
             someValues.push_back(aValue);
             *output << ", " << aValue;
-            *input  >> aValue;
+            *input >> aValue;
             someValues.push_back(aValue);
-            *output << ", "<< aValue << ")" << endl;
-            system_in->rigidBodies[rigidTitle]->setPosition( someValues );
+            *output << ", " << aValue << ")" << endl;
+            system_in->rigidBodies[rigidTitle]->setPosition(someValues);
         }
-        else if(!strcmp(keyword,"TETRAHEDRONS")) {
-            char a;
+        else if (!strcmp(keyword, "TETRAHEDRONS")) {
             int totalNodes, totalCells;
-            int material, nGPs;
-            double alpha;
             *input >> keyword;
             *output << "FILE: " << keyword << endl;
-            std::ifstream meshfile( keyword ); // file to read points from
+            std::ifstream meshfile(keyword); // file to read points from
             int number; // read number and use it. Differs from FlexBody
             // Instead of using global numbering, the node is created inside of the body
             // Global number is unknown and is not part of the system formulation
@@ -732,42 +675,42 @@ void mknix::ReaderRigid::readRigidBody3DGeneric( System * system_in )
             meshfile >> totalNodes >> totalCells;
             *output << '\t' << "Nodes: " << totalNodes << endl;
             *output << "\tNode\tx\ty\tz \n";
-            for (int i=0; i<totalNodes; ++i) {
+            for (int i = 0; i < totalNodes; ++i) {
                 meshfile >> number >> x >> y >> z;
                 --number;
                 system_in->rigidBodies[rigidTitle]
-                ->addNode( new Node(number, x , y, z) );
+                        ->addNode(new Node(number, x, y, z));
                 *output
-                        << '\t' << system_in->rigidBodies[rigidTitle]->getNode(number)->getNumber()
-                        << "\t" << system_in->rigidBodies[rigidTitle]->getNode(number)->getX()
-                        << "\t" << system_in->rigidBodies[rigidTitle]->getNode(number)->getY()
-                        << "\t" << system_in->rigidBodies[rigidTitle]->getNode(number)->getZ()
-                        << std::endl;
+                << '\t' << system_in->rigidBodies[rigidTitle]->getNode(number)->getNumber()
+                << "\t" << system_in->rigidBodies[rigidTitle]->getNode(number)->getX()
+                << "\t" << system_in->rigidBodies[rigidTitle]->getNode(number)->getY()
+                << "\t" << system_in->rigidBodies[rigidTitle]->getNode(number)->getZ()
+                << std::endl;
             }
             int elementType, node1, node2, node3, node4/*, cellCount*/;
-            std::vector< int > nodes(3);
+            std::vector<int> nodes(3);
             *output << '\t' << "Cells: " << totalCells << endl;
             *output << "\tCell\tnode1\tnode2\tnode3 \n";
 //             old_size = theSimulation->cells.end()->first;
-            for (int i=0; i<totalCells; ++i) {
+            for (int i = 0; i < totalCells; ++i) {
                 meshfile >> number >> elementType;
 //         cout << elementType << endl;
-                if(elementType == 203) {
+                if (elementType == 203) {
                     meshfile >> node1 >> node2 >> node3;
                     nodes[0] = --node1;
                     nodes[1] = --node2;
                     nodes[2] = --node3;
                     system_in->rigidBodies[rigidTitle]->addBoundaryConnectivity(nodes);
                     *output << "\t" << i << "\t"
-                            << nodes[0] << "\t"
-                            << nodes[1] << "\t"
-                            << nodes[2] << endl;
+                    << nodes[0] << "\t"
+                    << nodes[1] << "\t"
+                    << nodes[2] << endl;
                 }
-                else if(elementType == 102) { //TODO: read linear boundary
+                else if (elementType == 102) { //TODO: read linear boundary
                     // at the moment we dump the information
                     meshfile >> node1 >> node2;
                 }
-                else if(elementType == 304) { //TODO: read linear boundary
+                else if (elementType == 304) { //TODO: read linear boundary
                     // at the moment we dump the information
                     meshfile >> node1 >> node2 >> node3 >> node4;
                 }
@@ -823,15 +766,15 @@ void mknix::ReaderRigid::readRigidBody3DGeneric( System * system_in )
 }
 
 
-void mknix::ReaderRigid::readNode( double &x_in,
-                                   double &y_in,
-                                   double &z_in,
-                                   std::string name_in )
+void mknix::ReaderRigid::readNode(double& x_in,
+                                  double& y_in,
+                                  double& z_in,
+                                  std::string name_in)
 {
-    *input  >> x_in >> y_in >> z_in;
+    *input >> x_in >> y_in >> z_in;
     *output << "\t"
-            << name_in <<" : "
-            << x_in << ", "
-            << y_in << ", "
-            << z_in << std::endl;
+    << name_in << " : "
+    << x_in << ", "
+    << y_in << ", "
+    << z_in << std::endl;
 }

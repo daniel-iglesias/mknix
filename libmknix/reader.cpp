@@ -29,13 +29,11 @@
 #include "loadradiation.h"
 #include "loadthermal.h"
 #include "motion.h"
-#include "node.h"
 #include "reader.h"
 #include "readerrigid.h"
 #include "readerflex.h"
 #include "readerconstraints.h"
 #include "simulation.h"
-#include "system.h"
 #include "loadthermalbody.h"
 #include "loadthermalboundary1D.h"
 
@@ -43,15 +41,15 @@
 namespace mknix {
 
 Reader::Reader()
-    : theSimulation(0)
-    , theReaderRigid(0)
+        : theSimulation(nullptr)
+        , theReaderRigid(nullptr)
 {
     output.open("output.reader");
 }
 
-Reader::Reader(Simulation* simulation_in)
-    : theSimulation( simulation_in )
-    , theReaderRigid(0)
+Reader::Reader(Simulation * simulation_in)
+        : theSimulation(simulation_in)
+        , theReaderRigid(nullptr)
 {
     output.open("output.reader");
 }
@@ -64,7 +62,7 @@ Reader::~Reader()
 
 } // namespace mknix
 
-void mknix::Reader::inputFromFile(char * fileIn)
+void mknix::Reader::inputFromFile(const std::string& fileIn)
 {
 
     input.open(fileIn);
@@ -72,26 +70,26 @@ void mknix::Reader::inputFromFile(char * fileIn)
     char keyword[100];
     char a; // For reading one-by-one the file.
 
-    while(input >> keyword) {
+    while (input >> keyword) {
 
-        if(!strcmp(keyword,"//")) {
+        if (!strcmp(keyword, "//")) {
             do {
                 input.get(a);
             }
-            while(a!='\n');
+            while (a != '\n');
         }
-        else if(!strcmp(keyword,"TITLE")) {
+        else if (!strcmp(keyword, "TITLE")) {
             input >> theSimulation->title;
             output << "TITLE: " << theSimulation->title << std::endl;
         }
-        else if(!strcmp(keyword,"WORKINGDIR")) {
+        else if (!strcmp(keyword, "WORKINGDIR")) {
             std::string working_dir;
             input >> keyword;
-            int success=chdir(keyword);
-            working_dir = getcwd(keyword,100);
+            chdir(keyword);
+            working_dir = getcwd(keyword, 100);
             output << "WORKINGDIR: " << working_dir.c_str() << std::endl;
         }
-        else if(!strcmp(keyword,"GRAVITY")) {
+        else if (!strcmp(keyword, "GRAVITY")) {
             double value;
             input >> value;
             Simulation::gravity(0) = value;
@@ -100,293 +98,284 @@ void mknix::Reader::inputFromFile(char * fileIn)
             input >> value;
             Simulation::gravity(2) = value;
             output << "GRAVITY: "
-                   << Simulation::getGravity(0) << ", "
-                   << Simulation::getGravity(1) << ", "
-                   << Simulation::getGravity(2) << std::endl;
+            << Simulation::getGravity(0) << ", "
+            << Simulation::getGravity(1) << ", "
+            << Simulation::getGravity(2) << std::endl;
         }
-        else if( !strcmp(keyword,"DIMENSION") )
-        {
+        else if (!strcmp(keyword, "DIMENSION")) {
             int value;
 
-            input  >> value;
+            input >> value;
             Simulation::dimension = value;
 
             output << "DIMENSION: "
-                   << Simulation::dimension << std::endl;
+            << Simulation::dimension << std::endl;
         }
-        else if(!strcmp(keyword,"MATERIALS")) {
+        else if (!strcmp(keyword, "MATERIALS")) {
             char a;
             do {
                 input.get(a);
             }
-            while(a!='\n');
+            while (a != '\n');
             output << "MATERIALS: " << std::endl;
-            while(input >> keyword) {
-                if(!strcmp(keyword,"ENDMATERIALS")) break;
-                // TODO Add PLSTRESS and 3D
-                else if(!strcmp(keyword,"PLSTRAIN")) {
+            while (input >> keyword) {
+                if (!strcmp(keyword, "ENDMATERIALS")) {
+                    break;
+                    // TODO Add PLSTRESS and 3D
+                } else if (!strcmp(keyword, "PLSTRAIN")) {
                     int num_mat;
                     double young, poisson, density;
                     input >> num_mat >> young >> poisson >> density;
 
-                    if( theSimulation->materials.count(num_mat)==0 )
+                    if (theSimulation->materials.count(num_mat) == 0) {
                         theSimulation->materials[num_mat];
+                    }
 
-                    theSimulation->materials.at(num_mat).setMechanicalProps( Simulation::dimension, young, poisson, density );
+                    theSimulation->materials.at(num_mat).setMechanicalProps(Simulation::dimension, young, poisson,
+                                                                            density);
                     output << "MATERIAL: " << keyword
-                           << ", number = " << num_mat << ",\n\t E = " << young
-                           << ", mu = " << poisson << ", density = " << density << std::endl;
+                    << ", number = " << num_mat << ",\n\t E = " << young
+                    << ", mu = " << poisson << ", density = " << density << std::endl;
                     do {
                         input.get(a);
                     }
-                    while(a!='\n');
+                    while (a != '\n');
                 }
-                else if(!strcmp(keyword,"THERMAL")) {
+                else if (!strcmp(keyword, "THERMAL")) {
                     int num_mat;
                     double capacity, kappa, beta, density; // Capacity, Conductivity, Thermal expansion, Density
                     input >> num_mat >> capacity >> kappa >> beta >> density;
 
-                    if( theSimulation->materials.count(num_mat)==0 )
+                    if (theSimulation->materials.count(num_mat) == 0) {
                         theSimulation->materials[num_mat];
+                    }
 // 		      theSimulation->materials.insert(std::pair<int,Material>( num_mat, Material() ) );
 
-                    theSimulation->materials.at(num_mat).setThermalProps( capacity, kappa, beta, density );
+                    theSimulation->materials.at(num_mat).setThermalProps(capacity, kappa, beta, density);
                     output << "MATERIAL: " << keyword
-                           << ", number = " << num_mat << ",\n\t Cp = " << capacity
-                           << ", kappa = " << kappa << ", density = " << density << std::endl;
+                    << ", number = " << num_mat << ",\n\t Cp = " << capacity
+                    << ", kappa = " << kappa << ", density = " << density << std::endl;
                     do {
                         input.get(a);
                     }
-                    while(a!='\n');
+                    while (a != '\n');
                 }
-                else if(!strcmp(keyword,"FILES")) {
-		  while(input >> keyword) {
-		    if(!strcmp(keyword,"ENDFILES")) break;
-		    else if(!strcmp(keyword,"CAPACITY")) {
-		      int num_mat;
-		      double temperature, capacity;
-		      char a;
-		      input >> num_mat >> keyword;
-		      if( theSimulation->materials.count(num_mat)==0 )
-			  theSimulation->materials[num_mat];
-		      output << "THERMALFILE CAPACITY: " << keyword 
-			     << " for mat # " << num_mat << endl;
-		      std::ifstream thermalfile( keyword ); // file to read points from
-		      while(thermalfile >> temperature){
-			thermalfile >> capacity;
-			theSimulation->materials.at(num_mat).addThermalCapacity( temperature, capacity );
-		      output << "TEMP:" << temperature << ", \t" << capacity << endl;
-		      }
-		      do {
-			  input.get(a);
-		      }
-                      while(a!='\n');
-		    }
-		    else if(!strcmp(keyword,"CONDUCTIVITY")) {
-		      int num_mat;
-		      double temperature, conductivity;
-		      char a;
-		      input >> num_mat >> keyword;
-		      if( theSimulation->materials.count(num_mat)==0 )
-			  theSimulation->materials[num_mat];
-		      output << "THERMALFILE CONDUCTIVITY: " << keyword 
-			     << " for mat # " << num_mat << endl;
-		      std::ifstream thermalfile( keyword ); // file to read points from
-		      while(thermalfile >> temperature){
-			thermalfile >> conductivity;
-			theSimulation->materials.at(num_mat).addThermalConductivity( temperature, conductivity );
-		      output << "TEMP:" << temperature << ", \t" << conductivity << endl;
-		      }
-		      do {
-			  input.get(a);
-		      }
-                      while(a!='\n');
-		    }
-		  }
-		}
+                else if (!strcmp(keyword, "FILES")) {
+                    while (input >> keyword) {
+                        if (!strcmp(keyword, "ENDFILES")) {
+                            break;
+                        } else if (!strcmp(keyword, "CAPACITY")) {
+                            int num_mat;
+                            double temperature, capacity;
+                            char a;
+                            input >> num_mat >> keyword;
+                            if (theSimulation->materials.count(num_mat) == 0) {
+                                theSimulation->materials[num_mat];
+                            }
+                            output << "THERMALFILE CAPACITY: " << keyword
+                            << " for mat # " << num_mat << endl;
+                            std::ifstream thermalfile(keyword); // file to read points from
+                            while (thermalfile >> temperature) {
+                                thermalfile >> capacity;
+                                theSimulation->materials.at(num_mat).addThermalCapacity(temperature, capacity);
+                                output << "TEMP:" << temperature << ", \t" << capacity << endl;
+                            }
+                            do {
+                                input.get(a);
+                            }
+                            while (a != '\n');
+                        }
+                        else if (!strcmp(keyword, "CONDUCTIVITY")) {
+                            int num_mat;
+                            double temperature, conductivity;
+                            char a;
+                            input >> num_mat >> keyword;
+                            if (theSimulation->materials.count(num_mat) == 0) {
+                                theSimulation->materials[num_mat];
+                            }
+                            output << "THERMALFILE CONDUCTIVITY: " << keyword
+                            << " for mat # " << num_mat << endl;
+                            std::ifstream thermalfile(keyword); // file to read points from
+                            while (thermalfile >> temperature) {
+                                thermalfile >> conductivity;
+                                theSimulation->materials.at(num_mat).addThermalConductivity(temperature, conductivity);
+                                output << "TEMP:" << temperature << ", \t" << conductivity << endl;
+                            }
+                            do {
+                                input.get(a);
+                            }
+                            while (a != '\n');
+                        }
+                    }
+                }
             }
         }
-        else if( !strcmp(keyword,"CONTACT") )
-        {
+        else if (!strcmp(keyword, "CONTACT")) {
             std::string type;
-            input  >> type; // Valid types: GLOBAL, NONE
+            input >> type; // Valid types: GLOBAL, NONE
             Simulation::contact = type;
             output << "CONTACT: "
-                   << Simulation::contact << std::endl;
+            << Simulation::contact << std::endl;
         }
-        else if( !strcmp(keyword,"VISUALIZATION") )
-        {
+        else if (!strcmp(keyword, "VISUALIZATION")) {
             std::string type;
-            input  >> type;
-            if(type == "ON") Simulation::visualization = 1;
-            if(type == "OFF")Simulation::visualization = 0;
+            input >> type;
+            if (type == "ON") Simulation::visualization = 1;
+            if (type == "OFF")Simulation::visualization = 0;
             output << "VISUALIZATION: "
-                   << Simulation::contact << std::endl;
+            << Simulation::contact << std::endl;
         }
-        else if( !strcmp(keyword,"OUTPUT") )
-        {
+        else if (!strcmp(keyword, "OUTPUT")) {
             std::string type;
-            input  >> type;
-            if(type == "MATRICES") {
+            input >> type;
+            if (type == "MATRICES") {
                 Simulation::outputMatrices = 1;
                 output << "OUTPUT: MATRICES"
-                       << Simulation::outputMatrices << std::endl;
+                << Simulation::outputMatrices << std::endl;
             }
 //      else if(type == "OTHER")
         }
-        else if( !strcmp(keyword,"SMOOTHING") )
-        {
+        else if (!strcmp(keyword, "SMOOTHING")) {
             std::string type;
-            input  >> type;
-            if(type == "OFF") {
+            input >> type;
+            if (type == "OFF") {
                 Simulation::smoothingType = "OFF";
                 output << keyword << " "
-                       << Simulation::smoothingType << std::endl;
+                << Simulation::smoothingType << std::endl;
             }
-            if(type == "LOCAL") {
+            if (type == "LOCAL") {
                 Simulation::smoothingType = "LOCAL";
                 output << keyword << " "
-                       << Simulation::smoothingType << std::endl;
+                << Simulation::smoothingType << std::endl;
             }
-            if(type == "CONSTANT") {
+            if (type == "CONSTANT") {
                 Simulation::smoothingType = "CONSTANT";
                 output << keyword << " "
-                       << Simulation::smoothingType << std::endl;
+                << Simulation::smoothingType << std::endl;
             }
-            if(type == "GLOBAL") {
+            if (type == "GLOBAL") {
                 Simulation::smoothingType = "GLOBAL";
                 output << keyword << " "
-                       << Simulation::smoothingType << std::endl;
+                << Simulation::smoothingType << std::endl;
             }
 //      else if(type == "OTHER")
         }
-	else if( !strcmp(keyword,"INITIALTEMPERATURE") ) {
-	  double init_temp;
-	    input >> init_temp; // Type of formulation: EFG or RPIM
-	    output << "SIMULATION INITIAL TEMPERATURE SET TO: "
-		    << init_temp
-		    << std::endl;
-	    theSimulation->setInitialTemperatures( init_temp );
-	}
-        else if(!strcmp(keyword,"SYSTEM")) {
-            this->readSystem( theSimulation->baseSystem );
+        else if (!strcmp(keyword, "INITIALTEMPERATURE")) {
+            double init_temp;
+            input >> init_temp; // Type of formulation: EFG or RPIM
+            output << "SIMULATION INITIAL TEMPERATURE SET TO: "
+            << init_temp
+            << std::endl;
+            theSimulation->setInitialTemperatures(init_temp);
         }
-        else if(!strcmp(keyword,"ANALYSIS")) {
-            this->readAnalysis( );
+        else if (!strcmp(keyword, "SYSTEM")) {
+            this->readSystem(theSimulation->baseSystem);
+        }
+        else if (!strcmp(keyword, "ANALYSIS")) {
+            this->readAnalysis();
         }
     }
 
 }
 
-void mknix::Reader::readSystem(System* system_in)
+void mknix::Reader::readSystem(System * system_in)
 {
-    char sysTitle[30], keyword[20];
+    std::string sysTitle;
+    char keyword[20];
     input >> sysTitle;
     output << "SYSTEM: "
-           << system_in->getTitle()
-           << "."
-           << sysTitle << std::endl;
+    << system_in->getTitle()
+    << "."
+    << sysTitle << std::endl;
 
-    system_in->subSystems[sysTitle] = new System( sysTitle );
-    while(input >> keyword) {
-        if(!strcmp(keyword,"ENDSYSTEM")) return;
+    system_in->subSystems[sysTitle] = new System(sysTitle);
+    while (input >> keyword) {
+        if (!strcmp(keyword, "ENDSYSTEM")) {
+            return;
 
-        else if(!strcmp(keyword,"RIGIDBODIES")) {
-            theReaderRigid = new ReaderRigid( theSimulation, output, input );
-            theReaderRigid->readRigidBodies( system_in->subSystems[sysTitle] );
+        } else if (!strcmp(keyword, "RIGIDBODIES")) {
+            theReaderRigid = new ReaderRigid(theSimulation, output, input);
+            theReaderRigid->readRigidBodies(system_in->subSystems[sysTitle]);
             delete theReaderRigid;
-            theReaderRigid = 0;
+            theReaderRigid = nullptr;
         }
-        else if(!strcmp(keyword,"FLEXBODIES")) {
-            theReaderFlex = new ReaderFlex( theSimulation, output, input );
-            theReaderFlex->readFlexBodies( system_in->subSystems[sysTitle] );
+        else if (!strcmp(keyword, "FLEXBODIES")) {
+            theReaderFlex = new ReaderFlex(theSimulation, output, input);
+            theReaderFlex->readFlexBodies(system_in->subSystems[sysTitle]);
             delete theReaderFlex;
-            theReaderFlex = 0;
+            theReaderFlex = nullptr;
         }
-        else if(!strcmp(keyword,"BODYPOINTS")) {
-            this->readBodyPoints( system_in->subSystems[sysTitle] );
+        else if (!strcmp(keyword, "BODYPOINTS")) {
+            this->readBodyPoints(system_in->subSystems[sysTitle]);
         }
-        else if(!strcmp(keyword,"JOINTS")) {
+        else if (!strcmp(keyword, "JOINTS")) {
             theReaderConstraints
-                = new ReaderConstraints( theSimulation, output, input );
-            theReaderConstraints->readConstraints( system_in->subSystems[sysTitle] );
+                    = new ReaderConstraints(theSimulation, output, input);
+            theReaderConstraints->readConstraints(system_in->subSystems[sysTitle]);
             delete theReaderConstraints;
-            theReaderConstraints = 0;
+            theReaderConstraints = nullptr;
         }
-        else if(!strcmp(keyword,"LOADS")) {
-            this->readLoads( system_in->subSystems[sysTitle] );
+        else if (!strcmp(keyword, "LOADS")) {
+            this->readLoads(system_in->subSystems[sysTitle]);
         }
-        else if(!strcmp(keyword,"ENVIRONMENT")) {
-            this->readEnvironment( system_in->subSystems[sysTitle] );
+        else if (!strcmp(keyword, "ENVIRONMENT")) {
+            this->readEnvironment(system_in->subSystems[sysTitle]);
         }
-        else if(!strcmp(keyword,"MOTION")) {
-            this->readMotion( system_in->subSystems[sysTitle] );
+        else if (!strcmp(keyword, "MOTION")) {
+            this->readMotion(system_in->subSystems[sysTitle]);
         }
-        else if(!strcmp(keyword,"SCALE")) {
-          double temp, xValue, yValue, zValue;
-          std::map<int,Node*>::iterator it_nodes;
-          
-          input >> xValue >> yValue >> zValue;
-          
-          for ( it_nodes = theSimulation->nodes.begin();
-                it_nodes!= theSimulation->nodes.end();
-                ++it_nodes){
-            temp = it_nodes->second->getX();
-            it_nodes->second->setX(temp*xValue);
-            temp = it_nodes->second->getY();
-            it_nodes->second->setY(temp*yValue);
-            temp = it_nodes->second->getZ();
-            it_nodes->second->setZ(temp*zValue);
-          }
+        else if (!strcmp(keyword, "SCALE")) {
+            double temp, xValue, yValue, zValue;
+
+            input >> xValue >> yValue >> zValue;
+
+            for (auto& node : theSimulation->nodes) {
+                temp = node.second->getX();
+                node.second->setX(temp * xValue);
+                temp = node.second->getY();
+                node.second->setY(temp * yValue);
+                temp = node.second->getZ();
+                node.second->setZ(temp * zValue);
+            }
         }
-        else if(!strcmp(keyword,"MIRROR")) {
-          double temp; 
-	  std::string axis;
-          std::map<int,Node*>::iterator it_nodes;
-          
-          input >> axis;
-          
-	  if(axis=="x" || axis=="X"){
-	    for ( it_nodes = theSimulation->nodes.begin();
-		  it_nodes!= theSimulation->nodes.end();
-		  ++it_nodes){
-	      temp = it_nodes->second->getX();
-	      it_nodes->second->setX(-temp);
-	    }
-	  }
-          else if(axis=="y" || axis=="Y"){
-	    for ( it_nodes = theSimulation->nodes.begin();
-	      it_nodes!= theSimulation->nodes.end();
-	      ++it_nodes){
-	      temp = it_nodes->second->getY();
-	      it_nodes->second->setY(-temp);
-	    }
-	  }
-          else if(axis=="z" || axis=="Z"){
-	    for ( it_nodes = theSimulation->nodes.begin();
-	      it_nodes!= theSimulation->nodes.end();
-	      ++it_nodes){
-	      temp = it_nodes->second->getZ();
-	      it_nodes->second->setZ(-temp);
-	    }
-	  }
+        else if (!strcmp(keyword, "MIRROR")) {
+            double temp;
+            std::string axis;
+
+            input >> axis;
+
+            if (axis == "x" || axis == "X") {
+                for (auto& node : theSimulation->nodes) {
+                    temp = node.second->getX();
+                    node.second->setX(-temp);
+                }
+            }
+            else if (axis == "y" || axis == "Y") {
+                for (auto& node : theSimulation->nodes) {
+                    temp = node.second->getY();
+                    node.second->setY(-temp);
+                }
+            }
+            else if (axis == "z" || axis == "Z") {
+                for (auto& node : theSimulation->nodes) {
+                    temp = node.second->getZ();
+                    node.second->setZ(-temp);
+                }
+            }
         }
-        else if(!strcmp(keyword,"SHIFT")) {
-          double temp, xValue, yValue, zValue;
-          std::map<int,Node*>::iterator it_nodes;
-          
-          input >> xValue >> yValue >> zValue;
-          
-          for ( it_nodes = theSimulation->nodes.begin();
-               it_nodes!= theSimulation->nodes.end();
-               ++it_nodes){
-            temp = it_nodes->second->getX();
-            it_nodes->second->setX(temp+xValue);
-            temp = it_nodes->second->getY();
-            it_nodes->second->setY(temp+yValue);
-            temp = it_nodes->second->getZ();
-            it_nodes->second->setZ(temp+zValue);
-          }
+        else if (!strcmp(keyword, "SHIFT")) {
+            double temp, xValue, yValue, zValue;
+
+            input >> xValue >> yValue >> zValue;
+
+            for (auto& node : theSimulation->nodes) {
+                temp = node.second->getX();
+                node.second->setX(temp + xValue);
+                temp = node.second->getY();
+                node.second->setY(temp + yValue);
+                temp = node.second->getZ();
+                node.second->setZ(temp + zValue);
+            }
         }
     }
 }
@@ -396,11 +385,11 @@ void mknix::Reader::readBodyPoints(System * system_in)
     char keyword[20];
 //   std::string loadTitle;
 
-        Node * pNode=0;
-        double x, y, z;
+    Node * pNode = 0;
+    double x, y, z;
 
-    while(input >> keyword) {
-        if(!strcmp(keyword,"ENDBODYPOINTS")) return;
+    while (input >> keyword) {
+        if (!strcmp(keyword, "ENDBODYPOINTS")) return;
 
 //       if (a == '.'){ // we read the node...
 //         while(input.get(a)){
@@ -415,24 +404,24 @@ void mknix::Reader::readBodyPoints(System * system_in)
 
         int nodeNumber(0);
 
-	if( system_in->rigidBodies.find(keyword) !=
-                system_in->rigidBodies.end() ) //if the body is a rigidbody
+        if (system_in->rigidBodies.find(keyword) !=
+            system_in->rigidBodies.end()) //if the body is a rigidbody
         {
-            if ( system_in->rigidBodies[keyword]->getNodesSize() > 0 ){
+            if (system_in->rigidBodies[keyword]->getNodesSize() > 0) {
                 nodeNumber = system_in->rigidBodies[keyword]->getLastNode()->getNumber();
-		++nodeNumber;
-	    }
+                ++nodeNumber;
+            }
 
-            pNode = new Node( nodeNumber, x, y, z);
-            system_in->rigidBodies[keyword]->addNode( pNode );
-        cout << "BODYPOINTS in " << keyword << ", Number " << nodeNumber << endl;
+            pNode = new Node(nodeNumber, x, y, z);
+            system_in->rigidBodies[keyword]->addNode(pNode);
+            cout << "BODYPOINTS in " << keyword << ", Number " << nodeNumber << endl;
         }
         else { //the body is a flexbody
             double alpha, dc;
             input >> alpha >> dc;
-	    nodeNumber = system_in->flexBodies[keyword]->getNumberOfPoints();
-            
-	    system_in->flexBodies[keyword]->addPoint( nodeNumber, x, y, z, alpha, dc );
+            nodeNumber = system_in->flexBodies[keyword]->getNumberOfPoints();
+
+            system_in->flexBodies[keyword]->addPoint(nodeNumber, x, y, z, alpha, dc);
         }
     }
 }
@@ -443,240 +432,262 @@ void mknix::Reader::readLoads(System * system_in)
     char keyword[20];
 //   std::string loadTitle;
 
-    while(input >> keyword) {
-        if(!strcmp(keyword,"ENDLOADS")) return;
+    while (input >> keyword) {
+        if (!strcmp(keyword, "ENDLOADS")) {
+            return;
 
-        else if(!strcmp(keyword,"FORCE")) {
+        } else if (!strcmp(keyword, "FORCE")) {
             std::string sBody;
             std::string sNode;
-            Node * pNode=0;
+            Node * pNode = 0;
             char a;
             double fx, fy, fz;
 
-            while(input.get(a)) { // we read the body...
-                if (a == '.') break;
-                else if (a=='\n') break;
-                else if (a==' ') ; //get blank space
-                else {
-                    sBody.push_back( a );
+            while (input.get(a)) { // we read the body...
+                if (a == '.') {
+                    break;
+                } else if (a == '\n') {
+                    break;
+                } else if (a == ' ') { //get blank space
+                } else {
+                    sBody.push_back(a);
                 }
             }
             if (a == '.') { // we read the node...
-                while(input.get(a)) {
-                    if (a == '\n') break;
-                    else if (a==' ') break;
-                    else {
-                        sNode.push_back( a );
+                while (input.get(a)) {
+                    if (a == '\n') {
+                        break;
+                    } else if (a == ' ') {
+                        break;
+                    } else {
+                        sNode.push_back(a);
                     }
                 }
             }
-            if( system_in->rigidBodies.find(sBody) !=
-                    system_in->rigidBodies.end() ) //if the body is a rigidbody
-                pNode = system_in->rigidBodies[sBody]
-// 		  ->getDomainNode( sNode );
-                        ->getNode( atoi(sNode.c_str()) ) ;
-            else //the body is a flexbody
-                pNode = system_in->flexBodies[sBody]->getNode( atoi( sNode.c_str() ) );
+            if (system_in->rigidBodies.find(sBody) !=
+                system_in->rigidBodies.end()) { //if the body is a rigidbody
+                    pNode = system_in->rigidBodies[sBody]
+    // 		  ->getDomainNode( sNode );
+                            ->getNode(atoi(sNode.c_str()));
+                } else { //the body is a flexbody
+                    pNode = system_in->flexBodies[sBody]->getNode(atoi(sNode.c_str()));
+            }
 
             input >> fx >> fy >> fz;
 
-            system_in->loads.push_back( new Force( pNode, fx, fy, fz ) );
+            system_in->loads.push_back(new Force(pNode, fx, fy, fz));
         }
 
-        else if(!strcmp(keyword,"THERMALFLUENCE")) {
+        else if (!strcmp(keyword, "THERMALFLUENCE")) {
             std::string sBody;
             std::string sNode;
-            Node * pNode=0;
+            Node * pNode = 0;
             char a;
             double fluence;
 
-            while(input.get(a)) { // we read the body...
-                if (a == '.') break;
-                else if (a=='\n') break;
-                else if (a==' ') ; //get blank space
-                else {
-                    sBody.push_back( a );
+            while (input.get(a)) { // we read the body...
+                if (a == '.') {
+                    break;
+                } else if (a == '\n') {
+                    break;
+                } else if (a == ' ') { //get blank space
+                } else {
+                    sBody.push_back(a);
                 }
             }
             if (a == '.') { // we read the node...
-                while(input.get(a)) {
-                    if (a == '\n') break;
-                    else if (a==' ') break;
-                    else {
-                        sNode.push_back( a );
+                while (input.get(a)) {
+                    if (a == '\n') {
+                        break;
+                    } else if (a == ' ') {
+                        break;
+                    } else {
+                        sNode.push_back(a);
                     }
                 }
             }
-            if( system_in->rigidBodies.find(sBody) !=
-                    system_in->rigidBodies.end() ) //if the body is a rigidbody
-                pNode = system_in->rigidBodies[sBody]
-// 		  ->getDomainNode( sNode );
-                        ->getNode( atoi(sNode.c_str()) ) ;
-            else //the body is a flexbody
-                pNode = system_in->flexBodies[sBody]->getNode( atoi( sNode.c_str() ) );
+            if (system_in->rigidBodies.find(sBody) !=
+                system_in->rigidBodies.end()) { //if the body is a rigidbody
+                    pNode = system_in->rigidBodies[sBody]
+    // 		  ->getDomainNode( sNode );
+                            ->getNode(atoi(sNode.c_str()));
+                } else { //the body is a flexbody
+                    pNode = system_in->flexBodies[sBody]->getNode(atoi(sNode.c_str()));
+            }
 
             input >> fluence;
-	    output << "THERMALFLUENCE " << pNode->getNumber() << " " << fluence << endl;
+            output << "THERMALFLUENCE " << pNode->getNumber() << " " << fluence << endl;
 
-            system_in->loadsThermal.push_back( new LoadThermal( pNode, fluence ) );
+            system_in->loadsThermal.push_back(new LoadThermal(pNode, fluence));
         }
-         else if(!strcmp(keyword,"THERMALOUTPUT")) {
+        else if (!strcmp(keyword, "THERMALOUTPUT")) {
             std::string sBody;
             std::string sNode;
-            Node * pNode=0;
+            Node * pNode = 0;
             char a;
 
-            while(input.get(a)) { // we read the body...
-                if (a == '.') break;
-                else if (a=='\n') break;
-                else if (a==' ') ; //get blank space
-                else {
-                    sBody.push_back( a );
+            while (input.get(a)) { // we read the body...
+                if (a == '.') {
+                    break;
+                } else if (a == '\n') {
+                    break;
+                } else if (a == ' ') { //get blank space
+                } else {
+                    sBody.push_back(a);
                 }
             }
             if (a == '.') { // we read the node...
-                while(input.get(a)) {
-                    if (a == '\n') break;
-                    else if (a==' ') break;
-                    else {
-                        sNode.push_back( a );
+                while (input.get(a)) {
+                    if (a == '\n') {
+                        break;
+                    } else if (a == ' ') {
+                        break;
+                    } else {
+                        sNode.push_back(a);
                     }
                 }
             }
-            if( system_in->rigidBodies.find(sBody) !=
-                    system_in->rigidBodies.end() ) //if the body is a rigidbody
-                pNode = system_in->rigidBodies[sBody]
-// 		  ->getDomainNode( sNode );
-                        ->getNode( atoi(sNode.c_str()) ) ;
-	    else if( sBody=="MAX_INTERFACE_TEMP" )
-	    { // avoid else
-	    }
-            else //the body is a flexbody
-                pNode = system_in->flexBodies[sBody]->getNode( atoi( sNode.c_str() ) );
+            if (system_in->rigidBodies.find(sBody) !=
+                system_in->rigidBodies.end()) { //if the body is a rigidbody
+                    pNode = system_in->rigidBodies[sBody]
+    // 		  ->getDomainNode( sNode );
+                            ->getNode(atoi(sNode.c_str()));
+                } else if (sBody == "MAX_INTERFACE_TEMP") { // avoid else
+            }
+            else { //the body is a flexbody
+                pNode = system_in->flexBodies[sBody]->getNode(atoi(sNode.c_str()));
+            }
 
-	    if( sBody=="MAX_INTERFACE_TEMP" ){
-	      system_in->outputMaxInterfaceTemp = true;
-	    }
-	    else{
-	      output << "THERMALOUTPUT " << pNode->getNumber() << endl;
+            if (sBody == "MAX_INTERFACE_TEMP") {
+                system_in->outputMaxInterfaceTemp = true;
+            }
+            else {
+                output << "THERMALOUTPUT " << pNode->getNumber() << endl;
 
-	      system_in->outputSignalThermal.push_back( pNode );
-	    }
+                system_in->outputSignalThermal.push_back(pNode);
+            }
         }
-       
-        else if(!strcmp(keyword,"THERMALBODY")) {
+
+        else if (!strcmp(keyword, "THERMALBODY")) {
             std::string sBody;
             char a;
-            while(input.get(a)) { // we read the body...
-                if (a == '.') break;
-                else if (a=='\n') break;
-                else if (a==' ') ; //get blank space
-                else {
-                    sBody.push_back( a );
+            while (input.get(a)) { // we read the body...
+                if (a == '.') {
+                    break;
+                } else if (a == '\n') {
+                    break;
+                } else if (a == ' ') { //get blank space
+                } else {
+                    sBody.push_back(a);
                 }
             }
-            system_in->thermalBodies[sBody]->setLoadThermal( new LoadThermalBody() );
+            system_in->thermalBodies[sBody]->setLoadThermal(new LoadThermalBody());
         }
-        else if(!strcmp(keyword,"THERMALFLUX1D")) { //Improvement from above
-	      std::string sBody, sBoundary;
-	      char a;
-	      while(input.get(a)) { // we read the body...
-		  if (a == '.'){
-		    while(input.get(a)) { // we read the boundary...
-		      if (a == '.') break;
-		      else if (a=='\n') break;
-		      else if (a==' ') ; //get blank space
-		      else {
-			  sBoundary.push_back( a );
-		      }
-		    }
-		    break;
-		  }
-		  
-		  else if (a=='\n') break;
-		  else if (a==' ') ; //get blank space
-		  else {
-		      sBody.push_back( a );
-		  }
-  	        output << "THERMALFLUX1D " << sBody << "." << sBoundary << endl;
+        else if (!strcmp(keyword, "THERMALFLUX1D")) { //Improvement from above
+            std::string sBody, sBoundary;
+            char a;
+            while (input.get(a)) { // we read the body...
+                if (a == '.') {
+                    while (input.get(a)) { // we read the boundary...
+                        if (a == '.') {
+                            break;
+                        } else if (a == '\n') {
+                            break;
+                        } else if (a == ' ') { //get blank space
+                        } else {
+                            sBoundary.push_back(a);
+                        }
+                    }
+                    break;
+                }
 
-	      }
-	      LoadThermalBoundary1D* temp = new LoadThermalBoundary1D();
-	      system_in->thermalBodies[sBody]->setLoadThermalInBoundaryGroup( temp, sBoundary );
-            while(input >> keyword) { // Options for definition: 2D, 3D, rad map in file
-              if(!strcmp(keyword,"ENDTHERMALFLUX1D")) return;
-	      else if(!strcmp(keyword,"FILE")){
-		input >> keyword;
- 		temp->loadFile(keyword);
-	      }
-	      else if(!strcmp(keyword,"TIMEFILE")){
-		input >> keyword;
- 		temp->loadTimeFile(keyword);
-	      }
-	      else if(!strcmp(keyword,"SCALE")){
-		double factor;
-		input >> factor;
- 		temp->scaleLoad(factor);
-	      }
-	    }
+                else if (a == '\n') {
+                    break;
+                } else if (a == ' ') { //get blank space
+                } else {
+                    sBody.push_back(a);
+                }
+                output << "THERMALFLUX1D " << sBody << "." << sBoundary << endl;
+
+            }
+            LoadThermalBoundary1D * temp = new LoadThermalBoundary1D();
+            system_in->thermalBodies[sBody]->setLoadThermalInBoundaryGroup(temp, sBoundary);
+            while (input >> keyword) { // Options for definition: 2D, 3D, rad map in file
+                if (!strcmp(keyword, "ENDTHERMALFLUX1D")) {
+                    return;
+                } else if (!strcmp(keyword, "FILE")) {
+                    input >> keyword;
+                    temp->loadFile(keyword);
+                }
+                else if (!strcmp(keyword, "TIMEFILE")) {
+                    input >> keyword;
+                    temp->loadTimeFile(keyword);
+                }
+                else if (!strcmp(keyword, "SCALE")) {
+                    double factor;
+                    input >> factor;
+                    temp->scaleLoad(factor);
+                }
+            }
         }
-        else if(!strcmp(keyword,"RADIATION")) {
-          int mapDim = 3, lineSkip(0);
-          double lengthFactor(1.), doseFactor(1.);
-          double scaleX(1.), scaleY(1.), scaleZ(1.);
-            Radiation* theRad = new Radiation;
+        else if (!strcmp(keyword, "RADIATION")) {
+            int mapDim = 3, lineSkip(0);
+            double lengthFactor(1.), doseFactor(1.);
+            double scaleX(1.), scaleY(1.), scaleZ(1.);
+            Radiation * theRad = new Radiation;
 
             system_in->loads.push_back(theRad);
 
             output << "ENVIRONMENT "
-                   << system_in->getTitle()
-                   << "."
-                   << "RADIATION" << std::endl;
+            << system_in->getTitle()
+            << "."
+            << "RADIATION" << std::endl;
 
-            while(input >> keyword) { // Options for definition: 2D, 3D, rad map in file
-                if(!strcmp(keyword,"ENDRADIATION")) return;
-                else if(!strcmp(keyword,"STATIC3D")) {
-                    mapDim=3;
+            while (input >> keyword) { // Options for definition: 2D, 3D, rad map in file
+                if (!strcmp(keyword, "ENDRADIATION")) {
+                    return;
+                } else if (!strcmp(keyword, "STATIC3D")) {
+                    mapDim = 3;
                 }
-                else if(!strcmp(keyword,"STATIC2D")) {
-                    mapDim=2;
+                else if (!strcmp(keyword, "STATIC2D")) {
+                    mapDim = 2;
                 }
-                else if(!strcmp(keyword,"SKIPLINES")) {
+                else if (!strcmp(keyword, "SKIPLINES")) {
                     input >> lineSkip;
                 }
-                else if(!strcmp(keyword,"LENGTHFACTOR")) {
+                else if (!strcmp(keyword, "LENGTHFACTOR")) {
                     input >> lengthFactor;
                 }
-                else if(!strcmp(keyword,"SCALEAXIS")) {
-                  input >> scaleX >> scaleY >> scaleZ;
+                else if (!strcmp(keyword, "SCALEAXIS")) {
+                    input >> scaleX >> scaleY >> scaleZ;
                 }
-                else if(!strcmp(keyword,"DOSEFACTOR")) {
+                else if (!strcmp(keyword, "DOSEFACTOR")) {
                     input >> doseFactor;
                 }
-                else if(!strcmp(keyword,"MAPFILE")) {
+                else if (!strcmp(keyword, "MAPFILE")) {
                     input >> keyword;
                     output << "FILE: " << keyword << endl;
-                    std::ifstream mapFile( keyword ); // file to read data from
+                    std::ifstream mapFile(keyword); // file to read data from
                     cout << "RADFILE " << keyword << " is open? " << mapFile.is_open() << endl;
                     double x, y, z, value;
                     std::string junk;
-                    for( int i=0; i<lineSkip; ++i ) {
+                    for (int i = 0; i < lineSkip; ++i) {
                         std::getline(mapFile, junk); // thrash lines
                         cout << "Thrasing header from RADFILE:\n \t" << junk << endl;
                     }
                     while (mapFile >> x) {
                         mapFile >> y;
-                        if(mapDim==3) {
+                        if (mapDim == 3) {
                             mapFile >> z;
                         }
                         else {
-                            z=0;
+                            z = 0;
                         }
                         mapFile >> value; // input in mm and muSv
-                        theRad->addVoxel(x*lengthFactor*scaleX,
-                                         y*lengthFactor*scaleY,
-                                         z*lengthFactor*scaleZ,
-                                         value*doseFactor);
+                        theRad->addVoxel(x * lengthFactor * scaleX,
+                                         y * lengthFactor * scaleY,
+                                         z * lengthFactor * scaleZ,
+                                         value * doseFactor);
                     }
                 }
             }
@@ -690,258 +701,263 @@ void mknix::Reader::readEnvironment(System * system_in)
     // At this moment they are implemented as loads
     char keyword[20];
 
-    while(input >> keyword) {
-        if(!strcmp(keyword,"ENDENVIRONMENT")) return;
+    while (input >> keyword) {
+        if (!strcmp(keyword, "ENDENVIRONMENT")) return;
     }
 }
 
-void mknix::Reader::readMotion(System* system_in)
+void mknix::Reader::readMotion(System * system_in)
 {
     char keyword[20];
     std::string groundNodeNumber;
-    Node * pNode=0;
-    std::map <double,double> timex, timey, timez;
+    Node * pNode = 0;
+    std::map<double, double> timex, timey, timez;
     double time, ux, uy, uz;
 
     input >> groundNodeNumber; // Ground node to move
-    pNode = system_in->getNode( atoi(groundNodeNumber.c_str()) );
+    pNode = system_in->getNode(atoi(groundNodeNumber.c_str()));
     output << "MOTION "
-           << system_in->getTitle()
-           << "."
-           << groundNodeNumber << std::endl;
+    << system_in->getTitle()
+    << "."
+    << groundNodeNumber << std::endl;
 
-    system_in->motions.push_back( new Motion( pNode ) );
+    system_in->motions.push_back(new Motion(pNode));
 
-    while(input >> keyword) {
-        if(!strcmp(keyword,"ENDMOTION")) {
+    while (input >> keyword) {
+        if (!strcmp(keyword, "ENDMOTION")) {
             system_in->motions.back()->setTimeUx(timex);
             system_in->motions.back()->setTimeUy(timey);
             system_in->motions.back()->setTimeUz(timez);
             return;
         }
-        else if( !strcmp(keyword,"TIMECONF") )
-        {
-            input  >> time >> ux >> uy >> uz ; // time and movement
+        else if (!strcmp(keyword, "TIMECONF")) {
+            input >> time >> ux >> uy >> uz; // time and movement
             timex[time] = ux;
             timey[time] = uy;
             timez[time] = uz;
             output << "\t"
-                   << /*groundNodeNumber <<*/ "TIMECONF: "
-                   << time << " = "
-                   << ux << ", " << uy << ", " << uz << ", "
-                   << endl;
+            << /*groundNodeNumber <<*/ "TIMECONF: "
+            << time << " = "
+            << ux << ", " << uy << ", " << uz << ", "
+            << endl;
         }
     }
 }
 
-void mknix::Reader::readAnalysis( )
+void mknix::Reader::readAnalysis()
 {
     char keyword[20];
 
     output << "ANALYSYS: " << std::endl;
 
-    while(input >> keyword) {
-        if(!strcmp(keyword,"ENDANALYSIS")) return;
-        else if(!strcmp(keyword,"STATIC")) {
+    while (input >> keyword) {
+        if (!strcmp(keyword, "ENDANALYSIS")) {
+            return;
+        } else if (!strcmp(keyword, "STATIC")) {
             double time;
-            output << "\t"<< keyword << ":"
-                   << std::endl;
-            while(input >> keyword) {
-                if(!strcmp(keyword,"ENDSTATIC")) break;
-                else if(!strcmp(keyword,"EPSILON")) {
+            output << "\t" << keyword << ":"
+            << std::endl;
+            while (input >> keyword) {
+                if (!strcmp(keyword, "ENDSTATIC")) {
+                    break;
+                } else if (!strcmp(keyword, "EPSILON")) {
                     input >> time; //just to not create another variable
                     Simulation::epsilon = time;
                     output << "\t\t"
-                           << "EPSILON: "
-                           << Simulation::epsilon
-                           << endl;
+                    << "EPSILON: "
+                    << Simulation::epsilon
+                    << endl;
                 }
-                else if(!strcmp(keyword,"TIME")) {
+                else if (!strcmp(keyword, "TIME")) {
                     input >> time;
                     output << "\t\t"
-                           << "TIME: " << time << std::endl;
+                    << "TIME: " << time << std::endl;
                 }
             }
-            this->theSimulation->analysis.push_back
-            ( new AnalysisStatic(theSimulation, time) );
+            this->theSimulation->analyses.push_back
+                    (new AnalysisStatic(theSimulation, time));
 
         }
-        else if(!strcmp(keyword,"THERMALSTATIC")) {
+        else if (!strcmp(keyword, "THERMALSTATIC")) {
             double time;
-            output << "\t"<< keyword << ":"
-                   << std::endl;
-            while(input >> keyword) {
-                if(!strcmp(keyword,"ENDTHERMALSTATIC")) break;
-                else if(!strcmp(keyword,"EPSILON")) {
+            output << "\t" << keyword << ":"
+            << std::endl;
+            while (input >> keyword) {
+                if (!strcmp(keyword, "ENDTHERMALSTATIC")) {
+                    break;
+                } else if (!strcmp(keyword, "EPSILON")) {
                     input >> time; //just to not create another variable
                     Simulation::epsilon = time;
                     output << "\t\t"
-                           << "EPSILON: "
-                           << Simulation::epsilon
-                           << endl;
+                    << "EPSILON: "
+                    << Simulation::epsilon
+                    << endl;
                 }
-                else if(!strcmp(keyword,"TIME")) {
+                else if (!strcmp(keyword, "TIME")) {
                     input >> time;
                     output << "\t\t"
-                           << "TIME: " << time << std::endl;
+                    << "TIME: " << time << std::endl;
                 }
             }
-            this->theSimulation->analysis.push_back
-            ( new AnalysisThermalStatic(theSimulation, time) );
+            this->theSimulation->analyses.push_back
+                    (new AnalysisThermalStatic(theSimulation, time));
 
         }
-        else if(!strcmp(keyword,"THERMALDYNAMIC")) {
+        else if (!strcmp(keyword, "THERMALDYNAMIC")) {
             char integratorType[20];
             double to, tf, At;
-            output << "\t"<< keyword << ":"
-                   << std::endl;
-            while(input >> keyword) {
-                if(!strcmp(keyword,"ENDTHERMALDYNAMIC")) break;
-                else if(!strcmp(keyword,"EPSILON")) {
+            output << "\t" << keyword << ":"
+            << std::endl;
+            while (input >> keyword) {
+                if (!strcmp(keyword, "ENDTHERMALDYNAMIC")) {
+                    break;
+                } else if (!strcmp(keyword, "EPSILON")) {
                     input >> to; //just to not create another variable
                     Simulation::epsilon = to;
                     output << "\t\t"
-                           << "EPSILON: "
-                           << Simulation::epsilon
-                           << endl;
+                    << "EPSILON: "
+                    << Simulation::epsilon
+                    << endl;
                 }
-                else if(!strcmp(keyword,"INTEGRATOR")) {
+                else if (!strcmp(keyword, "INTEGRATOR")) {
                     input >> integratorType;
                     output << "\t\t"
-                           << "INTEGRATOR: " << integratorType
-                           << std::endl;
+                    << "INTEGRATOR: " << integratorType
+                    << std::endl;
                 }
-                else if(!strcmp(keyword,"TIME")) {
+                else if (!strcmp(keyword, "TIME")) {
                     input >> to
-                          >> tf
-                          >> At;
+                    >> tf
+                    >> At;
                     output << "\t\t"
-                           << "TIME: "
-                           << to << ", "
-                           << tf << ", "
-                           << At << std::endl;
+                    << "TIME: "
+                    << to << ", "
+                    << tf << ", "
+                    << At << std::endl;
                 }
             }
-            this->theSimulation->analysis.push_back
-            ( new AnalysisThermalDynamic( theSimulation, to, tf, At, integratorType ) );
+            this->theSimulation->analyses.push_back
+                    (new AnalysisThermalDynamic(theSimulation, to, tf, At, integratorType));
         }
-        else if(!strcmp(keyword,"THERMOMECHANICALDYNAMIC")) {
+        else if (!strcmp(keyword, "THERMOMECHANICALDYNAMIC")) {
             char integratorType[20];
             double to, tf, At;
-            output << "\t"<< keyword << ":"
-                   << std::endl;
-            while(input >> keyword) {
-                if(!strcmp(keyword,"ENDTHERMOMECHANICALDYNAMIC")) break;
-                else if(!strcmp(keyword,"EPSILON")) {
+            output << "\t" << keyword << ":"
+            << std::endl;
+            while (input >> keyword) {
+                if (!strcmp(keyword, "ENDTHERMOMECHANICALDYNAMIC")) {
+                    break;
+                } else if (!strcmp(keyword, "EPSILON")) {
                     input >> to; //just to not create another variable
                     Simulation::epsilon = to;
                     output << "\t\t"
-                           << "EPSILON: "
-                           << Simulation::epsilon
-                           << endl;
+                    << "EPSILON: "
+                    << Simulation::epsilon
+                    << endl;
                 }
-                else if(!strcmp(keyword,"INTEGRATOR")) {
+                else if (!strcmp(keyword, "INTEGRATOR")) {
                     input >> integratorType;
                     output << "\t\t"
-                           << "INTEGRATOR: " << integratorType
-                           << std::endl;
+                    << "INTEGRATOR: " << integratorType
+                    << std::endl;
                 }
-                else if(!strcmp(keyword,"TIME")) {
+                else if (!strcmp(keyword, "TIME")) {
                     input >> to
-                          >> tf
-                          >> At;
+                    >> tf
+                    >> At;
                     output << "\t\t"
-                           << "TIME: "
-                           << to << ", "
-                           << tf << ", "
-                           << At << std::endl;
+                    << "TIME: "
+                    << to << ", "
+                    << tf << ", "
+                    << At << std::endl;
                 }
             }
-            this->theSimulation->analysis.push_back
-            ( new AnalysisThermoMechanicalDynamic( theSimulation, to, tf, At, integratorType ) );
+            this->theSimulation->analyses.push_back
+                    (new AnalysisThermoMechanicalDynamic(theSimulation, to, tf, At, integratorType));
         }
-        else if(!strcmp(keyword,"DYNAMIC")) {
+        else if (!strcmp(keyword, "DYNAMIC")) {
             char integratorType[20];
             double to, tf, At;
             double par1 = -1.;
             double par2 = -1.;
             double par3 = -1.;
-            output << "\t"<< keyword << ":"
-                   << std::endl;
-            while(input >> keyword) {
-                if(!strcmp(keyword,"ENDDYNAMIC")) break;
-                else if(!strcmp(keyword,"EPSILON")) {
+            output << "\t" << keyword << ":"
+            << std::endl;
+            while (input >> keyword) {
+                if (!strcmp(keyword, "ENDDYNAMIC")) {
+                    break;
+                } else if (!strcmp(keyword, "EPSILON")) {
                     input >> to; //just to not create another variable
                     Simulation::epsilon = to;
                     output << "\t\t"
-                           << "EPSILON: "
-                           << Simulation::epsilon
-                           << endl;
+                    << "EPSILON: "
+                    << Simulation::epsilon
+                    << endl;
                 }
-                else if(!strcmp(keyword,"INTEGRATOR")) {
+                else if (!strcmp(keyword, "INTEGRATOR")) {
                     input >> integratorType;
-                    if(!strcmp(integratorType,"NEWMARK")) {
+                    if (!strcmp(integratorType, "NEWMARK")) {
                         input >> par1 >> par2;
                         output << "\t\t"
-                               << "INTEGRATOR: "
-                               << integratorType
-                               << " " << par1 // beta
-                               << " " << par2 // gamma
-                               << std::endl;
+                        << "INTEGRATOR: "
+                        << integratorType
+                        << " " << par1 // beta
+                        << " " << par2 // gamma
+                        << std::endl;
                     }
-                    else if(!strcmp(integratorType,"NEWMARK-ALPHA")) {
+                    else if (!strcmp(integratorType, "NEWMARK-ALPHA")) {
                         strcpy(integratorType, "NEWMARK");
                         input >> par1 >> par2;
                         output << "\t\t"
-                               << "INTEGRATOR: "
-                               << integratorType
-                               << " " << par1
-                               << " " << par2
-                               << " " << par3
-                               << std::endl;
+                        << "INTEGRATOR: "
+                        << integratorType
+                        << " " << par1
+                        << " " << par2
+                        << " " << par3
+                        << std::endl;
                     }
-                    else if(!strcmp(integratorType,"HHT-SIMPLE")) {
+                    else if (!strcmp(integratorType, "HHT-SIMPLE")) {
                         strcpy(integratorType, "ALPHA");
                         input >> par1;
                         output << "\t\t"
-                               << "INTEGRATOR: " << integratorType << " " << par1
-                               << std::endl;
+                        << "INTEGRATOR: " << integratorType << " " << par1
+                        << std::endl;
                     }
-                    else if(!strcmp(integratorType,"HHT-GENERALIZED")) {
+                    else if (!strcmp(integratorType, "HHT-GENERALIZED")) {
                         strcpy(integratorType, "ALPHA");
                         input >> par1;
                         output << "\t\t"
-                               << "INTEGRATOR: "
-                               << integratorType
-                               << " " << par1
-                               << " " << par2
-                               << " " << par3
-                               << std::endl;
+                        << "INTEGRATOR: "
+                        << integratorType
+                        << " " << par1
+                        << " " << par2
+                        << " " << par3
+                        << std::endl;
                     }
                     else {
                         output << "\t\t"
-                               << "INTEGRATOR: " << integratorType
-                               << std::endl;
+                        << "INTEGRATOR: " << integratorType
+                        << std::endl;
                     }
                 }
-                else if(!strcmp(keyword,"TIME")) {
+                else if (!strcmp(keyword, "TIME")) {
                     input >> to
-                          >> tf
-                          >> At;
+                    >> tf
+                    >> At;
                     output << "\t\t"
-                           << "TIME: "
-                           << to << ", "
-                           << tf << ", "
-                           << At << std::endl;
+                    << "TIME: "
+                    << to << ", "
+                    << tf << ", "
+                    << At << std::endl;
                 }
             }
-            this->theSimulation->analysis.push_back
-            ( new AnalysisDynamic( theSimulation, to, tf, At, integratorType,
-                                   par1, par2, par3
-                                 )
-            );
+            this->theSimulation->analyses.push_back
+                    (new AnalysisDynamic(theSimulation, to, tf, At, integratorType,
+                                         par1, par2, par3
+                    )
+                    );
         }
-        else if(!strcmp(keyword,"OTRO")) {
+        else if (!strcmp(keyword, "OTRO")) {
         }
     }
 }

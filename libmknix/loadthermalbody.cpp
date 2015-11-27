@@ -31,7 +31,6 @@ LoadThermalBody::LoadThermalBody()
     if (power.is_open()) {
 
         double keyword, keyword_2;
-        char a; // For reading one-by-one the file.
 
         while(power >> keyword) {
             power >> keyword_2;

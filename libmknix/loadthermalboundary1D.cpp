@@ -39,7 +39,7 @@ void LoadThermalBoundary1D::loadFile(std::string fileName)
     power.open(fileName);
     if (power.is_open()) {
         double X, load;
-        while(power >> X) {
+        while (power >> X) {
             power >> load;
             loadmap[X] = load;
         }
@@ -55,7 +55,7 @@ void LoadThermalBoundary1D::loadTimeFile(std::string fileName)
     power.open(fileName);
     if (power.is_open()) {
         double t, load;
-        while(power >> t) {
+        while (power >> t) {
             power >> load;
             timemap[t] = load;
         }
@@ -67,28 +67,24 @@ void LoadThermalBoundary1D::loadTimeFile(std::string fileName)
 
 void LoadThermalBoundary1D::scaleLoad(double loadFactor_in)
 {
-    std::map<double, double>::iterator it_loadmap;
-    for(it_loadmap = loadmap.begin();
-	it_loadmap!= loadmap.end();
-	++it_loadmap){
-      it_loadmap->second *= loadFactor_in;
+    for (auto el : loadmap) {
+        el.second *= loadFactor_in;
     }
-cout << "SCALE: " << loadFactor_in << " applied." << endl;
+    cout << "SCALE: " << loadFactor_in << " applied." << endl;
 }
 
 
-
-double LoadThermalBoundary1D::getLoadThermalBoundary1D( Point* thePoint )
+double LoadThermalBoundary1D::getLoadThermalBoundary1D(Point * thePoint)
 {
 //  cout << Simulation::getTime() << endl;
 
     if (loadmap.size() == 0) cerr << "ERROR: LOAD FILE NOT FOUND!!!" << endl;
-    if (timemap.size() == 0) { 
-      return mknix::interpolate1D(thePoint->getX(), loadmap);
+    if (timemap.size() == 0) {
+        return mknix::interpolate1D(thePoint->getX(), loadmap);
     }
-    else{
-      return mknix::interpolate1D(thePoint->getX(), loadmap) 
-	   * mknix::interpolate1D(Simulation::getTime(), timemap) ;
+    else {
+        return mknix::interpolate1D(thePoint->getX(), loadmap)
+               * mknix::interpolate1D(Simulation::getTime(), timemap);
     }
 }
 

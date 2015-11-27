@@ -32,15 +32,15 @@ namespace mknix {
 class Material {
 private:
     int dim; /**< Dimension of space */
+    double capacity; /**< Thermal specific capacity */
+    double kappa; /**< Thermal conductivity */
     double young; /**< Young Modulus. */
     double poisson; /**< Poisson Modulus. */
+    double beta; /**< Thermal expansion*/
     double lambda, mu; /**< Lame's coefficients. */
     double density; /**< Density. */
-    double capacity; /**< Thermal specific capacity */
     std::map<double, double> m_capacity;
     std::map<double, double> m_kapppa;
-    double kappa; /**< Thermal conductivity */
-    double beta; /**< Thermal expansion*/
     lmx::DenseMatrix<double> D; /**< Constitutive Linear */
     lmx::DenseMatrix<double> C; /**< Constitutive Saint-Venant Kirchoff*/
     cofe::TensorRank2Sym<2,double> E;

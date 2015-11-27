@@ -52,9 +52,9 @@ class System {
 public:
     System();
 
-    System( const char* );
+    System(const std::string& title);
 
-    ~System();
+    virtual ~System();
 
     bool outputMaxInterfaceTemp;
 
@@ -152,17 +152,6 @@ protected:
     std::vector< LoadThermal* > loadsThermal;
     std::vector< Node* > outputSignalThermal;
     std::vector< Motion* > motions;
-
-    std::map< std::string, System* >::iterator itSubSystems;
-    std::map< std::string, RigidBody* >::iterator itRigidBodies;
-    std::map< std::string, FlexBody* >::iterator itFlexBodies;
-    std::map< std::string, Body* >::iterator itThermalBodies;
-    std::map< std::string, Constraint* >::iterator itConstraints;
-    std::map< std::string, ConstraintThermal* >::iterator itConstraintsThermal;
-    std::vector< Load* >::iterator itLoads;
-    std::vector< LoadThermal* >::iterator itLoadsThermal;
-    std::vector< Node* >::iterator itOutputSignalThermal;
-    std::vector< Motion* >::iterator itMotions;
 
 };
 

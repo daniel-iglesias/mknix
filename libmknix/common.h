@@ -21,12 +21,23 @@
 #define MKNIXCOMMON_H
 
 #include <map>
+#include <memory>
 
 namespace mknix {
 
 typedef double data_type;
 
 double interpolate1D( double, const std::map<double,double>& );
+
+/*!
+ * Stand-in for std::make_unique included in C++14
+ */
+template<class T, class... Args>
+std::unique_ptr<T> make_unique(Args&& ... args)
+{
+    return std::unique_ptr<T>(new T{ std::forward<Args>(args)... });
+};
+
 }
 
 #endif

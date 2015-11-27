@@ -71,6 +71,7 @@ public:
 
 
 protected:
+    bool computeEnergy;
     int dim;
     double mass, densityFactor;
     std::vector<Node*> frameNodes;
@@ -78,7 +79,6 @@ protected:
     lmx::Vector<data_type> externalForces;
     lmx::DenseMatrix< data_type > localMassMatrix;
     std::vector< lmx::Vector<data_type>* > energy;
-    bool computeEnergy;
 };
 
 }

@@ -18,7 +18,6 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 #include "motion.h"
-#include "system.h"
 #include "node.h"
 
 namespace mknix {
@@ -27,12 +26,12 @@ Motion::Motion()
 {
 }
 
-Motion::Motion( Node* node_in )
-    : theNode(node_in)
+Motion::Motion(Node * node_in)
+        : theNode(node_in)
 {   // Initializing motions to zero
-    timeUx[0.]=0.;
-    timeUy[0.]=0.;
-    timeUz[0.]=0.;
+    timeUx[0.] = 0.;
+    timeUy[0.] = 0.;
+    timeUz[0.] = 0.;
 }
 
 Motion::~Motion()
@@ -46,9 +45,9 @@ void Motion::update(double theTime)
 //        << ", " << interpolate1D(theTime, timeUy)
 //        << ", " << interpolate1D(theTime, timeUz)
 //        << ") " << endl;
-    theNode->setUx( interpolate1D(theTime, timeUx) );
-    theNode->setUy( interpolate1D(theTime, timeUy) );
-    theNode->setUz( interpolate1D(theTime, timeUz) );
+    theNode->setUx(interpolate1D(theTime, timeUx));
+    theNode->setUy(interpolate1D(theTime, timeUy));
+    theNode->setUz(interpolate1D(theTime, timeUz));
 }
 
 

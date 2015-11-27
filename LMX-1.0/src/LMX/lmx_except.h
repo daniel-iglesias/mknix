@@ -251,7 +251,7 @@ namespace lmx {
   /** standard function for throwing errors */ 
 #define LMX_THROW(type, thestr) {                                    \
     std::stringstream msg;                                           \
-    msg << "Error in "__FILE__ << ", line "                          \
+    msg << "Error in " __FILE__ << ", line "                          \
         << __LINE__ << " " << LMX_PRETTY_FUNCTION << ": \n" << thestr << ends; \
     lmx::exception_callback::do_exception_callback(msg.str());       \
     throw (type)(msg.str());                                         \

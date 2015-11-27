@@ -47,6 +47,8 @@ Node* SystemChain::getNode(int node_i)
 
     if(node_i==0) return this->rigidBodies.begin()->second->getNode(-1);
     if(node_i==1) return this->rigidBodies[barName.str()]->getNode(-2);
+
+    return nullptr;
 }
 
 

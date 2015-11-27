@@ -27,23 +27,34 @@
 namespace mknix {
 
 class Reader;
+
 class Contact;
+
 class System;
+
 class Analysis;
+
 class Node;
+
 class Point;
 
 
 /**
   @author AUTHORS <MAILS>
 */
-class Simulation {
+class Simulation
+{
 
     friend class Reader;
+
     friend class ReaderConstraints;
+
     friend class ReaderFlex;
+
     friend class ReaderRigid;
+
     friend class Contact;
+
     friend class SystemChain;
 
 public:
@@ -51,121 +62,131 @@ public:
 
     ~Simulation();
 
-    void inputFromFile(char*);
+    Simulation(const Simulation&) = delete;
+
+    Simulation& operator=(const Simulation&) = delete;
+
+    void inputFromFile(const std::string& fileIn);
+
 //     void geometryFile(char*);
 //     void outputFile(char*);
     std::vector<double> getInterfaceNodesCoords();
+
     void setOutputFilesDetail(int level_in) // 0 none, 1 only times, 2 all
-    { outputFilesDetail = level_in;}
-    
+    { outputFilesDetail = level_in; }
+
     void init();
+
     void setInitialTemperatures(double);
-    void initThermalSimulation(Analysis*);
-    void solveStep(double *, double * o_output=0);
+
+    void initThermalSimulation(Analysis *);
+
+    void solveStep();
+
+    void solveStep(double *, double * o_output = 0);
+
     void endSimulation();
-    
+
     void run();
 
-    void runThermalAnalysis(Analysis*);
+    void runThermalAnalysis(Analysis *);
 
-    void runMechanicalAnalysis(Analysis*);
+    void runMechanicalAnalysis(Analysis *);
 
     void writeSystem();
 
-    void staticThermalResidue  ( lmx::Vector<data_type>& residue,
-                                 lmx::Vector<data_type>& q
-                               );
+    void staticThermalResidue(lmx::Vector<data_type>& residue,
+                              lmx::Vector<data_type>& q
+    );
 
-    void staticThermalTangent  ( lmx::Matrix<data_type>& tangent_in,
-                                 lmx::Vector<data_type>& q
-                               );
+    void staticThermalTangent(lmx::Matrix<data_type>& tangent_in,
+                              lmx::Vector<data_type>& q
+    );
 
-    bool staticThermalConvergence( lmx::Vector<data_type>& res,
-                                   lmx::Vector<data_type>& q
-                                 );
+    bool staticThermalConvergence(lmx::Vector<data_type>& res,
+                                  lmx::Vector<data_type>& q
+    );
 
     void explicitThermalEvaluation
-    ( const lmx::Vector<data_type>& qt
-      , lmx::Vector<data_type>& qtdot
-      , double time
+            (const lmx::Vector<data_type>& qt, lmx::Vector<data_type>& qtdot, double time
+            );
+
+    void dynamicThermalEvaluation(const lmx::Vector<data_type>& q,
+                                  lmx::Vector<data_type>& qdot,
+                                  double time
     );
 
-    void dynamicThermalEvaluation( const lmx::Vector<data_type>& q,
-                                   lmx::Vector<data_type>& qdot,
+    void dynamicThermalResidue(lmx::Vector<data_type>& residue,
+                               const lmx::Vector<data_type>& q,
+                               const lmx::Vector<data_type>& qdot,
+                               double time
+    );
+
+    void dynamicThermalTangent(lmx::Matrix<data_type>& tangent_in,
+                               const lmx::Vector<data_type>& q,
+                               double partial_qdot,
+                               double time
+    );
+
+    bool dynamicThermalConvergence(const lmx::Vector<data_type>& q,
+                                   const lmx::Vector<data_type>& qdot,
                                    double time
-                                 );
-
-    void dynamicThermalResidue  ( lmx::Vector<data_type>& residue,
-                                  const lmx::Vector<data_type>& q,
-                                  const lmx::Vector<data_type>& qdot,
-                                  double time
-                                );
-
-    void dynamicThermalTangent  ( lmx::Matrix<data_type>& tangent_in,
-                                  const lmx::Vector<data_type>& q,
-                                  double partial_qdot,
-                                  double time
-                                );
-
-    bool dynamicThermalConvergence( const lmx::Vector<data_type>& q,
-                                    const lmx::Vector<data_type>& qdot,
-                                    double time
-                                  );
+    );
 
     bool dynamicThermalConvergenceInThermomechanical
-    ( const lmx::Vector<data_type>& q,
-      const lmx::Vector<data_type>& qdot,
-      double time
-    );
+            (const lmx::Vector<data_type>& q,
+             const lmx::Vector<data_type>& qdot,
+             double time
+            );
 
-    void explicitAcceleration( const lmx::Vector<data_type>& q,
-                               const lmx::Vector<data_type>& qdot,
-                               lmx::Vector<data_type>& qddot,
-                               double time
-                             );
-
-    void dynamicAcceleration( const lmx::Vector<data_type>& q,
+    void explicitAcceleration(const lmx::Vector<data_type>& q,
                               const lmx::Vector<data_type>& qdot,
                               lmx::Vector<data_type>& qddot,
                               double time
-                            );
+    );
 
-    void dynamicResidue  ( lmx::Vector<data_type>& residue,
-                           const lmx::Vector<data_type>& q,
-                           const lmx::Vector<data_type>& qdot,
-                           const lmx::Vector<data_type>& qddot,
-                           double time
-                         );
-
-    void dynamicTangent  ( lmx::Matrix<data_type>& tangent_in,
-                           const lmx::Vector<data_type>& q,
-                           const lmx::Vector<data_type>& qdot,
-                           double partial_qdot,
-                           double partial_qddot,
-                           double time
-                         );
-
-    bool dynamicConvergence( const lmx::Vector<data_type>& q,
+    void dynamicAcceleration(const lmx::Vector<data_type>& q,
                              const lmx::Vector<data_type>& qdot,
-                             const lmx::Vector<data_type>& qddot,
+                             lmx::Vector<data_type>& qddot,
                              double time
-                           );
+    );
 
-    void staticResidue  ( lmx::Vector<data_type>& residue,
-                          lmx::Vector<data_type>& q
-                        );
+    void dynamicResidue(lmx::Vector<data_type>& residue,
+                        const lmx::Vector<data_type>& q,
+                        const lmx::Vector<data_type>& qdot,
+                        const lmx::Vector<data_type>& qddot,
+                        double time
+    );
 
-    void staticTangent  ( lmx::Matrix<data_type>& tangent_in,
-                          lmx::Vector<data_type>& q
-                        );
+    void dynamicTangent(lmx::Matrix<data_type>& tangent_in,
+                        const lmx::Vector<data_type>& q,
+                        const lmx::Vector<data_type>& qdot,
+                        double partial_qdot,
+                        double partial_qddot,
+                        double time
+    );
 
-    bool staticConvergence( lmx::Vector<data_type>& res,
-                            lmx::Vector<data_type>& q
-                          );
+    bool dynamicConvergence(const lmx::Vector<data_type>& q,
+                            const lmx::Vector<data_type>& qdot,
+                            const lmx::Vector<data_type>& qddot,
+                            double time
+    );
 
-    void stepTriggered( );
+    void staticResidue(lmx::Vector<data_type>& residue,
+                       lmx::Vector<data_type>& q
+    );
 
-    void writeConfStep( );
+    void staticTangent(lmx::Matrix<data_type>& tangent_in,
+                       lmx::Vector<data_type>& q
+    );
+
+    bool staticConvergence(lmx::Vector<data_type>& res,
+                           lmx::Vector<data_type>& q
+    );
+
+    void stepTriggered();
+
+    void writeConfStep();
 
     lmx::DenseMatrix<data_type>& getSparsePattern()
     {
@@ -177,47 +198,55 @@ public:
         return gravity.readElement(component);
     }
 
-    static double getAlpha() {
+    static double getAlpha()
+    {
         return alpha;
     }
 
-    static double getTime() {
+    static double getTime()
+    {
         return stepTime;
     }
 
-    static int getDim() {
+    static int getDim()
+    {
         return dimension;
     }
 
-    static std::string getConstraintMethod() {
+    static std::string getConstraintMethod()
+    {
         return constraintMethod;
     }
 
-    static std::string getSmoothingType() {
+    static std::string getSmoothingType()
+    {
         return smoothingType;
     }
 
 private:
-  void storeTimeConfiguration( lmx::Vector<data_type>& q );
-    
-private:
-  void systemOuputStep( const lmx::Vector<data_type>&, const lmx::Vector<data_type>& );
-  void systemOuputStep( const lmx::Vector<data_type>& );
-    char title[40];
-    Reader* theReader;
-    System* baseSystem;
-    Contact* theContact;
-    Analysis* theAnalysis;
-    std::vector<Analysis*> analysis;
-//     std::vector<std::vector< double > > pointsTimeConfiguration;
-    std::map<int,Point*> outputPoints;
-    std::map<int,Node*> nodes;
-    std::map<int,Node*> thermalNodes;
-    std::map<int,Material> materials; /**< Map of materials. */
+    void storeTimeConfiguration(lmx::Vector<data_type>& q);
 
-    lmx::ExactStopwatch* globalTimer;
-    std::ofstream* timerFile;
-    std::ofstream* configurationFile;
+private:
+    void systemOuputStep(const lmx::Vector<data_type>&, const lmx::Vector<data_type>&);
+
+    void systemOuputStep(const lmx::Vector<data_type>&);
+
+    char title[40];
+    Reader * theReader;
+    System * baseSystem;
+    Contact * theContact;
+    Analysis * theAnalysis;
+    std::vector<Analysis *> analyses;
+//     std::vector<std::vector< double > > pointsTimeConfiguration;
+    std::map<int, Point *> outputPoints;
+    std::map<int, Node *> nodes;
+    std::map<int, Node *> thermalNodes;
+    std::map<int, Material> materials;
+    /**< Map of materials. */
+
+    lmx::ExactStopwatch * globalTimer;
+    std::ofstream * timerFile;
+    std::ofstream * configurationFile;
     static double stepTime, oldClockTime;
     int iterationsNLSolver;
     int outputFilesDetail;

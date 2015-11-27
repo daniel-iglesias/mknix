@@ -76,8 +76,8 @@ public:
 protected:
     int dim;
     double alpha;
-    std::string title;
     std::string method;
+    std::string title;
     std::vector<Node*> nodes;
     lmx::Vector<data_type> internalForces;
     std::vector< lmx::Vector<data_type> > internalForcesOutput;
