@@ -120,10 +120,13 @@ namespace gmm {
   
     while (! iter.finished_vect(r)) {
     
-      if (rho == R(0) || xi == R(0))
-	if (iter.get_maxiter() == size_type(-1)) 
-	  { GMM_ASSERT1(false, "QMR failed to converge"); }
-	else { GMM_WARNING1("QMR failed to converge"); return; }
+      if (rho == R(0) || xi == R(0)) {
+        if (iter.get_maxiter() == size_type(-1)) {GMM_ASSERT1(false, "QMR failed to converge"); }
+        else {
+          GMM_WARNING1("QMR failed to converge");
+          return;
+        }
+      }
 
       gmm::copy(gmm::scaled(v_tld, T(R(1)/rho)), v);
       gmm::scale(y, T(R(1)/rho));
@@ -132,10 +135,13 @@ namespace gmm {
       gmm::scale(z, T(R(1)/xi));
 
       delta = gmm::vect_sp(z, y);
-      if (delta == T(0)) 
-	if (iter.get_maxiter() == size_type(-1)) 
-	  { GMM_ASSERT1(false, "QMR failed to converge"); }
-	else { GMM_WARNING1("QMR failed to converge"); return; }
+      if (delta == T(0)) {
+        if (iter.get_maxiter() == size_type(-1)) {GMM_ASSERT1(false, "QMR failed to converge"); }
+        else {
+          GMM_WARNING1("QMR failed to converge");
+          return;
+        }
+      }
 
       gmm::right_mult(M1, y, y_tld);		
       gmm::transposed_left_mult(M1, z, z_tld);
@@ -151,16 +157,22 @@ namespace gmm {
       gmm::mult(A, p, p_tld);
 
       ep = gmm::vect_sp(q, p_tld);
-      if (ep == T(0)) 
-	if (iter.get_maxiter() == size_type(-1)) 
-	  { GMM_ASSERT1(false, "QMR failed to converge"); }
-	else { GMM_WARNING1("QMR failed to converge"); return; }
+      if (ep == T(0)) {
+        if (iter.get_maxiter() == size_type(-1)) {GMM_ASSERT1(false, "QMR failed to converge"); }
+        else {
+          GMM_WARNING1("QMR failed to converge");
+          return;
+        }
+      }
 
       beta = ep / delta;
-      if (beta == T(0))
-	if (iter.get_maxiter() == size_type(-1)) 
-	  { GMM_ASSERT1(false, "QMR failed to converge"); }
-	else { GMM_WARNING1("QMR failed to converge"); return; }
+      if (beta == T(0)) {
+        if (iter.get_maxiter() == size_type(-1)) {GMM_ASSERT1(false, "QMR failed to converge"); }
+        else {
+          GMM_WARNING1("QMR failed to converge");
+          return;
+        }
+      }
 
       gmm::add(p_tld, gmm::scaled(v, -beta), v_tld);
       gmm::left_mult(M1, v_tld, y);
@@ -180,10 +192,13 @@ namespace gmm {
       theta = rho / (gamma_1 * beta);
       gamma = T(1) / gmm::sqrt(T(1) + gmm::sqr(theta));
 
-      if (gamma == T(0)) 
-	if (iter.get_maxiter() == size_type(-1)) 
-	  { GMM_ASSERT1(false, "QMR failed to converge"); }
-	else { GMM_WARNING1("QMR failed to converge"); return; }
+      if (gamma == T(0)) {
+        if (iter.get_maxiter() == size_type(-1)) {GMM_ASSERT1(false, "QMR failed to converge"); }
+        else {
+          GMM_WARNING1("QMR failed to converge");
+          return;
+        }
+      }
       
       eta = -eta * T(rho_1) * gmm::sqr(gamma) / (beta * gmm::sqr(gamma_1));
 
