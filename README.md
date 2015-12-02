@@ -1,10 +1,38 @@
-# Nemesis
+# LibMkniX
 
 TODO: Write a project description
 
 ## Installation
 
-Nemesis is built using cmake (version 2.8 or greater).
+LibMkniX is built using cmake (version 2.8 or greater).
+
+Build using (from the LibMkniX root directory):
+
+```
+cmake -B<build directory> -H. -DCMAKE_BUILD_TYPE=<Debug|Release>
+```
+
+i.e.
+
+```
+cmake -Bbuild -H. -DCMAKE_BUILD_TYPE=Debug
+```
+
+## Tests
+
+LibMkniX tests can be run (after building) using the following:
+
+```
+cd <build directory>/tests
+ctest
+```
+
+i.e.
+
+```
+cd build/tests
+ctest
+```
 
 ## Usage
 
