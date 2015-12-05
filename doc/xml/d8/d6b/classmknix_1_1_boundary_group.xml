@@ -1,0 +1,231 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d8/d6b/classmknix_1_1_boundary_group" kind="class" language="C++" prot="public">
+    <compoundname>mknix::BoundaryGroup</compoundname>
+    <includes refid="dc/d6b/boundarygroup_8h" local="no">boundarygroup.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="d8/d6b/classmknix_1_1_boundary_group_1ac38d6a03d7b780a8d34bf0658b392913" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> * &gt;</type>
+        <definition>std::vector&lt;Node *&gt; mknix::BoundaryGroup::nodes</definition>
+        <argsstring></argsstring>
+        <name>nodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" line="77" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" bodystart="77" bodyend="-1"/>
+        <referencedby refid="d8/d6b/classmknix_1_1_boundary_group_1af82241f10da2001d12c6557cfac7d565" compoundref="d1/d01/boundarygroup_8cpp" startline="53" endline="73">initialize</referencedby>
+        <referencedby refid="d8/d6b/classmknix_1_1_boundary_group_1af522d9ba6100877bfe7c02ee5654f609" compoundref="dc/d6b/boundarygroup_8h" startline="58" endline="61">addNode</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d6b/classmknix_1_1_boundary_group_1ad9eef843eac38af75887c541c25159c5" prot="protected" static="no" mutable="no">
+        <type>std::map&lt; int, <ref refid="d8/d1e/classmknix_1_1_cell_boundary" kindref="compound">CellBoundary</ref> * &gt;</type>
+        <definition>std::map&lt;int, CellBoundary *&gt; mknix::BoundaryGroup::cells</definition>
+        <argsstring></argsstring>
+        <name>cells</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Map of integration cells. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" line="78" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" bodystart="78" bodyend="-1"/>
+        <referencedby refid="d8/d6b/classmknix_1_1_boundary_group_1ae05b627df857d6c6525f096e2870ff0a" compoundref="d1/d01/boundarygroup_8cpp" startline="40" endline="45">~BoundaryGroup</referencedby>
+        <referencedby refid="d8/d6b/classmknix_1_1_boundary_group_1af82241f10da2001d12c6557cfac7d565" compoundref="d1/d01/boundarygroup_8cpp" startline="53" endline="73">initialize</referencedby>
+        <referencedby refid="d8/d6b/classmknix_1_1_boundary_group_1aa534d94502044262eff775598d16773c" compoundref="d1/d01/boundarygroup_8cpp" startline="80" endline="90">calcExternalHeat</referencedby>
+        <referencedby refid="d8/d6b/classmknix_1_1_boundary_group_1a6ba6b458bf600bd949855c80301c9636" compoundref="d1/d01/boundarygroup_8cpp" startline="97" endline="106">assembleExternalHeat</referencedby>
+        <referencedby refid="d8/d6b/classmknix_1_1_boundary_group_1a78be50152897f62f4417fdb03653f92e" compoundref="dc/d6b/boundarygroup_8h" startline="63" endline="67">addCell</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d6b/classmknix_1_1_boundary_group_1a1e28a9bc8786cf8e14d88afd87a12ee7" prot="protected" static="no" mutable="no">
+        <type><ref refid="df/df4/classmknix_1_1_load_thermal_boundary1_d" kindref="compound">LoadThermalBoundary1D</ref> *</type>
+        <definition>LoadThermalBoundary1D* mknix::BoundaryGroup::loadThermalBoundaryGroup</definition>
+        <argsstring></argsstring>
+        <name>loadThermalBoundaryGroup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" line="80" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" bodystart="80" bodyend="-1"/>
+        <referencedby refid="d8/d6b/classmknix_1_1_boundary_group_1aa534d94502044262eff775598d16773c" compoundref="d1/d01/boundarygroup_8cpp" startline="80" endline="90">calcExternalHeat</referencedby>
+        <referencedby refid="d8/d6b/classmknix_1_1_boundary_group_1ac4cba644c5ec528422342dfb90ba0458" compoundref="dc/d6b/boundarygroup_8h" startline="70" endline="73">setLoadThermal</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/d6b/classmknix_1_1_boundary_group_1a1ed5b1b020af6ed3321b501be28206b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::BoundaryGroup::BoundaryGroup</definition>
+        <argsstring>()</argsstring>
+        <name>BoundaryGroup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" line="44" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/boundarygroup.cpp" bodystart="25" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6b/classmknix_1_1_boundary_group_1ae05b627df857d6c6525f096e2870ff0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>mknix::BoundaryGroup::~BoundaryGroup</definition>
+        <argsstring>()</argsstring>
+        <name>~BoundaryGroup</name>
+        <briefdescription>
+<para>Constructor with 1 parameter. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>title_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of boundary in the body. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" line="48" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/boundarygroup.cpp" bodystart="40" bodyend="45"/>
+        <references refid="d8/d6b/classmknix_1_1_boundary_group_1ad9eef843eac38af75887c541c25159c5" compoundref="dc/d6b/boundarygroup_8h" startline="78">cells</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6b/classmknix_1_1_boundary_group_1af82241f10da2001d12c6557cfac7d565" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::BoundaryGroup::initialize</definition>
+        <argsstring>()</argsstring>
+        <name>initialize</name>
+        <briefdescription>
+<para>Cascade initialization funtion. Calls the initialize methods for each of the Cells and tells them to compute their shapefunction values. Both loops are parallelized. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" line="50" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/boundarygroup.cpp" bodystart="53" bodyend="73"/>
+        <references refid="d8/d6b/classmknix_1_1_boundary_group_1ad9eef843eac38af75887c541c25159c5" compoundref="dc/d6b/boundarygroup_8h" startline="78">cells</references>
+        <references refid="d8/d6b/classmknix_1_1_boundary_group_1ac38d6a03d7b780a8d34bf0658b392913" compoundref="dc/d6b/boundarygroup_8h" startline="77">nodes</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6b/classmknix_1_1_boundary_group_1aa534d94502044262eff775598d16773c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::BoundaryGroup::calcExternalHeat</definition>
+        <argsstring>()</argsstring>
+        <name>calcExternalHeat</name>
+        <briefdescription>
+<para>Computes the local volumetric heat vector of the material body by calling each cell&apos;s cascade function. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" line="52" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/boundarygroup.cpp" bodystart="80" bodyend="90"/>
+        <references refid="d8/d6b/classmknix_1_1_boundary_group_1ad9eef843eac38af75887c541c25159c5" compoundref="dc/d6b/boundarygroup_8h" startline="78">cells</references>
+        <references refid="d8/d6b/classmknix_1_1_boundary_group_1a1e28a9bc8786cf8e14d88afd87a12ee7" compoundref="dc/d6b/boundarygroup_8h" startline="80">loadThermalBoundaryGroup</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6b/classmknix_1_1_boundary_group_1a6ba6b458bf600bd949855c80301c9636" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::BoundaryGroup::assembleExternalHeat</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; &amp;)</argsstring>
+        <name>assembleExternalHeat</name>
+        <param>
+          <type><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>globalExternalHeat</defname>
+        </param>
+        <briefdescription>
+<para>Assembles the local volumetric heat into the global heat load vector by calling each cell&apos;s cascade function. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" line="54" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/boundarygroup.cpp" bodystart="97" bodyend="106"/>
+        <references refid="d8/d6b/classmknix_1_1_boundary_group_1ad9eef843eac38af75887c541c25159c5" compoundref="dc/d6b/boundarygroup_8h" startline="78">cells</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6b/classmknix_1_1_boundary_group_1af522d9ba6100877bfe7c02ee5654f609" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mknix::BoundaryGroup::addNode</definition>
+        <argsstring>(Node *node_in)</argsstring>
+        <name>addNode</name>
+        <param>
+          <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+          <declname>node_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" line="58" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" bodystart="58" bodyend="61"/>
+        <references refid="d8/d6b/classmknix_1_1_boundary_group_1ac38d6a03d7b780a8d34bf0658b392913" compoundref="dc/d6b/boundarygroup_8h" startline="77">nodes</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6b/classmknix_1_1_boundary_group_1a78be50152897f62f4417fdb03653f92e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mknix::BoundaryGroup::addCell</definition>
+        <argsstring>(CellBoundary *cell_in)</argsstring>
+        <name>addCell</name>
+        <param>
+          <type><ref refid="d8/d1e/classmknix_1_1_cell_boundary" kindref="compound">CellBoundary</ref> *</type>
+          <declname>cell_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" line="63" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" bodystart="63" bodyend="67"/>
+        <references refid="d8/d6b/classmknix_1_1_boundary_group_1ad9eef843eac38af75887c541c25159c5" compoundref="dc/d6b/boundarygroup_8h" startline="78">cells</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d6b/classmknix_1_1_boundary_group_1ac4cba644c5ec528422342dfb90ba0458" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mknix::BoundaryGroup::setLoadThermal</definition>
+        <argsstring>(LoadThermalBoundary1D *theLoad)</argsstring>
+        <name>setLoadThermal</name>
+        <param>
+          <type><ref refid="df/df4/classmknix_1_1_load_thermal_boundary1_d" kindref="compound">LoadThermalBoundary1D</ref> *</type>
+          <declname>theLoad</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" line="70" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" bodystart="70" bodyend="73"/>
+        <references refid="d8/d6b/classmknix_1_1_boundary_group_1a1e28a9bc8786cf8e14d88afd87a12ee7" compoundref="dc/d6b/boundarygroup_8h" startline="80">loadThermalBoundaryGroup</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
+</para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="471">
+        <label>mknix::BoundaryGroup</label>
+        <link refid="d8/d6b/classmknix_1_1_boundary_group"/>
+        <childnode refid="472" relation="usage">
+          <edgelabel>loadThermalBoundaryGroup</edgelabel>
+        </childnode>
+      </node>
+      <node id="472">
+        <label>mknix::LoadThermalBoundary1D</label>
+        <link refid="df/df4/classmknix_1_1_load_thermal_boundary1_d"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" line="41" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/boundarygroup.h" bodystart="40" bodyend="82"/>
+    <listofallmembers>
+      <member refid="d8/d6b/classmknix_1_1_boundary_group_1a78be50152897f62f4417fdb03653f92e" prot="public" virt="virtual"><scope>mknix::BoundaryGroup</scope><name>addCell</name></member>
+      <member refid="d8/d6b/classmknix_1_1_boundary_group_1af522d9ba6100877bfe7c02ee5654f609" prot="public" virt="virtual"><scope>mknix::BoundaryGroup</scope><name>addNode</name></member>
+      <member refid="d8/d6b/classmknix_1_1_boundary_group_1a6ba6b458bf600bd949855c80301c9636" prot="public" virt="virtual"><scope>mknix::BoundaryGroup</scope><name>assembleExternalHeat</name></member>
+      <member refid="d8/d6b/classmknix_1_1_boundary_group_1a1ed5b1b020af6ed3321b501be28206b4" prot="public" virt="non-virtual"><scope>mknix::BoundaryGroup</scope><name>BoundaryGroup</name></member>
+      <member refid="d8/d6b/classmknix_1_1_boundary_group_1aa534d94502044262eff775598d16773c" prot="public" virt="virtual"><scope>mknix::BoundaryGroup</scope><name>calcExternalHeat</name></member>
+      <member refid="d8/d6b/classmknix_1_1_boundary_group_1ad9eef843eac38af75887c541c25159c5" prot="protected" virt="non-virtual"><scope>mknix::BoundaryGroup</scope><name>cells</name></member>
+      <member refid="d8/d6b/classmknix_1_1_boundary_group_1af82241f10da2001d12c6557cfac7d565" prot="public" virt="virtual"><scope>mknix::BoundaryGroup</scope><name>initialize</name></member>
+      <member refid="d8/d6b/classmknix_1_1_boundary_group_1a1e28a9bc8786cf8e14d88afd87a12ee7" prot="protected" virt="non-virtual"><scope>mknix::BoundaryGroup</scope><name>loadThermalBoundaryGroup</name></member>
+      <member refid="d8/d6b/classmknix_1_1_boundary_group_1ac38d6a03d7b780a8d34bf0658b392913" prot="protected" virt="non-virtual"><scope>mknix::BoundaryGroup</scope><name>nodes</name></member>
+      <member refid="d8/d6b/classmknix_1_1_boundary_group_1ac4cba644c5ec528422342dfb90ba0458" prot="public" virt="virtual"><scope>mknix::BoundaryGroup</scope><name>setLoadThermal</name></member>
+      <member refid="d8/d6b/classmknix_1_1_boundary_group_1ae05b627df857d6c6525f096e2870ff0a" prot="public" virt="virtual"><scope>mknix::BoundaryGroup</scope><name>~BoundaryGroup</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,114 +1,17 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
   <compounddef id="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir">
     <compoundname>src</compoundname>
-    <innerfile refid="d8/d8e/analysis_8cpp">analysis.cpp</innerfile>
-    <innerfile refid="d2/d40/analysis_8h">analysis.h</innerfile>
-    <innerfile refid="d3/d0b/analysisdynamic_8cpp">analysisdynamic.cpp</innerfile>
-    <innerfile refid="da/d83/analysisdynamic_8h">analysisdynamic.h</innerfile>
-    <innerfile refid="d4/dce/analysisstatic_8cpp">analysisstatic.cpp</innerfile>
-    <innerfile refid="d4/d87/analysisstatic_8h">analysisstatic.h</innerfile>
-    <innerfile refid="d0/d09/analysisthermaldynamic_8cpp">analysisthermaldynamic.cpp</innerfile>
-    <innerfile refid="d1/d1f/analysisthermaldynamic_8h">analysisthermaldynamic.h</innerfile>
-    <innerfile refid="df/d52/analysisthermalstatic_8cpp">analysisthermalstatic.cpp</innerfile>
-    <innerfile refid="db/d65/analysisthermalstatic_8h">analysisthermalstatic.h</innerfile>
-    <innerfile refid="d1/d5f/body_8cpp">body.cpp</innerfile>
-    <innerfile refid="d0/d77/body_8h">body.h</innerfile>
-    <innerfile refid="d6/d1e/bodyflex_8cpp">bodyflex.cpp</innerfile>
-    <innerfile refid="dd/dbc/bodyflex_8h">bodyflex.h</innerfile>
-    <innerfile refid="db/dcf/bodyflexglobalgalerkin_8cpp">bodyflexglobalgalerkin.cpp</innerfile>
-    <innerfile refid="df/d1c/bodyflexglobalgalerkin_8h">bodyflexglobalgalerkin.h</innerfile>
-    <innerfile refid="da/d4a/bodyrigid_8cpp">bodyrigid.cpp</innerfile>
-    <innerfile refid="d1/d67/bodyrigid_8h">bodyrigid.h</innerfile>
-    <innerfile refid="dc/d48/bodyrigid0_d_8cpp">bodyrigid0D.cpp</innerfile>
-    <innerfile refid="da/d60/bodyrigid0_d_8h">bodyrigid0D.h</innerfile>
-    <innerfile refid="d5/d29/bodyrigid1_d_8cpp">bodyrigid1D.cpp</innerfile>
-    <innerfile refid="d7/d1c/bodyrigid1_d_8h">bodyrigid1D.h</innerfile>
-    <innerfile refid="d9/d73/bodyrigid1_d__bad__1_8cpp">bodyrigid1D_bad_1.cpp</innerfile>
-    <innerfile refid="da/d18/bodyrigid1_d__bad__1_8h">bodyrigid1D_bad_1.h</innerfile>
-    <innerfile refid="dc/d0c/bodyrigid2_d_8cpp">bodyrigid2D.cpp</innerfile>
-    <innerfile refid="d3/d80/bodyrigid2_d_8h">bodyrigid2D.h</innerfile>
-    <innerfile refid="d0/da1/bodyrigid3_d_8cpp">bodyrigid3D.cpp</innerfile>
-    <innerfile refid="d1/dbe/bodyrigid3_d_8h">bodyrigid3D.h</innerfile>
-    <innerfile refid="dd/d15/bodythermal_8cpp">bodythermal.cpp</innerfile>
-    <innerfile refid="d3/d0b/bodythermal_8h">bodythermal.h</innerfile>
-    <innerfile refid="d6/d68/cell_8cpp">cell.cpp</innerfile>
-    <innerfile refid="d0/ddd/cell_8h">cell.h</innerfile>
-    <innerfile refid="d4/d83/cellrect_8cpp">cellrect.cpp</innerfile>
-    <innerfile refid="d8/d84/cellrect_8h">cellrect.h</innerfile>
-    <innerfile refid="d3/d93/celltetrahedron_8cpp">celltetrahedron.cpp</innerfile>
-    <innerfile refid="d1/d94/celltetrahedron_8h">celltetrahedron.h</innerfile>
-    <innerfile refid="d0/ddf/celltriang_8cpp">celltriang.cpp</innerfile>
-    <innerfile refid="dc/d6a/celltriang_8h">celltriang.h</innerfile>
+    <innerdir refid="dir_aebb8dcc11953d78e620bbef0b9e2183">core</innerdir>
+    <innerdir refid="dir_af89b2be539cdaaafaad341d1e56977e">reader</innerdir>
+    <innerdir refid="dir_d73d1ee04cc237a5854777ea99c55872">simulation</innerdir>
+    <innerdir refid="dir_d501334aeb1b78ad67cd3c72c37b1e87">system</innerdir>
+    <innerfile refid="d9/df9/common_8cpp">common.cpp</innerfile>
     <innerfile refid="dc/d54/common_8h">common.h</innerfile>
-    <innerfile refid="db/dcb/compbar_8cpp">compbar.cpp</innerfile>
-    <innerfile refid="d9/d92/compbar_8h">compbar.h</innerfile>
-    <innerfile refid="d9/dab/constraint_8cpp">constraint.cpp</innerfile>
-    <innerfile refid="dc/d4d/constraint_8h">constraint.h</innerfile>
-    <innerfile refid="df/d74/constraintclearance_8cpp">constraintclearance.cpp</innerfile>
-    <innerfile refid="df/de4/constraintclearance_8h">constraintclearance.h</innerfile>
-    <innerfile refid="d8/d8b/constraintcontact_8cpp">constraintcontact.cpp</innerfile>
-    <innerfile refid="d4/de0/constraintcontact_8h">constraintcontact.h</innerfile>
-    <innerfile refid="d7/d93/constraintdistance_8cpp">constraintdistance.cpp</innerfile>
-    <innerfile refid="da/df6/constraintdistance_8h">constraintdistance.h</innerfile>
-    <innerfile refid="d8/d02/constraintfixedaxis_8cpp">constraintfixedaxis.cpp</innerfile>
-    <innerfile refid="d8/dfb/constraintfixedaxis_8h">constraintfixedaxis.h</innerfile>
-    <innerfile refid="d6/d46/constraintfixedcoordinates_8cpp">constraintfixedcoordinates.cpp</innerfile>
-    <innerfile refid="d4/d28/constraintfixedcoordinates_8h">constraintfixedcoordinates.h</innerfile>
-    <innerfile refid="d6/dfd/dictionary_8h">dictionary.h</innerfile>
-    <innerfile refid="d3/d50/elemtetrahedron_8cpp">elemtetrahedron.cpp</innerfile>
-    <innerfile refid="d3/d9f/elemtetrahedron_8h">elemtetrahedron.h</innerfile>
-    <innerfile refid="d9/d6d/elemtriangle_8cpp">elemtriangle.cpp</innerfile>
-    <innerfile refid="df/d03/elemtriangle_8h">elemtriangle.h</innerfile>
-    <innerfile refid="df/d4d/force_8cpp">force.cpp</innerfile>
-    <innerfile refid="dd/d0d/force_8h">force.h</innerfile>
-    <innerfile refid="df/dfb/gausspoint_8cpp">gausspoint.cpp</innerfile>
-    <innerfile refid="d4/dc6/gausspoint_8h">gausspoint.h</innerfile>
-    <innerfile refid="de/d37/generalcontact_8cpp">generalcontact.cpp</innerfile>
-    <innerfile refid="d9/d54/generalcontact_8h">generalcontact.h</innerfile>
-    <innerfile refid="de/dbc/load_8cpp">load.cpp</innerfile>
-    <innerfile refid="dc/d61/load_8h">load.h</innerfile>
-    <innerfile refid="d7/d5c/material_8cpp">material.cpp</innerfile>
-    <innerfile refid="d3/d65/material_8h">material.h</innerfile>
-    <innerfile refid="d9/d06/mknix_8cpp">mknix.cpp</innerfile>
-    <innerfile refid="d7/d70/node_8cpp">node.cpp</innerfile>
-    <innerfile refid="d1/d77/node_8h">node.h</innerfile>
-    <innerfile refid="d5/d55/point_8cpp">point.cpp</innerfile>
-    <innerfile refid="d2/d91/point_8h">point.h</innerfile>
-    <innerfile refid="d7/dff/reader_8cpp">reader.cpp</innerfile>
-    <innerfile refid="d6/dda/reader_8h">reader.h</innerfile>
-    <innerfile refid="d2/d38/readerconstraints_8cpp">readerconstraints.cpp</innerfile>
-    <innerfile refid="de/d6c/readerconstraints_8h">readerconstraints.h</innerfile>
-    <innerfile refid="d6/daf/readerflex_8cpp">readerflex.cpp</innerfile>
-    <innerfile refid="d9/ddf/readerflex_8h">readerflex.h</innerfile>
-    <innerfile refid="d9/d6a/readerrigid_8cpp">readerrigid.cpp</innerfile>
-    <innerfile refid="dd/dd9/readerrigid_8h">readerrigid.h</innerfile>
-    <innerfile refid="d1/dde/shapefunction_8cpp">shapefunction.cpp</innerfile>
-    <innerfile refid="d3/d16/shapefunction_8h">shapefunction.h</innerfile>
-    <innerfile refid="dc/deb/shapefunctionlinear_8cpp">shapefunctionlinear.cpp</innerfile>
-    <innerfile refid="d0/d2e/shapefunctionlinear_8h">shapefunctionlinear.h</innerfile>
-    <innerfile refid="d1/d8f/shapefunction_m_l_s_8cpp">shapefunctionMLS.cpp</innerfile>
-    <innerfile refid="db/da5/shapefunction_m_l_s_8h">shapefunctionMLS.h</innerfile>
-    <innerfile refid="db/d27/shapefunction_r_b_f_8cpp">shapefunctionRBF.cpp</innerfile>
-    <innerfile refid="d9/d2f/shapefunction_r_b_f_8h">shapefunctionRBF.h</innerfile>
-    <innerfile refid="dc/dcb/shapefunctionrigidbar_8cpp">shapefunctionrigidbar.cpp</innerfile>
-    <innerfile refid="da/dfb/shapefunctionrigidbar_8h">shapefunctionrigidbar.h</innerfile>
-    <innerfile refid="d1/d85/shapefunctiontetrahedron_8cpp">shapefunctiontetrahedron.cpp</innerfile>
-    <innerfile refid="db/d91/shapefunctiontetrahedron_8h">shapefunctiontetrahedron.h</innerfile>
-    <innerfile refid="dc/d70/shapefunctiontriangle_8cpp">shapefunctiontriangle.cpp</innerfile>
-    <innerfile refid="d1/db5/shapefunctiontriangle_8h">shapefunctiontriangle.h</innerfile>
-    <innerfile refid="d5/d04/shapefunctiontriangle3_d_8cpp">shapefunctiontriangle3D.cpp</innerfile>
-    <innerfile refid="d8/db5/shapefunctiontriangle3_d_8h">shapefunctiontriangle3D.h</innerfile>
-    <innerfile refid="d2/d93/simulation_8cpp">simulation.cpp</innerfile>
-    <innerfile refid="dd/d6a/simulation_8h">simulation.h</innerfile>
-    <innerfile refid="d6/df8/system_8cpp">system.cpp</innerfile>
-    <innerfile refid="dc/db2/system_8h">system.h</innerfile>
-    <innerfile refid="dd/dbf/thermalload_8cpp">thermalload.cpp</innerfile>
-    <innerfile refid="de/df4/thermalload_8h">thermalload.h</innerfile>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/"/>
+    <location file="/home/daniel/Projects/MkniX/src/"/>
   </compounddef>
 </doxygen>

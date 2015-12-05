@@ -1,0 +1,207 @@
+\hypertarget{classmknix_1_1_boundary_group}{}\subsection{mknix\+:\+:Boundary\+Group Class Reference}
+\label{classmknix_1_1_boundary_group}\index{mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}}
+
+
+{\ttfamily \#include $<$boundarygroup.\+h$>$}
+
+
+
+Collaboration diagram for mknix\+:\+:Boundary\+Group\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{da/d09/classmknix_1_1_boundary_group__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmknix_1_1_boundary_group_a1ed5b1b020af6ed3321b501be28206b4}{Boundary\+Group} ()
+\item 
+virtual \hyperlink{classmknix_1_1_boundary_group_ae05b627df857d6c6525f096e2870ff0a}{$\sim$\+Boundary\+Group} ()
+\begin{DoxyCompactList}\small\item\em Constructor with 1 parameter. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_boundary_group_af82241f10da2001d12c6557cfac7d565}{initialize} ()
+\begin{DoxyCompactList}\small\item\em Cascade initialization funtion. Calls the initialize methods for each of the Cells and tells them to compute their shapefunction values. Both loops are parallelized. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_boundary_group_aa534d94502044262eff775598d16773c}{calc\+External\+Heat} ()
+\begin{DoxyCompactList}\small\item\em Computes the local volumetric heat vector of the material body by calling each cell\textquotesingle{}s cascade function. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_boundary_group_a6ba6b458bf600bd949855c80301c9636}{assemble\+External\+Heat} (\hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
+\begin{DoxyCompactList}\small\item\em Assembles the local volumetric heat into the global heat load vector by calling each cell\textquotesingle{}s cascade function. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_boundary_group_af522d9ba6100877bfe7c02ee5654f609}{add\+Node} (\hyperlink{classmknix_1_1_node}{Node} $\ast$node\+\_\+in)
+\item 
+virtual void \hyperlink{classmknix_1_1_boundary_group_a78be50152897f62f4417fdb03653f92e}{add\+Cell} (\hyperlink{classmknix_1_1_cell_boundary}{Cell\+Boundary} $\ast$cell\+\_\+in)
+\item 
+virtual void \hyperlink{classmknix_1_1_boundary_group_ac4cba644c5ec528422342dfb90ba0458}{set\+Load\+Thermal} (\hyperlink{classmknix_1_1_load_thermal_boundary1_d}{Load\+Thermal\+Boundary1\+D} $\ast$the\+Load)
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \hyperlink{classmknix_1_1_boundary_group_ac38d6a03d7b780a8d34bf0658b392913}{nodes}
+\item 
+std\+::map$<$ int, \hyperlink{classmknix_1_1_cell_boundary}{Cell\+Boundary} $\ast$ $>$ \hyperlink{classmknix_1_1_boundary_group_ad9eef843eac38af75887c541c25159c5}{cells}
+\item 
+\hyperlink{classmknix_1_1_load_thermal_boundary1_d}{Load\+Thermal\+Boundary1\+D} $\ast$ \hyperlink{classmknix_1_1_boundary_group_a1e28a9bc8786cf8e14d88afd87a12ee7}{load\+Thermal\+Boundary\+Group}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+A\+U\+T\+H\+O\+R\+S $<$\+M\+A\+I\+L\+S$>$ 
+\end{DoxyAuthor}
+
+
+Definition at line 40 of file boundarygroup.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{classmknix_1_1_boundary_group_a1ed5b1b020af6ed3321b501be28206b4}{}\index{mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}!Boundary\+Group@{Boundary\+Group}}
+\index{Boundary\+Group@{Boundary\+Group}!mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}}
+\paragraph[{Boundary\+Group}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+Boundary\+Group\+::\+Boundary\+Group (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_boundary_group_a1ed5b1b020af6ed3321b501be28206b4}
+
+
+Definition at line 25 of file boundarygroup.\+cpp.
+
+\hypertarget{classmknix_1_1_boundary_group_ae05b627df857d6c6525f096e2870ff0a}{}\index{mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}!````~Boundary\+Group@{$\sim$\+Boundary\+Group}}
+\index{````~Boundary\+Group@{$\sim$\+Boundary\+Group}!mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}}
+\paragraph[{$\sim$\+Boundary\+Group}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+Boundary\+Group\+::$\sim$\+Boundary\+Group (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_boundary_group_ae05b627df857d6c6525f096e2870ff0a}
+
+
+Constructor with 1 parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title\+\_\+in} & Name of boundary in the body. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 40 of file boundarygroup.\+cpp.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classmknix_1_1_boundary_group_a78be50152897f62f4417fdb03653f92e}{}\index{mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}!add\+Cell@{add\+Cell}}
+\index{add\+Cell@{add\+Cell}!mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}}
+\paragraph[{add\+Cell}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Boundary\+Group\+::add\+Cell (
+\begin{DoxyParamCaption}
+\item[{{\bf Cell\+Boundary} $\ast$}]{cell\+\_\+in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_boundary_group_a78be50152897f62f4417fdb03653f92e}
+
+
+Definition at line 63 of file boundarygroup.\+h.
+
+\hypertarget{classmknix_1_1_boundary_group_af522d9ba6100877bfe7c02ee5654f609}{}\index{mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}!add\+Node@{add\+Node}}
+\index{add\+Node@{add\+Node}!mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}}
+\paragraph[{add\+Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Boundary\+Group\+::add\+Node (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{node\+\_\+in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_boundary_group_af522d9ba6100877bfe7c02ee5654f609}
+
+
+Definition at line 58 of file boundarygroup.\+h.
+
+\hypertarget{classmknix_1_1_boundary_group_a6ba6b458bf600bd949855c80301c9636}{}\index{mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}!assemble\+External\+Heat@{assemble\+External\+Heat}}
+\index{assemble\+External\+Heat@{assemble\+External\+Heat}!mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}}
+\paragraph[{assemble\+External\+Heat}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Boundary\+Group\+::assemble\+External\+Heat (
+\begin{DoxyParamCaption}
+\item[{{\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{global\+External\+Heat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_boundary_group_a6ba6b458bf600bd949855c80301c9636}
+
+
+Assembles the local volumetric heat into the global heat load vector by calling each cell\textquotesingle{}s cascade function. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 97 of file boundarygroup.\+cpp.
+
+\hypertarget{classmknix_1_1_boundary_group_aa534d94502044262eff775598d16773c}{}\index{mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}!calc\+External\+Heat@{calc\+External\+Heat}}
+\index{calc\+External\+Heat@{calc\+External\+Heat}!mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}}
+\paragraph[{calc\+External\+Heat}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Boundary\+Group\+::calc\+External\+Heat (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_boundary_group_aa534d94502044262eff775598d16773c}
+
+
+Computes the local volumetric heat vector of the material body by calling each cell\textquotesingle{}s cascade function. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 80 of file boundarygroup.\+cpp.
+
+\hypertarget{classmknix_1_1_boundary_group_af82241f10da2001d12c6557cfac7d565}{}\index{mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}!initialize@{initialize}}
+\index{initialize@{initialize}!mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}}
+\paragraph[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Boundary\+Group\+::initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_boundary_group_af82241f10da2001d12c6557cfac7d565}
+
+
+Cascade initialization funtion. Calls the initialize methods for each of the Cells and tells them to compute their shapefunction values. Both loops are parallelized. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 53 of file boundarygroup.\+cpp.
+
+\hypertarget{classmknix_1_1_boundary_group_ac4cba644c5ec528422342dfb90ba0458}{}\index{mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}!set\+Load\+Thermal@{set\+Load\+Thermal}}
+\index{set\+Load\+Thermal@{set\+Load\+Thermal}!mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}}
+\paragraph[{set\+Load\+Thermal}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Boundary\+Group\+::set\+Load\+Thermal (
+\begin{DoxyParamCaption}
+\item[{{\bf Load\+Thermal\+Boundary1\+D} $\ast$}]{the\+Load}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_boundary_group_ac4cba644c5ec528422342dfb90ba0458}
+
+
+Definition at line 70 of file boundarygroup.\+h.
+
+
+
+\subsubsection{Member Data Documentation}
+\hypertarget{classmknix_1_1_boundary_group_ad9eef843eac38af75887c541c25159c5}{}\index{mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}!cells@{cells}}
+\index{cells@{cells}!mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}}
+\paragraph[{cells}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$int, {\bf Cell\+Boundary} $\ast$$>$ mknix\+::\+Boundary\+Group\+::cells\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_boundary_group_ad9eef843eac38af75887c541c25159c5}
+Map of integration cells. 
+
+Definition at line 78 of file boundarygroup.\+h.
+
+\hypertarget{classmknix_1_1_boundary_group_a1e28a9bc8786cf8e14d88afd87a12ee7}{}\index{mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}!load\+Thermal\+Boundary\+Group@{load\+Thermal\+Boundary\+Group}}
+\index{load\+Thermal\+Boundary\+Group@{load\+Thermal\+Boundary\+Group}!mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}}
+\paragraph[{load\+Thermal\+Boundary\+Group}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Load\+Thermal\+Boundary1\+D}$\ast$ mknix\+::\+Boundary\+Group\+::load\+Thermal\+Boundary\+Group\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_boundary_group_a1e28a9bc8786cf8e14d88afd87a12ee7}
+
+
+Definition at line 80 of file boundarygroup.\+h.
+
+\hypertarget{classmknix_1_1_boundary_group_ac38d6a03d7b780a8d34bf0658b392913}{}\index{mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}!nodes@{nodes}}
+\index{nodes@{nodes}!mknix\+::\+Boundary\+Group@{mknix\+::\+Boundary\+Group}}
+\paragraph[{nodes}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Node} $\ast$$>$ mknix\+::\+Boundary\+Group\+::nodes\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_boundary_group_ac38d6a03d7b780a8d34bf0658b392913}
+
+
+Definition at line 77 of file boundarygroup.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{boundarygroup_8h}{boundarygroup.\+h}\item 
+\hyperlink{boundarygroup_8cpp}{boundarygroup.\+cpp}\end{DoxyCompactItemize}

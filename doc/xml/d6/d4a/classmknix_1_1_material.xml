@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="d6/d4a/classmknix_1_1_material" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d6/d4a/classmknix_1_1_material" kind="class" language="C++" prot="public">
     <compoundname>mknix::Material</compoundname>
     <includes refid="d3/d65/material_8h" local="no">material.h</includes>
       <sectiondef kind="private-attrib">
@@ -15,72 +15,7 @@
 <para>Dimension of space </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="32" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="32" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1a9562bb2fd31c5dc671361a0ed2c1e89f" prot="private" static="no" mutable="no">
-        <type>double</type>
-        <definition>double mknix::Material::young</definition>
-        <argsstring></argsstring>
-        <name>young</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Young Modulus. </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="33" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="33" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1a928026c613391e7eb5d48230dcd02562" prot="private" static="no" mutable="no">
-        <type>double</type>
-        <definition>double mknix::Material::poisson</definition>
-        <argsstring></argsstring>
-        <name>poisson</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Poisson Modulus. </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="34" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="34" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1a1d92c5a3fe751c31e435014057d3df6f" prot="private" static="no" mutable="no">
-        <type>double</type>
-        <definition>double mknix::Material::lambda</definition>
-        <argsstring></argsstring>
-        <name>lambda</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="35" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="35" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1a2a866ccfb57e8ea51edd150421ef5752" prot="private" static="no" mutable="no">
-        <type>double</type>
-        <definition>double mknix::Material::mu</definition>
-        <argsstring></argsstring>
-        <name>mu</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Lame&apos;s coefficients. </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="35" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="35" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1a28cee53e375b792f6fa9166a66a68e4f" prot="private" static="no" mutable="no">
-        <type>double</type>
-        <definition>double mknix::Material::density</definition>
-        <argsstring></argsstring>
-        <name>density</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Density. </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="36" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="36" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="34" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1a22182cb91c91a787b18e781d420261cd" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -93,7 +28,7 @@
 <para>Thermal specific capacity </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="37" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="37" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="35" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1ab39d314041ab2220b0ad1ffbd55deee2" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -106,10 +41,114 @@
 <para>Thermal conductivity </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="38" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="38" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="36" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1a9562bb2fd31c5dc671361a0ed2c1e89f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Material::young</definition>
+        <argsstring></argsstring>
+        <name>young</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Young Modulus. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="37" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1a928026c613391e7eb5d48230dcd02562" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Material::poisson</definition>
+        <argsstring></argsstring>
+        <name>poisson</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Poisson Modulus. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="38" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1a8229d737ec6cac84636d562f4a76d59e" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Material::beta</definition>
+        <argsstring></argsstring>
+        <name>beta</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Thermal expansion </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="39" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1a1d92c5a3fe751c31e435014057d3df6f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Material::lambda</definition>
+        <argsstring></argsstring>
+        <name>lambda</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="40" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1a2a866ccfb57e8ea51edd150421ef5752" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Material::mu</definition>
+        <argsstring></argsstring>
+        <name>mu</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Lame&apos;s coefficients. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="40" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1a28cee53e375b792f6fa9166a66a68e4f" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::Material::density</definition>
+        <argsstring></argsstring>
+        <name>density</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Density. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="41" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1a1877595b6128d00ff56c38e2e30c9e33" prot="private" static="no" mutable="no">
+        <type>std::map&lt; double, double &gt;</type>
+        <definition>std::map&lt;double, double&gt; mknix::Material::m_capacity</definition>
+        <argsstring></argsstring>
+        <name>m_capacity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="42" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1ab8c5b3161744a52fbaf4affa3d236215" prot="private" static="no" mutable="no">
+        <type>std::map&lt; double, double &gt;</type>
+        <definition>std::map&lt;double, double&gt; mknix::Material::m_kapppa</definition>
+        <argsstring></argsstring>
+        <name>m_kapppa</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="43" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1af8dc0e506a6d967ac3eb46ec97d02bb2" prot="private" static="no" mutable="no">
-        <type>lmx::DenseMatrix&lt; double &gt;</type>
+        <type><ref refid="d2/d8d/classlmx_1_1_dense_matrix" kindref="compound">lmx::DenseMatrix</ref>&lt; double &gt;</type>
         <definition>lmx::DenseMatrix&lt;double&gt; mknix::Material::D</definition>
         <argsstring></argsstring>
         <name>D</name>
@@ -119,10 +158,10 @@
 <para>Constitutive Linear </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="39" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="39" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="44" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1a4c6702d0f541c9d1faa7e294fc630aaf" prot="private" static="no" mutable="no">
-        <type>lmx::DenseMatrix&lt; double &gt;</type>
+        <type><ref refid="d2/d8d/classlmx_1_1_dense_matrix" kindref="compound">lmx::DenseMatrix</ref>&lt; double &gt;</type>
         <definition>lmx::DenseMatrix&lt;double&gt; mknix::Material::C</definition>
         <argsstring></argsstring>
         <name>C</name>
@@ -132,7 +171,7 @@
 <para>Constitutive Saint-Venant Kirchoff </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="40" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="40" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="45" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1a2fdb54035dd25c26190e9fae238afd41" prot="private" static="no" mutable="no">
         <type>cofe::TensorRank2Sym&lt; 2, double &gt;</type>
@@ -145,7 +184,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="41" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="41" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="46" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d6/d4a/classmknix_1_1_material_1af59ec081a4adfeb2cc04a2b16ddf5ef6" prot="private" static="no" mutable="no">
         <type>cofe::TensorRank2Sym&lt; 3, double &gt;</type>
@@ -158,7 +197,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="42" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="42" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="47" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -173,63 +212,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="45" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.cpp" bodystart="24" bodyend="26"/>
-      </memberdef>
-      <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1a1f5cfec4e49a4dbfba8ccd2d2b3ac6c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>mknix::Material::Material</definition>
-        <argsstring>(double, double, double)</argsstring>
-        <name>Material</name>
-        <param>
-          <type>double</type>
-          <defname>capacity_in</defname>
-        </param>
-        <param>
-          <type>double</type>
-          <defname>kappa_in</defname>
-        </param>
-        <param>
-          <type>double</type>
-          <defname>density_in</defname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="46" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.cpp" bodystart="29" bodyend="32"/>
-      </memberdef>
-      <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1a10a6d06e979d85892c01fe59c908d06d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>mknix::Material::Material</definition>
-        <argsstring>(int, double, double, double)</argsstring>
-        <name>Material</name>
-        <param>
-          <type>int</type>
-          <defname>dim_in</defname>
-        </param>
-        <param>
-          <type>double</type>
-          <defname>young_in</defname>
-        </param>
-        <param>
-          <type>double</type>
-          <defname>poisson_in</defname>
-        </param>
-        <param>
-          <type>double</type>
-          <defname>density_in</defname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="47" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.cpp" bodystart="35" bodyend="42"/>
-        <references refid="d6/d4a/classmknix_1_1_material_1a134d81df672beb86b49b23dc0ac8cfe7" compoundref="d7/d5c/material_8cpp" startline="49" endline="80">computeD</references>
-        <references refid="d6/d4a/classmknix_1_1_material_1a30503f7c95cd5f7410836224b9e66c19" compoundref="d7/d5c/material_8cpp" startline="82" endline="112">computeC</references>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="50" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.cpp" bodystart="24" bodyend="33"/>
       </memberdef>
       <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1ab0c23c9dfb7119afa0f20e912d4af6e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -242,7 +225,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="49" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.cpp" bodystart="45" bodyend="47"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="52" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.cpp" bodystart="35" bodyend="37"/>
       </memberdef>
       <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1a5e0f78fc32bea9435b20f6583de1c1e6" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -255,7 +238,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="51" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="51" bodyend="51"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="54" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="54" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1ae9162080889d12bd5f8759b4efce2e1e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -268,7 +251,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="52" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="52" bodyend="52"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="57" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="57" bodyend="59"/>
       </memberdef>
       <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1a65d3c9fb96d96ba179c9e4c3c68b814b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
@@ -281,42 +264,56 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="53" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="53" bodyend="53"/>
-        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1ab82f09f4b4f9ae25f78551e1aa2e4ee6" compoundref="df/dfb/gausspoint_8cpp" startline="201" endline="214">mknix::GaussPoint::computeCij</referencedby>
-        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a9a01f1ad9df5669317e8aa41ab8be649" compoundref="df/dfb/gausspoint_8cpp" startline="254" endline="273">mknix::GaussPoint::computeMij</referencedby>
-        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a4ed005e06a27c61eaf650dc841caf897" compoundref="df/dfb/gausspoint_8cpp" startline="332" endline="380">mknix::GaussPoint::computeStress</referencedby>
-        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a36987660a0561548f737c065d0e7ccfd" compoundref="df/dfb/gausspoint_8cpp" startline="382" endline="418">mknix::GaussPoint::computeNLStress</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="60" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="60" bodyend="62"/>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1ab82f09f4b4f9ae25f78551e1aa2e4ee6" compoundref="df/dfb/gausspoint_8cpp" startline="96" endline="126">mknix::GaussPoint::computeCij</referencedby>
+        <referencedby refid="df/d77/classmknix_1_1_gauss_point2_d_1a22dc79e625ce24de6e48ccad0aafd5e3" compoundref="d2/d0a/gausspoint2_d_8cpp" startline="113" endline="130">mknix::GaussPoint2D::computeMij</referencedby>
+        <referencedby refid="df/d77/classmknix_1_1_gauss_point2_d_1a83cd389403d0293f1e634b40195db230" compoundref="d2/d0a/gausspoint2_d_8cpp" startline="160" endline="214">mknix::GaussPoint2D::computeStress</referencedby>
+        <referencedby refid="df/d77/classmknix_1_1_gauss_point2_d_1a4801f7753a3d95517f4161942b53a827" compoundref="d2/d0a/gausspoint2_d_8cpp" startline="216" endline="253">mknix::GaussPoint2D::computeNLStress</referencedby>
+        <referencedby refid="d6/d47/classmknix_1_1_gauss_point3_d_1a72549b797a46744d0a737e0d84075b66" compoundref="d8/d55/gausspoint3_d_8cpp" startline="114" endline="134">mknix::GaussPoint3D::computeMij</referencedby>
+        <referencedby refid="d6/d47/classmknix_1_1_gauss_point3_d_1a3ba0e4b023f83054264e694402814b5a" compoundref="d8/d55/gausspoint3_d_8cpp" startline="212" endline="267">mknix::GaussPoint3D::computeNLStress</referencedby>
       </memberdef>
-      <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1af9d29d92b850bb0a3e2ebb8ed01261b2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1aacb94c35534ffe8a2d15d977ce630b44" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
         <definition>double mknix::Material::getCapacity</definition>
-        <argsstring>()</argsstring>
+        <argsstring>(double temp_in=0)</argsstring>
         <name>getCapacity</name>
+        <param>
+          <type>double</type>
+          <declname>temp_in</declname>
+          <defval>0</defval>
+        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="54" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="54" bodyend="54"/>
-        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1ab82f09f4b4f9ae25f78551e1aa2e4ee6" compoundref="df/dfb/gausspoint_8cpp" startline="201" endline="214">mknix::GaussPoint::computeCij</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="63" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="63" bodyend="66"/>
+        <references refid="d2/dde/namespacemknix_1a3c53b5663b9039ec67691eea93bb7f54" compoundref="d9/df9/common_8cpp" startline="24" endline="40">mknix::interpolate1D</references>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1ab82f09f4b4f9ae25f78551e1aa2e4ee6" compoundref="df/dfb/gausspoint_8cpp" startline="96" endline="126">mknix::GaussPoint::computeCij</referencedby>
       </memberdef>
-      <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1afc5fe69937d640e9380f62f2614424c8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1a93b8de406b8356e577803cc26179b051" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>double</type>
         <definition>double mknix::Material::getKappa</definition>
-        <argsstring>()</argsstring>
+        <argsstring>(double temp_in=0)</argsstring>
         <name>getKappa</name>
+        <param>
+          <type>double</type>
+          <declname>temp_in</declname>
+          <defval>0</defval>
+        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="55" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="55" bodyend="55"/>
-        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a92a5358c2a4305b15d33d265e4603621" compoundref="df/dfb/gausspoint_8cpp" startline="216" endline="240">mknix::GaussPoint::computeHij</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="67" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="67" bodyend="70"/>
+        <references refid="d2/dde/namespacemknix_1a3c53b5663b9039ec67691eea93bb7f54" compoundref="d9/df9/common_8cpp" startline="24" endline="40">mknix::interpolate1D</references>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a92a5358c2a4305b15d33d265e4603621" compoundref="df/dfb/gausspoint_8cpp" startline="128" endline="177">mknix::GaussPoint::computeHij</referencedby>
       </memberdef>
       <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1a043208ee829f606a01ca631ed14afaf3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>lmx::DenseMatrix&lt; double &gt; &amp;</type>
+        <type><ref refid="d2/d8d/classlmx_1_1_dense_matrix" kindref="compound">lmx::DenseMatrix</ref>&lt; double &gt; &amp;</type>
         <definition>lmx::DenseMatrix&lt;double&gt;&amp; mknix::Material::getD</definition>
         <argsstring>()</argsstring>
         <name>getD</name>
@@ -326,13 +323,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="57" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="57" bodyend="57"/>
-        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1aec3728abc07b0daa885b5a663916c95e" compoundref="df/dfb/gausspoint_8cpp" startline="276" endline="329">mknix::GaussPoint::computeKij</referencedby>
-        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a4ed005e06a27c61eaf650dc841caf897" compoundref="df/dfb/gausspoint_8cpp" startline="332" endline="380">mknix::GaussPoint::computeStress</referencedby>
-        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a2b0667914f2a511167db6049616bf188" compoundref="df/dfb/gausspoint_8cpp" startline="501" endline="716">mknix::GaussPoint::computeNLKij</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="71" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="71" bodyend="73"/>
+        <referencedby refid="df/d77/classmknix_1_1_gauss_point2_d_1a42ca0ecb4a8d01315da3992b7a596250" compoundref="d2/d0a/gausspoint2_d_8cpp" startline="133" endline="157">mknix::GaussPoint2D::computeKij</referencedby>
+        <referencedby refid="df/d77/classmknix_1_1_gauss_point2_d_1a83cd389403d0293f1e634b40195db230" compoundref="d2/d0a/gausspoint2_d_8cpp" startline="160" endline="214">mknix::GaussPoint2D::computeStress</referencedby>
+        <referencedby refid="d6/d47/classmknix_1_1_gauss_point3_d_1ae9df1aabb0be56e262fa2de682443d03" compoundref="d8/d55/gausspoint3_d_8cpp" startline="137" endline="164">mknix::GaussPoint3D::computeKij</referencedby>
+        <referencedby refid="d6/d47/classmknix_1_1_gauss_point3_d_1afa3d26578c0ab96f01ac2eb84d2b7172" compoundref="d8/d55/gausspoint3_d_8cpp" startline="167" endline="210">mknix::GaussPoint3D::computeStress</referencedby>
       </memberdef>
       <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1a7005a08df113237a9cb6d36959bb9d25" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>lmx::DenseMatrix&lt; double &gt; &amp;</type>
+        <type><ref refid="d2/d8d/classlmx_1_1_dense_matrix" kindref="compound">lmx::DenseMatrix</ref>&lt; double &gt; &amp;</type>
         <definition>lmx::DenseMatrix&lt;double&gt;&amp; mknix::Material::getC</definition>
         <argsstring>()</argsstring>
         <name>getC</name>
@@ -342,8 +340,111 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="59" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="59" bodyend="59"/>
-        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a2b0667914f2a511167db6049616bf188" compoundref="df/dfb/gausspoint_8cpp" startline="501" endline="716">mknix::GaussPoint::computeNLKij</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="74" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="74" bodyend="76"/>
+        <referencedby refid="df/d77/classmknix_1_1_gauss_point2_d_1a6be7350b45c5a0b6a912bb2559a5d2d2" compoundref="d2/d0a/gausspoint2_d_8cpp" startline="312" endline="468">mknix::GaussPoint2D::computeNLKij</referencedby>
+        <referencedby refid="d6/d47/classmknix_1_1_gauss_point3_d_1ab9cda3ea610065fb52c663811b38448f" compoundref="d8/d55/gausspoint3_d_8cpp" startline="326" endline="494">mknix::GaussPoint3D::computeNLKij</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1a22038cbf9d81b5931294086a409a91cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Material::setThermalProps</definition>
+        <argsstring>(double capacity_in, double kappa_in, double beta_in, double density_in)</argsstring>
+        <name>setThermalProps</name>
+        <param>
+          <type>double</type>
+          <declname>capacity_in</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>kappa_in</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>beta_in</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>density_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="78" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.cpp" bodystart="39" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1ac024923b9ec732c56303ead69bb2c130" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Material::setMechanicalProps</definition>
+        <argsstring>(int dim_in, double young_in, double poisson_in, double density_in)</argsstring>
+        <name>setMechanicalProps</name>
+        <param>
+          <type>int</type>
+          <declname>dim_in</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>young_in</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>poisson_in</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>density_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="79" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.cpp" bodystart="48" bodyend="58"/>
+        <references refid="d6/d4a/classmknix_1_1_material_1a134d81df672beb86b49b23dc0ac8cfe7" compoundref="d7/d5c/material_8cpp" startline="60" endline="92">computeD</references>
+        <references refid="d6/d4a/classmknix_1_1_material_1a30503f7c95cd5f7410836224b9e66c19" compoundref="d7/d5c/material_8cpp" startline="94" endline="124">computeC</references>
+      </memberdef>
+      <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1a10d83103594faee3cafc800585b7ab84" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Material::addThermalCapacity</definition>
+        <argsstring>(double temp_in, double capacity_in)</argsstring>
+        <name>addThermalCapacity</name>
+        <param>
+          <type>double</type>
+          <declname>temp_in</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>capacity_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="81" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="81" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1a6fdcdf0ec301eefc568ac2e0b5cfce9e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Material::addThermalConductivity</definition>
+        <argsstring>(double temp_in, double conductivity_in)</argsstring>
+        <name>addThermalConductivity</name>
+        <param>
+          <type>double</type>
+          <declname>temp_in</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>conductivity_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="83" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="83" bodyend="84"/>
       </memberdef>
       <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1a134d81df672beb86b49b23dc0ac8cfe7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -356,8 +457,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="61" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.cpp" bodystart="49" bodyend="80"/>
-        <referencedby refid="d6/d4a/classmknix_1_1_material_1a10a6d06e979d85892c01fe59c908d06d" compoundref="d7/d5c/material_8cpp" startline="35" endline="42">Material</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="86" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.cpp" bodystart="60" bodyend="92"/>
+        <referencedby refid="d6/d4a/classmknix_1_1_material_1ac024923b9ec732c56303ead69bb2c130" compoundref="d7/d5c/material_8cpp" startline="48" endline="58">setMechanicalProps</referencedby>
       </memberdef>
       <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1a30503f7c95cd5f7410836224b9e66c19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -370,8 +471,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="63" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.cpp" bodystart="82" bodyend="112"/>
-        <referencedby refid="d6/d4a/classmknix_1_1_material_1a10a6d06e979d85892c01fe59c908d06d" compoundref="d7/d5c/material_8cpp" startline="35" endline="42">Material</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="88" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.cpp" bodystart="94" bodyend="124"/>
+        <referencedby refid="d6/d4a/classmknix_1_1_material_1ac024923b9ec732c56303ead69bb2c130" compoundref="d7/d5c/material_8cpp" startline="48" endline="58">setMechanicalProps</referencedby>
       </memberdef>
       <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1a457fa23b27193eb7b05f28cce48815c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -400,12 +501,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="65" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.cpp" bodystart="114" bodyend="117"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="90" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.cpp" bodystart="126" bodyend="129"/>
       </memberdef>
-      <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1a4659947ce09c0f9c02b61d8f7d37dec8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1ad7776950a550d384c1a00bd4c33bab2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void mknix::Material::computeS</definition>
-        <argsstring>(cofe::TensorRank2Sym&lt; 2, double &gt; &amp;S, const cofe::TensorRank2&lt; 2, double &gt; &amp;F)</argsstring>
+        <argsstring>(cofe::TensorRank2Sym&lt; 2, double &gt; &amp;S, const cofe::TensorRank2&lt; 2, double &gt; &amp;F, double)</argsstring>
         <name>computeS</name>
         <param>
           <type>cofe::TensorRank2Sym&lt; 2, double &gt; &amp;</type>
@@ -415,14 +516,19 @@
           <type>const cofe::TensorRank2&lt; 2, double &gt; &amp;</type>
           <declname>F</declname>
         </param>
+        <param>
+          <type>double</type>
+          <defname>temperature_in</defname>
+        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="67" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.cpp" bodystart="128" bodyend="144"/>
-        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a6114329f1c2757b8a0628d88e9d82339" compoundref="df/dfb/gausspoint_8cpp" startline="453" endline="499">mknix::GaussPoint::computeNLFint</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="92" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.cpp" bodystart="139" bodyend="163"/>
+        <referencedby refid="df/d77/classmknix_1_1_gauss_point2_d_1ac819bbc7e45e1ed775bbd2e88f083361" compoundref="d2/d0a/gausspoint2_d_8cpp" startline="288" endline="310">mknix::GaussPoint2D::computeNLFint</referencedby>
+        <referencedby refid="d6/d47/classmknix_1_1_gauss_point3_d_1ae4554113fd952654ef65f1b2e74578b7" compoundref="d8/d55/gausspoint3_d_8cpp" startline="302" endline="324">mknix::GaussPoint3D::computeNLFint</referencedby>
       </memberdef>
       <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1a837495b42050514f0c22513a05d438d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -443,7 +549,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="68" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.cpp" bodystart="146" bodyend="162"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="93" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.cpp" bodystart="165" bodyend="181"/>
       </memberdef>
       <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1a682b5ff79b4e899acb8d691aa01609c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -460,8 +566,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="70" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.cpp" bodystart="164" bodyend="176"/>
-        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a43f19e4df71c710f9150b834cb956f89" compoundref="df/dfb/gausspoint_8cpp" startline="875" endline="888">mknix::GaussPoint::calcElasticE</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="95" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.cpp" bodystart="183" bodyend="195"/>
+        <referencedby refid="df/d77/classmknix_1_1_gauss_point2_d_1a54f1859185e8c54320ac1bbfd4518072" compoundref="d2/d0a/gausspoint2_d_8cpp" startline="596" endline="608">mknix::GaussPoint2D::calcElasticE</referencedby>
+        <referencedby refid="d6/d47/classmknix_1_1_gauss_point3_d_1a0ae56804d7f50d4d810421b85364dc28" compoundref="d8/d55/gausspoint3_d_8cpp" startline="609" endline="621">mknix::GaussPoint3D::calcElasticE</referencedby>
       </memberdef>
       <memberdef kind="function" id="d6/d4a/classmknix_1_1_material_1a9183dec8b227f1a4ff6c45948a1523f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
@@ -478,7 +585,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="71" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.cpp" bodystart="178" bodyend="190"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="96" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.cpp" bodystart="197" bodyend="209"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -509,7 +616,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="74" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.cpp" bodystart="119" bodyend="125"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="99" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.cpp" bodystart="131" bodyend="137"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -517,8 +624,11 @@
     <detaileddescription>
 <para><simplesect kind="author"><para>Daniel Iglesias </para></simplesect>
 </para>    </detaileddescription>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/material.h" line="30" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/material.h" bodystart="30" bodyend="76"/>
+    <location file="/home/daniel/Projects/MkniX/src/core/material.h" line="32" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/material.h" bodystart="32" bodyend="101"/>
     <listofallmembers>
+      <member refid="d6/d4a/classmknix_1_1_material_1a10d83103594faee3cafc800585b7ab84" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>addThermalCapacity</name></member>
+      <member refid="d6/d4a/classmknix_1_1_material_1a6fdcdf0ec301eefc568ac2e0b5cfce9e" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>addThermalConductivity</name></member>
+      <member refid="d6/d4a/classmknix_1_1_material_1a8229d737ec6cac84636d562f4a76d59e" prot="private" virt="non-virtual"><scope>mknix::Material</scope><name>beta</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1a4c6702d0f541c9d1faa7e294fc630aaf" prot="private" virt="non-virtual"><scope>mknix::Material</scope><name>C</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1a22182cb91c91a787b18e781d420261cd" prot="private" virt="non-virtual"><scope>mknix::Material</scope><name>capacity</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1a94809396be5afdea82f87e446fbac570" prot="private" virt="non-virtual"><scope>mknix::Material</scope><name>Cijkl</name></member>
@@ -526,7 +636,7 @@
       <member refid="d6/d4a/classmknix_1_1_material_1a134d81df672beb86b49b23dc0ac8cfe7" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>computeD</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1a682b5ff79b4e899acb8d691aa01609c6" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>computeEnergy</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1a9183dec8b227f1a4ff6c45948a1523f8" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>computeEnergy</name></member>
-      <member refid="d6/d4a/classmknix_1_1_material_1a4659947ce09c0f9c02b61d8f7d37dec8" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>computeS</name></member>
+      <member refid="d6/d4a/classmknix_1_1_material_1ad7776950a550d384c1a00bd4c33bab2a" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>computeS</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1a837495b42050514f0c22513a05d438d8" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>computeS</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1af8dc0e506a6d967ac3eb46ec97d02bb2" prot="private" virt="non-virtual"><scope>mknix::Material</scope><name>D</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1a28cee53e375b792f6fa9166a66a68e4f" prot="private" virt="non-virtual"><scope>mknix::Material</scope><name>density</name></member>
@@ -534,20 +644,22 @@
       <member refid="d6/d4a/classmknix_1_1_material_1a2fdb54035dd25c26190e9fae238afd41" prot="private" virt="non-virtual"><scope>mknix::Material</scope><name>E</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1af59ec081a4adfeb2cc04a2b16ddf5ef6" prot="private" virt="non-virtual"><scope>mknix::Material</scope><name>E3</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1a7005a08df113237a9cb6d36959bb9d25" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>getC</name></member>
-      <member refid="d6/d4a/classmknix_1_1_material_1af9d29d92b850bb0a3e2ebb8ed01261b2" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>getCapacity</name></member>
+      <member refid="d6/d4a/classmknix_1_1_material_1aacb94c35534ffe8a2d15d977ce630b44" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>getCapacity</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1a457fa23b27193eb7b05f28cce48815c9" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>getCsym</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1a043208ee829f606a01ca631ed14afaf3" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>getD</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1a65d3c9fb96d96ba179c9e4c3c68b814b" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>getDensity</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1a5e0f78fc32bea9435b20f6583de1c1e6" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>getE</name></member>
-      <member refid="d6/d4a/classmknix_1_1_material_1afc5fe69937d640e9380f62f2614424c8" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>getKappa</name></member>
+      <member refid="d6/d4a/classmknix_1_1_material_1a93b8de406b8356e577803cc26179b051" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>getKappa</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1ae9162080889d12bd5f8759b4efce2e1e" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>getMu</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1ab39d314041ab2220b0ad1ffbd55deee2" prot="private" virt="non-virtual"><scope>mknix::Material</scope><name>kappa</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1a1d92c5a3fe751c31e435014057d3df6f" prot="private" virt="non-virtual"><scope>mknix::Material</scope><name>lambda</name></member>
+      <member refid="d6/d4a/classmknix_1_1_material_1a1877595b6128d00ff56c38e2e30c9e33" prot="private" virt="non-virtual"><scope>mknix::Material</scope><name>m_capacity</name></member>
+      <member refid="d6/d4a/classmknix_1_1_material_1ab8c5b3161744a52fbaf4affa3d236215" prot="private" virt="non-virtual"><scope>mknix::Material</scope><name>m_kapppa</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1a6bfec89c033e42c81479ffeb2cfca33b" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>Material</name></member>
-      <member refid="d6/d4a/classmknix_1_1_material_1a1f5cfec4e49a4dbfba8ccd2d2b3ac6c9" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>Material</name></member>
-      <member refid="d6/d4a/classmknix_1_1_material_1a10a6d06e979d85892c01fe59c908d06d" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>Material</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1a2a866ccfb57e8ea51edd150421ef5752" prot="private" virt="non-virtual"><scope>mknix::Material</scope><name>mu</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1a928026c613391e7eb5d48230dcd02562" prot="private" virt="non-virtual"><scope>mknix::Material</scope><name>poisson</name></member>
+      <member refid="d6/d4a/classmknix_1_1_material_1ac024923b9ec732c56303ead69bb2c130" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>setMechanicalProps</name></member>
+      <member refid="d6/d4a/classmknix_1_1_material_1a22038cbf9d81b5931294086a409a91cd" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>setThermalProps</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1a9562bb2fd31c5dc671361a0ed2c1e89f" prot="private" virt="non-virtual"><scope>mknix::Material</scope><name>young</name></member>
       <member refid="d6/d4a/classmknix_1_1_material_1ab0c23c9dfb7119afa0f20e912d4af6e6" prot="public" virt="non-virtual"><scope>mknix::Material</scope><name>~Material</name></member>
     </listofallmembers>

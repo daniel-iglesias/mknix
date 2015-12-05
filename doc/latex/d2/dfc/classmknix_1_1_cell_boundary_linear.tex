@@ -1,0 +1,230 @@
+\hypertarget{classmknix_1_1_cell_boundary_linear}{}\subsection{mknix\+:\+:Cell\+Boundary\+Linear Class Reference}
+\label{classmknix_1_1_cell_boundary_linear}\index{mknix\+::\+Cell\+Boundary\+Linear@{mknix\+::\+Cell\+Boundary\+Linear}}
+
+
+{\ttfamily \#include $<$cellboundarylinear.\+h$>$}
+
+
+
+Inheritance diagram for mknix\+:\+:Cell\+Boundary\+Linear\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{df/d13/classmknix_1_1_cell_boundary_linear__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mknix\+:\+:Cell\+Boundary\+Linear\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=214pt]{d8/d2b/classmknix_1_1_cell_boundary_linear__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmknix_1_1_cell_boundary_linear_aa83f76ade7dd5353609685270f0cc91d}{Cell\+Boundary\+Linear} ()
+\item 
+\hyperlink{classmknix_1_1_cell_boundary_linear_abd081fad99e161a237a72223f6d70887}{Cell\+Boundary\+Linear} (std\+::string, double, int, \hyperlink{classmknix_1_1_point}{Point} $\ast$, \hyperlink{classmknix_1_1_point}{Point} $\ast$)
+\item 
+\hyperlink{classmknix_1_1_cell_boundary_linear_a3e2f2235aa3af604f1a81af20d4429f2}{Cell\+Boundary\+Linear} (std\+::string, double, int, \hyperlink{classmknix_1_1_point}{Point} $\ast$, \hyperlink{classmknix_1_1_point}{Point} $\ast$, double)
+\item 
+\hyperlink{classmknix_1_1_cell_boundary_linear_acf34a61929cd06bbc0cfedf4005254c9}{$\sim$\+Cell\+Boundary\+Linear} ()
+\item 
+virtual void \hyperlink{classmknix_1_1_cell_boundary_linear_ab0f0e66b92accf5c88aaa7fac0b8bf59}{initialize} (std\+::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \&)
+\item 
+virtual void \hyperlink{classmknix_1_1_cell_boundary_linear_aea9ed39a191f3e6e89c465f6e3db3002}{compute\+Shape\+Functions} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classmknix_1_1_cell_boundary_linear_a45b26c454824aac48876515f9bf154e9}{create\+Gauss\+Points} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+cofe\+::\+Tensor\+Rank2$<$ 3, double $>$ \hyperlink{classmknix_1_1_cell_boundary_linear_aacc5e09eb0a0659471b7d464f506d276}{points}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Daniel Iglesias 
+\end{DoxyAuthor}
+
+
+Definition at line 42 of file cellboundarylinear.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{classmknix_1_1_cell_boundary_linear_aa83f76ade7dd5353609685270f0cc91d}{}\index{mknix\+::\+Cell\+Boundary\+Linear@{mknix\+::\+Cell\+Boundary\+Linear}!Cell\+Boundary\+Linear@{Cell\+Boundary\+Linear}}
+\index{Cell\+Boundary\+Linear@{Cell\+Boundary\+Linear}!mknix\+::\+Cell\+Boundary\+Linear@{mknix\+::\+Cell\+Boundary\+Linear}}
+\paragraph[{Cell\+Boundary\+Linear}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+Cell\+Boundary\+Linear\+::\+Cell\+Boundary\+Linear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_cell_boundary_linear_aa83f76ade7dd5353609685270f0cc91d}
+
+
+Definition at line 9 of file cellboundarylinear.\+cpp.
+
+\hypertarget{classmknix_1_1_cell_boundary_linear_abd081fad99e161a237a72223f6d70887}{}\index{mknix\+::\+Cell\+Boundary\+Linear@{mknix\+::\+Cell\+Boundary\+Linear}!Cell\+Boundary\+Linear@{Cell\+Boundary\+Linear}}
+\index{Cell\+Boundary\+Linear@{Cell\+Boundary\+Linear}!mknix\+::\+Cell\+Boundary\+Linear@{mknix\+::\+Cell\+Boundary\+Linear}}
+\paragraph[{Cell\+Boundary\+Linear}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+Cell\+Boundary\+Linear\+::\+Cell\+Boundary\+Linear (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{formulation\+\_\+in, }
+\item[{double}]{alpha\+\_\+in, }
+\item[{int}]{n\+G\+Points\+\_\+in, }
+\item[{{\bf Point} $\ast$}]{n1\+\_\+in, }
+\item[{{\bf Point} $\ast$}]{n2\+\_\+in}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_cell_boundary_linear_abd081fad99e161a237a72223f6d70887}
+
+
+Definition at line 14 of file cellboundarylinear.\+cpp.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/dfc/classmknix_1_1_cell_boundary_linear_abd081fad99e161a237a72223f6d70887_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_cell_boundary_linear_a3e2f2235aa3af604f1a81af20d4429f2}{}\index{mknix\+::\+Cell\+Boundary\+Linear@{mknix\+::\+Cell\+Boundary\+Linear}!Cell\+Boundary\+Linear@{Cell\+Boundary\+Linear}}
+\index{Cell\+Boundary\+Linear@{Cell\+Boundary\+Linear}!mknix\+::\+Cell\+Boundary\+Linear@{mknix\+::\+Cell\+Boundary\+Linear}}
+\paragraph[{Cell\+Boundary\+Linear}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+Cell\+Boundary\+Linear\+::\+Cell\+Boundary\+Linear (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{formulation\+\_\+in, }
+\item[{double}]{alpha\+\_\+in, }
+\item[{int}]{n\+G\+Points\+\_\+in, }
+\item[{{\bf Point} $\ast$}]{n1\+\_\+in, }
+\item[{{\bf Point} $\ast$}]{n2\+\_\+in, }
+\item[{double}]{dc\+\_\+in}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_cell_boundary_linear_a3e2f2235aa3af604f1a81af20d4429f2}
+
+
+Definition at line 42 of file cellboundarylinear.\+cpp.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/dfc/classmknix_1_1_cell_boundary_linear_a3e2f2235aa3af604f1a81af20d4429f2_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_cell_boundary_linear_acf34a61929cd06bbc0cfedf4005254c9}{}\index{mknix\+::\+Cell\+Boundary\+Linear@{mknix\+::\+Cell\+Boundary\+Linear}!````~Cell\+Boundary\+Linear@{$\sim$\+Cell\+Boundary\+Linear}}
+\index{````~Cell\+Boundary\+Linear@{$\sim$\+Cell\+Boundary\+Linear}!mknix\+::\+Cell\+Boundary\+Linear@{mknix\+::\+Cell\+Boundary\+Linear}}
+\paragraph[{$\sim$\+Cell\+Boundary\+Linear}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+Cell\+Boundary\+Linear\+::$\sim$\+Cell\+Boundary\+Linear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_cell_boundary_linear_acf34a61929cd06bbc0cfedf4005254c9}
+
+
+Definition at line 70 of file cellboundarylinear.\+cpp.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classmknix_1_1_cell_boundary_linear_aea9ed39a191f3e6e89c465f6e3db3002}{}\index{mknix\+::\+Cell\+Boundary\+Linear@{mknix\+::\+Cell\+Boundary\+Linear}!compute\+Shape\+Functions@{compute\+Shape\+Functions}}
+\index{compute\+Shape\+Functions@{compute\+Shape\+Functions}!mknix\+::\+Cell\+Boundary\+Linear@{mknix\+::\+Cell\+Boundary\+Linear}}
+\paragraph[{compute\+Shape\+Functions}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Cell\+Boundary\+Linear\+::compute\+Shape\+Functions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_cell_boundary_linear_aea9ed39a191f3e6e89c465f6e3db3002}
+
+
+Reimplemented from \hyperlink{classmknix_1_1_cell_boundary_a3821f8f675ec0545a25e9971a4f8aaf3}{mknix\+::\+Cell\+Boundary}.
+
+
+
+Definition at line 92 of file cellboundarylinear.\+cpp.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/dfc/classmknix_1_1_cell_boundary_linear_aea9ed39a191f3e6e89c465f6e3db3002_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_cell_boundary_linear_a45b26c454824aac48876515f9bf154e9}{}\index{mknix\+::\+Cell\+Boundary\+Linear@{mknix\+::\+Cell\+Boundary\+Linear}!create\+Gauss\+Points@{create\+Gauss\+Points}}
+\index{create\+Gauss\+Points@{create\+Gauss\+Points}!mknix\+::\+Cell\+Boundary\+Linear@{mknix\+::\+Cell\+Boundary\+Linear}}
+\paragraph[{create\+Gauss\+Points}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Cell\+Boundary\+Linear\+::create\+Gauss\+Points (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_cell_boundary_linear_a45b26c454824aac48876515f9bf154e9}
+
+
+Definition at line 105 of file cellboundarylinear.\+cpp.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/dfc/classmknix_1_1_cell_boundary_linear_a45b26c454824aac48876515f9bf154e9_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_cell_boundary_linear_ab0f0e66b92accf5c88aaa7fac0b8bf59}{}\index{mknix\+::\+Cell\+Boundary\+Linear@{mknix\+::\+Cell\+Boundary\+Linear}!initialize@{initialize}}
+\index{initialize@{initialize}!mknix\+::\+Cell\+Boundary\+Linear@{mknix\+::\+Cell\+Boundary\+Linear}}
+\paragraph[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Cell\+Boundary\+Linear\+::initialize (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Node} $\ast$ $>$ \&}]{nodes\+\_\+in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_cell_boundary_linear_ab0f0e66b92accf5c88aaa7fac0b8bf59}
+
+
+Reimplemented from \hyperlink{classmknix_1_1_cell_boundary_afeb33c21dbf85f27d372a06d1a249459}{mknix\+::\+Cell\+Boundary}.
+
+
+
+Definition at line 75 of file cellboundarylinear.\+cpp.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/dfc/classmknix_1_1_cell_boundary_linear_ab0f0e66b92accf5c88aaa7fac0b8bf59_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsubsection{Member Data Documentation}
+\hypertarget{classmknix_1_1_cell_boundary_linear_aacc5e09eb0a0659471b7d464f506d276}{}\index{mknix\+::\+Cell\+Boundary\+Linear@{mknix\+::\+Cell\+Boundary\+Linear}!points@{points}}
+\index{points@{points}!mknix\+::\+Cell\+Boundary\+Linear@{mknix\+::\+Cell\+Boundary\+Linear}}
+\paragraph[{points}]{\setlength{\rightskip}{0pt plus 5cm}cofe\+::\+Tensor\+Rank2$<$3, double$>$ mknix\+::\+Cell\+Boundary\+Linear\+::points\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_cell_boundary_linear_aacc5e09eb0a0659471b7d464f506d276}
+position of vertex points 
+
+Definition at line 45 of file cellboundarylinear.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{cellboundarylinear_8h}{cellboundarylinear.\+h}\item 
+\hyperlink{cellboundarylinear_8cpp}{cellboundarylinear.\+cpp}\end{DoxyCompactItemize}

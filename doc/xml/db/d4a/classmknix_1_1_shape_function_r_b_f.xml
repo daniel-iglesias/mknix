@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="db/d4a/classmknix_1_1_shape_function_r_b_f" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="db/d4a/classmknix_1_1_shape_function_r_b_f" kind="class" language="C++" prot="public">
     <compoundname>mknix::ShapeFunctionRBF</compoundname>
     <basecompoundref refid="dd/d8d/classmknix_1_1_shape_function" prot="public" virt="non-virtual">mknix::ShapeFunction</basecompoundref>
     <includes refid="d9/d2f/shapefunction_r_b_f_8h" local="no">shapefunctionRBF.h</includes>
@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" line="27" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" bodystart="27" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" line="45" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="db/d4a/classmknix_1_1_shape_function_r_b_f_1a7b706cad4b43b089e6324a257c3b653a" prot="private" static="no" mutable="no">
         <type>int</type>
@@ -29,7 +29,7 @@
 <para>Number of radial basis functions(nn) and monomials(mm). </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" line="27" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" bodystart="27" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" line="45" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="db/d4a/classmknix_1_1_shape_function_r_b_f_1aaf865381ff5edb7f01ed10a4cba5a193" prot="private" static="no" mutable="no">
         <type>int</type>
@@ -42,7 +42,7 @@
 <para>Selector of radial basis functions type. Can be == 0 for Multi-Quadrics (MQ) == 1 for Gaussian (EXP) == 2 Thin plate spline (TPS) == 10 Wu-C2 </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" line="28" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" bodystart="28" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" line="46" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="db/d4a/classmknix_1_1_shape_function_r_b_f_1a4c5b1537d7b89928d314aeae9245616b" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -55,7 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" line="33" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" bodystart="33" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" line="51" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="db/d4a/classmknix_1_1_shape_function_r_b_f_1ae1e159e064f0be5fce174fd42517b445" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" line="33" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" bodystart="33" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" line="51" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="db/d4a/classmknix_1_1_shape_function_r_b_f_1a9b3f5ca89e677db9e13d6accb3dd8615" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -81,10 +81,10 @@
 <para>function&apos;s parameters. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" line="33" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" bodystart="33" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" line="51" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="db/d4a/classmknix_1_1_shape_function_r_b_f_1a5cf0d614e23419bbf21165ea5469806d" prot="private" static="no" mutable="no">
-        <type>lmx::DenseMatrix&lt; double &gt;</type>
+        <type><ref refid="d2/d8d/classlmx_1_1_dense_matrix" kindref="compound">lmx::DenseMatrix</ref>&lt; double &gt;</type>
         <definition>lmx::DenseMatrix&lt;double&gt; mknix::ShapeFunctionRBF::g_o</definition>
         <argsstring></argsstring>
         <name>g_o</name>
@@ -94,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" line="34" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" bodystart="34" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" line="52" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -109,7 +109,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" line="37" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.cpp" bodystart="10" bodyend="12"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" line="55" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.cpp" bodystart="10" bodyend="12"/>
       </memberdef>
       <memberdef kind="function" id="db/d4a/classmknix_1_1_shape_function_r_b_f_1ac4cf69a304fa69e9cb62d94d11d2a780" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -150,9 +150,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" line="39" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.cpp" bodystart="15" bodyend="50"/>
-        <references refid="dd/d8d/classmknix_1_1_shape_function_1a1ca9a4d7bc5f82c887ac7e9bdd54aa1e" compoundref="d3/d16/shapefunction_8h" startline="28">mknix::ShapeFunction::dim</references>
-        <references refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" compoundref="d3/d16/shapefunction_8h" startline="29">mknix::ShapeFunction::phi</references>
+        <location file="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" line="57" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.cpp" bodystart="15" bodyend="50"/>
+        <references refid="dd/d8d/classmknix_1_1_shape_function_1a1ca9a4d7bc5f82c887ac7e9bdd54aa1e" compoundref="d3/d16/shapefunction_8h" startline="46">mknix::ShapeFunction::dim</references>
+        <references refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" compoundref="d3/d16/shapefunction_8h" startline="47">mknix::ShapeFunction::phi</references>
       </memberdef>
       <memberdef kind="function" id="db/d4a/classmknix_1_1_shape_function_r_b_f_1a7a46908b3fbbbd7ffc312698e15b3d8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -165,7 +165,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" line="42" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.cpp" bodystart="53" bodyend="55"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" line="60" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.cpp" bodystart="53" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="db/d4a/classmknix_1_1_shape_function_r_b_f_1a84441360824f4a8b754d0ae9f547c4ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -179,11 +179,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" line="44" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.cpp" bodystart="57" bodyend="63"/>
-        <references refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" compoundref="d3/d16/shapefunction_8h" startline="30">mknix::ShapeFunction::gp</references>
-        <references refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" compoundref="d2/d91/point_8h" startline="94">mknix::Point::X</references>
-        <references refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" compoundref="d2/d91/point_8h" startline="94">mknix::Point::Y</references>
-        <references refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" compoundref="d2/d91/point_8h" startline="94">mknix::Point::Z</references>
+        <location file="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" line="62" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.cpp" bodystart="57" bodyend="64"/>
+        <references refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" compoundref="d3/d16/shapefunction_8h" startline="48">mknix::ShapeFunction::gp</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" compoundref="d2/d91/point_8h" startline="97" endline="100">mknix::Point::getX</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" compoundref="d2/d91/point_8h" startline="102" endline="105">mknix::Point::getY</references>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -198,7 +197,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" line="47" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.cpp" bodystart="65" bodyend="150"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" line="65" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.cpp" bodystart="66" bodyend="150"/>
       </memberdef>
       <memberdef kind="function" id="db/d4a/classmknix_1_1_shape_function_r_b_f_1a5248392910822f57e11811cb4bd9cf77" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -223,7 +222,7 @@
         </detaileddescription>
         <inbodydescription>
 <para>&lt; Radial basis and derivatives.</para><para>&lt; Radial basis and derivatives. </para>        </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" line="49" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.cpp" bodystart="152" bodyend="327"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" line="67" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.cpp" bodystart="152" bodyend="328"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -232,40 +231,47 @@
 <para><simplesect kind="author"><para>Daniel Iglesias </para></simplesect>
 </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="436">
+      <node id="805">
         <label>mknix::ShapeFunctionRBF</label>
         <link refid="db/d4a/classmknix_1_1_shape_function_r_b_f"/>
-        <childnode refid="437" relation="public-inheritance">
+        <childnode refid="806" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="437">
+      <node id="806">
         <label>mknix::ShapeFunction</label>
         <link refid="dd/d8d/classmknix_1_1_shape_function"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="438">
+      <node id="807">
         <label>mknix::ShapeFunctionRBF</label>
         <link refid="db/d4a/classmknix_1_1_shape_function_r_b_f"/>
-        <childnode refid="439" relation="public-inheritance">
+        <childnode refid="808" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="440">
+      <node id="810">
         <label>mknix::Point</label>
         <link refid="d3/d19/classmknix_1_1_point"/>
-        <childnode refid="439" relation="usage">
+        <childnode refid="808" relation="usage">
           <edgelabel>shapeFun</edgelabel>
         </childnode>
       </node>
-      <node id="439">
+      <node id="808">
         <label>mknix::ShapeFunction</label>
         <link refid="dd/d8d/classmknix_1_1_shape_function"/>
-        <childnode refid="440" relation="usage">
+        <childnode refid="809" relation="usage">
+          <edgelabel>phi</edgelabel>
+        </childnode>
+        <childnode refid="810" relation="usage">
           <edgelabel>gp</edgelabel>
         </childnode>
       </node>
+      <node id="809">
+        <label>lmx::DenseMatrix&lt; double &gt;</label>
+        <link refid="d2/d8d/classlmx_1_1_dense_matrix"/>
+      </node>
     </collaborationgraph>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" line="24" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionRBF.h" bodystart="24" bodyend="52"/>
+    <location file="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" line="42" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctionRBF.h" bodystart="42" bodyend="70"/>
     <listofallmembers>
       <member refid="db/d4a/classmknix_1_1_shape_function_r_b_f_1a4c5b1537d7b89928d314aeae9245616b" prot="private" virt="non-virtual"><scope>mknix::ShapeFunctionRBF</scope><name>alpha_c</name></member>
       <member refid="db/d4a/classmknix_1_1_shape_function_r_b_f_1a84441360824f4a8b754d0ae9f547c4ee" prot="public" virt="virtual"><scope>mknix::ShapeFunctionRBF</scope><name>calc</name></member>
@@ -285,6 +291,7 @@
       <member refid="db/d4a/classmknix_1_1_shape_function_r_b_f_1aaf865381ff5edb7f01ed10a4cba5a193" prot="private" virt="non-virtual"><scope>mknix::ShapeFunctionRBF</scope><name>rbfType</name></member>
       <member refid="dd/d8d/classmknix_1_1_shape_function_1a45248275e5e6fcaed37195155009e72e" prot="public" virt="virtual"><scope>mknix::ShapeFunctionRBF</scope><name>setPhi</name></member>
       <member refid="dd/d8d/classmknix_1_1_shape_function_1a4a35da60e8eb2645a217cce36e6e323a" prot="public" virt="non-virtual"><scope>mknix::ShapeFunctionRBF</scope><name>ShapeFunction</name></member>
+      <member refid="dd/d8d/classmknix_1_1_shape_function_1ae8a319daf0505fbacb0f159226e1a5ab" prot="public" virt="non-virtual"><scope>mknix::ShapeFunctionRBF</scope><name>ShapeFunction</name></member>
       <member refid="dd/d8d/classmknix_1_1_shape_function_1adaf264f0f7ae964f9c9dc513e3fe7195" prot="public" virt="non-virtual"><scope>mknix::ShapeFunctionRBF</scope><name>ShapeFunction</name></member>
       <member refid="db/d4a/classmknix_1_1_shape_function_r_b_f_1a9ef5a4d07fa2a1d2203135c53db614e8" prot="public" virt="non-virtual"><scope>mknix::ShapeFunctionRBF</scope><name>ShapeFunctionRBF</name></member>
       <member refid="db/d4a/classmknix_1_1_shape_function_r_b_f_1ac4cf69a304fa69e9cb62d94d11d2a780" prot="public" virt="non-virtual"><scope>mknix::ShapeFunctionRBF</scope><name>ShapeFunctionRBF</name></member>

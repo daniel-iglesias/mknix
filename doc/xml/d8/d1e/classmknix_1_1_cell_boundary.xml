@@ -1,0 +1,283 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d8/d1e/classmknix_1_1_cell_boundary" kind="class" language="C++" prot="public">
+    <compoundname>mknix::CellBoundary</compoundname>
+    <derivedcompoundref refid="d2/dfc/classmknix_1_1_cell_boundary_linear" prot="public" virt="non-virtual">mknix::CellBoundaryLinear</derivedcompoundref>
+    <includes refid="db/d20/cellboundary_8h" local="no">cellboundary.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="d8/d1e/classmknix_1_1_cell_boundary_1af33b7951a3757bf0362ab8e3164d4bc4" prot="protected" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string mknix::CellBoundary::formulation</definition>
+        <argsstring></argsstring>
+        <name>formulation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellboundary.h" line="77" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellboundary.h" bodystart="77" bodyend="-1"/>
+        <referencedby refid="d8/d1e/classmknix_1_1_cell_boundary_1afeb33c21dbf85f27d372a06d1a249459" compoundref="d6/dbd/cellboundary_8cpp" startline="35" endline="43">initialize</referencedby>
+        <referencedby refid="d8/d1e/classmknix_1_1_cell_boundary_1a3821f8f675ec0545a25e9971a4f8aaf3" compoundref="d6/dbd/cellboundary_8cpp" startline="46" endline="55">computeShapeFunctions</referencedby>
+        <referencedby refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1ab0f0e66b92accf5c88aaa7fac0b8bf59" compoundref="d8/d2d/cellboundarylinear_8cpp" startline="75" endline="89">mknix::CellBoundaryLinear::initialize</referencedby>
+        <referencedby refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aea9ed39a191f3e6e89c465f6e3db3002" compoundref="d8/d2d/cellboundarylinear_8cpp" startline="92" endline="102">mknix::CellBoundaryLinear::computeShapeFunctions</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d1e/classmknix_1_1_cell_boundary_1acb76359011a0d0d6be9ed8e4cd24a4d5" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::CellBoundary::alpha</definition>
+        <argsstring></argsstring>
+        <name>alpha</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellboundary.h" line="78" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellboundary.h" bodystart="78" bodyend="-1"/>
+        <referencedby refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1a45b26c454824aac48876515f9bf154e9" compoundref="d8/d2d/cellboundarylinear_8cpp" startline="105" endline="168">mknix::CellBoundaryLinear::createGaussPoints</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d1e/classmknix_1_1_cell_boundary_1a38706fffd4e1f057f52d86b19beb5ac7" prot="protected" static="no" mutable="no">
+        <type>int</type>
+        <definition>int mknix::CellBoundary::nGPoints</definition>
+        <argsstring></argsstring>
+        <name>nGPoints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>number of Gauss Points </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellboundary.h" line="79" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellboundary.h" bodystart="79" bodyend="-1"/>
+        <referencedby refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1a45b26c454824aac48876515f9bf154e9" compoundref="d8/d2d/cellboundarylinear_8cpp" startline="105" endline="168">mknix::CellBoundaryLinear::createGaussPoints</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d1e/classmknix_1_1_cell_boundary_1ae27f45b466e1bfc213bcca47d0ff85df" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="d0/de2/classmknix_1_1_gauss_point_boundary" kindref="compound">GaussPointBoundary</ref> * &gt;</type>
+        <definition>std::vector&lt;GaussPointBoundary*&gt; mknix::CellBoundary::gPoints</definition>
+        <argsstring></argsstring>
+        <name>gPoints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellboundary.h" line="80" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellboundary.h" bodystart="80" bodyend="-1"/>
+        <referencedby refid="d8/d1e/classmknix_1_1_cell_boundary_1ac93e019f0285d1701586a621599849c2" compoundref="d6/dbd/cellboundary_8cpp" startline="27" endline="32">~CellBoundary</referencedby>
+        <referencedby refid="d8/d1e/classmknix_1_1_cell_boundary_1afeb33c21dbf85f27d372a06d1a249459" compoundref="d6/dbd/cellboundary_8cpp" startline="35" endline="43">initialize</referencedby>
+        <referencedby refid="d8/d1e/classmknix_1_1_cell_boundary_1a3821f8f675ec0545a25e9971a4f8aaf3" compoundref="d6/dbd/cellboundary_8cpp" startline="46" endline="55">computeShapeFunctions</referencedby>
+        <referencedby refid="d8/d1e/classmknix_1_1_cell_boundary_1a267c6e554c2607c8c703ff52fe1b381a" compoundref="d6/dbd/cellboundary_8cpp" startline="58" endline="63">computeQextGaussPoints</referencedby>
+        <referencedby refid="d8/d1e/classmknix_1_1_cell_boundary_1a962cb7795b25874914f27f5e7de49eb2" compoundref="d6/dbd/cellboundary_8cpp" startline="65" endline="70">assembleQextGaussPoints</referencedby>
+        <referencedby refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1ab0f0e66b92accf5c88aaa7fac0b8bf59" compoundref="d8/d2d/cellboundarylinear_8cpp" startline="75" endline="89">mknix::CellBoundaryLinear::initialize</referencedby>
+        <referencedby refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aea9ed39a191f3e6e89c465f6e3db3002" compoundref="d8/d2d/cellboundarylinear_8cpp" startline="92" endline="102">mknix::CellBoundaryLinear::computeShapeFunctions</referencedby>
+        <referencedby refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1a45b26c454824aac48876515f9bf154e9" compoundref="d8/d2d/cellboundarylinear_8cpp" startline="105" endline="168">mknix::CellBoundaryLinear::createGaussPoints</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d1e/classmknix_1_1_cell_boundary_1aef298cd6eecdfce7582ff4ab31b8ae8d" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::CellBoundary::jacobian</definition>
+        <argsstring></argsstring>
+        <name>jacobian</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellboundary.h" line="81" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellboundary.h" bodystart="81" bodyend="-1"/>
+        <referencedby refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1abd081fad99e161a237a72223f6d70887" compoundref="d8/d2d/cellboundarylinear_8cpp" startline="14" endline="40">mknix::CellBoundaryLinear::CellBoundaryLinear</referencedby>
+        <referencedby refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1a45b26c454824aac48876515f9bf154e9" compoundref="d8/d2d/cellboundarylinear_8cpp" startline="105" endline="168">mknix::CellBoundaryLinear::createGaussPoints</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d1e/classmknix_1_1_cell_boundary_1ab69bec01bb7bb184f74e56f477b4e938" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref> * &gt;</type>
+        <definition>std::vector&lt; Point* &gt; mknix::CellBoundary::bodyPoints</definition>
+        <argsstring></argsstring>
+        <name>bodyPoints</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellboundary.h" line="82" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellboundary.h" bodystart="82" bodyend="-1"/>
+        <referencedby refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1abd081fad99e161a237a72223f6d70887" compoundref="d8/d2d/cellboundarylinear_8cpp" startline="14" endline="40">mknix::CellBoundaryLinear::CellBoundaryLinear</referencedby>
+        <referencedby refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1ab0f0e66b92accf5c88aaa7fac0b8bf59" compoundref="d8/d2d/cellboundarylinear_8cpp" startline="75" endline="89">mknix::CellBoundaryLinear::initialize</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d1e/classmknix_1_1_cell_boundary_1ad70e12585e45e068a3dcb8dc98b1347f" prot="protected" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::CellBoundary::dc</definition>
+        <argsstring></argsstring>
+        <name>dc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellboundary.h" line="83" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellboundary.h" bodystart="83" bodyend="-1"/>
+        <referencedby refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1abd081fad99e161a237a72223f6d70887" compoundref="d8/d2d/cellboundarylinear_8cpp" startline="14" endline="40">mknix::CellBoundaryLinear::CellBoundaryLinear</referencedby>
+        <referencedby refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1a45b26c454824aac48876515f9bf154e9" compoundref="d8/d2d/cellboundarylinear_8cpp" startline="105" endline="168">mknix::CellBoundaryLinear::createGaussPoints</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/d1e/classmknix_1_1_cell_boundary_1a92ce1eba9565ff23c47bd091d8525685" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::CellBoundary::CellBoundary</definition>
+        <argsstring>()</argsstring>
+        <name>CellBoundary</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellboundary.h" line="56" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellboundary.cpp" bodystart="12" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d1e/classmknix_1_1_cell_boundary_1a6f60017dacb83bd9667e666c4d814adc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::CellBoundary::CellBoundary</definition>
+        <argsstring>(std::string, double, int)</argsstring>
+        <name>CellBoundary</name>
+        <param>
+          <type>std::string</type>
+          <defname>formulation_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>alpha_in</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>nGPoints_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellboundary.h" line="58" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellboundary.cpp" bodystart="17" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d1e/classmknix_1_1_cell_boundary_1ac93e019f0285d1701586a621599849c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>mknix::CellBoundary::~CellBoundary</definition>
+        <argsstring>()</argsstring>
+        <name>~CellBoundary</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellboundary.h" line="60" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellboundary.cpp" bodystart="27" bodyend="32"/>
+        <references refid="d8/d1e/classmknix_1_1_cell_boundary_1ae27f45b466e1bfc213bcca47d0ff85df" compoundref="db/d20/cellboundary_8h" startline="80">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d1e/classmknix_1_1_cell_boundary_1afeb33c21dbf85f27d372a06d1a249459" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::CellBoundary::initialize</definition>
+        <argsstring>(std::vector&lt; Node * &gt; &amp;)</argsstring>
+        <name>initialize</name>
+        <reimplementedby refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1ab0f0e66b92accf5c88aaa7fac0b8bf59">initialize</reimplementedby>
+        <param>
+          <type>std::vector&lt; <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> * &gt; &amp;</type>
+          <defname>nodes_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellboundary.h" line="62" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellboundary.cpp" bodystart="35" bodyend="43"/>
+        <references refid="d8/d1e/classmknix_1_1_cell_boundary_1af33b7951a3757bf0362ab8e3164d4bc4" compoundref="db/d20/cellboundary_8h" startline="77">formulation</references>
+        <references refid="d8/d1e/classmknix_1_1_cell_boundary_1ae27f45b466e1bfc213bcca47d0ff85df" compoundref="db/d20/cellboundary_8h" startline="80">gPoints</references>
+        <referencedby refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1ab0f0e66b92accf5c88aaa7fac0b8bf59" compoundref="d8/d2d/cellboundarylinear_8cpp" startline="75" endline="89">mknix::CellBoundaryLinear::initialize</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d1e/classmknix_1_1_cell_boundary_1a3821f8f675ec0545a25e9971a4f8aaf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::CellBoundary::computeShapeFunctions</definition>
+        <argsstring>()</argsstring>
+        <name>computeShapeFunctions</name>
+        <reimplementedby refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aea9ed39a191f3e6e89c465f6e3db3002">computeShapeFunctions</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellboundary.h" line="64" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellboundary.cpp" bodystart="46" bodyend="55"/>
+        <references refid="d8/d1e/classmknix_1_1_cell_boundary_1ae27f45b466e1bfc213bcca47d0ff85df" compoundref="db/d20/cellboundary_8h" startline="80">gPoints</references>
+        <references refid="d8/d1e/classmknix_1_1_cell_boundary_1af33b7951a3757bf0362ab8e3164d4bc4" compoundref="db/d20/cellboundary_8h" startline="77">formulation</references>
+        <referencedby refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aea9ed39a191f3e6e89c465f6e3db3002" compoundref="d8/d2d/cellboundarylinear_8cpp" startline="92" endline="102">mknix::CellBoundaryLinear::computeShapeFunctions</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="d8/d1e/classmknix_1_1_cell_boundary_1a267c6e554c2607c8c703ff52fe1b381a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::CellBoundary::computeQextGaussPoints</definition>
+        <argsstring>(LoadThermalBoundary1D *)</argsstring>
+        <name>computeQextGaussPoints</name>
+        <param>
+          <type><ref refid="df/df4/classmknix_1_1_load_thermal_boundary1_d" kindref="compound">LoadThermalBoundary1D</ref> *</type>
+          <defname>loadThermalBoundary1D_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellboundary.h" line="66" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellboundary.cpp" bodystart="58" bodyend="63"/>
+        <references refid="d8/d1e/classmknix_1_1_cell_boundary_1ae27f45b466e1bfc213bcca47d0ff85df" compoundref="db/d20/cellboundary_8h" startline="80">gPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d1e/classmknix_1_1_cell_boundary_1a962cb7795b25874914f27f5e7de49eb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::CellBoundary::assembleQextGaussPoints</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; &amp;)</argsstring>
+        <name>assembleQextGaussPoints</name>
+        <param>
+          <type><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>globalQext</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellboundary.h" line="68" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellboundary.cpp" bodystart="65" bodyend="70"/>
+        <references refid="d8/d1e/classmknix_1_1_cell_boundary_1ae27f45b466e1bfc213bcca47d0ff85df" compoundref="db/d20/cellboundary_8h" startline="80">gPoints</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>Daniel Iglesias </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="482">
+        <label>mknix::CellBoundaryLinear</label>
+        <link refid="d2/dfc/classmknix_1_1_cell_boundary_linear"/>
+        <childnode refid="481" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="481">
+        <label>mknix::CellBoundary</label>
+        <link refid="d8/d1e/classmknix_1_1_cell_boundary"/>
+      </node>
+    </inheritancegraph>
+    <location file="/home/daniel/Projects/MkniX/src/core/cellboundary.h" line="53" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellboundary.h" bodystart="53" bodyend="85"/>
+    <listofallmembers>
+      <member refid="d8/d1e/classmknix_1_1_cell_boundary_1acb76359011a0d0d6be9ed8e4cd24a4d5" prot="protected" virt="non-virtual"><scope>mknix::CellBoundary</scope><name>alpha</name></member>
+      <member refid="d8/d1e/classmknix_1_1_cell_boundary_1a962cb7795b25874914f27f5e7de49eb2" prot="public" virt="non-virtual"><scope>mknix::CellBoundary</scope><name>assembleQextGaussPoints</name></member>
+      <member refid="d8/d1e/classmknix_1_1_cell_boundary_1ab69bec01bb7bb184f74e56f477b4e938" prot="protected" virt="non-virtual"><scope>mknix::CellBoundary</scope><name>bodyPoints</name></member>
+      <member refid="d8/d1e/classmknix_1_1_cell_boundary_1a92ce1eba9565ff23c47bd091d8525685" prot="public" virt="non-virtual"><scope>mknix::CellBoundary</scope><name>CellBoundary</name></member>
+      <member refid="d8/d1e/classmknix_1_1_cell_boundary_1a6f60017dacb83bd9667e666c4d814adc" prot="public" virt="non-virtual"><scope>mknix::CellBoundary</scope><name>CellBoundary</name></member>
+      <member refid="d8/d1e/classmknix_1_1_cell_boundary_1a267c6e554c2607c8c703ff52fe1b381a" prot="public" virt="non-virtual"><scope>mknix::CellBoundary</scope><name>computeQextGaussPoints</name></member>
+      <member refid="d8/d1e/classmknix_1_1_cell_boundary_1a3821f8f675ec0545a25e9971a4f8aaf3" prot="public" virt="virtual"><scope>mknix::CellBoundary</scope><name>computeShapeFunctions</name></member>
+      <member refid="d8/d1e/classmknix_1_1_cell_boundary_1ad70e12585e45e068a3dcb8dc98b1347f" prot="protected" virt="non-virtual"><scope>mknix::CellBoundary</scope><name>dc</name></member>
+      <member refid="d8/d1e/classmknix_1_1_cell_boundary_1af33b7951a3757bf0362ab8e3164d4bc4" prot="protected" virt="non-virtual"><scope>mknix::CellBoundary</scope><name>formulation</name></member>
+      <member refid="d8/d1e/classmknix_1_1_cell_boundary_1ae27f45b466e1bfc213bcca47d0ff85df" prot="protected" virt="non-virtual"><scope>mknix::CellBoundary</scope><name>gPoints</name></member>
+      <member refid="d8/d1e/classmknix_1_1_cell_boundary_1afeb33c21dbf85f27d372a06d1a249459" prot="public" virt="virtual"><scope>mknix::CellBoundary</scope><name>initialize</name></member>
+      <member refid="d8/d1e/classmknix_1_1_cell_boundary_1aef298cd6eecdfce7582ff4ab31b8ae8d" prot="protected" virt="non-virtual"><scope>mknix::CellBoundary</scope><name>jacobian</name></member>
+      <member refid="d8/d1e/classmknix_1_1_cell_boundary_1a38706fffd4e1f057f52d86b19beb5ac7" prot="protected" virt="non-virtual"><scope>mknix::CellBoundary</scope><name>nGPoints</name></member>
+      <member refid="d8/d1e/classmknix_1_1_cell_boundary_1ac93e019f0285d1701586a621599849c2" prot="public" virt="virtual"><scope>mknix::CellBoundary</scope><name>~CellBoundary</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,13 +1,5 @@
 <map id="mknix::Simulation::runThermalAnalysis" name="mknix::Simulation::runThermalAnalysis">
-<area shape="rect" id="node3" href="$df/dd9/classmknix_1_1_system.html#a062011eba2b5bd9399705f9e725af4e8" title="mknix::System::calcCapacity\lMatrix" alt="" coords="219,5,413,51"/>
-<area shape="rect" id="node5" href="$df/dd9/classmknix_1_1_system.html#a354c0df800fe9729c73f7260d76273df" title="mknix::System::assembleCapacity\lMatrix" alt="" coords="203,74,429,121"/>
-<area shape="rect" id="node7" href="$df/dd9/classmknix_1_1_system.html#a0336b3ae44843b0f48d1490072a6fb5f" title="mknix::System::calcConductivity\lMatrix" alt="" coords="209,143,423,190"/>
-<area shape="rect" id="node9" href="$df/dd9/classmknix_1_1_system.html#a6345dce07d1da92c969608340be7a604" title="mknix::System::assembleConductivity\lMatrix" alt="" coords="193,213,439,259"/>
-<area shape="rect" id="node11" href="$db/d0b/classmknix_1_1_simulation.html#a5d4227d2d500003664587afadecb1081" title="mknix::Simulation::\lwriteConfStep" alt="" coords="249,282,383,329"/>
-<area shape="rect" id="node13" href="$df/d86/classmknix_1_1_analysis.html#a6dd7026a22ae11f3eef3dad3be370e70" title="mknix::Analysis::type" alt="" coords="243,352,389,381"/>
-<area shape="rect" id="node15" href="$df/dd9/classmknix_1_1_system.html#a22677dbc55080b00290652416ee8bb90" title="mknix::System::outputStep" alt="" coords="225,405,407,435"/>
-<area shape="rect" id="node17" href="$df/d86/classmknix_1_1_analysis.html#a2a02ee6ab0728bc1ab5e6aab010afe87" title="mknix::Analysis::solve" alt="" coords="239,459,393,488"/>
-<area shape="rect" id="node19" href="$db/d0b/classmknix_1_1_simulation.html#adda4efbeb29fecf80bcd8552703bfed4" title="mknix::Simulation::\lgetDim" alt="" coords="249,511,383,558"/>
-<area shape="rect" id="node21" href="$df/dd9/classmknix_1_1_system.html#af08300f28c64abfc4065888a643b4bbf" title="mknix::System::outputToFile" alt="" coords="221,581,411,611"/>
-<area shape="rect" id="node23" href="$df/dd9/classmknix_1_1_system.html#a24b1a9bcb9279bbb2384d2bbf94b157c" title="mknix::System::assembleConstraint\lForces" alt="" coords="199,634,433,681"/>
+<area shape="rect" id="node2" href="$df/d86/classmknix_1_1_analysis.html#a6dd7026a22ae11f3eef3dad3be370e70" title="mknix::Analysis::type" alt="" coords="194,5,342,32"/>
+<area shape="rect" id="node3" href="$df/d86/classmknix_1_1_analysis.html#a515bc01fa8704395d310c5e7ebd45081" title="mknix::Analysis::solve" alt="" coords="191,56,345,83"/>
+<area shape="rect" id="node4" href="$db/d0b/classmknix_1_1_simulation.html#adda4efbeb29fecf80bcd8552703bfed4" title="mknix::Simulation::\lgetDim" alt="" coords="201,107,335,149"/>
 </map>

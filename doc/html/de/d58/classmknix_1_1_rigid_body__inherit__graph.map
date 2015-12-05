@@ -1,7 +1,7 @@
 <map id="mknix::RigidBody" name="mknix::RigidBody">
-<area shape="rect" id="node5" href="$d6/dd9/classmknix_1_1_rigid_bar.html" title="mknix::RigidBar" alt="" coords="5,160,120,189"/>
-<area shape="rect" id="node8" href="$d6/d6d/classmknix_1_1_rigid_body2_d.html" title="mknix::RigidBody2D" alt="" coords="144,160,285,189"/>
-<area shape="rect" id="node10" href="$dd/d2a/classmknix_1_1_rigid_body3_d.html" title="mknix::RigidBody3D" alt="" coords="309,160,451,189"/>
-<area shape="rect" id="node12" href="$d8/de9/classmknix_1_1_rigid_body_mass_point.html" title="mknix::RigidBodyMassPoint" alt="" coords="475,160,661,189"/>
-<area shape="rect" id="node2" href="$dd/de3/classmknix_1_1_body.html" title="mknix::Body" alt="" coords="168,5,261,35"/>
+<area shape="rect" id="node3" href="$d6/dd9/classmknix_1_1_rigid_bar.html" title="mknix::RigidBar" alt="" coords="5,155,120,181"/>
+<area shape="rect" id="node4" href="$d6/d6d/classmknix_1_1_rigid_body2_d.html" title="mknix::RigidBody2D" alt="" coords="145,155,287,181"/>
+<area shape="rect" id="node5" href="$dd/d2a/classmknix_1_1_rigid_body3_d.html" title="mknix::RigidBody3D" alt="" coords="311,155,454,181"/>
+<area shape="rect" id="node6" href="$d8/de9/classmknix_1_1_rigid_body_mass_point.html" title="mknix::RigidBodyMassPoint" alt="" coords="479,155,665,181"/>
+<area shape="rect" id="node2" href="$dd/de3/classmknix_1_1_body.html" title="mknix::Body" alt="" coords="251,5,346,32"/>
 </map>

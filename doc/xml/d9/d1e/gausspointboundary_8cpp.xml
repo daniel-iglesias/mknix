@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d9/d1e/gausspointboundary_8cpp" kind="file" language="C++">
+    <compoundname>gausspointboundary.cpp</compoundname>
+    <includes refid="d5/d62/gausspointboundary_8h" local="yes">gausspointboundary.h</includes>
+    <includes refid="d1/d77/node_8h" local="yes">node.h</includes>
+    <includes refid="d9/d2f/shapefunction_r_b_f_8h" local="yes">shapefunctionRBF.h</includes>
+    <includes refid="db/da5/shapefunction_m_l_s_8h" local="yes">shapefunctionMLS.h</includes>
+    <includes refid="d6/d09/shapefunctionlinear-x_8h" local="yes">shapefunctionlinear-x.h</includes>
+    <includes refid="dd/d6a/simulation_8h" local="no">simulation/simulation.h</includes>
+    <includes refid="dc/db2/system_8h" local="no">system/system.h</includes>
+    <includes refid="dd/d65/loadthermalboundary1_d_8h" local="no">system/loadthermalboundary1D.h</includes>
+    <incdepgraph>
+      <node id="3521">
+        <label>system/system.h</label>
+        <link refid="dc/db2/system_8h"/>
+        <childnode refid="3510" relation="include">
+        </childnode>
+        <childnode refid="3511" relation="include">
+        </childnode>
+        <childnode refid="3507" relation="include">
+        </childnode>
+        <childnode refid="3512" relation="include">
+        </childnode>
+      </node>
+      <node id="3519">
+        <label>simulation/simulation.h</label>
+        <link refid="dd/d6a/simulation_8h"/>
+        <childnode refid="3507" relation="include">
+        </childnode>
+        <childnode refid="3512" relation="include">
+        </childnode>
+        <childnode refid="3520" relation="include">
+        </childnode>
+      </node>
+      <node id="3505">
+        <label>gausspointboundary.cpp</label>
+        <link refid="gausspointboundary.cpp"/>
+        <childnode refid="3506" relation="include">
+        </childnode>
+        <childnode refid="3514" relation="include">
+        </childnode>
+        <childnode refid="3515" relation="include">
+        </childnode>
+        <childnode refid="3517" relation="include">
+        </childnode>
+        <childnode refid="3518" relation="include">
+        </childnode>
+        <childnode refid="3519" relation="include">
+        </childnode>
+        <childnode refid="3521" relation="include">
+        </childnode>
+        <childnode refid="3522" relation="include">
+        </childnode>
+      </node>
+      <node id="3511">
+        <label>string</label>
+      </node>
+      <node id="3518">
+        <label>shapefunctionlinear-x.h</label>
+        <link refid="d6/d09/shapefunctionlinear-x_8h"/>
+        <childnode refid="3516" relation="include">
+        </childnode>
+      </node>
+      <node id="3510">
+        <label>map</label>
+      </node>
+      <node id="3512">
+        <label>common.h</label>
+        <link refid="dc/d54/common_8h"/>
+        <childnode refid="3510" relation="include">
+        </childnode>
+        <childnode refid="3513" relation="include">
+        </childnode>
+      </node>
+      <node id="3522">
+        <label>system/loadthermalboundary1D.h</label>
+        <link refid="dd/d65/loadthermalboundary1_d_8h"/>
+        <childnode refid="3512" relation="include">
+        </childnode>
+        <childnode refid="3507" relation="include">
+        </childnode>
+        <childnode refid="3510" relation="include">
+        </childnode>
+      </node>
+      <node id="3515">
+        <label>shapefunctionRBF.h</label>
+        <link refid="d9/d2f/shapefunction_r_b_f_8h"/>
+        <childnode refid="3516" relation="include">
+        </childnode>
+      </node>
+      <node id="3520">
+        <label>core/material.h</label>
+        <link refid="d3/d65/material_8h"/>
+        <childnode refid="3507" relation="include">
+        </childnode>
+        <childnode refid="3512" relation="include">
+        </childnode>
+      </node>
+      <node id="3516">
+        <label>shapefunction.h</label>
+        <link refid="d3/d16/shapefunction_8h"/>
+        <childnode refid="3507" relation="include">
+        </childnode>
+      </node>
+      <node id="3509">
+        <label>vector</label>
+      </node>
+      <node id="3506">
+        <label>gausspointboundary.h</label>
+        <link refid="d5/d62/gausspointboundary_8h"/>
+        <childnode refid="3507" relation="include">
+        </childnode>
+        <childnode refid="3508" relation="include">
+        </childnode>
+      </node>
+      <node id="3507">
+        <label>LMX/lmx.h</label>
+      </node>
+      <node id="3514">
+        <label>node.h</label>
+        <link refid="d1/d77/node_8h"/>
+        <childnode refid="3508" relation="include">
+        </childnode>
+        <childnode refid="3507" relation="include">
+        </childnode>
+      </node>
+      <node id="3508">
+        <label>core/point.h</label>
+        <link refid="d2/d91/point_8h"/>
+        <childnode refid="3509" relation="include">
+        </childnode>
+        <childnode refid="3510" relation="include">
+        </childnode>
+        <childnode refid="3511" relation="include">
+        </childnode>
+        <childnode refid="3512" relation="include">
+        </childnode>
+      </node>
+      <node id="3517">
+        <label>shapefunctionMLS.h</label>
+        <link refid="db/da5/shapefunction_m_l_s_8h"/>
+        <childnode refid="3516" relation="include">
+        </childnode>
+      </node>
+      <node id="3513">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="d2/dde/namespacemknix">mknix</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//--<sp/>Licencia<sp/>--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d5/d62/gausspointboundary_8h" kindref="compound">gausspointboundary.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d1/d77/node_8h" kindref="compound">node.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d9/d2f/shapefunction_r_b_f_8h" kindref="compound">shapefunctionRBF.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="db/da5/shapefunction_m_l_s_8h" kindref="compound">shapefunctionMLS.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d6/d09/shapefunctionlinear-x_8h" kindref="compound">shapefunctionlinear-x.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="dd/d6a/simulation_8h" kindref="compound">simulation/simulation.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="dc/db2/system_8h" kindref="compound">system/system.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="dd/d65/loadthermalboundary1_d_8h" kindref="compound">system/loadthermalboundary1D.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="d2/dde/namespacemknix" kindref="compound">mknix</ref><sp/>{</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a77cc44a83e7cbe635c99943cb7e2f975" refkind="member"><highlight class="normal"><ref refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a77cc44a83e7cbe635c99943cb7e2f975" kindref="member">GaussPointBoundary::GaussPointBoundary</ref>()</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a2bedbbba293a2e220df87bb4fc1d8d64" refkind="member"><highlight class="normal"><ref refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a77cc44a83e7cbe635c99943cb7e2f975" kindref="member">GaussPointBoundary::GaussPointBoundary</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim_in,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha_in,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>weight_in,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>jacobian_in,</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_in,</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coor_x,</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dc_in</highlight></codeline>
+<codeline lineno="26"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref>(dim_in,<sp/>num_in,<sp/>coor_x,<sp/>0.,<sp/>0.,<sp/>jacobian_in,<sp/>alpha_in,<sp/>dc_in)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>weight(weight_in)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a01163e6ce3f4aaa13fa1006d0fe8773f" refkind="member"><highlight class="normal"><ref refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a77cc44a83e7cbe635c99943cb7e2f975" kindref="member">GaussPointBoundary::GaussPointBoundary</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim_in,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha_in,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>weight_in,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>jacobian_in,</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>num_in,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coor_x,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coor_y,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dc_in</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref>(dim_in,<sp/>num_in,<sp/>coor_x,<sp/>coor_y,<sp/>0.,<sp/>jacobian_in,<sp/>alpha_in,<sp/>dc_in)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>weight(weight_in)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a8b93a88e494cca61934ae841642e11f5" refkind="member"><highlight class="normal"><ref refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a8b93a88e494cca61934ae841642e11f5" kindref="member">GaussPointBoundary::~GaussPointBoundary</ref>()</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="d0/de2/classmknix_1_1_gauss_point_boundary_1ab57edfe411e088a9839cf266bd4ff784" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d0/de2/classmknix_1_1_gauss_point_boundary_1ab57edfe411e088a9839cf266bd4ff784" kindref="member">GaussPointBoundary::shapeFunSolve</ref>(std::string<sp/>type_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q_in)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;INFO<sp/>AT<sp/>shapeFunSolve<sp/>IN<sp/>GaussPointBoundary:<sp/>(x,<sp/>y)<sp/>=<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>this-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>this-&gt;<ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t<sp/>alphai<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" kindref="member">alphai</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;dc<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" kindref="member">dc</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;q_in<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>q_in</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t<sp/>Number<sp/>of<sp/>Support<sp/>Nodes<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1a141fd098ad72a85cb4d11362b80ca0d8" kindref="member">supportNodesSize</ref><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/>q_in<sp/>=<sp/>.5;<sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>Take<sp/>into<sp/>account<sp/>and<sp/>validate<sp/>the<sp/>variable<sp/>q_in</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;RBF&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1ad76d1b525e65d47484187892160efd74" kindref="member">ShapeFunctionRBF</ref>(<ref refid="d3/d19/classmknix_1_1_point_1a141fd098ad72a85cb4d11362b80ca0d8" kindref="member">supportNodesSize</ref>,</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/></highlight><highlight class="comment">//<sp/>RBF<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" kindref="member">alphai</ref>,</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" kindref="member">dc</ref>,</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>q_in,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;MLS&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a07440917ac5f62def0ce649ad0066552" kindref="member">ShapeFunctionMLS</ref>(<ref refid="d3/d19/classmknix_1_1_point_1a141fd098ad72a85cb4d11362b80ca0d8" kindref="member">supportNodesSize</ref>,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1,</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1,<sp/></highlight><highlight class="comment">//<sp/>weight<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" kindref="member">alphai</ref>,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" kindref="member">dc</ref>,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;1D-X&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a76341329b3f806ca6d7595b9a99af5b9" kindref="member">ShapeFunctionLinearX</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref>-&gt;<ref refid="dd/d8d/classmknix_1_1_shape_function_1ac4a0d1b43ff7d4adf788e677912a87f7" kindref="member">calc</ref>();</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a236bd2db3efbe86c5597f797d0164d2f" kindref="member">initializeMatVecs</ref>();</highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a404a6ee4731bab04ef54f6fc0a58986c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a404a6ee4731bab04ef54f6fc0a58986c" kindref="member">GaussPointBoundary::computeQext</ref>(<ref refid="df/df4/classmknix_1_1_load_thermal_boundary1_d" kindref="compound">LoadThermalBoundary1D</ref><sp/>*<sp/>loadThermalBoundary_in)</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0u;<sp/>i<sp/>&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1a141fd098ad72a85cb4d11362b80ca0d8" kindref="member">supportNodesSize</ref>;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Qi<sp/>=<sp/>wg<sp/>*<sp/>r<sp/>*<sp/>N_I<sp/>*<sp/>|Jc|</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a7dcc50dbaeface891d0658b4ead424f7" kindref="member">Qext</ref>.writeElement(<ref refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a2c17d0b362d6a658ef01f69f0d2baa17" kindref="member">weight</ref><sp/>*<sp/><ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref>-&gt;<ref refid="dd/d8d/classmknix_1_1_shape_function_1a13f35e2b1cfc89c26ee03ede4bfff586" kindref="member">getPhi</ref>(0,<sp/>i)<sp/>*<sp/>loadThermalBoundary_in-&gt;<ref refid="df/df4/classmknix_1_1_load_thermal_boundary1_d_1a28be37a4ae82bde77b7dd048d36503f5" kindref="member">getLoadThermalBoundary1D</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/>std::abs(<ref refid="d3/d19/classmknix_1_1_point_1a7afc6bd82b8e3619d384a41d9c2f1601" kindref="member">jacobian</ref>),<sp/>i);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>M.writeElement(<sp/>weight<sp/>*<sp/>shapeFun-&gt;getPhi(0,i)<sp/>*<sp/>shapeFun-&gt;getPhi(0,j)<sp/>*<sp/>jacobian,<sp/>dim*i+2,<sp/>dim*j+2<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>weight<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>&lt;&lt;<sp/>shapeFun-&gt;getPhi(0,i)<sp/><sp/>&lt;&lt;<sp/><sp/>&quot;,<sp/>&quot;<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>&lt;&lt;<sp/>loadThermalBoundary_in-&gt;getLoadThermalBoundary1D(<sp/>this<sp/>)<sp/>&lt;&lt;<sp/><sp/>&quot;,<sp/>&quot;<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>&lt;&lt;<sp/>std::abs(jacobian)<sp/>&lt;&lt;<sp/>endl;<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103" refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a4a64fbf026dc5c92ac29aa0337807d04" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a4a64fbf026dc5c92ac29aa0337807d04" kindref="member">GaussPointBoundary::assembleQext</ref>(<ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector&lt;data_type&gt;</ref>&amp;<sp/>globalHeat)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0u;<sp/>i<sp/>&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1a141fd098ad72a85cb4d11362b80ca0d8" kindref="member">supportNodesSize</ref>;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>globalHeat.addElement(<ref refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a7dcc50dbaeface891d0658b4ead424f7" kindref="member">Qext</ref>.readElement(i),</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[i]-&gt;getThermalNumber()</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>Qext<sp/>&lt;&lt;<sp/>endl;<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="114"><highlight class="comment">void<sp/>GaussPointBoundary::gnuplotOutStress(<sp/>std::ofstream<sp/>&amp;<sp/>gptension<sp/>)</highlight></codeline>
+<codeline lineno="115"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="116"><highlight class="comment"><sp/><sp/><sp/><sp/>gptension<sp/>&lt;&lt;<sp/>X<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>Y<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>tension(0)<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="117"><highlight class="comment">}*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119" refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a236bd2db3efbe86c5597f797d0164d2f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a236bd2db3efbe86c5597f797d0164d2f" kindref="member">GaussPointBoundary::initializeMatVecs</ref>()</highlight></codeline>
+<codeline lineno="120"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/de2/classmknix_1_1_gauss_point_boundary_1a7dcc50dbaeface891d0658b4ead424f7" kindref="member">Qext</ref>.resize(<ref refid="d3/d19/classmknix_1_1_point_1a141fd098ad72a85cb4d11362b80ca0d8" kindref="member">supportNodesSize</ref>);</highlight></codeline>
+<codeline lineno="122"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal">}<sp/></highlight><highlight class="comment">//Namespace<sp/>mknix</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/daniel/Projects/MkniX/src/core/gausspointboundary.cpp"/>
+  </compounddef>
+</doxygen>

@@ -1,3 +1,4 @@
 <map id="mknix::Material::computeEnergy" name="mknix::Material::computeEnergy">
-<area shape="rect" id="node3" href="$d2/da4/classmknix_1_1_gauss_point.html#a43f19e4df71c710f9150b834cb956f89" title="mknix::GaussPoint::\lcalcElasticE" alt="" coords="224,5,365,51"/>
+<area shape="rect" id="node2" href="$df/d77/classmknix_1_1_gauss_point2_d.html#a54f1859185e8c54320ac1bbfd4518072" title="mknix::GaussPoint2D\l::calcElasticE" alt="" coords="223,5,373,47"/>
+<area shape="rect" id="node3" href="$d6/d47/classmknix_1_1_gauss_point3_d.html#a0ae56804d7f50d4d810421b85364dc28" title="mknix::GaussPoint3D\l::calcElasticE" alt="" coords="223,71,373,112"/>
 </map>

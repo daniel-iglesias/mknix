@@ -12,7 +12,6 @@ var classmknix_1_1_flex_global_galerkin =
     [ "calcMassMatrix", "d6/d4a/classmknix_1_1_flex_global_galerkin.html#ae5bb8c27e7494b233a96d971833a0d0d", null ],
     [ "calcTangentMatrix", "d6/d4a/classmknix_1_1_flex_global_galerkin.html#a723916e65683c2ed77385ce0e3c3bd1a", null ],
     [ "getType", "d6/d4a/classmknix_1_1_flex_global_galerkin.html#a31c93b0ce740217ce4cd12e71646d8cf", null ],
-    [ "initialize", "d6/d4a/classmknix_1_1_flex_global_galerkin.html#a24bad02ef3ea95123581550297ac82a0", null ],
     [ "outputStep", "d6/d4a/classmknix_1_1_flex_global_galerkin.html#a031a130b73e3fe0fc862393f94d235cb", null ],
     [ "outputStep", "d6/d4a/classmknix_1_1_flex_global_galerkin.html#a1882efa0a8f8c8832f6116b8f7874d2a", null ],
     [ "setType", "d6/d4a/classmknix_1_1_flex_global_galerkin.html#ad731e1a7c510bbca6a49066386554e99", null ]

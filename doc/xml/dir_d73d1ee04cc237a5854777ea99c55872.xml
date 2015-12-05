@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="dir_d73d1ee04cc237a5854777ea99c55872" kind="dir">
+    <compoundname>simulation</compoundname>
+    <innerfile refid="d8/d8e/analysis_8cpp">analysis.cpp</innerfile>
+    <innerfile refid="d2/d40/analysis_8h">analysis.h</innerfile>
+    <innerfile refid="d3/d0b/analysisdynamic_8cpp">analysisdynamic.cpp</innerfile>
+    <innerfile refid="da/d83/analysisdynamic_8h">analysisdynamic.h</innerfile>
+    <innerfile refid="d4/dce/analysisstatic_8cpp">analysisstatic.cpp</innerfile>
+    <innerfile refid="d4/d87/analysisstatic_8h">analysisstatic.h</innerfile>
+    <innerfile refid="d0/d09/analysisthermaldynamic_8cpp">analysisthermaldynamic.cpp</innerfile>
+    <innerfile refid="d1/d1f/analysisthermaldynamic_8h">analysisthermaldynamic.h</innerfile>
+    <innerfile refid="df/d52/analysisthermalstatic_8cpp">analysisthermalstatic.cpp</innerfile>
+    <innerfile refid="db/d65/analysisthermalstatic_8h">analysisthermalstatic.h</innerfile>
+    <innerfile refid="df/d99/analysisthermomechanicaldynamic_8cpp">analysisthermomechanicaldynamic.cpp</innerfile>
+    <innerfile refid="d0/da7/analysisthermomechanicaldynamic_8h">analysisthermomechanicaldynamic.h</innerfile>
+    <innerfile refid="d2/d93/simulation_8cpp">simulation.cpp</innerfile>
+    <innerfile refid="dd/d6a/simulation_8h">simulation.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/daniel/Projects/MkniX/src/simulation/"/>
+  </compounddef>
+</doxygen>

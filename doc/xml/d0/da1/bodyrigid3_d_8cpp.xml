@@ -1,355 +1,125 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="d0/da1/bodyrigid3_d_8cpp" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d0/da1/bodyrigid3_d_8cpp" kind="file" language="C++">
     <compoundname>bodyrigid3D.cpp</compoundname>
     <includes refid="d1/dbe/bodyrigid3_d_8h" local="yes">bodyrigid3D.h</includes>
-    <includes refid="dd/d6a/simulation_8h" local="yes">simulation.h</includes>
+    <includes refid="d1/d77/node_8h" local="no">core/node.h</includes>
+    <includes refid="dd/d6a/simulation_8h" local="no">simulation/simulation.h</includes>
     <incdepgraph>
-      <node id="5487">
-        <label>celltriang.h</label>
-        <link refid="dc/d6a/celltriang_8h"/>
-        <childnode refid="5484" relation="include">
-        </childnode>
-      </node>
-      <node id="5493">
-        <label>bodyrigid2D.h</label>
-        <link refid="d3/d80/bodyrigid2_d_8h"/>
-        <childnode refid="5463" relation="include">
-        </childnode>
-        <childnode refid="5467" relation="include">
-        </childnode>
-      </node>
-      <node id="5500">
-        <label>constraintclearance.h</label>
-        <link refid="df/de4/constraintclearance_8h"/>
-        <childnode refid="5497" relation="include">
-        </childnode>
-      </node>
-      <node id="5481">
-        <label>bodyflexglobalgalerkin.h</label>
-        <link refid="df/d1c/bodyflexglobalgalerkin_8h"/>
-        <childnode refid="5482" relation="include">
-        </childnode>
-      </node>
-      <node id="5486">
-        <label>material.h</label>
-        <link refid="d3/d65/material_8h"/>
-        <childnode refid="5466" relation="include">
-        </childnode>
-      </node>
-      <node id="5464">
-        <label>body.h</label>
-        <link refid="d0/d77/body_8h"/>
-        <childnode refid="5465" relation="include">
-        </childnode>
-        <childnode refid="5466" relation="include">
-        </childnode>
-      </node>
-      <node id="5484">
-        <label>cell.h</label>
-        <link refid="d0/ddd/cell_8h"/>
-        <childnode refid="5485" relation="include">
-        </childnode>
-      </node>
-      <node id="5497">
-        <label>constraint.h</label>
-        <link refid="dc/d4d/constraint_8h"/>
-        <childnode refid="5465" relation="include">
-        </childnode>
-        <childnode refid="5466" relation="include">
-        </childnode>
-      </node>
-      <node id="5471">
-        <label>string</label>
-      </node>
-      <node id="5470">
-        <label>map</label>
-      </node>
-      <node id="5469">
-        <label>point.h</label>
-        <link refid="d2/d91/point_8h"/>
-        <childnode refid="5468" relation="include">
-        </childnode>
-        <childnode refid="5470" relation="include">
-        </childnode>
-        <childnode refid="5471" relation="include">
-        </childnode>
-        <childnode refid="5465" relation="include">
-        </childnode>
-      </node>
-      <node id="5477">
-        <label>analysisthermaldynamic.h</label>
-        <link refid="d1/d1f/analysisthermaldynamic_8h"/>
-        <childnode refid="5474" relation="include">
-        </childnode>
-      </node>
-      <node id="5465">
-        <label>common.h</label>
-        <link refid="dc/d54/common_8h"/>
-      </node>
-      <node id="5494">
-        <label>bodythermal.h</label>
-        <link refid="d3/d0b/bodythermal_8h"/>
-        <childnode refid="5466" relation="include">
-        </childnode>
-        <childnode refid="5483" relation="include">
-        </childnode>
-        <childnode refid="5487" relation="include">
-        </childnode>
-        <childnode refid="5488" relation="include">
-        </childnode>
-        <childnode refid="5489" relation="include">
-        </childnode>
-        <childnode refid="5490" relation="include">
-        </childnode>
-        <childnode refid="5467" relation="include">
-        </childnode>
-        <childnode refid="5495" relation="include">
-        </childnode>
-      </node>
-      <node id="5472">
-        <label>simulation.h</label>
+      <node id="2699">
+        <label>simulation/simulation.h</label>
         <link refid="dd/d6a/simulation_8h"/>
-        <childnode refid="5473" relation="include">
+        <childnode refid="2692" relation="include">
         </childnode>
-        <childnode refid="5477" relation="include">
+        <childnode refid="2689" relation="include">
         </childnode>
-        <childnode refid="5478" relation="include">
-        </childnode>
-        <childnode refid="5479" relation="include">
-        </childnode>
-        <childnode refid="5480" relation="include">
-        </childnode>
-        <childnode refid="5467" relation="include">
-        </childnode>
-        <childnode refid="5486" relation="include">
+        <childnode refid="2700" relation="include">
         </childnode>
       </node>
-      <node id="5479">
-        <label>analysisthermalstatic.h</label>
-        <link refid="db/d65/analysisthermalstatic_8h"/>
-        <childnode refid="5474" relation="include">
+      <node id="2694">
+        <label>core/cellboundary.h</label>
+        <link refid="db/d20/cellboundary_8h"/>
+        <childnode refid="2695" relation="include">
+        </childnode>
+        <childnode refid="2696" relation="include">
+        </childnode>
+        <childnode refid="2689" relation="include">
         </childnode>
       </node>
-      <node id="5495">
-        <label>thermalload.h</label>
-        <link refid="de/df4/thermalload_8h"/>
-        <childnode refid="5465" relation="include">
-        </childnode>
-        <childnode refid="5466" relation="include">
-        </childnode>
-        <childnode refid="5470" relation="include">
-        </childnode>
-      </node>
-      <node id="5473">
-        <label>analysisdynamic.h</label>
-        <link refid="da/d83/analysisdynamic_8h"/>
-        <childnode refid="5474" relation="include">
-        </childnode>
-      </node>
-      <node id="5490">
-        <label>elemtetrahedron.h</label>
-        <link refid="d3/d9f/elemtetrahedron_8h"/>
-        <childnode refid="5488" relation="include">
-        </childnode>
-      </node>
-      <node id="5478">
-        <label>analysisstatic.h</label>
-        <link refid="d4/d87/analysisstatic_8h"/>
-        <childnode refid="5474" relation="include">
-        </childnode>
-      </node>
-      <node id="5501">
-        <label>force.h</label>
-        <link refid="dd/d0d/force_8h"/>
-        <childnode refid="5502" relation="include">
-        </childnode>
-      </node>
-      <node id="5489">
-        <label>elemtriangle.h</label>
-        <link refid="df/d03/elemtriangle_8h"/>
-        <childnode refid="5487" relation="include">
-        </childnode>
-      </node>
-      <node id="5468">
-        <label>vector</label>
-      </node>
-      <node id="5498">
-        <label>constraintfixedcoordinates.h</label>
-        <link refid="d4/d28/constraintfixedcoordinates_8h"/>
-        <childnode refid="5497" relation="include">
-        </childnode>
-      </node>
-      <node id="5483">
-        <label>cellrect.h</label>
-        <link refid="d8/d84/cellrect_8h"/>
-        <childnode refid="5484" relation="include">
-        </childnode>
-      </node>
-      <node id="5496">
-        <label>constraintdistance.h</label>
-        <link refid="da/df6/constraintdistance_8h"/>
-        <childnode refid="5497" relation="include">
-        </childnode>
-      </node>
-      <node id="5466">
-        <label>LMX/lmx.h</label>
-      </node>
-      <node id="5482">
-        <label>bodyflex.h</label>
-        <link refid="dd/dbc/bodyflex_8h"/>
-        <childnode refid="5464" relation="include">
-        </childnode>
-        <childnode refid="5483" relation="include">
-        </childnode>
-        <childnode refid="5487" relation="include">
-        </childnode>
-        <childnode refid="5488" relation="include">
-        </childnode>
-        <childnode refid="5489" relation="include">
-        </childnode>
-        <childnode refid="5490" relation="include">
-        </childnode>
-        <childnode refid="5467" relation="include">
-        </childnode>
-      </node>
-      <node id="5475">
-        <label>LMX/lmx_diff_problem_first.h</label>
-      </node>
-      <node id="5480">
-        <label>system.h</label>
-        <link refid="dc/db2/system_8h"/>
-        <childnode refid="5470" relation="include">
-        </childnode>
-        <childnode refid="5471" relation="include">
-        </childnode>
-        <childnode refid="5466" relation="include">
-        </childnode>
-        <childnode refid="5481" relation="include">
-        </childnode>
-        <childnode refid="5491" relation="include">
-        </childnode>
-        <childnode refid="5492" relation="include">
-        </childnode>
-        <childnode refid="5493" relation="include">
-        </childnode>
-        <childnode refid="5462" relation="include">
-        </childnode>
-        <childnode refid="5494" relation="include">
-        </childnode>
-        <childnode refid="5496" relation="include">
-        </childnode>
-        <childnode refid="5498" relation="include">
-        </childnode>
-        <childnode refid="5499" relation="include">
-        </childnode>
-        <childnode refid="5500" relation="include">
-        </childnode>
-        <childnode refid="5501" relation="include">
-        </childnode>
-        <childnode refid="5495" relation="include">
-        </childnode>
-      </node>
-      <node id="5499">
-        <label>constraintfixedaxis.h</label>
-        <link refid="d8/dfb/constraintfixedaxis_8h"/>
-        <childnode refid="5497" relation="include">
-        </childnode>
-      </node>
-      <node id="5461">
+      <node id="2685">
         <label>bodyrigid3D.cpp</label>
         <link refid="bodyrigid3D.cpp"/>
-        <childnode refid="5462" relation="include">
+        <childnode refid="2686" relation="include">
         </childnode>
-        <childnode refid="5472" relation="include">
+        <childnode refid="2697" relation="include">
         </childnode>
-      </node>
-      <node id="5488">
-        <label>celltetrahedron.h</label>
-        <link refid="d1/d94/celltetrahedron_8h"/>
-        <childnode refid="5484" relation="include">
+        <childnode refid="2699" relation="include">
         </childnode>
       </node>
-      <node id="5492">
-        <label>bodyrigid1D.h</label>
-        <link refid="d7/d1c/bodyrigid1_d_8h"/>
-        <childnode refid="5463" relation="include">
+      <node id="2696">
+        <label>string</label>
+      </node>
+      <node id="2690">
+        <label>map</label>
+      </node>
+      <node id="2689">
+        <label>common.h</label>
+        <link refid="dc/d54/common_8h"/>
+        <childnode refid="2690" relation="include">
         </childnode>
-        <childnode refid="5467" relation="include">
+        <childnode refid="2691" relation="include">
         </childnode>
       </node>
-      <node id="5485">
-        <label>gausspoint.h</label>
-        <link refid="d4/dc6/gausspoint_8h"/>
-        <childnode refid="5468" relation="include">
+      <node id="2700">
+        <label>core/material.h</label>
+        <link refid="d3/d65/material_8h"/>
+        <childnode refid="2692" relation="include">
         </childnode>
-        <childnode refid="5470" relation="include">
-        </childnode>
-        <childnode refid="5467" relation="include">
-        </childnode>
-        <childnode refid="5469" relation="include">
-        </childnode>
-        <childnode refid="5465" relation="include">
-        </childnode>
-        <childnode refid="5486" relation="include">
+        <childnode refid="2689" relation="include">
         </childnode>
       </node>
-      <node id="5467">
-        <label>node.h</label>
-        <link refid="d1/d77/node_8h"/>
-        <childnode refid="5468" relation="include">
+      <node id="2693">
+        <label>boundarygroup.h</label>
+        <link refid="dc/d6b/boundarygroup_8h"/>
+        <childnode refid="2689" relation="include">
         </childnode>
-        <childnode refid="5469" relation="include">
-        </childnode>
-        <childnode refid="5466" relation="include">
+        <childnode refid="2692" relation="include">
         </childnode>
       </node>
-      <node id="5476">
-        <label>LMX/lmx_diff_problem_second.h</label>
-      </node>
-      <node id="5491">
-        <label>bodyrigid0D.h</label>
-        <link refid="da/d60/bodyrigid0_d_8h"/>
-        <childnode refid="5463" relation="include">
-        </childnode>
-        <childnode refid="5467" relation="include">
-        </childnode>
-      </node>
-      <node id="5474">
-        <label>analysis.h</label>
-        <link refid="d2/d40/analysis_8h"/>
-        <childnode refid="5465" relation="include">
-        </childnode>
-        <childnode refid="5466" relation="include">
-        </childnode>
-        <childnode refid="5475" relation="include">
-        </childnode>
-        <childnode refid="5476" relation="include">
-        </childnode>
-      </node>
-      <node id="5463">
+      <node id="2687">
         <label>bodyrigid.h</label>
         <link refid="d1/d67/bodyrigid_8h"/>
-        <childnode refid="5464" relation="include">
+        <childnode refid="2688" relation="include">
         </childnode>
       </node>
-      <node id="5462">
+      <node id="2695">
+        <label>vector</label>
+      </node>
+      <node id="2692">
+        <label>LMX/lmx.h</label>
+      </node>
+      <node id="2697">
+        <label>core/node.h</label>
+        <link refid="d1/d77/node_8h"/>
+        <childnode refid="2698" relation="include">
+        </childnode>
+        <childnode refid="2692" relation="include">
+        </childnode>
+      </node>
+      <node id="2698">
+        <label>point.h</label>
+        <link refid="d2/d91/point_8h"/>
+        <childnode refid="2695" relation="include">
+        </childnode>
+        <childnode refid="2690" relation="include">
+        </childnode>
+        <childnode refid="2696" relation="include">
+        </childnode>
+        <childnode refid="2689" relation="include">
+        </childnode>
+      </node>
+      <node id="2688">
+        <label>body.h</label>
+        <link refid="d0/d77/body_8h"/>
+        <childnode refid="2689" relation="include">
+        </childnode>
+        <childnode refid="2692" relation="include">
+        </childnode>
+        <childnode refid="2693" relation="include">
+        </childnode>
+        <childnode refid="2694" relation="include">
+        </childnode>
+        <childnode refid="2697" relation="include">
+        </childnode>
+      </node>
+      <node id="2686">
         <label>bodyrigid3D.h</label>
         <link refid="d1/dbe/bodyrigid3_d_8h"/>
-        <childnode refid="5463" relation="include">
-        </childnode>
-        <childnode refid="5467" relation="include">
+        <childnode refid="2687" relation="include">
         </childnode>
       </node>
-      <node id="5502">
-        <label>load.h</label>
-        <link refid="dc/d61/load_8h"/>
-        <childnode refid="5465" relation="include">
-        </childnode>
-        <childnode refid="5466" relation="include">
-        </childnode>
-        <childnode refid="5467" relation="include">
-        </childnode>
+      <node id="2691">
+        <label>memory</label>
       </node>
     </incdepgraph>
     <innernamespace refid="d2/dde/namespacemknix">mknix</innernamespace>
@@ -362,19 +132,19 @@
 <codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
 <codeline lineno="3"><highlight class="comment"><sp/>*<sp/>MkniX-develop</highlight></codeline>
 <codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(C)<sp/>Roberto<sp/>Ortega<sp/>2008<sp/>&lt;roberto.ortega@inbox.com&gt;</highlight></codeline>
-<codeline lineno="5"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
 <codeline lineno="6"><highlight class="comment"><sp/>*<sp/>MkniX-develop<sp/>is<sp/>free<sp/>software.</highlight></codeline>
-<codeline lineno="7"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*</highlight></codeline>
 <codeline lineno="8"><highlight class="comment"><sp/>*<sp/>You<sp/>may<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the</highlight></codeline>
 <codeline lineno="9"><highlight class="comment"><sp/>*<sp/>GNU<sp/>General<sp/>Public<sp/>License,<sp/>as<sp/>published<sp/>by<sp/>the<sp/>Free<sp/>Software</highlight></codeline>
 <codeline lineno="10"><highlight class="comment"><sp/>*<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/>(at<sp/>your<sp/>option)</highlight></codeline>
 <codeline lineno="11"><highlight class="comment"><sp/>*<sp/>any<sp/>later<sp/>version.</highlight></codeline>
-<codeline lineno="12"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*</highlight></codeline>
 <codeline lineno="13"><highlight class="comment"><sp/>*<sp/>MkniX-develop<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,</highlight></codeline>
 <codeline lineno="14"><highlight class="comment"><sp/>*<sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of</highlight></codeline>
 <codeline lineno="15"><highlight class="comment"><sp/>*<sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.</highlight></codeline>
 <codeline lineno="16"><highlight class="comment"><sp/>*<sp/>See<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
-<codeline lineno="17"><highlight class="comment"><sp/>*<sp/></highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*</highlight></codeline>
 <codeline lineno="18"><highlight class="comment"><sp/>*<sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License</highlight></codeline>
 <codeline lineno="19"><highlight class="comment"><sp/>*<sp/>along<sp/>with<sp/>MkniX-develop.<sp/><sp/>If<sp/>not,<sp/>write<sp/>to:</highlight></codeline>
 <codeline lineno="20"><highlight class="comment"><sp/>*<sp/><sp/>The<sp/>Free<sp/>Software<sp/>Foundation,<sp/>Inc.,</highlight></codeline>
@@ -383,31 +153,31 @@
 <codeline lineno="23"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="24"><highlight class="normal"></highlight></codeline>
 <codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d1/dbe/bodyrigid3_d_8h" kindref="compound">bodyrigid3D.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="dd/d6a/simulation_8h" kindref="compound">simulation.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mknix<sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="d1/d77/node_8h" kindref="compound">core/node.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="dd/d6a/simulation_8h" kindref="compound">simulation/simulation.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30" refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a7132ea2cee0893fa935fccb25cf314f9" refkind="member"><highlight class="normal"><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a7132ea2cee0893fa935fccb25cf314f9" kindref="member">RigidBody3D::RigidBody3D</ref>()<sp/>:<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body" kindref="compound">RigidBody</ref>()</highlight></codeline>
-<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight></codeline>
-<codeline lineno="34" refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a2bafc82c39bdd654b7577b69170a00ca" refkind="member"><highlight class="normal"><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a7132ea2cee0893fa935fccb25cf314f9" kindref="member">RigidBody3D::RigidBody3D</ref>(<sp/>std::string<sp/>title_in,</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>node0_in,</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>node1_in,</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>node2_in,</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>node3_in,</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mass_in,</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/>I_in</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/>:<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body" kindref="compound">RigidBody</ref>(<sp/>title_in<sp/>),</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>mass(<sp/>mass_in<sp/>),<sp/>Ixx(<sp/>I_in[0]<sp/>),<sp/>Iyy(<sp/>I_in[1]<sp/>),<sp/>Izz(<sp/>I_in[2]<sp/>)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="d2/dde/namespacemknix" kindref="compound">mknix</ref><sp/>{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a7132ea2cee0893fa935fccb25cf314f9" refkind="member"><highlight class="normal"><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a7132ea2cee0893fa935fccb25cf314f9" kindref="member">RigidBody3D::RigidBody3D</ref>()<sp/>:<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body" kindref="compound">RigidBody</ref>()</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a31e0a621a3213010194b4b46310346c3" refkind="member"><highlight class="normal"><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a7132ea2cee0893fa935fccb25cf314f9" kindref="member">RigidBody3D::RigidBody3D</ref>(<sp/>std::string<sp/>title_in,</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>node0_in,</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>node1_in,</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>node2_in,</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>node3_in</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body" kindref="compound">RigidBody</ref>(<sp/>title_in<sp/>)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>Ixy(0),<sp/>Iyz(0),<sp/>Ixz(0)</highlight></codeline>
 <codeline lineno="44"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>.push_back(<sp/>node0_in<sp/>);</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>.push_back(<sp/>node1_in<sp/>);</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>.push_back(<sp/>node2_in<sp/>);</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>.push_back(<sp/>node3_in<sp/>);</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>.resize(<sp/>4*<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>(),<sp/>4*<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>);</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>.resize(<sp/>4*<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>.push_back(<sp/>node0_in<sp/>);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>.push_back(<sp/>node1_in<sp/>);</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>.push_back(<sp/>node2_in<sp/>);</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>.push_back(<sp/>node3_in<sp/>);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>.resize(<sp/>4*<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>(),<sp/>4*<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>.resize(<sp/>4*<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>);</highlight></codeline>
 <codeline lineno="51"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="52"><highlight class="normal"></highlight></codeline>
 <codeline lineno="53" refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a34e8faafa4f7be677eca2b1400f85863" refkind="member"><highlight class="normal"><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a34e8faafa4f7be677eca2b1400f85863" kindref="member">RigidBody3D::~RigidBody3D</ref>()</highlight></codeline>
@@ -416,138 +186,136 @@
 <codeline lineno="56"><highlight class="normal"></highlight></codeline>
 <codeline lineno="57" refid="dd/d2a/classmknix_1_1_rigid_body3_d_1aa76bf1fe9fe4783d647d84c925540515" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1aa76bf1fe9fe4783d647d84c925540515" kindref="member">RigidBody3D::setInertia</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>inertia_in,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>axis)</highlight></codeline>
 <codeline lineno="58"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>axis<sp/>==<sp/>0<sp/>)<sp/>Ixx<sp/>=<sp/>inertia_in;</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>axis<sp/>==<sp/>1<sp/>)<sp/>Iyy<sp/>=<sp/>inertia_in;</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>axis<sp/>==<sp/>2<sp/>)<sp/>Izz<sp/>=<sp/>inertia_in;</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>cerr<sp/>&lt;&lt;<sp/>endl<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ERROR:<sp/>Trying<sp/>to<sp/>set<sp/>inertia<sp/>out<sp/>of<sp/>bounds<sp/>in<sp/>RigidBody2D&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"></highlight></codeline>
-<codeline lineno="65" refid="dd/d2a/classmknix_1_1_rigid_body3_d_1ac69cc57cafc9c9783da8d7e66124151d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1ac69cc57cafc9c9783da8d7e66124151d" kindref="member">RigidBody3D::setPosition</ref>(std::vector&lt;double&gt;&amp;<sp/>position)</highlight></codeline>
-<codeline lineno="66"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>IMPLEMENT<sp/>and<sp/>check<sp/>vector<sp/>size.<sp/>Should<sp/>have<sp/>3<sp/>elements:<sp/>CoG_x,<sp/>CoG_y,<sp/>rotation<sp/>angle</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/>cerr<sp/>&lt;&lt;<sp/>endl<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ERROR:<sp/>Function<sp/>not<sp/>implemented<sp/>in<sp/>RigidBody3D&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight></codeline>
-<codeline lineno="71" refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a257d9b0bb9fe27664227270cd73194a4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a257d9b0bb9fe27664227270cd73194a4" kindref="member">RigidBody3D::calcMassMatrix</ref>()</highlight></codeline>
-<codeline lineno="72"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/>Pxx<sp/>=<sp/>.5*(<sp/>-Ixx<sp/>+Iyy<sp/>+Izz<sp/>);<sp/>cout&lt;&lt;</highlight><highlight class="stringliteral">&quot;Pxx&quot;</highlight><highlight class="normal">&lt;&lt;Pxx&lt;&lt;endl;</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/>Pyy<sp/>=<sp/>.5*(<sp/>+Ixx<sp/>-Iyy<sp/>+Izz<sp/>);<sp/>cout&lt;&lt;</highlight><highlight class="stringliteral">&quot;Pyy&quot;</highlight><highlight class="normal">&lt;&lt;Pyy&lt;&lt;endl;</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/>Pzz<sp/>=<sp/>.5*(<sp/>+Ixx<sp/>+Iyy<sp/>-Izz<sp/>);<sp/>cout&lt;&lt;</highlight><highlight class="stringliteral">&quot;Pzz&quot;</highlight><highlight class="normal">&lt;&lt;Pzz&lt;&lt;endl;</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>For<sp/>Problem<sp/>in<sp/>3D</highlight></codeline>
-<codeline lineno="79"><highlight class="comment"><sp/><sp/><sp/>*<sp/><sp/>MassMatrix<sp/>=<sp/>|<sp/>m00*I3<sp/>m01*I3<sp/>m02*I3<sp/>m03*I3<sp/>|</highlight></codeline>
-<codeline lineno="80"><highlight class="comment"><sp/><sp/><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>m10*I3<sp/>Pxx*I3<sp/><sp/><sp/>0*I3<sp/><sp/><sp/>0*I3<sp/>|</highlight></codeline>
-<codeline lineno="81"><highlight class="comment"><sp/><sp/><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>m20*I3<sp/><sp/><sp/>0*I3<sp/>Pyy*I3<sp/><sp/><sp/>0*I3<sp/>|</highlight></codeline>
-<codeline lineno="82"><highlight class="comment"><sp/><sp/><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>m30*I3<sp/><sp/><sp/>0*I3<sp/><sp/><sp/>0*I3<sp/>Pzz*I3<sp/>|</highlight></codeline>
-<codeline lineno="83"><highlight class="comment"><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="84"><highlight class="normal"></highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>m00*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>0,<sp/>0)<sp/>=<sp/>mass<sp/>+Pxx<sp/>+Pyy<sp/>+Pzz<sp/>;</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>1,<sp/>1)<sp/>=<sp/>mass<sp/>+Pxx<sp/>+Pyy<sp/>+Pzz<sp/>;</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>2,<sp/>2)<sp/>=<sp/>mass<sp/>+Pxx<sp/>+Pyy<sp/>+Pzz<sp/>;</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>m01*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>0,<sp/>3)<sp/>=<sp/>-Pxx<sp/>;</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>1,<sp/>4)<sp/>=<sp/>-Pxx<sp/>;</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>2,<sp/>5)<sp/>=<sp/>-Pxx<sp/>;</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>m02*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>0,<sp/>6)<sp/>=<sp/>-Pyy<sp/>;</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>1,<sp/>7)<sp/>=<sp/>-Pyy<sp/>;</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>2,<sp/>8)<sp/>=<sp/>-Pyy<sp/>;</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"></highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>m03*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>0,<sp/>9)<sp/>=<sp/>-Pzz<sp/>;</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>1,10)<sp/>=<sp/>-Pzz<sp/>;</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>2,11)<sp/>=<sp/>-Pzz<sp/>;</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>m10*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>3,<sp/>0)<sp/>=<sp/>-Pxx<sp/>;</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>4,<sp/>1)<sp/>=<sp/>-Pxx<sp/>;</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>5,<sp/>2)<sp/>=<sp/>-Pxx<sp/>;</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"></highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>m20*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>6,<sp/>0)<sp/>=<sp/>-Pyy<sp/>;</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>7,<sp/>1)<sp/>=<sp/>-Pyy<sp/>;</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>8,<sp/>2)<sp/>=<sp/>-Pyy<sp/>;</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"></highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>m03*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>0,<sp/>9)<sp/>=<sp/>-Pzz<sp/>;</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>1,10)<sp/>=<sp/>-Pzz<sp/>;</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>2,11)<sp/>=<sp/>-Pzz<sp/>;</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"></highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Pxx*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>3,<sp/>3)<sp/>=<sp/>+Pxx<sp/>;</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>4,<sp/>4)<sp/>=<sp/>+Pxx<sp/>;</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>5,<sp/>5)<sp/>=<sp/>+Pxx<sp/>;</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Pyy*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>6,<sp/>6)<sp/>=<sp/>+Pyy<sp/>;</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>7,<sp/>7)<sp/>=<sp/>+Pyy<sp/>;</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>8,<sp/>8)<sp/>=<sp/>+Pyy<sp/>;</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*<sp/>Pzz*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<sp/>9,<sp/>9)<sp/>=<sp/>+Pzz<sp/>;</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(10,10)<sp/>=<sp/>+Pzz<sp/>;</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(11,11)<sp/>=<sp/>+Pzz<sp/>;</highlight></codeline>
-<codeline lineno="134"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>axis<sp/>==<sp/>0<sp/>)<sp/>Ixx<sp/>=<sp/>inertia_in;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>axis<sp/>==<sp/>1<sp/>)<sp/>Iyy<sp/>=<sp/>inertia_in;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>axis<sp/>==<sp/>2<sp/>)<sp/>Izz<sp/>=<sp/>inertia_in;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>axis<sp/>==<sp/>3<sp/>)<sp/>Ixy<sp/>=<sp/>inertia_in;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>axis<sp/>==<sp/>4<sp/>)<sp/>Iyz<sp/>=<sp/>inertia_in;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>axis<sp/>==<sp/>5<sp/>)<sp/>Ixz<sp/>=<sp/>inertia_in;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>cerr<sp/>&lt;&lt;<sp/>endl<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ERROR:<sp/>Trying<sp/>to<sp/>set<sp/>inertia<sp/>out<sp/>of<sp/>bounds<sp/>in<sp/>RigidBody3D&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68" refid="dd/d2a/classmknix_1_1_rigid_body3_d_1ac69cc57cafc9c9783da8d7e66124151d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1ac69cc57cafc9c9783da8d7e66124151d" kindref="member">RigidBody3D::setPosition</ref>(std::vector&lt;double&gt;&amp;<sp/>position)</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>Read<sp/>rotations<sp/>and<sp/>check<sp/>vector<sp/>size.<sp/>Should<sp/>have<sp/>3<sp/>elements:<sp/>CoG_x,<sp/>CoG_y,<sp/>CoG_z</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[0]-&gt;setX(<sp/>position[0]<sp/>);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[0]-&gt;setY(<sp/>position[1]<sp/>);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[0]-&gt;setZ(<sp/>position[2]<sp/>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[1]-&gt;setX(<sp/>position[0]<sp/>+<sp/>1.<sp/>);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[1]-&gt;setY(<sp/>position[1]<sp/>);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[1]-&gt;setZ(<sp/>position[2]<sp/>);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[2]-&gt;setX(<sp/>position[0]<sp/>);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[2]-&gt;setY(<sp/>position[1]<sp/>+<sp/>1.<sp/>);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[2]-&gt;setZ(<sp/>position[2]<sp/>);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[3]-&gt;setX(<sp/>position[0]<sp/>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[3]-&gt;setY(<sp/>position[1]<sp/>);</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[3]-&gt;setZ(<sp/>position[2]<sp/>+<sp/>1.<sp/>);</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a257d9b0bb9fe27664227270cd73194a4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a257d9b0bb9fe27664227270cd73194a4" kindref="member">RigidBody3D::calcMassMatrix</ref>()</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">{<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>Define<sp/>matrix<sp/>in<sp/>generic<sp/>inertia<sp/>axes</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1ab863575aa5443846e4e07ff2ce058703" kindref="member">densityFactor</ref><sp/>!=<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref><sp/>*=<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1ab863575aa5443846e4e07ff2ce058703" kindref="member">densityFactor</ref>;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Ixx<sp/>*=<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1ab863575aa5443846e4e07ff2ce058703" kindref="member">densityFactor</ref>;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Iyy<sp/>*=<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1ab863575aa5443846e4e07ff2ce058703" kindref="member">densityFactor</ref>;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Izz<sp/>*=<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1ab863575aa5443846e4e07ff2ce058703" kindref="member">densityFactor</ref>;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Ixy<sp/>*=<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1ab863575aa5443846e4e07ff2ce058703" kindref="member">densityFactor</ref>;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Iyz<sp/>*=<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1ab863575aa5443846e4e07ff2ce058703" kindref="member">densityFactor</ref>;</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Ixz<sp/>*=<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1ab863575aa5443846e4e07ff2ce058703" kindref="member">densityFactor</ref>;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>Ixy<sp/>==<sp/>0<sp/>&amp;&amp;<sp/>Iyz<sp/>==<sp/>0<sp/>&amp;&amp;<sp/>Ixz<sp/>==<sp/>0<sp/>)<sp/>{<sp/></highlight><highlight class="comment">//<sp/>Principal<sp/>inertia<sp/>axes<sp/>defined</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pxx<sp/>=<sp/>.5*(<sp/>-Ixx<sp/>+Iyy<sp/>+Izz<sp/>);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pyy<sp/>=<sp/>.5*(<sp/>+Ixx<sp/>-Iyy<sp/>+Izz<sp/>);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Pzz<sp/>=<sp/>.5*(<sp/>+Ixx<sp/>+Iyy<sp/>-Izz<sp/>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>For<sp/>Problem<sp/>in<sp/>3D</highlight></codeline>
+<codeline lineno="105"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/>MassMatrix<sp/>=<sp/>|<sp/>m00*I3<sp/>m01*I3<sp/>m02*I3<sp/>m03*I3<sp/>|</highlight></codeline>
+<codeline lineno="106"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>m10*I3<sp/>Pxx*I3<sp/><sp/><sp/>0*I3<sp/><sp/><sp/>0*I3<sp/>|</highlight></codeline>
+<codeline lineno="107"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>m20*I3<sp/><sp/><sp/>0*I3<sp/>Pyy*I3<sp/><sp/><sp/>0*I3<sp/>|</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>m30*I3<sp/><sp/><sp/>0*I3<sp/><sp/><sp/>0*I3<sp/>Pzz*I3<sp/>|</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>m00*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>0,<sp/>0)<sp/>=<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref><sp/>+Pxx<sp/>+Pyy<sp/>+Pzz<sp/>;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>1,<sp/>1)<sp/>=<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref><sp/>+Pxx<sp/>+Pyy<sp/>+Pzz<sp/>;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>2,<sp/>2)<sp/>=<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref><sp/>+Pxx<sp/>+Pyy<sp/>+Pzz<sp/>;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>m01*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>0,<sp/>3)<sp/>=<sp/>-Pxx<sp/>;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>1,<sp/>4)<sp/>=<sp/>-Pxx<sp/>;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>2,<sp/>5)<sp/>=<sp/>-Pxx<sp/>;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>m02*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>0,<sp/>6)<sp/>=<sp/>-Pyy<sp/>;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>1,<sp/>7)<sp/>=<sp/>-Pyy<sp/>;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>2,<sp/>8)<sp/>=<sp/>-Pyy<sp/>;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>m03*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>0,<sp/>9)<sp/>=<sp/>-Pzz<sp/>;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>1,10)<sp/>=<sp/>-Pzz<sp/>;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>2,11)<sp/>=<sp/>-Pzz<sp/>;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>m10*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>3,<sp/>0)<sp/>=<sp/>-Pxx<sp/>;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>4,<sp/>1)<sp/>=<sp/>-Pxx<sp/>;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>5,<sp/>2)<sp/>=<sp/>-Pxx<sp/>;</highlight></codeline>
 <codeline lineno="135"><highlight class="normal"></highlight></codeline>
-<codeline lineno="136" refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a66bff0110ce5d201875f068050c84c96" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a66bff0110ce5d201875f068050c84c96" kindref="member">RigidBody3D::calcExternalForces</ref>()</highlight></codeline>
-<codeline lineno="137"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">/*For<sp/>Problem<sp/>in<sp/>3D*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>(0)<sp/>=<sp/>-mass*<ref refid="db/d0b/classmknix_1_1_simulation_1ae1eca795584573082535d83d0705af29" kindref="member">Simulation::getGravity</ref>(0);</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>(1)<sp/>=<sp/>-mass*<ref refid="db/d0b/classmknix_1_1_simulation_1ae1eca795584573082535d83d0705af29" kindref="member">Simulation::getGravity</ref>(1);</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>(2)<sp/>=<sp/>-mass*<ref refid="db/d0b/classmknix_1_1_simulation_1ae1eca795584573082535d83d0705af29" kindref="member">Simulation::getGravity</ref>(2);</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//~<sp/>int<sp/>i;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//~<sp/>for(<sp/>i=0;<sp/>i&lt;externalForces.size();<sp/>++i)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//~<sp/>{</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>this-&gt;externalForces(i)<sp/>=<sp/>-(<sp/>localMassMatrix.readElement(i,<sp/>0)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>+<sp/>localMassMatrix.readElement(i,<sp/>3)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>+<sp/>localMassMatrix.readElement(i,<sp/>6)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>+<sp/>localMassMatrix.readElement(i,<sp/>9)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>)*Simulation::getGravity(0)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>(<sp/>this-&gt;localMassMatrix.readElement(i,<sp/>1)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>+<sp/>this-&gt;localMassMatrix.readElement(i,<sp/>4)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>+<sp/>this-&gt;localMassMatrix.readElement(i,<sp/>7)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>+<sp/>this-&gt;localMassMatrix.readElement(i,10)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>)*Simulation::getGravity(1)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>-</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>(<sp/>this-&gt;localMassMatrix.readElement(i,<sp/>2)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>+<sp/>this-&gt;localMassMatrix.readElement(i,<sp/>5)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>+<sp/>this-&gt;localMassMatrix.readElement(i,<sp/>8)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>+<sp/>this-&gt;localMassMatrix.readElement(i,11)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//~<sp/>)*Simulation::getGravity(2);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//~<sp/>}</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="163"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"></highlight></codeline>
-<codeline lineno="165" refid="dd/d2a/classmknix_1_1_rigid_body3_d_1abd7a5b8547154b5b56c30d87f9ce0e65" refkind="member"><highlight class="normal"><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref><sp/>*<sp/><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1abd7a5b8547154b5b56c30d87f9ce0e65" kindref="member">RigidBody3D::getBoundaryNode</ref>(<sp/>std::string<sp/>name_in<sp/>)</highlight></codeline>
-<codeline lineno="166"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>name_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;NODEA&quot;</highlight><highlight class="normal"><sp/>)</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>[0];</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>name_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;NODEB&quot;</highlight><highlight class="normal"><sp/>)</highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>[1];</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="175"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>name_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;NODEC&quot;</highlight><highlight class="normal"><sp/>)</highlight></codeline>
-<codeline lineno="176"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>[2];</highlight></codeline>
-<codeline lineno="178"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="179"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>name_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;NODED&quot;</highlight><highlight class="normal"><sp/>)</highlight></codeline>
-<codeline lineno="180"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>[3];</highlight></codeline>
-<codeline lineno="182"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="183"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="184"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ERROR:<sp/>NO<sp/>NODE<sp/>WITH<sp/>THAT<sp/>NAME<sp/>IN<sp/>RigidBody3D&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="186"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>m20*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>6,<sp/>0)<sp/>=<sp/>-Pyy<sp/>;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>7,<sp/>1)<sp/>=<sp/>-Pyy<sp/>;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>8,<sp/>2)<sp/>=<sp/>-Pyy<sp/>;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>m30*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>0,<sp/>0)<sp/>=<sp/>-Pzz<sp/>;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(10,<sp/>1)<sp/>=<sp/>-Pzz<sp/>;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(11,<sp/>2)<sp/>=<sp/>-Pzz<sp/>;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Pxx*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>3,<sp/>3)<sp/>=<sp/><sp/>Pxx<sp/>;</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>4,<sp/>4)<sp/>=<sp/><sp/>Pxx<sp/>;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>5,<sp/>5)<sp/>=<sp/><sp/>Pxx<sp/>;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Pyy*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>6,<sp/>6)<sp/>=<sp/><sp/>Pyy<sp/>;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>7,<sp/>7)<sp/>=<sp/><sp/>Pyy<sp/>;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>8,<sp/>8)<sp/>=<sp/><sp/>Pyy<sp/>;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Pzz*I3<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<sp/>9,<sp/>9)<sp/>=<sp/><sp/>Pzz<sp/>;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(10,10)<sp/>=<sp/><sp/>Pzz<sp/>;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(11,11)<sp/>=<sp/><sp/>Pzz<sp/>;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>localMassMatrix<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"></highlight></codeline>
+<codeline lineno="164" refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a66bff0110ce5d201875f068050c84c96" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a66bff0110ce5d201875f068050c84c96" kindref="member">RigidBody3D::calcExternalForces</ref>()</highlight></codeline>
+<codeline lineno="165"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*For<sp/>Problem<sp/>in<sp/>3D*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>(0)<sp/>=<sp/>-<ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref>*<ref refid="db/d0b/classmknix_1_1_simulation_1ae1eca795584573082535d83d0705af29" kindref="member">Simulation::getGravity</ref>(0);</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>(1)<sp/>=<sp/>-<ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref>*<ref refid="db/d0b/classmknix_1_1_simulation_1ae1eca795584573082535d83d0705af29" kindref="member">Simulation::getGravity</ref>(1);</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>(2)<sp/>=<sp/>-<ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref>*<ref refid="db/d0b/classmknix_1_1_simulation_1ae1eca795584573082535d83d0705af29" kindref="member">Simulation::getGravity</ref>(2);</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>externalForces<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight></codeline>
+<codeline lineno="174" refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a276784501249da5c366003a27afba4ea" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="dd/d2a/classmknix_1_1_rigid_body3_d_1a276784501249da5c366003a27afba4ea" kindref="member">RigidBody3D::addNode</ref>(<ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>node_in)</highlight></codeline>
+<codeline lineno="175"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/de3/classmknix_1_1_body_1abf7eec507e5fc918e4901864a6db0f84" kindref="member">mknix::Body::addNode</ref>(node_in);<sp/></highlight><highlight class="comment">//<sp/>adds<sp/>node_in<sp/>to<sp/>node<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1acbfce7ce37d4e7f616850da2a5850280" kindref="member">nodes</ref>.back()-&gt;addSupportNode(this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[0]);</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1acbfce7ce37d4e7f616850da2a5850280" kindref="member">nodes</ref>.back()-&gt;addSupportNode(this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[1]);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1acbfce7ce37d4e7f616850da2a5850280" kindref="member">nodes</ref>.back()-&gt;addSupportNode(this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[2]);</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1acbfce7ce37d4e7f616850da2a5850280" kindref="member">nodes</ref>.back()-&gt;addSupportNode(this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[3]);</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1acbfce7ce37d4e7f616850da2a5850280" kindref="member">nodes</ref>.back()-&gt;setJacobian(1./6.);</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1acbfce7ce37d4e7f616850da2a5850280" kindref="member">nodes</ref>.back()-&gt;setShapeFunType(</highlight><highlight class="stringliteral">&quot;3D&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1acbfce7ce37d4e7f616850da2a5850280" kindref="member">nodes</ref>.back()-&gt;shapeFunSolve(</highlight><highlight class="stringliteral">&quot;3D&quot;</highlight><highlight class="normal">,<sp/>1.);</highlight></codeline>
+<codeline lineno="184"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"></highlight></codeline>
 <codeline lineno="187"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="188"><highlight class="normal"></highlight></codeline>
-<codeline lineno="189"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid3D.cpp"/>
+    <location file="/home/daniel/Projects/MkniX/src/system/bodyrigid3D.cpp"/>
   </compounddef>
 </doxygen>

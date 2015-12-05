@@ -1,104 +1,7 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="db/dcb/compbar_8cpp" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="db/dcb/compbar_8cpp" kind="file" language="C++">
     <compoundname>compbar.cpp</compoundname>
-    <includes refid="d1/d77/node_8h" local="yes">node.h</includes>
-    <includes refid="d9/d92/compbar_8h" local="yes">compbar.h</includes>
-    <includes local="no">vtkLineSource.h</includes>
-    <includes local="no">vtkTubeFilter.h</includes>
-    <includes local="no">vtkActor.h</includes>
-    <includes local="no">vtkPolyDataMapper.h</includes>
-    <includes local="no">vtkProperty.h</includes>
-    <includes local="no">vtkRenderer.h</includes>
-    <includes local="no">cmath</includes>
-    <incdepgraph>
-      <node id="6067">
-        <label>compbar.h</label>
-        <link refid="d9/d92/compbar_8h"/>
-      </node>
-      <node id="6070">
-        <label>vtkActor.h</label>
-      </node>
-      <node id="6074">
-        <label>cmath</label>
-      </node>
-      <node id="6059">
-        <label>compbar.cpp</label>
-        <link refid="compbar.cpp"/>
-        <childnode refid="6060" relation="include">
-        </childnode>
-        <childnode refid="6067" relation="include">
-        </childnode>
-        <childnode refid="6068" relation="include">
-        </childnode>
-        <childnode refid="6069" relation="include">
-        </childnode>
-        <childnode refid="6070" relation="include">
-        </childnode>
-        <childnode refid="6071" relation="include">
-        </childnode>
-        <childnode refid="6072" relation="include">
-        </childnode>
-        <childnode refid="6073" relation="include">
-        </childnode>
-        <childnode refid="6074" relation="include">
-        </childnode>
-      </node>
-      <node id="6064">
-        <label>string</label>
-      </node>
-      <node id="6063">
-        <label>map</label>
-      </node>
-      <node id="6062">
-        <label>point.h</label>
-        <link refid="d2/d91/point_8h"/>
-        <childnode refid="6061" relation="include">
-        </childnode>
-        <childnode refid="6063" relation="include">
-        </childnode>
-        <childnode refid="6064" relation="include">
-        </childnode>
-        <childnode refid="6065" relation="include">
-        </childnode>
-      </node>
-      <node id="6068">
-        <label>vtkLineSource.h</label>
-      </node>
-      <node id="6069">
-        <label>vtkTubeFilter.h</label>
-      </node>
-      <node id="6065">
-        <label>common.h</label>
-        <link refid="dc/d54/common_8h"/>
-      </node>
-      <node id="6071">
-        <label>vtkPolyDataMapper.h</label>
-      </node>
-      <node id="6061">
-        <label>vector</label>
-      </node>
-      <node id="6066">
-        <label>LMX/lmx.h</label>
-      </node>
-      <node id="6073">
-        <label>vtkRenderer.h</label>
-      </node>
-      <node id="6060">
-        <label>node.h</label>
-        <link refid="d1/d77/node_8h"/>
-        <childnode refid="6061" relation="include">
-        </childnode>
-        <childnode refid="6062" relation="include">
-        </childnode>
-        <childnode refid="6066" relation="include">
-        </childnode>
-      </node>
-      <node id="6072">
-        <label>vtkProperty.h</label>
-      </node>
-    </incdepgraph>
-    <innernamespace refid="d2/dde/namespacemknix">mknix</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
@@ -124,82 +27,86 @@
 <codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/>59<sp/>Temple<sp/>Place<sp/>-<sp/>Suite<sp/>330,<sp/>Boston,<sp/>MA<sp/><sp/>02111-1307,<sp/>USA.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
 <codeline lineno="19"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d1/d77/node_8h" kindref="compound">node.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d9/d92/compbar_8h" kindref="compound">compbar.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vtkLineSource.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vtkTubeFilter.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vtkActor.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vtkPolyDataMapper.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vtkProperty.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vtkRenderer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>USE_VTK</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d1/d77/node_8h" kindref="compound">node.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d9/d92/compbar_8h" kindref="compound">compbar.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vtkLineSource.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vtkTubeFilter.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vtkActor.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vtkPolyDataMapper.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vtkProperty.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vtkRenderer.h&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="32"><highlight class="normal"></highlight></codeline>
-<codeline lineno="33"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mknix<sp/>{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cmath&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35" refid="d1/d90/classmknix_1_1_comp_bar_1ab72db97465fe7f1bfa97204bad5528c3" refkind="member"><highlight class="normal"><ref refid="d1/d90/classmknix_1_1_comp_bar_1ab72db97465fe7f1bfa97204bad5528c3" kindref="member">CompBar::CompBar</ref>()</highlight></codeline>
-<codeline lineno="36"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"></highlight></codeline>
-<codeline lineno="40" refid="d1/d90/classmknix_1_1_comp_bar_1afdb8c9aeaa0ac6aec90075dad6e35c92" refkind="member"><highlight class="normal"><ref refid="d1/d90/classmknix_1_1_comp_bar_1ab72db97465fe7f1bfa97204bad5528c3" kindref="member">CompBar::CompBar</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mat_in,<sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref><sp/>*<sp/>nodeA_in,<sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref><sp/>*nodeB_in)</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/>:<sp/>mat(mat_in)</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/>,<sp/>nodeA(nodeA_in)</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/>,<sp/>nodeB(nodeB_in)</highlight></codeline>
-<codeline lineno="44"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>length;</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/>length<sp/>=<sp/>std::sqrt(<sp/>std::pow(nodeA-&gt;<ref refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" kindref="member">getx</ref>()-nodeB-&gt;<ref refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" kindref="member">getx</ref>(),<sp/>2)<sp/>+</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(nodeA-&gt;<ref refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" kindref="member">gety</ref>()-nodeB-&gt;<ref refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" kindref="member">gety</ref>(),<sp/>2)<sp/>+</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(nodeA-&gt;<ref refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" kindref="member">getz</ref>()-nodeB-&gt;<ref refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" kindref="member">getz</ref>(),<sp/>2)<sp/>);</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/>line<sp/>=<sp/>vtkLineSource::New();</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/>line-&gt;SetResolution(10);</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/>lineTubes<sp/>=<sp/>vtkTubeFilter::New();</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/>lineTubes-&gt;SetInputConnection(line-&gt;GetOutputPort());</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/>lineTubes-&gt;SetRadius(length/20.);</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/>lineTubes-&gt;SetNumberOfSides(8);</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/>lineMapper<sp/>=<sp/>vtkPolyDataMapper::New();</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/>lineMapper-&gt;SetInputConnection(<sp/>lineTubes-&gt;GetOutputPort()<sp/>);</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/>lineActor<sp/>=<sp/>vtkActor::New();</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/>lineActor-&gt;SetMapper(<sp/>lineMapper<sp/>);</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/>lineActor-&gt;GetProperty()-&gt;SetColor(0.4235,0.6667,0.000);</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight></codeline>
-<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="d2/dde/namespacemknix" kindref="compound">mknix</ref><sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><ref refid="d1/d90/classmknix_1_1_comp_bar_1ab72db97465fe7f1bfa97204bad5528c3" kindref="member">CompBar::CompBar</ref>()</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><ref refid="d1/d90/classmknix_1_1_comp_bar_1ab72db97465fe7f1bfa97204bad5528c3" kindref="member">CompBar::CompBar</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>mat_in,<sp/>Node<sp/>*<sp/>nodeA_in,<sp/>Node<sp/>*nodeB_in)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>mat(mat_in)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>nodeA(nodeA_in)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>nodeB(nodeB_in)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>length;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>length<sp/>=<sp/>std::sqrt(<sp/>std::pow(nodeA-&gt;getx()-nodeB-&gt;getx(),<sp/>2)<sp/>+</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(nodeA-&gt;gety()-nodeB-&gt;gety(),<sp/>2)<sp/>+</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(nodeA-&gt;getz()-nodeB-&gt;getz(),<sp/>2)<sp/>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>line<sp/>=<sp/>vtkLineSource::New();</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>line-&gt;SetResolution(10);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>lineTubes<sp/>=<sp/>vtkTubeFilter::New();</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>lineTubes-&gt;SetInputConnection(line-&gt;GetOutputPort());</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/>lineTubes-&gt;SetRadius(length/20.);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>lineTubes-&gt;SetNumberOfSides(8);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/>lineMapper<sp/>=<sp/>vtkPolyDataMapper::New();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>lineMapper-&gt;SetInputConnection(<sp/>lineTubes-&gt;GetOutputPort()<sp/>);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>lineActor<sp/>=<sp/>vtkActor::New();</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>lineActor-&gt;SetMapper(<sp/>lineMapper<sp/>);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>lineActor-&gt;GetProperty()-&gt;SetColor(0.4235,0.6667,0.000);</highlight></codeline>
 <codeline lineno="65"><highlight class="normal"></highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight></codeline>
-<codeline lineno="67" refid="d1/d90/classmknix_1_1_comp_bar_1aad258dca0df1e017f189fc743baaf150" refkind="member"><highlight class="normal"><ref refid="d1/d90/classmknix_1_1_comp_bar_1aad258dca0df1e017f189fc743baaf150" kindref="member">CompBar::~CompBar</ref>()</highlight></codeline>
-<codeline lineno="68"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight></codeline>
-<codeline lineno="72" refid="d1/d90/classmknix_1_1_comp_bar_1aadfecc285b6aecc94d45df348f1974b3" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d1/d90/classmknix_1_1_comp_bar_1aadfecc285b6aecc94d45df348f1974b3" kindref="member">CompBar::actualizePoints</ref>()</highlight></codeline>
-<codeline lineno="73"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/>line-&gt;SetPoint1(nodeA-&gt;<ref refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" kindref="member">getx</ref>(),</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodeA-&gt;<ref refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" kindref="member">gety</ref>(),</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodeA-&gt;<ref refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" kindref="member">getz</ref>()</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/>line-&gt;SetPoint2(nodeB-&gt;<ref refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" kindref="member">getx</ref>(),</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodeB-&gt;<ref refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" kindref="member">gety</ref>(),</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodeB-&gt;<ref refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" kindref="member">getz</ref>()</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="82"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"></highlight></codeline>
-<codeline lineno="84" refid="d1/d90/classmknix_1_1_comp_bar_1adb7f828038ec2b850d93af242ce29faa" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d1/d90/classmknix_1_1_comp_bar_1adb7f828038ec2b850d93af242ce29faa" kindref="member">CompBar::addToRender</ref>(vtkRenderer<sp/>*<sp/>renderer_in)</highlight></codeline>
-<codeline lineno="85"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>renderer_in-&gt;AddActor(<sp/>lineActor<sp/>);</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"></highlight></codeline>
-<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal">CompBar::~CompBar()</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CompBar::updatePoints()</highlight></codeline>
+<codeline lineno="75"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>line-&gt;SetPoint1(nodeA-&gt;getx(),</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodeA-&gt;gety(),</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodeA-&gt;getz()</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>line-&gt;SetPoint2(nodeB-&gt;getx(),</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodeB-&gt;gety(),</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>nodeB-&gt;getz()</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CompBar::addToRender(vtkRenderer<sp/>*<sp/>renderer_in)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>renderer_in-&gt;AddActor(<sp/>lineActor<sp/>);</highlight></codeline>
 <codeline lineno="89"><highlight class="normal"></highlight></codeline>
-<codeline lineno="90" refid="d1/d90/classmknix_1_1_comp_bar_1a8642880b1f8a552dc2e955dcf9f31331" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d1/d90/classmknix_1_1_comp_bar_1a8642880b1f8a552dc2e955dcf9f31331" kindref="member">CompBar::removeFromRender</ref>(vtkRenderer<sp/>*<sp/>renderer_in)</highlight></codeline>
-<codeline lineno="91"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>renderer_in-&gt;RemoveActor(<sp/>lineActor<sp/>);</highlight></codeline>
-<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CompBar::removeFromRender(vtkRenderer<sp/>*<sp/>renderer_in)</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>renderer_in-&gt;RemoveActor(<sp/>lineActor<sp/>);</highlight></codeline>
 <codeline lineno="95"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>USE_VTK</highlight></codeline>
     </programlisting>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/compbar.cpp"/>
+    <location file="/home/daniel/Projects/MkniX/src/core/compbar.cpp"/>
   </compounddef>
 </doxygen>

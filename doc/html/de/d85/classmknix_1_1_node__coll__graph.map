@@ -1,4 +1,5 @@
 <map id="mknix::Node" name="mknix::Node">
-<area shape="rect" id="node2" href="$d3/d19/classmknix_1_1_point.html" title="mknix::Point" alt="" coords="105,5,199,35"/>
-<area shape="rect" id="node4" href="$dd/d8d/classmknix_1_1_shape_function.html" title="mknix::ShapeFunction" alt="" coords="125,101,277,131"/>
+<area shape="rect" id="node2" href="$d3/d19/classmknix_1_1_point.html" title="mknix::Point" alt="" coords="70,5,165,32"/>
+<area shape="rect" id="node3" href="$dd/d8d/classmknix_1_1_shape_function.html" title="mknix::ShapeFunction" alt="" coords="125,95,277,121"/>
+<area shape="rect" id="node4" href="$d2/d8d/classlmx_1_1_dense_matrix.html" title="lmx::DenseMatrix\&lt; double \&gt;" alt="" coords="189,5,376,32"/>
 </map>

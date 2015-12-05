@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="d2/d2b/classmknix_1_1_thermal_body" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d2/d2b/classmknix_1_1_thermal_body" kind="class" language="C++" prot="public">
     <compoundname>mknix::ThermalBody</compoundname>
     <includes refid="d3/d0b/bodythermal_8h" local="no">bodythermal.h</includes>
       <sectiondef kind="protected-attrib">
@@ -15,8 +15,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="135" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" bodystart="135" bodyend="-1"/>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a0a5734b63446b11a6176eed0255efd6f" compoundref="dd/d15/bodythermal_8cpp" startline="156" endline="195">outputToFile</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="105" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.h" bodystart="105" bodyend="-1"/>
+        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a0a5734b63446b11a6176eed0255efd6f" compoundref="dd/d15/bodythermal_8cpp" startline="211" endline="241">outputToFile</referencedby>
       </memberdef>
       <memberdef kind="variable" id="d2/d2b/classmknix_1_1_thermal_body_1a097e16dfcc1491dc659608f1392a504f" prot="protected" static="no" mutable="no">
         <type>bool</type>
@@ -29,10 +29,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="137" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" bodystart="137" bodyend="-1"/>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a1b40d106be9463126117d455fb508f86" compoundref="dd/d15/bodythermal_8cpp" startline="149" endline="153">setOutput</referencedby>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a0a5734b63446b11a6176eed0255efd6f" compoundref="dd/d15/bodythermal_8cpp" startline="156" endline="195">outputToFile</referencedby>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1afb78089ba843d2496cce134429cbd659" compoundref="dd/d15/bodythermal_8cpp" startline="197" endline="217">outputStep</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="107" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.h" bodystart="107" bodyend="-1"/>
+        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a1b40d106be9463126117d455fb508f86" compoundref="dd/d15/bodythermal_8cpp" startline="194" endline="199">setOutput</referencedby>
+        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1afb78089ba843d2496cce134429cbd659" compoundref="dd/d15/bodythermal_8cpp" startline="250" endline="270">outputStep</referencedby>
       </memberdef>
       <memberdef kind="variable" id="d2/d2b/classmknix_1_1_thermal_body_1aa74c56a18ed24997dfc4bdb90a7f67bd" prot="protected" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> * &gt;</type>
@@ -45,24 +44,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="138" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" bodystart="138" bodyend="-1"/>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a091d281dcf4425296ea643e0f338ae83" compoundref="dd/d15/bodythermal_8cpp" startline="45" endline="73">initialize</referencedby>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a654e240414932dc953ed01dfb74bcef2" compoundref="d3/d0b/bodythermal_8h" startline="82" endline="85">addNode</referencedby>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a5808d882210cc01f52f98b228d5eec52" compoundref="d3/d0b/bodythermal_8h" startline="87" endline="90">getNode</referencedby>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a2f81cf2beefe00b1d1b9a9cee265deb2" compoundref="d3/d0b/bodythermal_8h" startline="92" endline="95">getLastNode</referencedby>
-      </memberdef>
-      <memberdef kind="variable" id="d2/d2b/classmknix_1_1_thermal_body_1accad269fb2f0b891c66633011d396cfa" prot="protected" static="no" mutable="no">
-        <type>std::map&lt; <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *, <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> * &gt;</type>
-        <definition>std::map&lt;Node*,Node*&gt; mknix::ThermalBody::boundary</definition>
-        <argsstring></argsstring>
-        <name>boundary</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-<para>Map of linear boundary. </para>        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="139" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" bodystart="139" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="108" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.h" bodystart="108" bodyend="-1"/>
+        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a091d281dcf4425296ea643e0f338ae83" compoundref="dd/d15/bodythermal_8cpp" startline="58" endline="84">initialize</referencedby>
+        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a654e240414932dc953ed01dfb74bcef2" compoundref="d3/d0b/bodythermal_8h" startline="78" endline="81">addNode</referencedby>
+        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a5808d882210cc01f52f98b228d5eec52" compoundref="d3/d0b/bodythermal_8h" startline="83" endline="86">getNode</referencedby>
+        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a2f81cf2beefe00b1d1b9a9cee265deb2" compoundref="d3/d0b/bodythermal_8h" startline="88" endline="91">getLastNode</referencedby>
       </memberdef>
       <memberdef kind="variable" id="d2/d2b/classmknix_1_1_thermal_body_1a2af2b78c8e31929211f88a5a49072c06" prot="protected" static="no" mutable="no">
         <type>std::map&lt; int, <ref refid="db/dd4/classmknix_1_1_cell" kindref="compound">Cell</ref> * &gt;</type>
@@ -75,32 +61,18 @@
 <para>Map of integration cells. </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="140" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" bodystart="140" bodyend="-1"/>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a091d281dcf4425296ea643e0f338ae83" compoundref="dd/d15/bodythermal_8cpp" startline="45" endline="73">initialize</referencedby>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a9908d53e5af15285c2fdd1d909779a81" compoundref="dd/d15/bodythermal_8cpp" startline="75" endline="85">calcCapacityMatrix</referencedby>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1ad5b8eca1b13f081a5b49b2fa87c6be73" compoundref="dd/d15/bodythermal_8cpp" startline="87" endline="97">calcConductivityMatrix</referencedby>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a70ef05491f16086ff69788f745006a88" compoundref="dd/d15/bodythermal_8cpp" startline="99" endline="110">calcExternalHeat</referencedby>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a924ad06260f3ab9c181fd6149425bc6f" compoundref="dd/d15/bodythermal_8cpp" startline="112" endline="122">assembleCapacityMatrix</referencedby>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a205d5c7c2c3b96577bb8d539ba3931f6" compoundref="dd/d15/bodythermal_8cpp" startline="124" endline="134">assembleConductivityMatrix</referencedby>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a32328eca2fc0240ae2735bf402b3bdb8" compoundref="dd/d15/bodythermal_8cpp" startline="136" endline="146">assembleExternalHeat</referencedby>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a0a21d64ebd286d4afd3715f1f9faa268" compoundref="d3/d0b/bodythermal_8h" startline="119" endline="122">addCell</referencedby>
-      </memberdef>
-      <memberdef kind="variable" id="d2/d2b/classmknix_1_1_thermal_body_1aa5aa347f85714ea0766e2c1fddab4dad" prot="protected" static="no" mutable="no">
-        <type>std::vector&lt; lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; * &gt;</type>
-        <definition>std::vector&lt; lmx::Vector&lt;data_type&gt;* &gt; mknix::ThermalBody::energy</definition>
-        <argsstring></argsstring>
-        <name>energy</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="141" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" bodystart="141" bodyend="-1"/>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a0a5734b63446b11a6176eed0255efd6f" compoundref="dd/d15/bodythermal_8cpp" startline="156" endline="195">outputToFile</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="109" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.h" bodystart="109" bodyend="-1"/>
+        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a091d281dcf4425296ea643e0f338ae83" compoundref="dd/d15/bodythermal_8cpp" startline="58" endline="84">initialize</referencedby>
+        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a9908d53e5af15285c2fdd1d909779a81" compoundref="dd/d15/bodythermal_8cpp" startline="91" endline="100">calcCapacityMatrix</referencedby>
+        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1ad5b8eca1b13f081a5b49b2fa87c6be73" compoundref="dd/d15/bodythermal_8cpp" startline="107" endline="116">calcConductivityMatrix</referencedby>
+        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a70ef05491f16086ff69788f745006a88" compoundref="dd/d15/bodythermal_8cpp" startline="123" endline="133">calcExternalHeat</referencedby>
+        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a924ad06260f3ab9c181fd6149425bc6f" compoundref="dd/d15/bodythermal_8cpp" startline="141" endline="150">assembleCapacityMatrix</referencedby>
+        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a205d5c7c2c3b96577bb8d539ba3931f6" compoundref="dd/d15/bodythermal_8cpp" startline="158" endline="167">assembleConductivityMatrix</referencedby>
+        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a32328eca2fc0240ae2735bf402b3bdb8" compoundref="dd/d15/bodythermal_8cpp" startline="174" endline="183">assembleExternalHeat</referencedby>
+        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a0a21d64ebd286d4afd3715f1f9faa268" compoundref="d3/d0b/bodythermal_8h" startline="93" endline="96">addCell</referencedby>
       </memberdef>
       <memberdef kind="variable" id="d2/d2b/classmknix_1_1_thermal_body_1af5ed33528eba7a3bf39a4bdc3d2c9ed3" prot="protected" static="no" mutable="no">
-        <type>std::vector&lt; lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; * &gt;</type>
+        <type>std::vector&lt; <ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; * &gt;</type>
         <definition>std::vector&lt; lmx::Vector&lt;data_type&gt;* &gt; mknix::ThermalBody::temperature</definition>
         <argsstring></argsstring>
         <name>temperature</name>
@@ -110,36 +82,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="142" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" bodystart="142" bodyend="-1"/>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a0a5734b63446b11a6176eed0255efd6f" compoundref="dd/d15/bodythermal_8cpp" startline="156" endline="195">outputToFile</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="110" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.h" bodystart="110" bodyend="-1"/>
+        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a0a5734b63446b11a6176eed0255efd6f" compoundref="dd/d15/bodythermal_8cpp" startline="211" endline="241">outputToFile</referencedby>
       </memberdef>
-      <memberdef kind="variable" id="d2/d2b/classmknix_1_1_thermal_body_1a7ef0f85e0f2dac9fbdb23f23f16abb69" prot="protected" static="no" mutable="no">
-        <type>lmx::Matrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt;</type>
-        <definition>lmx::Matrix&lt; data_type &gt; mknix::ThermalBody::localMassMatrix</definition>
+      <memberdef kind="variable" id="d2/d2b/classmknix_1_1_thermal_body_1a30a30d13eef83ca7f39a7b0236c43dcd" prot="protected" static="no" mutable="no">
+        <type><ref refid="d2/d5c/classmknix_1_1_load_thermal_body" kindref="compound">LoadThermalBody</ref> *</type>
+        <definition>LoadThermalBody* mknix::ThermalBody::loadThermalBody</definition>
         <argsstring></argsstring>
-        <name>localMassMatrix</name>
+        <name>loadThermalBody</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="143" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" bodystart="143" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="variable" id="d2/d2b/classmknix_1_1_thermal_body_1abbac7355fca5db72ce619bb327c1514c" prot="protected" static="no" mutable="no">
-        <type><ref refid="df/d32/classmknix_1_1_thermal_load" kindref="compound">ThermalLoad</ref> *</type>
-        <definition>ThermalLoad* mknix::ThermalBody::thermalLoad</definition>
-        <argsstring></argsstring>
-        <name>thermalLoad</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="144" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" bodystart="144" bodyend="-1"/>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a70ef05491f16086ff69788f745006a88" compoundref="dd/d15/bodythermal_8cpp" startline="99" endline="110">calcExternalHeat</referencedby>
-        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a8987032e5b7e180f03602705538097c7" compoundref="d3/d0b/bodythermal_8h" startline="131" endline="132">setThermalLoad</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="111" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.h" bodystart="111" bodyend="-1"/>
+        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1a70ef05491f16086ff69788f745006a88" compoundref="dd/d15/bodythermal_8cpp" startline="123" endline="133">calcExternalHeat</referencedby>
+        <referencedby refid="d2/d2b/classmknix_1_1_thermal_body_1af1615f6d84e848749d98854ffd7bee50" compoundref="d3/d0b/bodythermal_8h" startline="99" endline="102">setLoadThermal</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -154,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="43" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.cpp" bodystart="26" bodyend="30"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="39" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.cpp" bodystart="28" bodyend="32"/>
       </memberdef>
       <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1ac80f8070e47d8467ff2818a9d9095a8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -166,12 +125,20 @@
           <defname>title_in</defname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>Constructor with 1 parameter. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>title_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Name of body in the system. Will be the same as the associated material body </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="45" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.cpp" bodystart="33" bodyend="38"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="41" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.cpp" bodystart="40" bodyend="45"/>
       </memberdef>
       <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1a5d4980cc538507f1f10111de9eca4018" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -184,7 +151,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="47" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.cpp" bodystart="41" bodyend="43"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="43" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.cpp" bodystart="48" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1a091d281dcf4425296ea643e0f338ae83" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -192,14 +159,15 @@
         <argsstring>()</argsstring>
         <name>initialize</name>
         <briefdescription>
-        </briefdescription>
+<para>Cascade initialization funtion. Calls the initialize methods for each of the Cells and tells them to compute their shapefunction values. Both loops are parallelized. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="59" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.cpp" bodystart="45" bodyend="73"/>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a2af2b78c8e31929211f88a5a49072c06" compoundref="d3/d0b/bodythermal_8h" startline="140">cells</references>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1aa74c56a18ed24997dfc4bdb90a7f67bd" compoundref="d3/d0b/bodythermal_8h" startline="138">nodes</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="55" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.cpp" bodystart="58" bodyend="84"/>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a2af2b78c8e31929211f88a5a49072c06" compoundref="d3/d0b/bodythermal_8h" startline="109">cells</references>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1aa74c56a18ed24997dfc4bdb90a7f67bd" compoundref="d3/d0b/bodythermal_8h" startline="108">nodes</references>
       </memberdef>
       <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1a9908d53e5af15285c2fdd1d909779a81" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -207,13 +175,14 @@
         <argsstring>()</argsstring>
         <name>calcCapacityMatrix</name>
         <briefdescription>
-        </briefdescription>
+<para>Computes the local Capacity of the material body by calling each cell&apos;s cascade function. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="61" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.cpp" bodystart="75" bodyend="85"/>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a2af2b78c8e31929211f88a5a49072c06" compoundref="d3/d0b/bodythermal_8h" startline="140">cells</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="57" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.cpp" bodystart="91" bodyend="100"/>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a2af2b78c8e31929211f88a5a49072c06" compoundref="d3/d0b/bodythermal_8h" startline="109">cells</references>
       </memberdef>
       <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1ad5b8eca1b13f081a5b49b2fa87c6be73" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -221,13 +190,14 @@
         <argsstring>()</argsstring>
         <name>calcConductivityMatrix</name>
         <briefdescription>
-        </briefdescription>
+<para>Computes the local Conductivity of the material body by calling each cell&apos;s cascade function. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="63" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.cpp" bodystart="87" bodyend="97"/>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a2af2b78c8e31929211f88a5a49072c06" compoundref="d3/d0b/bodythermal_8h" startline="140">cells</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="59" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.cpp" bodystart="107" bodyend="116"/>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a2af2b78c8e31929211f88a5a49072c06" compoundref="d3/d0b/bodythermal_8h" startline="109">cells</references>
       </memberdef>
       <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1a70ef05491f16086ff69788f745006a88" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -235,14 +205,15 @@
         <argsstring>()</argsstring>
         <name>calcExternalHeat</name>
         <briefdescription>
-        </briefdescription>
+<para>Computes the local volumetric heat vector of the material body by calling each cell&apos;s cascade function. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="65" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.cpp" bodystart="99" bodyend="110"/>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a2af2b78c8e31929211f88a5a49072c06" compoundref="d3/d0b/bodythermal_8h" startline="140">cells</references>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1abbac7355fca5db72ce619bb327c1514c" compoundref="d3/d0b/bodythermal_8h" startline="144">thermalLoad</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="61" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.cpp" bodystart="123" bodyend="133"/>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a2af2b78c8e31929211f88a5a49072c06" compoundref="d3/d0b/bodythermal_8h" startline="109">cells</references>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a30a30d13eef83ca7f39a7b0236c43dcd" compoundref="d3/d0b/bodythermal_8h" startline="111">loadThermalBody</references>
       </memberdef>
       <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1a924ad06260f3ab9c181fd6149425bc6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -250,17 +221,26 @@
         <argsstring>(lmx::Matrix&lt; data_type &gt; &amp;)</argsstring>
         <name>assembleCapacityMatrix</name>
         <param>
-          <type>lmx::Matrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <type><ref refid="d9/db0/classlmx_1_1_matrix" kindref="compound">lmx::Matrix</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
           <defname>globalCapacity</defname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>Assembles the local conductivity into the global matrix by calling each cell&apos;s cascade function. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>globalCapacity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference to the global matrix of the thermal simulation. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="67" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.cpp" bodystart="112" bodyend="122"/>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a2af2b78c8e31929211f88a5a49072c06" compoundref="d3/d0b/bodythermal_8h" startline="140">cells</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="63" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.cpp" bodystart="141" bodyend="150"/>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a2af2b78c8e31929211f88a5a49072c06" compoundref="d3/d0b/bodythermal_8h" startline="109">cells</references>
       </memberdef>
       <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1a205d5c7c2c3b96577bb8d539ba3931f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -268,17 +248,26 @@
         <argsstring>(lmx::Matrix&lt; data_type &gt; &amp;)</argsstring>
         <name>assembleConductivityMatrix</name>
         <param>
-          <type>lmx::Matrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <type><ref refid="d9/db0/classlmx_1_1_matrix" kindref="compound">lmx::Matrix</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
           <defname>globalConductivity</defname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>Assembles the local conductivity into the global matrix by calling each cell&apos;s cascade function. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>globalConductivity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Reference to the global matrix of the thermal simulation. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="69" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.cpp" bodystart="124" bodyend="134"/>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a2af2b78c8e31929211f88a5a49072c06" compoundref="d3/d0b/bodythermal_8h" startline="140">cells</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="65" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.cpp" bodystart="158" bodyend="167"/>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a2af2b78c8e31929211f88a5a49072c06" compoundref="d3/d0b/bodythermal_8h" startline="109">cells</references>
       </memberdef>
       <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1a32328eca2fc0240ae2735bf402b3bdb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -286,17 +275,18 @@
         <argsstring>(lmx::Vector&lt; data_type &gt; &amp;)</argsstring>
         <name>assembleExternalHeat</name>
         <param>
-          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <type><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
           <defname>globalExternalHeat</defname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>Assembles the local volumetric heat into the global heat load vector by calling each cell&apos;s cascade function. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="71" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.cpp" bodystart="136" bodyend="146"/>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a2af2b78c8e31929211f88a5a49072c06" compoundref="d3/d0b/bodythermal_8h" startline="140">cells</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="67" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.cpp" bodystart="174" bodyend="183"/>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a2af2b78c8e31929211f88a5a49072c06" compoundref="d3/d0b/bodythermal_8h" startline="109">cells</references>
       </memberdef>
       <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1a1b40d106be9463126117d455fb508f86" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -308,13 +298,24 @@
           <defname>outputType_in</defname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>Activates a flag for output data at the end of the analysis. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><simplesect kind="see"><para><ref refid="d2/d2b/classmknix_1_1_thermal_body_1a0a5734b63446b11a6176eed0255efd6f" kindref="member">outputToFile()</ref> </para></simplesect>
+<simplesect kind="see"><para><ref refid="d2/d2b/classmknix_1_1_thermal_body_1afb78089ba843d2496cce134429cbd659" kindref="member">outputStep()</ref> </para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>outputType_in</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Keyword of the flag. Options are: [ENERGY] </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="73" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.cpp" bodystart="149" bodyend="153"/>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a097e16dfcc1491dc659608f1392a504f" compoundref="d3/d0b/bodythermal_8h" startline="137">computeEnergy</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="69" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.cpp" bodystart="194" bodyend="199"/>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a097e16dfcc1491dc659608f1392a504f" compoundref="d3/d0b/bodythermal_8h" startline="107">computeEnergy</references>
       </memberdef>
       <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1afb78089ba843d2496cce134429cbd659" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -322,21 +323,37 @@
         <argsstring>(const lmx::Vector&lt; data_type &gt; &amp;, const lmx::Vector&lt; data_type &gt; &amp;)</argsstring>
         <name>outputStep</name>
         <param>
-          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <type>const <ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
           <defname>q</defname>
         </param>
         <param>
-          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <type>const <ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
           <defname>qdot</defname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>Postprocess and store step results for dynamic analysis. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>q</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Global configuration vector </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>qdot</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Global configuration first derivative vector </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="75" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.cpp" bodystart="197" bodyend="217"/>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a097e16dfcc1491dc659608f1392a504f" compoundref="d3/d0b/bodythermal_8h" startline="137">computeEnergy</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="71" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.cpp" bodystart="250" bodyend="270"/>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a097e16dfcc1491dc659608f1392a504f" compoundref="d3/d0b/bodythermal_8h" startline="107">computeEnergy</references>
       </memberdef>
       <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1aeff32a838c44c34140791a39f46dbce3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -344,17 +361,26 @@
         <argsstring>(const lmx::Vector&lt; data_type &gt; &amp;)</argsstring>
         <name>outputStep</name>
         <param>
-          <type>const lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <type>const <ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
           <defname>q</defname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>Postprocess and store step results for static analysis. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>q</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Global configuration vector </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="78" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.cpp" bodystart="219" bodyend="224"/>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a097e16dfcc1491dc659608f1392a504f" compoundref="d3/d0b/bodythermal_8h" startline="137">computeEnergy</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="74" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.cpp" bodystart="278" bodyend="283"/>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a097e16dfcc1491dc659608f1392a504f" compoundref="d3/d0b/bodythermal_8h" startline="107">computeEnergy</references>
       </memberdef>
       <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1a0a5734b63446b11a6176eed0255efd6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -366,16 +392,23 @@
           <defname>outFile</defname>
         </param>
         <briefdescription>
-        </briefdescription>
+<para>Streams the data stored during the analysis to a file. The idea is that all thermalBodies will be linked to a solid body with the same name (title). The postprocessor will treat this values as if it was the same body, so it must take into account that it can need to read several ENERGY(.*) sections for the same body. </para>        </briefdescription>
         <detaileddescription>
-        </detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>outFile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Output files </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>void </para></simplesect>
+</para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="80" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.cpp" bodystart="156" bodyend="195"/>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a097e16dfcc1491dc659608f1392a504f" compoundref="d3/d0b/bodythermal_8h" startline="137">computeEnergy</references>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1ad1b2b790274d2c987a8c461da0a3282f" compoundref="d3/d0b/bodythermal_8h" startline="135">title</references>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1aa5aa347f85714ea0766e2c1fddab4dad" compoundref="d3/d0b/bodythermal_8h" startline="141">energy</references>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1af5ed33528eba7a3bf39a4bdc3d2c9ed3" compoundref="d3/d0b/bodythermal_8h" startline="142">temperature</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="76" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.cpp" bodystart="211" bodyend="241"/>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1af5ed33528eba7a3bf39a4bdc3d2c9ed3" compoundref="d3/d0b/bodythermal_8h" startline="110">temperature</references>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1ad1b2b790274d2c987a8c461da0a3282f" compoundref="d3/d0b/bodythermal_8h" startline="105">title</references>
       </memberdef>
       <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1a654e240414932dc953ed01dfb74bcef2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -392,8 +425,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="82" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" bodystart="82" bodyend="85"/>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1aa74c56a18ed24997dfc4bdb90a7f67bd" compoundref="d3/d0b/bodythermal_8h" startline="138">nodes</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="78" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.h" bodystart="78" bodyend="81"/>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1aa74c56a18ed24997dfc4bdb90a7f67bd" compoundref="d3/d0b/bodythermal_8h" startline="108">nodes</references>
       </memberdef>
       <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1a5808d882210cc01f52f98b228d5eec52" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
@@ -410,8 +443,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="87" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" bodystart="87" bodyend="90"/>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1aa74c56a18ed24997dfc4bdb90a7f67bd" compoundref="d3/d0b/bodythermal_8h" startline="138">nodes</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="83" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.h" bodystart="83" bodyend="86"/>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1aa74c56a18ed24997dfc4bdb90a7f67bd" compoundref="d3/d0b/bodythermal_8h" startline="108">nodes</references>
       </memberdef>
       <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1a2f81cf2beefe00b1d1b9a9cee265deb2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
@@ -424,8 +457,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="92" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" bodystart="92" bodyend="95"/>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1aa74c56a18ed24997dfc4bdb90a7f67bd" compoundref="d3/d0b/bodythermal_8h" startline="138">nodes</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="88" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.h" bodystart="88" bodyend="91"/>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1aa74c56a18ed24997dfc4bdb90a7f67bd" compoundref="d3/d0b/bodythermal_8h" startline="108">nodes</references>
       </memberdef>
       <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1a0a21d64ebd286d4afd3715f1f9faa268" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -446,16 +479,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="119" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" bodystart="119" bodyend="122"/>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a2af2b78c8e31929211f88a5a49072c06" compoundref="d3/d0b/bodythermal_8h" startline="140">cells</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="93" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.h" bodystart="93" bodyend="96"/>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a2af2b78c8e31929211f88a5a49072c06" compoundref="d3/d0b/bodythermal_8h" startline="109">cells</references>
       </memberdef>
-      <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1a8987032e5b7e180f03602705538097c7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+      <memberdef kind="function" id="d2/d2b/classmknix_1_1_thermal_body_1af1615f6d84e848749d98854ffd7bee50" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
-        <definition>virtual void mknix::ThermalBody::setThermalLoad</definition>
-        <argsstring>(ThermalLoad *theLoad)</argsstring>
-        <name>setThermalLoad</name>
+        <definition>virtual void mknix::ThermalBody::setLoadThermal</definition>
+        <argsstring>(LoadThermalBody *theLoad)</argsstring>
+        <name>setLoadThermal</name>
         <param>
-          <type><ref refid="df/d32/classmknix_1_1_thermal_load" kindref="compound">ThermalLoad</ref> *</type>
+          <type><ref refid="d2/d5c/classmknix_1_1_load_thermal_body" kindref="compound">LoadThermalBody</ref> *</type>
           <declname>theLoad</declname>
         </param>
         <briefdescription>
@@ -464,8 +497,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="131" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" bodystart="131" bodyend="132"/>
-        <references refid="d2/d2b/classmknix_1_1_thermal_body_1abbac7355fca5db72ce619bb327c1514c" compoundref="d3/d0b/bodythermal_8h" startline="144">thermalLoad</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="99" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.h" bodystart="99" bodyend="102"/>
+        <references refid="d2/d2b/classmknix_1_1_thermal_body_1a30a30d13eef83ca7f39a7b0236c43dcd" compoundref="d3/d0b/bodythermal_8h" startline="111">loadThermalBody</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -474,46 +507,43 @@
 <para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
 </para>    </detaileddescription>
     <collaborationgraph>
-      <node id="466">
+      <node id="840">
         <label>mknix::ThermalBody</label>
         <link refid="d2/d2b/classmknix_1_1_thermal_body"/>
-        <childnode refid="467" relation="usage">
-          <edgelabel>thermalLoad</edgelabel>
+        <childnode refid="841" relation="usage">
+          <edgelabel>loadThermalBody</edgelabel>
         </childnode>
       </node>
-      <node id="467">
-        <label>mknix::ThermalLoad</label>
-        <link refid="df/d32/classmknix_1_1_thermal_load"/>
+      <node id="841">
+        <label>mknix::LoadThermalBody</label>
+        <link refid="d2/d5c/classmknix_1_1_load_thermal_body"/>
       </node>
     </collaborationgraph>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" line="39" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/bodythermal.h" bodystart="39" bodyend="150"/>
+    <location file="/home/daniel/Projects/MkniX/src/system/bodythermal.h" line="35" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/bodythermal.h" bodystart="35" bodyend="113"/>
     <listofallmembers>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1a0a21d64ebd286d4afd3715f1f9faa268" prot="public" virt="virtual"><scope>mknix::ThermalBody</scope><name>addCell</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1a654e240414932dc953ed01dfb74bcef2" prot="public" virt="virtual"><scope>mknix::ThermalBody</scope><name>addNode</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1a924ad06260f3ab9c181fd6149425bc6f" prot="public" virt="virtual"><scope>mknix::ThermalBody</scope><name>assembleCapacityMatrix</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1a205d5c7c2c3b96577bb8d539ba3931f6" prot="public" virt="virtual"><scope>mknix::ThermalBody</scope><name>assembleConductivityMatrix</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1a32328eca2fc0240ae2735bf402b3bdb8" prot="public" virt="virtual"><scope>mknix::ThermalBody</scope><name>assembleExternalHeat</name></member>
-      <member refid="d2/d2b/classmknix_1_1_thermal_body_1accad269fb2f0b891c66633011d396cfa" prot="protected" virt="non-virtual"><scope>mknix::ThermalBody</scope><name>boundary</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1a9908d53e5af15285c2fdd1d909779a81" prot="public" virt="virtual"><scope>mknix::ThermalBody</scope><name>calcCapacityMatrix</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1ad5b8eca1b13f081a5b49b2fa87c6be73" prot="public" virt="virtual"><scope>mknix::ThermalBody</scope><name>calcConductivityMatrix</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1a70ef05491f16086ff69788f745006a88" prot="public" virt="virtual"><scope>mknix::ThermalBody</scope><name>calcExternalHeat</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1a2af2b78c8e31929211f88a5a49072c06" prot="protected" virt="non-virtual"><scope>mknix::ThermalBody</scope><name>cells</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1a097e16dfcc1491dc659608f1392a504f" prot="protected" virt="non-virtual"><scope>mknix::ThermalBody</scope><name>computeEnergy</name></member>
-      <member refid="d2/d2b/classmknix_1_1_thermal_body_1aa5aa347f85714ea0766e2c1fddab4dad" prot="protected" virt="non-virtual"><scope>mknix::ThermalBody</scope><name>energy</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1a2f81cf2beefe00b1d1b9a9cee265deb2" prot="public" virt="virtual"><scope>mknix::ThermalBody</scope><name>getLastNode</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1a5808d882210cc01f52f98b228d5eec52" prot="public" virt="virtual"><scope>mknix::ThermalBody</scope><name>getNode</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1a091d281dcf4425296ea643e0f338ae83" prot="public" virt="virtual"><scope>mknix::ThermalBody</scope><name>initialize</name></member>
-      <member refid="d2/d2b/classmknix_1_1_thermal_body_1a7ef0f85e0f2dac9fbdb23f23f16abb69" prot="protected" virt="non-virtual"><scope>mknix::ThermalBody</scope><name>localMassMatrix</name></member>
+      <member refid="d2/d2b/classmknix_1_1_thermal_body_1a30a30d13eef83ca7f39a7b0236c43dcd" prot="protected" virt="non-virtual"><scope>mknix::ThermalBody</scope><name>loadThermalBody</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1aa74c56a18ed24997dfc4bdb90a7f67bd" prot="protected" virt="non-virtual"><scope>mknix::ThermalBody</scope><name>nodes</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1afb78089ba843d2496cce134429cbd659" prot="public" virt="virtual"><scope>mknix::ThermalBody</scope><name>outputStep</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1aeff32a838c44c34140791a39f46dbce3" prot="public" virt="virtual"><scope>mknix::ThermalBody</scope><name>outputStep</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1a0a5734b63446b11a6176eed0255efd6f" prot="public" virt="virtual"><scope>mknix::ThermalBody</scope><name>outputToFile</name></member>
+      <member refid="d2/d2b/classmknix_1_1_thermal_body_1af1615f6d84e848749d98854ffd7bee50" prot="public" virt="virtual"><scope>mknix::ThermalBody</scope><name>setLoadThermal</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1a1b40d106be9463126117d455fb508f86" prot="public" virt="virtual"><scope>mknix::ThermalBody</scope><name>setOutput</name></member>
-      <member refid="d2/d2b/classmknix_1_1_thermal_body_1a8987032e5b7e180f03602705538097c7" prot="public" virt="virtual"><scope>mknix::ThermalBody</scope><name>setThermalLoad</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1af5ed33528eba7a3bf39a4bdc3d2c9ed3" prot="protected" virt="non-virtual"><scope>mknix::ThermalBody</scope><name>temperature</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1a41c675feaab004c04ff4f5ae0fb8a27e" prot="public" virt="non-virtual"><scope>mknix::ThermalBody</scope><name>ThermalBody</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1ac80f8070e47d8467ff2818a9d9095a8c" prot="public" virt="non-virtual"><scope>mknix::ThermalBody</scope><name>ThermalBody</name></member>
-      <member refid="d2/d2b/classmknix_1_1_thermal_body_1abbac7355fca5db72ce619bb327c1514c" prot="protected" virt="non-virtual"><scope>mknix::ThermalBody</scope><name>thermalLoad</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1ad1b2b790274d2c987a8c461da0a3282f" prot="protected" virt="non-virtual"><scope>mknix::ThermalBody</scope><name>title</name></member>
       <member refid="d2/d2b/classmknix_1_1_thermal_body_1a5d4980cc538507f1f10111de9eca4018" prot="public" virt="virtual"><scope>mknix::ThermalBody</scope><name>~ThermalBody</name></member>
     </listofallmembers>

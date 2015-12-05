@@ -1,17 +1,25 @@
-\hypertarget{classmknix_1_1_body}{\subsection{mknix\-:\-:Body Class Reference}
-\label{classmknix_1_1_body}\index{mknix\-::\-Body@{mknix\-::\-Body}}
-}
+\hypertarget{classmknix_1_1_body}{}\subsection{mknix\+:\+:Body Class Reference}
+\label{classmknix_1_1_body}\index{mknix\+::\+Body@{mknix\+::\+Body}}
 
 
-{\ttfamily \#include $<$body.\-h$>$}
+{\ttfamily \#include $<$body.\+h$>$}
 
 
 
-Inheritance diagram for mknix\-:\-:Body\-:\nopagebreak
+Inheritance diagram for mknix\+:\+:Body\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{d9/d1c/classmknix_1_1_body__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mknix\+:\+:Body\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d2/d93/classmknix_1_1_body__coll__graph}
 \end{center}
 \end{figure}
 \subsubsection*{Public Member Functions}
@@ -19,310 +27,908 @@ Inheritance diagram for mknix\-:\-:Body\-:\nopagebreak
 \item 
 \hyperlink{classmknix_1_1_body_a5f11ba30f14169c567d8e3f84afbbf40}{Body} ()
 \item 
-\hyperlink{classmknix_1_1_body_a121c49df553ac35ca246052168eccb7f}{Body} (std\-::string)
+\hyperlink{classmknix_1_1_body_a121c49df553ac35ca246052168eccb7f}{Body} (std\+::string)
+\begin{DoxyCompactList}\small\item\em Constructor with 1 parameter. \end{DoxyCompactList}\item 
+virtual \hyperlink{classmknix_1_1_body_ad58a0a50a821e1adaa5abd1320e5a837}{$\sim$\+Body} ()
 \item 
-virtual \hyperlink{classmknix_1_1_body_ad58a0a50a821e1adaa5abd1320e5a837}{$\sim$\-Body} ()
+virtual std\+::string \hyperlink{classmknix_1_1_body_a603ed0a11eee91957b2655a0e4667cd4}{get\+Type} ()=0
 \item 
-virtual std\-::string \hyperlink{classmknix_1_1_body_a603ed0a11eee91957b2655a0e4667cd4}{get\-Type} ()=0
+virtual void \hyperlink{classmknix_1_1_body_a054b7576fbd1e8c39f02105b8572c372}{initialize} ()
+\begin{DoxyCompactList}\small\item\em Cascade initialization funtion. Calls the initialize methods for each of the Cells and tells them to compute their shapefunction values. Both loops are parallelized. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_body_acd598d48de1ed25dbbf11a438154f3d9}{calc\+Capacity\+Matrix} ()
+\begin{DoxyCompactList}\small\item\em Computes the local Capacity of the material body by calling each cell\textquotesingle{}s cascade function. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_body_af3b11d33d15d6b2411bca681ddd10b9c}{calc\+Conductivity\+Matrix} ()
+\begin{DoxyCompactList}\small\item\em Computes the local Conductivity of the material body by calling each cell\textquotesingle{}s cascade function. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_body_a2251d4224fdaeef6c78ee3edce4d94fe}{calc\+External\+Heat} ()
+\begin{DoxyCompactList}\small\item\em Computes the local volumetric heat vector of the material body by calling each cell\textquotesingle{}s cascade function. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_body_a073f28930ce01dbf40244625538326ce}{assemble\+Capacity\+Matrix} (\hyperlink{classlmx_1_1_matrix}{lmx\+::\+Matrix}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
+\begin{DoxyCompactList}\small\item\em Assembles the local conductivity into the global matrix by calling each cell\textquotesingle{}s cascade function. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_body_a7185066ed04c51946b256412ee92c00c}{assemble\+Conductivity\+Matrix} (\hyperlink{classlmx_1_1_matrix}{lmx\+::\+Matrix}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
+\begin{DoxyCompactList}\small\item\em Assembles the local conductivity into the global matrix by calling each cell\textquotesingle{}s cascade function. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_body_a7b8c3fab4eaa4ecba277317fa7bfb0f3}{assemble\+External\+Heat} (\hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
+\begin{DoxyCompactList}\small\item\em Assembles the local volumetric heat into the global heat load vector by calling each cell\textquotesingle{}s cascade function. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_body_ad34fa07c6620c9fcc2268bfdbfd42194}{calc\+Mass\+Matrix} ()=0
 \item 
-virtual void \hyperlink{classmknix_1_1_body_ad34fa07c6620c9fcc2268bfdbfd42194}{calc\-Mass\-Matrix} ()=0
+virtual void \hyperlink{classmknix_1_1_body_a71d21e817523058098bcec62fb377187}{calc\+External\+Forces} ()=0
 \item 
-virtual void \hyperlink{classmknix_1_1_body_a71d21e817523058098bcec62fb377187}{calc\-External\-Forces} ()=0
+virtual void \hyperlink{classmknix_1_1_body_acd6c47f4e0a25e927141cb325df896a9}{assemble\+Mass\+Matrix} (\hyperlink{classlmx_1_1_matrix}{lmx\+::\+Matrix}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)=0
 \item 
-virtual void \hyperlink{classmknix_1_1_body_acd6c47f4e0a25e927141cb325df896a9}{assemble\-Mass\-Matrix} (lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)=0
+virtual void \hyperlink{classmknix_1_1_body_a46a17ef341d6ea217e1548108a4e9efc}{assemble\+External\+Forces} (\hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)=0
 \item 
-virtual void \hyperlink{classmknix_1_1_body_a46a17ef341d6ea217e1548108a4e9efc}{assemble\-External\-Forces} (lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)=0
+void \hyperlink{classmknix_1_1_body_a7a59c0a2063ce89772d24e0fc7118dd9}{set\+Temperature} (double)
 \item 
-virtual void \hyperlink{classmknix_1_1_body_a689970a0729d557ed56492bbfeae4ecd}{set\-Output} (std\-::string)=0
+virtual void \hyperlink{classmknix_1_1_body_a863cfa7288a25874f4e4ce6d329fc26b}{set\+Mechanical} ()
 \item 
-virtual void \hyperlink{classmknix_1_1_body_a2655307ec61a79f8d2e5716c984a44df}{output\-Step} (const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&, const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)=0
+virtual void \hyperlink{classmknix_1_1_body_a689970a0729d557ed56492bbfeae4ecd}{set\+Output} (std\+::string)=0
 \item 
-virtual void \hyperlink{classmknix_1_1_body_a0570075194360f453b763866969548e7}{output\-Step} (const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)=0
+virtual void \hyperlink{classmknix_1_1_body_a2655307ec61a79f8d2e5716c984a44df}{output\+Step} (const \hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&, const \hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)=0
 \item 
-virtual void \hyperlink{classmknix_1_1_body_acc0dd60d384ec11bf1ea71fed9ae27b3}{output\-To\-File} (std\-::ofstream $\ast$)=0
+virtual void \hyperlink{classmknix_1_1_body_a0570075194360f453b763866969548e7}{output\+Step} (const \hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)=0
 \item 
-virtual void \hyperlink{classmknix_1_1_body_abf7eec507e5fc918e4901864a6db0f84}{add\-Node} (\hyperlink{classmknix_1_1_node}{Node} $\ast$node\-\_\-in)
+virtual void \hyperlink{classmknix_1_1_body_ae41a00911e832630c5b18e874a503e34}{output\+Step} ()
+\begin{DoxyCompactList}\small\item\em Postprocess and store thermal step results for any analysis. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_body_a65fb5dd34d3a6925f611f7ea49da5cd0}{output\+To\+File} (std\+::ofstream $\ast$)
+\begin{DoxyCompactList}\small\item\em Streams the data stored during the analysis to a file. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_body_abf7eec507e5fc918e4901864a6db0f84}{add\+Node} (\hyperlink{classmknix_1_1_node}{Node} $\ast$node\+\_\+in)
 \item 
-\hyperlink{classmknix_1_1_node}{Node} $\ast$ \hyperlink{classmknix_1_1_body_ac996b024251ecd5bcb9af4a932e916c2}{get\-Node} (int node\-\_\-number)
+void \hyperlink{classmknix_1_1_body_a29eb7ca2168e7674ddb553a85d43a8d8}{add\+Nodes} (std\+::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \&nodes\+\_\+in)
 \item 
-virtual \hyperlink{classmknix_1_1_node}{Node} $\ast$ \hyperlink{classmknix_1_1_body_a95fad3fdd4c18a0adcbeba2891b55140}{get\-Last\-Node} ()
+virtual int \hyperlink{classmknix_1_1_body_af1e6e6589c5dfb4016e1e6af2225ae5f}{get\+Nodes\+Size} ()
 \item 
-virtual void \hyperlink{classmknix_1_1_body_a0303c5d1de1c19cff7448baf2564f213}{add\-Boundary\-Line} (\hyperlink{classmknix_1_1_node}{Node} $\ast$node1, \hyperlink{classmknix_1_1_node}{Node} $\ast$node2)
+std\+::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \& \hyperlink{classmknix_1_1_body_aba386146267f71d398fb4dabb41a550c}{get\+Nodes} ()
 \item 
-virtual int \hyperlink{classmknix_1_1_body_aa7de934eb85ec4e68741d0c7395a9a10}{get\-Boundary\-Size} ()
+virtual \hyperlink{classmknix_1_1_node}{Node} $\ast$ \hyperlink{classmknix_1_1_body_abb933258861ddadd9d7c7792e9303e02}{get\+Node} (int node\+\_\+number)
 \item 
-virtual \hyperlink{classmknix_1_1_node}{Node} $\ast$ \hyperlink{classmknix_1_1_body_a0cd2969a179a3d6a44607e038593028b}{get\-Boundary\-First\-Node} ()
+virtual \hyperlink{classmknix_1_1_node}{Node} $\ast$ \hyperlink{classmknix_1_1_body_a95fad3fdd4c18a0adcbeba2891b55140}{get\+Last\+Node} ()
 \item 
-virtual \hyperlink{classmknix_1_1_node}{Node} $\ast$ \hyperlink{classmknix_1_1_body_aac3a9453cb1a13464fa56449112188f1}{get\-Boundary\-Next\-Node} (\hyperlink{classmknix_1_1_node}{Node} $\ast$node\-\_\-in)
+virtual void \hyperlink{classmknix_1_1_body_a023da531b8383f798f4ef31bad1cff60}{add\+Boundary\+Line} (\hyperlink{classmknix_1_1_point}{Point} $\ast$node1, \hyperlink{classmknix_1_1_point}{Point} $\ast$node2)
 \item 
-virtual void \hyperlink{classmknix_1_1_body_abb4237e7f457287766e29bfe0cbb0f01}{add\-Cell} (int num, \hyperlink{classmknix_1_1_cell}{Cell} $\ast$cell\-\_\-in)
+virtual void \hyperlink{classmknix_1_1_body_a9b3e566b0c8758701f1583667caf6657}{add\+Boundary\+Connectivity} (std\+::vector$<$ int $>$ connectivity\+\_\+in)
 \item 
-virtual void \hyperlink{classmknix_1_1_body_ada574d09e98568156185eb7eef398c8f}{write\-Boundary\-Nodes} (std\-::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \&)=0
+virtual int \hyperlink{classmknix_1_1_body_aa7de934eb85ec4e68741d0c7395a9a10}{get\+Boundary\+Size} ()
 \item 
-virtual void \hyperlink{classmknix_1_1_body_ab95b00050cf3841c1b931e04eebe57e1}{write\-Boundary\-Connectivity} (std\-::vector$<$ std\-::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ $>$ \&)=0
+virtual \hyperlink{classmknix_1_1_point}{Point} $\ast$ \hyperlink{classmknix_1_1_body_a030d73d6f97c9fc81220ca0d21cfa4c1}{get\+Boundary\+First\+Node} ()
+\item 
+virtual \hyperlink{classmknix_1_1_point}{Point} $\ast$ \hyperlink{classmknix_1_1_body_abadb51ea072fcd48be388467507c4fb0}{get\+Boundary\+Next\+Node} (\hyperlink{classmknix_1_1_point}{Point} $\ast$node\+\_\+in)
+\item 
+void \hyperlink{classmknix_1_1_body_ab83a1a1e344d3cacb0319da5f579ce93}{add\+Boundary\+Group} (std\+::string boundary\+Name\+\_\+in)
+\item 
+void \hyperlink{classmknix_1_1_body_a8ee89e6b0f3bf8bbb20a3435e5a42c3d}{add\+Node\+To\+Boundary\+Group} (int node\+Number\+\_\+in, std\+::string boundary\+Name\+\_\+in)
+\item 
+void \hyperlink{classmknix_1_1_body_ae9c1eb483544a2a0c113dae3843184fe}{add\+Cell\+To\+Boundary\+Group} (\hyperlink{classmknix_1_1_cell_boundary}{Cell\+Boundary} $\ast$cell\+\_\+in, std\+::string boundary\+Name\+\_\+in)
+\item 
+void \hyperlink{classmknix_1_1_body_ad3c25b3400585c33a55e82ba8898f760}{set\+Load\+Thermal\+In\+Boundary\+Group} (\hyperlink{classmknix_1_1_load_thermal_boundary1_d}{Load\+Thermal\+Boundary1\+D} $\ast$load\+\_\+in, std\+::string boundary\+Name\+\_\+in)
+\item 
+int \hyperlink{classmknix_1_1_body_a60025d1f29dad28094719a92335b0450}{get\+Cell\+Last\+Number} ()
+\item 
+virtual void \hyperlink{classmknix_1_1_body_abb4237e7f457287766e29bfe0cbb0f01}{add\+Cell} (int num, \hyperlink{classmknix_1_1_cell}{Cell} $\ast$cell\+\_\+in)
+\item 
+virtual void \hyperlink{classmknix_1_1_body_a25c23173ef74c5ef821f6850bc1d8861}{write\+Body\+Info} (std\+::ofstream $\ast$)=0
+\item 
+virtual void \hyperlink{classmknix_1_1_body_ac1b5b8a41f713a7d569598e43f9cde61}{write\+Boundary\+Nodes} (std\+::vector$<$ \hyperlink{classmknix_1_1_point}{Point} $\ast$ $>$ \&)=0
+\item 
+virtual void \hyperlink{classmknix_1_1_body_addb14e7d7db378199a0ece0707611129}{write\+Boundary\+Connectivity} (std\+::vector$<$ std\+::vector$<$ \hyperlink{classmknix_1_1_point}{Point} $\ast$ $>$ $>$ \&)=0
 \item 
 virtual void \hyperlink{classmknix_1_1_body_a5f58f8e5398bbacc973b046be600eb5f}{translate} (double, double, double)
+\item 
+virtual void \hyperlink{classmknix_1_1_body_a95a6a5e78013a9ca160842915f3a4703}{set\+Load\+Thermal} (\hyperlink{classmknix_1_1_load_thermal_body}{Load\+Thermal\+Body} $\ast$the\+Load)
 \end{DoxyCompactItemize}
 \subsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\-::string \hyperlink{classmknix_1_1_body_a3c05cdff2d5f2b150046cd734d0ed7ce}{title}
+std\+::string \hyperlink{classmknix_1_1_body_a3c05cdff2d5f2b150046cd734d0ed7ce}{title}
 \item 
-std\-::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \hyperlink{classmknix_1_1_body_a3393da3459cbf7b35ee3dedb982180bf}{nodes}
+\hyperlink{classmknix_1_1_node}{Node} $\ast$ \hyperlink{classmknix_1_1_body_a55bd3106cf4c12c8b4644e48b412f3c9}{last\+Node}
 \item 
-std\-::map$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$, \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \hyperlink{classmknix_1_1_body_abaacc346d058cdabb8d0273b1440e323}{boundary}
+std\+::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \hyperlink{classmknix_1_1_body_acbfce7ce37d4e7f616850da2a5850280}{nodes}
 \item 
-std\-::map$<$ int, \hyperlink{classmknix_1_1_cell}{Cell} $\ast$ $>$ \hyperlink{classmknix_1_1_body_afa538e2bc24cd6623e63b44704037a73}{cells}
+std\+::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \hyperlink{classmknix_1_1_body_a4c8d492ccd9472119b5f8b47392c1dcd}{bonded\+Body\+Nodes}
 \item 
-lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \hyperlink{classmknix_1_1_body_abf69d9fd5ede2c511d85c5d644902c6e}{local\-Mass\-Matrix}
+std\+::map$<$ std\+::string, \hyperlink{classmknix_1_1_boundary_group}{Boundary\+Group} $\ast$ $>$ \hyperlink{classmknix_1_1_body_a36b757c3483aa0a65c064e2be0919bb0}{boundary\+Groups}
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \hyperlink{classmknix_1_1_body_a49d2061c709f04eacd6bc1ad2abe8e92}{boundary\+Connectivity}
+\item 
+std\+::map$<$ \hyperlink{classmknix_1_1_point}{Point} $\ast$, \hyperlink{classmknix_1_1_point}{Point} $\ast$ $>$ \hyperlink{classmknix_1_1_body_afd47959808ee823dff7457a535153ea0}{linear\+Boundary}
+\item 
+std\+::map$<$ int, \hyperlink{classmknix_1_1_cell}{Cell} $\ast$ $>$ \hyperlink{classmknix_1_1_body_ae42afe33182ecd4ab758fd252e079221}{cells}
+\item 
+bool \hyperlink{classmknix_1_1_body_a64fa35111fa3252c60971811dec421de}{compute\+Energy}
+\item 
+bool \hyperlink{classmknix_1_1_body_a2b8de3291a8b2678b1c989f4d6c52b89}{is\+Thermal}
+\item 
+std\+::vector$<$ \hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ $\ast$ $>$ \hyperlink{classmknix_1_1_body_a29e955d93a12919d2adfec07a0f2f566}{temperature}
+\item 
+\hyperlink{classmknix_1_1_load_thermal_body}{Load\+Thermal\+Body} $\ast$ \hyperlink{classmknix_1_1_body_aef21ef0ead5775597ca38a9304a26682}{load\+Thermal\+Body}
 \end{DoxyCompactItemize}
 
 
 \subsubsection{Detailed Description}
 \begin{DoxyAuthor}{Author}
-A\-U\-T\-H\-O\-R\-S $<$\-M\-A\-I\-L\-S$>$ 
+A\+U\+T\+H\+O\+R\+S $<$\+M\+A\+I\+L\+S$>$ 
 \end{DoxyAuthor}
 
 
+Definition at line 46 of file body.\+h.
+
+
+
 \subsubsection{Constructor \& Destructor Documentation}
-\hypertarget{classmknix_1_1_body_a5f11ba30f14169c567d8e3f84afbbf40}{\index{mknix\-::\-Body@{mknix\-::\-Body}!Body@{Body}}
-\index{Body@{Body}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{Body}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Body\-::\-Body (
+\hypertarget{classmknix_1_1_body_a5f11ba30f14169c567d8e3f84afbbf40}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!Body@{Body}}
+\index{Body@{Body}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{Body}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+Body\+::\+Body (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_body_a5f11ba30f14169c567d8e3f84afbbf40}
-\hypertarget{classmknix_1_1_body_a121c49df553ac35ca246052168eccb7f}{\index{mknix\-::\-Body@{mknix\-::\-Body}!Body@{Body}}
-\index{Body@{Body}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{Body}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Body\-::\-Body (
+)}\label{classmknix_1_1_body_a5f11ba30f14169c567d8e3f84afbbf40}
+
+
+Definition at line 26 of file body.\+cpp.
+
+\hypertarget{classmknix_1_1_body_a121c49df553ac35ca246052168eccb7f}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!Body@{Body}}
+\index{Body@{Body}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{Body}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+Body\+::\+Body (
 \begin{DoxyParamCaption}
-\item[{std\-::string}]{title\-\_\-in}
+\item[{std\+::string}]{title\+\_\+in}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_body_a121c49df553ac35ca246052168eccb7f}
-\hypertarget{classmknix_1_1_body_ad58a0a50a821e1adaa5abd1320e5a837}{\index{mknix\-::\-Body@{mknix\-::\-Body}!$\sim$\-Body@{$\sim$\-Body}}
-\index{$\sim$\-Body@{$\sim$\-Body}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{$\sim$\-Body}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Body\-::$\sim$\-Body (
+)}\label{classmknix_1_1_body_a121c49df553ac35ca246052168eccb7f}
+
+
+Constructor with 1 parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title\+\_\+in} & Name of body in the system. Will be the same as the associated material body \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 37 of file body.\+cpp.
+
+\hypertarget{classmknix_1_1_body_ad58a0a50a821e1adaa5abd1320e5a837}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!````~Body@{$\sim$\+Body}}
+\index{````~Body@{$\sim$\+Body}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{$\sim$\+Body}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+Body\+::$\sim$\+Body (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_body_ad58a0a50a821e1adaa5abd1320e5a837}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_body_ad58a0a50a821e1adaa5abd1320e5a837}
+
+
+Definition at line 46 of file body.\+cpp.
+
 
 
 \subsubsection{Member Function Documentation}
-\hypertarget{classmknix_1_1_body_a0303c5d1de1c19cff7448baf2564f213}{\index{mknix\-::\-Body@{mknix\-::\-Body}!add\-Boundary\-Line@{add\-Boundary\-Line}}
-\index{add\-Boundary\-Line@{add\-Boundary\-Line}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{add\-Boundary\-Line}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::add\-Boundary\-Line (
+\hypertarget{classmknix_1_1_body_a9b3e566b0c8758701f1583667caf6657}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!add\+Boundary\+Connectivity@{add\+Boundary\+Connectivity}}
+\index{add\+Boundary\+Connectivity@{add\+Boundary\+Connectivity}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{add\+Boundary\+Connectivity}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Body\+::add\+Boundary\+Connectivity (
 \begin{DoxyParamCaption}
-\item[{{\bf Node} $\ast$}]{node1, }
-\item[{{\bf Node} $\ast$}]{node2}
+\item[{std\+::vector$<$ int $>$}]{connectivity\+\_\+in}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_body_a0303c5d1de1c19cff7448baf2564f213}
-\hypertarget{classmknix_1_1_body_abb4237e7f457287766e29bfe0cbb0f01}{\index{mknix\-::\-Body@{mknix\-::\-Body}!add\-Cell@{add\-Cell}}
-\index{add\-Cell@{add\-Cell}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{add\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::add\-Cell (
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_body_a9b3e566b0c8758701f1583667caf6657}
+
+
+Definition at line 311 of file body.\+cpp.
+
+\hypertarget{classmknix_1_1_body_ab83a1a1e344d3cacb0319da5f579ce93}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!add\+Boundary\+Group@{add\+Boundary\+Group}}
+\index{add\+Boundary\+Group@{add\+Boundary\+Group}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{add\+Boundary\+Group}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Body\+::add\+Boundary\+Group (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{boundary\+Name\+\_\+in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classmknix_1_1_body_ab83a1a1e344d3cacb0319da5f579ce93}
+
+
+Definition at line 162 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_a023da531b8383f798f4ef31bad1cff60}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!add\+Boundary\+Line@{add\+Boundary\+Line}}
+\index{add\+Boundary\+Line@{add\+Boundary\+Line}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{add\+Boundary\+Line}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Body\+::add\+Boundary\+Line (
+\begin{DoxyParamCaption}
+\item[{{\bf Point} $\ast$}]{node1, }
+\item[{{\bf Point} $\ast$}]{node2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_body_a023da531b8383f798f4ef31bad1cff60}
+
+
+Definition at line 128 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_abb4237e7f457287766e29bfe0cbb0f01}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!add\+Cell@{add\+Cell}}
+\index{add\+Cell@{add\+Cell}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{add\+Cell}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Body\+::add\+Cell (
 \begin{DoxyParamCaption}
 \item[{int}]{num, }
-\item[{{\bf Cell} $\ast$}]{cell\-\_\-in}
+\item[{{\bf Cell} $\ast$}]{cell\+\_\+in}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_body_abb4237e7f457287766e29bfe0cbb0f01}
-\hypertarget{classmknix_1_1_body_abf7eec507e5fc918e4901864a6db0f84}{\index{mknix\-::\-Body@{mknix\-::\-Body}!add\-Node@{add\-Node}}
-\index{add\-Node@{add\-Node}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{add\-Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::add\-Node (
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_body_abb4237e7f457287766e29bfe0cbb0f01}
+
+
+Definition at line 188 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_ae9c1eb483544a2a0c113dae3843184fe}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!add\+Cell\+To\+Boundary\+Group@{add\+Cell\+To\+Boundary\+Group}}
+\index{add\+Cell\+To\+Boundary\+Group@{add\+Cell\+To\+Boundary\+Group}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{add\+Cell\+To\+Boundary\+Group}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Body\+::add\+Cell\+To\+Boundary\+Group (
 \begin{DoxyParamCaption}
-\item[{{\bf Node} $\ast$}]{node\-\_\-in}
+\item[{{\bf Cell\+Boundary} $\ast$}]{cell\+\_\+in, }
+\item[{std\+::string}]{boundary\+Name\+\_\+in}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_body_abf7eec507e5fc918e4901864a6db0f84}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classmknix_1_1_body_ae9c1eb483544a2a0c113dae3843184fe}
 
 
-Reimplemented in \hyperlink{classmknix_1_1_rigid_bar_a1f05aae37c654229c4f6c3ef32944125}{mknix\-::\-Rigid\-Bar}, and \hyperlink{classmknix_1_1_rigid_body_a88b0dfc0af5002ee8d060df5e520434f}{mknix\-::\-Rigid\-Body}.
+Definition at line 173 of file body.\+h.
 
-\hypertarget{classmknix_1_1_body_a46a17ef341d6ea217e1548108a4e9efc}{\index{mknix\-::\-Body@{mknix\-::\-Body}!assemble\-External\-Forces@{assemble\-External\-Forces}}
-\index{assemble\-External\-Forces@{assemble\-External\-Forces}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{assemble\-External\-Forces}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::assemble\-External\-Forces (
+\hypertarget{classmknix_1_1_body_abf7eec507e5fc918e4901864a6db0f84}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!add\+Node@{add\+Node}}
+\index{add\+Node@{add\+Node}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{add\+Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Body\+::add\+Node (
 \begin{DoxyParamCaption}
-\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{}
+\item[{{\bf Node} $\ast$}]{node\+\_\+in}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_a46a17ef341d6ea217e1548108a4e9efc}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_body_abf7eec507e5fc918e4901864a6db0f84}
 
 
-Implemented in \hyperlink{classmknix_1_1_flex_global_galerkin_acc0254dbedc2543be9051aab1acb7d99}{mknix\-::\-Flex\-Global\-Galerkin}, and \hyperlink{classmknix_1_1_rigid_body_a18c7ffa5b9f2d3df008a92f421404fac}{mknix\-::\-Rigid\-Body}.
+Reimplemented in \hyperlink{classmknix_1_1_rigid_bar_a1f05aae37c654229c4f6c3ef32944125}{mknix\+::\+Rigid\+Bar}, \hyperlink{classmknix_1_1_rigid_body2_d_a62a44eed6a60518564005506cefc7595}{mknix\+::\+Rigid\+Body2\+D}, and \hyperlink{classmknix_1_1_rigid_body3_d_a276784501249da5c366003a27afba4ea}{mknix\+::\+Rigid\+Body3\+D}.
 
-\hypertarget{classmknix_1_1_body_acd6c47f4e0a25e927141cb325df896a9}{\index{mknix\-::\-Body@{mknix\-::\-Body}!assemble\-Mass\-Matrix@{assemble\-Mass\-Matrix}}
-\index{assemble\-Mass\-Matrix@{assemble\-Mass\-Matrix}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{assemble\-Mass\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::assemble\-Mass\-Matrix (
+
+
+Definition at line 98 of file body.\+h.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/de3/classmknix_1_1_body_abf7eec507e5fc918e4901864a6db0f84_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_body_a29eb7ca2168e7674ddb553a85d43a8d8}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!add\+Nodes@{add\+Nodes}}
+\index{add\+Nodes@{add\+Nodes}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{add\+Nodes}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Body\+::add\+Nodes (
 \begin{DoxyParamCaption}
-\item[{lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ \&}]{}
+\item[{std\+::vector$<$ {\bf Node} $\ast$ $>$ \&}]{nodes\+\_\+in}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_acd6c47f4e0a25e927141cb325df896a9}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classmknix_1_1_body_a29eb7ca2168e7674ddb553a85d43a8d8}
 
 
-Implemented in \hyperlink{classmknix_1_1_flex_global_galerkin_a689a56babe9734eb504a9c948b6a3587}{mknix\-::\-Flex\-Global\-Galerkin}, and \hyperlink{classmknix_1_1_rigid_body_ac20200b40e6e222261bb8257e339d7b4}{mknix\-::\-Rigid\-Body}.
+Definition at line 103 of file body.\+h.
 
-\hypertarget{classmknix_1_1_body_a71d21e817523058098bcec62fb377187}{\index{mknix\-::\-Body@{mknix\-::\-Body}!calc\-External\-Forces@{calc\-External\-Forces}}
-\index{calc\-External\-Forces@{calc\-External\-Forces}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{calc\-External\-Forces}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::calc\-External\-Forces (
+\hypertarget{classmknix_1_1_body_a8ee89e6b0f3bf8bbb20a3435e5a42c3d}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!add\+Node\+To\+Boundary\+Group@{add\+Node\+To\+Boundary\+Group}}
+\index{add\+Node\+To\+Boundary\+Group@{add\+Node\+To\+Boundary\+Group}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{add\+Node\+To\+Boundary\+Group}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Body\+::add\+Node\+To\+Boundary\+Group (
+\begin{DoxyParamCaption}
+\item[{int}]{node\+Number\+\_\+in, }
+\item[{std\+::string}]{boundary\+Name\+\_\+in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classmknix_1_1_body_a8ee89e6b0f3bf8bbb20a3435e5a42c3d}
+
+
+Definition at line 167 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_a073f28930ce01dbf40244625538326ce}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!assemble\+Capacity\+Matrix@{assemble\+Capacity\+Matrix}}
+\index{assemble\+Capacity\+Matrix@{assemble\+Capacity\+Matrix}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{assemble\+Capacity\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Body\+::assemble\+Capacity\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf lmx\+::\+Matrix}$<$ {\bf data\+\_\+type} $>$ \&}]{global\+Capacity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_body_a073f28930ce01dbf40244625538326ce}
+
+
+Assembles the local conductivity into the global matrix by calling each cell\textquotesingle{}s cascade function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em global\+Capacity} & Reference to the global matrix of the thermal simulation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 176 of file body.\+cpp.
+
+\hypertarget{classmknix_1_1_body_a7185066ed04c51946b256412ee92c00c}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!assemble\+Conductivity\+Matrix@{assemble\+Conductivity\+Matrix}}
+\index{assemble\+Conductivity\+Matrix@{assemble\+Conductivity\+Matrix}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{assemble\+Conductivity\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Body\+::assemble\+Conductivity\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf lmx\+::\+Matrix}$<$ {\bf data\+\_\+type} $>$ \&}]{global\+Conductivity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_body_a7185066ed04c51946b256412ee92c00c}
+
+
+Assembles the local conductivity into the global matrix by calling each cell\textquotesingle{}s cascade function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em global\+Conductivity} & Reference to the global matrix of the thermal simulation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 191 of file body.\+cpp.
+
+\hypertarget{classmknix_1_1_body_a46a17ef341d6ea217e1548108a4e9efc}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!assemble\+External\+Forces@{assemble\+External\+Forces}}
+\index{assemble\+External\+Forces@{assemble\+External\+Forces}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{assemble\+External\+Forces}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Body\+::assemble\+External\+Forces (
+\begin{DoxyParamCaption}
+\item[{{\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classmknix_1_1_body_a46a17ef341d6ea217e1548108a4e9efc}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_frame_galerkin_a1a3ebbc84b363ce243bbb7a5ed5d9ae9}{mknix\+::\+Flex\+Frame\+Galerkin}, \hyperlink{classmknix_1_1_flex_global_galerkin_acc0254dbedc2543be9051aab1acb7d99}{mknix\+::\+Flex\+Global\+Galerkin}, and \hyperlink{classmknix_1_1_rigid_body_a18c7ffa5b9f2d3df008a92f421404fac}{mknix\+::\+Rigid\+Body}.
+
+\hypertarget{classmknix_1_1_body_a7b8c3fab4eaa4ecba277317fa7bfb0f3}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!assemble\+External\+Heat@{assemble\+External\+Heat}}
+\index{assemble\+External\+Heat@{assemble\+External\+Heat}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{assemble\+External\+Heat}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Body\+::assemble\+External\+Heat (
+\begin{DoxyParamCaption}
+\item[{{\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{global\+External\+Heat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_body_a7b8c3fab4eaa4ecba277317fa7bfb0f3}
+
+
+Assembles the local volumetric heat into the global heat load vector by calling each cell\textquotesingle{}s cascade function. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 205 of file body.\+cpp.
+
+\hypertarget{classmknix_1_1_body_acd6c47f4e0a25e927141cb325df896a9}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!assemble\+Mass\+Matrix@{assemble\+Mass\+Matrix}}
+\index{assemble\+Mass\+Matrix@{assemble\+Mass\+Matrix}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{assemble\+Mass\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Body\+::assemble\+Mass\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf lmx\+::\+Matrix}$<$ {\bf data\+\_\+type} $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classmknix_1_1_body_acd6c47f4e0a25e927141cb325df896a9}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_frame_galerkin_a0552eca6a0212ebf7248e1d40c9b4304}{mknix\+::\+Flex\+Frame\+Galerkin}, \hyperlink{classmknix_1_1_flex_global_galerkin_a689a56babe9734eb504a9c948b6a3587}{mknix\+::\+Flex\+Global\+Galerkin}, and \hyperlink{classmknix_1_1_rigid_body_ac20200b40e6e222261bb8257e339d7b4}{mknix\+::\+Rigid\+Body}.
+
+\hypertarget{classmknix_1_1_body_acd598d48de1ed25dbbf11a438154f3d9}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!calc\+Capacity\+Matrix@{calc\+Capacity\+Matrix}}
+\index{calc\+Capacity\+Matrix@{calc\+Capacity\+Matrix}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{calc\+Capacity\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Body\+::calc\+Capacity\+Matrix (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_a71d21e817523058098bcec62fb377187}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_body_acd598d48de1ed25dbbf11a438154f3d9}
 
 
-Implemented in \hyperlink{classmknix_1_1_flex_global_galerkin_a2ed7079f0f2674c3556ff8dbbf3a63d3}{mknix\-::\-Flex\-Global\-Galerkin}, \hyperlink{classmknix_1_1_rigid_body3_d_a66bff0110ce5d201875f068050c84c96}{mknix\-::\-Rigid\-Body3\-D}, \hyperlink{classmknix_1_1_rigid_body_mass_point_a281842fc7cf1367bbed4c5e477ac8da9}{mknix\-::\-Rigid\-Body\-Mass\-Point}, \hyperlink{classmknix_1_1_rigid_bar_a4325fbe1df7832ce09bd2bf72b00cf67}{mknix\-::\-Rigid\-Bar}, \hyperlink{classmknix_1_1_rigid_body2_d_a2d1b7d48c98c3e0ef63dc2c975637793}{mknix\-::\-Rigid\-Body2\-D}, and \hyperlink{classmknix_1_1_rigid_bar_a4325fbe1df7832ce09bd2bf72b00cf67}{mknix\-::\-Rigid\-Bar}.
+Computes the local Capacity of the material body by calling each cell\textquotesingle{}s cascade function. 
 
-\hypertarget{classmknix_1_1_body_ad34fa07c6620c9fcc2268bfdbfd42194}{\index{mknix\-::\-Body@{mknix\-::\-Body}!calc\-Mass\-Matrix@{calc\-Mass\-Matrix}}
-\index{calc\-Mass\-Matrix@{calc\-Mass\-Matrix}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{calc\-Mass\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::calc\-Mass\-Matrix (
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 128 of file body.\+cpp.
+
+\hypertarget{classmknix_1_1_body_af3b11d33d15d6b2411bca681ddd10b9c}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!calc\+Conductivity\+Matrix@{calc\+Conductivity\+Matrix}}
+\index{calc\+Conductivity\+Matrix@{calc\+Conductivity\+Matrix}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{calc\+Conductivity\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Body\+::calc\+Conductivity\+Matrix (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_ad34fa07c6620c9fcc2268bfdbfd42194}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_body_af3b11d33d15d6b2411bca681ddd10b9c}
 
 
-Implemented in \hyperlink{classmknix_1_1_rigid_body3_d_a257d9b0bb9fe27664227270cd73194a4}{mknix\-::\-Rigid\-Body3\-D}, \hyperlink{classmknix_1_1_rigid_body_mass_point_aed37447f963c4393b30febe281589b99}{mknix\-::\-Rigid\-Body\-Mass\-Point}, \hyperlink{classmknix_1_1_flex_global_galerkin_ae5bb8c27e7494b233a96d971833a0d0d}{mknix\-::\-Flex\-Global\-Galerkin}, \hyperlink{classmknix_1_1_rigid_bar_a3d368a1a10b600179fbb7e901472c301}{mknix\-::\-Rigid\-Bar}, \hyperlink{classmknix_1_1_rigid_body2_d_a9ee8593743364a723107d307c12d8ad1}{mknix\-::\-Rigid\-Body2\-D}, and \hyperlink{classmknix_1_1_rigid_bar_a3d368a1a10b600179fbb7e901472c301}{mknix\-::\-Rigid\-Bar}.
+Computes the local Conductivity of the material body by calling each cell\textquotesingle{}s cascade function. 
 
-\hypertarget{classmknix_1_1_body_a0cd2969a179a3d6a44607e038593028b}{\index{mknix\-::\-Body@{mknix\-::\-Body}!get\-Boundary\-First\-Node@{get\-Boundary\-First\-Node}}
-\index{get\-Boundary\-First\-Node@{get\-Boundary\-First\-Node}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{get\-Boundary\-First\-Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Node}$\ast$ mknix\-::\-Body\-::get\-Boundary\-First\-Node (
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 142 of file body.\+cpp.
+
+\hypertarget{classmknix_1_1_body_a71d21e817523058098bcec62fb377187}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!calc\+External\+Forces@{calc\+External\+Forces}}
+\index{calc\+External\+Forces@{calc\+External\+Forces}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{calc\+External\+Forces}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Body\+::calc\+External\+Forces (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_body_a0cd2969a179a3d6a44607e038593028b}
-\hypertarget{classmknix_1_1_body_aac3a9453cb1a13464fa56449112188f1}{\index{mknix\-::\-Body@{mknix\-::\-Body}!get\-Boundary\-Next\-Node@{get\-Boundary\-Next\-Node}}
-\index{get\-Boundary\-Next\-Node@{get\-Boundary\-Next\-Node}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{get\-Boundary\-Next\-Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Node}$\ast$ mknix\-::\-Body\-::get\-Boundary\-Next\-Node (
-\begin{DoxyParamCaption}
-\item[{{\bf Node} $\ast$}]{node\-\_\-in}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_body_aac3a9453cb1a13464fa56449112188f1}
-\hypertarget{classmknix_1_1_body_aa7de934eb85ec4e68741d0c7395a9a10}{\index{mknix\-::\-Body@{mknix\-::\-Body}!get\-Boundary\-Size@{get\-Boundary\-Size}}
-\index{get\-Boundary\-Size@{get\-Boundary\-Size}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{get\-Boundary\-Size}]{\setlength{\rightskip}{0pt plus 5cm}virtual int mknix\-::\-Body\-::get\-Boundary\-Size (
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classmknix_1_1_body_a71d21e817523058098bcec62fb377187}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_frame_galerkin_a01c9230736b636729edf5b8c6a206d82}{mknix\+::\+Flex\+Frame\+Galerkin}, \hyperlink{classmknix_1_1_flex_global_galerkin_a2ed7079f0f2674c3556ff8dbbf3a63d3}{mknix\+::\+Flex\+Global\+Galerkin}, \hyperlink{classmknix_1_1_rigid_bar_a4325fbe1df7832ce09bd2bf72b00cf67}{mknix\+::\+Rigid\+Bar}, \hyperlink{classmknix_1_1_rigid_body2_d_a2d1b7d48c98c3e0ef63dc2c975637793}{mknix\+::\+Rigid\+Body2\+D}, \hyperlink{classmknix_1_1_rigid_body3_d_a66bff0110ce5d201875f068050c84c96}{mknix\+::\+Rigid\+Body3\+D}, and \hyperlink{classmknix_1_1_rigid_body_mass_point_a281842fc7cf1367bbed4c5e477ac8da9}{mknix\+::\+Rigid\+Body\+Mass\+Point}.
+
+\hypertarget{classmknix_1_1_body_a2251d4224fdaeef6c78ee3edce4d94fe}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!calc\+External\+Heat@{calc\+External\+Heat}}
+\index{calc\+External\+Heat@{calc\+External\+Heat}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{calc\+External\+Heat}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Body\+::calc\+External\+Heat (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_body_aa7de934eb85ec4e68741d0c7395a9a10}
-\hypertarget{classmknix_1_1_body_a95fad3fdd4c18a0adcbeba2891b55140}{\index{mknix\-::\-Body@{mknix\-::\-Body}!get\-Last\-Node@{get\-Last\-Node}}
-\index{get\-Last\-Node@{get\-Last\-Node}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{get\-Last\-Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Node}$\ast$ mknix\-::\-Body\-::get\-Last\-Node (
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_body_a2251d4224fdaeef6c78ee3edce4d94fe}
+
+
+Computes the local volumetric heat vector of the material body by calling each cell\textquotesingle{}s cascade function. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 156 of file body.\+cpp.
+
+\hypertarget{classmknix_1_1_body_ad34fa07c6620c9fcc2268bfdbfd42194}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!calc\+Mass\+Matrix@{calc\+Mass\+Matrix}}
+\index{calc\+Mass\+Matrix@{calc\+Mass\+Matrix}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{calc\+Mass\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Body\+::calc\+Mass\+Matrix (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_body_a95fad3fdd4c18a0adcbeba2891b55140}
-\hypertarget{classmknix_1_1_body_ac996b024251ecd5bcb9af4a932e916c2}{\index{mknix\-::\-Body@{mknix\-::\-Body}!get\-Node@{get\-Node}}
-\index{get\-Node@{get\-Node}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{get\-Node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node}$\ast$ mknix\-::\-Body\-::get\-Node (
-\begin{DoxyParamCaption}
-\item[{int}]{node\-\_\-number}
-\end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_body_ac996b024251ecd5bcb9af4a932e916c2}
-\hypertarget{classmknix_1_1_body_a603ed0a11eee91957b2655a0e4667cd4}{\index{mknix\-::\-Body@{mknix\-::\-Body}!get\-Type@{get\-Type}}
-\index{get\-Type@{get\-Type}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{get\-Type}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\-::string mknix\-::\-Body\-::get\-Type (
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classmknix_1_1_body_ad34fa07c6620c9fcc2268bfdbfd42194}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_frame_galerkin_ad11cf5adf433ec3ed3b0bf205fd0adda}{mknix\+::\+Flex\+Frame\+Galerkin}, \hyperlink{classmknix_1_1_flex_global_galerkin_ae5bb8c27e7494b233a96d971833a0d0d}{mknix\+::\+Flex\+Global\+Galerkin}, \hyperlink{classmknix_1_1_rigid_bar_a3d368a1a10b600179fbb7e901472c301}{mknix\+::\+Rigid\+Bar}, \hyperlink{classmknix_1_1_rigid_body2_d_a9ee8593743364a723107d307c12d8ad1}{mknix\+::\+Rigid\+Body2\+D}, \hyperlink{classmknix_1_1_rigid_body3_d_a257d9b0bb9fe27664227270cd73194a4}{mknix\+::\+Rigid\+Body3\+D}, and \hyperlink{classmknix_1_1_rigid_body_mass_point_aed37447f963c4393b30febe281589b99}{mknix\+::\+Rigid\+Body\+Mass\+Point}.
+
+\hypertarget{classmknix_1_1_body_a030d73d6f97c9fc81220ca0d21cfa4c1}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!get\+Boundary\+First\+Node@{get\+Boundary\+First\+Node}}
+\index{get\+Boundary\+First\+Node@{get\+Boundary\+First\+Node}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{get\+Boundary\+First\+Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Point}$\ast$ mknix\+::\+Body\+::get\+Boundary\+First\+Node (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_a603ed0a11eee91957b2655a0e4667cd4}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_body_a030d73d6f97c9fc81220ca0d21cfa4c1}
 
 
-Implemented in \hyperlink{classmknix_1_1_rigid_body_mass_point_aa97f367f1f1701f5d7981c994a96fb5e}{mknix\-::\-Rigid\-Body\-Mass\-Point}, \hyperlink{classmknix_1_1_rigid_body3_d_a3cdb37910a3ed061017926d67932ad06}{mknix\-::\-Rigid\-Body3\-D}, \hyperlink{classmknix_1_1_rigid_bar_acc95a2895043626253a4bb8ee1eb341a}{mknix\-::\-Rigid\-Bar}, \hyperlink{classmknix_1_1_rigid_bar_acc95a2895043626253a4bb8ee1eb341a}{mknix\-::\-Rigid\-Bar}, \hyperlink{classmknix_1_1_rigid_body2_d_a36d7142c5123c4055c019109fb6169dc}{mknix\-::\-Rigid\-Body2\-D}, and \hyperlink{classmknix_1_1_flex_global_galerkin_a31c93b0ce740217ce4cd12e71646d8cf}{mknix\-::\-Flex\-Global\-Galerkin}.
+Definition at line 152 of file body.\+h.
 
-\hypertarget{classmknix_1_1_body_a2655307ec61a79f8d2e5716c984a44df}{\index{mknix\-::\-Body@{mknix\-::\-Body}!output\-Step@{output\-Step}}
-\index{output\-Step@{output\-Step}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{output\-Step}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::output\-Step (
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/de3/classmknix_1_1_body_a030d73d6f97c9fc81220ca0d21cfa4c1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_body_abadb51ea072fcd48be388467507c4fb0}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!get\+Boundary\+Next\+Node@{get\+Boundary\+Next\+Node}}
+\index{get\+Boundary\+Next\+Node@{get\+Boundary\+Next\+Node}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{get\+Boundary\+Next\+Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Point}$\ast$ mknix\+::\+Body\+::get\+Boundary\+Next\+Node (
 \begin{DoxyParamCaption}
-\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{, }
-\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{}
+\item[{{\bf Point} $\ast$}]{node\+\_\+in}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_a2655307ec61a79f8d2e5716c984a44df}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_body_abadb51ea072fcd48be388467507c4fb0}
 
 
-Implemented in \hyperlink{classmknix_1_1_flex_global_galerkin_a031a130b73e3fe0fc862393f94d235cb}{mknix\-::\-Flex\-Global\-Galerkin}, and \hyperlink{classmknix_1_1_rigid_body_a721e9f81cfba9a3d425df36f7cf5ef71}{mknix\-::\-Rigid\-Body}.
+Definition at line 157 of file body.\+h.
 
-\hypertarget{classmknix_1_1_body_a0570075194360f453b763866969548e7}{\index{mknix\-::\-Body@{mknix\-::\-Body}!output\-Step@{output\-Step}}
-\index{output\-Step@{output\-Step}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{output\-Step}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::output\-Step (
+\hypertarget{classmknix_1_1_body_aa7de934eb85ec4e68741d0c7395a9a10}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!get\+Boundary\+Size@{get\+Boundary\+Size}}
+\index{get\+Boundary\+Size@{get\+Boundary\+Size}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{get\+Boundary\+Size}]{\setlength{\rightskip}{0pt plus 5cm}virtual int mknix\+::\+Body\+::get\+Boundary\+Size (
 \begin{DoxyParamCaption}
-\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{}
+{}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_a0570075194360f453b763866969548e7}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_body_aa7de934eb85ec4e68741d0c7395a9a10}
 
 
-Implemented in \hyperlink{classmknix_1_1_flex_global_galerkin_a1882efa0a8f8c8832f6116b8f7874d2a}{mknix\-::\-Flex\-Global\-Galerkin}, and \hyperlink{classmknix_1_1_rigid_body_a605ed074fed7570c6620a6a6f6cd4bb0}{mknix\-::\-Rigid\-Body}.
+Definition at line 147 of file body.\+h.
 
-\hypertarget{classmknix_1_1_body_acc0dd60d384ec11bf1ea71fed9ae27b3}{\index{mknix\-::\-Body@{mknix\-::\-Body}!output\-To\-File@{output\-To\-File}}
-\index{output\-To\-File@{output\-To\-File}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{output\-To\-File}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::output\-To\-File (
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/de3/classmknix_1_1_body_aa7de934eb85ec4e68741d0c7395a9a10_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_body_a60025d1f29dad28094719a92335b0450}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!get\+Cell\+Last\+Number@{get\+Cell\+Last\+Number}}
+\index{get\+Cell\+Last\+Number@{get\+Cell\+Last\+Number}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{get\+Cell\+Last\+Number}]{\setlength{\rightskip}{0pt plus 5cm}int mknix\+::\+Body\+::get\+Cell\+Last\+Number (
 \begin{DoxyParamCaption}
-\item[{std\-::ofstream $\ast$}]{}
+{}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_acc0dd60d384ec11bf1ea71fed9ae27b3}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classmknix_1_1_body_a60025d1f29dad28094719a92335b0450}
 
 
-Implemented in \hyperlink{classmknix_1_1_flex_body_a1cf57f024248bbb196e91aac9b9ab9fe}{mknix\-::\-Flex\-Body}, and \hyperlink{classmknix_1_1_rigid_body_a0b0df6ee53217187a301f224b8fe0d92}{mknix\-::\-Rigid\-Body}.
+Definition at line 183 of file body.\+h.
 
-\hypertarget{classmknix_1_1_body_a689970a0729d557ed56492bbfeae4ecd}{\index{mknix\-::\-Body@{mknix\-::\-Body}!set\-Output@{set\-Output}}
-\index{set\-Output@{set\-Output}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{set\-Output}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::set\-Output (
+\hypertarget{classmknix_1_1_body_a95fad3fdd4c18a0adcbeba2891b55140}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!get\+Last\+Node@{get\+Last\+Node}}
+\index{get\+Last\+Node@{get\+Last\+Node}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{get\+Last\+Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Node}$\ast$ mknix\+::\+Body\+::get\+Last\+Node (
 \begin{DoxyParamCaption}
-\item[{std\-::string}]{}
+{}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_a689970a0729d557ed56492bbfeae4ecd}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_body_a95fad3fdd4c18a0adcbeba2891b55140}
 
 
-Implemented in \hyperlink{classmknix_1_1_flex_body_ab863f9c782ccffbcea5c5e485fff52bc}{mknix\-::\-Flex\-Body}, and \hyperlink{classmknix_1_1_rigid_body_a7d3b331008d65caf46f5575fec6943b5}{mknix\-::\-Rigid\-Body}.
+Definition at line 123 of file body.\+h.
 
-\hypertarget{classmknix_1_1_body_a5f58f8e5398bbacc973b046be600eb5f}{\index{mknix\-::\-Body@{mknix\-::\-Body}!translate@{translate}}
-\index{translate@{translate}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{translate}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Body\-::translate (
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/de3/classmknix_1_1_body_a95fad3fdd4c18a0adcbeba2891b55140_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_body_abb933258861ddadd9d7c7792e9303e02}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!get\+Node@{get\+Node}}
+\index{get\+Node@{get\+Node}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{get\+Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Node}$\ast$ mknix\+::\+Body\+::get\+Node (
 \begin{DoxyParamCaption}
-\item[{double}]{x\-\_\-in, }
-\item[{double}]{y\-\_\-in, }
-\item[{double}]{z\-\_\-in}
+\item[{int}]{node\+\_\+number}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_body_a5f58f8e5398bbacc973b046be600eb5f}
-\hypertarget{classmknix_1_1_body_ab95b00050cf3841c1b931e04eebe57e1}{\index{mknix\-::\-Body@{mknix\-::\-Body}!write\-Boundary\-Connectivity@{write\-Boundary\-Connectivity}}
-\index{write\-Boundary\-Connectivity@{write\-Boundary\-Connectivity}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{write\-Boundary\-Connectivity}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::write\-Boundary\-Connectivity (
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_body_abb933258861ddadd9d7c7792e9303e02}
+
+
+Reimplemented in \hyperlink{classmknix_1_1_rigid_body_ad0295b9c8e71166c1ec6b1c0ab0335be}{mknix\+::\+Rigid\+Body}, and \hyperlink{classmknix_1_1_flex_body_a35d251c9e9329d388936af27eee5b5ff}{mknix\+::\+Flex\+Body}.
+
+
+
+Definition at line 118 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_aba386146267f71d398fb4dabb41a550c}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!get\+Nodes@{get\+Nodes}}
+\index{get\+Nodes@{get\+Nodes}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{get\+Nodes}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Node} $\ast$$>$\& mknix\+::\+Body\+::get\+Nodes (
 \begin{DoxyParamCaption}
-\item[{std\-::vector$<$ std\-::vector$<$ {\bf Node} $\ast$ $>$ $>$ \&}]{}
+{}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_ab95b00050cf3841c1b931e04eebe57e1}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classmknix_1_1_body_aba386146267f71d398fb4dabb41a550c}
 
 
-Implemented in \hyperlink{classmknix_1_1_flex_body_a96fe50707a8b0c5bbab8c455789d42f5}{mknix\-::\-Flex\-Body}, and \hyperlink{classmknix_1_1_rigid_body_a60ad96e6110f259021c31568d3a3bcfb}{mknix\-::\-Rigid\-Body}.
+Definition at line 113 of file body.\+h.
 
-\hypertarget{classmknix_1_1_body_ada574d09e98568156185eb7eef398c8f}{\index{mknix\-::\-Body@{mknix\-::\-Body}!write\-Boundary\-Nodes@{write\-Boundary\-Nodes}}
-\index{write\-Boundary\-Nodes@{write\-Boundary\-Nodes}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{write\-Boundary\-Nodes}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Body\-::write\-Boundary\-Nodes (
+\hypertarget{classmknix_1_1_body_af1e6e6589c5dfb4016e1e6af2225ae5f}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!get\+Nodes\+Size@{get\+Nodes\+Size}}
+\index{get\+Nodes\+Size@{get\+Nodes\+Size}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{get\+Nodes\+Size}]{\setlength{\rightskip}{0pt plus 5cm}virtual int mknix\+::\+Body\+::get\+Nodes\+Size (
 \begin{DoxyParamCaption}
-\item[{std\-::vector$<$ {\bf Node} $\ast$ $>$ \&}]{}
+{}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{classmknix_1_1_body_ada574d09e98568156185eb7eef398c8f}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_body_af1e6e6589c5dfb4016e1e6af2225ae5f}
 
 
-Implemented in \hyperlink{classmknix_1_1_flex_body_a47775d5e09cf56522e914d5d7696a2db}{mknix\-::\-Flex\-Body}, and \hyperlink{classmknix_1_1_rigid_body_ae58c1bff0a98afdd0f4174e1fabd7f0a}{mknix\-::\-Rigid\-Body}.
+Definition at line 108 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_a603ed0a11eee91957b2655a0e4667cd4}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!get\+Type@{get\+Type}}
+\index{get\+Type@{get\+Type}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{get\+Type}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::string mknix\+::\+Body\+::get\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classmknix_1_1_body_a603ed0a11eee91957b2655a0e4667cd4}
+
+
+Implemented in \hyperlink{classmknix_1_1_rigid_body_mass_point_aa97f367f1f1701f5d7981c994a96fb5e}{mknix\+::\+Rigid\+Body\+Mass\+Point}, \hyperlink{classmknix_1_1_rigid_bar_acc95a2895043626253a4bb8ee1eb341a}{mknix\+::\+Rigid\+Bar}, \hyperlink{classmknix_1_1_rigid_body2_d_a36d7142c5123c4055c019109fb6169dc}{mknix\+::\+Rigid\+Body2\+D}, \hyperlink{classmknix_1_1_flex_frame_galerkin_ad383da86bfdaa68f2178fc87eb664c87}{mknix\+::\+Flex\+Frame\+Galerkin}, \hyperlink{classmknix_1_1_flex_global_galerkin_a31c93b0ce740217ce4cd12e71646d8cf}{mknix\+::\+Flex\+Global\+Galerkin}, and \hyperlink{classmknix_1_1_rigid_body3_d_a3cdb37910a3ed061017926d67932ad06}{mknix\+::\+Rigid\+Body3\+D}.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/de3/classmknix_1_1_body_a603ed0a11eee91957b2655a0e4667cd4_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_body_a054b7576fbd1e8c39f02105b8572c372}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!initialize@{initialize}}
+\index{initialize@{initialize}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Body\+::initialize (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_body_a054b7576fbd1e8c39f02105b8572c372}
+
+
+Cascade initialization funtion. Calls the initialize methods for each of the Cells and tells them to compute their shapefunction values. Both loops are parallelized. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classmknix_1_1_flex_body_aa6eeb315791be5a79d70448190ada4d4}{mknix\+::\+Flex\+Body}.
+
+
+
+Definition at line 73 of file body.\+cpp.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/de3/classmknix_1_1_body_a054b7576fbd1e8c39f02105b8572c372_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_body_a2655307ec61a79f8d2e5716c984a44df}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!output\+Step@{output\+Step}}
+\index{output\+Step@{output\+Step}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{output\+Step}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Body\+::output\+Step (
+\begin{DoxyParamCaption}
+\item[{const {\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{, }
+\item[{const {\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classmknix_1_1_body_a2655307ec61a79f8d2e5716c984a44df}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_frame_galerkin_ae3f612bf542ac40c5a3d531760f12edd}{mknix\+::\+Flex\+Frame\+Galerkin}, \hyperlink{classmknix_1_1_flex_global_galerkin_a031a130b73e3fe0fc862393f94d235cb}{mknix\+::\+Flex\+Global\+Galerkin}, and \hyperlink{classmknix_1_1_rigid_body_a721e9f81cfba9a3d425df36f7cf5ef71}{mknix\+::\+Rigid\+Body}.
+
+\hypertarget{classmknix_1_1_body_a0570075194360f453b763866969548e7}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!output\+Step@{output\+Step}}
+\index{output\+Step@{output\+Step}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{output\+Step}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Body\+::output\+Step (
+\begin{DoxyParamCaption}
+\item[{const {\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classmknix_1_1_body_a0570075194360f453b763866969548e7}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_frame_galerkin_adc9bc8c1c277474fe2f62b49883c790a}{mknix\+::\+Flex\+Frame\+Galerkin}, \hyperlink{classmknix_1_1_flex_global_galerkin_a1882efa0a8f8c8832f6116b8f7874d2a}{mknix\+::\+Flex\+Global\+Galerkin}, and \hyperlink{classmknix_1_1_rigid_body_a605ed074fed7570c6620a6a6f6cd4bb0}{mknix\+::\+Rigid\+Body}.
+
+\hypertarget{classmknix_1_1_body_ae41a00911e832630c5b18e874a503e34}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!output\+Step@{output\+Step}}
+\index{output\+Step@{output\+Step}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{output\+Step}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Body\+::output\+Step (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_body_ae41a00911e832630c5b18e874a503e34}
+
+
+Postprocess and store thermal step results for any analysis. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 232 of file body.\+cpp.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/de3/classmknix_1_1_body_ae41a00911e832630c5b18e874a503e34_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_body_a65fb5dd34d3a6925f611f7ea49da5cd0}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!output\+To\+File@{output\+To\+File}}
+\index{output\+To\+File@{output\+To\+File}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{output\+To\+File}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Body\+::output\+To\+File (
+\begin{DoxyParamCaption}
+\item[{std\+::ofstream $\ast$}]{out\+File}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_body_a65fb5dd34d3a6925f611f7ea49da5cd0}
+
+
+Streams the data stored during the analysis to a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\+File} & Output files \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{classmknix_1_1_flex_body_a1cf57f024248bbb196e91aac9b9ab9fe}{mknix\+::\+Flex\+Body}, and \hyperlink{classmknix_1_1_rigid_body_a0b0df6ee53217187a301f224b8fe0d92}{mknix\+::\+Rigid\+Body}.
+
+
+
+Definition at line 267 of file body.\+cpp.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{dd/de3/classmknix_1_1_body_a65fb5dd34d3a6925f611f7ea49da5cd0_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_body_a95a6a5e78013a9ca160842915f3a4703}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!set\+Load\+Thermal@{set\+Load\+Thermal}}
+\index{set\+Load\+Thermal@{set\+Load\+Thermal}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{set\+Load\+Thermal}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Body\+::set\+Load\+Thermal (
+\begin{DoxyParamCaption}
+\item[{{\bf Load\+Thermal\+Body} $\ast$}]{the\+Load}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_body_a95a6a5e78013a9ca160842915f3a4703}
+
+
+Definition at line 202 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_ad3c25b3400585c33a55e82ba8898f760}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!set\+Load\+Thermal\+In\+Boundary\+Group@{set\+Load\+Thermal\+In\+Boundary\+Group}}
+\index{set\+Load\+Thermal\+In\+Boundary\+Group@{set\+Load\+Thermal\+In\+Boundary\+Group}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{set\+Load\+Thermal\+In\+Boundary\+Group}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Body\+::set\+Load\+Thermal\+In\+Boundary\+Group (
+\begin{DoxyParamCaption}
+\item[{{\bf Load\+Thermal\+Boundary1\+D} $\ast$}]{load\+\_\+in, }
+\item[{std\+::string}]{boundary\+Name\+\_\+in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classmknix_1_1_body_ad3c25b3400585c33a55e82ba8898f760}
+
+
+Definition at line 178 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_a863cfa7288a25874f4e4ce6d329fc26b}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!set\+Mechanical@{set\+Mechanical}}
+\index{set\+Mechanical@{set\+Mechanical}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{set\+Mechanical}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Body\+::set\+Mechanical (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_body_a863cfa7288a25874f4e4ce6d329fc26b}
+
+
+Definition at line 82 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_a689970a0729d557ed56492bbfeae4ecd}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!set\+Output@{set\+Output}}
+\index{set\+Output@{set\+Output}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{set\+Output}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Body\+::set\+Output (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classmknix_1_1_body_a689970a0729d557ed56492bbfeae4ecd}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_body_ab863f9c782ccffbcea5c5e485fff52bc}{mknix\+::\+Flex\+Body}, and \hyperlink{classmknix_1_1_rigid_body_a7d3b331008d65caf46f5575fec6943b5}{mknix\+::\+Rigid\+Body}.
+
+\hypertarget{classmknix_1_1_body_a7a59c0a2063ce89772d24e0fc7118dd9}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!set\+Temperature@{set\+Temperature}}
+\index{set\+Temperature@{set\+Temperature}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{set\+Temperature}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Body\+::set\+Temperature (
+\begin{DoxyParamCaption}
+\item[{double}]{temp\+\_\+in}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_body_a7a59c0a2063ce89772d24e0fc7118dd9}
+
+
+Definition at line 218 of file body.\+cpp.
+
+\hypertarget{classmknix_1_1_body_a5f58f8e5398bbacc973b046be600eb5f}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!translate@{translate}}
+\index{translate@{translate}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{translate}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Body\+::translate (
+\begin{DoxyParamCaption}
+\item[{double}]{x\+\_\+in, }
+\item[{double}]{y\+\_\+in, }
+\item[{double}]{z\+\_\+in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_body_a5f58f8e5398bbacc973b046be600eb5f}
+
+
+Definition at line 317 of file body.\+cpp.
+
+\hypertarget{classmknix_1_1_body_a25c23173ef74c5ef821f6850bc1d8861}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!write\+Body\+Info@{write\+Body\+Info}}
+\index{write\+Body\+Info@{write\+Body\+Info}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{write\+Body\+Info}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Body\+::write\+Body\+Info (
+\begin{DoxyParamCaption}
+\item[{std\+::ofstream $\ast$}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classmknix_1_1_body_a25c23173ef74c5ef821f6850bc1d8861}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_body_a504be54b6f3009687ed85d17d5ade510}{mknix\+::\+Flex\+Body}, and \hyperlink{classmknix_1_1_rigid_body_aec0efdaa5c27b8e1611af7c9f047497a}{mknix\+::\+Rigid\+Body}.
+
+\hypertarget{classmknix_1_1_body_addb14e7d7db378199a0ece0707611129}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!write\+Boundary\+Connectivity@{write\+Boundary\+Connectivity}}
+\index{write\+Boundary\+Connectivity@{write\+Boundary\+Connectivity}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{write\+Boundary\+Connectivity}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Body\+::write\+Boundary\+Connectivity (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ std\+::vector$<$ {\bf Point} $\ast$ $>$ $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classmknix_1_1_body_addb14e7d7db378199a0ece0707611129}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_body_a258ec4de12c53390875e731cace33219}{mknix\+::\+Flex\+Body}, and \hyperlink{classmknix_1_1_rigid_body_a127f3394edf38438e794bfed1a6ce0d8}{mknix\+::\+Rigid\+Body}.
+
+\hypertarget{classmknix_1_1_body_ac1b5b8a41f713a7d569598e43f9cde61}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!write\+Boundary\+Nodes@{write\+Boundary\+Nodes}}
+\index{write\+Boundary\+Nodes@{write\+Boundary\+Nodes}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{write\+Boundary\+Nodes}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Body\+::write\+Boundary\+Nodes (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Point} $\ast$ $>$ \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{classmknix_1_1_body_ac1b5b8a41f713a7d569598e43f9cde61}
+
+
+Implemented in \hyperlink{classmknix_1_1_flex_body_af17d65a1eba1f2de409ce43d88904751}{mknix\+::\+Flex\+Body}, and \hyperlink{classmknix_1_1_rigid_body_a82d8d5b7abc4218fcab65e7f0dc266d8}{mknix\+::\+Rigid\+Body}.
 
 
 
 \subsubsection{Member Data Documentation}
-\hypertarget{classmknix_1_1_body_abaacc346d058cdabb8d0273b1440e323}{\index{mknix\-::\-Body@{mknix\-::\-Body}!boundary@{boundary}}
-\index{boundary@{boundary}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{boundary}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<${\bf Node}$\ast$,{\bf Node}$\ast$$>$ mknix\-::\-Body\-::boundary\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_body_abaacc346d058cdabb8d0273b1440e323}
-Map of linear boundary. \hypertarget{classmknix_1_1_body_afa538e2bc24cd6623e63b44704037a73}{\index{mknix\-::\-Body@{mknix\-::\-Body}!cells@{cells}}
-\index{cells@{cells}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{cells}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int,{\bf Cell}$\ast$$>$ mknix\-::\-Body\-::cells\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_body_afa538e2bc24cd6623e63b44704037a73}
-Map of integration cells. \hypertarget{classmknix_1_1_body_abf69d9fd5ede2c511d85c5d644902c6e}{\index{mknix\-::\-Body@{mknix\-::\-Body}!local\-Mass\-Matrix@{local\-Mass\-Matrix}}
-\index{local\-Mass\-Matrix@{local\-Mass\-Matrix}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{local\-Mass\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ mknix\-::\-Body\-::local\-Mass\-Matrix\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_body_abf69d9fd5ede2c511d85c5d644902c6e}
-\hypertarget{classmknix_1_1_body_a3393da3459cbf7b35ee3dedb982180bf}{\index{mknix\-::\-Body@{mknix\-::\-Body}!nodes@{nodes}}
-\index{nodes@{nodes}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{nodes}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Node}$\ast$$>$ mknix\-::\-Body\-::nodes\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_body_a3393da3459cbf7b35ee3dedb982180bf}
-\hypertarget{classmknix_1_1_body_a3c05cdff2d5f2b150046cd734d0ed7ce}{\index{mknix\-::\-Body@{mknix\-::\-Body}!title@{title}}
-\index{title@{title}!mknix::Body@{mknix\-::\-Body}}
-\paragraph[{title}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mknix\-::\-Body\-::title\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_body_a3c05cdff2d5f2b150046cd734d0ed7ce}
+\hypertarget{classmknix_1_1_body_a4c8d492ccd9472119b5f8b47392c1dcd}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!bonded\+Body\+Nodes@{bonded\+Body\+Nodes}}
+\index{bonded\+Body\+Nodes@{bonded\+Body\+Nodes}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{bonded\+Body\+Nodes}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Node} $\ast$$>$ mknix\+::\+Body\+::bonded\+Body\+Nodes\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_body_a4c8d492ccd9472119b5f8b47392c1dcd}
 
 
-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+Definition at line 212 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_a49d2061c709f04eacd6bc1ad2abe8e92}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!boundary\+Connectivity@{boundary\+Connectivity}}
+\index{boundary\+Connectivity@{boundary\+Connectivity}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{boundary\+Connectivity}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$std\+::vector$<$int$>$ $>$ mknix\+::\+Body\+::boundary\+Connectivity\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_body_a49d2061c709f04eacd6bc1ad2abe8e92}
+
+
+Definition at line 214 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_a36b757c3483aa0a65c064e2be0919bb0}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!boundary\+Groups@{boundary\+Groups}}
+\index{boundary\+Groups@{boundary\+Groups}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{boundary\+Groups}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$std\+::string, {\bf Boundary\+Group} $\ast$$>$ mknix\+::\+Body\+::boundary\+Groups\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_body_a36b757c3483aa0a65c064e2be0919bb0}
+
+
+Definition at line 213 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_ae42afe33182ecd4ab758fd252e079221}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!cells@{cells}}
+\index{cells@{cells}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{cells}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$int, {\bf Cell} $\ast$$>$ mknix\+::\+Body\+::cells\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_body_ae42afe33182ecd4ab758fd252e079221}
+Map of integration cells. 
+
+Definition at line 217 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_a64fa35111fa3252c60971811dec421de}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!compute\+Energy@{compute\+Energy}}
+\index{compute\+Energy@{compute\+Energy}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{compute\+Energy}]{\setlength{\rightskip}{0pt plus 5cm}bool mknix\+::\+Body\+::compute\+Energy\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_body_a64fa35111fa3252c60971811dec421de}
+
+
+Definition at line 219 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_a2b8de3291a8b2678b1c989f4d6c52b89}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!is\+Thermal@{is\+Thermal}}
+\index{is\+Thermal@{is\+Thermal}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{is\+Thermal}]{\setlength{\rightskip}{0pt plus 5cm}bool mknix\+::\+Body\+::is\+Thermal\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_body_a2b8de3291a8b2678b1c989f4d6c52b89}
+
+
+Definition at line 220 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_a55bd3106cf4c12c8b4644e48b412f3c9}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!last\+Node@{last\+Node}}
+\index{last\+Node@{last\+Node}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{last\+Node}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node}$\ast$ mknix\+::\+Body\+::last\+Node\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_body_a55bd3106cf4c12c8b4644e48b412f3c9}
+
+
+Definition at line 210 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_afd47959808ee823dff7457a535153ea0}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!linear\+Boundary@{linear\+Boundary}}
+\index{linear\+Boundary@{linear\+Boundary}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{linear\+Boundary}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<${\bf Point} $\ast$, {\bf Point} $\ast$$>$ mknix\+::\+Body\+::linear\+Boundary\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_body_afd47959808ee823dff7457a535153ea0}
+Map of linear boundary. 
+
+Definition at line 215 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_aef21ef0ead5775597ca38a9304a26682}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!load\+Thermal\+Body@{load\+Thermal\+Body}}
+\index{load\+Thermal\+Body@{load\+Thermal\+Body}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{load\+Thermal\+Body}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Load\+Thermal\+Body}$\ast$ mknix\+::\+Body\+::load\+Thermal\+Body\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_body_aef21ef0ead5775597ca38a9304a26682}
+
+
+Definition at line 222 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_acbfce7ce37d4e7f616850da2a5850280}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!nodes@{nodes}}
+\index{nodes@{nodes}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{nodes}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Node} $\ast$$>$ mknix\+::\+Body\+::nodes\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_body_acbfce7ce37d4e7f616850da2a5850280}
+
+
+Definition at line 211 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_a29e955d93a12919d2adfec07a0f2f566}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!temperature@{temperature}}
+\index{temperature@{temperature}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{temperature}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf lmx\+::\+Vector}$<${\bf data\+\_\+type}$>$ $\ast$$>$ mknix\+::\+Body\+::temperature\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_body_a29e955d93a12919d2adfec07a0f2f566}
+
+
+Definition at line 221 of file body.\+h.
+
+\hypertarget{classmknix_1_1_body_a3c05cdff2d5f2b150046cd734d0ed7ce}{}\index{mknix\+::\+Body@{mknix\+::\+Body}!title@{title}}
+\index{title@{title}!mknix\+::\+Body@{mknix\+::\+Body}}
+\paragraph[{title}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string mknix\+::\+Body\+::title\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_body_a3c05cdff2d5f2b150046cd734d0ed7ce}
+
+
+Definition at line 209 of file body.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{body_8h}{body.\-h}\item 
-\hyperlink{body_8cpp}{body.\-cpp}\end{DoxyCompactItemize}
+\hyperlink{body_8h}{body.\+h}\item 
+\hyperlink{body_8cpp}{body.\+cpp}\end{DoxyCompactItemize}

@@ -1,3 +1,4 @@
 <map id="mknix::Simulation::dynamicThermalEvaluation" name="mknix::Simulation::dynamicThermalEvaluation">
-<area shape="rect" id="node3" href="$d5/dd9/classmknix_1_1_analysis_thermal_dynamic.html#a161ebe1ed696232ed05ef778cdcabcb8" title="mknix::AnalysisThermalDynamic\l::AnalysisThermalDynamic" alt="" coords="233,5,447,51"/>
+<area shape="rect" id="node2" href="$d5/dd9/classmknix_1_1_analysis_thermal_dynamic.html#a161ebe1ed696232ed05ef778cdcabcb8" title="mknix::AnalysisThermalDynamic\l::AnalysisThermalDynamic" alt="" coords="272,5,487,47"/>
+<area shape="rect" id="node3" href="$da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic.html#a78aea19c65b7788233352a32c984a353" title="mknix::AnalysisThermoMechanical\lDynamic::AnalysisThermoMechanicalDynamic" alt="" coords="232,71,527,112"/>
 </map>

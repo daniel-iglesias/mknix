@@ -1,49 +1,59 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="d4/de0/constraintcontact_8h" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d4/de0/constraintcontact_8h" kind="file" language="C++">
     <compoundname>constraintcontact.h</compoundname>
-    <includes refid="dc/d4d/constraint_8h" local="no">constraint.h</includes>
+    <includes refid="dc/d4d/constraint_8h" local="yes">constraint.h</includes>
+    <includedby refid="d2/d38/readerconstraints_8cpp" local="no">readerconstraints.cpp</includedby>
     <includedby refid="d8/d8b/constraintcontact_8cpp" local="yes">constraintcontact.cpp</includedby>
-    <includedby refid="de/d37/generalcontact_8cpp" local="yes">generalcontact.cpp</includedby>
     <incdepgraph>
-      <node id="6313">
-        <label>constraintcontact.h</label>
-        <link refid="constraintcontact.h"/>
-        <childnode refid="6314" relation="include">
-        </childnode>
-      </node>
-      <node id="6314">
+      <node id="3186">
         <label>constraint.h</label>
         <link refid="dc/d4d/constraint_8h"/>
-        <childnode refid="6315" relation="include">
+        <childnode refid="3187" relation="include">
         </childnode>
-        <childnode refid="6316" relation="include">
+        <childnode refid="3190" relation="include">
         </childnode>
       </node>
-      <node id="6315">
+      <node id="3188">
+        <label>map</label>
+      </node>
+      <node id="3187">
         <label>common.h</label>
         <link refid="dc/d54/common_8h"/>
+        <childnode refid="3188" relation="include">
+        </childnode>
+        <childnode refid="3189" relation="include">
+        </childnode>
       </node>
-      <node id="6316">
+      <node id="3190">
         <label>LMX/lmx.h</label>
+      </node>
+      <node id="3185">
+        <label>constraintcontact.h</label>
+        <link refid="constraintcontact.h"/>
+        <childnode refid="3186" relation="include">
+        </childnode>
+      </node>
+      <node id="3189">
+        <label>memory</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="6317">
-        <label>constraintcontact.h</label>
-        <link refid="constraintcontact.h"/>
-        <childnode refid="6318" relation="include">
-        </childnode>
-        <childnode refid="6319" relation="include">
-        </childnode>
-      </node>
-      <node id="6318">
+      <node id="3193">
         <label>constraintcontact.cpp</label>
         <link refid="d8/d8b/constraintcontact_8cpp"/>
       </node>
-      <node id="6319">
-        <label>generalcontact.cpp</label>
-        <link refid="de/d37/generalcontact_8cpp"/>
+      <node id="3191">
+        <label>constraintcontact.h</label>
+        <link refid="constraintcontact.h"/>
+        <childnode refid="3192" relation="include">
+        </childnode>
+        <childnode refid="3193" relation="include">
+        </childnode>
+      </node>
+      <node id="3192">
+        <label>readerconstraints.cpp</label>
+        <link refid="d2/d38/readerconstraints_8cpp"/>
       </node>
     </invincdepgraph>
     <innerclass refid="d8/d6a/classmknix_1_1_constraint_contact" prot="public">mknix::ConstraintContact</innerclass>
@@ -53,63 +63,69 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
-<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2013<sp/>by<sp/>Daniel<sp/>Iglesias<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/>http://code.google.com/p/mknix<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
-<codeline lineno="6"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
-<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,<sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/>along<sp/>with<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/><sp/>Free<sp/>Software<sp/>Foundation,<sp/>Inc.,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/>59<sp/>Temple<sp/>Place<sp/>-<sp/>Suite<sp/>330,<sp/>Boston,<sp/>MA<sp/><sp/>02111-1307,<sp/>USA.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="19"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MECBRYANCONSTRAINTCONTACT_H</highlight></codeline>
-<codeline lineno="21"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MECBRYANCONSTRAINTCONTACT_H</highlight></codeline>
-<codeline lineno="22"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="dc/d4d/constraint_8h" kindref="compound">constraint.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1"><highlight class="comment">/******************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/>Copyright<sp/>(C)<sp/>2015<sp/>by<sp/>Daniel<sp/>Iglesias<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>Nemesis.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/><sp/>Nemesis<sp/>is<sp/>free<sp/>software:<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>Lesser<sp/>General<sp/>Public<sp/>License<sp/>as<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/>published<sp/>by<sp/>the<sp/>Free<sp/>Software<sp/>Foundation,<sp/>either<sp/>version<sp/>3<sp/>of<sp/>the<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/>License,<sp/>or<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/>Nemesis<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/>GNU<sp/>Lesser<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>Lesser<sp/>General<sp/>Public<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/>License<sp/>along<sp/>with<sp/>Nemesis.<sp/><sp/>If<sp/>not,<sp/>see<sp/>&lt;http://www.gnu.org/licenses/&gt;.<sp/><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*****************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MKNIXCONSTRAINTCONTACT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MKNIXCONSTRAINTCONTACT_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="dc/d4d/constraint_8h" kindref="compound">constraint.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="24"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mknix<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="d2/dde/namespacemknix" kindref="compound">mknix</ref><sp/>{</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
 <codeline lineno="30" refid="d8/d6a/classmknix_1_1_constraint_contact" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d8/d6a/classmknix_1_1_constraint_contact" kindref="compound">ConstraintContact</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="da/dd3/classmknix_1_1_constraint" kindref="compound">Constraint</ref></highlight></codeline>
 <codeline lineno="31"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="32"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a76498ab5af03df8fd8c850f67ac54d33" kindref="member">ConstraintContact</ref>();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a76498ab5af03df8fd8c850f67ac54d33" kindref="member">ConstraintContact</ref>();</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a2570dc3ad5c593871f1d5dd4e6302f07" kindref="member">~ConstraintContact</ref>();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a2570dc3ad5c593871f1d5dd4e6302f07" kindref="member">~ConstraintContact</ref>();</highlight></codeline>
 <codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a76498ab5af03df8fd8c850f67ac54d33" kindref="member">ConstraintContact</ref>(<sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>,<sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*,<sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&amp;,<sp/>std::string&amp;<sp/>);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a76498ab5af03df8fd8c850f67ac54d33" kindref="member">ConstraintContact</ref>(<sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>,<sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*,<sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&amp;,<sp/>std::string&amp;<sp/>);</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a21a89037754ef5d968bda199ad3f1858" kindref="member">calcPhi</ref>(<sp/>)<sp/>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a21a89037754ef5d968bda199ad3f1858" kindref="member">calcPhi</ref>(<sp/>)<sp/>;</highlight></codeline>
 <codeline lineno="40"><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a88c495ea01a5f8f8807dd72ae3e7240f" kindref="member">calcPhiq</ref>(<sp/>)<sp/>;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a88c495ea01a5f8f8807dd72ae3e7240f" kindref="member">calcPhiq</ref>(<sp/>)<sp/>;</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1ad9b4db34bf76f2d8ea9532d5d3e0449f" kindref="member">calcPhiqq</ref>(<sp/>)<sp/>;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1ad9b4db34bf76f2d8ea9532d5d3e0449f" kindref="member">calcPhiqq</ref>(<sp/>)<sp/>;</highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
-<codeline lineno="45" refid="d8/d6a/classmknix_1_1_constraint_contact_1ae4ebea11a39b4cf89ce317154abc99e3" refkind="member"><highlight class="normal"><sp/><sp/>lmx::Vector&lt;data_type&gt;&amp;<sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1ae4ebea11a39b4cf89ce317154abc99e3" kindref="member">getInternalForces</ref>(<sp/>)<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="da/dd3/classmknix_1_1_constraint_1a0b0fbbf149c32ce0a9dd6e0c4dd5851e" kindref="member">internalForces</ref>;}</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"></highlight></codeline>
-<codeline lineno="47" refid="d8/d6a/classmknix_1_1_constraint_contact_1abb4cb7497d2cbef540add289fdf8492e" refkind="member"><highlight class="normal"><sp/><sp/>lmx::DenseMatrix&lt;data_type&gt;&amp;<sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1abb4cb7497d2cbef540add289fdf8492e" kindref="member">getStiffnessMatrix</ref>(<sp/>)<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" kindref="member">stiffnessMatrix</ref>;}</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="49" refid="d8/d6a/classmknix_1_1_constraint_contact_1a4fcfe47c1421fd375ff806b8ef411f47" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a4fcfe47c1421fd375ff806b8ef411f47" kindref="member">getGap</ref>()<sp/>{</highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a0a2b6bbee4925e12f4921aa58f0f3426" kindref="member">rt</ref>;}</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="52" refid="d8/d6a/classmknix_1_1_constraint_contact_1a06ba5460d950b98b85226e7b9b520df2" refkind="member"><highlight class="normal"><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a06ba5460d950b98b85226e7b9b520df2" kindref="member">normal</ref>;</highlight></codeline>
-<codeline lineno="53" refid="d8/d6a/classmknix_1_1_constraint_contact_1a86b0413ea70c74a38f8610a88cba48c6" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a86b0413ea70c74a38f8610a88cba48c6" kindref="member">rh</ref>;</highlight></codeline>
-<codeline lineno="54" refid="d8/d6a/classmknix_1_1_constraint_contact_1a0a2b6bbee4925e12f4921aa58f0f3426" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a0a2b6bbee4925e12f4921aa58f0f3426" kindref="member">rt</ref>;</highlight></codeline>
-<codeline lineno="55"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="45" refid="d8/d6a/classmknix_1_1_constraint_contact_1ae4ebea11a39b4cf89ce317154abc99e3" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector&lt;data_type&gt;</ref>&amp;<sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1ae4ebea11a39b4cf89ce317154abc99e3" kindref="member">getInternalForces</ref>(<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="da/dd3/classmknix_1_1_constraint_1a0b0fbbf149c32ce0a9dd6e0c4dd5851e" kindref="member">internalForces</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="d8/d6a/classmknix_1_1_constraint_contact_1abb4cb7497d2cbef540add289fdf8492e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/d8d/classlmx_1_1_dense_matrix" kindref="compound">lmx::DenseMatrix&lt;data_type&gt;</ref>&amp;<sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1abb4cb7497d2cbef540add289fdf8492e" kindref="member">getStiffnessMatrix</ref>(<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" kindref="member">stiffnessMatrix</ref>;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="d8/d6a/classmknix_1_1_constraint_contact_1a4fcfe47c1421fd375ff806b8ef411f47" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a4fcfe47c1421fd375ff806b8ef411f47" kindref="member">getGap</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a0a2b6bbee4925e12f4921aa58f0f3426" kindref="member">rt</ref>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"></highlight></codeline>
-<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="keyword">protected</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="58" refid="d8/d6a/classmknix_1_1_constraint_contact_1a06ba5460d950b98b85226e7b9b520df2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;double&gt;<sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a06ba5460d950b98b85226e7b9b520df2" kindref="member">normal</ref>;</highlight></codeline>
+<codeline lineno="59" refid="d8/d6a/classmknix_1_1_constraint_contact_1a86b0413ea70c74a38f8610a88cba48c6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a86b0413ea70c74a38f8610a88cba48c6" kindref="member">rh</ref>;</highlight></codeline>
+<codeline lineno="60" refid="d8/d6a/classmknix_1_1_constraint_contact_1a0a2b6bbee4925e12f4921aa58f0f3426" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="d8/d6a/classmknix_1_1_constraint_contact_1a0a2b6bbee4925e12f4921aa58f0f3426" kindref="member">rt</ref>;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintcontact.h"/>
+    <location file="/home/daniel/Projects/MkniX/src/system/constraintcontact.h"/>
   </compounddef>
 </doxygen>

@@ -24,7 +24,7 @@
 #include <core/cellrect.h>
 #include <core/celltriang.h>
 #include <core/celltetrahedron.h>
-#include <system/cellboundarylinear.h>
+#include <core/cellboundarylinear.h>
 #include <core/elemtriangle.h>
 #include <core/elemtetrahedron.h>
 #include <system/system.h>

@@ -1,7 +1,9 @@
 <map id="mknix::Constraint" name="mknix::Constraint">
-<area shape="rect" id="node3" href="$d2/d2c/classmknix_1_1_constraint_clearance.html" title="mknix::ConstraintClearance" alt="" coords="200,5,384,35"/>
-<area shape="rect" id="node5" href="$d8/d6a/classmknix_1_1_constraint_contact.html" title="mknix::ConstraintContact" alt="" coords="207,59,377,88"/>
-<area shape="rect" id="node7" href="$d7/de2/classmknix_1_1_constraint_distance.html" title="mknix::ConstraintDistance" alt="" coords="204,112,380,141"/>
-<area shape="rect" id="node9" href="$d7/dcd/classmknix_1_1_constraint_fixed_axis.html" title="mknix::ConstraintFixedAxis" alt="" coords="201,165,383,195"/>
-<area shape="rect" id="node11" href="$de/dda/classmknix_1_1_constraint_fixed_coordinates.html" title="mknix::ConstraintFixedCoordinates" alt="" coords="179,219,405,248"/>
+<area shape="rect" id="node2" href="$d2/d2c/classmknix_1_1_constraint_clearance.html" title="mknix::ConstraintClearance" alt="" coords="200,5,384,32"/>
+<area shape="rect" id="node3" href="$d8/d6a/classmknix_1_1_constraint_contact.html" title="mknix::ConstraintContact" alt="" coords="207,56,377,83"/>
+<area shape="rect" id="node4" href="$d7/de2/classmknix_1_1_constraint_distance.html" title="mknix::ConstraintDistance" alt="" coords="203,107,381,133"/>
+<area shape="rect" id="node5" href="$d7/dcd/classmknix_1_1_constraint_fixed_axis.html" title="mknix::ConstraintFixedAxis" alt="" coords="201,157,383,184"/>
+<area shape="rect" id="node6" href="$de/dda/classmknix_1_1_constraint_fixed_coordinates.html" title="mknix::ConstraintFixedCoordinates" alt="" coords="179,208,405,235"/>
+<area shape="rect" id="node7" href="$d9/d61/classmknix_1_1_constraint_thermal.html" title="mknix::ConstraintThermal" alt="" coords="206,259,378,285"/>
+<area shape="rect" id="node8" href="$d3/d42/classmknix_1_1_constraint_thermal_fixed.html" title="mknix::ConstraintThermal\lFixed" alt="" coords="453,251,625,293"/>
 </map>

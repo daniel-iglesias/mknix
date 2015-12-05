@@ -1,7 +1,3 @@
 <map id="mknix::Simulation::stepTriggered" name="mknix::Simulation::stepTriggered">
-<area shape="rect" id="node3" href="$df/dde/classmknix_1_1_contact.html#a0a9eb3950c6d13b5241cb8a58d9ad11e" title="mknix::Contact::updatePoints" alt="" coords="199,5,393,35"/>
-<area shape="rect" id="node5" href="$df/dde/classmknix_1_1_contact.html#a1f363d51121555347584e34cd880ef12" title="mknix::Contact::updateLines" alt="" coords="201,59,391,88"/>
-<area shape="rect" id="node7" href="$df/dde/classmknix_1_1_contact.html#acd4f6166d705a7641a84aae19fb0ffb3" title="mknix::Contact::updateDelaunay" alt="" coords="189,112,403,141"/>
-<area shape="rect" id="node9" href="$df/dde/classmknix_1_1_contact.html#a86ab86ad903f956284324fc2fb69e195" title="mknix::Contact::drawObjects" alt="" coords="200,165,392,195"/>
-<area shape="rect" id="node11" href="$db/d0b/classmknix_1_1_simulation.html#a5d4227d2d500003664587afadecb1081" title="mknix::Simulation::\lwriteConfStep" alt="" coords="229,218,363,265"/>
+<area shape="rect" id="node2" href="$db/d0b/classmknix_1_1_simulation.html#a5d4227d2d500003664587afadecb1081" title="mknix::Simulation::\lwriteConfStep" alt="" coords="188,5,323,47"/>
 </map>

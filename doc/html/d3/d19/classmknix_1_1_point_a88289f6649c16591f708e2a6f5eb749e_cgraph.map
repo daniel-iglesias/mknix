@@ -1,6 +1,6 @@
 <map id="mknix::Point::findSupportNodes" name="mknix::Point::findSupportNodes">
-<area shape="rect" id="node3" href="$d3/d19/classmknix_1_1_point.html#a93551900ae5e76ec764af9eb894cd0c0" title="mknix::Point::distance" alt="" coords="224,59,376,88"/>
-<area shape="rect" id="node5" href="$d3/d19/classmknix_1_1_point.html#a2942110ac86c21e11986081670bb3a82" title="mknix::Point::getX" alt="" coords="424,5,555,35"/>
-<area shape="rect" id="node7" href="$d3/d19/classmknix_1_1_point.html#a16955d7ef56edea059119f93905e1196" title="mknix::Point::getY" alt="" coords="424,59,555,88"/>
-<area shape="rect" id="node9" href="$d3/d19/classmknix_1_1_point.html#a739698b4f6a21b40e7fc7c82af69c479" title="mknix::Point::getZ" alt="" coords="425,112,553,141"/>
+<area shape="rect" id="node2" href="$d3/d19/classmknix_1_1_point.html#a138d3c418c3147aead7f3958f1db9b42" title="mknix::Point::distance" alt="" coords="223,56,375,83"/>
+<area shape="rect" id="node3" href="$d3/d19/classmknix_1_1_point.html#a2942110ac86c21e11986081670bb3a82" title="mknix::Point::getX" alt="" coords="423,5,553,32"/>
+<area shape="rect" id="node4" href="$d3/d19/classmknix_1_1_point.html#a16955d7ef56edea059119f93905e1196" title="mknix::Point::getY" alt="" coords="423,56,553,83"/>
+<area shape="rect" id="node5" href="$d3/d19/classmknix_1_1_point.html#a739698b4f6a21b40e7fc7c82af69c479" title="mknix::Point::getZ" alt="" coords="423,107,553,133"/>
 </map>

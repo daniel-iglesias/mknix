@@ -1,70 +1,75 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="d1/d85/shapefunctiontetrahedron_8cpp" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d1/d85/shapefunctiontetrahedron_8cpp" kind="file" language="C++">
     <compoundname>shapefunctiontetrahedron.cpp</compoundname>
     <includes refid="db/d91/shapefunctiontetrahedron_8h" local="yes">shapefunctiontetrahedron.h</includes>
     <includes refid="d2/d91/point_8h" local="yes">point.h</includes>
     <includes refid="d1/d77/node_8h" local="yes">node.h</includes>
     <incdepgraph>
-      <node id="8028">
-        <label>string</label>
-      </node>
-      <node id="8023">
-        <label>shapefunction.h</label>
-        <link refid="d3/d16/shapefunction_8h"/>
-        <childnode refid="8024" relation="include">
-        </childnode>
-      </node>
-      <node id="8027">
-        <label>map</label>
-      </node>
-      <node id="8025">
-        <label>point.h</label>
-        <link refid="d2/d91/point_8h"/>
-        <childnode refid="8026" relation="include">
-        </childnode>
-        <childnode refid="8027" relation="include">
-        </childnode>
-        <childnode refid="8028" relation="include">
-        </childnode>
-        <childnode refid="8029" relation="include">
-        </childnode>
-      </node>
-      <node id="8029">
-        <label>common.h</label>
-        <link refid="dc/d54/common_8h"/>
-      </node>
-      <node id="8022">
-        <label>shapefunctiontetrahedron.h</label>
-        <link refid="db/d91/shapefunctiontetrahedron_8h"/>
-        <childnode refid="8023" relation="include">
-        </childnode>
-      </node>
-      <node id="8026">
-        <label>vector</label>
-      </node>
-      <node id="8024">
-        <label>LMX/lmx.h</label>
-      </node>
-      <node id="8030">
-        <label>node.h</label>
-        <link refid="d1/d77/node_8h"/>
-        <childnode refid="8026" relation="include">
-        </childnode>
-        <childnode refid="8025" relation="include">
-        </childnode>
-        <childnode refid="8024" relation="include">
-        </childnode>
-      </node>
-      <node id="8021">
+      <node id="4233">
         <label>shapefunctiontetrahedron.cpp</label>
         <link refid="shapefunctiontetrahedron.cpp"/>
-        <childnode refid="8022" relation="include">
+        <childnode refid="4234" relation="include">
         </childnode>
-        <childnode refid="8025" relation="include">
+        <childnode refid="4237" relation="include">
         </childnode>
-        <childnode refid="8030" relation="include">
+        <childnode refid="4243" relation="include">
         </childnode>
+      </node>
+      <node id="4240">
+        <label>string</label>
+      </node>
+      <node id="4239">
+        <label>map</label>
+      </node>
+      <node id="4241">
+        <label>common.h</label>
+        <link refid="dc/d54/common_8h"/>
+        <childnode refid="4239" relation="include">
+        </childnode>
+        <childnode refid="4242" relation="include">
+        </childnode>
+      </node>
+      <node id="4235">
+        <label>shapefunction.h</label>
+        <link refid="d3/d16/shapefunction_8h"/>
+        <childnode refid="4236" relation="include">
+        </childnode>
+      </node>
+      <node id="4234">
+        <label>shapefunctiontetrahedron.h</label>
+        <link refid="db/d91/shapefunctiontetrahedron_8h"/>
+        <childnode refid="4235" relation="include">
+        </childnode>
+      </node>
+      <node id="4238">
+        <label>vector</label>
+      </node>
+      <node id="4236">
+        <label>LMX/lmx.h</label>
+      </node>
+      <node id="4243">
+        <label>node.h</label>
+        <link refid="d1/d77/node_8h"/>
+        <childnode refid="4237" relation="include">
+        </childnode>
+        <childnode refid="4236" relation="include">
+        </childnode>
+      </node>
+      <node id="4237">
+        <label>point.h</label>
+        <link refid="d2/d91/point_8h"/>
+        <childnode refid="4238" relation="include">
+        </childnode>
+        <childnode refid="4239" relation="include">
+        </childnode>
+        <childnode refid="4240" relation="include">
+        </childnode>
+        <childnode refid="4241" relation="include">
+        </childnode>
+      </node>
+      <node id="4242">
+        <label>memory</label>
       </node>
     </incdepgraph>
     <innernamespace refid="d2/dde/namespacemknix">mknix</innernamespace>
@@ -93,23 +98,23 @@
 <codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/>59<sp/>Temple<sp/>Place<sp/>-<sp/>Suite<sp/>330,<sp/>Boston,<sp/>MA<sp/><sp/>02111-1307,<sp/>USA.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
 <codeline lineno="19"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="db/d91/shapefunctiontetrahedron_8h" kindref="compound">shapefunctiontetrahedron.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d2/d91/point_8h" kindref="compound" tooltip="Point of interest. ">point.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d2/d91/point_8h" kindref="compound">point.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d1/d77/node_8h" kindref="compound">node.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mknix<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="d2/dde/namespacemknix" kindref="compound">mknix</ref><sp/>{</highlight></codeline>
 <codeline lineno="25"><highlight class="normal"></highlight></codeline>
 <codeline lineno="26" refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a470f6ba9b843785e1bd412f66830f201" refkind="member"><highlight class="normal"><ref refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a470f6ba9b843785e1bd412f66830f201" kindref="member">ShapeFunctionTetrahedron::ShapeFunctionTetrahedron</ref>()</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/>:<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function" kindref="compound">ShapeFunction</ref>()</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function" kindref="compound">ShapeFunction</ref>()</highlight></codeline>
 <codeline lineno="28"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="29"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="30"><highlight class="normal"></highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight></codeline>
 <codeline lineno="32" refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a0bbef63fdeaff7a06c33b29f0132c991" refkind="member"><highlight class="normal"><ref refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a470f6ba9b843785e1bd412f66830f201" kindref="member">ShapeFunctionTetrahedron::ShapeFunctionTetrahedron</ref>(<sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref>*<sp/>gp_in<sp/>)</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/>:<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function" kindref="compound">ShapeFunction</ref>(gp_in)</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function" kindref="compound">ShapeFunction</ref>(gp_in)</highlight></codeline>
 <codeline lineno="34"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>rows:<sp/>shape<sp/>function<sp/>+<sp/>3<sp/>first<sp/>derivatives<sp/>(x,y,z)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>columns:<sp/>4<sp/>points</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.resize(4,<sp/>4);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>rows:<sp/>shape<sp/>function<sp/>+<sp/>3<sp/>first<sp/>derivatives<sp/>(x,y,z)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>columns:<sp/>4<sp/>points</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.resize(4,<sp/>4);</highlight></codeline>
 <codeline lineno="38"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="39"><highlight class="normal"></highlight></codeline>
 <codeline lineno="40"><highlight class="normal"></highlight></codeline>
@@ -120,85 +125,87 @@
 <codeline lineno="45"><highlight class="normal"></highlight></codeline>
 <codeline lineno="46" refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a9b09613d74f957f733a03bec83557850" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a9b09613d74f957f733a03bec83557850" kindref="member">ShapeFunctionTetrahedron::calc</ref>()</highlight></codeline>
 <codeline lineno="47"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>PRELIMINARY<sp/>CALCULATIONS:</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>(From<sp/>Zien<sp/>and<sp/>Taylor,<sp/>pg<sp/>128)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a0173ff8fc55470c6d46684cd28eeb345" kindref="member">compute_abcd</ref>(1,2,3);<sp/></highlight><highlight class="comment">//node<sp/>0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a0173ff8fc55470c6d46684cd28eeb345" kindref="member">compute_abcd</ref>(2,3,0);<sp/></highlight><highlight class="comment">//node<sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a0173ff8fc55470c6d46684cd28eeb345" kindref="member">compute_abcd</ref>(3,0,1);<sp/></highlight><highlight class="comment">//node<sp/>2</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a0173ff8fc55470c6d46684cd28eeb345" kindref="member">compute_abcd</ref>(0,1,2);<sp/></highlight><highlight class="comment">//node<sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/>PRELIMINARY<sp/>CALCULATIONS:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>(From<sp/>Zien<sp/>and<sp/>Taylor,<sp/>pg<sp/>128)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a0173ff8fc55470c6d46684cd28eeb345" kindref="member">compute_abcd</ref>(1,2,3);<sp/></highlight><highlight class="comment">//node<sp/>0</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a0173ff8fc55470c6d46684cd28eeb345" kindref="member">compute_abcd</ref>(2,3,0);<sp/></highlight><highlight class="comment">//node<sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a0173ff8fc55470c6d46684cd28eeb345" kindref="member">compute_abcd</ref>(3,0,1);<sp/></highlight><highlight class="comment">//node<sp/>2</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a0173ff8fc55470c6d46684cd28eeb345" kindref="member">compute_abcd</ref>(0,1,2);<sp/></highlight><highlight class="comment">//node<sp/>3</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="55"><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>phi(0,i)<sp/>=<sp/>(a_i<sp/>+<sp/>b_i*x<sp/>+<sp/>c_i*y<sp/>+<sp/>d_i*z)<sp/>/<sp/>(6*J)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;4;<sp/>++i<sp/>){</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>phi(0,i)<sp/>=<sp/>(a_i<sp/>+<sp/>b_i*x<sp/>+<sp/>c_i*y<sp/>+<sp/>d_i*z)<sp/>/<sp/>(6*J)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;4;<sp/>++i<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement</highlight></codeline>
 <codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(</highlight></codeline>
 <codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>a[i]<sp/>+<sp/>b[i]*<ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>+<sp/>c[i]*<ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>+<sp/>d[i]*<ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" kindref="member">Z</ref><sp/>)</highlight></codeline>
 <codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>/<sp/>(<sp/>6*<ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a7afc6bd82b8e3619d384a41d9c2f1601" kindref="member">jacobian</ref><sp/>)</highlight></codeline>
 <codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>0,<sp/>i</highlight></codeline>
 <codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>FIRST<sp/>DERIVATIVES:</highlight></codeline>
-<codeline lineno="69"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;4;<sp/>++i<sp/>){</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>b[i]<sp/>/<sp/>(<sp/>6*<ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a7afc6bd82b8e3619d384a41d9c2f1601" kindref="member">jacobian</ref><sp/>),<sp/>1,<sp/>i<sp/>);<sp/></highlight><highlight class="comment">//<sp/>,x</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>c[i]<sp/>/<sp/>(<sp/>6*<ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a7afc6bd82b8e3619d384a41d9c2f1601" kindref="member">jacobian</ref><sp/>),<sp/>2,<sp/>i<sp/>);<sp/></highlight><highlight class="comment">//<sp/>,y</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>d[i]<sp/>/<sp/>(<sp/>6*<ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a7afc6bd82b8e3619d384a41d9c2f1601" kindref="member">jacobian</ref><sp/>),<sp/>3,<sp/>i<sp/>);<sp/></highlight><highlight class="comment">//<sp/>,z</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIRST<sp/>DERIVATIVES:</highlight></codeline>
+<codeline lineno="69"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;4;<sp/>++i<sp/>)<sp/>{</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>b[i]<sp/>/<sp/>(<sp/>6*<ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a7afc6bd82b8e3619d384a41d9c2f1601" kindref="member">jacobian</ref><sp/>),<sp/>1,<sp/>i<sp/>);<sp/></highlight><highlight class="comment">//<sp/>,x</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>c[i]<sp/>/<sp/>(<sp/>6*<ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a7afc6bd82b8e3619d384a41d9c2f1601" kindref="member">jacobian</ref><sp/>),<sp/>2,<sp/>i<sp/>);<sp/></highlight><highlight class="comment">//<sp/>,y</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>d[i]<sp/>/<sp/>(<sp/>6*<ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a7afc6bd82b8e3619d384a41d9c2f1601" kindref="member">jacobian</ref><sp/>),<sp/>3,<sp/>i<sp/>);<sp/></highlight><highlight class="comment">//<sp/>,z</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="74"><highlight class="normal"></highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;jacobian<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a7afc6bd82b8e3619d384a41d9c2f1601" kindref="member">jacobian</ref><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;gp<sp/>=<sp/>(&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" kindref="member">Z</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;);\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;a<sp/>=<sp/>(&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>a[0]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>a[1]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>a[2]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>a[3]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;);\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;b<sp/>=<sp/>(&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>b[0]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>b[1]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>b[2]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>b[3]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;);\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;c<sp/>=<sp/>(&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>c[0]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>c[1]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>c[2]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>c[3]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;);\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;d<sp/>=<sp/>(&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>d[0]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>d[1]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>d[2]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>d[3]<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;);\n&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;phi<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;jacobian<sp/>=<sp/>&quot;<sp/>&lt;&lt;<sp/>gp-&gt;jacobian<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;gp<sp/>=<sp/>(&quot;<sp/>&lt;&lt;<sp/>gp-&gt;X<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;<sp/>&lt;&lt;<sp/>gp-&gt;Y<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;<sp/>&lt;&lt;<sp/>gp-&gt;Z<sp/>&lt;&lt;<sp/>&quot;);\n&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;a<sp/>=<sp/>(&quot;<sp/>&lt;&lt;<sp/>a[0]<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;<sp/>&lt;&lt;<sp/>a[1]<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;<sp/>&lt;&lt;<sp/>a[2]<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;<sp/>&lt;&lt;<sp/>a[3]<sp/>&lt;&lt;<sp/>&quot;);\n&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;b<sp/>=<sp/>(&quot;<sp/>&lt;&lt;<sp/>b[0]<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;<sp/>&lt;&lt;<sp/>b[1]<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;<sp/>&lt;&lt;<sp/>b[2]<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;<sp/>&lt;&lt;<sp/>b[3]<sp/>&lt;&lt;<sp/>&quot;);\n&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;c<sp/>=<sp/>(&quot;<sp/>&lt;&lt;<sp/>c[0]<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;<sp/>&lt;&lt;<sp/>c[1]<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;<sp/>&lt;&lt;<sp/>c[2]<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;<sp/>&lt;&lt;<sp/>c[3]<sp/>&lt;&lt;<sp/>&quot;);\n&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;d<sp/>=<sp/>(&quot;<sp/>&lt;&lt;<sp/>d[0]<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;<sp/>&lt;&lt;<sp/>d[1]<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;<sp/>&lt;&lt;<sp/>d[2]<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;<sp/>&lt;&lt;<sp/>d[3]<sp/>&lt;&lt;<sp/>&quot;);\n&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;phi<sp/>=<sp/>&quot;<sp/>&lt;&lt;<sp/>phi<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="82"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="83"><highlight class="normal"></highlight></codeline>
 <codeline lineno="84" refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a0173ff8fc55470c6d46684cd28eeb345" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/dbd/classmknix_1_1_shape_function_tetrahedron_1a0173ff8fc55470c6d46684cd28eeb345" kindref="member">ShapeFunctionTetrahedron::compute_abcd</ref>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i1,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i2,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i3<sp/>)</highlight></codeline>
 <codeline lineno="85"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>(From<sp/>Zien<sp/>and<sp/>Taylor,<sp/>pg<sp/>128)<sp/>does<sp/>not<sp/>work...</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Trying<sp/>from<sp/>www.iue.tuwien.ac.at/phd/nentchev/node30.html</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sign[4]<sp/>=<sp/>{1,<sp/>-1,<sp/>1,<sp/>-1};</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/>cofe::TensorRank2&lt;<sp/>3,<sp/>double<sp/>&gt;<sp/>det_a,<sp/>det_bcd;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>(From<sp/>Zien<sp/>and<sp/>Taylor,<sp/>pg<sp/>128)<sp/>does<sp/>not<sp/>work...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Trying<sp/>from<sp/>www.iue.tuwien.ac.at/phd/nentchev/node30.html</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>sign[4]<sp/>=<sp/>{1,<sp/>-1,<sp/>1,<sp/>-1};</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/>cofe::TensorRank2&lt;<sp/>3,<sp/>double<sp/>&gt;<sp/>det_a,<sp/>det_bcd;</highlight></codeline>
 <codeline lineno="91"><highlight class="normal"></highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/>det_a(0,0)<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[i1]-&gt;getx();</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/>det_a(0,1)<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[i1]-&gt;gety();</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/>det_a(0,2)<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[i1]-&gt;getz();</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/>det_a(1,0)<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[i2]-&gt;getx();</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/>det_a(1,1)<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[i2]-&gt;gety();</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/>det_a(1,2)<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[i2]-&gt;getz();</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/>det_a(2,0)<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[i3]-&gt;getx();</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/>det_a(2,1)<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[i3]-&gt;gety();</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/>det_a(2,2)<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[i3]-&gt;getz();</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/>a.push_back(sign[i1]*det_a.determinant());</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>det_a(0,0)<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[i1]-&gt;getX();</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>det_a(0,1)<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[i1]-&gt;getY();</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>det_a(0,2)<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[i1]-&gt;getZ();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>det_a(1,0)<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[i2]-&gt;getX();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/>det_a(1,1)<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[i2]-&gt;getY();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>det_a(1,2)<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[i2]-&gt;getZ();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>det_a(2,0)<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[i3]-&gt;getX();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>det_a(2,1)<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[i3]-&gt;getY();</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/>det_a(2,2)<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[i3]-&gt;getZ();</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>det_a<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="103"><highlight class="normal"></highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/>a.push_back(sign[i2]*det_a.determinant());</highlight></codeline>
 <codeline lineno="105"><highlight class="normal"></highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/>det_bcd<sp/>=<sp/>det_a;</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i=0;<sp/>i&lt;3;<sp/>++i){</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>det_bcd(i,0)<sp/>=<sp/>1.;</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/>b.push_back(<sp/>-sign[i1]*(det_bcd.determinant())<sp/>);</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"></highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/>det_bcd<sp/>=<sp/>det_a;</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i=0;<sp/>i&lt;3;<sp/>++i){</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>det_bcd(i,0)<sp/>=<sp/>1.;</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>det_bcd(i,1)<sp/>=<sp/>det_a(i,0);</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/>c.push_back(<sp/>sign[i1]*(det_bcd.determinant())<sp/>);</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"></highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i=0;<sp/>i&lt;3;<sp/>++i){</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>det_bcd(i,0)<sp/>=<sp/>1.;</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>det_bcd(i,1)<sp/>=<sp/>det_a(i,0);</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>det_bcd(i,2)<sp/>=<sp/>det_a(i,1);</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/>d.push_back(<sp/>-sign[i1]*(det_bcd.determinant())<sp/>);</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"></highlight></codeline>
-<codeline lineno="126"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/>det_bcd<sp/>=<sp/>det_a;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i=0;<sp/>i&lt;3;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>det_bcd(i,0)<sp/>=<sp/>1.;</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>b.push_back(<sp/>-sign[i2]*(det_bcd.determinant())<sp/>);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>det_bcd<sp/>=<sp/>det_a;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i=0;<sp/>i&lt;3;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>det_bcd(i,0)<sp/>=<sp/>1.;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>det_bcd(i,1)<sp/>=<sp/>det_a(i,0);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>c.push_back(<sp/>sign[i2]*(det_bcd.determinant())<sp/>);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(i=0;<sp/>i&lt;3;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>det_bcd(i,0)<sp/>=<sp/>1.;</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>det_bcd(i,1)<sp/>=<sp/>det_a(i,0);</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>det_bcd(i,2)<sp/>=<sp/>det_a(i,1);</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>d.push_back(<sp/>-sign[i2]*(det_bcd.determinant())<sp/>);</highlight></codeline>
 <codeline lineno="127"><highlight class="normal"></highlight></codeline>
-<codeline lineno="128"><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctiontetrahedron.cpp"/>
+    <location file="/home/daniel/Projects/MkniX/src/core/shapefunctiontetrahedron.cpp"/>
   </compounddef>
 </doxygen>

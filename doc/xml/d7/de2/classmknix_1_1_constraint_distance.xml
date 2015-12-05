@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="d7/de2/classmknix_1_1_constraint_distance" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d7/de2/classmknix_1_1_constraint_distance" kind="class" language="C++" prot="public">
     <compoundname>mknix::ConstraintDistance</compoundname>
     <basecompoundref refid="da/dd3/classmknix_1_1_constraint" prot="public" virt="non-virtual">mknix::Constraint</basecompoundref>
     <includes refid="da/df6/constraintdistance_8h" local="no">constraintdistance.h</includes>
@@ -16,9 +16,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.h" line="52" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.h" bodystart="52" bodyend="-1"/>
-        <referencedby refid="d7/de2/classmknix_1_1_constraint_distance_1a32df0e5f0198ce5c7871e2b6a5cafb7c" compoundref="d7/d93/constraintdistance_8cpp" startline="68" endline="72">calcRo</referencedby>
-        <referencedby refid="d7/de2/classmknix_1_1_constraint_distance_1ad838af34d5ada5ba2f4ce559a472e16a" compoundref="d7/d93/constraintdistance_8cpp" startline="75" endline="97">calcPhi</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" line="61" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" bodystart="61" bodyend="-1"/>
+        <referencedby refid="d7/de2/classmknix_1_1_constraint_distance_1a32df0e5f0198ce5c7871e2b6a5cafb7c" compoundref="d7/d93/constraintdistance_8cpp" startline="64" endline="73">calcRo</referencedby>
+        <referencedby refid="d7/de2/classmknix_1_1_constraint_distance_1ad838af34d5ada5ba2f4ce559a472e16a" compoundref="d7/d93/constraintdistance_8cpp" startline="76" endline="104">calcPhi</referencedby>
+        <referencedby refid="d7/de2/classmknix_1_1_constraint_distance_1aadda81ffe998ebc5d03adc91f73a016e" compoundref="da/df6/constraintdistance_8h" startline="47" endline="50">setLenght</referencedby>
       </memberdef>
       <memberdef kind="variable" id="d7/de2/classmknix_1_1_constraint_distance_1ae4054619a2e3205079c4911ad69db4eb" prot="protected" static="no" mutable="no">
         <type>double</type>
@@ -31,8 +32,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.h" line="53" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.h" bodystart="53" bodyend="-1"/>
-        <referencedby refid="d7/de2/classmknix_1_1_constraint_distance_1ad838af34d5ada5ba2f4ce559a472e16a" compoundref="d7/d93/constraintdistance_8cpp" startline="75" endline="97">calcPhi</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" line="62" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" bodystart="62" bodyend="-1"/>
+        <referencedby refid="d7/de2/classmknix_1_1_constraint_distance_1ad838af34d5ada5ba2f4ce559a472e16a" compoundref="d7/d93/constraintdistance_8cpp" startline="76" endline="104">calcPhi</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -47,7 +48,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.h" line="33" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.cpp" bodystart="25" bodyend="28"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" line="33" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/constraintdistance.cpp" bodystart="27" bodyend="30"/>
       </memberdef>
       <memberdef kind="function" id="d7/de2/classmknix_1_1_constraint_distance_1aa39735f682295e2c7b839fddb9eba545" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -60,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.h" line="35" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.cpp" bodystart="64" bodyend="66"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" line="35" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/constraintdistance.cpp" bodystart="60" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="d7/de2/classmknix_1_1_constraint_distance_1adc9113e52374f275b1b79bfdca72b971" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -89,17 +90,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.h" line="37" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.cpp" bodystart="30" bodyend="62"/>
-        <references refid="da/dd3/classmknix_1_1_constraint_1aa4aa16e121963acf4c086f63137d4ac1" compoundref="dc/d4d/constraint_8h" startline="67">mknix::Constraint::nodes</references>
-        <references refid="d3/d25/classmknix_1_1_node_1aaa7a577ee98149ca2b82711e4aa0e77a" compoundref="d7/d70/node_8cpp" startline="83" endline="103">mknix::Node::getSupportSize</references>
-        <references refid="d7/de2/classmknix_1_1_constraint_distance_1a32df0e5f0198ce5c7871e2b6a5cafb7c" compoundref="d7/d93/constraintdistance_8cpp" startline="68" endline="72">calcRo</references>
-        <references refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" compoundref="dc/d4d/constraint_8h" startline="69">mknix::Constraint::stiffnessMatrix</references>
-        <references refid="da/dd3/classmknix_1_1_constraint_1a5fa3727603b390206e6431141b892517" compoundref="dc/d4d/constraint_8h" startline="64">mknix::Constraint::dim</references>
-        <references refid="da/dd3/classmknix_1_1_constraint_1a0b0fbbf149c32ce0a9dd6e0c4dd5851e" compoundref="dc/d4d/constraint_8h" startline="68">mknix::Constraint::internalForces</references>
-        <references refid="da/dd3/classmknix_1_1_constraint_1aeee7c3bdd61194e3df0e958ff237040a" compoundref="dc/d4d/constraint_8h" startline="70">mknix::Constraint::lambda</references>
-        <references refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" compoundref="dc/d4d/constraint_8h" startline="71">mknix::Constraint::phi</references>
-        <references refid="da/dd3/classmknix_1_1_constraint_1a667ecb78177b06981c30e23cb194b806" compoundref="dc/d4d/constraint_8h" startline="72">mknix::Constraint::phi_q</references>
-        <references refid="da/dd3/classmknix_1_1_constraint_1a9173b52da189652951ce51b1d69fcde4" compoundref="dc/d4d/constraint_8h" startline="73">mknix::Constraint::phi_qq</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" line="37" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/constraintdistance.cpp" bodystart="32" bodyend="58"/>
+        <references refid="da/dd3/classmknix_1_1_constraint_1aa4aa16e121963acf4c086f63137d4ac1" compoundref="dc/d4d/constraint_8h" startline="81">mknix::Constraint::nodes</references>
+        <references refid="d3/d25/classmknix_1_1_node_1aaa7a577ee98149ca2b82711e4aa0e77a" compoundref="d7/d70/node_8cpp" startline="100" endline="125">mknix::Node::getSupportSize</references>
+        <references refid="d7/de2/classmknix_1_1_constraint_distance_1a32df0e5f0198ce5c7871e2b6a5cafb7c" compoundref="d7/d93/constraintdistance_8cpp" startline="64" endline="73">calcRo</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" compoundref="dc/d4d/constraint_8h" startline="84">mknix::Constraint::stiffnessMatrix</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a5fa3727603b390206e6431141b892517" compoundref="dc/d4d/constraint_8h" startline="77">mknix::Constraint::dim</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a0b0fbbf149c32ce0a9dd6e0c4dd5851e" compoundref="dc/d4d/constraint_8h" startline="82">mknix::Constraint::internalForces</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1aeee7c3bdd61194e3df0e958ff237040a" compoundref="dc/d4d/constraint_8h" startline="85">mknix::Constraint::lambda</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" compoundref="dc/d4d/constraint_8h" startline="86">mknix::Constraint::phi</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a667ecb78177b06981c30e23cb194b806" compoundref="dc/d4d/constraint_8h" startline="87">mknix::Constraint::phi_q</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a9173b52da189652951ce51b1d69fcde4" compoundref="dc/d4d/constraint_8h" startline="88">mknix::Constraint::phi_qq</references>
       </memberdef>
       <memberdef kind="function" id="d7/de2/classmknix_1_1_constraint_distance_1a32df0e5f0198ce5c7871e2b6a5cafb7c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -112,10 +113,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.h" line="39" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.cpp" bodystart="68" bodyend="72"/>
-        <references refid="d7/de2/classmknix_1_1_constraint_distance_1a2d4a4e3c3b75b23f63a772b71c4badaa" compoundref="da/df6/constraintdistance_8h" startline="52">ro</references>
-        <references refid="da/dd3/classmknix_1_1_constraint_1aa4aa16e121963acf4c086f63137d4ac1" compoundref="dc/d4d/constraint_8h" startline="67">mknix::Constraint::nodes</references>
-        <referencedby refid="d7/de2/classmknix_1_1_constraint_distance_1adc9113e52374f275b1b79bfdca72b971" compoundref="d7/d93/constraintdistance_8cpp" startline="30" endline="62">ConstraintDistance</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" line="39" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/constraintdistance.cpp" bodystart="64" bodyend="73"/>
+        <references refid="d7/de2/classmknix_1_1_constraint_distance_1a2d4a4e3c3b75b23f63a772b71c4badaa" compoundref="da/df6/constraintdistance_8h" startline="61">ro</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1aa4aa16e121963acf4c086f63137d4ac1" compoundref="dc/d4d/constraint_8h" startline="81">mknix::Constraint::nodes</references>
+        <referencedby refid="d7/de2/classmknix_1_1_constraint_distance_1adc9113e52374f275b1b79bfdca72b971" compoundref="d7/d93/constraintdistance_8cpp" startline="32" endline="58">ConstraintDistance</referencedby>
       </memberdef>
       <memberdef kind="function" id="d7/de2/classmknix_1_1_constraint_distance_1ad838af34d5ada5ba2f4ce559a472e16a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -129,11 +130,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.h" line="41" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.cpp" bodystart="75" bodyend="97"/>
-        <references refid="d7/de2/classmknix_1_1_constraint_distance_1ae4054619a2e3205079c4911ad69db4eb" compoundref="da/df6/constraintdistance_8h" startline="53">rt</references>
-        <references refid="da/dd3/classmknix_1_1_constraint_1aa4aa16e121963acf4c086f63137d4ac1" compoundref="dc/d4d/constraint_8h" startline="67">mknix::Constraint::nodes</references>
-        <references refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" compoundref="dc/d4d/constraint_8h" startline="71">mknix::Constraint::phi</references>
-        <references refid="d7/de2/classmknix_1_1_constraint_distance_1a2d4a4e3c3b75b23f63a772b71c4badaa" compoundref="da/df6/constraintdistance_8h" startline="52">ro</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" line="41" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/constraintdistance.cpp" bodystart="76" bodyend="104"/>
+        <references refid="d7/de2/classmknix_1_1_constraint_distance_1ae4054619a2e3205079c4911ad69db4eb" compoundref="da/df6/constraintdistance_8h" startline="62">rt</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1aa4aa16e121963acf4c086f63137d4ac1" compoundref="dc/d4d/constraint_8h" startline="81">mknix::Constraint::nodes</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" compoundref="dc/d4d/constraint_8h" startline="86">mknix::Constraint::phi</references>
+        <references refid="d7/de2/classmknix_1_1_constraint_distance_1a2d4a4e3c3b75b23f63a772b71c4badaa" compoundref="da/df6/constraintdistance_8h" startline="61">ro</references>
       </memberdef>
       <memberdef kind="function" id="d7/de2/classmknix_1_1_constraint_distance_1a6fa6c37266c01a1e8f577418dd886037" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -147,10 +148,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.h" line="43" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.cpp" bodystart="99" bodyend="109"/>
-        <references refid="da/dd3/classmknix_1_1_constraint_1a667ecb78177b06981c30e23cb194b806" compoundref="dc/d4d/constraint_8h" startline="72">mknix::Constraint::phi_q</references>
-        <references refid="da/dd3/classmknix_1_1_constraint_1aa4aa16e121963acf4c086f63137d4ac1" compoundref="dc/d4d/constraint_8h" startline="67">mknix::Constraint::nodes</references>
-        <references refid="da/dd3/classmknix_1_1_constraint_1a5fa3727603b390206e6431141b892517" compoundref="dc/d4d/constraint_8h" startline="64">mknix::Constraint::dim</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" line="43" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/constraintdistance.cpp" bodystart="106" bodyend="116"/>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a667ecb78177b06981c30e23cb194b806" compoundref="dc/d4d/constraint_8h" startline="87">mknix::Constraint::phi_q</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1aa4aa16e121963acf4c086f63137d4ac1" compoundref="dc/d4d/constraint_8h" startline="81">mknix::Constraint::nodes</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a5fa3727603b390206e6431141b892517" compoundref="dc/d4d/constraint_8h" startline="77">mknix::Constraint::dim</references>
       </memberdef>
       <memberdef kind="function" id="d7/de2/classmknix_1_1_constraint_distance_1ad4d1eb206239508f7f2f5b4d26b957eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -164,12 +165,30 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.h" line="45" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.cpp" bodystart="111" bodyend="127"/>
-        <references refid="da/dd3/classmknix_1_1_constraint_1a9173b52da189652951ce51b1d69fcde4" compoundref="dc/d4d/constraint_8h" startline="73">mknix::Constraint::phi_qq</references>
-        <references refid="da/dd3/classmknix_1_1_constraint_1a5fa3727603b390206e6431141b892517" compoundref="dc/d4d/constraint_8h" startline="64">mknix::Constraint::dim</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" line="45" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/constraintdistance.cpp" bodystart="118" bodyend="134"/>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a9173b52da189652951ce51b1d69fcde4" compoundref="dc/d4d/constraint_8h" startline="88">mknix::Constraint::phi_qq</references>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a5fa3727603b390206e6431141b892517" compoundref="dc/d4d/constraint_8h" startline="77">mknix::Constraint::dim</references>
+      </memberdef>
+      <memberdef kind="function" id="d7/de2/classmknix_1_1_constraint_distance_1aadda81ffe998ebc5d03adc91f73a016e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::ConstraintDistance::setLenght</definition>
+        <argsstring>(double new_ro)</argsstring>
+        <name>setLenght</name>
+        <param>
+          <type>double</type>
+          <declname>new_ro</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" line="47" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" bodystart="47" bodyend="50"/>
+        <references refid="d7/de2/classmknix_1_1_constraint_distance_1a2d4a4e3c3b75b23f63a772b71c4badaa" compoundref="da/df6/constraintdistance_8h" startline="61">ro</references>
       </memberdef>
       <memberdef kind="function" id="d7/de2/classmknix_1_1_constraint_distance_1aae757ba28e181259a196fbc0a1e8bfaf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+        <type><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
         <definition>lmx::Vector&lt;data_type&gt;&amp; mknix::ConstraintDistance::getInternalForces</definition>
         <argsstring>()</argsstring>
         <name>getInternalForces</name>
@@ -179,11 +198,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.h" line="47" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.h" bodystart="47" bodyend="47"/>
-        <references refid="da/dd3/classmknix_1_1_constraint_1a0b0fbbf149c32ce0a9dd6e0c4dd5851e" compoundref="dc/d4d/constraint_8h" startline="68">mknix::Constraint::internalForces</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" line="52" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" bodystart="52" bodyend="54"/>
+        <references refid="da/dd3/classmknix_1_1_constraint_1a0b0fbbf149c32ce0a9dd6e0c4dd5851e" compoundref="dc/d4d/constraint_8h" startline="82">mknix::Constraint::internalForces</references>
       </memberdef>
       <memberdef kind="function" id="d7/de2/classmknix_1_1_constraint_distance_1a847365545dcef34ee44bbadd20d819bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>lmx::DenseMatrix&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+        <type><ref refid="d2/d8d/classlmx_1_1_dense_matrix" kindref="compound">lmx::DenseMatrix</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
         <definition>lmx::DenseMatrix&lt;data_type&gt;&amp; mknix::ConstraintDistance::getStiffnessMatrix</definition>
         <argsstring>()</argsstring>
         <name>getStiffnessMatrix</name>
@@ -193,8 +212,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.h" line="49" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.h" bodystart="49" bodyend="49"/>
-        <references refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" compoundref="dc/d4d/constraint_8h" startline="69">mknix::Constraint::stiffnessMatrix</references>
+        <location file="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" line="56" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" bodystart="56" bodyend="58"/>
+        <references refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" compoundref="dc/d4d/constraint_8h" startline="84">mknix::Constraint::stiffnessMatrix</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -203,30 +222,44 @@
 <para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
 </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="314">
+      <node id="531">
         <label>mknix::Constraint</label>
         <link refid="da/dd3/classmknix_1_1_constraint"/>
       </node>
-      <node id="313">
+      <node id="530">
         <label>mknix::ConstraintDistance</label>
         <link refid="d7/de2/classmknix_1_1_constraint_distance"/>
-        <childnode refid="314" relation="public-inheritance">
+        <childnode refid="531" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="316">
+      <node id="533">
         <label>mknix::Constraint</label>
         <link refid="da/dd3/classmknix_1_1_constraint"/>
+        <childnode refid="534" relation="usage">
+          <edgelabel>stiffnessMatrix</edgelabel>
+        </childnode>
+        <childnode refid="535" relation="usage">
+          <edgelabel>internalForces</edgelabel>
+        </childnode>
       </node>
-      <node id="315">
+      <node id="535">
+        <label>lmx::Vector&lt; data_type &gt;</label>
+        <link refid="d1/d20/classlmx_1_1_vector"/>
+      </node>
+      <node id="534">
+        <label>lmx::DenseMatrix&lt; data_type &gt;</label>
+        <link refid="d2/d8d/classlmx_1_1_dense_matrix"/>
+      </node>
+      <node id="532">
         <label>mknix::ConstraintDistance</label>
         <link refid="d7/de2/classmknix_1_1_constraint_distance"/>
-        <childnode refid="316" relation="public-inheritance">
+        <childnode refid="533" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.h" line="31" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/constraintdistance.h" bodystart="30" bodyend="54"/>
+    <location file="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" line="31" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/constraintdistance.h" bodystart="30" bodyend="63"/>
     <listofallmembers>
       <member refid="da/dd3/classmknix_1_1_constraint_1ab76845f20e7a29693b9161e09074d55a" prot="protected" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>alpha</name></member>
       <member refid="da/dd3/classmknix_1_1_constraint_1aca5d35f6ecd8f8f3852c150c7901b890" prot="public" virt="virtual"><scope>mknix::ConstraintDistance</scope><name>assembleInternalForces</name></member>
@@ -241,6 +274,7 @@
       <member refid="da/dd3/classmknix_1_1_constraint_1a2e1f0de7e983151fb892468774dcdf12" prot="public" virt="virtual"><scope>mknix::ConstraintDistance</scope><name>clearAugmented</name></member>
       <member refid="da/dd3/classmknix_1_1_constraint_1ae4a69ed64d7746a7f8e2d23f04bc6de6" prot="public" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>Constraint</name></member>
       <member refid="da/dd3/classmknix_1_1_constraint_1a093b4ffce363485f60ba251356ff88d1" prot="public" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>Constraint</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1a286b8de04619afb63e772520d659855a" prot="public" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>Constraint</name></member>
       <member refid="d7/de2/classmknix_1_1_constraint_distance_1ad89b1d56b296625e72fe0bcf4cea3c5c" prot="public" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>ConstraintDistance</name></member>
       <member refid="d7/de2/classmknix_1_1_constraint_distance_1adc9113e52374f275b1b79bfdca72b971" prot="public" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>ConstraintDistance</name></member>
       <member refid="da/dd3/classmknix_1_1_constraint_1a5fa3727603b390206e6431141b892517" prot="protected" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>dim</name></member>
@@ -248,15 +282,23 @@
       <member refid="da/dd3/classmknix_1_1_constraint_1a0e81d924dad26b7b5b0749d4580dd63c" prot="public" virt="virtual"><scope>mknix::ConstraintDistance</scope><name>getNode</name></member>
       <member refid="d7/de2/classmknix_1_1_constraint_distance_1a847365545dcef34ee44bbadd20d819bf" prot="public" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>getStiffnessMatrix</name></member>
       <member refid="da/dd3/classmknix_1_1_constraint_1a0b0fbbf149c32ce0a9dd6e0c4dd5851e" prot="protected" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>internalForces</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1aa89cb49b380633ff83730683c119f966" prot="protected" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>internalForcesOutput</name></member>
       <member refid="da/dd3/classmknix_1_1_constraint_1aeee7c3bdd61194e3df0e958ff237040a" prot="protected" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>lambda</name></member>
       <member refid="da/dd3/classmknix_1_1_constraint_1ab05c0dcc5cc535f4e3bed2fd34ed6d75" prot="protected" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>method</name></member>
       <member refid="da/dd3/classmknix_1_1_constraint_1aa4aa16e121963acf4c086f63137d4ac1" prot="protected" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>nodes</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1a51d31cadb80963fac74eca26487a4f39" prot="public" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>outputStep</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1a72947f21c4d519a9da8877e45a453212" prot="public" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>outputStep</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1afca864e3f350bdd6647084a52057dc47" prot="public" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>outputToFile</name></member>
       <member refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" prot="protected" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>phi</name></member>
       <member refid="da/dd3/classmknix_1_1_constraint_1a667ecb78177b06981c30e23cb194b806" prot="protected" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>phi_q</name></member>
       <member refid="da/dd3/classmknix_1_1_constraint_1a9173b52da189652951ce51b1d69fcde4" prot="protected" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>phi_qq</name></member>
       <member refid="d7/de2/classmknix_1_1_constraint_distance_1a2d4a4e3c3b75b23f63a772b71c4badaa" prot="protected" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>ro</name></member>
       <member refid="d7/de2/classmknix_1_1_constraint_distance_1ae4054619a2e3205079c4911ad69db4eb" prot="protected" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>rt</name></member>
+      <member refid="d7/de2/classmknix_1_1_constraint_distance_1aadda81ffe998ebc5d03adc91f73a016e" prot="public" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>setLenght</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1a29894979f193b76289f112e9db6a8d87" prot="public" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>setTitle</name></member>
       <member refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" prot="protected" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>stiffnessMatrix</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1ae245e7947a6ae56d5d0c42b31059af72" prot="protected" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>title</name></member>
+      <member refid="da/dd3/classmknix_1_1_constraint_1a85f9a1e3ffe92fa380deec57b25bc520" prot="public" virt="virtual"><scope>mknix::ConstraintDistance</scope><name>writeJointInfo</name></member>
       <member refid="da/dd3/classmknix_1_1_constraint_1a84cbe5af8074dc229f583d119bbde3e1" prot="public" virt="virtual"><scope>mknix::ConstraintDistance</scope><name>~Constraint</name></member>
       <member refid="d7/de2/classmknix_1_1_constraint_distance_1aa39735f682295e2c7b839fddb9eba545" prot="public" virt="non-virtual"><scope>mknix::ConstraintDistance</scope><name>~ConstraintDistance</name></member>
     </listofallmembers>

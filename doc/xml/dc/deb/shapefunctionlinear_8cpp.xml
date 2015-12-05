@@ -1,69 +1,74 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="dc/deb/shapefunctionlinear_8cpp" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="dc/deb/shapefunctionlinear_8cpp" kind="file" language="C++">
     <compoundname>shapefunctionlinear.cpp</compoundname>
     <includes refid="d0/d2e/shapefunctionlinear_8h" local="yes">shapefunctionlinear.h</includes>
     <includes refid="d2/d91/point_8h" local="yes">point.h</includes>
     <includes refid="d1/d77/node_8h" local="yes">node.h</includes>
     <incdepgraph>
-      <node id="7961">
+      <node id="4146">
         <label>string</label>
       </node>
-      <node id="7956">
-        <label>shapefunction.h</label>
-        <link refid="d3/d16/shapefunction_8h"/>
-        <childnode refid="7957" relation="include">
-        </childnode>
-      </node>
-      <node id="7960">
+      <node id="4145">
         <label>map</label>
       </node>
-      <node id="7958">
-        <label>point.h</label>
-        <link refid="d2/d91/point_8h"/>
-        <childnode refid="7959" relation="include">
-        </childnode>
-        <childnode refid="7960" relation="include">
-        </childnode>
-        <childnode refid="7961" relation="include">
-        </childnode>
-        <childnode refid="7962" relation="include">
-        </childnode>
-      </node>
-      <node id="7962">
+      <node id="4147">
         <label>common.h</label>
         <link refid="dc/d54/common_8h"/>
+        <childnode refid="4145" relation="include">
+        </childnode>
+        <childnode refid="4148" relation="include">
+        </childnode>
       </node>
-      <node id="7959">
+      <node id="4141">
+        <label>shapefunction.h</label>
+        <link refid="d3/d16/shapefunction_8h"/>
+        <childnode refid="4142" relation="include">
+        </childnode>
+      </node>
+      <node id="4144">
         <label>vector</label>
       </node>
-      <node id="7955">
-        <label>shapefunctionlinear.h</label>
-        <link refid="d0/d2e/shapefunctionlinear_8h"/>
-        <childnode refid="7956" relation="include">
-        </childnode>
-      </node>
-      <node id="7957">
+      <node id="4142">
         <label>LMX/lmx.h</label>
       </node>
-      <node id="7954">
-        <label>shapefunctionlinear.cpp</label>
-        <link refid="shapefunctionlinear.cpp"/>
-        <childnode refid="7955" relation="include">
-        </childnode>
-        <childnode refid="7958" relation="include">
-        </childnode>
-        <childnode refid="7963" relation="include">
-        </childnode>
-      </node>
-      <node id="7963">
+      <node id="4149">
         <label>node.h</label>
         <link refid="d1/d77/node_8h"/>
-        <childnode refid="7959" relation="include">
+        <childnode refid="4143" relation="include">
         </childnode>
-        <childnode refid="7958" relation="include">
+        <childnode refid="4142" relation="include">
         </childnode>
-        <childnode refid="7957" relation="include">
+      </node>
+      <node id="4140">
+        <label>shapefunctionlinear.h</label>
+        <link refid="d0/d2e/shapefunctionlinear_8h"/>
+        <childnode refid="4141" relation="include">
+        </childnode>
+      </node>
+      <node id="4143">
+        <label>point.h</label>
+        <link refid="d2/d91/point_8h"/>
+        <childnode refid="4144" relation="include">
+        </childnode>
+        <childnode refid="4145" relation="include">
+        </childnode>
+        <childnode refid="4146" relation="include">
+        </childnode>
+        <childnode refid="4147" relation="include">
+        </childnode>
+      </node>
+      <node id="4148">
+        <label>memory</label>
+      </node>
+      <node id="4139">
+        <label>shapefunctionlinear.cpp</label>
+        <link refid="shapefunctionlinear.cpp"/>
+        <childnode refid="4140" relation="include">
+        </childnode>
+        <childnode refid="4143" relation="include">
+        </childnode>
+        <childnode refid="4149" relation="include">
         </childnode>
       </node>
     </incdepgraph>
@@ -93,22 +98,22 @@
 <codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/>59<sp/>Temple<sp/>Place<sp/>-<sp/>Suite<sp/>330,<sp/>Boston,<sp/>MA<sp/><sp/>02111-1307,<sp/>USA.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
 <codeline lineno="19"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d0/d2e/shapefunctionlinear_8h" kindref="compound">shapefunctionlinear.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d2/d91/point_8h" kindref="compound" tooltip="Point of interest. ">point.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d2/d91/point_8h" kindref="compound">point.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d1/d77/node_8h" kindref="compound">node.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mknix<sp/>{</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="d2/dde/namespacemknix" kindref="compound">mknix</ref><sp/>{</highlight></codeline>
 <codeline lineno="25"><highlight class="normal"></highlight></codeline>
 <codeline lineno="26" refid="d8/d0e/classmknix_1_1_shape_function_linear_1a2ef730865bc31699bbaa81c98e5f475b" refkind="member"><highlight class="normal"><ref refid="d8/d0e/classmknix_1_1_shape_function_linear_1a2ef730865bc31699bbaa81c98e5f475b" kindref="member">ShapeFunctionLinear::ShapeFunctionLinear</ref>()</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/>:<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function" kindref="compound">ShapeFunction</ref>()</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function" kindref="compound">ShapeFunction</ref>()</highlight></codeline>
 <codeline lineno="28"><highlight class="normal">{</highlight></codeline>
 <codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>this-&gt;phi.resize(6,<sp/>3);</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="30"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="31"><highlight class="normal"></highlight></codeline>
 <codeline lineno="32"><highlight class="normal"></highlight></codeline>
 <codeline lineno="33" refid="d8/d0e/classmknix_1_1_shape_function_linear_1a0f6389aa088eb1d0fcaedcb3adbf0e2b" refkind="member"><highlight class="normal"><ref refid="d8/d0e/classmknix_1_1_shape_function_linear_1a2ef730865bc31699bbaa81c98e5f475b" kindref="member">ShapeFunctionLinear::ShapeFunctionLinear</ref>(<sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref>*<sp/>gp_in<sp/>)</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/>:<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function" kindref="compound">ShapeFunction</ref>(gp_in)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function" kindref="compound">ShapeFunction</ref>(gp_in)</highlight></codeline>
 <codeline lineno="35"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.resize(4,<sp/>2);<sp/></highlight><highlight class="comment">//<sp/>deriv<sp/>0<sp/>and<sp/>dx<sp/>dy<sp/>for<sp/>two<sp/>nodes<sp/>support</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.resize(4,<sp/>2);<sp/></highlight><highlight class="comment">//<sp/>deriv<sp/>0<sp/>and<sp/>dx<sp/>dy<sp/>for<sp/>two<sp/>nodes<sp/>support</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="37"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight></codeline>
 <codeline lineno="39"><highlight class="normal"></highlight></codeline>
@@ -118,38 +123,40 @@
 <codeline lineno="43"><highlight class="normal"></highlight></codeline>
 <codeline lineno="44"><highlight class="normal"></highlight></codeline>
 <codeline lineno="45" refid="d8/d0e/classmknix_1_1_shape_function_linear_1a10cfcd17fcdd6482e7f36b3eaaa9fb9c" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/d0e/classmknix_1_1_shape_function_linear_1a10cfcd17fcdd6482e7f36b3eaaa9fb9c" kindref="member">ShapeFunctionLinear::calc</ref>()</highlight></codeline>
-<codeline lineno="46"><highlight class="normal">{<sp/></highlight><highlight class="comment">//<sp/>Signed<sp/>calculation<sp/>as<sp/>expressed<sp/>in<sp/>http://stackoverflow.com/questions/552916/how-to-find-sign-of-directed-distance</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>distance_x1x0<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;distance(<sp/>*(<ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[0])<sp/>);<sp/></highlight><highlight class="comment">//<sp/>should<sp/>use<sp/>the<sp/>jacobian</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>-<sp/>(<sp/>(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;getX()<sp/>)<sp/>*<sp/><sp/>(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;getX()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[0]-&gt;getX()<sp/>)</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;getY()<sp/>)<sp/>*<sp/><sp/>(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;getY()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[0]-&gt;getY()<sp/>)</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" kindref="member">getZ</ref>()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;getZ()<sp/>)<sp/>*<sp/><sp/>(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;getZ()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[0]-&gt;getZ()<sp/>)</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)<sp/>/<sp/>distance_x1x0</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>0,<sp/>0);</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/><sp/>(<sp/><sp/>(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[0]-&gt;getX()<sp/>)<sp/>*<sp/><sp/>(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;getX()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[0]-&gt;getX()<sp/>)</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[0]-&gt;getY()<sp/>)<sp/>*<sp/><sp/>(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;getY()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[0]-&gt;getY()<sp/>)</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" kindref="member">getZ</ref>()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[0]-&gt;getZ()<sp/>)<sp/>*<sp/><sp/>(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;getZ()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[0]-&gt;getZ()<sp/>)</highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)<sp/>/<sp/>distance_x1x0</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>0,<sp/>1);</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;support<sp/>nodes<sp/>=<sp/>(&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[0]-&gt;getX()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>,&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[0]-&gt;getY()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;)(&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;getX()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>,&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>[1]-&gt;getY()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;PHI-BAR<sp/>(&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>()<sp/>&lt;&lt;</highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>()<sp/>&lt;&lt;</highlight><highlight class="stringliteral">&quot;<sp/>)<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>(0,0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>(0,1)<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>FIRST<sp/>DERIVATIVES:</highlight></codeline>
-<codeline lineno="68"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>-1./<sp/>distance_x1x0,<sp/>1,<sp/>0<sp/>);</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>-1./<sp/>distance_x1x0,<sp/>2,<sp/>0<sp/>);</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>-1./<sp/>distance_x1x0,<sp/>3,<sp/>0<sp/>);</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>1.<sp/>/<sp/>distance_x1x0,<sp/>1,<sp/>1<sp/>);</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>1.<sp/>/<sp/>distance_x1x0,<sp/>2,<sp/>1<sp/>);</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>1.<sp/>/<sp/>distance_x1x0,<sp/>3,<sp/>1<sp/>);</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;phi<sp/>=<sp/>&quot;<sp/>&lt;&lt;<sp/>phi<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="76"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight></codeline>
-<codeline lineno="79"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">{<sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Signed<sp/>calculation<sp/>as<sp/>expressed<sp/>in<sp/>http://stackoverflow.com/questions/552916/how-to-find-sign-of-directed-distance</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>distance_x1x0<sp/>=<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[1]-&gt;distance(<sp/>*(<ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[0])<sp/>);<sp/></highlight><highlight class="comment">//<sp/>should<sp/>use<sp/>the<sp/>jacobian</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;DISTANCE_X1X0<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>distance_x1x0<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>-<sp/>(<sp/>(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[1]-&gt;getX()<sp/>)<sp/>*<sp/><sp/>(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[1]-&gt;getX()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[0]-&gt;getX()<sp/>)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[1]-&gt;getY()<sp/>)<sp/>*<sp/><sp/>(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[1]-&gt;getY()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[0]-&gt;getY()<sp/>)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" kindref="member">getZ</ref>()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[1]-&gt;getZ()<sp/>)<sp/>*<sp/><sp/>(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[1]-&gt;getZ()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[0]-&gt;getZ()<sp/>)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)<sp/>/<sp/>(distance_x1x0<sp/>*<sp/>distance_x1x0)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>0,<sp/>0);</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/><sp/>(<sp/><sp/>(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[0]-&gt;getX()<sp/>)<sp/>*<sp/><sp/>(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[1]-&gt;getX()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[0]-&gt;getX()<sp/>)</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[0]-&gt;getY()<sp/>)<sp/>*<sp/><sp/>(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[1]-&gt;getY()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[0]-&gt;getY()<sp/>)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" kindref="member">getZ</ref>()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[0]-&gt;getZ()<sp/>)<sp/>*<sp/><sp/>(<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[1]-&gt;getZ()<sp/>-<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[0]-&gt;getZ()<sp/>)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)<sp/>/<sp/>(distance_x1x0<sp/>*<sp/>distance_x1x0)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>0,<sp/>1);</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;support<sp/>nodes<sp/>=<sp/>(&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[0]-&gt;getX()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>,&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[0]-&gt;getY()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;)(&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[1]-&gt;getX()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>,&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[1]-&gt;getY()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;)&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;PHI-1D<sp/>(&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>()<sp/>&lt;&lt;</highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" kindref="member">gp</ref>-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>()<sp/>&lt;&lt;</highlight><highlight class="stringliteral">&quot;<sp/>)<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>(0,0)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>(0,1)<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>FIRST<sp/>DERIVATIVES:</highlight></codeline>
+<codeline lineno="70"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>-1./<sp/>distance_x1x0,<sp/>1,<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>-1./<sp/>distance_x1x0,<sp/>2,<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>-1./<sp/>distance_x1x0,<sp/>3,<sp/>0<sp/>);</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>1.<sp/>/<sp/>distance_x1x0,<sp/>1,<sp/>1<sp/>);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>1.<sp/>/<sp/>distance_x1x0,<sp/>2,<sp/>1<sp/>);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" kindref="member">phi</ref>.writeElement(<sp/>1.<sp/>/<sp/>distance_x1x0,<sp/>3,<sp/>1<sp/>);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;phi<sp/>=<sp/>&quot;<sp/>&lt;&lt;<sp/>phi<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctionlinear.cpp"/>
+    <location file="/home/daniel/Projects/MkniX/src/core/shapefunctionlinear.cpp"/>
   </compounddef>
 </doxygen>

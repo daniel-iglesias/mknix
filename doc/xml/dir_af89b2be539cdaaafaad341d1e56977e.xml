@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="dir_af89b2be539cdaaafaad341d1e56977e" kind="dir">
+    <compoundname>reader</compoundname>
+    <innerfile refid="d7/dff/reader_8cpp">reader.cpp</innerfile>
+    <innerfile refid="d6/dda/reader_8h">reader.h</innerfile>
+    <innerfile refid="d2/d38/readerconstraints_8cpp">readerconstraints.cpp</innerfile>
+    <innerfile refid="de/d6c/readerconstraints_8h">readerconstraints.h</innerfile>
+    <innerfile refid="d6/daf/readerflex_8cpp">readerflex.cpp</innerfile>
+    <innerfile refid="d9/ddf/readerflex_8h">readerflex.h</innerfile>
+    <innerfile refid="d9/d6a/readerrigid_8cpp">readerrigid.cpp</innerfile>
+    <innerfile refid="dd/dd9/readerrigid_8h">readerrigid.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/daniel/Projects/MkniX/src/reader/"/>
+  </compounddef>
+</doxygen>

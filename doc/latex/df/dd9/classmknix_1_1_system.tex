@@ -1,79 +1,143 @@
-\hypertarget{classmknix_1_1_system}{\subsection{mknix\-:\-:System Class Reference}
-\label{classmknix_1_1_system}\index{mknix\-::\-System@{mknix\-::\-System}}
-}
+\hypertarget{classmknix_1_1_system}{}\subsection{mknix\+:\+:System Class Reference}
+\label{classmknix_1_1_system}\index{mknix\+::\+System@{mknix\+::\+System}}
 
 
-{\ttfamily \#include $<$system.\-h$>$}
+{\ttfamily \#include $<$system.\+h$>$}
 
+
+
+Inheritance diagram for mknix\+:\+:System\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=284pt]{d3/dcf/classmknix_1_1_system__inherit__graph}
+\end{center}
+\end{figure}
 \subsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classmknix_1_1_system_ac1dd2687f5f064df189533aded56583c}{System} ()
 \item 
-\hyperlink{classmknix_1_1_system_a130c8a7c07bd06eaab9cad02b2003c1a}{System} (const char $\ast$)
+\hyperlink{classmknix_1_1_system_acd21c81295d045c5a2da9116edcf3007}{System} (const std\+::string \&\hyperlink{classmknix_1_1_system_a2dcd01381b3eec7b2e8e2c1c3ab38972}{title})
 \item 
-\hyperlink{classmknix_1_1_system_a2edabe7efbc4e1c07efe75e635f3469d}{$\sim$\-System} ()
+virtual \hyperlink{classmknix_1_1_system_a2edabe7efbc4e1c07efe75e635f3469d}{$\sim$\+System} ()
 \item 
-std\-::string \hyperlink{classmknix_1_1_system_a5315a33bb61855c178110b2998783ee3}{get\-Title} ()
+std\+::string \hyperlink{classmknix_1_1_system_a5315a33bb61855c178110b2998783ee3}{get\+Title} ()
 \item 
-void \hyperlink{classmknix_1_1_system_a848d086b44d1a4d656cb6357a738188b}{write\-Rigid\-Bodies} (std\-::ofstream $\ast$)
+virtual \hyperlink{classmknix_1_1_node}{Node} $\ast$ \hyperlink{classmknix_1_1_system_a34b9f15c3ce73ae788cc00f427bee866}{get\+Node} (int index)
 \item 
-void \hyperlink{classmknix_1_1_system_aa68577edc1818bbe8d4bd9b6f716b5de}{write\-Flex\-Bodies} (std\-::ofstream $\ast$)
+void \hyperlink{classmknix_1_1_system_af703eb66f164684e551a510ba7caf17d}{get\+Thermal\+Nodes} (std\+::vector$<$ double $>$ \&)
 \item 
-void \hyperlink{classmknix_1_1_system_a062011eba2b5bd9399705f9e725af4e8}{calc\-Capacity\-Matrix} ()
+void \hyperlink{classmknix_1_1_system_a306f75a65b0c8dfb70f75dddfd31982b}{get\+Output\+Signal\+Thermal} (double $\ast$)
 \item 
-void \hyperlink{classmknix_1_1_system_a0336b3ae44843b0f48d1490072a6fb5f}{calc\-Conductivity\-Matrix} ()
+void \hyperlink{classmknix_1_1_system_afc0008395a87621eaf136c59798d4b01}{update\+Thermal\+Loads} (double $\ast$)
 \item 
-void \hyperlink{classmknix_1_1_system_a8c01b52d2f2fb7de0ac6e1c64bda81a3}{calc\-External\-Heat} ()
+virtual void \hyperlink{classmknix_1_1_system_a78adb69ca95553f0a91d9559020ad7ae}{update} (double)
 \item 
-void \hyperlink{classmknix_1_1_system_a354c0df800fe9729c73f7260d76273df}{assemble\-Capacity\-Matrix} (lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+void \hyperlink{classmknix_1_1_system_a13e973528d37b0b61a598e4abcf78a74}{init\+Flex\+Bodies} ()
 \item 
-void \hyperlink{classmknix_1_1_system_a6345dce07d1da92c969608340be7a604}{assemble\-Conductivity\-Matrix} (lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+void \hyperlink{classmknix_1_1_system_a848d086b44d1a4d656cb6357a738188b}{write\+Rigid\+Bodies} (std\+::ofstream $\ast$)
 \item 
-void \hyperlink{classmknix_1_1_system_aa32a7ce62666f3a93c4448d2f70ccac8}{assemble\-External\-Heat} (lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+void \hyperlink{classmknix_1_1_system_aa68577edc1818bbe8d4bd9b6f716b5de}{write\+Flex\+Bodies} (std\+::ofstream $\ast$)
 \item 
-void \hyperlink{classmknix_1_1_system_a3da01e379f5c907be67439ae2b0770c8}{calc\-Mass\-Matrix} ()
+void \hyperlink{classmknix_1_1_system_a87f850673f20e791e815f182190806c1}{write\+Joints} (std\+::ofstream $\ast$)
 \item 
-void \hyperlink{classmknix_1_1_system_acbc22a9f660d0f818d461934eb0f1193}{calc\-Internal\-Forces} ()
+void \hyperlink{classmknix_1_1_system_a062011eba2b5bd9399705f9e725af4e8}{calc\+Capacity\+Matrix} ()
 \item 
-void \hyperlink{classmknix_1_1_system_a1f8741218772bc4d2b5a61b1ded98bc4}{calc\-External\-Forces} ()
+void \hyperlink{classmknix_1_1_system_a0336b3ae44843b0f48d1490072a6fb5f}{calc\+Conductivity\+Matrix} ()
 \item 
-void \hyperlink{classmknix_1_1_system_a2dcf37e480b19ef48aab29e484a68f7d}{calc\-Tangent\-Matrix} ()
+void \hyperlink{classmknix_1_1_system_aae558245091381f7d833292fbf64f6e0}{calc\+Internal\+Heat} ()
 \item 
-void \hyperlink{classmknix_1_1_system_ae7d34bdd8c9c12ba24663f3f2e3ef75c}{assemble\-Mass\-Matrix} (lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+void \hyperlink{classmknix_1_1_system_a8c01b52d2f2fb7de0ac6e1c64bda81a3}{calc\+External\+Heat} ()
 \item 
-void \hyperlink{classmknix_1_1_system_a045a56838910627b66dc981205358b78}{assemble\-Internal\-Forces} (lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+void \hyperlink{classmknix_1_1_system_acbdbe27b8bd40d8f04b7bea37ccbc501}{calc\+Thermal\+Tangent\+Matrix} ()
 \item 
-void \hyperlink{classmknix_1_1_system_a3f8ef449040805bcc58e3a36a6276888}{assemble\-External\-Forces} (lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+void \hyperlink{classmknix_1_1_system_a354c0df800fe9729c73f7260d76273df}{assemble\+Capacity\+Matrix} (\hyperlink{classlmx_1_1_matrix}{lmx\+::\+Matrix}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
 \item 
-void \hyperlink{classmknix_1_1_system_a4311a423d3a9d7072c0d49031e3bba32}{assemble\-Tangent\-Matrix} (lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+void \hyperlink{classmknix_1_1_system_a6345dce07d1da92c969608340be7a604}{assemble\+Conductivity\+Matrix} (\hyperlink{classlmx_1_1_matrix}{lmx\+::\+Matrix}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
 \item 
-void \hyperlink{classmknix_1_1_system_a24b1a9bcb9279bbb2384d2bbf94b157c}{assemble\-Constraint\-Forces} (lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+void \hyperlink{classmknix_1_1_system_aa32a7ce62666f3a93c4448d2f70ccac8}{assemble\+External\+Heat} (\hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
 \item 
-void \hyperlink{classmknix_1_1_system_a22677dbc55080b00290652416ee8bb90}{output\-Step} (const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&, const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+void \hyperlink{classmknix_1_1_system_a8c30a5ba93065ccdc3759eb2a3df4a22}{assemble\+Internal\+Heat} (\hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
 \item 
-void \hyperlink{classmknix_1_1_system_ac161fd48c06a65cfa7b9e27dfbad3f47}{output\-Step} (const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
+void \hyperlink{classmknix_1_1_system_aca820f8a0e3ec73e4bea94551fe31875}{assemble\+Thermal\+Tangent\+Matrix} (\hyperlink{classlmx_1_1_matrix}{lmx\+::\+Matrix}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
 \item 
-void \hyperlink{classmknix_1_1_system_af08300f28c64abfc4065888a643b4bbf}{output\-To\-File} (std\-::ofstream $\ast$)
+void \hyperlink{classmknix_1_1_system_a3da01e379f5c907be67439ae2b0770c8}{calc\+Mass\+Matrix} ()
 \item 
-bool \hyperlink{classmknix_1_1_system_a477db1887fa5858d2708f50397aa6ebf}{check\-Augmented} ()
+void \hyperlink{classmknix_1_1_system_acbc22a9f660d0f818d461934eb0f1193}{calc\+Internal\+Forces} ()
 \item 
-void \hyperlink{classmknix_1_1_system_afbf67e600535664daa11f57170ce28b1}{clear\-Augmented} ()
+void \hyperlink{classmknix_1_1_system_a1f8741218772bc4d2b5a61b1ded98bc4}{calc\+External\+Forces} ()
 \item 
-void \hyperlink{classmknix_1_1_system_a7569699ef2cda26032879de3ea96b2e6}{write\-Boundary\-Nodes} (std\-::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \&)
+void \hyperlink{classmknix_1_1_system_a2dcf37e480b19ef48aab29e484a68f7d}{calc\+Tangent\+Matrix} ()
 \item 
-void \hyperlink{classmknix_1_1_system_a8636993e61acc2af30b0cab7e79d8c01}{write\-Boundary\-Connectivity} (std\-::vector$<$ std\-::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ $>$ \&)
+void \hyperlink{classmknix_1_1_system_ae7d34bdd8c9c12ba24663f3f2e3ef75c}{assemble\+Mass\+Matrix} (\hyperlink{classlmx_1_1_matrix}{lmx\+::\+Matrix}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
+\item 
+void \hyperlink{classmknix_1_1_system_a045a56838910627b66dc981205358b78}{assemble\+Internal\+Forces} (\hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
+\item 
+void \hyperlink{classmknix_1_1_system_a3f8ef449040805bcc58e3a36a6276888}{assemble\+External\+Forces} (\hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
+\item 
+void \hyperlink{classmknix_1_1_system_a4311a423d3a9d7072c0d49031e3bba32}{assemble\+Tangent\+Matrix} (\hyperlink{classlmx_1_1_matrix}{lmx\+::\+Matrix}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
+\item 
+void \hyperlink{classmknix_1_1_system_a24b1a9bcb9279bbb2384d2bbf94b157c}{assemble\+Constraint\+Forces} (\hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
+\item 
+void \hyperlink{classmknix_1_1_system_ad884fcd0fba58c799a88de4ee1f59108}{set\+Mechanical} ()
+\item 
+void \hyperlink{classmknix_1_1_system_a22677dbc55080b00290652416ee8bb90}{output\+Step} (const \hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&, const \hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
+\item 
+void \hyperlink{classmknix_1_1_system_ac161fd48c06a65cfa7b9e27dfbad3f47}{output\+Step} (const \hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
+\item 
+void \hyperlink{classmknix_1_1_system_af08300f28c64abfc4065888a643b4bbf}{output\+To\+File} (std\+::ofstream $\ast$)
+\item 
+bool \hyperlink{classmknix_1_1_system_a477db1887fa5858d2708f50397aa6ebf}{check\+Augmented} ()
+\item 
+void \hyperlink{classmknix_1_1_system_afbf67e600535664daa11f57170ce28b1}{clear\+Augmented} ()
+\item 
+void \hyperlink{classmknix_1_1_system_afeb45ebb36f1912aaaaa323b50bac80d}{write\+Boundary\+Nodes} (std\+::vector$<$ \hyperlink{classmknix_1_1_point}{Point} $\ast$ $>$ \&)
+\item 
+void \hyperlink{classmknix_1_1_system_a9175f3a34d6a43a79b7fe00cde18f128}{write\+Boundary\+Connectivity} (std\+::vector$<$ std\+::vector$<$ \hyperlink{classmknix_1_1_point}{Point} $\ast$ $>$ $>$ \&)
+\end{DoxyCompactItemize}
+\subsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classmknix_1_1_system_ab55e1b00bf920164cfe14d0ea9ab08c6}{output\+Max\+Interface\+Temp}
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{classmknix_1_1_system_a2dcd01381b3eec7b2e8e2c1c3ab38972}{title}
+\item 
+std\+::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \hyperlink{classmknix_1_1_system_a510d1808d1c0bce06b2d46707d8dddb5}{ground\+Nodes}
+\item 
+std\+::map$<$ std\+::string, \hyperlink{classmknix_1_1_system}{System} $\ast$ $>$ \hyperlink{classmknix_1_1_system_a90dd5d1e76958c720a2bad6e9bd4ceb2}{sub\+Systems}
+\item 
+std\+::map$<$ std\+::string, \hyperlink{classmknix_1_1_rigid_body}{Rigid\+Body} $\ast$ $>$ \hyperlink{classmknix_1_1_system_ac39f69fd16a8c74a79dc3258e4f9c505}{rigid\+Bodies}
+\item 
+std\+::map$<$ std\+::string, \hyperlink{classmknix_1_1_flex_body}{Flex\+Body} $\ast$ $>$ \hyperlink{classmknix_1_1_system_a20ca9590b01b280feb622ac158fcf4ba}{flex\+Bodies}
+\item 
+std\+::map$<$ std\+::string, \hyperlink{classmknix_1_1_body}{Body} $\ast$ $>$ \hyperlink{classmknix_1_1_system_a5f3e180ba138e01570ffe8aba62a1df7}{thermal\+Bodies}
+\item 
+std\+::map$<$ std\+::string, \hyperlink{classmknix_1_1_constraint}{Constraint} $\ast$ $>$ \hyperlink{classmknix_1_1_system_a6777972d1e5914dbe488e704ca8a0b8d}{constraints}
+\item 
+std\+::map$<$ std\+::string, \hyperlink{classmknix_1_1_constraint_thermal}{Constraint\+Thermal} $\ast$ $>$ \hyperlink{classmknix_1_1_system_abec0485325cb37e460f9f8eab40374ea}{constraints\+Thermal}
+\item 
+std\+::vector$<$ \hyperlink{classmknix_1_1_load}{Load} $\ast$ $>$ \hyperlink{classmknix_1_1_system_a16ca73ebcb7b8608052e1a39766c034d}{loads}
+\item 
+std\+::vector$<$ \hyperlink{classmknix_1_1_load_thermal}{Load\+Thermal} $\ast$ $>$ \hyperlink{classmknix_1_1_system_a4895395f658cd48585a7336acd9d6625}{loads\+Thermal}
+\item 
+std\+::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \hyperlink{classmknix_1_1_system_a7e1b0adf59579754f0863b3fd9864b21}{output\+Signal\+Thermal}
+\item 
+std\+::vector$<$ \hyperlink{classmknix_1_1_motion}{Motion} $\ast$ $>$ \hyperlink{classmknix_1_1_system_a5555b9556c466244816bc6654e73d8f6}{motions}
 \end{DoxyCompactItemize}
 \subsubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{classmknix_1_1_system_a35cb182752752c74a30050705acc3c06}{Reader}
 \item 
-class \hyperlink{classmknix_1_1_system_a1150cceac3e81192653459c61f428621}{Reader\-Flex}
+class \hyperlink{classmknix_1_1_system_a1150cceac3e81192653459c61f428621}{Reader\+Flex}
 \item 
-class \hyperlink{classmknix_1_1_system_a6a45b3f2d8b6c9e516334b46caf0cbb7}{Reader\-Rigid}
+class \hyperlink{classmknix_1_1_system_a6a45b3f2d8b6c9e516334b46caf0cbb7}{Reader\+Rigid}
 \item 
-class \hyperlink{classmknix_1_1_system_ae164a82e4890f6fbab13f95a18656edf}{Reader\-Constraints}
+class \hyperlink{classmknix_1_1_system_ae164a82e4890f6fbab13f95a18656edf}{Reader\+Constraints}
 \item 
 class \hyperlink{classmknix_1_1_system_a76d4b1c8c6040df20040808941b7e764}{Contact}
 \end{DoxyCompactItemize}
@@ -81,351 +145,333 @@ class \hyperlink{classmknix_1_1_system_a76d4b1c8c6040df20040808941b7e764}{Contac
 
 \subsubsection{Detailed Description}
 \begin{DoxyAuthor}{Author}
-A\-U\-T\-H\-O\-R\-S $<$\-M\-A\-I\-L\-S$>$ 
+A\+U\+T\+H\+O\+R\+S $<$\+M\+A\+I\+L\+S$>$ 
 \end{DoxyAuthor}
 
 
+Definition at line 44 of file system.\+h.
+
+
+
 \subsubsection{Constructor \& Destructor Documentation}
-\hypertarget{classmknix_1_1_system_ac1dd2687f5f064df189533aded56583c}{\index{mknix\-::\-System@{mknix\-::\-System}!System@{System}}
-\index{System@{System}!mknix::System@{mknix\-::\-System}}
-\paragraph[{System}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-System\-::\-System (
+\hypertarget{classmknix_1_1_system_ac1dd2687f5f064df189533aded56583c}{}\index{mknix\+::\+System@{mknix\+::\+System}!System@{System}}
+\index{System@{System}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{System}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+System\+::\+System (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_ac1dd2687f5f064df189533aded56583c}
-\hypertarget{classmknix_1_1_system_a130c8a7c07bd06eaab9cad02b2003c1a}{\index{mknix\-::\-System@{mknix\-::\-System}!System@{System}}
-\index{System@{System}!mknix::System@{mknix\-::\-System}}
-\paragraph[{System}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-System\-::\-System (
+)}\label{classmknix_1_1_system_ac1dd2687f5f064df189533aded56583c}
+
+
+Definition at line 33 of file system.\+cpp.
+
+\hypertarget{classmknix_1_1_system_acd21c81295d045c5a2da9116edcf3007}{}\index{mknix\+::\+System@{mknix\+::\+System}!System@{System}}
+\index{System@{System}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{System}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+System\+::\+System (
 \begin{DoxyParamCaption}
-\item[{const char $\ast$}]{title\-\_\-in}
+\item[{const std\+::string \&}]{title}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a130c8a7c07bd06eaab9cad02b2003c1a}
-\hypertarget{classmknix_1_1_system_a2edabe7efbc4e1c07efe75e635f3469d}{\index{mknix\-::\-System@{mknix\-::\-System}!$\sim$\-System@{$\sim$\-System}}
-\index{$\sim$\-System@{$\sim$\-System}!mknix::System@{mknix\-::\-System}}
-\paragraph[{$\sim$\-System}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-System\-::$\sim$\-System (
+)}\label{classmknix_1_1_system_acd21c81295d045c5a2da9116edcf3007}
+
+
+Definition at line 39 of file system.\+cpp.
+
+\hypertarget{classmknix_1_1_system_a2edabe7efbc4e1c07efe75e635f3469d}{}\index{mknix\+::\+System@{mknix\+::\+System}!````~System@{$\sim$\+System}}
+\index{````~System@{$\sim$\+System}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{$\sim$\+System}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+System\+::$\sim$\+System (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a2edabe7efbc4e1c07efe75e635f3469d}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_system_a2edabe7efbc4e1c07efe75e635f3469d}
+
+
+Definition at line 46 of file system.\+cpp.
+
 
 
 \subsubsection{Member Function Documentation}
-\hypertarget{classmknix_1_1_system_a354c0df800fe9729c73f7260d76273df}{\index{mknix\-::\-System@{mknix\-::\-System}!assemble\-Capacity\-Matrix@{assemble\-Capacity\-Matrix}}
-\index{assemble\-Capacity\-Matrix@{assemble\-Capacity\-Matrix}!mknix::System@{mknix\-::\-System}}
-\paragraph[{assemble\-Capacity\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::assemble\-Capacity\-Matrix (
+\hypertarget{classmknix_1_1_system_a354c0df800fe9729c73f7260d76273df}{}\index{mknix\+::\+System@{mknix\+::\+System}!assemble\+Capacity\+Matrix@{assemble\+Capacity\+Matrix}}
+\index{assemble\+Capacity\+Matrix@{assemble\+Capacity\+Matrix}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{assemble\+Capacity\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::assemble\+Capacity\+Matrix (
 \begin{DoxyParamCaption}
-\item[{lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ \&}]{global\-Capacity\-\_\-in}
+\item[{{\bf lmx\+::\+Matrix}$<$ {\bf data\+\_\+type} $>$ \&}]{global\+Capacity\+\_\+in}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a354c0df800fe9729c73f7260d76273df}
+)}\label{classmknix_1_1_system_a354c0df800fe9729c73f7260d76273df}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_a354c0df800fe9729c73f7260d76273df_icgraph}
-\end{center}
-\end{figure}
+Definition at line 232 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_a6345dce07d1da92c969608340be7a604}{\index{mknix\-::\-System@{mknix\-::\-System}!assemble\-Conductivity\-Matrix@{assemble\-Conductivity\-Matrix}}
-\index{assemble\-Conductivity\-Matrix@{assemble\-Conductivity\-Matrix}!mknix::System@{mknix\-::\-System}}
-\paragraph[{assemble\-Conductivity\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::assemble\-Conductivity\-Matrix (
+\hypertarget{classmknix_1_1_system_a6345dce07d1da92c969608340be7a604}{}\index{mknix\+::\+System@{mknix\+::\+System}!assemble\+Conductivity\+Matrix@{assemble\+Conductivity\+Matrix}}
+\index{assemble\+Conductivity\+Matrix@{assemble\+Conductivity\+Matrix}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{assemble\+Conductivity\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::assemble\+Conductivity\+Matrix (
 \begin{DoxyParamCaption}
-\item[{lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ \&}]{global\-Conductivity\-\_\-in}
+\item[{{\bf lmx\+::\+Matrix}$<$ {\bf data\+\_\+type} $>$ \&}]{global\+Conductivity\+\_\+in}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a6345dce07d1da92c969608340be7a604}
+)}\label{classmknix_1_1_system_a6345dce07d1da92c969608340be7a604}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_a6345dce07d1da92c969608340be7a604_icgraph}
-\end{center}
-\end{figure}
+Definition at line 244 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_a24b1a9bcb9279bbb2384d2bbf94b157c}{\index{mknix\-::\-System@{mknix\-::\-System}!assemble\-Constraint\-Forces@{assemble\-Constraint\-Forces}}
-\index{assemble\-Constraint\-Forces@{assemble\-Constraint\-Forces}!mknix::System@{mknix\-::\-System}}
-\paragraph[{assemble\-Constraint\-Forces}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::assemble\-Constraint\-Forces (
+\hypertarget{classmknix_1_1_system_a24b1a9bcb9279bbb2384d2bbf94b157c}{}\index{mknix\+::\+System@{mknix\+::\+System}!assemble\+Constraint\+Forces@{assemble\+Constraint\+Forces}}
+\index{assemble\+Constraint\+Forces@{assemble\+Constraint\+Forces}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{assemble\+Constraint\+Forces}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::assemble\+Constraint\+Forces (
 \begin{DoxyParamCaption}
-\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{internal\-Forces\-\_\-in}
+\item[{{\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{internal\+Forces\+\_\+in}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a24b1a9bcb9279bbb2384d2bbf94b157c}
+)}\label{classmknix_1_1_system_a24b1a9bcb9279bbb2384d2bbf94b157c}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_a24b1a9bcb9279bbb2384d2bbf94b157c_icgraph}
-\end{center}
-\end{figure}
+Definition at line 440 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_a3f8ef449040805bcc58e3a36a6276888}{\index{mknix\-::\-System@{mknix\-::\-System}!assemble\-External\-Forces@{assemble\-External\-Forces}}
-\index{assemble\-External\-Forces@{assemble\-External\-Forces}!mknix::System@{mknix\-::\-System}}
-\paragraph[{assemble\-External\-Forces}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::assemble\-External\-Forces (
+\hypertarget{classmknix_1_1_system_a3f8ef449040805bcc58e3a36a6276888}{}\index{mknix\+::\+System@{mknix\+::\+System}!assemble\+External\+Forces@{assemble\+External\+Forces}}
+\index{assemble\+External\+Forces@{assemble\+External\+Forces}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{assemble\+External\+Forces}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::assemble\+External\+Forces (
 \begin{DoxyParamCaption}
-\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{external\-Forces\-\_\-in}
+\item[{{\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{external\+Forces\+\_\+in}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a3f8ef449040805bcc58e3a36a6276888}
+)}\label{classmknix_1_1_system_a3f8ef449040805bcc58e3a36a6276888}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_a3f8ef449040805bcc58e3a36a6276888_icgraph}
-\end{center}
-\end{figure}
+Definition at line 401 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_aa32a7ce62666f3a93c4448d2f70ccac8}{\index{mknix\-::\-System@{mknix\-::\-System}!assemble\-External\-Heat@{assemble\-External\-Heat}}
-\index{assemble\-External\-Heat@{assemble\-External\-Heat}!mknix::System@{mknix\-::\-System}}
-\paragraph[{assemble\-External\-Heat}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::assemble\-External\-Heat (
+\hypertarget{classmknix_1_1_system_aa32a7ce62666f3a93c4448d2f70ccac8}{}\index{mknix\+::\+System@{mknix\+::\+System}!assemble\+External\+Heat@{assemble\+External\+Heat}}
+\index{assemble\+External\+Heat@{assemble\+External\+Heat}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{assemble\+External\+Heat}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::assemble\+External\+Heat (
 \begin{DoxyParamCaption}
-\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{external\-Heat\-\_\-in}
+\item[{{\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{external\+Heat\+\_\+in}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_aa32a7ce62666f3a93c4448d2f70ccac8}
+)}\label{classmknix_1_1_system_aa32a7ce62666f3a93c4448d2f70ccac8}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_aa32a7ce62666f3a93c4448d2f70ccac8_icgraph}
-\end{center}
-\end{figure}
+Definition at line 264 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_a045a56838910627b66dc981205358b78}{\index{mknix\-::\-System@{mknix\-::\-System}!assemble\-Internal\-Forces@{assemble\-Internal\-Forces}}
-\index{assemble\-Internal\-Forces@{assemble\-Internal\-Forces}!mknix::System@{mknix\-::\-System}}
-\paragraph[{assemble\-Internal\-Forces}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::assemble\-Internal\-Forces (
+\hypertarget{classmknix_1_1_system_a045a56838910627b66dc981205358b78}{}\index{mknix\+::\+System@{mknix\+::\+System}!assemble\+Internal\+Forces@{assemble\+Internal\+Forces}}
+\index{assemble\+Internal\+Forces@{assemble\+Internal\+Forces}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{assemble\+Internal\+Forces}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::assemble\+Internal\+Forces (
 \begin{DoxyParamCaption}
-\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{internal\-Forces\-\_\-in}
+\item[{{\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{internal\+Forces\+\_\+in}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a045a56838910627b66dc981205358b78}
+)}\label{classmknix_1_1_system_a045a56838910627b66dc981205358b78}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_a045a56838910627b66dc981205358b78_icgraph}
-\end{center}
-\end{figure}
+Definition at line 385 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_ae7d34bdd8c9c12ba24663f3f2e3ef75c}{\index{mknix\-::\-System@{mknix\-::\-System}!assemble\-Mass\-Matrix@{assemble\-Mass\-Matrix}}
-\index{assemble\-Mass\-Matrix@{assemble\-Mass\-Matrix}!mknix::System@{mknix\-::\-System}}
-\paragraph[{assemble\-Mass\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::assemble\-Mass\-Matrix (
+\hypertarget{classmknix_1_1_system_a8c30a5ba93065ccdc3759eb2a3df4a22}{}\index{mknix\+::\+System@{mknix\+::\+System}!assemble\+Internal\+Heat@{assemble\+Internal\+Heat}}
+\index{assemble\+Internal\+Heat@{assemble\+Internal\+Heat}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{assemble\+Internal\+Heat}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::assemble\+Internal\+Heat (
 \begin{DoxyParamCaption}
-\item[{lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ \&}]{global\-Mass\-\_\-in}
+\item[{{\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{internal\+Heat\+\_\+in}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_ae7d34bdd8c9c12ba24663f3f2e3ef75c}
+)}\label{classmknix_1_1_system_a8c30a5ba93065ccdc3759eb2a3df4a22}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_ae7d34bdd8c9c12ba24663f3f2e3ef75c_icgraph}
-\end{center}
-\end{figure}
+Definition at line 281 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_a4311a423d3a9d7072c0d49031e3bba32}{\index{mknix\-::\-System@{mknix\-::\-System}!assemble\-Tangent\-Matrix@{assemble\-Tangent\-Matrix}}
-\index{assemble\-Tangent\-Matrix@{assemble\-Tangent\-Matrix}!mknix::System@{mknix\-::\-System}}
-\paragraph[{assemble\-Tangent\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::assemble\-Tangent\-Matrix (
+\hypertarget{classmknix_1_1_system_ae7d34bdd8c9c12ba24663f3f2e3ef75c}{}\index{mknix\+::\+System@{mknix\+::\+System}!assemble\+Mass\+Matrix@{assemble\+Mass\+Matrix}}
+\index{assemble\+Mass\+Matrix@{assemble\+Mass\+Matrix}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{assemble\+Mass\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::assemble\+Mass\+Matrix (
 \begin{DoxyParamCaption}
-\item[{lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ \&}]{global\-Tangent\-\_\-in}
+\item[{{\bf lmx\+::\+Matrix}$<$ {\bf data\+\_\+type} $>$ \&}]{global\+Mass\+\_\+in}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a4311a423d3a9d7072c0d49031e3bba32}
+)}\label{classmknix_1_1_system_ae7d34bdd8c9c12ba24663f3f2e3ef75c}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_a4311a423d3a9d7072c0d49031e3bba32_icgraph}
-\end{center}
-\end{figure}
+Definition at line 369 of file system.\+cpp.
+
+\hypertarget{classmknix_1_1_system_a4311a423d3a9d7072c0d49031e3bba32}{}\index{mknix\+::\+System@{mknix\+::\+System}!assemble\+Tangent\+Matrix@{assemble\+Tangent\+Matrix}}
+\index{assemble\+Tangent\+Matrix@{assemble\+Tangent\+Matrix}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{assemble\+Tangent\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::assemble\+Tangent\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf lmx\+::\+Matrix}$<$ {\bf data\+\_\+type} $>$ \&}]{global\+Tangent\+\_\+in}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_system_a4311a423d3a9d7072c0d49031e3bba32}
 
 
-\hypertarget{classmknix_1_1_system_a062011eba2b5bd9399705f9e725af4e8}{\index{mknix\-::\-System@{mknix\-::\-System}!calc\-Capacity\-Matrix@{calc\-Capacity\-Matrix}}
-\index{calc\-Capacity\-Matrix@{calc\-Capacity\-Matrix}!mknix::System@{mknix\-::\-System}}
-\paragraph[{calc\-Capacity\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::calc\-Capacity\-Matrix (
+Definition at line 424 of file system.\+cpp.
+
+\hypertarget{classmknix_1_1_system_aca820f8a0e3ec73e4bea94551fe31875}{}\index{mknix\+::\+System@{mknix\+::\+System}!assemble\+Thermal\+Tangent\+Matrix@{assemble\+Thermal\+Tangent\+Matrix}}
+\index{assemble\+Thermal\+Tangent\+Matrix@{assemble\+Thermal\+Tangent\+Matrix}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{assemble\+Thermal\+Tangent\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::assemble\+Thermal\+Tangent\+Matrix (
+\begin{DoxyParamCaption}
+\item[{{\bf lmx\+::\+Matrix}$<$ {\bf data\+\_\+type} $>$ \&}]{global\+Tangent\+\_\+in}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_system_aca820f8a0e3ec73e4bea94551fe31875}
+
+
+Definition at line 293 of file system.\+cpp.
+
+\hypertarget{classmknix_1_1_system_a062011eba2b5bd9399705f9e725af4e8}{}\index{mknix\+::\+System@{mknix\+::\+System}!calc\+Capacity\+Matrix@{calc\+Capacity\+Matrix}}
+\index{calc\+Capacity\+Matrix@{calc\+Capacity\+Matrix}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{calc\+Capacity\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::calc\+Capacity\+Matrix (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a062011eba2b5bd9399705f9e725af4e8}
+)}\label{classmknix_1_1_system_a062011eba2b5bd9399705f9e725af4e8}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_a062011eba2b5bd9399705f9e725af4e8_icgraph}
-\end{center}
-\end{figure}
+Definition at line 167 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_a0336b3ae44843b0f48d1490072a6fb5f}{\index{mknix\-::\-System@{mknix\-::\-System}!calc\-Conductivity\-Matrix@{calc\-Conductivity\-Matrix}}
-\index{calc\-Conductivity\-Matrix@{calc\-Conductivity\-Matrix}!mknix::System@{mknix\-::\-System}}
-\paragraph[{calc\-Conductivity\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::calc\-Conductivity\-Matrix (
+\hypertarget{classmknix_1_1_system_a0336b3ae44843b0f48d1490072a6fb5f}{}\index{mknix\+::\+System@{mknix\+::\+System}!calc\+Conductivity\+Matrix@{calc\+Conductivity\+Matrix}}
+\index{calc\+Conductivity\+Matrix@{calc\+Conductivity\+Matrix}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{calc\+Conductivity\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::calc\+Conductivity\+Matrix (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a0336b3ae44843b0f48d1490072a6fb5f}
+)}\label{classmknix_1_1_system_a0336b3ae44843b0f48d1490072a6fb5f}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_a0336b3ae44843b0f48d1490072a6fb5f_icgraph}
-\end{center}
-\end{figure}
+Definition at line 178 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_a1f8741218772bc4d2b5a61b1ded98bc4}{\index{mknix\-::\-System@{mknix\-::\-System}!calc\-External\-Forces@{calc\-External\-Forces}}
-\index{calc\-External\-Forces@{calc\-External\-Forces}!mknix::System@{mknix\-::\-System}}
-\paragraph[{calc\-External\-Forces}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::calc\-External\-Forces (
+\hypertarget{classmknix_1_1_system_a1f8741218772bc4d2b5a61b1ded98bc4}{}\index{mknix\+::\+System@{mknix\+::\+System}!calc\+External\+Forces@{calc\+External\+Forces}}
+\index{calc\+External\+Forces@{calc\+External\+Forces}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{calc\+External\+Forces}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::calc\+External\+Forces (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a1f8741218772bc4d2b5a61b1ded98bc4}
+)}\label{classmknix_1_1_system_a1f8741218772bc4d2b5a61b1ded98bc4}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_a1f8741218772bc4d2b5a61b1ded98bc4_icgraph}
-\end{center}
-\end{figure}
+Definition at line 336 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_a8c01b52d2f2fb7de0ac6e1c64bda81a3}{\index{mknix\-::\-System@{mknix\-::\-System}!calc\-External\-Heat@{calc\-External\-Heat}}
-\index{calc\-External\-Heat@{calc\-External\-Heat}!mknix::System@{mknix\-::\-System}}
-\paragraph[{calc\-External\-Heat}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::calc\-External\-Heat (
+\hypertarget{classmknix_1_1_system_a8c01b52d2f2fb7de0ac6e1c64bda81a3}{}\index{mknix\+::\+System@{mknix\+::\+System}!calc\+External\+Heat@{calc\+External\+Heat}}
+\index{calc\+External\+Heat@{calc\+External\+Heat}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{calc\+External\+Heat}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::calc\+External\+Heat (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a8c01b52d2f2fb7de0ac6e1c64bda81a3}
+)}\label{classmknix_1_1_system_a8c01b52d2f2fb7de0ac6e1c64bda81a3}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_a8c01b52d2f2fb7de0ac6e1c64bda81a3_icgraph}
-\end{center}
-\end{figure}
+Definition at line 197 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_acbc22a9f660d0f818d461934eb0f1193}{\index{mknix\-::\-System@{mknix\-::\-System}!calc\-Internal\-Forces@{calc\-Internal\-Forces}}
-\index{calc\-Internal\-Forces@{calc\-Internal\-Forces}!mknix::System@{mknix\-::\-System}}
-\paragraph[{calc\-Internal\-Forces}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::calc\-Internal\-Forces (
+\hypertarget{classmknix_1_1_system_acbc22a9f660d0f818d461934eb0f1193}{}\index{mknix\+::\+System@{mknix\+::\+System}!calc\+Internal\+Forces@{calc\+Internal\+Forces}}
+\index{calc\+Internal\+Forces@{calc\+Internal\+Forces}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{calc\+Internal\+Forces}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::calc\+Internal\+Forces (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_acbc22a9f660d0f818d461934eb0f1193}
+)}\label{classmknix_1_1_system_acbc22a9f660d0f818d461934eb0f1193}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_acbc22a9f660d0f818d461934eb0f1193_icgraph}
-\end{center}
-\end{figure}
+Definition at line 320 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_a3da01e379f5c907be67439ae2b0770c8}{\index{mknix\-::\-System@{mknix\-::\-System}!calc\-Mass\-Matrix@{calc\-Mass\-Matrix}}
-\index{calc\-Mass\-Matrix@{calc\-Mass\-Matrix}!mknix::System@{mknix\-::\-System}}
-\paragraph[{calc\-Mass\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::calc\-Mass\-Matrix (
+\hypertarget{classmknix_1_1_system_aae558245091381f7d833292fbf64f6e0}{}\index{mknix\+::\+System@{mknix\+::\+System}!calc\+Internal\+Heat@{calc\+Internal\+Heat}}
+\index{calc\+Internal\+Heat@{calc\+Internal\+Heat}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{calc\+Internal\+Heat}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::calc\+Internal\+Heat (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a3da01e379f5c907be67439ae2b0770c8}
+)}\label{classmknix_1_1_system_aae558245091381f7d833292fbf64f6e0}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_a3da01e379f5c907be67439ae2b0770c8_icgraph}
-\end{center}
-\end{figure}
+Definition at line 208 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_a2dcf37e480b19ef48aab29e484a68f7d}{\index{mknix\-::\-System@{mknix\-::\-System}!calc\-Tangent\-Matrix@{calc\-Tangent\-Matrix}}
-\index{calc\-Tangent\-Matrix@{calc\-Tangent\-Matrix}!mknix::System@{mknix\-::\-System}}
-\paragraph[{calc\-Tangent\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::calc\-Tangent\-Matrix (
+\hypertarget{classmknix_1_1_system_a3da01e379f5c907be67439ae2b0770c8}{}\index{mknix\+::\+System@{mknix\+::\+System}!calc\+Mass\+Matrix@{calc\+Mass\+Matrix}}
+\index{calc\+Mass\+Matrix@{calc\+Mass\+Matrix}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{calc\+Mass\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::calc\+Mass\+Matrix (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a2dcf37e480b19ef48aab29e484a68f7d}
+)}\label{classmknix_1_1_system_a3da01e379f5c907be67439ae2b0770c8}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_a2dcf37e480b19ef48aab29e484a68f7d_icgraph}
-\end{center}
-\end{figure}
+Definition at line 305 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_a477db1887fa5858d2708f50397aa6ebf}{\index{mknix\-::\-System@{mknix\-::\-System}!check\-Augmented@{check\-Augmented}}
-\index{check\-Augmented@{check\-Augmented}!mknix::System@{mknix\-::\-System}}
-\paragraph[{check\-Augmented}]{\setlength{\rightskip}{0pt plus 5cm}bool mknix\-::\-System\-::check\-Augmented (
+\hypertarget{classmknix_1_1_system_a2dcf37e480b19ef48aab29e484a68f7d}{}\index{mknix\+::\+System@{mknix\+::\+System}!calc\+Tangent\+Matrix@{calc\+Tangent\+Matrix}}
+\index{calc\+Tangent\+Matrix@{calc\+Tangent\+Matrix}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{calc\+Tangent\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::calc\+Tangent\+Matrix (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a477db1887fa5858d2708f50397aa6ebf}
+)}\label{classmknix_1_1_system_a2dcf37e480b19ef48aab29e484a68f7d}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_a477db1887fa5858d2708f50397aa6ebf_icgraph}
-\end{center}
-\end{figure}
+Definition at line 352 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_afbf67e600535664daa11f57170ce28b1}{\index{mknix\-::\-System@{mknix\-::\-System}!clear\-Augmented@{clear\-Augmented}}
-\index{clear\-Augmented@{clear\-Augmented}!mknix::System@{mknix\-::\-System}}
-\paragraph[{clear\-Augmented}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::clear\-Augmented (
+\hypertarget{classmknix_1_1_system_acbdbe27b8bd40d8f04b7bea37ccbc501}{}\index{mknix\+::\+System@{mknix\+::\+System}!calc\+Thermal\+Tangent\+Matrix@{calc\+Thermal\+Tangent\+Matrix}}
+\index{calc\+Thermal\+Tangent\+Matrix@{calc\+Thermal\+Tangent\+Matrix}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{calc\+Thermal\+Tangent\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::calc\+Thermal\+Tangent\+Matrix (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_afbf67e600535664daa11f57170ce28b1}
+)}\label{classmknix_1_1_system_acbdbe27b8bd40d8f04b7bea37ccbc501}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_afbf67e600535664daa11f57170ce28b1_icgraph}
-\end{center}
-\end{figure}
+Definition at line 220 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_a5315a33bb61855c178110b2998783ee3}{\index{mknix\-::\-System@{mknix\-::\-System}!get\-Title@{get\-Title}}
-\index{get\-Title@{get\-Title}!mknix::System@{mknix\-::\-System}}
-\paragraph[{get\-Title}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mknix\-::\-System\-::get\-Title (
+\hypertarget{classmknix_1_1_system_a477db1887fa5858d2708f50397aa6ebf}{}\index{mknix\+::\+System@{mknix\+::\+System}!check\+Augmented@{check\+Augmented}}
+\index{check\+Augmented@{check\+Augmented}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{check\+Augmented}]{\setlength{\rightskip}{0pt plus 5cm}bool mknix\+::\+System\+::check\+Augmented (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classmknix_1_1_system_a5315a33bb61855c178110b2998783ee3}
+)}\label{classmknix_1_1_system_a477db1887fa5858d2708f50397aa6ebf}
 
 
-Here is the caller graph for this function\-:\nopagebreak
+Definition at line 541 of file system.\+cpp.
+
+\hypertarget{classmknix_1_1_system_afbf67e600535664daa11f57170ce28b1}{}\index{mknix\+::\+System@{mknix\+::\+System}!clear\+Augmented@{clear\+Augmented}}
+\index{clear\+Augmented@{clear\+Augmented}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{clear\+Augmented}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::clear\+Augmented (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_system_afbf67e600535664daa11f57170ce28b1}
+
+
+Definition at line 560 of file system.\+cpp.
+
+\hypertarget{classmknix_1_1_system_a34b9f15c3ce73ae788cc00f427bee866}{}\index{mknix\+::\+System@{mknix\+::\+System}!get\+Node@{get\+Node}}
+\index{get\+Node@{get\+Node}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{get\+Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Node}$\ast$ mknix\+::\+System\+::get\+Node (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_system_a34b9f15c3ce73ae788cc00f427bee866}
+
+
+Reimplemented in \hyperlink{classmknix_1_1_system_chain_a549c63c17b03cca460ae87e3f63379c2}{mknix\+::\+System\+Chain}, and \hyperlink{classmknix_1_1_system_chain_aadbbf4c636dbb95a7e7be10d5904b51c}{mknix\+::\+System\+Chain}.
+
+
+
+Definition at line 66 of file system.\+h.
+
+\hypertarget{classmknix_1_1_system_a306f75a65b0c8dfb70f75dddfd31982b}{}\index{mknix\+::\+System@{mknix\+::\+System}!get\+Output\+Signal\+Thermal@{get\+Output\+Signal\+Thermal}}
+\index{get\+Output\+Signal\+Thermal@{get\+Output\+Signal\+Thermal}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{get\+Output\+Signal\+Thermal}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::get\+Output\+Signal\+Thermal (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{vector\+\_\+in}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_system_a306f75a65b0c8dfb70f75dddfd31982b}
+
+
+Definition at line 87 of file system.\+cpp.
+
+\hypertarget{classmknix_1_1_system_af703eb66f164684e551a510ba7caf17d}{}\index{mknix\+::\+System@{mknix\+::\+System}!get\+Thermal\+Nodes@{get\+Thermal\+Nodes}}
+\index{get\+Thermal\+Nodes@{get\+Thermal\+Nodes}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{get\+Thermal\+Nodes}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::get\+Thermal\+Nodes (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ double $>$ \&}]{x\+\_\+coordinates}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_system_af703eb66f164684e551a510ba7caf17d}
+
+
+Definition at line 80 of file system.\+cpp.
+
+\hypertarget{classmknix_1_1_system_a5315a33bb61855c178110b2998783ee3}{}\index{mknix\+::\+System@{mknix\+::\+System}!get\+Title@{get\+Title}}
+\index{get\+Title@{get\+Title}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{get\+Title}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string mknix\+::\+System\+::get\+Title (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{classmknix_1_1_system_a5315a33bb61855c178110b2998783ee3}
+
+
+Definition at line 61 of file system.\+h.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -434,143 +480,289 @@ Here is the caller graph for this function\-:\nopagebreak
 \end{figure}
 
 
-\hypertarget{classmknix_1_1_system_a22677dbc55080b00290652416ee8bb90}{\index{mknix\-::\-System@{mknix\-::\-System}!output\-Step@{output\-Step}}
-\index{output\-Step@{output\-Step}!mknix::System@{mknix\-::\-System}}
-\paragraph[{output\-Step}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::output\-Step (
+\hypertarget{classmknix_1_1_system_a13e973528d37b0b61a598e4abcf78a74}{}\index{mknix\+::\+System@{mknix\+::\+System}!init\+Flex\+Bodies@{init\+Flex\+Bodies}}
+\index{init\+Flex\+Bodies@{init\+Flex\+Bodies}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{init\+Flex\+Bodies}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::init\+Flex\+Bodies (
 \begin{DoxyParamCaption}
-\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q, }
-\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{qdot}
+{}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a22677dbc55080b00290652416ee8bb90}
+)}\label{classmknix_1_1_system_a13e973528d37b0b61a598e4abcf78a74}
 
 
-Here is the caller graph for this function\-:\nopagebreak
+Definition at line 123 of file system.\+cpp.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_a22677dbc55080b00290652416ee8bb90_icgraph}
+\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_a13e973528d37b0b61a598e4abcf78a74_icgraph}
 \end{center}
 \end{figure}
 
 
-\hypertarget{classmknix_1_1_system_ac161fd48c06a65cfa7b9e27dfbad3f47}{\index{mknix\-::\-System@{mknix\-::\-System}!output\-Step@{output\-Step}}
-\index{output\-Step@{output\-Step}!mknix::System@{mknix\-::\-System}}
-\paragraph[{output\-Step}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::output\-Step (
+\hypertarget{classmknix_1_1_system_a22677dbc55080b00290652416ee8bb90}{}\index{mknix\+::\+System@{mknix\+::\+System}!output\+Step@{output\+Step}}
+\index{output\+Step@{output\+Step}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{output\+Step}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::output\+Step (
 \begin{DoxyParamCaption}
-\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q}
+\item[{const {\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{q, }
+\item[{const {\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{qdot}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_ac161fd48c06a65cfa7b9e27dfbad3f47}
-\hypertarget{classmknix_1_1_system_af08300f28c64abfc4065888a643b4bbf}{\index{mknix\-::\-System@{mknix\-::\-System}!output\-To\-File@{output\-To\-File}}
-\index{output\-To\-File@{output\-To\-File}!mknix::System@{mknix\-::\-System}}
-\paragraph[{output\-To\-File}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::output\-To\-File (
+)}\label{classmknix_1_1_system_a22677dbc55080b00290652416ee8bb90}
+
+
+Definition at line 477 of file system.\+cpp.
+
+\hypertarget{classmknix_1_1_system_ac161fd48c06a65cfa7b9e27dfbad3f47}{}\index{mknix\+::\+System@{mknix\+::\+System}!output\+Step@{output\+Step}}
+\index{output\+Step@{output\+Step}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{output\+Step}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::output\+Step (
 \begin{DoxyParamCaption}
-\item[{std\-::ofstream $\ast$}]{out\-File}
+\item[{const {\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{q}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_af08300f28c64abfc4065888a643b4bbf}
+)}\label{classmknix_1_1_system_ac161fd48c06a65cfa7b9e27dfbad3f47}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_af08300f28c64abfc4065888a643b4bbf_icgraph}
-\end{center}
-\end{figure}
+Definition at line 497 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_a8636993e61acc2af30b0cab7e79d8c01}{\index{mknix\-::\-System@{mknix\-::\-System}!write\-Boundary\-Connectivity@{write\-Boundary\-Connectivity}}
-\index{write\-Boundary\-Connectivity@{write\-Boundary\-Connectivity}!mknix::System@{mknix\-::\-System}}
-\paragraph[{write\-Boundary\-Connectivity}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::write\-Boundary\-Connectivity (
+\hypertarget{classmknix_1_1_system_af08300f28c64abfc4065888a643b4bbf}{}\index{mknix\+::\+System@{mknix\+::\+System}!output\+To\+File@{output\+To\+File}}
+\index{output\+To\+File@{output\+To\+File}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{output\+To\+File}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::output\+To\+File (
 \begin{DoxyParamCaption}
-\item[{std\-::vector$<$ std\-::vector$<$ {\bf Node} $\ast$ $>$ $>$ \&}]{connectivity\-\_\-nodes}
+\item[{std\+::ofstream $\ast$}]{out\+File}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a8636993e61acc2af30b0cab7e79d8c01}
+)}\label{classmknix_1_1_system_af08300f28c64abfc4065888a643b4bbf}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_a8636993e61acc2af30b0cab7e79d8c01_icgraph}
-\end{center}
-\end{figure}
+Definition at line 517 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_a7569699ef2cda26032879de3ea96b2e6}{\index{mknix\-::\-System@{mknix\-::\-System}!write\-Boundary\-Nodes@{write\-Boundary\-Nodes}}
-\index{write\-Boundary\-Nodes@{write\-Boundary\-Nodes}!mknix::System@{mknix\-::\-System}}
-\paragraph[{write\-Boundary\-Nodes}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::write\-Boundary\-Nodes (
+\hypertarget{classmknix_1_1_system_ad884fcd0fba58c799a88de4ee1f59108}{}\index{mknix\+::\+System@{mknix\+::\+System}!set\+Mechanical@{set\+Mechanical}}
+\index{set\+Mechanical@{set\+Mechanical}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{set\+Mechanical}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::set\+Mechanical (
 \begin{DoxyParamCaption}
-\item[{std\-::vector$<$ {\bf Node} $\ast$ $>$ \&}]{boundary\-\_\-nodes}
+{}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a7569699ef2cda26032879de3ea96b2e6}
+)}\label{classmknix_1_1_system_ad884fcd0fba58c799a88de4ee1f59108}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_a7569699ef2cda26032879de3ea96b2e6_icgraph}
-\end{center}
-\end{figure}
+Definition at line 462 of file system.\+cpp.
 
-
-\hypertarget{classmknix_1_1_system_aa68577edc1818bbe8d4bd9b6f716b5de}{\index{mknix\-::\-System@{mknix\-::\-System}!write\-Flex\-Bodies@{write\-Flex\-Bodies}}
-\index{write\-Flex\-Bodies@{write\-Flex\-Bodies}!mknix::System@{mknix\-::\-System}}
-\paragraph[{write\-Flex\-Bodies}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::write\-Flex\-Bodies (
+\hypertarget{classmknix_1_1_system_a78adb69ca95553f0a91d9559020ad7ae}{}\index{mknix\+::\+System@{mknix\+::\+System}!update@{update}}
+\index{update@{update}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{update}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::update (
 \begin{DoxyParamCaption}
-\item[{std\-::ofstream $\ast$}]{out\-File}
+\item[{double}]{time}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_aa68577edc1818bbe8d4bd9b6f716b5de}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_system_a78adb69ca95553f0a91d9559020ad7ae}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_aa68577edc1818bbe8d4bd9b6f716b5de_icgraph}
-\end{center}
-\end{figure}
+Reimplemented in \hyperlink{classmknix_1_1_system_chain_a9ccb93db731aa96bae11540b035afa18}{mknix\+::\+System\+Chain}, \hyperlink{classmknix_1_1_system_chain_a9ccb93db731aa96bae11540b035afa18}{mknix\+::\+System\+Chain}, and \hyperlink{classmknix_1_1_motion_a394f15ff3316a804176f0761abf66513}{mknix\+::\+Motion}.
 
 
-\hypertarget{classmknix_1_1_system_a848d086b44d1a4d656cb6357a738188b}{\index{mknix\-::\-System@{mknix\-::\-System}!write\-Rigid\-Bodies@{write\-Rigid\-Bodies}}
-\index{write\-Rigid\-Bodies@{write\-Rigid\-Bodies}!mknix::System@{mknix\-::\-System}}
-\paragraph[{write\-Rigid\-Bodies}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-System\-::write\-Rigid\-Bodies (
+
+Definition at line 112 of file system.\+cpp.
+
+\hypertarget{classmknix_1_1_system_afc0008395a87621eaf136c59798d4b01}{}\index{mknix\+::\+System@{mknix\+::\+System}!update\+Thermal\+Loads@{update\+Thermal\+Loads}}
+\index{update\+Thermal\+Loads@{update\+Thermal\+Loads}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{update\+Thermal\+Loads}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::update\+Thermal\+Loads (
 \begin{DoxyParamCaption}
-\item[{std\-::ofstream $\ast$}]{out\-File}
+\item[{double $\ast$}]{vector\+\_\+in}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_system_a848d086b44d1a4d656cb6357a738188b}
+)}\label{classmknix_1_1_system_afc0008395a87621eaf136c59798d4b01}
 
 
-Here is the caller graph for this function\-:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{df/dd9/classmknix_1_1_system_a848d086b44d1a4d656cb6357a738188b_icgraph}
-\end{center}
-\end{figure}
+Definition at line 103 of file system.\+cpp.
 
+\hypertarget{classmknix_1_1_system_a9175f3a34d6a43a79b7fe00cde18f128}{}\index{mknix\+::\+System@{mknix\+::\+System}!write\+Boundary\+Connectivity@{write\+Boundary\+Connectivity}}
+\index{write\+Boundary\+Connectivity@{write\+Boundary\+Connectivity}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{write\+Boundary\+Connectivity}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::write\+Boundary\+Connectivity (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ std\+::vector$<$ {\bf Point} $\ast$ $>$ $>$ \&}]{connectivity\+\_\+nodes}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_system_a9175f3a34d6a43a79b7fe00cde18f128}
+
+
+Definition at line 588 of file system.\+cpp.
+
+\hypertarget{classmknix_1_1_system_afeb45ebb36f1912aaaaa323b50bac80d}{}\index{mknix\+::\+System@{mknix\+::\+System}!write\+Boundary\+Nodes@{write\+Boundary\+Nodes}}
+\index{write\+Boundary\+Nodes@{write\+Boundary\+Nodes}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{write\+Boundary\+Nodes}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::write\+Boundary\+Nodes (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ {\bf Point} $\ast$ $>$ \&}]{boundary\+\_\+nodes}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_system_afeb45ebb36f1912aaaaa323b50bac80d}
+
+
+Definition at line 572 of file system.\+cpp.
+
+\hypertarget{classmknix_1_1_system_aa68577edc1818bbe8d4bd9b6f716b5de}{}\index{mknix\+::\+System@{mknix\+::\+System}!write\+Flex\+Bodies@{write\+Flex\+Bodies}}
+\index{write\+Flex\+Bodies@{write\+Flex\+Bodies}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{write\+Flex\+Bodies}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::write\+Flex\+Bodies (
+\begin{DoxyParamCaption}
+\item[{std\+::ofstream $\ast$}]{out\+File}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_system_aa68577edc1818bbe8d4bd9b6f716b5de}
+
+
+Definition at line 142 of file system.\+cpp.
+
+\hypertarget{classmknix_1_1_system_a87f850673f20e791e815f182190806c1}{}\index{mknix\+::\+System@{mknix\+::\+System}!write\+Joints@{write\+Joints}}
+\index{write\+Joints@{write\+Joints}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{write\+Joints}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::write\+Joints (
+\begin{DoxyParamCaption}
+\item[{std\+::ofstream $\ast$}]{out\+File}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_system_a87f850673f20e791e815f182190806c1}
+
+
+Definition at line 153 of file system.\+cpp.
+
+\hypertarget{classmknix_1_1_system_a848d086b44d1a4d656cb6357a738188b}{}\index{mknix\+::\+System@{mknix\+::\+System}!write\+Rigid\+Bodies@{write\+Rigid\+Bodies}}
+\index{write\+Rigid\+Bodies@{write\+Rigid\+Bodies}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{write\+Rigid\+Bodies}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+System\+::write\+Rigid\+Bodies (
+\begin{DoxyParamCaption}
+\item[{std\+::ofstream $\ast$}]{out\+File}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_system_a848d086b44d1a4d656cb6357a738188b}
+
+
+Definition at line 131 of file system.\+cpp.
 
 
 
 \subsubsection{Friends And Related Function Documentation}
-\hypertarget{classmknix_1_1_system_a76d4b1c8c6040df20040808941b7e764}{\index{mknix\-::\-System@{mknix\-::\-System}!Contact@{Contact}}
-\index{Contact@{Contact}!mknix::System@{mknix\-::\-System}}
-\paragraph[{Contact}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Contact}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmknix_1_1_system_a76d4b1c8c6040df20040808941b7e764}
-\hypertarget{classmknix_1_1_system_a35cb182752752c74a30050705acc3c06}{\index{mknix\-::\-System@{mknix\-::\-System}!Reader@{Reader}}
-\index{Reader@{Reader}!mknix::System@{mknix\-::\-System}}
-\paragraph[{Reader}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Reader}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmknix_1_1_system_a35cb182752752c74a30050705acc3c06}
-\hypertarget{classmknix_1_1_system_ae164a82e4890f6fbab13f95a18656edf}{\index{mknix\-::\-System@{mknix\-::\-System}!Reader\-Constraints@{Reader\-Constraints}}
-\index{Reader\-Constraints@{Reader\-Constraints}!mknix::System@{mknix\-::\-System}}
-\paragraph[{Reader\-Constraints}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Reader\-Constraints}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmknix_1_1_system_ae164a82e4890f6fbab13f95a18656edf}
-\hypertarget{classmknix_1_1_system_a1150cceac3e81192653459c61f428621}{\index{mknix\-::\-System@{mknix\-::\-System}!Reader\-Flex@{Reader\-Flex}}
-\index{Reader\-Flex@{Reader\-Flex}!mknix::System@{mknix\-::\-System}}
-\paragraph[{Reader\-Flex}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Reader\-Flex}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmknix_1_1_system_a1150cceac3e81192653459c61f428621}
-\hypertarget{classmknix_1_1_system_a6a45b3f2d8b6c9e516334b46caf0cbb7}{\index{mknix\-::\-System@{mknix\-::\-System}!Reader\-Rigid@{Reader\-Rigid}}
-\index{Reader\-Rigid@{Reader\-Rigid}!mknix::System@{mknix\-::\-System}}
-\paragraph[{Reader\-Rigid}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Reader\-Rigid}\hspace{0.3cm}{\ttfamily [friend]}}}\label{classmknix_1_1_system_a6a45b3f2d8b6c9e516334b46caf0cbb7}
+\hypertarget{classmknix_1_1_system_a76d4b1c8c6040df20040808941b7e764}{}\index{mknix\+::\+System@{mknix\+::\+System}!Contact@{Contact}}
+\index{Contact@{Contact}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{Contact}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Contact}\hspace{0.3cm}{\ttfamily [friend]}}\label{classmknix_1_1_system_a76d4b1c8c6040df20040808941b7e764}
 
 
-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+Definition at line 50 of file system.\+h.
+
+\hypertarget{classmknix_1_1_system_a35cb182752752c74a30050705acc3c06}{}\index{mknix\+::\+System@{mknix\+::\+System}!Reader@{Reader}}
+\index{Reader@{Reader}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{Reader}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Reader}\hspace{0.3cm}{\ttfamily [friend]}}\label{classmknix_1_1_system_a35cb182752752c74a30050705acc3c06}
+
+
+Definition at line 46 of file system.\+h.
+
+\hypertarget{classmknix_1_1_system_ae164a82e4890f6fbab13f95a18656edf}{}\index{mknix\+::\+System@{mknix\+::\+System}!Reader\+Constraints@{Reader\+Constraints}}
+\index{Reader\+Constraints@{Reader\+Constraints}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{Reader\+Constraints}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Reader\+Constraints}\hspace{0.3cm}{\ttfamily [friend]}}\label{classmknix_1_1_system_ae164a82e4890f6fbab13f95a18656edf}
+
+
+Definition at line 49 of file system.\+h.
+
+\hypertarget{classmknix_1_1_system_a1150cceac3e81192653459c61f428621}{}\index{mknix\+::\+System@{mknix\+::\+System}!Reader\+Flex@{Reader\+Flex}}
+\index{Reader\+Flex@{Reader\+Flex}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{Reader\+Flex}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Reader\+Flex}\hspace{0.3cm}{\ttfamily [friend]}}\label{classmknix_1_1_system_a1150cceac3e81192653459c61f428621}
+
+
+Definition at line 47 of file system.\+h.
+
+\hypertarget{classmknix_1_1_system_a6a45b3f2d8b6c9e516334b46caf0cbb7}{}\index{mknix\+::\+System@{mknix\+::\+System}!Reader\+Rigid@{Reader\+Rigid}}
+\index{Reader\+Rigid@{Reader\+Rigid}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{Reader\+Rigid}]{\setlength{\rightskip}{0pt plus 5cm}friend class {\bf Reader\+Rigid}\hspace{0.3cm}{\ttfamily [friend]}}\label{classmknix_1_1_system_a6a45b3f2d8b6c9e516334b46caf0cbb7}
+
+
+Definition at line 48 of file system.\+h.
+
+
+
+\subsubsection{Member Data Documentation}
+\hypertarget{classmknix_1_1_system_a6777972d1e5914dbe488e704ca8a0b8d}{}\index{mknix\+::\+System@{mknix\+::\+System}!constraints@{constraints}}
+\index{constraints@{constraints}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{constraints}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$ std\+::string, {\bf Constraint}$\ast$ $>$ mknix\+::\+System\+::constraints\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_system_a6777972d1e5914dbe488e704ca8a0b8d}
+
+
+Definition at line 149 of file system.\+h.
+
+\hypertarget{classmknix_1_1_system_abec0485325cb37e460f9f8eab40374ea}{}\index{mknix\+::\+System@{mknix\+::\+System}!constraints\+Thermal@{constraints\+Thermal}}
+\index{constraints\+Thermal@{constraints\+Thermal}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{constraints\+Thermal}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$ std\+::string, {\bf Constraint\+Thermal}$\ast$ $>$ mknix\+::\+System\+::constraints\+Thermal\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_system_abec0485325cb37e460f9f8eab40374ea}
+
+
+Definition at line 150 of file system.\+h.
+
+\hypertarget{classmknix_1_1_system_a20ca9590b01b280feb622ac158fcf4ba}{}\index{mknix\+::\+System@{mknix\+::\+System}!flex\+Bodies@{flex\+Bodies}}
+\index{flex\+Bodies@{flex\+Bodies}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{flex\+Bodies}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$ std\+::string, {\bf Flex\+Body}$\ast$ $>$ mknix\+::\+System\+::flex\+Bodies\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_system_a20ca9590b01b280feb622ac158fcf4ba}
+
+
+Definition at line 147 of file system.\+h.
+
+\hypertarget{classmknix_1_1_system_a510d1808d1c0bce06b2d46707d8dddb5}{}\index{mknix\+::\+System@{mknix\+::\+System}!ground\+Nodes@{ground\+Nodes}}
+\index{ground\+Nodes@{ground\+Nodes}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{ground\+Nodes}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Node}$\ast$$>$ mknix\+::\+System\+::ground\+Nodes\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_system_a510d1808d1c0bce06b2d46707d8dddb5}
+
+
+Definition at line 143 of file system.\+h.
+
+\hypertarget{classmknix_1_1_system_a16ca73ebcb7b8608052e1a39766c034d}{}\index{mknix\+::\+System@{mknix\+::\+System}!loads@{loads}}
+\index{loads@{loads}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{loads}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Load}$\ast$ $>$ mknix\+::\+System\+::loads\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_system_a16ca73ebcb7b8608052e1a39766c034d}
+
+
+Definition at line 151 of file system.\+h.
+
+\hypertarget{classmknix_1_1_system_a4895395f658cd48585a7336acd9d6625}{}\index{mknix\+::\+System@{mknix\+::\+System}!loads\+Thermal@{loads\+Thermal}}
+\index{loads\+Thermal@{loads\+Thermal}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{loads\+Thermal}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Load\+Thermal}$\ast$ $>$ mknix\+::\+System\+::loads\+Thermal\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_system_a4895395f658cd48585a7336acd9d6625}
+
+
+Definition at line 152 of file system.\+h.
+
+\hypertarget{classmknix_1_1_system_a5555b9556c466244816bc6654e73d8f6}{}\index{mknix\+::\+System@{mknix\+::\+System}!motions@{motions}}
+\index{motions@{motions}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{motions}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Motion}$\ast$ $>$ mknix\+::\+System\+::motions\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_system_a5555b9556c466244816bc6654e73d8f6}
+
+
+Definition at line 154 of file system.\+h.
+
+\hypertarget{classmknix_1_1_system_ab55e1b00bf920164cfe14d0ea9ab08c6}{}\index{mknix\+::\+System@{mknix\+::\+System}!output\+Max\+Interface\+Temp@{output\+Max\+Interface\+Temp}}
+\index{output\+Max\+Interface\+Temp@{output\+Max\+Interface\+Temp}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{output\+Max\+Interface\+Temp}]{\setlength{\rightskip}{0pt plus 5cm}bool mknix\+::\+System\+::output\+Max\+Interface\+Temp}\label{classmknix_1_1_system_ab55e1b00bf920164cfe14d0ea9ab08c6}
+
+
+Definition at line 59 of file system.\+h.
+
+\hypertarget{classmknix_1_1_system_a7e1b0adf59579754f0863b3fd9864b21}{}\index{mknix\+::\+System@{mknix\+::\+System}!output\+Signal\+Thermal@{output\+Signal\+Thermal}}
+\index{output\+Signal\+Thermal@{output\+Signal\+Thermal}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{output\+Signal\+Thermal}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Node}$\ast$ $>$ mknix\+::\+System\+::output\+Signal\+Thermal\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_system_a7e1b0adf59579754f0863b3fd9864b21}
+
+
+Definition at line 153 of file system.\+h.
+
+\hypertarget{classmknix_1_1_system_ac39f69fd16a8c74a79dc3258e4f9c505}{}\index{mknix\+::\+System@{mknix\+::\+System}!rigid\+Bodies@{rigid\+Bodies}}
+\index{rigid\+Bodies@{rigid\+Bodies}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{rigid\+Bodies}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$ std\+::string, {\bf Rigid\+Body}$\ast$ $>$ mknix\+::\+System\+::rigid\+Bodies\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_system_ac39f69fd16a8c74a79dc3258e4f9c505}
+
+
+Definition at line 146 of file system.\+h.
+
+\hypertarget{classmknix_1_1_system_a90dd5d1e76958c720a2bad6e9bd4ceb2}{}\index{mknix\+::\+System@{mknix\+::\+System}!sub\+Systems@{sub\+Systems}}
+\index{sub\+Systems@{sub\+Systems}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{sub\+Systems}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$ std\+::string, {\bf System}$\ast$ $>$ mknix\+::\+System\+::sub\+Systems\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_system_a90dd5d1e76958c720a2bad6e9bd4ceb2}
+
+
+Definition at line 145 of file system.\+h.
+
+\hypertarget{classmknix_1_1_system_a5f3e180ba138e01570ffe8aba62a1df7}{}\index{mknix\+::\+System@{mknix\+::\+System}!thermal\+Bodies@{thermal\+Bodies}}
+\index{thermal\+Bodies@{thermal\+Bodies}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{thermal\+Bodies}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$ std\+::string, {\bf Body}$\ast$ $>$ mknix\+::\+System\+::thermal\+Bodies\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_system_a5f3e180ba138e01570ffe8aba62a1df7}
+
+
+Definition at line 148 of file system.\+h.
+
+\hypertarget{classmknix_1_1_system_a2dcd01381b3eec7b2e8e2c1c3ab38972}{}\index{mknix\+::\+System@{mknix\+::\+System}!title@{title}}
+\index{title@{title}!mknix\+::\+System@{mknix\+::\+System}}
+\paragraph[{title}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string mknix\+::\+System\+::title\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_system_a2dcd01381b3eec7b2e8e2c1c3ab38972}
+
+
+Definition at line 142 of file system.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{system_8h}{system.\-h}\item 
-\hyperlink{system_8cpp}{system.\-cpp}\end{DoxyCompactItemize}
+\hyperlink{system_8h}{system.\+h}\item 
+\hyperlink{system_8cpp}{system.\+cpp}\end{DoxyCompactItemize}

@@ -1,86 +1,114 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="d3/d93/celltetrahedron_8cpp" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d3/d93/celltetrahedron_8cpp" kind="file" language="C++">
     <compoundname>celltetrahedron.cpp</compoundname>
     <includes refid="d1/d94/celltetrahedron_8h" local="yes">celltetrahedron.h</includes>
+    <includes refid="d3/d65/material_8h" local="yes">material.h</includes>
+    <includes refid="d1/d77/node_8h" local="yes">node.h</includes>
+    <includes refid="dc/da4/gausspoint3_d_8h" local="yes">gausspoint3D.h</includes>
+    <includes local="no">string</includes>
     <incdepgraph>
-      <node id="5829">
-        <label>material.h</label>
-        <link refid="d3/d65/material_8h"/>
-        <childnode refid="5828" relation="include">
-        </childnode>
-      </node>
-      <node id="5820">
-        <label>cell.h</label>
-        <link refid="d0/ddd/cell_8h"/>
-        <childnode refid="5821" relation="include">
-        </childnode>
-      </node>
-      <node id="5826">
-        <label>string</label>
-      </node>
-      <node id="5823">
-        <label>map</label>
-      </node>
-      <node id="5825">
-        <label>point.h</label>
-        <link refid="d2/d91/point_8h"/>
-        <childnode refid="5822" relation="include">
-        </childnode>
-        <childnode refid="5823" relation="include">
-        </childnode>
-        <childnode refid="5826" relation="include">
-        </childnode>
-        <childnode refid="5827" relation="include">
-        </childnode>
-      </node>
-      <node id="5827">
-        <label>common.h</label>
-        <link refid="dc/d54/common_8h"/>
-      </node>
-      <node id="5822">
-        <label>vector</label>
-      </node>
-      <node id="5828">
-        <label>LMX/lmx.h</label>
-      </node>
-      <node id="5818">
-        <label>celltetrahedron.cpp</label>
-        <link refid="celltetrahedron.cpp"/>
-        <childnode refid="5819" relation="include">
-        </childnode>
-      </node>
-      <node id="5819">
-        <label>celltetrahedron.h</label>
-        <link refid="d1/d94/celltetrahedron_8h"/>
-        <childnode refid="5820" relation="include">
-        </childnode>
-      </node>
-      <node id="5821">
+      <node id="2935">
         <label>gausspoint.h</label>
         <link refid="d4/dc6/gausspoint_8h"/>
-        <childnode refid="5822" relation="include">
+        <childnode refid="2931" relation="include">
         </childnode>
-        <childnode refid="5823" relation="include">
-        </childnode>
-        <childnode refid="5824" relation="include">
-        </childnode>
-        <childnode refid="5825" relation="include">
-        </childnode>
-        <childnode refid="5827" relation="include">
-        </childnode>
-        <childnode refid="5829" relation="include">
+        <childnode refid="2933" relation="include">
         </childnode>
       </node>
-      <node id="5824">
+      <node id="2923">
+        <label>LMX/cofe_TensorRank2.h</label>
+      </node>
+      <node id="2934">
+        <label>gausspoint3D.h</label>
+        <link refid="dc/da4/gausspoint3_d_8h"/>
+        <childnode refid="2931" relation="include">
+        </childnode>
+        <childnode refid="2935" relation="include">
+        </childnode>
+      </node>
+      <node id="2924">
+        <label>cell.h</label>
+        <link refid="d0/ddd/cell_8h"/>
+        <childnode refid="2925" relation="include">
+        </childnode>
+        <childnode refid="2926" relation="include">
+        </childnode>
+        <childnode refid="2927" relation="include">
+        </childnode>
+      </node>
+      <node id="2926">
+        <label>string</label>
+      </node>
+      <node id="2928">
+        <label>map</label>
+      </node>
+      <node id="2927">
+        <label>common.h</label>
+        <link refid="dc/d54/common_8h"/>
+        <childnode refid="2928" relation="include">
+        </childnode>
+        <childnode refid="2929" relation="include">
+        </childnode>
+      </node>
+      <node id="2930">
+        <label>material.h</label>
+        <link refid="d3/d65/material_8h"/>
+        <childnode refid="2931" relation="include">
+        </childnode>
+        <childnode refid="2927" relation="include">
+        </childnode>
+      </node>
+      <node id="2921">
+        <label>celltetrahedron.cpp</label>
+        <link refid="celltetrahedron.cpp"/>
+        <childnode refid="2922" relation="include">
+        </childnode>
+        <childnode refid="2930" relation="include">
+        </childnode>
+        <childnode refid="2932" relation="include">
+        </childnode>
+        <childnode refid="2934" relation="include">
+        </childnode>
+        <childnode refid="2926" relation="include">
+        </childnode>
+      </node>
+      <node id="2925">
+        <label>vector</label>
+      </node>
+      <node id="2931">
+        <label>LMX/lmx.h</label>
+      </node>
+      <node id="2932">
         <label>node.h</label>
         <link refid="d1/d77/node_8h"/>
-        <childnode refid="5822" relation="include">
+        <childnode refid="2933" relation="include">
         </childnode>
-        <childnode refid="5825" relation="include">
+        <childnode refid="2931" relation="include">
         </childnode>
-        <childnode refid="5828" relation="include">
+      </node>
+      <node id="2933">
+        <label>point.h</label>
+        <link refid="d2/d91/point_8h"/>
+        <childnode refid="2925" relation="include">
         </childnode>
+        <childnode refid="2928" relation="include">
+        </childnode>
+        <childnode refid="2926" relation="include">
+        </childnode>
+        <childnode refid="2927" relation="include">
+        </childnode>
+      </node>
+      <node id="2922">
+        <label>celltetrahedron.h</label>
+        <link refid="d1/d94/celltetrahedron_8h"/>
+        <childnode refid="2923" relation="include">
+        </childnode>
+        <childnode refid="2924" relation="include">
+        </childnode>
+      </node>
+      <node id="2929">
+        <label>memory</label>
       </node>
     </incdepgraph>
     <innernamespace refid="d2/dde/namespacemknix">mknix</innernamespace>
@@ -90,159 +118,167 @@
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="comment">//--<sp/>Licencia<sp/>--</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d1/d94/celltetrahedron_8h" kindref="compound" tooltip="Background cells for integration. ">celltetrahedron.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="3"><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mknix<sp/>{</highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight></codeline>
-<codeline lineno="6" refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a6824b4f7304f0717ccdbaf32126239a0" refkind="member"><highlight class="normal"><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a6824b4f7304f0717ccdbaf32126239a0" kindref="member">CellTetrahedron::CellTetrahedron</ref>()</highlight></codeline>
-<codeline lineno="7"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="8"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d1/d94/celltetrahedron_8h" kindref="compound">celltetrahedron.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d3/d65/material_8h" kindref="compound">material.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d1/d77/node_8h" kindref="compound">node.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="dc/da4/gausspoint3_d_8h" kindref="compound">gausspoint3D.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="d2/dde/namespacemknix" kindref="compound">mknix</ref><sp/>{</highlight></codeline>
 <codeline lineno="9"><highlight class="normal"></highlight></codeline>
-<codeline lineno="10"><highlight class="normal"></highlight></codeline>
-<codeline lineno="11" refid="d9/d39/classmknix_1_1_cell_tetrahedron_1aa462fd7b0dffd4896100e413e60b55d1" refkind="member"><highlight class="normal"><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a6824b4f7304f0717ccdbaf32126239a0" kindref="member">CellTetrahedron::CellTetrahedron</ref>(<sp/><ref refid="d6/d4a/classmknix_1_1_material" kindref="compound">Material</ref>&amp;<sp/>material_in,</highlight></codeline>
-<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>formulation_in,</highlight></codeline>
-<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha_in,</highlight></codeline>
-<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nGPoints_in,</highlight></codeline>
-<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>n1_in,</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>n2_in,</highlight></codeline>
-<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>n3_in,</highlight></codeline>
-<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>n4_in</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/>:<sp/><ref refid="db/dd4/classmknix_1_1_cell" kindref="compound">Cell</ref>(<sp/>material_in</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>formulation_in</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>alpha_in</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>nGPoints_in</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" kindref="member">nodes</ref>.push_back(<sp/>n1_in<sp/>);</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" kindref="member">nodes</ref>.push_back(<sp/>n2_in<sp/>);</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" kindref="member">nodes</ref>.push_back(<sp/>n3_in<sp/>);</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" kindref="member">nodes</ref>.push_back(<sp/>n4_in<sp/>);</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1af1f5f57c6cd10b8a416617b4761dfac6" kindref="member">points</ref>(0,0)<sp/>=<sp/>n1_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" kindref="member">getx</ref>()<sp/>-<sp/>n4_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" kindref="member">getx</ref>();</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1af1f5f57c6cd10b8a416617b4761dfac6" kindref="member">points</ref>(0,1)<sp/>=<sp/>n1_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" kindref="member">gety</ref>()<sp/>-<sp/>n4_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" kindref="member">gety</ref>();</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1af1f5f57c6cd10b8a416617b4761dfac6" kindref="member">points</ref>(0,2)<sp/>=<sp/>n1_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" kindref="member">getz</ref>()<sp/>-<sp/>n4_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" kindref="member">getz</ref>();</highlight></codeline>
+<codeline lineno="10" refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a6824b4f7304f0717ccdbaf32126239a0" refkind="member"><highlight class="normal"><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a6824b4f7304f0717ccdbaf32126239a0" kindref="member">CellTetrahedron::CellTetrahedron</ref>()</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="d9/d39/classmknix_1_1_cell_tetrahedron_1ac4c2343cfe88b0f0a0c2be8636fd0cde" refkind="member"><highlight class="normal"><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a6824b4f7304f0717ccdbaf32126239a0" kindref="member">CellTetrahedron::CellTetrahedron</ref>(<sp/><ref refid="d6/d4a/classmknix_1_1_material" kindref="compound">Material</ref>&amp;<sp/>material_in,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::string<sp/>formulation_in,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha_in,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nGPoints_in,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref>*<sp/>n1_in,</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref>*<sp/>n2_in,</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref>*<sp/>n3_in,</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref>*<sp/>n4_in</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/><ref refid="db/dd4/classmknix_1_1_cell" kindref="compound">Cell</ref>(<sp/>material_in</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>formulation_in</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>alpha_in</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>nGPoints_in</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" kindref="member">bodyPoints</ref>.push_back(<sp/>n1_in<sp/>);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" kindref="member">bodyPoints</ref>.push_back(<sp/>n2_in<sp/>);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" kindref="member">bodyPoints</ref>.push_back(<sp/>n3_in<sp/>);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" kindref="member">bodyPoints</ref>.push_back(<sp/>n4_in<sp/>);</highlight></codeline>
 <codeline lineno="34"><highlight class="normal"></highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1af1f5f57c6cd10b8a416617b4761dfac6" kindref="member">points</ref>(1,0)<sp/>=<sp/>n2_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" kindref="member">getx</ref>()<sp/>-<sp/>n4_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" kindref="member">getx</ref>();</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1af1f5f57c6cd10b8a416617b4761dfac6" kindref="member">points</ref>(1,1)<sp/>=<sp/>n2_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" kindref="member">gety</ref>()<sp/>-<sp/>n4_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" kindref="member">gety</ref>();</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1af1f5f57c6cd10b8a416617b4761dfac6" kindref="member">points</ref>(1,2)<sp/>=<sp/>n2_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" kindref="member">getz</ref>()<sp/>-<sp/>n4_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" kindref="member">getz</ref>();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1ad43ea7159ab2b6818636340c6f76de65" kindref="member">points</ref>(0,0)<sp/>=<sp/>n1_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>()<sp/>-<sp/>n4_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1ad43ea7159ab2b6818636340c6f76de65" kindref="member">points</ref>(0,1)<sp/>=<sp/>n1_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>()<sp/>-<sp/>n4_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1ad43ea7159ab2b6818636340c6f76de65" kindref="member">points</ref>(0,2)<sp/>=<sp/>n1_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" kindref="member">getZ</ref>()<sp/>-<sp/>n4_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" kindref="member">getZ</ref>();</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1af1f5f57c6cd10b8a416617b4761dfac6" kindref="member">points</ref>(2,0)<sp/>=<sp/>n3_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" kindref="member">getx</ref>()<sp/>-<sp/>n4_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" kindref="member">getx</ref>();</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1af1f5f57c6cd10b8a416617b4761dfac6" kindref="member">points</ref>(2,1)<sp/>=<sp/>n3_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" kindref="member">gety</ref>()<sp/>-<sp/>n4_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" kindref="member">gety</ref>();</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1af1f5f57c6cd10b8a416617b4761dfac6" kindref="member">points</ref>(2,2)<sp/>=<sp/>n3_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" kindref="member">getz</ref>()<sp/>-<sp/>n4_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" kindref="member">getz</ref>();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1ad43ea7159ab2b6818636340c6f76de65" kindref="member">points</ref>(1,0)<sp/>=<sp/>n2_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>()<sp/>-<sp/>n4_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1ad43ea7159ab2b6818636340c6f76de65" kindref="member">points</ref>(1,1)<sp/>=<sp/>n2_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>()<sp/>-<sp/>n4_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>();</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1ad43ea7159ab2b6818636340c6f76de65" kindref="member">points</ref>(1,2)<sp/>=<sp/>n2_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" kindref="member">getZ</ref>()<sp/>-<sp/>n4_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" kindref="member">getZ</ref>();</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"></highlight><highlight class="comment">//<sp/>From<sp/>Cramer&apos;s<sp/>rule<sp/>(source<sp/>http://en.wikipedia.org/wiki/Parallelepiped)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" kindref="member">jacobian</ref><sp/>=<sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1af1f5f57c6cd10b8a416617b4761dfac6" kindref="member">points</ref>.determinant()<sp/>/<sp/>6.;</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"></highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a7108fef12b0319adebeff93cab664314" kindref="member">dc</ref><sp/>=<sp/>(<sp/>n1_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" kindref="member">distance</ref>(<sp/>*n2_in<sp/>)</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+n1_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" kindref="member">distance</ref>(<sp/>*n3_in<sp/>)</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+n1_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" kindref="member">distance</ref>(<sp/>*n4_in<sp/>)</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+n2_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" kindref="member">distance</ref>(<sp/>*n3_in<sp/>)</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+n2_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" kindref="member">distance</ref>(<sp/>*n4_in<sp/>)</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+n4_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" kindref="member">distance</ref>(<sp/>*n4_in<sp/>)<sp/>)<sp/>/<sp/>6.;</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>cout<sp/>&lt;&lt;<sp/>points(0,2)<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>&lt;&lt;<sp/>points(1,2)<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="55"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>&lt;&lt;<sp/>points(2,2)<sp/>&lt;&lt;<sp/>&quot;\n<sp/>&quot;;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;dc<sp/>=<sp/>&quot;&lt;&lt;<sp/>dc<sp/>&lt;&lt;<sp/>&quot;\n&quot;;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a933dde9cb028e9be1f0f9024fb7b898d" kindref="member">createGaussPoints</ref>(<sp/>);</highlight></codeline>
-<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"></highlight></codeline>
-<codeline lineno="61" refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a4ae5db633022a1714da463f4c32ffa03" refkind="member"><highlight class="normal"><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a4ae5db633022a1714da463f4c32ffa03" kindref="member">CellTetrahedron::~CellTetrahedron</ref>()</highlight></codeline>
-<codeline lineno="62"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1ad43ea7159ab2b6818636340c6f76de65" kindref="member">points</ref>(2,0)<sp/>=<sp/>n3_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>()<sp/>-<sp/>n4_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>();</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1ad43ea7159ab2b6818636340c6f76de65" kindref="member">points</ref>(2,1)<sp/>=<sp/>n3_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>()<sp/>-<sp/>n4_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>();</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1ad43ea7159ab2b6818636340c6f76de65" kindref="member">points</ref>(2,2)<sp/>=<sp/>n3_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" kindref="member">getZ</ref>()<sp/>-<sp/>n4_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" kindref="member">getZ</ref>();</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//<sp/>From<sp/>Cramer&apos;s<sp/>rule<sp/>(source<sp/>http://en.wikipedia.org/wiki/Parallelepiped)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" kindref="member">jacobian</ref><sp/>=<sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1ad43ea7159ab2b6818636340c6f76de65" kindref="member">points</ref>.determinant()<sp/>/<sp/>6.;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a7108fef12b0319adebeff93cab664314" kindref="member">dc</ref><sp/>=<sp/>(<sp/>n1_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a138d3c418c3147aead7f3958f1db9b42" kindref="member">distance</ref>(<sp/>*n2_in<sp/>)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+n1_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a138d3c418c3147aead7f3958f1db9b42" kindref="member">distance</ref>(<sp/>*n3_in<sp/>)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+n1_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a138d3c418c3147aead7f3958f1db9b42" kindref="member">distance</ref>(<sp/>*n4_in<sp/>)</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+n2_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a138d3c418c3147aead7f3958f1db9b42" kindref="member">distance</ref>(<sp/>*n3_in<sp/>)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+n2_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a138d3c418c3147aead7f3958f1db9b42" kindref="member">distance</ref>(<sp/>*n4_in<sp/>)</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+n4_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a138d3c418c3147aead7f3958f1db9b42" kindref="member">distance</ref>(<sp/>*n4_in<sp/>)<sp/>)<sp/>/<sp/>6.;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>dc<sp/>=<sp/>0.9;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>cout<sp/>&lt;&lt;<sp/>points(0,2)<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>&lt;&lt;<sp/>points(1,2)<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>&lt;&lt;<sp/>points(2,2)<sp/>&lt;&lt;<sp/>&quot;\n<sp/>&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;dc<sp/>=<sp/>&quot;&lt;&lt;<sp/>dc<sp/>&lt;&lt;<sp/>&quot;\n&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a933dde9cb028e9be1f0f9024fb7b898d" kindref="member">createGaussPoints</ref>(<sp/>);</highlight></codeline>
 <codeline lineno="63"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="64"><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"></highlight></codeline>
-<codeline lineno="66" refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a933dde9cb028e9be1f0f9024fb7b898d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a933dde9cb028e9be1f0f9024fb7b898d" kindref="member">CellTetrahedron::createGaussPoints</ref>(<sp/>)</highlight></codeline>
-<codeline lineno="67"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/>lmx::DenseMatrix&lt;double&gt;<sp/>gCoef(<sp/>size_type(<ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref>),<sp/>5);</highlight></codeline>
+<codeline lineno="65" refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a4ae5db633022a1714da463f4c32ffa03" refkind="member"><highlight class="normal"><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a4ae5db633022a1714da463f4c32ffa03" kindref="member">CellTetrahedron::~CellTetrahedron</ref>()</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
 <codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>reference:<sp/>http://www.cs.rpi.edu/~flaherje/pdf/fea6.pdf</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref><sp/>==<sp/>1){</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(0,0)<sp/>=<sp/>.25;<sp/>gCoef(0,1)<sp/>=<sp/>.25;<sp/>gCoef(0,2)<sp/>=<sp/>.25;<sp/>gCoef(0,3)<sp/>=<sp/>.25;</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(0,4)<sp/>=<sp/>1.;</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/>}</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref><sp/>==<sp/>4){</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(0,0)<sp/>=<sp/>.585410196624969;</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(0,1)<sp/>=<sp/>gCoef(0,2)<sp/>=<sp/>gCoef(0,3)<sp/>=<sp/>.138196601125011;</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(0,4)<sp/>=<sp/>.25;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(1,1)<sp/>=<sp/>.585410196624969;</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(1,0)<sp/>=<sp/>gCoef(1,2)<sp/>=<sp/>gCoef(1,3)<sp/>=<sp/>.138196601125011;</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(1,4)<sp/>=<sp/>.25;</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(2,2)<sp/>=<sp/>.585410196624969;</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(2,1)<sp/>=<sp/>gCoef(2,0)<sp/>=<sp/>gCoef(2,3)<sp/>=<sp/>.138196601125011;</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(2,4)<sp/>=<sp/>.25;</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(3,3)<sp/>=<sp/>.585410196624969;</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(3,1)<sp/>=<sp/>gCoef(3,2)<sp/>=<sp/>gCoef(3,0)<sp/>=<sp/>.138196601125011;</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/>gCoef(3,4)<sp/>=<sp/>.25;</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment">//<sp/>more<sp/>on<sp/>...<sp/>http://electromagnetics.biz/2D%20Gauss.txt</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>else<sp/>if(nGPoints<sp/>==<sp/>12){</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>else<sp/>if(nGPoints<sp/>==<sp/>20){</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="93"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;<ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref>;<sp/>++i){</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" kindref="member">gPoints</ref>.push_back</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d2/da4/classmknix_1_1_gauss_point" kindref="compound">GaussPoint</ref></highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>this-&gt;<ref refid="db/dd4/classmknix_1_1_cell_1a79afef7ecbdfee69e687bb2e7559520b" kindref="member">alpha</ref>,</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(i,4),</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" kindref="member">jacobian</ref>,</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a83ca13ff89196b3ab378d2a28820a08e" kindref="member">mat</ref>,</highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i,</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" kindref="member">nodes</ref>[0]-&gt;getx()<sp/>*<sp/>gCoef(i,0)</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" kindref="member">nodes</ref>[1]-&gt;getx()<sp/>*<sp/>gCoef(i,1)</highlight></codeline>
-<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" kindref="member">nodes</ref>[2]-&gt;getx()<sp/>*<sp/>gCoef(i,2)</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" kindref="member">nodes</ref>[3]-&gt;getx()<sp/>*<sp/>gCoef(i,3),</highlight></codeline>
-<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" kindref="member">nodes</ref>[0]-&gt;gety()<sp/>*<sp/>gCoef(i,0)</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" kindref="member">nodes</ref>[1]-&gt;gety()<sp/>*<sp/>gCoef(i,1)</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" kindref="member">nodes</ref>[2]-&gt;gety()<sp/>*<sp/>gCoef(i,2)</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" kindref="member">nodes</ref>[3]-&gt;gety()<sp/>*<sp/>gCoef(i,3),</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" kindref="member">nodes</ref>[0]-&gt;getz()<sp/>*<sp/>gCoef(i,0)</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" kindref="member">nodes</ref>[1]-&gt;getz()<sp/>*<sp/>gCoef(i,1)</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" kindref="member">nodes</ref>[2]-&gt;getz()<sp/>*<sp/>gCoef(i,2)</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" kindref="member">nodes</ref>[3]-&gt;getz()<sp/>*<sp/>gCoef(i,3),</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a7108fef12b0319adebeff93cab664314" kindref="member">dc</ref></highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="119"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"></highlight></codeline>
-<codeline lineno="121"><highlight class="normal"></highlight></codeline>
-<codeline lineno="122"><highlight class="normal"></highlight><highlight class="comment">//<sp/>void<sp/>CellTetrahedron::initialize(<sp/>std::map&lt;int,Node*&gt;<sp/>&amp;<sp/>nodes_in<sp/>)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"></highlight><highlight class="comment">//<sp/>{</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="124"><highlight class="normal"></highlight><highlight class="comment">//<sp/>//<sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;CellTetrahedron<sp/>points<sp/>&quot;<sp/>&lt;&lt;<sp/>this-&gt;points<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"></highlight><highlight class="comment">//<sp/></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="126"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>//<sp/>This<sp/>function<sp/>can<sp/>be<sp/>joined<sp/>with<sp/>assembleGaussPoints<sp/>so<sp/>the</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="127"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>//<sp/>Gpoints<sp/>are<sp/>iterated<sp/>only<sp/>once...</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="128"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>for<sp/>(<sp/>std::vector&lt;GaussPoint*&gt;::iterator<sp/>it<sp/>=<sp/>gPoints.begin();</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="129"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>it<sp/>!=<sp/>gPoints.end();</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++it)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="131"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="132"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>(*it)-&gt;findSupportNodes(<sp/>nodes_in<sp/>);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"></highlight></codeline>
-<codeline lineno="137"><highlight class="normal"></highlight></codeline>
-<codeline lineno="138" refid="d9/d39/classmknix_1_1_cell_tetrahedron_1aba4f93f294a8ceea377cc2feb44f56db" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1aba4f93f294a8ceea377cc2feb44f56db" kindref="member">CellTetrahedron::gnuplotOut</ref>(<sp/>std::ofstream&amp;<sp/>data,<sp/>std::ofstream&amp;<sp/>gpdata<sp/>)</highlight></codeline>
-<codeline lineno="139"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for<sp/>(int<sp/>i=0;<sp/>i&lt;3;<sp/>++i){</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="141"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>data<sp/>&lt;&lt;<sp/>points(i,0)<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>points(i,1)<sp/>&lt;&lt;<sp/>&quot;<sp/>0\n&quot;;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="142"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="143"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>data<sp/>&lt;&lt;<sp/>points(0,0)<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>points(0,1)<sp/>&lt;&lt;<sp/>&quot;<sp/>0\n&quot;;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="144"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>data<sp/>&lt;&lt;<sp/>std::endl;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="145"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="146"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for(std::vector&lt;GaussPoint*&gt;::iterator<sp/>it=gPoints.begin();</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="147"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>it!=gPoints.end();</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>++it){</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="149"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*it)-&gt;gnuplotOut(<sp/>gpdata<sp/>);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="150"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="151"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"></highlight></codeline>
-<codeline lineno="153"><highlight class="normal">}<sp/></highlight><highlight class="comment">//Namespace<sp/>mknix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a933dde9cb028e9be1f0f9024fb7b898d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a933dde9cb028e9be1f0f9024fb7b898d" kindref="member">CellTetrahedron::createGaussPoints</ref>(<sp/>)</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/d8d/classlmx_1_1_dense_matrix" kindref="compound">lmx::DenseMatrix&lt;double&gt;</ref><sp/>gCoef(<sp/>size_type(<ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref>),<sp/>5);</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>reference:<sp/>http://www.cs.rpi.edu/~flaherje/pdf/fea6.pdf</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref><sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(0,0)<sp/>=<sp/>.25;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(0,1)<sp/>=<sp/>.25;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(0,2)<sp/>=<sp/>.25;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(0,3)<sp/>=<sp/>.25;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(0,4)<sp/>=<sp/>1.;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref><sp/>==<sp/>4)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(0,0)<sp/>=<sp/>.585410196624969;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(0,1)<sp/>=<sp/>gCoef(0,2)<sp/>=<sp/>gCoef(0,3)<sp/>=<sp/>.138196601125011;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(0,4)<sp/>=<sp/>.25;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(1,1)<sp/>=<sp/>.585410196624969;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(1,0)<sp/>=<sp/>gCoef(1,2)<sp/>=<sp/>gCoef(1,3)<sp/>=<sp/>.138196601125011;</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(1,4)<sp/>=<sp/>.25;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(2,2)<sp/>=<sp/>.585410196624969;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(2,1)<sp/>=<sp/>gCoef(2,0)<sp/>=<sp/>gCoef(2,3)<sp/>=<sp/>.138196601125011;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(2,4)<sp/>=<sp/>.25;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(3,3)<sp/>=<sp/>.585410196624969;</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(3,1)<sp/>=<sp/>gCoef(3,2)<sp/>=<sp/>gCoef(3,0)<sp/>=<sp/>.138196601125011;</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(3,4)<sp/>=<sp/>.25;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment">//<sp/>more<sp/>on<sp/>...<sp/>http://electromagnetics.biz/2D%20Gauss.txt</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>else<sp/>if(nGPoints<sp/>==<sp/>12){</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>else<sp/>if(nGPoints<sp/>==<sp/>20){</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;<ref refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" kindref="member">nGPoints</ref>;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" kindref="member">gPoints</ref>.push_back</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d6/d47/classmknix_1_1_gauss_point3_d" kindref="compound">GaussPoint3D</ref></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<sp/>this-&gt;<ref refid="db/dd4/classmknix_1_1_cell_1a79afef7ecbdfee69e687bb2e7559520b" kindref="member">alpha</ref>,</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(i,4),</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" kindref="member">jacobian</ref>,</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a83ca13ff89196b3ab378d2a28820a08e" kindref="member">mat</ref>,</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i,</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" kindref="member">bodyPoints</ref>[0]-&gt;getX()<sp/>*<sp/>gCoef(i,0)</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" kindref="member">bodyPoints</ref>[1]-&gt;getX()<sp/>*<sp/>gCoef(i,1)</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" kindref="member">bodyPoints</ref>[2]-&gt;getX()<sp/>*<sp/>gCoef(i,2)</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" kindref="member">bodyPoints</ref>[3]-&gt;getX()<sp/>*<sp/>gCoef(i,3),</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" kindref="member">bodyPoints</ref>[0]-&gt;getY()<sp/>*<sp/>gCoef(i,0)</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" kindref="member">bodyPoints</ref>[1]-&gt;getY()<sp/>*<sp/>gCoef(i,1)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" kindref="member">bodyPoints</ref>[2]-&gt;getY()<sp/>*<sp/>gCoef(i,2)</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" kindref="member">bodyPoints</ref>[3]-&gt;getY()<sp/>*<sp/>gCoef(i,3),</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" kindref="member">bodyPoints</ref>[0]-&gt;getZ()<sp/>*<sp/>gCoef(i,0)</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" kindref="member">bodyPoints</ref>[1]-&gt;getZ()<sp/>*<sp/>gCoef(i,1)</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" kindref="member">bodyPoints</ref>[2]-&gt;getZ()<sp/>*<sp/>gCoef(i,2)</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/><ref refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" kindref="member">bodyPoints</ref>[3]-&gt;getZ()<sp/>*<sp/>gCoef(i,3),</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="db/dd4/classmknix_1_1_cell_1a7108fef12b0319adebeff93cab664314" kindref="member">dc</ref>,</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight><highlight class="comment">//<sp/>void<sp/>CellTetrahedron::initialize(<sp/>std::map&lt;int,Point*&gt;<sp/>&amp;<sp/>nodes_in<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="comment">//<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight><highlight class="comment">//<sp/>//<sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;CellTetrahedron<sp/>points<sp/>&quot;<sp/>&lt;&lt;<sp/>this-&gt;points<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>//<sp/>This<sp/>function<sp/>can<sp/>be<sp/>joined<sp/>with<sp/>assembleGaussPoints<sp/>so<sp/>the</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>//<sp/>Gpoints<sp/>are<sp/>iterated<sp/>only<sp/>once...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>for<sp/>(<sp/>std::vector&lt;GaussPoint*&gt;::iterator<sp/>it<sp/>=<sp/>gPoints.begin();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>it<sp/>!=<sp/>gPoints.end();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++it)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>(*it)-&gt;findSupportPoints(<sp/>nodes_in<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146" refid="d9/d39/classmknix_1_1_cell_tetrahedron_1aba4f93f294a8ceea377cc2feb44f56db" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d9/d39/classmknix_1_1_cell_tetrahedron_1aba4f93f294a8ceea377cc2feb44f56db" kindref="member">CellTetrahedron::gnuplotOut</ref>(<sp/>std::ofstream&amp;<sp/>data,<sp/>std::ofstream&amp;<sp/>gpdata<sp/>)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for<sp/>(int<sp/>i=0;<sp/>i&lt;3;<sp/>++i){</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>data<sp/>&lt;&lt;<sp/>points(i,0)<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>points(i,1)<sp/>&lt;&lt;<sp/>&quot;<sp/>0\n&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>data<sp/>&lt;&lt;<sp/>points(0,0)<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>points(0,1)<sp/>&lt;&lt;<sp/>&quot;<sp/>0\n&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>data<sp/>&lt;&lt;<sp/>std::endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight><highlight class="comment">//</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>for(std::vector&lt;GaussPoint*&gt;::iterator<sp/>it=gPoints.begin();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>it!=gPoints.end();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>++it){</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*it)-&gt;gnuplotOut(<sp/>gpdata<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal">}<sp/></highlight><highlight class="comment">//Namespace<sp/>mknix</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/celltetrahedron.cpp"/>
+    <location file="/home/daniel/Projects/MkniX/src/core/celltetrahedron.cpp"/>
   </compounddef>
 </doxygen>

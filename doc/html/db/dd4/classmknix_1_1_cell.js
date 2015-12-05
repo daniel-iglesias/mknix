@@ -23,17 +23,19 @@ var classmknix_1_1_cell =
     [ "computeMGaussPoints", "db/dd4/classmknix_1_1_cell.html#a32a01eb5f854fc23353c0eb64b65e2da", null ],
     [ "computeNLFintGaussPoints", "db/dd4/classmknix_1_1_cell.html#a84014b9ed9c8a49c604f4ddb91b524fe", null ],
     [ "computeNLKGaussPoints", "db/dd4/classmknix_1_1_cell.html#a56231c1df8cd13f6b3f04356da6c2955", null ],
-    [ "computeQextGaussPoints", "db/dd4/classmknix_1_1_cell.html#a45c2f8b146cafa0ba3a6503f70eb38a7", null ],
+    [ "computeQextGaussPoints", "db/dd4/classmknix_1_1_cell.html#a98f6864613cfbac05b0f8ccbe067e743", null ],
     [ "computeShapeFunctions", "db/dd4/classmknix_1_1_cell.html#a6772f09fe6965faff4b53486b09f7235", null ],
     [ "gnuplotOut", "db/dd4/classmknix_1_1_cell.html#a345a938d058d10f60d6c302a715290de", null ],
     [ "gnuplotOutStress", "db/dd4/classmknix_1_1_cell.html#a6dd6795d452d5bd8ff26de1419baef31", null ],
     [ "initialize", "db/dd4/classmknix_1_1_cell.html#a77d7851793538f99d8aa0ea664fa0fb7", null ],
+    [ "outputConnectivityToFile", "db/dd4/classmknix_1_1_cell.html#ab004ce4e03c629bd57a457e0a74f4d8b", null ],
     [ "alpha", "db/dd4/classmknix_1_1_cell.html#a79afef7ecbdfee69e687bb2e7559520b", null ],
+    [ "bodyPoints", "db/dd4/classmknix_1_1_cell.html#a3b99f21386f177893f32289c95df4684", null ],
     [ "dc", "db/dd4/classmknix_1_1_cell.html#a7108fef12b0319adebeff93cab664314", null ],
     [ "formulation", "db/dd4/classmknix_1_1_cell.html#ad637a730575145fbc61f884b2edac8f8", null ],
     [ "gPoints", "db/dd4/classmknix_1_1_cell.html#a980ae62ad7e6dda296257455ee173f86", null ],
+    [ "gPoints_MC", "db/dd4/classmknix_1_1_cell.html#a45f0c5d52208a6166a71e05b190ece44", null ],
     [ "jacobian", "db/dd4/classmknix_1_1_cell.html#a4922bf34ba543606a8d9c5ca4847b589", null ],
     [ "mat", "db/dd4/classmknix_1_1_cell.html#a83ca13ff89196b3ab378d2a28820a08e", null ],
-    [ "nGPoints", "db/dd4/classmknix_1_1_cell.html#a7d406d6e6f58c14da07387723986ae38", null ],
-    [ "nodes", "db/dd4/classmknix_1_1_cell.html#a6afd7987e2b95a27ec9229caf2244015", null ]
+    [ "nGPoints", "db/dd4/classmknix_1_1_cell.html#a7d406d6e6f58c14da07387723986ae38", null ]
 ];

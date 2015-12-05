@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="dd/d4d/classmknix_1_1_elem_tetrahedron" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="dd/d4d/classmknix_1_1_elem_tetrahedron" kind="class" language="C++" prot="public">
     <compoundname>mknix::ElemTetrahedron</compoundname>
     <basecompoundref refid="d9/d39/classmknix_1_1_cell_tetrahedron" prot="public" virt="non-virtual">mknix::CellTetrahedron</basecompoundref>
     <includes refid="d3/d9f/elemtetrahedron_8h" local="no">elemtetrahedron.h</includes>
@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/elemtetrahedron.h" line="33" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/elemtetrahedron.cpp" bodystart="24" bodyend="27"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/elemtetrahedron.h" line="33" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/elemtetrahedron.cpp" bodystart="27" bodyend="30"/>
       </memberdef>
       <memberdef kind="function" id="dd/d4d/classmknix_1_1_elem_tetrahedron_1acc770204f5dd41e0cf453c6235535115" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -57,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/elemtetrahedron.h" line="40" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/elemtetrahedron.cpp" bodystart="30" bodyend="47"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/elemtetrahedron.h" line="40" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/elemtetrahedron.cpp" bodystart="33" bodyend="49"/>
       </memberdef>
       <memberdef kind="function" id="dd/d4d/classmknix_1_1_elem_tetrahedron_1a2f836d024ff3adf00b94a3371505cff4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -70,7 +70,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/elemtetrahedron.h" line="47" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/elemtetrahedron.cpp" bodystart="50" bodyend="52"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/elemtetrahedron.h" line="47" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/elemtetrahedron.cpp" bodystart="52" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="dd/d4d/classmknix_1_1_elem_tetrahedron_1a1f42683d35b87bfd4ddd4e83824d040d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -88,9 +88,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/elemtetrahedron.h" line="49" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/elemtetrahedron.cpp" bodystart="55" bodyend="68"/>
-        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">mknix::Cell::gPoints</references>
-        <references refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" compoundref="d0/ddd/cell_8h" startline="36">mknix::Cell::nodes</references>
+        <location file="/home/daniel/Projects/MkniX/src/core/elemtetrahedron.h" line="49" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/elemtetrahedron.cpp" bodystart="57" bodyend="75"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a45f0c5d52208a6166a71e05b190ece44" compoundref="d0/ddd/cell_8h" startline="121">mknix::Cell::gPoints_MC</references>
+        <references refid="dd/d4d/classmknix_1_1_elem_tetrahedron_1ac2c5c2984da8dca498cbf16153130595" compoundref="d3/d50/elemtetrahedron_8cpp" startline="88" endline="150">createGaussPoints_MC</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="120">mknix::Cell::gPoints</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" compoundref="d0/ddd/cell_8h" startline="123">mknix::Cell::bodyPoints</references>
       </memberdef>
       <memberdef kind="function" id="dd/d4d/classmknix_1_1_elem_tetrahedron_1a09d199d493dd9642da2ccb7190306b18" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -104,8 +106,30 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/elemtetrahedron.h" line="51" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/elemtetrahedron.cpp" bodystart="71" bodyend="79"/>
-        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">mknix::Cell::gPoints</references>
+        <location file="/home/daniel/Projects/MkniX/src/core/elemtetrahedron.h" line="51" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/elemtetrahedron.cpp" bodystart="78" bodyend="86"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="120">mknix::Cell::gPoints</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a45f0c5d52208a6166a71e05b190ece44" compoundref="d0/ddd/cell_8h" startline="121">mknix::Cell::gPoints_MC</references>
+      </memberdef>
+      <memberdef kind="function" id="dd/d4d/classmknix_1_1_elem_tetrahedron_1ac2c5c2984da8dca498cbf16153130595" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::ElemTetrahedron::createGaussPoints_MC</definition>
+        <argsstring>()</argsstring>
+        <name>createGaussPoints_MC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/elemtetrahedron.h" line="53" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/elemtetrahedron.cpp" bodystart="88" bodyend="150"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" compoundref="d0/ddd/cell_8h" startline="119">mknix::Cell::nGPoints</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a45f0c5d52208a6166a71e05b190ece44" compoundref="d0/ddd/cell_8h" startline="121">mknix::Cell::gPoints_MC</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a79afef7ecbdfee69e687bb2e7559520b" compoundref="d0/ddd/cell_8h" startline="118">mknix::Cell::alpha</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" compoundref="d0/ddd/cell_8h" startline="122">mknix::Cell::jacobian</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a83ca13ff89196b3ab378d2a28820a08e" compoundref="d0/ddd/cell_8h" startline="116">mknix::Cell::mat</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" compoundref="d0/ddd/cell_8h" startline="123">mknix::Cell::bodyPoints</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a7108fef12b0319adebeff93cab664314" compoundref="d0/ddd/cell_8h" startline="124">mknix::Cell::dc</references>
+        <referencedby refid="dd/d4d/classmknix_1_1_elem_tetrahedron_1a1f42683d35b87bfd4ddd4e83824d040d" compoundref="d3/d50/elemtetrahedron_8cpp" startline="57" endline="75">initialize</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -114,49 +138,49 @@
 <para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
 </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="329">
+      <node id="569">
         <label>mknix::Cell</label>
         <link refid="db/dd4/classmknix_1_1_cell"/>
       </node>
-      <node id="328">
+      <node id="568">
         <label>mknix::CellTetrahedron</label>
         <link refid="d9/d39/classmknix_1_1_cell_tetrahedron"/>
-        <childnode refid="329" relation="public-inheritance">
+        <childnode refid="569" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="327">
+      <node id="567">
         <label>mknix::ElemTetrahedron</label>
         <link refid="dd/d4d/classmknix_1_1_elem_tetrahedron"/>
-        <childnode refid="328" relation="public-inheritance">
+        <childnode refid="568" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="332">
+      <node id="572">
         <label>mknix::Cell</label>
         <link refid="db/dd4/classmknix_1_1_cell"/>
-        <childnode refid="333" relation="usage">
+        <childnode refid="573" relation="usage">
           <edgelabel>mat</edgelabel>
         </childnode>
       </node>
-      <node id="333">
+      <node id="573">
         <label>mknix::Material</label>
         <link refid="d6/d4a/classmknix_1_1_material"/>
       </node>
-      <node id="331">
+      <node id="571">
         <label>mknix::CellTetrahedron</label>
         <link refid="d9/d39/classmknix_1_1_cell_tetrahedron"/>
-        <childnode refid="332" relation="public-inheritance">
+        <childnode refid="572" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="330">
+      <node id="570">
         <label>mknix::ElemTetrahedron</label>
         <link refid="dd/d4d/classmknix_1_1_elem_tetrahedron"/>
-        <childnode refid="331" relation="public-inheritance">
+        <childnode refid="571" relation="public-inheritance">
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/elemtetrahedron.h" line="31" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/elemtetrahedron.h" bodystart="30" bodyend="53"/>
+    <location file="/home/daniel/Projects/MkniX/src/core/elemtetrahedron.h" line="31" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/elemtetrahedron.h" bodystart="30" bodyend="54"/>
     <listofallmembers>
       <member refid="db/dd4/classmknix_1_1_cell_1a79afef7ecbdfee69e687bb2e7559520b" prot="protected" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>alpha</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a4d4af2c299e451b91a81819ccf5d6358" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>assembleCapacityGaussPoints</name></member>
@@ -168,13 +192,14 @@
       <member refid="db/dd4/classmknix_1_1_cell_1af65d528a607f3215d04449551db94dcd" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>assembleNLRGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a130944ac8867e93ce882e7cc8c3555ca" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>assembleQextGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a97fdd8bbf158f3b03b1af601177c2585" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>assembleRGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" prot="protected" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>bodyPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a1b59c56aa8983a27571c6809b03604c5" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>calcElasticEGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1aa0b40b9534a376333490fe73d921e552" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>calcKineticEGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a9aba982ff2a54738ec8b38446d333f8d" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>calcPotentialEGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a1c285cc4f38656550e8e2926058e8612" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>Cell</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1ad0988ed8a4aac7c7440bee9413e1189f" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>Cell</name></member>
       <member refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a6824b4f7304f0717ccdbaf32126239a0" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>CellTetrahedron</name></member>
-      <member refid="d9/d39/classmknix_1_1_cell_tetrahedron_1aa462fd7b0dffd4896100e413e60b55d1" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>CellTetrahedron</name></member>
+      <member refid="d9/d39/classmknix_1_1_cell_tetrahedron_1ac4c2343cfe88b0f0a0c2be8636fd0cde" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>CellTetrahedron</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a675db1cafb39d5abab7b13994df21045" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>computeCapacityGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a5d8c11ba58bbaa6f70d5dc2b530868e7" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>computeConductivityGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a19b4ed719612fe2e0043d0cebcbe1537" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>computeFextGaussPoints</name></member>
@@ -183,9 +208,10 @@
       <member refid="db/dd4/classmknix_1_1_cell_1a32a01eb5f854fc23353c0eb64b65e2da" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>computeMGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a84014b9ed9c8a49c604f4ddb91b524fe" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>computeNLFintGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a56231c1df8cd13f6b3f04356da6c2955" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>computeNLKGaussPoints</name></member>
-      <member refid="db/dd4/classmknix_1_1_cell_1a45c2f8b146cafa0ba3a6503f70eb38a7" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>computeQextGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a98f6864613cfbac05b0f8ccbe067e743" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>computeQextGaussPoints</name></member>
       <member refid="dd/d4d/classmknix_1_1_elem_tetrahedron_1a09d199d493dd9642da2ccb7190306b18" prot="public" virt="virtual"><scope>mknix::ElemTetrahedron</scope><name>computeShapeFunctions</name></member>
       <member refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a933dde9cb028e9be1f0f9024fb7b898d" prot="protected" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>createGaussPoints</name></member>
+      <member refid="dd/d4d/classmknix_1_1_elem_tetrahedron_1ac2c5c2984da8dca498cbf16153130595" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>createGaussPoints_MC</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a7108fef12b0319adebeff93cab664314" prot="protected" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>dc</name></member>
       <member refid="dd/d4d/classmknix_1_1_elem_tetrahedron_1aa3141ce1b742562eb40bfe0c7e376956" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>ElemTetrahedron</name></member>
       <member refid="dd/d4d/classmknix_1_1_elem_tetrahedron_1acc770204f5dd41e0cf453c6235535115" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>ElemTetrahedron</name></member>
@@ -193,12 +219,13 @@
       <member refid="d9/d39/classmknix_1_1_cell_tetrahedron_1aba4f93f294a8ceea377cc2feb44f56db" prot="public" virt="virtual"><scope>mknix::ElemTetrahedron</scope><name>gnuplotOut</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a6dd6795d452d5bd8ff26de1419baef31" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>gnuplotOutStress</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" prot="protected" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>gPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a45f0c5d52208a6166a71e05b190ece44" prot="protected" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>gPoints_MC</name></member>
       <member refid="dd/d4d/classmknix_1_1_elem_tetrahedron_1a1f42683d35b87bfd4ddd4e83824d040d" prot="public" virt="virtual"><scope>mknix::ElemTetrahedron</scope><name>initialize</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" prot="protected" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>jacobian</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a83ca13ff89196b3ab378d2a28820a08e" prot="protected" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>mat</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" prot="protected" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>nGPoints</name></member>
-      <member refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" prot="protected" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>nodes</name></member>
-      <member refid="d9/d39/classmknix_1_1_cell_tetrahedron_1af1f5f57c6cd10b8a416617b4761dfac6" prot="protected" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>points</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1ab004ce4e03c629bd57a457e0a74f4d8b" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>outputConnectivityToFile</name></member>
+      <member refid="d9/d39/classmknix_1_1_cell_tetrahedron_1ad43ea7159ab2b6818636340c6f76de65" prot="protected" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>points</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1ab4efc3f7c10212304dd776e7b58bb57b" prot="public" virt="virtual"><scope>mknix::ElemTetrahedron</scope><name>~Cell</name></member>
       <member refid="d9/d39/classmknix_1_1_cell_tetrahedron_1a4ae5db633022a1714da463f4c32ffa03" prot="public" virt="virtual"><scope>mknix::ElemTetrahedron</scope><name>~CellTetrahedron</name></member>
       <member refid="dd/d4d/classmknix_1_1_elem_tetrahedron_1a2f836d024ff3adf00b94a3371505cff4" prot="public" virt="non-virtual"><scope>mknix::ElemTetrahedron</scope><name>~ElemTetrahedron</name></member>

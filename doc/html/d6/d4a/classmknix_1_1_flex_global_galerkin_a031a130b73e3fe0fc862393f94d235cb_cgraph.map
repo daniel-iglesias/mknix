@@ -1,4 +1,4 @@
 <map id="mknix::FlexGlobalGalerkin::outputStep" name="mknix::FlexGlobalGalerkin::outputStep">
-<area shape="rect" id="node3" href="$db/d0b/classmknix_1_1_simulation.html#adda4efbeb29fecf80bcd8552703bfed4" title="mknix::Simulation::\lgetDim" alt="" coords="231,5,364,51"/>
-<area shape="rect" id="node5" href="$db/d0b/classmknix_1_1_simulation.html#a49263e8630678644836bbba466e6ab4b" title="mknix::Simulation::\lgetSmoothingType" alt="" coords="231,74,364,121"/>
+<area shape="rect" id="node2" href="$dd/de3/classmknix_1_1_body.html#ae41a00911e832630c5b18e874a503e34" title="Postprocess and store thermal step results for any analysis. " alt="" coords="228,5,395,32"/>
+<area shape="rect" id="node3" href="$db/d0b/classmknix_1_1_simulation.html#adda4efbeb29fecf80bcd8552703bfed4" title="mknix::Simulation::\lgetDim" alt="" coords="244,57,379,98"/>
 </map>

@@ -1,263 +1,472 @@
-\hypertarget{classmknix_1_1_thermal_body}{\subsection{mknix\-:\-:Thermal\-Body Class Reference}
-\label{classmknix_1_1_thermal_body}\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}}
-}
+\hypertarget{classmknix_1_1_thermal_body}{}\subsection{mknix\+:\+:Thermal\+Body Class Reference}
+\label{classmknix_1_1_thermal_body}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
 
 
-{\ttfamily \#include $<$bodythermal.\-h$>$}
+{\ttfamily \#include $<$bodythermal.\+h$>$}
 
 
 
-Collaboration diagram for mknix\-:\-:Thermal\-Body\-:\nopagebreak
+Collaboration diagram for mknix\+:\+:Thermal\+Body\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=190pt]{d5/d1e/classmknix_1_1_thermal_body__coll__graph}
+\includegraphics[width=223pt]{d5/d1e/classmknix_1_1_thermal_body__coll__graph}
 \end{center}
 \end{figure}
 \subsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{classmknix_1_1_thermal_body_a41c675feaab004c04ff4f5ae0fb8a27e}{Thermal\-Body} ()
+\hyperlink{classmknix_1_1_thermal_body_a41c675feaab004c04ff4f5ae0fb8a27e}{Thermal\+Body} ()
 \item 
-\hyperlink{classmknix_1_1_thermal_body_ac80f8070e47d8467ff2818a9d9095a8c}{Thermal\-Body} (std\-::string)
-\item 
-virtual \hyperlink{classmknix_1_1_thermal_body_a5d4980cc538507f1f10111de9eca4018}{$\sim$\-Thermal\-Body} ()
+\hyperlink{classmknix_1_1_thermal_body_ac80f8070e47d8467ff2818a9d9095a8c}{Thermal\+Body} (std\+::string)
+\begin{DoxyCompactList}\small\item\em Constructor with 1 parameter. \end{DoxyCompactList}\item 
+virtual \hyperlink{classmknix_1_1_thermal_body_a5d4980cc538507f1f10111de9eca4018}{$\sim$\+Thermal\+Body} ()
 \item 
 virtual void \hyperlink{classmknix_1_1_thermal_body_a091d281dcf4425296ea643e0f338ae83}{initialize} ()
+\begin{DoxyCompactList}\small\item\em Cascade initialization funtion. Calls the initialize methods for each of the Cells and tells them to compute their shapefunction values. Both loops are parallelized. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_thermal_body_a9908d53e5af15285c2fdd1d909779a81}{calc\+Capacity\+Matrix} ()
+\begin{DoxyCompactList}\small\item\em Computes the local Capacity of the material body by calling each cell\textquotesingle{}s cascade function. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_thermal_body_ad5b8eca1b13f081a5b49b2fa87c6be73}{calc\+Conductivity\+Matrix} ()
+\begin{DoxyCompactList}\small\item\em Computes the local Conductivity of the material body by calling each cell\textquotesingle{}s cascade function. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_thermal_body_a70ef05491f16086ff69788f745006a88}{calc\+External\+Heat} ()
+\begin{DoxyCompactList}\small\item\em Computes the local volumetric heat vector of the material body by calling each cell\textquotesingle{}s cascade function. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_thermal_body_a924ad06260f3ab9c181fd6149425bc6f}{assemble\+Capacity\+Matrix} (\hyperlink{classlmx_1_1_matrix}{lmx\+::\+Matrix}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
+\begin{DoxyCompactList}\small\item\em Assembles the local conductivity into the global matrix by calling each cell\textquotesingle{}s cascade function. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_thermal_body_a205d5c7c2c3b96577bb8d539ba3931f6}{assemble\+Conductivity\+Matrix} (\hyperlink{classlmx_1_1_matrix}{lmx\+::\+Matrix}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
+\begin{DoxyCompactList}\small\item\em Assembles the local conductivity into the global matrix by calling each cell\textquotesingle{}s cascade function. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_thermal_body_a32328eca2fc0240ae2735bf402b3bdb8}{assemble\+External\+Heat} (\hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
+\begin{DoxyCompactList}\small\item\em Assembles the local volumetric heat into the global heat load vector by calling each cell\textquotesingle{}s cascade function. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_thermal_body_a1b40d106be9463126117d455fb508f86}{set\+Output} (std\+::string)
+\begin{DoxyCompactList}\small\item\em Activates a flag for output data at the end of the analysis. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_thermal_body_afb78089ba843d2496cce134429cbd659}{output\+Step} (const \hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&, const \hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
+\begin{DoxyCompactList}\small\item\em Postprocess and store step results for dynamic analysis. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_thermal_body_aeff32a838c44c34140791a39f46dbce3}{output\+Step} (const \hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
+\begin{DoxyCompactList}\small\item\em Postprocess and store step results for static analysis. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_thermal_body_a0a5734b63446b11a6176eed0255efd6f}{output\+To\+File} (std\+::ofstream $\ast$)
+\begin{DoxyCompactList}\small\item\em Streams the data stored during the analysis to a file. The idea is that all thermal\+Bodies will be linked to a solid body with the same name (title). The postprocessor will treat this values as if it was the same body, so it must take into account that it can need to read several E\+N\+E\+R\+G\+Y(.$\ast$) sections for the same body. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classmknix_1_1_thermal_body_a654e240414932dc953ed01dfb74bcef2}{add\+Node} (\hyperlink{classmknix_1_1_node}{Node} $\ast$node\+\_\+in)
 \item 
-virtual void \hyperlink{classmknix_1_1_thermal_body_a9908d53e5af15285c2fdd1d909779a81}{calc\-Capacity\-Matrix} ()
+virtual \hyperlink{classmknix_1_1_node}{Node} $\ast$ \hyperlink{classmknix_1_1_thermal_body_a5808d882210cc01f52f98b228d5eec52}{get\+Node} (int node\+\_\+number)
 \item 
-virtual void \hyperlink{classmknix_1_1_thermal_body_ad5b8eca1b13f081a5b49b2fa87c6be73}{calc\-Conductivity\-Matrix} ()
+virtual \hyperlink{classmknix_1_1_node}{Node} $\ast$ \hyperlink{classmknix_1_1_thermal_body_a2f81cf2beefe00b1d1b9a9cee265deb2}{get\+Last\+Node} ()
 \item 
-virtual void \hyperlink{classmknix_1_1_thermal_body_a70ef05491f16086ff69788f745006a88}{calc\-External\-Heat} ()
+virtual void \hyperlink{classmknix_1_1_thermal_body_a0a21d64ebd286d4afd3715f1f9faa268}{add\+Cell} (int num, \hyperlink{classmknix_1_1_cell}{Cell} $\ast$cell\+\_\+in)
 \item 
-virtual void \hyperlink{classmknix_1_1_thermal_body_a924ad06260f3ab9c181fd6149425bc6f}{assemble\-Capacity\-Matrix} (lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
-\item 
-virtual void \hyperlink{classmknix_1_1_thermal_body_a205d5c7c2c3b96577bb8d539ba3931f6}{assemble\-Conductivity\-Matrix} (lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
-\item 
-virtual void \hyperlink{classmknix_1_1_thermal_body_a32328eca2fc0240ae2735bf402b3bdb8}{assemble\-External\-Heat} (lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
-\item 
-virtual void \hyperlink{classmknix_1_1_thermal_body_a1b40d106be9463126117d455fb508f86}{set\-Output} (std\-::string)
-\item 
-virtual void \hyperlink{classmknix_1_1_thermal_body_afb78089ba843d2496cce134429cbd659}{output\-Step} (const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&, const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
-\item 
-virtual void \hyperlink{classmknix_1_1_thermal_body_aeff32a838c44c34140791a39f46dbce3}{output\-Step} (const lmx\-::\-Vector$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \&)
-\item 
-virtual void \hyperlink{classmknix_1_1_thermal_body_a0a5734b63446b11a6176eed0255efd6f}{output\-To\-File} (std\-::ofstream $\ast$)
-\item 
-virtual void \hyperlink{classmknix_1_1_thermal_body_a654e240414932dc953ed01dfb74bcef2}{add\-Node} (\hyperlink{classmknix_1_1_node}{Node} $\ast$node\-\_\-in)
-\item 
-virtual \hyperlink{classmknix_1_1_node}{Node} $\ast$ \hyperlink{classmknix_1_1_thermal_body_a5808d882210cc01f52f98b228d5eec52}{get\-Node} (int node\-\_\-number)
-\item 
-virtual \hyperlink{classmknix_1_1_node}{Node} $\ast$ \hyperlink{classmknix_1_1_thermal_body_a2f81cf2beefe00b1d1b9a9cee265deb2}{get\-Last\-Node} ()
-\item 
-virtual void \hyperlink{classmknix_1_1_thermal_body_a0a21d64ebd286d4afd3715f1f9faa268}{add\-Cell} (int num, \hyperlink{classmknix_1_1_cell}{Cell} $\ast$cell\-\_\-in)
-\item 
-virtual void \hyperlink{classmknix_1_1_thermal_body_a8987032e5b7e180f03602705538097c7}{set\-Thermal\-Load} (\hyperlink{classmknix_1_1_thermal_load}{Thermal\-Load} $\ast$the\-Load)
+virtual void \hyperlink{classmknix_1_1_thermal_body_af1615f6d84e848749d98854ffd7bee50}{set\+Load\+Thermal} (\hyperlink{classmknix_1_1_load_thermal_body}{Load\+Thermal\+Body} $\ast$the\+Load)
 \end{DoxyCompactItemize}
 \subsubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-std\-::string \hyperlink{classmknix_1_1_thermal_body_ad1b2b790274d2c987a8c461da0a3282f}{title}
+std\+::string \hyperlink{classmknix_1_1_thermal_body_ad1b2b790274d2c987a8c461da0a3282f}{title}
 \item 
-bool \hyperlink{classmknix_1_1_thermal_body_a097e16dfcc1491dc659608f1392a504f}{compute\-Energy}
+bool \hyperlink{classmknix_1_1_thermal_body_a097e16dfcc1491dc659608f1392a504f}{compute\+Energy}
 \item 
-std\-::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \hyperlink{classmknix_1_1_thermal_body_aa74c56a18ed24997dfc4bdb90a7f67bd}{nodes}
+std\+::vector$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \hyperlink{classmknix_1_1_thermal_body_aa74c56a18ed24997dfc4bdb90a7f67bd}{nodes}
 \item 
-std\-::map$<$ \hyperlink{classmknix_1_1_node}{Node} $\ast$, \hyperlink{classmknix_1_1_node}{Node} $\ast$ $>$ \hyperlink{classmknix_1_1_thermal_body_accad269fb2f0b891c66633011d396cfa}{boundary}
+std\+::map$<$ int, \hyperlink{classmknix_1_1_cell}{Cell} $\ast$ $>$ \hyperlink{classmknix_1_1_thermal_body_a2af2b78c8e31929211f88a5a49072c06}{cells}
 \item 
-std\-::map$<$ int, \hyperlink{classmknix_1_1_cell}{Cell} $\ast$ $>$ \hyperlink{classmknix_1_1_thermal_body_a2af2b78c8e31929211f88a5a49072c06}{cells}
+std\+::vector$<$ \hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ $\ast$ $>$ \hyperlink{classmknix_1_1_thermal_body_af5ed33528eba7a3bf39a4bdc3d2c9ed3}{temperature}
 \item 
-std\-::vector$<$ lmx\-::\-Vector\\*
-$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ $\ast$ $>$ \hyperlink{classmknix_1_1_thermal_body_aa5aa347f85714ea0766e2c1fddab4dad}{energy}
-\item 
-std\-::vector$<$ lmx\-::\-Vector\\*
-$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ $\ast$ $>$ \hyperlink{classmknix_1_1_thermal_body_af5ed33528eba7a3bf39a4bdc3d2c9ed3}{temperature}
-\item 
-lmx\-::\-Matrix$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\-\_\-type} $>$ \hyperlink{classmknix_1_1_thermal_body_a7ef0f85e0f2dac9fbdb23f23f16abb69}{local\-Mass\-Matrix}
-\item 
-\hyperlink{classmknix_1_1_thermal_load}{Thermal\-Load} $\ast$ \hyperlink{classmknix_1_1_thermal_body_abbac7355fca5db72ce619bb327c1514c}{thermal\-Load}
+\hyperlink{classmknix_1_1_load_thermal_body}{Load\+Thermal\+Body} $\ast$ \hyperlink{classmknix_1_1_thermal_body_a30a30d13eef83ca7f39a7b0236c43dcd}{load\+Thermal\+Body}
 \end{DoxyCompactItemize}
 
 
 \subsubsection{Detailed Description}
 \begin{DoxyAuthor}{Author}
-A\-U\-T\-H\-O\-R\-S $<$\-M\-A\-I\-L\-S$>$ 
+A\+U\+T\+H\+O\+R\+S $<$\+M\+A\+I\+L\+S$>$ 
 \end{DoxyAuthor}
 
 
+Definition at line 35 of file bodythermal.\+h.
+
+
+
 \subsubsection{Constructor \& Destructor Documentation}
-\hypertarget{classmknix_1_1_thermal_body_a41c675feaab004c04ff4f5ae0fb8a27e}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!Thermal\-Body@{Thermal\-Body}}
-\index{Thermal\-Body@{Thermal\-Body}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{Thermal\-Body}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Thermal\-Body\-::\-Thermal\-Body (
+\hypertarget{classmknix_1_1_thermal_body_a41c675feaab004c04ff4f5ae0fb8a27e}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!Thermal\+Body@{Thermal\+Body}}
+\index{Thermal\+Body@{Thermal\+Body}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{Thermal\+Body}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+Thermal\+Body\+::\+Thermal\+Body (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_thermal_body_a41c675feaab004c04ff4f5ae0fb8a27e}
-\hypertarget{classmknix_1_1_thermal_body_ac80f8070e47d8467ff2818a9d9095a8c}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!Thermal\-Body@{Thermal\-Body}}
-\index{Thermal\-Body@{Thermal\-Body}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{Thermal\-Body}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Thermal\-Body\-::\-Thermal\-Body (
+)}\label{classmknix_1_1_thermal_body_a41c675feaab004c04ff4f5ae0fb8a27e}
+
+
+Definition at line 28 of file bodythermal.\+cpp.
+
+\hypertarget{classmknix_1_1_thermal_body_ac80f8070e47d8467ff2818a9d9095a8c}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!Thermal\+Body@{Thermal\+Body}}
+\index{Thermal\+Body@{Thermal\+Body}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{Thermal\+Body}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+Thermal\+Body\+::\+Thermal\+Body (
 \begin{DoxyParamCaption}
-\item[{std\-::string}]{title\-\_\-in}
+\item[{std\+::string}]{title\+\_\+in}
 \end{DoxyParamCaption}
-)}}\label{classmknix_1_1_thermal_body_ac80f8070e47d8467ff2818a9d9095a8c}
-\hypertarget{classmknix_1_1_thermal_body_a5d4980cc538507f1f10111de9eca4018}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!$\sim$\-Thermal\-Body@{$\sim$\-Thermal\-Body}}
-\index{$\sim$\-Thermal\-Body@{$\sim$\-Thermal\-Body}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{$\sim$\-Thermal\-Body}]{\setlength{\rightskip}{0pt plus 5cm}mknix\-::\-Thermal\-Body\-::$\sim$\-Thermal\-Body (
+)}\label{classmknix_1_1_thermal_body_ac80f8070e47d8467ff2818a9d9095a8c}
+
+
+Constructor with 1 parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em title\+\_\+in} & Name of body in the system. Will be the same as the associated material body \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 40 of file bodythermal.\+cpp.
+
+\hypertarget{classmknix_1_1_thermal_body_a5d4980cc538507f1f10111de9eca4018}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!````~Thermal\+Body@{$\sim$\+Thermal\+Body}}
+\index{````~Thermal\+Body@{$\sim$\+Thermal\+Body}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{$\sim$\+Thermal\+Body}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+Thermal\+Body\+::$\sim$\+Thermal\+Body (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_thermal_body_a5d4980cc538507f1f10111de9eca4018}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_thermal_body_a5d4980cc538507f1f10111de9eca4018}
+
+
+Definition at line 48 of file bodythermal.\+cpp.
+
 
 
 \subsubsection{Member Function Documentation}
-\hypertarget{classmknix_1_1_thermal_body_a0a21d64ebd286d4afd3715f1f9faa268}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!add\-Cell@{add\-Cell}}
-\index{add\-Cell@{add\-Cell}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{add\-Cell}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Thermal\-Body\-::add\-Cell (
+\hypertarget{classmknix_1_1_thermal_body_a0a21d64ebd286d4afd3715f1f9faa268}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!add\+Cell@{add\+Cell}}
+\index{add\+Cell@{add\+Cell}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{add\+Cell}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Thermal\+Body\+::add\+Cell (
 \begin{DoxyParamCaption}
 \item[{int}]{num, }
-\item[{{\bf Cell} $\ast$}]{cell\-\_\-in}
+\item[{{\bf Cell} $\ast$}]{cell\+\_\+in}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_thermal_body_a0a21d64ebd286d4afd3715f1f9faa268}
-\hypertarget{classmknix_1_1_thermal_body_a654e240414932dc953ed01dfb74bcef2}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!add\-Node@{add\-Node}}
-\index{add\-Node@{add\-Node}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{add\-Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Thermal\-Body\-::add\-Node (
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_thermal_body_a0a21d64ebd286d4afd3715f1f9faa268}
+
+
+Definition at line 93 of file bodythermal.\+h.
+
+\hypertarget{classmknix_1_1_thermal_body_a654e240414932dc953ed01dfb74bcef2}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!add\+Node@{add\+Node}}
+\index{add\+Node@{add\+Node}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{add\+Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Thermal\+Body\+::add\+Node (
 \begin{DoxyParamCaption}
-\item[{{\bf Node} $\ast$}]{node\-\_\-in}
+\item[{{\bf Node} $\ast$}]{node\+\_\+in}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_thermal_body_a654e240414932dc953ed01dfb74bcef2}
-\hypertarget{classmknix_1_1_thermal_body_a924ad06260f3ab9c181fd6149425bc6f}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!assemble\-Capacity\-Matrix@{assemble\-Capacity\-Matrix}}
-\index{assemble\-Capacity\-Matrix@{assemble\-Capacity\-Matrix}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{assemble\-Capacity\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Thermal\-Body\-::assemble\-Capacity\-Matrix (
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_thermal_body_a654e240414932dc953ed01dfb74bcef2}
+
+
+Definition at line 78 of file bodythermal.\+h.
+
+\hypertarget{classmknix_1_1_thermal_body_a924ad06260f3ab9c181fd6149425bc6f}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!assemble\+Capacity\+Matrix@{assemble\+Capacity\+Matrix}}
+\index{assemble\+Capacity\+Matrix@{assemble\+Capacity\+Matrix}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{assemble\+Capacity\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Thermal\+Body\+::assemble\+Capacity\+Matrix (
 \begin{DoxyParamCaption}
-\item[{lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ \&}]{global\-Capacity}
+\item[{{\bf lmx\+::\+Matrix}$<$ {\bf data\+\_\+type} $>$ \&}]{global\+Capacity}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_thermal_body_a924ad06260f3ab9c181fd6149425bc6f}
-\hypertarget{classmknix_1_1_thermal_body_a205d5c7c2c3b96577bb8d539ba3931f6}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!assemble\-Conductivity\-Matrix@{assemble\-Conductivity\-Matrix}}
-\index{assemble\-Conductivity\-Matrix@{assemble\-Conductivity\-Matrix}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{assemble\-Conductivity\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Thermal\-Body\-::assemble\-Conductivity\-Matrix (
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_thermal_body_a924ad06260f3ab9c181fd6149425bc6f}
+
+
+Assembles the local conductivity into the global matrix by calling each cell\textquotesingle{}s cascade function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em global\+Capacity} & Reference to the global matrix of the thermal simulation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 141 of file bodythermal.\+cpp.
+
+\hypertarget{classmknix_1_1_thermal_body_a205d5c7c2c3b96577bb8d539ba3931f6}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!assemble\+Conductivity\+Matrix@{assemble\+Conductivity\+Matrix}}
+\index{assemble\+Conductivity\+Matrix@{assemble\+Conductivity\+Matrix}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{assemble\+Conductivity\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Thermal\+Body\+::assemble\+Conductivity\+Matrix (
 \begin{DoxyParamCaption}
-\item[{lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ \&}]{global\-Conductivity}
+\item[{{\bf lmx\+::\+Matrix}$<$ {\bf data\+\_\+type} $>$ \&}]{global\+Conductivity}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_thermal_body_a205d5c7c2c3b96577bb8d539ba3931f6}
-\hypertarget{classmknix_1_1_thermal_body_a32328eca2fc0240ae2735bf402b3bdb8}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!assemble\-External\-Heat@{assemble\-External\-Heat}}
-\index{assemble\-External\-Heat@{assemble\-External\-Heat}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{assemble\-External\-Heat}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Thermal\-Body\-::assemble\-External\-Heat (
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_thermal_body_a205d5c7c2c3b96577bb8d539ba3931f6}
+
+
+Assembles the local conductivity into the global matrix by calling each cell\textquotesingle{}s cascade function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em global\+Conductivity} & Reference to the global matrix of the thermal simulation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 158 of file bodythermal.\+cpp.
+
+\hypertarget{classmknix_1_1_thermal_body_a32328eca2fc0240ae2735bf402b3bdb8}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!assemble\+External\+Heat@{assemble\+External\+Heat}}
+\index{assemble\+External\+Heat@{assemble\+External\+Heat}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{assemble\+External\+Heat}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Thermal\+Body\+::assemble\+External\+Heat (
 \begin{DoxyParamCaption}
-\item[{lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{global\-External\-Heat}
+\item[{{\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{global\+External\+Heat}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_thermal_body_a32328eca2fc0240ae2735bf402b3bdb8}
-\hypertarget{classmknix_1_1_thermal_body_a9908d53e5af15285c2fdd1d909779a81}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!calc\-Capacity\-Matrix@{calc\-Capacity\-Matrix}}
-\index{calc\-Capacity\-Matrix@{calc\-Capacity\-Matrix}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{calc\-Capacity\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Thermal\-Body\-::calc\-Capacity\-Matrix (
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_thermal_body_a32328eca2fc0240ae2735bf402b3bdb8}
+
+
+Assembles the local volumetric heat into the global heat load vector by calling each cell\textquotesingle{}s cascade function. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 174 of file bodythermal.\+cpp.
+
+\hypertarget{classmknix_1_1_thermal_body_a9908d53e5af15285c2fdd1d909779a81}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!calc\+Capacity\+Matrix@{calc\+Capacity\+Matrix}}
+\index{calc\+Capacity\+Matrix@{calc\+Capacity\+Matrix}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{calc\+Capacity\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Thermal\+Body\+::calc\+Capacity\+Matrix (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_thermal_body_a9908d53e5af15285c2fdd1d909779a81}
-\hypertarget{classmknix_1_1_thermal_body_ad5b8eca1b13f081a5b49b2fa87c6be73}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!calc\-Conductivity\-Matrix@{calc\-Conductivity\-Matrix}}
-\index{calc\-Conductivity\-Matrix@{calc\-Conductivity\-Matrix}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{calc\-Conductivity\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Thermal\-Body\-::calc\-Conductivity\-Matrix (
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_thermal_body_a9908d53e5af15285c2fdd1d909779a81}
+
+
+Computes the local Capacity of the material body by calling each cell\textquotesingle{}s cascade function. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 91 of file bodythermal.\+cpp.
+
+\hypertarget{classmknix_1_1_thermal_body_ad5b8eca1b13f081a5b49b2fa87c6be73}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!calc\+Conductivity\+Matrix@{calc\+Conductivity\+Matrix}}
+\index{calc\+Conductivity\+Matrix@{calc\+Conductivity\+Matrix}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{calc\+Conductivity\+Matrix}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Thermal\+Body\+::calc\+Conductivity\+Matrix (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_thermal_body_ad5b8eca1b13f081a5b49b2fa87c6be73}
-\hypertarget{classmknix_1_1_thermal_body_a70ef05491f16086ff69788f745006a88}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!calc\-External\-Heat@{calc\-External\-Heat}}
-\index{calc\-External\-Heat@{calc\-External\-Heat}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{calc\-External\-Heat}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Thermal\-Body\-::calc\-External\-Heat (
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_thermal_body_ad5b8eca1b13f081a5b49b2fa87c6be73}
+
+
+Computes the local Conductivity of the material body by calling each cell\textquotesingle{}s cascade function. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 107 of file bodythermal.\+cpp.
+
+\hypertarget{classmknix_1_1_thermal_body_a70ef05491f16086ff69788f745006a88}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!calc\+External\+Heat@{calc\+External\+Heat}}
+\index{calc\+External\+Heat@{calc\+External\+Heat}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{calc\+External\+Heat}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Thermal\+Body\+::calc\+External\+Heat (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_thermal_body_a70ef05491f16086ff69788f745006a88}
-\hypertarget{classmknix_1_1_thermal_body_a2f81cf2beefe00b1d1b9a9cee265deb2}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!get\-Last\-Node@{get\-Last\-Node}}
-\index{get\-Last\-Node@{get\-Last\-Node}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{get\-Last\-Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Node}$\ast$ mknix\-::\-Thermal\-Body\-::get\-Last\-Node (
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_thermal_body_a70ef05491f16086ff69788f745006a88}
+
+
+Computes the local volumetric heat vector of the material body by calling each cell\textquotesingle{}s cascade function. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 123 of file bodythermal.\+cpp.
+
+\hypertarget{classmknix_1_1_thermal_body_a2f81cf2beefe00b1d1b9a9cee265deb2}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!get\+Last\+Node@{get\+Last\+Node}}
+\index{get\+Last\+Node@{get\+Last\+Node}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{get\+Last\+Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Node}$\ast$ mknix\+::\+Thermal\+Body\+::get\+Last\+Node (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_thermal_body_a2f81cf2beefe00b1d1b9a9cee265deb2}
-\hypertarget{classmknix_1_1_thermal_body_a5808d882210cc01f52f98b228d5eec52}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!get\-Node@{get\-Node}}
-\index{get\-Node@{get\-Node}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{get\-Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Node}$\ast$ mknix\-::\-Thermal\-Body\-::get\-Node (
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_thermal_body_a2f81cf2beefe00b1d1b9a9cee265deb2}
+
+
+Definition at line 88 of file bodythermal.\+h.
+
+\hypertarget{classmknix_1_1_thermal_body_a5808d882210cc01f52f98b228d5eec52}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!get\+Node@{get\+Node}}
+\index{get\+Node@{get\+Node}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{get\+Node}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Node}$\ast$ mknix\+::\+Thermal\+Body\+::get\+Node (
 \begin{DoxyParamCaption}
-\item[{int}]{node\-\_\-number}
+\item[{int}]{node\+\_\+number}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_thermal_body_a5808d882210cc01f52f98b228d5eec52}
-\hypertarget{classmknix_1_1_thermal_body_a091d281dcf4425296ea643e0f338ae83}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!initialize@{initialize}}
-\index{initialize@{initialize}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Thermal\-Body\-::initialize (
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_thermal_body_a5808d882210cc01f52f98b228d5eec52}
+
+
+Definition at line 83 of file bodythermal.\+h.
+
+\hypertarget{classmknix_1_1_thermal_body_a091d281dcf4425296ea643e0f338ae83}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!initialize@{initialize}}
+\index{initialize@{initialize}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{initialize}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Thermal\+Body\+::initialize (
 \begin{DoxyParamCaption}
 {}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_thermal_body_a091d281dcf4425296ea643e0f338ae83}
-\hypertarget{classmknix_1_1_thermal_body_afb78089ba843d2496cce134429cbd659}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!output\-Step@{output\-Step}}
-\index{output\-Step@{output\-Step}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{output\-Step}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Thermal\-Body\-::output\-Step (
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_thermal_body_a091d281dcf4425296ea643e0f338ae83}
+
+
+Cascade initialization funtion. Calls the initialize methods for each of the Cells and tells them to compute their shapefunction values. Both loops are parallelized. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 58 of file bodythermal.\+cpp.
+
+\hypertarget{classmknix_1_1_thermal_body_afb78089ba843d2496cce134429cbd659}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!output\+Step@{output\+Step}}
+\index{output\+Step@{output\+Step}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{output\+Step}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Thermal\+Body\+::output\+Step (
 \begin{DoxyParamCaption}
-\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q, }
-\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{qdot}
+\item[{const {\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{q, }
+\item[{const {\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{qdot}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_thermal_body_afb78089ba843d2496cce134429cbd659}
-\hypertarget{classmknix_1_1_thermal_body_aeff32a838c44c34140791a39f46dbce3}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!output\-Step@{output\-Step}}
-\index{output\-Step@{output\-Step}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{output\-Step}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Thermal\-Body\-::output\-Step (
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_thermal_body_afb78089ba843d2496cce134429cbd659}
+
+
+Postprocess and store step results for dynamic analysis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Global configuration vector \\
+\hline
+{\em qdot} & Global configuration first derivative vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 250 of file bodythermal.\+cpp.
+
+\hypertarget{classmknix_1_1_thermal_body_aeff32a838c44c34140791a39f46dbce3}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!output\+Step@{output\+Step}}
+\index{output\+Step@{output\+Step}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{output\+Step}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Thermal\+Body\+::output\+Step (
 \begin{DoxyParamCaption}
-\item[{const lmx\-::\-Vector$<$ {\bf data\-\_\-type} $>$ \&}]{q}
+\item[{const {\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{q}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_thermal_body_aeff32a838c44c34140791a39f46dbce3}
-\hypertarget{classmknix_1_1_thermal_body_a0a5734b63446b11a6176eed0255efd6f}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!output\-To\-File@{output\-To\-File}}
-\index{output\-To\-File@{output\-To\-File}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{output\-To\-File}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Thermal\-Body\-::output\-To\-File (
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_thermal_body_aeff32a838c44c34140791a39f46dbce3}
+
+
+Postprocess and store step results for static analysis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & Global configuration vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 278 of file bodythermal.\+cpp.
+
+\hypertarget{classmknix_1_1_thermal_body_a0a5734b63446b11a6176eed0255efd6f}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!output\+To\+File@{output\+To\+File}}
+\index{output\+To\+File@{output\+To\+File}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{output\+To\+File}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Thermal\+Body\+::output\+To\+File (
 \begin{DoxyParamCaption}
-\item[{std\-::ofstream $\ast$}]{out\-File}
+\item[{std\+::ofstream $\ast$}]{out\+File}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_thermal_body_a0a5734b63446b11a6176eed0255efd6f}
-\hypertarget{classmknix_1_1_thermal_body_a1b40d106be9463126117d455fb508f86}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!set\-Output@{set\-Output}}
-\index{set\-Output@{set\-Output}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{set\-Output}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\-::\-Thermal\-Body\-::set\-Output (
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_thermal_body_a0a5734b63446b11a6176eed0255efd6f}
+
+
+Streams the data stored during the analysis to a file. The idea is that all thermal\+Bodies will be linked to a solid body with the same name (title). The postprocessor will treat this values as if it was the same body, so it must take into account that it can need to read several E\+N\+E\+R\+G\+Y(.$\ast$) sections for the same body. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em out\+File} & Output files \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 211 of file bodythermal.\+cpp.
+
+\hypertarget{classmknix_1_1_thermal_body_af1615f6d84e848749d98854ffd7bee50}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!set\+Load\+Thermal@{set\+Load\+Thermal}}
+\index{set\+Load\+Thermal@{set\+Load\+Thermal}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{set\+Load\+Thermal}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\+::\+Thermal\+Body\+::set\+Load\+Thermal (
 \begin{DoxyParamCaption}
-\item[{std\-::string}]{output\-Type\-\_\-in}
+\item[{{\bf Load\+Thermal\+Body} $\ast$}]{the\+Load}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classmknix_1_1_thermal_body_a1b40d106be9463126117d455fb508f86}
-\hypertarget{classmknix_1_1_thermal_body_a8987032e5b7e180f03602705538097c7}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!set\-Thermal\-Load@{set\-Thermal\-Load}}
-\index{set\-Thermal\-Load@{set\-Thermal\-Load}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{set\-Thermal\-Load}]{\setlength{\rightskip}{0pt plus 5cm}virtual void mknix\-::\-Thermal\-Body\-::set\-Thermal\-Load (
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\label{classmknix_1_1_thermal_body_af1615f6d84e848749d98854ffd7bee50}
+
+
+Definition at line 99 of file bodythermal.\+h.
+
+\hypertarget{classmknix_1_1_thermal_body_a1b40d106be9463126117d455fb508f86}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!set\+Output@{set\+Output}}
+\index{set\+Output@{set\+Output}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{set\+Output}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Thermal\+Body\+::set\+Output (
 \begin{DoxyParamCaption}
-\item[{{\bf Thermal\-Load} $\ast$}]{the\-Load}
+\item[{std\+::string}]{output\+Type\+\_\+in}
 \end{DoxyParamCaption}
-)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{classmknix_1_1_thermal_body_a8987032e5b7e180f03602705538097c7}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{classmknix_1_1_thermal_body_a1b40d106be9463126117d455fb508f86}
+
+
+Activates a flag for output data at the end of the analysis. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{classmknix_1_1_thermal_body_a0a5734b63446b11a6176eed0255efd6f}{output\+To\+File()} 
+
+\hyperlink{classmknix_1_1_thermal_body_afb78089ba843d2496cce134429cbd659}{output\+Step()} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em output\+Type\+\_\+in} & Keyword of the flag. Options are\+: \mbox{[}E\+N\+E\+R\+G\+Y\mbox{]} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+Definition at line 194 of file bodythermal.\+cpp.
+
 
 
 \subsubsection{Member Data Documentation}
-\hypertarget{classmknix_1_1_thermal_body_accad269fb2f0b891c66633011d396cfa}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!boundary@{boundary}}
-\index{boundary@{boundary}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{boundary}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<${\bf Node}$\ast$,{\bf Node}$\ast$$>$ mknix\-::\-Thermal\-Body\-::boundary\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_thermal_body_accad269fb2f0b891c66633011d396cfa}
-Map of linear boundary. \hypertarget{classmknix_1_1_thermal_body_a2af2b78c8e31929211f88a5a49072c06}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!cells@{cells}}
-\index{cells@{cells}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{cells}]{\setlength{\rightskip}{0pt plus 5cm}std\-::map$<$int,{\bf Cell}$\ast$$>$ mknix\-::\-Thermal\-Body\-::cells\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_thermal_body_a2af2b78c8e31929211f88a5a49072c06}
-Map of integration cells. \hypertarget{classmknix_1_1_thermal_body_a097e16dfcc1491dc659608f1392a504f}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!compute\-Energy@{compute\-Energy}}
-\index{compute\-Energy@{compute\-Energy}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{compute\-Energy}]{\setlength{\rightskip}{0pt plus 5cm}bool mknix\-::\-Thermal\-Body\-::compute\-Energy\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_thermal_body_a097e16dfcc1491dc659608f1392a504f}
-\hypertarget{classmknix_1_1_thermal_body_aa5aa347f85714ea0766e2c1fddab4dad}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!energy@{energy}}
-\index{energy@{energy}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{energy}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ lmx\-::\-Vector$<${\bf data\-\_\-type}$>$$\ast$ $>$ mknix\-::\-Thermal\-Body\-::energy\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_thermal_body_aa5aa347f85714ea0766e2c1fddab4dad}
-\hypertarget{classmknix_1_1_thermal_body_a7ef0f85e0f2dac9fbdb23f23f16abb69}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!local\-Mass\-Matrix@{local\-Mass\-Matrix}}
-\index{local\-Mass\-Matrix@{local\-Mass\-Matrix}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{local\-Mass\-Matrix}]{\setlength{\rightskip}{0pt plus 5cm}lmx\-::\-Matrix$<$ {\bf data\-\_\-type} $>$ mknix\-::\-Thermal\-Body\-::local\-Mass\-Matrix\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_thermal_body_a7ef0f85e0f2dac9fbdb23f23f16abb69}
-\hypertarget{classmknix_1_1_thermal_body_aa74c56a18ed24997dfc4bdb90a7f67bd}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!nodes@{nodes}}
-\index{nodes@{nodes}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{nodes}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<${\bf Node}$\ast$$>$ mknix\-::\-Thermal\-Body\-::nodes\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_thermal_body_aa74c56a18ed24997dfc4bdb90a7f67bd}
-\hypertarget{classmknix_1_1_thermal_body_af5ed33528eba7a3bf39a4bdc3d2c9ed3}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!temperature@{temperature}}
-\index{temperature@{temperature}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{temperature}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ lmx\-::\-Vector$<${\bf data\-\_\-type}$>$$\ast$ $>$ mknix\-::\-Thermal\-Body\-::temperature\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_thermal_body_af5ed33528eba7a3bf39a4bdc3d2c9ed3}
-\hypertarget{classmknix_1_1_thermal_body_abbac7355fca5db72ce619bb327c1514c}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!thermal\-Load@{thermal\-Load}}
-\index{thermal\-Load@{thermal\-Load}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{thermal\-Load}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Thermal\-Load}$\ast$ mknix\-::\-Thermal\-Body\-::thermal\-Load\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_thermal_body_abbac7355fca5db72ce619bb327c1514c}
-\hypertarget{classmknix_1_1_thermal_body_ad1b2b790274d2c987a8c461da0a3282f}{\index{mknix\-::\-Thermal\-Body@{mknix\-::\-Thermal\-Body}!title@{title}}
-\index{title@{title}!mknix::ThermalBody@{mknix\-::\-Thermal\-Body}}
-\paragraph[{title}]{\setlength{\rightskip}{0pt plus 5cm}std\-::string mknix\-::\-Thermal\-Body\-::title\hspace{0.3cm}{\ttfamily [protected]}}}\label{classmknix_1_1_thermal_body_ad1b2b790274d2c987a8c461da0a3282f}
+\hypertarget{classmknix_1_1_thermal_body_a2af2b78c8e31929211f88a5a49072c06}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!cells@{cells}}
+\index{cells@{cells}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{cells}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$int,{\bf Cell}$\ast$$>$ mknix\+::\+Thermal\+Body\+::cells\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_thermal_body_a2af2b78c8e31929211f88a5a49072c06}
+Map of integration cells. 
+
+Definition at line 109 of file bodythermal.\+h.
+
+\hypertarget{classmknix_1_1_thermal_body_a097e16dfcc1491dc659608f1392a504f}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!compute\+Energy@{compute\+Energy}}
+\index{compute\+Energy@{compute\+Energy}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{compute\+Energy}]{\setlength{\rightskip}{0pt plus 5cm}bool mknix\+::\+Thermal\+Body\+::compute\+Energy\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_thermal_body_a097e16dfcc1491dc659608f1392a504f}
 
 
-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+Definition at line 107 of file bodythermal.\+h.
+
+\hypertarget{classmknix_1_1_thermal_body_a30a30d13eef83ca7f39a7b0236c43dcd}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!load\+Thermal\+Body@{load\+Thermal\+Body}}
+\index{load\+Thermal\+Body@{load\+Thermal\+Body}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{load\+Thermal\+Body}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Load\+Thermal\+Body}$\ast$ mknix\+::\+Thermal\+Body\+::load\+Thermal\+Body\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_thermal_body_a30a30d13eef83ca7f39a7b0236c43dcd}
+
+
+Definition at line 111 of file bodythermal.\+h.
+
+\hypertarget{classmknix_1_1_thermal_body_aa74c56a18ed24997dfc4bdb90a7f67bd}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!nodes@{nodes}}
+\index{nodes@{nodes}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{nodes}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<${\bf Node}$\ast$$>$ mknix\+::\+Thermal\+Body\+::nodes\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_thermal_body_aa74c56a18ed24997dfc4bdb90a7f67bd}
+
+
+Definition at line 108 of file bodythermal.\+h.
+
+\hypertarget{classmknix_1_1_thermal_body_af5ed33528eba7a3bf39a4bdc3d2c9ed3}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!temperature@{temperature}}
+\index{temperature@{temperature}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{temperature}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf lmx\+::\+Vector}$<${\bf data\+\_\+type}$>$$\ast$ $>$ mknix\+::\+Thermal\+Body\+::temperature\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_thermal_body_af5ed33528eba7a3bf39a4bdc3d2c9ed3}
+
+
+Definition at line 110 of file bodythermal.\+h.
+
+\hypertarget{classmknix_1_1_thermal_body_ad1b2b790274d2c987a8c461da0a3282f}{}\index{mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}!title@{title}}
+\index{title@{title}!mknix\+::\+Thermal\+Body@{mknix\+::\+Thermal\+Body}}
+\paragraph[{title}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string mknix\+::\+Thermal\+Body\+::title\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_thermal_body_ad1b2b790274d2c987a8c461da0a3282f}
+
+
+Definition at line 105 of file bodythermal.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{bodythermal_8h}{bodythermal.\-h}\item 
-\hyperlink{bodythermal_8cpp}{bodythermal.\-cpp}\end{DoxyCompactItemize}
+\hyperlink{bodythermal_8h}{bodythermal.\+h}\item 
+\hyperlink{bodythermal_8cpp}{bodythermal.\+cpp}\end{DoxyCompactItemize}

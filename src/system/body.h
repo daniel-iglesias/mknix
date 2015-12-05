@@ -24,8 +24,8 @@
 #include "common.h"
 #include "LMX/lmx.h"
 #include "boundarygroup.h"
-#include "cellboundary.h"
 
+#include <core/cellboundary.h>
 #include <core/node.h>
 
 namespace mknix {

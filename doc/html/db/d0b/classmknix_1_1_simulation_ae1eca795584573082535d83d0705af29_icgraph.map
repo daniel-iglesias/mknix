@@ -1,10 +1,9 @@
 <map id="mknix::Simulation::getGravity" name="mknix::Simulation::getGravity">
-<area shape="rect" id="node3" href="$d8/de9/classmknix_1_1_rigid_body_mass_point.html#a281842fc7cf1367bbed4c5e477ac8da9" title="mknix::RigidBodyMassPoint\l::calcExternalForces" alt="" coords="193,5,380,51"/>
-<area shape="rect" id="node5" href="$d6/dd9/classmknix_1_1_rigid_bar.html#a4325fbe1df7832ce09bd2bf72b00cf67" title="mknix::RigidBar::calcExternal\lForces" alt="" coords="189,74,384,121"/>
-<area shape="rect" id="node7" href="$d6/d6d/classmknix_1_1_rigid_body2_d.html#a2d1b7d48c98c3e0ef63dc2c975637793" title="mknix::RigidBody2D\l::calcExternalForces" alt="" coords="216,143,357,190"/>
-<area shape="rect" id="node9" href="$dd/d2a/classmknix_1_1_rigid_body3_d.html#a66bff0110ce5d201875f068050c84c96" title="mknix::RigidBody3D\l::calcExternalForces" alt="" coords="216,213,357,259"/>
-<area shape="rect" id="node11" href="$d2/da4/classmknix_1_1_gauss_point.html#a7bfb2560bce7b5eb2ee9e5245e691976" title="mknix::GaussPoint::\lcomputeFext" alt="" coords="216,282,357,329"/>
-<area shape="rect" id="node13" href="$d0/d66/classmknix_1_1_reader.html#ab8ac24c56853e5101ac4f2a94d172392" title="mknix::Reader::inputFromFile" alt="" coords="189,352,384,381"/>
-<area shape="rect" id="node15" href="$db/d0b/classmknix_1_1_simulation.html#a5ca9b93b996142dc843eba322b6f81fb" title="mknix::Simulation::\linputFromFile" alt="" coords="433,343,567,390"/>
-<area shape="rect" id="node17" href="$d9/d06/mknix_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="616,352,667,381"/>
+<area shape="rect" id="node2" href="$d8/de9/classmknix_1_1_rigid_body_mass_point.html#a281842fc7cf1367bbed4c5e477ac8da9" title="mknix::RigidBodyMassPoint\l::calcExternalForces" alt="" coords="192,5,379,47"/>
+<area shape="rect" id="node3" href="$d6/dd9/classmknix_1_1_rigid_bar.html#a4325fbe1df7832ce09bd2bf72b00cf67" title="mknix::RigidBar::calcExternal\lForces" alt="" coords="188,71,383,112"/>
+<area shape="rect" id="node4" href="$d6/d6d/classmknix_1_1_rigid_body2_d.html#a2d1b7d48c98c3e0ef63dc2c975637793" title="mknix::RigidBody2D\l::calcExternalForces" alt="" coords="214,136,357,177"/>
+<area shape="rect" id="node5" href="$dd/d2a/classmknix_1_1_rigid_body3_d.html#a66bff0110ce5d201875f068050c84c96" title="mknix::RigidBody3D\l::calcExternalForces" alt="" coords="214,201,357,243"/>
+<area shape="rect" id="node6" href="$df/d77/classmknix_1_1_gauss_point2_d.html#a883940868a6a24d6d60a76c008cc3057" title="mknix::GaussPoint2D\l::computeFext" alt="" coords="210,267,361,308"/>
+<area shape="rect" id="node7" href="$d6/d47/classmknix_1_1_gauss_point3_d.html#aa453d2f80fdd56eeae06864ae1538937" title="mknix::GaussPoint3D\l::computeFext" alt="" coords="210,332,361,373"/>
+<area shape="rect" id="node8" href="$d0/d66/classmknix_1_1_reader.html#ab1aedea0c0f3381e66dfc80a0d1344fe" title="mknix::Reader::inputFromFile" alt="" coords="188,398,383,425"/>
 </map>

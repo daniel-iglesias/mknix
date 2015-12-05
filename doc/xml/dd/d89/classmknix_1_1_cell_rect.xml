@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="dd/d89/classmknix_1_1_cell_rect" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="dd/d89/classmknix_1_1_cell_rect" kind="class" language="C++" prot="public">
     <compoundname>mknix::CellRect</compoundname>
     <basecompoundref refid="db/dd4/classmknix_1_1_cell" prot="public" virt="non-virtual">mknix::Cell</basecompoundref>
     <includes refid="d8/d84/cellrect_8h" local="no">cellrect.h</includes>
@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" line="29" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" bodystart="29" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellrect.h" line="50" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellrect.h" bodystart="50" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="dd/d89/classmknix_1_1_cell_rect_1a4531ab3d8a1a74456e72bcbb6c1fef9a" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" line="29" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" bodystart="29" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellrect.h" line="50" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellrect.h" bodystart="50" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="dd/d89/classmknix_1_1_cell_rect_1a01147b3fa61109e5261efa5dbf2d3232" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" line="29" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" bodystart="29" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellrect.h" line="50" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellrect.h" bodystart="50" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="dd/d89/classmknix_1_1_cell_rect_1af47eb7f019e9e6d600ccd76e62fff677" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -55,7 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" line="30" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" bodystart="30" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellrect.h" line="51" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellrect.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="dd/d89/classmknix_1_1_cell_rect_1aa965406708b9a42710d7d175dce1facb" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" line="30" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" bodystart="30" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellrect.h" line="51" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellrect.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="dd/d89/classmknix_1_1_cell_rect_1ad78e604d449c461b29bc88c7ed3f0cc2" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" line="30" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" bodystart="30" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellrect.h" line="51" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellrect.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="dd/d89/classmknix_1_1_cell_rect_1a053fa73eba4b940c9e92172c0d5b96d9" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -94,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" line="30" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" bodystart="30" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellrect.h" line="51" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellrect.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="dd/d89/classmknix_1_1_cell_rect_1a770c1e7cebea259be5e37ce9788adfe2" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -107,7 +107,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" line="30" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" bodystart="30" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellrect.h" line="51" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellrect.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="dd/d89/classmknix_1_1_cell_rect_1a1d3b8c79b48be34b733f552377fff59d" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -120,10 +120,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" line="30" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" bodystart="30" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellrect.h" line="51" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellrect.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="dd/d89/classmknix_1_1_cell_rect_1a9ed13bd6b1cac353b15f4aa3094208af" prot="private" static="no" mutable="no">
-        <type>lmx::DenseMatrix&lt; double &gt;</type>
+        <type><ref refid="d2/d8d/classlmx_1_1_dense_matrix" kindref="compound">lmx::DenseMatrix</ref>&lt; double &gt;</type>
         <definition>lmx::DenseMatrix&lt;double&gt; mknix::CellRect::points</definition>
         <argsstring></argsstring>
         <name>points</name>
@@ -133,7 +133,7 @@
 <para>position of vertex points </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" line="31" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" bodystart="31" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellrect.h" line="52" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellrect.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -148,7 +148,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" line="34" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cellrect.cpp" bodystart="6" bodyend="8"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellrect.h" line="55" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellrect.cpp" bodystart="9" bodyend="11"/>
       </memberdef>
       <memberdef kind="function" id="dd/d89/classmknix_1_1_cell_rect_1a5242df2938d1f9f60cd089c5309fa1c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -233,8 +233,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" line="36" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cellrect.cpp" bodystart="11" bodyend="49"/>
-        <references refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" compoundref="d0/ddd/cell_8h" startline="35">mknix::Cell::jacobian</references>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellrect.h" line="57" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellrect.cpp" bodystart="14" bodyend="53"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" compoundref="d0/ddd/cell_8h" startline="122">mknix::Cell::jacobian</references>
       </memberdef>
       <memberdef kind="function" id="dd/d89/classmknix_1_1_cell_rect_1a16a49a17652e7941217e1089bb243a6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -395,8 +395,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" line="47" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cellrect.cpp" bodystart="51" bodyend="97"/>
-        <references refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" compoundref="d0/ddd/cell_8h" startline="35">mknix::Cell::jacobian</references>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellrect.h" line="68" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellrect.cpp" bodystart="55" bodyend="114"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" compoundref="d0/ddd/cell_8h" startline="122">mknix::Cell::jacobian</references>
       </memberdef>
       <memberdef kind="function" id="dd/d89/classmknix_1_1_cell_rect_1a966a8afa0dee4990f8231cb7e32d33ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -409,7 +409,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" line="63" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cellrect.cpp" bodystart="99" bodyend="101"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellrect.h" line="84" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellrect.cpp" bodystart="116" bodyend="118"/>
       </memberdef>
       <memberdef kind="function" id="dd/d89/classmknix_1_1_cell_rect_1a599daac72085b935a90afe8ffcecdd20" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -427,8 +427,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" line="67" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cellrect.cpp" bodystart="219" bodyend="231"/>
-        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">mknix::Cell::gPoints</references>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellrect.h" line="88" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellrect.cpp" bodystart="298" bodyend="307"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="120">mknix::Cell::gPoints</references>
       </memberdef>
       <memberdef kind="function" id="dd/d89/classmknix_1_1_cell_rect_1aff6050da82b250a264f856743b0225e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -450,8 +450,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" line="69" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cellrect.cpp" bodystart="233" bodyend="249"/>
-        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">mknix::Cell::gPoints</references>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellrect.h" line="90" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellrect.cpp" bodystart="309" bodyend="323"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="120">mknix::Cell::gPoints</references>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -479,7 +479,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" line="72" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cellrect.cpp" bodystart="104" bodyend="203"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/cellrect.h" line="93" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellrect.cpp" bodystart="121" bodyend="282"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -488,37 +488,37 @@
 <para><simplesect kind="author"><para>Daniel Iglesias </para></simplesect>
 </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="279">
+      <node id="488">
         <label>mknix::CellRect</label>
         <link refid="dd/d89/classmknix_1_1_cell_rect"/>
-        <childnode refid="280" relation="public-inheritance">
+        <childnode refid="489" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="280">
+      <node id="489">
         <label>mknix::Cell</label>
         <link refid="db/dd4/classmknix_1_1_cell"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="281">
+      <node id="490">
         <label>mknix::CellRect</label>
         <link refid="dd/d89/classmknix_1_1_cell_rect"/>
-        <childnode refid="282" relation="public-inheritance">
+        <childnode refid="491" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="282">
+      <node id="491">
         <label>mknix::Cell</label>
         <link refid="db/dd4/classmknix_1_1_cell"/>
-        <childnode refid="283" relation="usage">
+        <childnode refid="492" relation="usage">
           <edgelabel>mat</edgelabel>
         </childnode>
       </node>
-      <node id="283">
+      <node id="492">
         <label>mknix::Material</label>
         <link refid="d6/d4a/classmknix_1_1_material"/>
       </node>
     </collaborationgraph>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" line="27" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/cellrect.h" bodystart="27" bodyend="75"/>
+    <location file="/home/daniel/Projects/MkniX/src/core/cellrect.h" line="48" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/cellrect.h" bodystart="47" bodyend="96"/>
     <listofallmembers>
       <member refid="db/dd4/classmknix_1_1_cell_1a79afef7ecbdfee69e687bb2e7559520b" prot="protected" virt="non-virtual"><scope>mknix::CellRect</scope><name>alpha</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a4d4af2c299e451b91a81819ccf5d6358" prot="public" virt="non-virtual"><scope>mknix::CellRect</scope><name>assembleCapacityGaussPoints</name></member>
@@ -533,6 +533,7 @@
       <member refid="dd/d89/classmknix_1_1_cell_rect_1aa8a1a2093ea85559996441c9e5ef8666" prot="private" virt="non-virtual"><scope>mknix::CellRect</scope><name>Ax</name></member>
       <member refid="dd/d89/classmknix_1_1_cell_rect_1a4531ab3d8a1a74456e72bcbb6c1fef9a" prot="private" virt="non-virtual"><scope>mknix::CellRect</scope><name>Ay</name></member>
       <member refid="dd/d89/classmknix_1_1_cell_rect_1a01147b3fa61109e5261efa5dbf2d3232" prot="private" virt="non-virtual"><scope>mknix::CellRect</scope><name>Az</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" prot="protected" virt="non-virtual"><scope>mknix::CellRect</scope><name>bodyPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a1b59c56aa8983a27571c6809b03604c5" prot="public" virt="non-virtual"><scope>mknix::CellRect</scope><name>calcElasticEGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1aa0b40b9534a376333490fe73d921e552" prot="public" virt="non-virtual"><scope>mknix::CellRect</scope><name>calcKineticEGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a9aba982ff2a54738ec8b38446d333f8d" prot="public" virt="non-virtual"><scope>mknix::CellRect</scope><name>calcPotentialEGaussPoints</name></member>
@@ -549,7 +550,7 @@
       <member refid="db/dd4/classmknix_1_1_cell_1a32a01eb5f854fc23353c0eb64b65e2da" prot="public" virt="non-virtual"><scope>mknix::CellRect</scope><name>computeMGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a84014b9ed9c8a49c604f4ddb91b524fe" prot="public" virt="non-virtual"><scope>mknix::CellRect</scope><name>computeNLFintGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a56231c1df8cd13f6b3f04356da6c2955" prot="public" virt="non-virtual"><scope>mknix::CellRect</scope><name>computeNLKGaussPoints</name></member>
-      <member refid="db/dd4/classmknix_1_1_cell_1a45c2f8b146cafa0ba3a6503f70eb38a7" prot="public" virt="non-virtual"><scope>mknix::CellRect</scope><name>computeQextGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a98f6864613cfbac05b0f8ccbe067e743" prot="public" virt="non-virtual"><scope>mknix::CellRect</scope><name>computeQextGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a6772f09fe6965faff4b53486b09f7235" prot="public" virt="virtual"><scope>mknix::CellRect</scope><name>computeShapeFunctions</name></member>
       <member refid="dd/d89/classmknix_1_1_cell_rect_1a57af60d341798eea661a3ba4cf29a8c4" prot="private" virt="non-virtual"><scope>mknix::CellRect</scope><name>createGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a7108fef12b0319adebeff93cab664314" prot="protected" virt="non-virtual"><scope>mknix::CellRect</scope><name>dc</name></member>
@@ -557,6 +558,7 @@
       <member refid="dd/d89/classmknix_1_1_cell_rect_1aff6050da82b250a264f856743b0225e0" prot="public" virt="virtual"><scope>mknix::CellRect</scope><name>gnuplotOut</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a6dd6795d452d5bd8ff26de1419baef31" prot="public" virt="non-virtual"><scope>mknix::CellRect</scope><name>gnuplotOutStress</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" prot="protected" virt="non-virtual"><scope>mknix::CellRect</scope><name>gPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a45f0c5d52208a6166a71e05b190ece44" prot="protected" virt="non-virtual"><scope>mknix::CellRect</scope><name>gPoints_MC</name></member>
       <member refid="dd/d89/classmknix_1_1_cell_rect_1a599daac72085b935a90afe8ffcecdd20" prot="public" virt="virtual"><scope>mknix::CellRect</scope><name>initialize</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" prot="protected" virt="non-virtual"><scope>mknix::CellRect</scope><name>jacobian</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a83ca13ff89196b3ab378d2a28820a08e" prot="protected" virt="non-virtual"><scope>mknix::CellRect</scope><name>mat</name></member>
@@ -567,7 +569,7 @@
       <member refid="dd/d89/classmknix_1_1_cell_rect_1aa965406708b9a42710d7d175dce1facb" prot="private" virt="non-virtual"><scope>mknix::CellRect</scope><name>minY</name></member>
       <member refid="dd/d89/classmknix_1_1_cell_rect_1ad78e604d449c461b29bc88c7ed3f0cc2" prot="private" virt="non-virtual"><scope>mknix::CellRect</scope><name>minZ</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" prot="protected" virt="non-virtual"><scope>mknix::CellRect</scope><name>nGPoints</name></member>
-      <member refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" prot="protected" virt="non-virtual"><scope>mknix::CellRect</scope><name>nodes</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1ab004ce4e03c629bd57a457e0a74f4d8b" prot="public" virt="non-virtual"><scope>mknix::CellRect</scope><name>outputConnectivityToFile</name></member>
       <member refid="dd/d89/classmknix_1_1_cell_rect_1a9ed13bd6b1cac353b15f4aa3094208af" prot="private" virt="non-virtual"><scope>mknix::CellRect</scope><name>points</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1ab4efc3f7c10212304dd776e7b58bb57b" prot="public" virt="virtual"><scope>mknix::CellRect</scope><name>~Cell</name></member>
       <member refid="dd/d89/classmknix_1_1_cell_rect_1a966a8afa0dee4990f8231cb7e32d33ee" prot="public" virt="non-virtual"><scope>mknix::CellRect</scope><name>~CellRect</name></member>

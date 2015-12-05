@@ -1,0 +1,10 @@
+<map id="mknix::FlexBody::writeBodyInfo" name="mknix::FlexBody::writeBodyInfo">
+<area shape="rect" id="node2" href="$db/d0b/classmknix_1_1_simulation.html#adda4efbeb29fecf80bcd8552703bfed4" title="mknix::Simulation::\lgetDim" alt="" coords="295,5,430,47"/>
+<area shape="rect" id="node3" href="$dd/d8d/classmknix_1_1_flex_body.html#a35d251c9e9329d388936af27eee5b5ff" title="mknix::FlexBody::getNode" alt="" coords="274,71,451,98"/>
+<area shape="rect" id="node4" href="$d3/d19/classmknix_1_1_point.html#a3e95c009af70a2954a950b3bdaf73aa9" title="mknix::Point::getNumber" alt="" coords="279,122,446,149"/>
+<area shape="rect" id="node5" href="$dd/de3/classmknix_1_1_body.html#a95fad3fdd4c18a0adcbeba2891b55140" title="mknix::Body::getLastNode" alt="" coords="274,173,451,199"/>
+<area shape="rect" id="node6" href="$dd/d8d/classmknix_1_1_flex_body.html#a1e9314236b0ca0259fa3c696cde337d0" title="mknix::FlexBody::getBody\lPoint" alt="" coords="275,224,451,265"/>
+<area shape="rect" id="node7" href="$dd/d8d/classmknix_1_1_flex_body.html#a204c13d17b1659656c2f7fbcb1358711" title="mknix::FlexBody::getLast\lBodyPoint" alt="" coords="277,289,448,331"/>
+<area shape="rect" id="node8" href="$dd/de3/classmknix_1_1_body.html#aa7de934eb85ec4e68741d0c7395a9a10" title="mknix::Body::getBoundarySize" alt="" coords="261,355,464,382"/>
+<area shape="rect" id="node9" href="$dd/de3/classmknix_1_1_body.html#a030d73d6f97c9fc81220ca0d21cfa4c1" title="mknix::Body::getBoundary\lFirstNode" alt="" coords="275,407,451,448"/>
+</map>

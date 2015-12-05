@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic" kind="class" language="C++" prot="public">
+    <compoundname>mknix::AnalysisThermoMechanicalDynamic</compoundname>
+    <basecompoundref refid="df/d86/classmknix_1_1_analysis" prot="public" virt="non-virtual">mknix::Analysis</basecompoundref>
+    <includes refid="d0/da7/analysisthermomechanicaldynamic_8h" local="no">analysisthermomechanicaldynamic.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1a8365a6f5c846d77813824486d0289903" prot="private" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* mknix::AnalysisThermoMechanicalDynamic::integratorType</definition>
+        <argsstring></argsstring>
+        <name>integratorType</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.h" line="48" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1a99c693cced1b0a456defe6381b4a8130" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::AnalysisThermoMechanicalDynamic::to</definition>
+        <argsstring></argsstring>
+        <name>to</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.h" line="49" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1a5d47e735fa0ceecd3151eeae1298dc49" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::AnalysisThermoMechanicalDynamic::tf</definition>
+        <argsstring></argsstring>
+        <name>tf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.h" line="49" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1a4fe490215e6b86d03eae03bda3419aba" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double mknix::AnalysisThermoMechanicalDynamic::At</definition>
+        <argsstring></argsstring>
+        <name>At</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.h" line="49" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1afd3bc84e67f0cccf2068198cf42b4c0d" prot="private" static="no" mutable="no">
+        <type>lmx::DiffProblemFirstSecond&lt; <ref refid="db/d0b/classmknix_1_1_simulation" kindref="compound">Simulation</ref>, <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt;</type>
+        <definition>lmx::DiffProblemFirstSecond&lt; Simulation, data_type &gt; mknix::AnalysisThermoMechanicalDynamic::theProblem</definition>
+        <argsstring></argsstring>
+        <name>theProblem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.h" line="50" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1a17e59510fa5636e15a7b03feb0604b4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::AnalysisThermoMechanicalDynamic::AnalysisThermoMechanicalDynamic</definition>
+        <argsstring>()</argsstring>
+        <name>AnalysisThermoMechanicalDynamic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.h" line="35" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.cpp" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1a78aea19c65b7788233352a32c984a353" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::AnalysisThermoMechanicalDynamic::AnalysisThermoMechanicalDynamic</definition>
+        <argsstring>(Simulation *, double, double, double, char *)</argsstring>
+        <name>AnalysisThermoMechanicalDynamic</name>
+        <param>
+          <type><ref refid="db/d0b/classmknix_1_1_simulation" kindref="compound">Simulation</ref> *</type>
+          <defname>simulation_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>to_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>tf_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>At_in</defname>
+        </param>
+        <param>
+          <type>char *</type>
+          <defname>integrator_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.h" line="37" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.cpp" bodystart="32" bodyend="81"/>
+        <references refid="db/d0b/classmknix_1_1_simulation_1ac832fe81a1b651b2cd667011de5645f7" compoundref="d2/d93/simulation_8cpp" startline="531" endline="559">mknix::Simulation::explicitThermalEvaluation</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a4b2297b6adf5b7c2f0c65bae5ea75f7f" compoundref="d2/d93/simulation_8cpp" startline="561" endline="591">mknix::Simulation::dynamicThermalEvaluation</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1abc0f23c897ee438c5cb5c889134ad436" compoundref="d2/d93/simulation_8cpp" startline="593" endline="634">mknix::Simulation::dynamicThermalResidue</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1afcf44a0289808f80bf6789a9671c9c55" compoundref="d2/d93/simulation_8cpp" startline="636" endline="647">mknix::Simulation::dynamicThermalTangent</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1af310f0b95c688a929971996ebccc9090" compoundref="d2/d93/simulation_8cpp" startline="685" endline="701">mknix::Simulation::dynamicThermalConvergenceInThermomechanical</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a15821a26f81024ff00f5482b9de9249f" compoundref="d2/d93/simulation_8cpp" startline="704" endline="734">mknix::Simulation::explicitAcceleration</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1ace4ce2a959690e14c443b3c6e83c2690" compoundref="d2/d93/simulation_8cpp" startline="736" endline="762">mknix::Simulation::dynamicAcceleration</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1ae78bef0d5f80665be4a0c2d926e99973" compoundref="d2/d93/simulation_8cpp" startline="764" endline="798">mknix::Simulation::dynamicResidue</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a226a281591cb1b0bac253a3dcce19e5b" compoundref="d2/d93/simulation_8cpp" startline="800" endline="812">mknix::Simulation::dynamicTangent</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a0bb5d6c4c6eccc35e892b710af40616f" compoundref="d2/d93/simulation_8cpp" startline="814" endline="853">mknix::Simulation::dynamicConvergence</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a9fd95351d7fe3ce2ba1991d6aae6a804" compoundref="d2/d93/simulation_8cpp" startline="914" endline="938">mknix::Simulation::stepTriggered</references>
+      </memberdef>
+      <memberdef kind="function" id="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1abb98d93d51b0d88883d0408965f979bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::AnalysisThermoMechanicalDynamic::~AnalysisThermoMechanicalDynamic</definition>
+        <argsstring>()</argsstring>
+        <name>~AnalysisThermoMechanicalDynamic</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.h" line="39" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.cpp" bodystart="84" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1ad6a3d20e5522565eaa53854f1f65e808" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string mknix::AnalysisThermoMechanicalDynamic::type</definition>
+        <argsstring>()</argsstring>
+        <name>type</name>
+        <reimplements refid="df/d86/classmknix_1_1_analysis_1a6dd7026a22ae11f3eef3dad3be370e70">type</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.h" line="41" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.h" bodystart="41" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1a804b252666b03bf530f04fe261f5e402" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::AnalysisThermoMechanicalDynamic::solve</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; *, lmx::Vector&lt; data_type &gt; *, lmx::Vector&lt; data_type &gt; *)</argsstring>
+        <name>solve</name>
+        <reimplements refid="df/d86/classmknix_1_1_analysis_1a515bc01fa8704395d310c5e7ebd45081">solve</reimplements>
+        <param>
+          <type><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; *</type>
+          <defname>qt_in</defname>
+        </param>
+        <param>
+          <type><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; *</type>
+          <defname>q_in</defname>
+        </param>
+        <param>
+          <type><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; *</type>
+          <defname>qdot_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.h" line="45" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.cpp" bodystart="90" bodyend="102"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="451">
+        <label>mknix::Analysis</label>
+        <link refid="df/d86/classmknix_1_1_analysis"/>
+      </node>
+      <node id="450">
+        <label>mknix::AnalysisThermoMechanicalDynamic</label>
+        <link refid="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic"/>
+        <childnode refid="451" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="454">
+        <label>mknix::Simulation</label>
+        <link refid="db/d0b/classmknix_1_1_simulation"/>
+      </node>
+      <node id="453">
+        <label>mknix::Analysis</label>
+        <link refid="df/d86/classmknix_1_1_analysis"/>
+        <childnode refid="454" relation="usage">
+          <edgelabel>theSimulation</edgelabel>
+        </childnode>
+      </node>
+      <node id="452">
+        <label>mknix::AnalysisThermoMechanicalDynamic</label>
+        <link refid="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic"/>
+        <childnode refid="453" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.h" line="33" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermomechanicaldynamic.h" bodystart="32" bodyend="52"/>
+    <listofallmembers>
+      <member refid="df/d86/classmknix_1_1_analysis_1a524d9cd12f302975c64a0c4266cd91ed" prot="public" virt="non-virtual"><scope>mknix::AnalysisThermoMechanicalDynamic</scope><name>Analysis</name></member>
+      <member refid="df/d86/classmknix_1_1_analysis_1a58f5b79c2b28457ae18186991306abb3" prot="public" virt="non-virtual"><scope>mknix::AnalysisThermoMechanicalDynamic</scope><name>Analysis</name></member>
+      <member refid="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1a17e59510fa5636e15a7b03feb0604b4d" prot="public" virt="non-virtual"><scope>mknix::AnalysisThermoMechanicalDynamic</scope><name>AnalysisThermoMechanicalDynamic</name></member>
+      <member refid="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1a78aea19c65b7788233352a32c984a353" prot="public" virt="non-virtual"><scope>mknix::AnalysisThermoMechanicalDynamic</scope><name>AnalysisThermoMechanicalDynamic</name></member>
+      <member refid="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1a4fe490215e6b86d03eae03bda3419aba" prot="private" virt="non-virtual"><scope>mknix::AnalysisThermoMechanicalDynamic</scope><name>At</name></member>
+      <member refid="df/d86/classmknix_1_1_analysis_1a7e0439caf5fa5f90d808acec6d75b72f" prot="protected" virt="non-virtual"><scope>mknix::AnalysisThermoMechanicalDynamic</scope><name>epsilon</name></member>
+      <member refid="df/d86/classmknix_1_1_analysis_1af9e3f13a8644466d416c7666a93c21ca" prot="public" virt="virtual"><scope>mknix::AnalysisThermoMechanicalDynamic</scope><name>init</name></member>
+      <member refid="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1a8365a6f5c846d77813824486d0289903" prot="private" virt="non-virtual"><scope>mknix::AnalysisThermoMechanicalDynamic</scope><name>integratorType</name></member>
+      <member refid="df/d86/classmknix_1_1_analysis_1a238dc1446726315d1d988c2b8eeda8e5" prot="public" virt="virtual"><scope>mknix::AnalysisThermoMechanicalDynamic</scope><name>nextStep</name></member>
+      <member refid="df/d86/classmknix_1_1_analysis_1a4e6baab7f63725b4ed816bb3bdbdc1d8" prot="public" virt="non-virtual"><scope>mknix::AnalysisThermoMechanicalDynamic</scope><name>setEpsilon</name></member>
+      <member refid="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1a804b252666b03bf530f04fe261f5e402" prot="public" virt="virtual"><scope>mknix::AnalysisThermoMechanicalDynamic</scope><name>solve</name></member>
+      <member refid="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1a5d47e735fa0ceecd3151eeae1298dc49" prot="private" virt="non-virtual"><scope>mknix::AnalysisThermoMechanicalDynamic</scope><name>tf</name></member>
+      <member refid="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1afd3bc84e67f0cccf2068198cf42b4c0d" prot="private" virt="non-virtual"><scope>mknix::AnalysisThermoMechanicalDynamic</scope><name>theProblem</name></member>
+      <member refid="df/d86/classmknix_1_1_analysis_1a1abc29e3b8565590b6bf0ce2d8b3b68f" prot="protected" virt="non-virtual"><scope>mknix::AnalysisThermoMechanicalDynamic</scope><name>theSimulation</name></member>
+      <member refid="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1a99c693cced1b0a456defe6381b4a8130" prot="private" virt="non-virtual"><scope>mknix::AnalysisThermoMechanicalDynamic</scope><name>to</name></member>
+      <member refid="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1ad6a3d20e5522565eaa53854f1f65e808" prot="public" virt="virtual"><scope>mknix::AnalysisThermoMechanicalDynamic</scope><name>type</name></member>
+      <member refid="df/d86/classmknix_1_1_analysis_1a4813618a04dd0c3098a58b60792f2e34" prot="public" virt="virtual"><scope>mknix::AnalysisThermoMechanicalDynamic</scope><name>~Analysis</name></member>
+      <member refid="da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic_1abb98d93d51b0d88883d0408965f979bd" prot="public" virt="non-virtual"><scope>mknix::AnalysisThermoMechanicalDynamic</scope><name>~AnalysisThermoMechanicalDynamic</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

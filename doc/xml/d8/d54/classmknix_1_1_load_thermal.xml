@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d8/d54/classmknix_1_1_load_thermal" kind="class" language="C++" prot="public">
+    <compoundname>mknix::LoadThermal</compoundname>
+    <includes refid="d7/d18/loadthermal_8h" local="no">loadthermal.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="d8/d54/classmknix_1_1_load_thermal_1a3a60314d26f6c3f45269fe80a620fdab" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> * &gt;</type>
+        <definition>std::vector&lt;Node*&gt; mknix::LoadThermal::nodes</definition>
+        <argsstring></argsstring>
+        <name>nodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadthermal.h" line="53" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadthermal.h" bodystart="53" bodyend="-1"/>
+        <referencedby refid="d8/d54/classmknix_1_1_load_thermal_1ac49667e09675aa6ebacb3fcb0c85aa99" compoundref="d9/dc9/loadthermal_8cpp" startline="31" endline="35">LoadThermal</referencedby>
+        <referencedby refid="d8/d54/classmknix_1_1_load_thermal_1a7c021ef905f65e44fd1823882bb68642" compoundref="d9/dc9/loadthermal_8cpp" startline="41" endline="50">insertNodesXCoordinates</referencedby>
+        <referencedby refid="d8/d54/classmknix_1_1_load_thermal_1a4da55a71b40f4561d3ce59e1efce0655" compoundref="d9/dc9/loadthermal_8cpp" startline="66" endline="76">getMaxTemp</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="d8/d54/classmknix_1_1_load_thermal_1a0d609c33555793457932bfca4c1b6e0c" prot="protected" static="no" mutable="no">
+        <type><ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref></type>
+        <definition>data_type mknix::LoadThermal::externalHeat</definition>
+        <argsstring></argsstring>
+        <name>externalHeat</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadthermal.h" line="54" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadthermal.h" bodystart="54" bodyend="-1"/>
+        <referencedby refid="d8/d54/classmknix_1_1_load_thermal_1ac49667e09675aa6ebacb3fcb0c85aa99" compoundref="d9/dc9/loadthermal_8cpp" startline="31" endline="35">LoadThermal</referencedby>
+        <referencedby refid="d8/d54/classmknix_1_1_load_thermal_1a2aa43f7e29df09c2c1537cef2abdcbb1" compoundref="d7/d18/loadthermal_8h" startline="42" endline="43">updateLoad</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d8/d54/classmknix_1_1_load_thermal_1ab7ff9a690520689fc6858ea53e35ba00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::LoadThermal::LoadThermal</definition>
+        <argsstring>()</argsstring>
+        <name>LoadThermal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadthermal.h" line="34" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadthermal.cpp" bodystart="27" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d54/classmknix_1_1_load_thermal_1ac49667e09675aa6ebacb3fcb0c85aa99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::LoadThermal::LoadThermal</definition>
+        <argsstring>(Node *, double)</argsstring>
+        <name>LoadThermal</name>
+        <param>
+          <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+          <defname>node_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>fluence_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadthermal.h" line="36" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadthermal.cpp" bodystart="31" bodyend="35"/>
+        <references refid="d8/d54/classmknix_1_1_load_thermal_1a3a60314d26f6c3f45269fe80a620fdab" compoundref="d7/d18/loadthermal_8h" startline="53">nodes</references>
+        <references refid="d8/d54/classmknix_1_1_load_thermal_1a0d609c33555793457932bfca4c1b6e0c" compoundref="d7/d18/loadthermal_8h" startline="54">externalHeat</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d54/classmknix_1_1_load_thermal_1ab38fec6f4ee9b13d9de9783ab9d0dbcc" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>mknix::LoadThermal::~LoadThermal</definition>
+        <argsstring>()</argsstring>
+        <name>~LoadThermal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadthermal.h" line="38" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadthermal.cpp" bodystart="37" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d54/classmknix_1_1_load_thermal_1a7c021ef905f65e44fd1823882bb68642" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::LoadThermal::insertNodesXCoordinates</definition>
+        <argsstring>(std::vector&lt; double &gt; &amp;)</argsstring>
+        <name>insertNodesXCoordinates</name>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <defname>x_coordinates</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadthermal.h" line="40" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadthermal.cpp" bodystart="41" bodyend="50"/>
+        <references refid="d8/d54/classmknix_1_1_load_thermal_1a3a60314d26f6c3f45269fe80a620fdab" compoundref="d7/d18/loadthermal_8h" startline="53">nodes</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d54/classmknix_1_1_load_thermal_1a2aa43f7e29df09c2c1537cef2abdcbb1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mknix::LoadThermal::updateLoad</definition>
+        <argsstring>(double load_in)</argsstring>
+        <name>updateLoad</name>
+        <param>
+          <type>double</type>
+          <declname>load_in</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadthermal.h" line="42" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadthermal.h" bodystart="42" bodyend="43"/>
+        <references refid="d8/d54/classmknix_1_1_load_thermal_1a0d609c33555793457932bfca4c1b6e0c" compoundref="d7/d18/loadthermal_8h" startline="54">externalHeat</references>
+      </memberdef>
+      <memberdef kind="function" id="d8/d54/classmknix_1_1_load_thermal_1a52707d674973fe59113955dc86024888" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::LoadThermal::assembleExternalHeat</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; &amp;)</argsstring>
+        <name>assembleExternalHeat</name>
+        <param>
+          <type><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; &amp;</type>
+          <defname>globalExternalHeat</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadthermal.h" line="45" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadthermal.cpp" bodystart="53" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d54/classmknix_1_1_load_thermal_1a860e0d826647b64224c6eb452f19c9bf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void mknix::LoadThermal::outputToFile</definition>
+        <argsstring>(std::ofstream *)</argsstring>
+        <name>outputToFile</name>
+        <param>
+          <type>std::ofstream *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadthermal.h" line="47" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadthermal.h" bodystart="47" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="d8/d54/classmknix_1_1_load_thermal_1a4da55a71b40f4561d3ce59e1efce0655" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::LoadThermal::getMaxTemp</definition>
+        <argsstring>(double &amp;)</argsstring>
+        <name>getMaxTemp</name>
+        <param>
+          <type>double &amp;</type>
+          <defname>maxTemp_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadthermal.h" line="50" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadthermal.cpp" bodystart="66" bodyend="76"/>
+        <references refid="d8/d54/classmknix_1_1_load_thermal_1a3a60314d26f6c3f45269fe80a620fdab" compoundref="d7/d18/loadthermal_8h" startline="53">nodes</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/home/daniel/Projects/MkniX/src/system/loadthermal.h" line="32" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadthermal.h" bodystart="32" bodyend="55"/>
+    <listofallmembers>
+      <member refid="d8/d54/classmknix_1_1_load_thermal_1a52707d674973fe59113955dc86024888" prot="public" virt="virtual"><scope>mknix::LoadThermal</scope><name>assembleExternalHeat</name></member>
+      <member refid="d8/d54/classmknix_1_1_load_thermal_1a0d609c33555793457932bfca4c1b6e0c" prot="protected" virt="non-virtual"><scope>mknix::LoadThermal</scope><name>externalHeat</name></member>
+      <member refid="d8/d54/classmknix_1_1_load_thermal_1a4da55a71b40f4561d3ce59e1efce0655" prot="public" virt="non-virtual"><scope>mknix::LoadThermal</scope><name>getMaxTemp</name></member>
+      <member refid="d8/d54/classmknix_1_1_load_thermal_1a7c021ef905f65e44fd1823882bb68642" prot="public" virt="virtual"><scope>mknix::LoadThermal</scope><name>insertNodesXCoordinates</name></member>
+      <member refid="d8/d54/classmknix_1_1_load_thermal_1ab7ff9a690520689fc6858ea53e35ba00" prot="public" virt="non-virtual"><scope>mknix::LoadThermal</scope><name>LoadThermal</name></member>
+      <member refid="d8/d54/classmknix_1_1_load_thermal_1ac49667e09675aa6ebacb3fcb0c85aa99" prot="public" virt="non-virtual"><scope>mknix::LoadThermal</scope><name>LoadThermal</name></member>
+      <member refid="d8/d54/classmknix_1_1_load_thermal_1a3a60314d26f6c3f45269fe80a620fdab" prot="protected" virt="non-virtual"><scope>mknix::LoadThermal</scope><name>nodes</name></member>
+      <member refid="d8/d54/classmknix_1_1_load_thermal_1a860e0d826647b64224c6eb452f19c9bf" prot="public" virt="virtual"><scope>mknix::LoadThermal</scope><name>outputToFile</name></member>
+      <member refid="d8/d54/classmknix_1_1_load_thermal_1a2aa43f7e29df09c2c1537cef2abdcbb1" prot="public" virt="virtual"><scope>mknix::LoadThermal</scope><name>updateLoad</name></member>
+      <member refid="d8/d54/classmknix_1_1_load_thermal_1ab38fec6f4ee9b13d9de9783ab9d0dbcc" prot="public" virt="virtual"><scope>mknix::LoadThermal</scope><name>~LoadThermal</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

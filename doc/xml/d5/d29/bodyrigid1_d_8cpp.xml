@@ -1,355 +1,122 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="d5/d29/bodyrigid1_d_8cpp" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d5/d29/bodyrigid1_d_8cpp" kind="file" language="C++">
     <compoundname>bodyrigid1D.cpp</compoundname>
     <includes refid="d7/d1c/bodyrigid1_d_8h" local="yes">bodyrigid1D.h</includes>
-    <includes refid="dd/d6a/simulation_8h" local="yes">simulation.h</includes>
+    <includes refid="dd/d6a/simulation_8h" local="no">simulation/simulation.h</includes>
     <incdepgraph>
-      <node id="5235">
-        <label>celltriang.h</label>
-        <link refid="dc/d6a/celltriang_8h"/>
-        <childnode refid="5232" relation="include">
-        </childnode>
-      </node>
-      <node id="5240">
-        <label>bodyrigid2D.h</label>
-        <link refid="d3/d80/bodyrigid2_d_8h"/>
-        <childnode refid="5211" relation="include">
-        </childnode>
-        <childnode refid="5215" relation="include">
-        </childnode>
-      </node>
-      <node id="5248">
-        <label>constraintclearance.h</label>
-        <link refid="df/de4/constraintclearance_8h"/>
-        <childnode refid="5245" relation="include">
-        </childnode>
-      </node>
-      <node id="5229">
-        <label>bodyflexglobalgalerkin.h</label>
-        <link refid="df/d1c/bodyflexglobalgalerkin_8h"/>
-        <childnode refid="5230" relation="include">
-        </childnode>
-      </node>
-      <node id="5234">
-        <label>material.h</label>
-        <link refid="d3/d65/material_8h"/>
-        <childnode refid="5214" relation="include">
-        </childnode>
-      </node>
-      <node id="5212">
-        <label>body.h</label>
-        <link refid="d0/d77/body_8h"/>
-        <childnode refid="5213" relation="include">
-        </childnode>
-        <childnode refid="5214" relation="include">
-        </childnode>
-      </node>
-      <node id="5232">
-        <label>cell.h</label>
-        <link refid="d0/ddd/cell_8h"/>
-        <childnode refid="5233" relation="include">
-        </childnode>
-      </node>
-      <node id="5245">
-        <label>constraint.h</label>
-        <link refid="dc/d4d/constraint_8h"/>
-        <childnode refid="5213" relation="include">
-        </childnode>
-        <childnode refid="5214" relation="include">
-        </childnode>
-      </node>
-      <node id="5219">
-        <label>string</label>
-      </node>
-      <node id="5218">
-        <label>map</label>
-      </node>
-      <node id="5217">
-        <label>point.h</label>
-        <link refid="d2/d91/point_8h"/>
-        <childnode refid="5216" relation="include">
-        </childnode>
-        <childnode refid="5218" relation="include">
-        </childnode>
-        <childnode refid="5219" relation="include">
-        </childnode>
-        <childnode refid="5213" relation="include">
-        </childnode>
-      </node>
-      <node id="5225">
-        <label>analysisthermaldynamic.h</label>
-        <link refid="d1/d1f/analysisthermaldynamic_8h"/>
-        <childnode refid="5222" relation="include">
-        </childnode>
-      </node>
-      <node id="5209">
-        <label>bodyrigid1D.cpp</label>
-        <link refid="bodyrigid1D.cpp"/>
-        <childnode refid="5210" relation="include">
-        </childnode>
-        <childnode refid="5220" relation="include">
-        </childnode>
-      </node>
-      <node id="5213">
-        <label>common.h</label>
-        <link refid="dc/d54/common_8h"/>
-      </node>
-      <node id="5242">
-        <label>bodythermal.h</label>
-        <link refid="d3/d0b/bodythermal_8h"/>
-        <childnode refid="5214" relation="include">
-        </childnode>
-        <childnode refid="5231" relation="include">
-        </childnode>
-        <childnode refid="5235" relation="include">
-        </childnode>
-        <childnode refid="5236" relation="include">
-        </childnode>
-        <childnode refid="5237" relation="include">
-        </childnode>
-        <childnode refid="5238" relation="include">
-        </childnode>
-        <childnode refid="5215" relation="include">
-        </childnode>
-        <childnode refid="5243" relation="include">
-        </childnode>
-      </node>
-      <node id="5220">
-        <label>simulation.h</label>
-        <link refid="dd/d6a/simulation_8h"/>
-        <childnode refid="5221" relation="include">
-        </childnode>
-        <childnode refid="5225" relation="include">
-        </childnode>
-        <childnode refid="5226" relation="include">
-        </childnode>
-        <childnode refid="5227" relation="include">
-        </childnode>
-        <childnode refid="5228" relation="include">
-        </childnode>
-        <childnode refid="5215" relation="include">
-        </childnode>
-        <childnode refid="5234" relation="include">
-        </childnode>
-      </node>
-      <node id="5227">
-        <label>analysisthermalstatic.h</label>
-        <link refid="db/d65/analysisthermalstatic_8h"/>
-        <childnode refid="5222" relation="include">
-        </childnode>
-      </node>
-      <node id="5243">
-        <label>thermalload.h</label>
-        <link refid="de/df4/thermalload_8h"/>
-        <childnode refid="5213" relation="include">
-        </childnode>
-        <childnode refid="5214" relation="include">
-        </childnode>
-        <childnode refid="5218" relation="include">
-        </childnode>
-      </node>
-      <node id="5221">
-        <label>analysisdynamic.h</label>
-        <link refid="da/d83/analysisdynamic_8h"/>
-        <childnode refid="5222" relation="include">
-        </childnode>
-      </node>
-      <node id="5238">
-        <label>elemtetrahedron.h</label>
-        <link refid="d3/d9f/elemtetrahedron_8h"/>
-        <childnode refid="5236" relation="include">
-        </childnode>
-      </node>
-      <node id="5226">
-        <label>analysisstatic.h</label>
-        <link refid="d4/d87/analysisstatic_8h"/>
-        <childnode refid="5222" relation="include">
-        </childnode>
-      </node>
-      <node id="5249">
-        <label>force.h</label>
-        <link refid="dd/d0d/force_8h"/>
-        <childnode refid="5250" relation="include">
-        </childnode>
-      </node>
-      <node id="5237">
-        <label>elemtriangle.h</label>
-        <link refid="df/d03/elemtriangle_8h"/>
-        <childnode refid="5235" relation="include">
-        </childnode>
-      </node>
-      <node id="5216">
-        <label>vector</label>
-      </node>
-      <node id="5246">
-        <label>constraintfixedcoordinates.h</label>
-        <link refid="d4/d28/constraintfixedcoordinates_8h"/>
-        <childnode refid="5245" relation="include">
-        </childnode>
-      </node>
-      <node id="5231">
-        <label>cellrect.h</label>
-        <link refid="d8/d84/cellrect_8h"/>
-        <childnode refid="5232" relation="include">
-        </childnode>
-      </node>
-      <node id="5244">
-        <label>constraintdistance.h</label>
-        <link refid="da/df6/constraintdistance_8h"/>
-        <childnode refid="5245" relation="include">
-        </childnode>
-      </node>
-      <node id="5214">
-        <label>LMX/lmx.h</label>
-      </node>
-      <node id="5230">
-        <label>bodyflex.h</label>
-        <link refid="dd/dbc/bodyflex_8h"/>
-        <childnode refid="5212" relation="include">
-        </childnode>
-        <childnode refid="5231" relation="include">
-        </childnode>
-        <childnode refid="5235" relation="include">
-        </childnode>
-        <childnode refid="5236" relation="include">
-        </childnode>
-        <childnode refid="5237" relation="include">
-        </childnode>
-        <childnode refid="5238" relation="include">
-        </childnode>
-        <childnode refid="5215" relation="include">
-        </childnode>
-      </node>
-      <node id="5223">
-        <label>LMX/lmx_diff_problem_first.h</label>
-      </node>
-      <node id="5228">
-        <label>system.h</label>
-        <link refid="dc/db2/system_8h"/>
-        <childnode refid="5218" relation="include">
-        </childnode>
-        <childnode refid="5219" relation="include">
-        </childnode>
-        <childnode refid="5214" relation="include">
-        </childnode>
-        <childnode refid="5229" relation="include">
-        </childnode>
-        <childnode refid="5239" relation="include">
-        </childnode>
-        <childnode refid="5210" relation="include">
-        </childnode>
-        <childnode refid="5240" relation="include">
-        </childnode>
-        <childnode refid="5241" relation="include">
-        </childnode>
-        <childnode refid="5242" relation="include">
-        </childnode>
-        <childnode refid="5244" relation="include">
-        </childnode>
-        <childnode refid="5246" relation="include">
-        </childnode>
-        <childnode refid="5247" relation="include">
-        </childnode>
-        <childnode refid="5248" relation="include">
-        </childnode>
-        <childnode refid="5249" relation="include">
-        </childnode>
-        <childnode refid="5243" relation="include">
-        </childnode>
-      </node>
-      <node id="5247">
-        <label>constraintfixedaxis.h</label>
-        <link refid="d8/dfb/constraintfixedaxis_8h"/>
-        <childnode refid="5245" relation="include">
-        </childnode>
-      </node>
-      <node id="5236">
-        <label>celltetrahedron.h</label>
-        <link refid="d1/d94/celltetrahedron_8h"/>
-        <childnode refid="5232" relation="include">
-        </childnode>
-      </node>
-      <node id="5210">
+      <node id="2618">
         <label>bodyrigid1D.h</label>
         <link refid="d7/d1c/bodyrigid1_d_8h"/>
-        <childnode refid="5211" relation="include">
-        </childnode>
-        <childnode refid="5215" relation="include">
+        <childnode refid="2619" relation="include">
         </childnode>
       </node>
-      <node id="5233">
-        <label>gausspoint.h</label>
-        <link refid="d4/dc6/gausspoint_8h"/>
-        <childnode refid="5216" relation="include">
+      <node id="2631">
+        <label>simulation/simulation.h</label>
+        <link refid="dd/d6a/simulation_8h"/>
+        <childnode refid="2624" relation="include">
         </childnode>
-        <childnode refid="5218" relation="include">
+        <childnode refid="2621" relation="include">
         </childnode>
-        <childnode refid="5215" relation="include">
-        </childnode>
-        <childnode refid="5217" relation="include">
-        </childnode>
-        <childnode refid="5213" relation="include">
-        </childnode>
-        <childnode refid="5234" relation="include">
+        <childnode refid="2632" relation="include">
         </childnode>
       </node>
-      <node id="5215">
-        <label>node.h</label>
-        <link refid="d1/d77/node_8h"/>
-        <childnode refid="5216" relation="include">
+      <node id="2626">
+        <label>core/cellboundary.h</label>
+        <link refid="db/d20/cellboundary_8h"/>
+        <childnode refid="2627" relation="include">
         </childnode>
-        <childnode refid="5217" relation="include">
+        <childnode refid="2628" relation="include">
         </childnode>
-        <childnode refid="5214" relation="include">
-        </childnode>
-      </node>
-      <node id="5224">
-        <label>LMX/lmx_diff_problem_second.h</label>
-      </node>
-      <node id="5239">
-        <label>bodyrigid0D.h</label>
-        <link refid="da/d60/bodyrigid0_d_8h"/>
-        <childnode refid="5211" relation="include">
-        </childnode>
-        <childnode refid="5215" relation="include">
+        <childnode refid="2621" relation="include">
         </childnode>
       </node>
-      <node id="5222">
-        <label>analysis.h</label>
-        <link refid="d2/d40/analysis_8h"/>
-        <childnode refid="5213" relation="include">
+      <node id="2628">
+        <label>string</label>
+      </node>
+      <node id="2622">
+        <label>map</label>
+      </node>
+      <node id="2621">
+        <label>common.h</label>
+        <link refid="dc/d54/common_8h"/>
+        <childnode refid="2622" relation="include">
         </childnode>
-        <childnode refid="5214" relation="include">
-        </childnode>
-        <childnode refid="5223" relation="include">
-        </childnode>
-        <childnode refid="5224" relation="include">
+        <childnode refid="2623" relation="include">
         </childnode>
       </node>
-      <node id="5211">
+      <node id="2632">
+        <label>core/material.h</label>
+        <link refid="d3/d65/material_8h"/>
+        <childnode refid="2624" relation="include">
+        </childnode>
+        <childnode refid="2621" relation="include">
+        </childnode>
+      </node>
+      <node id="2625">
+        <label>boundarygroup.h</label>
+        <link refid="dc/d6b/boundarygroup_8h"/>
+        <childnode refid="2621" relation="include">
+        </childnode>
+        <childnode refid="2624" relation="include">
+        </childnode>
+      </node>
+      <node id="2619">
         <label>bodyrigid.h</label>
         <link refid="d1/d67/bodyrigid_8h"/>
-        <childnode refid="5212" relation="include">
+        <childnode refid="2620" relation="include">
         </childnode>
       </node>
-      <node id="5241">
-        <label>bodyrigid3D.h</label>
-        <link refid="d1/dbe/bodyrigid3_d_8h"/>
-        <childnode refid="5211" relation="include">
+      <node id="2627">
+        <label>vector</label>
+      </node>
+      <node id="2624">
+        <label>LMX/lmx.h</label>
+      </node>
+      <node id="2617">
+        <label>bodyrigid1D.cpp</label>
+        <link refid="bodyrigid1D.cpp"/>
+        <childnode refid="2618" relation="include">
         </childnode>
-        <childnode refid="5215" relation="include">
+        <childnode refid="2631" relation="include">
         </childnode>
       </node>
-      <node id="5250">
-        <label>load.h</label>
-        <link refid="dc/d61/load_8h"/>
-        <childnode refid="5213" relation="include">
+      <node id="2629">
+        <label>core/node.h</label>
+        <link refid="d1/d77/node_8h"/>
+        <childnode refid="2630" relation="include">
         </childnode>
-        <childnode refid="5214" relation="include">
+        <childnode refid="2624" relation="include">
         </childnode>
-        <childnode refid="5215" relation="include">
+      </node>
+      <node id="2630">
+        <label>point.h</label>
+        <link refid="d2/d91/point_8h"/>
+        <childnode refid="2627" relation="include">
         </childnode>
+        <childnode refid="2622" relation="include">
+        </childnode>
+        <childnode refid="2628" relation="include">
+        </childnode>
+        <childnode refid="2621" relation="include">
+        </childnode>
+      </node>
+      <node id="2620">
+        <label>body.h</label>
+        <link refid="d0/d77/body_8h"/>
+        <childnode refid="2621" relation="include">
+        </childnode>
+        <childnode refid="2624" relation="include">
+        </childnode>
+        <childnode refid="2625" relation="include">
+        </childnode>
+        <childnode refid="2626" relation="include">
+        </childnode>
+        <childnode refid="2629" relation="include">
+        </childnode>
+      </node>
+      <node id="2623">
+        <label>memory</label>
       </node>
     </incdepgraph>
     <innernamespace refid="d2/dde/namespacemknix">mknix</innernamespace>
@@ -378,151 +145,131 @@
 <codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/>59<sp/>Temple<sp/>Place<sp/>-<sp/>Suite<sp/>330,<sp/>Boston,<sp/>MA<sp/><sp/>02111-1307,<sp/>USA.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
 <codeline lineno="19"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d7/d1c/bodyrigid1_d_8h" kindref="compound">bodyrigid1D.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="dd/d6a/simulation_8h" kindref="compound">simulation.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mknix<sp/>{</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25" refid="d6/dd9/classmknix_1_1_rigid_bar_1abb021e56fd2e7f7a098125e7de3db5e1" refkind="member"><highlight class="normal"><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1abb021e56fd2e7f7a098125e7de3db5e1" kindref="member">RigidBar::RigidBar</ref>()<sp/></highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/>:<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body" kindref="compound">RigidBody</ref>()</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/>,<sp/>Jo(0)</highlight></codeline>
-<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"></highlight></codeline>
-<codeline lineno="31" refid="d6/dd9/classmknix_1_1_rigid_bar_1ac47bc0c8fc15e799f67a76925b5919bf" refkind="member"><highlight class="normal"><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1abb021e56fd2e7f7a098125e7de3db5e1" kindref="member">RigidBar::RigidBar</ref>(<sp/>std::string<sp/>title_in,</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref><sp/>*<sp/>nodeA_in,</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref><sp/>*<sp/>nodeB_in,</highlight></codeline>
-<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mass_in</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/>:<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body" kindref="compound">RigidBody</ref>(<sp/>title_in<sp/>)</highlight></codeline>
-<codeline lineno="37"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/>this-&gt;mass<sp/>=<sp/>mass_in;</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>nodes<sp/>from<sp/>theReader:</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>It<sp/>is<sp/>assumed<sp/>that<sp/>correspond<sp/>to<sp/>extremes<sp/>of<sp/>bar<sp/>and</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>it<sp/>is<sp/>necessary<sp/>to<sp/>change<sp/>them<sp/>to<sp/>CoG<sp/>and<sp/>director<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>.push_back(<sp/>nodeA_in<sp/>);</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>.push_back(<sp/>nodeB_in<sp/>);</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Create<sp/>the<sp/>boundary<sp/>nodes<sp/>and<sp/>assign<sp/>them<sp/>the<sp/>support<sp/>nodes<sp/>and<sp/>constant<sp/>function</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1a278b4b0d27aaecfae2be58c8a9275a8c" kindref="member">domainNodes</ref>.push_back(<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>(nodeA_in)<sp/>);</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1a278b4b0d27aaecfae2be58c8a9275a8c" kindref="member">domainNodes</ref>.push_back(<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>(nodeB_in)<sp/>);</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>We<sp/>calculate<sp/>bar<sp/>properties<sp/>and<sp/>reposition<sp/>nodes<sp/>to<sp/>the<sp/>normalized<sp/>position</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/>lenght<sp/>=<sp/>std::sqrt(<sp/>std::pow(nodeB_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" kindref="member">getx</ref>()<sp/>-<sp/>nodeA_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" kindref="member">getx</ref>(),<sp/>2)<sp/>+</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(nodeB_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" kindref="member">gety</ref>()<sp/>-<sp/>nodeA_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" kindref="member">gety</ref>(),<sp/>2)<sp/>+</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(nodeB_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" kindref="member">getz</ref>()<sp/>-<sp/>nodeA_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" kindref="member">getz</ref>(),<sp/>2)<sp/>);</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/>rho<sp/>=<sp/>mass_in<sp/>/<sp/>lenght<sp/>;</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Center<sp/>of<sp/>mass<sp/>is<sp/>node<sp/>0</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x_0<sp/>=<sp/>0.5*(<sp/>nodeB_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" kindref="member">getx</ref>()<sp/>+<sp/>nodeA_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" kindref="member">getx</ref>()<sp/>);</highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y_0<sp/>=<sp/>0.5*(<sp/>nodeB_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" kindref="member">gety</ref>()<sp/>+<sp/>nodeA_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" kindref="member">gety</ref>()<sp/>);</highlight></codeline>
-<codeline lineno="55"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z_0<sp/>=<sp/>0.5*(<sp/>nodeB_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" kindref="member">getz</ref>()<sp/>+<sp/>nodeA_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" kindref="member">getz</ref>()<sp/>);</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>First<sp/>director<sp/>vector<sp/>is<sp/>node<sp/>1</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="57"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x_1<sp/>=<sp/>x_0<sp/>+<sp/>(<sp/>nodeB_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" kindref="member">getx</ref>()<sp/>-<sp/>nodeA_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" kindref="member">getx</ref>()<sp/>)<sp/>/<sp/>lenght;</highlight></codeline>
-<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y_1<sp/>=<sp/>y_0<sp/>+<sp/>(<sp/>nodeB_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" kindref="member">gety</ref>()<sp/>-<sp/>nodeA_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" kindref="member">gety</ref>()<sp/>)<sp/>/<sp/>lenght;</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>z_1<sp/>=<sp/>z_0<sp/>+<sp/>(<sp/>nodeB_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" kindref="member">getz</ref>()<sp/>-<sp/>nodeA_in-&gt;<ref refid="d3/d25/classmknix_1_1_node_1adefe28450195b0afea01565fad955bdc" kindref="member">getz</ref>()<sp/>)<sp/>/<sp/>lenght;</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Now<sp/>we<sp/>reset<sp/>the<sp/>positions<sp/>of<sp/>the<sp/>nodes<sp/>(stored<sp/>in<sp/>the<sp/>general<sp/>configuration)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>[0]-&gt;setX(x_0);<sp/><ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>[0]-&gt;setY(y_0);<sp/><ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>[0]-&gt;setZ(z_0);</highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/><ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>[1]-&gt;setX(x_1);<sp/><ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>[1]-&gt;setY(y_1);<sp/><ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>[1]-&gt;setZ(z_0);</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>Time<sp/>to<sp/>define<sp/>the<sp/>relationship<sp/>between<sp/>boundary<sp/>nodes<sp/>and<sp/>formulation<sp/>nodes</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>end_int<sp/>=<sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a278b4b0d27aaecfae2be58c8a9275a8c" kindref="member">domainNodes</ref>.size();</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>omp<sp/>parallel<sp/>for</highlight></codeline>
-<codeline lineno="67"><highlight class="preprocessor"></highlight><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i=0;</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i<sp/>&lt;<sp/>end_int;</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++i)</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a278b4b0d27aaecfae2be58c8a9275a8c" kindref="member">domainNodes</ref>[i]-&gt;addSupportNode(<sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>[0]<sp/>);</highlight></codeline>
-<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a278b4b0d27aaecfae2be58c8a9275a8c" kindref="member">domainNodes</ref>[i]-&gt;addSupportNode(<sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>[1]<sp/>);</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a278b4b0d27aaecfae2be58c8a9275a8c" kindref="member">domainNodes</ref>[i]-&gt;setShapeFunType(</highlight><highlight class="stringliteral">&quot;BAR&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a278b4b0d27aaecfae2be58c8a9275a8c" kindref="member">domainNodes</ref>[i]-&gt;shapeFunSolve(</highlight><highlight class="stringliteral">&quot;BAR&quot;</highlight><highlight class="normal">,<sp/>1.);</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>.resize(<sp/>2*<ref refid="d0/d13/classmknix_1_1_rigid_body_1abdb2cd12b0d4c08b6ba7a7c3fd84b2e2" kindref="member">dim</ref>,<sp/>2*<ref refid="d0/d13/classmknix_1_1_rigid_body_1abdb2cd12b0d4c08b6ba7a7c3fd84b2e2" kindref="member">dim</ref><sp/>);</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>.resize(<sp/>2*<ref refid="d0/d13/classmknix_1_1_rigid_body_1abdb2cd12b0d4c08b6ba7a7c3fd84b2e2" kindref="member">dim</ref><sp/>);</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="81"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight></codeline>
-<codeline lineno="83" refid="d6/dd9/classmknix_1_1_rigid_bar_1aa349d4406824acbd0b29d25d9a2f2da4" refkind="member"><highlight class="normal"><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1aa349d4406824acbd0b29d25d9a2f2da4" kindref="member">RigidBar::~RigidBar</ref>()</highlight></codeline>
-<codeline lineno="84"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="85"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="dd/d6a/simulation_8h" kindref="compound">simulation/simulation.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="d2/dde/namespacemknix" kindref="compound">mknix</ref><sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="d6/dd9/classmknix_1_1_rigid_bar_1abb021e56fd2e7f7a098125e7de3db5e1" refkind="member"><highlight class="normal"><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1abb021e56fd2e7f7a098125e7de3db5e1" kindref="member">RigidBar::RigidBar</ref>()</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body" kindref="compound">RigidBody</ref>()</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>Jo(0)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="d6/dd9/classmknix_1_1_rigid_bar_1ac47bc0c8fc15e799f67a76925b5919bf" refkind="member"><highlight class="normal"><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1abb021e56fd2e7f7a098125e7de3db5e1" kindref="member">RigidBar::RigidBar</ref>(std::string<sp/>title_in,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref><sp/>*<sp/>nodeA_in,</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref><sp/>*<sp/>nodeB_in,</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>mass_in</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body" kindref="compound">RigidBody</ref>(title_in)</highlight></codeline>
+<codeline lineno="38"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref><sp/>=<sp/>mass_in;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Read<sp/>frameNodes<sp/>from<sp/>theReader:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>It<sp/>is<sp/>assumed<sp/>that<sp/>correspond<sp/>to<sp/>extremes<sp/>of<sp/>bar<sp/>and</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>.push_back(nodeA_in);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>.push_back(nodeB_in);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>We<sp/>calculate<sp/>bar<sp/>properties<sp/>and<sp/>reposition<sp/>frameNodes<sp/>to<sp/>the<sp/>normalized<sp/>position</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>lenght<sp/>=<sp/>std::sqrt(std::pow(nodeB_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>()<sp/>-<sp/>nodeA_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>(),<sp/>2)<sp/>+</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(nodeB_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>()<sp/>-<sp/>nodeA_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>(),<sp/>2)<sp/>+</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>std::pow(nodeB_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" kindref="member">getZ</ref>()<sp/>-<sp/>nodeA_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" kindref="member">getZ</ref>(),<sp/>2));</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>rho<sp/>=<sp/>mass_in<sp/>/<sp/>lenght;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>.resize(2<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1abdb2cd12b0d4c08b6ba7a7c3fd84b2e2" kindref="member">dim</ref>,<sp/>2<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1abdb2cd12b0d4c08b6ba7a7c3fd84b2e2" kindref="member">dim</ref>);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>.resize(2<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1abdb2cd12b0d4c08b6ba7a7c3fd84b2e2" kindref="member">dim</ref>);</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55" refid="d6/dd9/classmknix_1_1_rigid_bar_1aa349d4406824acbd0b29d25d9a2f2da4" refkind="member"><highlight class="normal"><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1aa349d4406824acbd0b29d25d9a2f2da4" kindref="member">RigidBar::~RigidBar</ref>()</highlight></codeline>
+<codeline lineno="56"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="57"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59" refid="d6/dd9/classmknix_1_1_rigid_bar_1a0b125aafa37253d47041ba107f8eaed4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1a0b125aafa37253d47041ba107f8eaed4" kindref="member">RigidBar::setInertia</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>inertia_in,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>axis)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(axis<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Jo<sp/>=<sp/>inertia_in;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{<sp/>cerr<sp/>&lt;&lt;<sp/>endl<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ERROR:<sp/>Trying<sp/>to<sp/>set<sp/>inertia<sp/>out<sp/>of<sp/>bounds<sp/>in<sp/>RigidBar&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;<sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="d6/dd9/classmknix_1_1_rigid_bar_1a7cee7a990c62bdac1ebf6a90903a9e15" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1a7cee7a990c62bdac1ebf6a90903a9e15" kindref="member">RigidBar::setPosition</ref>(std::vector&lt;double&gt;&amp;<sp/>position)</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>check<sp/>vector<sp/>size.<sp/>Should<sp/>have<sp/>3<sp/>elements:<sp/>CoG_x,<sp/>CoG_y,<sp/>rotation<sp/>angle</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[0]-&gt;setX(position[0]<sp/>-<sp/>lenght<sp/>/<sp/>2<sp/>*<sp/>std::cos(position[3]));</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[0]-&gt;setY(position[1]<sp/>-<sp/>lenght<sp/>/<sp/>2<sp/>*<sp/>std::sin(position[3]));</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[1]-&gt;setX(position[0]<sp/>+<sp/>lenght<sp/>/<sp/>2<sp/>*<sp/>std::cos(position[3]));</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[1]-&gt;setY(position[1]<sp/>+<sp/>lenght<sp/>/<sp/>2<sp/>*<sp/>std::sin(position[3]));</highlight></codeline>
+<codeline lineno="73"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="d6/dd9/classmknix_1_1_rigid_bar_1a3d368a1a10b600179fbb7e901472c301" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1a3d368a1a10b600179fbb7e901472c301" kindref="member">RigidBar::calcMassMatrix</ref>()</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(0,<sp/>0)<sp/>=<sp/>1.<sp/>/<sp/>3.<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref>;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(1,<sp/>1)<sp/>=<sp/>1.<sp/>/<sp/>3.<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref>;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>(),<sp/><ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>())<sp/>=<sp/>1.<sp/>/<sp/>3.<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref>;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>+<sp/>1,<sp/><ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>+<sp/>1)<sp/>=<sp/>1.<sp/>/<sp/>3.<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref>;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(0,<sp/><ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>())<sp/>=<sp/>1.<sp/>/<sp/>6.<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref>;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>(),<sp/>0)<sp/>=<sp/>1.<sp/>/<sp/>6.<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref>;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(1,<sp/><ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>+<sp/>1)<sp/>=<sp/>1.<sp/>/<sp/>6.<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref>;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>+<sp/>1,<sp/>1)<sp/>=<sp/>1.<sp/>/<sp/>6.<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref>;</highlight></codeline>
 <codeline lineno="86"><highlight class="normal"></highlight></codeline>
-<codeline lineno="87" refid="d6/dd9/classmknix_1_1_rigid_bar_1a0b125aafa37253d47041ba107f8eaed4" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1a0b125aafa37253d47041ba107f8eaed4" kindref="member">RigidBar::setInertia</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>inertia_in,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>axis)</highlight></codeline>
-<codeline lineno="88"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>axis<sp/>==<sp/>0<sp/>)<sp/>Jo<sp/>=<sp/>inertia_in;</highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>cerr<sp/>&lt;&lt;<sp/>endl<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ERROR:<sp/>Trying<sp/>to<sp/>set<sp/>inertia<sp/>out<sp/>of<sp/>bounds<sp/>in<sp/>RigidBar&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="91"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="92" refid="d6/dd9/classmknix_1_1_rigid_bar_1a7cee7a990c62bdac1ebf6a90903a9e15" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1a7cee7a990c62bdac1ebf6a90903a9e15" kindref="member">RigidBar::setPosition</ref>(std::vector&lt;double&gt;&amp;<sp/>position)</highlight></codeline>
-<codeline lineno="93"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>TODO:<sp/>check<sp/>vector<sp/>size.<sp/>Should<sp/>have<sp/>3<sp/>elements:<sp/>CoG_x,<sp/>CoG_y,<sp/>rotation<sp/>angle</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>[0]-&gt;setX(<sp/>position[0]<sp/>);</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>[0]-&gt;setY(<sp/>position[1]<sp/>);</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>[1]-&gt;setX(<sp/>position[0]<sp/>+<sp/>std::cos(position[3])<sp/>);</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1a3393da3459cbf7b35ee3dedb982180bf" kindref="member">nodes</ref>[1]-&gt;setY(<sp/>position[1]<sp/>+<sp/>std::sin(position[3])<sp/>);</highlight></codeline>
-<codeline lineno="99"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"></highlight></codeline>
-<codeline lineno="101" refid="d6/dd9/classmknix_1_1_rigid_bar_1a3d368a1a10b600179fbb7e901472c301" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1a3d368a1a10b600179fbb7e901472c301" kindref="member">RigidBar::calcMassMatrix</ref>()</highlight></codeline>
-<codeline lineno="102"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>this-&gt;localMassMatrix(0,0)<sp/>=<sp/>1./3.*mass<sp/>;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>this-&gt;localMassMatrix(1,1)<sp/>=<sp/>1./3.*mass<sp/>;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>this-&gt;localMassMatrix(Simulation::getDim(),Simulation::getDim())<sp/>=<sp/>1./3.*mass<sp/>;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="106"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>this-&gt;localMassMatrix(Simulation::getDim()+1,Simulation::getDim()+1)<sp/>=<sp/>1./3.*mass<sp/>;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="107"><highlight class="normal"></highlight><highlight class="comment">//<sp/></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>this-&gt;localMassMatrix(0,Simulation::getDim())<sp/>=<sp/>1./6.*mass<sp/>;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="109"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>this-&gt;localMassMatrix(Simulation::getDim(),0)<sp/>=<sp/>1./6.*mass<sp/>;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="110"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>this-&gt;localMassMatrix(1,Simulation::getDim()+1)<sp/>=<sp/>1./6.*mass<sp/>;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="111"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>this-&gt;localMassMatrix(Simulation::getDim()+1,1)<sp/>=<sp/>1./6.*mass<sp/>;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="112"><highlight class="normal"></highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>Jo==0<sp/>)<sp/>Jo<sp/>=<sp/>rho*pow(lenght,3)/12.;</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(0,0)<sp/>=<sp/>mass<sp/>;</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(1,1)<sp/>=<sp/>mass<sp/>;</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(0,<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>())<sp/>=<sp/><sp/>Jo/2.;</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(1,<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()+1)<sp/>=<sp/><sp/>Jo/2.;</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>(),<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>())<sp/>=<sp/><sp/>Jo;</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()+1,<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()+1)<sp/>=<sp/><sp/>Jo<sp/>;</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>(),0)<sp/>=<sp/><sp/>Jo/2.;</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()+1,1)<sp/>=<sp/><sp/>Jo/2.;</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"></highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>==<sp/>3){</highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(2,2)<sp/>=<sp/>mass;</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(2,<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()+2)<sp/>=<sp/>Jo/2.<sp/>;</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()+2,2)<sp/>=<sp/>Jo/2.<sp/>;</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1abf69d9fd5ede2c511d85c5d644902c6e" kindref="member">localMassMatrix</ref>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()+2,<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()+2)<sp/>=<sp/>Jo<sp/>;</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="130"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"></highlight></codeline>
-<codeline lineno="132" refid="d6/dd9/classmknix_1_1_rigid_bar_1a4325fbe1df7832ce09bd2bf72b00cf67" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1a4325fbe1df7832ce09bd2bf72b00cf67" kindref="member">RigidBar::calcExternalForces</ref>()</highlight></codeline>
-<codeline lineno="133"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>this-&gt;externalForces(0)<sp/>=<sp/>-0.5<sp/>*<sp/>mass<sp/>*<sp/>Simulation::getGravity(0);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>this-&gt;externalForces(1)<sp/>=<sp/>-0.5<sp/>*<sp/>mass<sp/>*<sp/>Simulation::getGravity(1);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>if<sp/>(Simulation::getDim()<sp/>==<sp/>3)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="137"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>this-&gt;externalForces(2)<sp/>=<sp/>-0.5<sp/>*<sp/>mass<sp/>*<sp/>Simulation::getGravity(2);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>this-&gt;externalForces(Simulation::getDim())<sp/>=<sp/>-0.5<sp/>*<sp/>mass<sp/>*<sp/>Simulation::getGravity(0);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="139"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>this-&gt;externalForces(Simulation::getDim()+1)<sp/>=<sp/>-0.5<sp/>*<sp/>mass<sp/>*<sp/>Simulation::getGravity(1);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="140"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>if<sp/>(Simulation::getDim()<sp/>==<sp/>3)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="141"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>this-&gt;externalForces(Simulation::getDim()+2)<sp/>=<sp/>-0.5<sp/>*<sp/>mass<sp/>*<sp/>Simulation::getGravity(2);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>(0)<sp/>=<sp/>-mass<sp/>*<sp/><ref refid="db/d0b/classmknix_1_1_simulation_1ae1eca795584573082535d83d0705af29" kindref="member">Simulation::getGravity</ref>(0);</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>(1)<sp/>=<sp/>-mass<sp/>*<sp/><ref refid="db/d0b/classmknix_1_1_simulation_1ae1eca795584573082535d83d0705af29" kindref="member">Simulation::getGravity</ref>(1);</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>==<sp/>3)</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>(2)<sp/>=<sp/>-mass<sp/>*<sp/><ref refid="db/d0b/classmknix_1_1_simulation_1ae1eca795584573082535d83d0705af29" kindref="member">Simulation::getGravity</ref>(2);</highlight></codeline>
-<codeline lineno="146"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"></highlight></codeline>
-<codeline lineno="148"><highlight class="normal"></highlight></codeline>
-<codeline lineno="149" refid="d6/dd9/classmknix_1_1_rigid_bar_1a1f05aae37c654229c4f6c3ef32944125" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1a1f05aae37c654229c4f6c3ef32944125" kindref="member">RigidBar::addNode</ref>(<ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>node_in)</highlight></codeline>
-<codeline lineno="150"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1a88b0dfc0af5002ee8d060df5e520434f" kindref="member">mknix::RigidBody::addNode</ref>(node_in);<sp/></highlight><highlight class="comment">//<sp/>adds<sp/>node_in<sp/>to<sp/>node<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a278b4b0d27aaecfae2be58c8a9275a8c" kindref="member">domainNodes</ref>.back()-&gt;setShapeFunType(</highlight><highlight class="stringliteral">&quot;BAR&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a278b4b0d27aaecfae2be58c8a9275a8c" kindref="member">domainNodes</ref>.back()-&gt;shapeFunSolve(</highlight><highlight class="stringliteral">&quot;BAR&quot;</highlight><highlight class="normal">,<sp/>1.);</highlight></codeline>
-<codeline lineno="154"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"></highlight></codeline>
-<codeline lineno="156"><highlight class="normal"></highlight></codeline>
-<codeline lineno="157" refid="d6/dd9/classmknix_1_1_rigid_bar_1a59e73c31c6acea5b9d6ca1dbfa6421a4" refkind="member"><highlight class="normal"><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref><sp/>*<sp/><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1a59e73c31c6acea5b9d6ca1dbfa6421a4" kindref="member">RigidBar::getBoundaryNode</ref>(<sp/>std::string<sp/>name_in<sp/>)</highlight></codeline>
-<codeline lineno="158"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>name_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;NODEA&quot;</highlight><highlight class="normal"><sp/>)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a278b4b0d27aaecfae2be58c8a9275a8c" kindref="member">domainNodes</ref>[0];</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>name_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;NODEB&quot;</highlight><highlight class="normal"><sp/>)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a278b4b0d27aaecfae2be58c8a9275a8c" kindref="member">domainNodes</ref>[1];</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>cerr<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;ERROR:<sp/>NO<sp/>NODE<sp/>WITH<sp/>THAT<sp/>NAME<sp/>IN<sp/>BAR&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="162"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"></highlight></codeline>
-<codeline lineno="164"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>==<sp/>3)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(2,<sp/>2)<sp/>=<sp/>1.<sp/>/<sp/>3.<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref>;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>+<sp/>2,<sp/><ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>+<sp/>2)<sp/>=<sp/>1.<sp/>/<sp/>3.<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref>;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(2,<sp/><ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>+<sp/>2)<sp/>=<sp/>1.<sp/>/<sp/>6.<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref>;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ae9b2edfc311425d483edaaf7100d6ab7" kindref="member">localMassMatrix</ref>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>+<sp/>2,<sp/>2)<sp/>=<sp/>1.<sp/>/<sp/>6.<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref>;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="d6/dd9/classmknix_1_1_rigid_bar_1a4325fbe1df7832ce09bd2bf72b00cf67" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1a4325fbe1df7832ce09bd2bf72b00cf67" kindref="member">RigidBar::calcExternalForces</ref>()</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>(0)<sp/>=<sp/>-0.5<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref><sp/>*<sp/><ref refid="db/d0b/classmknix_1_1_simulation_1ae1eca795584573082535d83d0705af29" kindref="member">Simulation::getGravity</ref>(0);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>(1)<sp/>=<sp/>-0.5<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref><sp/>*<sp/><ref refid="db/d0b/classmknix_1_1_simulation_1ae1eca795584573082535d83d0705af29" kindref="member">Simulation::getGravity</ref>(1);</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>==<sp/>3)<sp/>{</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>(2)<sp/>=<sp/>-0.5<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref><sp/>*<sp/><ref refid="db/d0b/classmknix_1_1_simulation_1ae1eca795584573082535d83d0705af29" kindref="member">Simulation::getGravity</ref>(2);</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>())<sp/>=<sp/>-0.5<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref><sp/>*<sp/><ref refid="db/d0b/classmknix_1_1_simulation_1ae1eca795584573082535d83d0705af29" kindref="member">Simulation::getGravity</ref>(0);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>+<sp/>1)<sp/>=<sp/>-0.5<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref><sp/>*<sp/><ref refid="db/d0b/classmknix_1_1_simulation_1ae1eca795584573082535d83d0705af29" kindref="member">Simulation::getGravity</ref>(1);</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>==<sp/>3)<sp/>{</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1ab465103ed21d529c66733705ad5b588c" kindref="member">externalForces</ref>(<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>()<sp/>+<sp/>2)<sp/>=<sp/>-0.5<sp/>*<sp/><ref refid="d0/d13/classmknix_1_1_rigid_body_1af9643b668fbafd10ffd392b8aebdae5e" kindref="member">mass</ref><sp/>*<sp/><ref refid="db/d0b/classmknix_1_1_simulation_1ae1eca795584573082535d83d0705af29" kindref="member">Simulation::getGravity</ref>(2);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"></highlight></codeline>
+<codeline lineno="110" refid="d6/dd9/classmknix_1_1_rigid_bar_1a1f05aae37c654229c4f6c3ef32944125" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1a1f05aae37c654229c4f6c3ef32944125" kindref="member">RigidBar::addNode</ref>(<ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref><sp/>*<sp/>node_in)</highlight></codeline>
+<codeline lineno="111"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="dd/de3/classmknix_1_1_body_1abf7eec507e5fc918e4901864a6db0f84" kindref="member">mknix::Body::addNode</ref>(node_in);<sp/></highlight><highlight class="comment">//<sp/>adds<sp/>node_in<sp/>to<sp/>node<sp/>vector</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1acbfce7ce37d4e7f616850da2a5850280" kindref="member">nodes</ref>.back()-&gt;addSupportNode(this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[0]);</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1acbfce7ce37d4e7f616850da2a5850280" kindref="member">nodes</ref>.back()-&gt;addSupportNode(this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>[1]);</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1acbfce7ce37d4e7f616850da2a5850280" kindref="member">nodes</ref>.back()-&gt;setShapeFunType(</highlight><highlight class="stringliteral">&quot;1D&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="dd/de3/classmknix_1_1_body_1acbfce7ce37d4e7f616850da2a5850280" kindref="member">nodes</ref>.back()-&gt;shapeFunSolve(</highlight><highlight class="stringliteral">&quot;1D&quot;</highlight><highlight class="normal">,<sp/>1.);</highlight></codeline>
+<codeline lineno="117"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Node<sp/>*<sp/>RigidBar::getDomainNode(<sp/>std::string<sp/>name_in<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight><highlight class="comment">//<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>if(<sp/>name_in<sp/>==<sp/>&quot;NODEA&quot;<sp/>)<sp/>return<sp/>this-&gt;frameNodes[0];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>else<sp/>if(<sp/>name_in<sp/>==<sp/>&quot;NODEB&quot;<sp/>)<sp/>return<sp/>this-&gt;frameNodes[1];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>else<sp/>cerr<sp/>&lt;&lt;<sp/>&quot;ERROR:<sp/>NO<sp/>NODE<sp/>WITH<sp/>THAT<sp/>NAME<sp/>IN<sp/>BAR&quot;<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="d6/dd9/classmknix_1_1_rigid_bar_1af4249df4214337e0cd4a2ec2d4c328d0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1af4249df4214337e0cd4a2ec2d4c328d0" kindref="member">RigidBar::writeBoundaryNodes</ref>(std::vector&lt;Node<sp/>*&gt;&amp;<sp/>boundary_nodes)</highlight></codeline>
+<codeline lineno="128"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>We<sp/>specialize<sp/>only<sp/>for<sp/>the<sp/>bar,<sp/>as<sp/>its<sp/>frameNodes<sp/>are<sp/>its<sp/>own<sp/>boundary</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>node<sp/>:<sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>boundary_nodes.push_back(node);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="d6/dd9/classmknix_1_1_rigid_bar_1a63d87541e4d285c879f313b835be6afd" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d6/dd9/classmknix_1_1_rigid_bar_1a63d87541e4d285c879f313b835be6afd" kindref="member">RigidBar::writeBoundaryConnectivity</ref>(std::vector&lt;std::vector&lt;Node<sp/>*&gt;<sp/>&gt;&amp;<sp/>connectivity_nodes)</highlight></codeline>
+<codeline lineno="136"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>We<sp/>specialize<sp/>only<sp/>for<sp/>the<sp/>bar,<sp/>as<sp/>its<sp/>frameNodes<sp/>are<sp/>its<sp/>own<sp/>boundary</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>connectivity_nodes.push_back(std::vector&lt;Node<sp/>*&gt;());</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>node<sp/>:<sp/>this-&gt;<ref refid="d0/d13/classmknix_1_1_rigid_body_1a8ecbeb686c302e33e0885db701f0b8f9" kindref="member">frameNodes</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>connectivity_nodes.back().push_back(node);</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="142"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/bodyrigid1D.cpp"/>
+    <location file="/home/daniel/Projects/MkniX/src/system/bodyrigid1D.cpp"/>
   </compounddef>
 </doxygen>

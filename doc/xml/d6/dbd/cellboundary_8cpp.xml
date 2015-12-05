@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d6/dbd/cellboundary_8cpp" kind="file" language="C++">
+    <compoundname>cellboundary.cpp</compoundname>
+    <includes local="yes">LMX/lmx.h</includes>
+    <includes refid="d1/d77/node_8h" local="yes">node.h</includes>
+    <includes refid="db/d20/cellboundary_8h" local="yes">cellboundary.h</includes>
+    <includes refid="d5/d62/gausspointboundary_8h" local="yes">gausspointboundary.h</includes>
+    <includes refid="dd/d65/loadthermalboundary1_d_8h" local="no">system/loadthermalboundary1D.h</includes>
+    <incdepgraph>
+      <node id="2829">
+        <label>cellboundary.h</label>
+        <link refid="db/d20/cellboundary_8h"/>
+        <childnode refid="2824" relation="include">
+        </childnode>
+        <childnode refid="2826" relation="include">
+        </childnode>
+        <childnode refid="2827" relation="include">
+        </childnode>
+      </node>
+      <node id="2826">
+        <label>string</label>
+      </node>
+      <node id="2825">
+        <label>map</label>
+      </node>
+      <node id="2827">
+        <label>common.h</label>
+        <link refid="dc/d54/common_8h"/>
+        <childnode refid="2825" relation="include">
+        </childnode>
+        <childnode refid="2828" relation="include">
+        </childnode>
+      </node>
+      <node id="2831">
+        <label>system/loadthermalboundary1D.h</label>
+        <link refid="dd/d65/loadthermalboundary1_d_8h"/>
+        <childnode refid="2827" relation="include">
+        </childnode>
+        <childnode refid="2821" relation="include">
+        </childnode>
+        <childnode refid="2825" relation="include">
+        </childnode>
+      </node>
+      <node id="2820">
+        <label>cellboundary.cpp</label>
+        <link refid="cellboundary.cpp"/>
+        <childnode refid="2821" relation="include">
+        </childnode>
+        <childnode refid="2822" relation="include">
+        </childnode>
+        <childnode refid="2829" relation="include">
+        </childnode>
+        <childnode refid="2830" relation="include">
+        </childnode>
+        <childnode refid="2831" relation="include">
+        </childnode>
+      </node>
+      <node id="2824">
+        <label>vector</label>
+      </node>
+      <node id="2830">
+        <label>gausspointboundary.h</label>
+        <link refid="d5/d62/gausspointboundary_8h"/>
+        <childnode refid="2821" relation="include">
+        </childnode>
+        <childnode refid="2823" relation="include">
+        </childnode>
+      </node>
+      <node id="2821">
+        <label>LMX/lmx.h</label>
+      </node>
+      <node id="2822">
+        <label>node.h</label>
+        <link refid="d1/d77/node_8h"/>
+        <childnode refid="2823" relation="include">
+        </childnode>
+        <childnode refid="2821" relation="include">
+        </childnode>
+      </node>
+      <node id="2823">
+        <label>point.h</label>
+        <link refid="d2/d91/point_8h"/>
+        <childnode refid="2824" relation="include">
+        </childnode>
+        <childnode refid="2825" relation="include">
+        </childnode>
+        <childnode refid="2826" relation="include">
+        </childnode>
+        <childnode refid="2827" relation="include">
+        </childnode>
+      </node>
+      <node id="2828">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="d2/dde/namespacemknix">mknix</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//--<sp/>Licencia<sp/>--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;LMX/lmx.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d1/d77/node_8h" kindref="compound">node.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="db/d20/cellboundary_8h" kindref="compound">cellboundary.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d5/d62/gausspointboundary_8h" kindref="compound">gausspointboundary.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="dd/d65/loadthermalboundary1_d_8h" kindref="compound">system/loadthermalboundary1D.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="d2/dde/namespacemknix" kindref="compound">mknix</ref><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12" refid="d8/d1e/classmknix_1_1_cell_boundary_1a92ce1eba9565ff23c47bd091d8525685" refkind="member"><highlight class="normal"><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1a92ce1eba9565ff23c47bd091d8525685" kindref="member">CellBoundary::CellBoundary</ref>()</highlight></codeline>
+<codeline lineno="13"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17" refid="d8/d1e/classmknix_1_1_cell_boundary_1a6f60017dacb83bd9667e666c4d814adc" refkind="member"><highlight class="normal"><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1a92ce1eba9565ff23c47bd091d8525685" kindref="member">CellBoundary::CellBoundary</ref>(std::string<sp/>formulation_in,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha_in,</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nGPoints_in)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>formulation(formulation_in)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>alpha(alpha_in)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>nGPoints(nGPoints_in)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>dc(0)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="d8/d1e/classmknix_1_1_cell_boundary_1ac93e019f0285d1701586a621599849c2" refkind="member"><highlight class="normal"><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1ac93e019f0285d1701586a621599849c2" kindref="member">CellBoundary::~CellBoundary</ref>()</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>point<sp/>:<sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1ae27f45b466e1bfc213bcca47d0ff85df" kindref="member">gPoints</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>point;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Only<sp/>for<sp/>Meshfree<sp/>CellBoundarys,<sp/>function<sp/>is<sp/>specialized<sp/>for<sp/>FEM<sp/>in<sp/>each<sp/>cell<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="d8/d1e/classmknix_1_1_cell_boundary_1afeb33c21dbf85f27d372a06d1a249459" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1afeb33c21dbf85f27d372a06d1a249459" kindref="member">CellBoundary::initialize</ref>(std::vector&lt;Node<sp/>*&gt;&amp;<sp/>nodes_in)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1af33b7951a3757bf0362ab8e3164d4bc4" kindref="member">formulation</ref><sp/>==<sp/></highlight><highlight class="stringliteral">&quot;RPIM&quot;</highlight><highlight class="normal"><sp/>||<sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1af33b7951a3757bf0362ab8e3164d4bc4" kindref="member">formulation</ref><sp/>==<sp/></highlight><highlight class="stringliteral">&quot;EFG&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>function<sp/>can<sp/>be<sp/>joined<sp/>with<sp/>assembleGaussPoints<sp/>so<sp/>the<sp/>Gpoints<sp/>are<sp/>iterated<sp/>only<sp/>once...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>point<sp/>:<sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1ae27f45b466e1bfc213bcca47d0ff85df" kindref="member">gPoints</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>point-&gt;findSupportNodes(nodes_in);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="d8/d1e/classmknix_1_1_cell_boundary_1a3821f8f675ec0545a25e9971a4f8aaf3" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1a3821f8f675ec0545a25e9971a4f8aaf3" kindref="member">CellBoundary::computeShapeFunctions</ref>()</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>point<sp/>:<sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1ae27f45b466e1bfc213bcca47d0ff85df" kindref="member">gPoints</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1af33b7951a3757bf0362ab8e3164d4bc4" kindref="member">formulation</ref><sp/>==<sp/></highlight><highlight class="stringliteral">&quot;RPIM&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>point-&gt;shapeFunSolve(</highlight><highlight class="stringliteral">&quot;RBF&quot;</highlight><highlight class="normal">,<sp/>1.03);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1af33b7951a3757bf0362ab8e3164d4bc4" kindref="member">formulation</ref><sp/>==<sp/></highlight><highlight class="stringliteral">&quot;EFG&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>point-&gt;shapeFunSolve(</highlight><highlight class="stringliteral">&quot;MLS&quot;</highlight><highlight class="normal">,<sp/>1.03);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58" refid="d8/d1e/classmknix_1_1_cell_boundary_1a267c6e554c2607c8c703ff52fe1b381a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1a267c6e554c2607c8c703ff52fe1b381a" kindref="member">CellBoundary::computeQextGaussPoints</ref>(<ref refid="df/df4/classmknix_1_1_load_thermal_boundary1_d" kindref="compound">LoadThermalBoundary1D</ref><sp/>*<sp/>loadThermalBoundary1D_in)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>point<sp/>:<sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1ae27f45b466e1bfc213bcca47d0ff85df" kindref="member">gPoints</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>point-&gt;computeQext(loadThermalBoundary1D_in);</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="d8/d1e/classmknix_1_1_cell_boundary_1a962cb7795b25874914f27f5e7de49eb2" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1a962cb7795b25874914f27f5e7de49eb2" kindref="member">CellBoundary::assembleQextGaussPoints</ref>(<ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector&lt;data_type&gt;</ref>&amp;<sp/>globalQext)</highlight></codeline>
+<codeline lineno="66"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>point<sp/>:<sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1ae27f45b466e1bfc213bcca47d0ff85df" kindref="member">gPoints</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>point-&gt;assembleQext(globalQext);</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">//<sp/>void<sp/>CellBoundary::outputConnectivityToFile(std::ofstream*<sp/>outfile)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">//<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>std::vector&lt;<sp/>Point*<sp/>&gt;::iterator<sp/>it_points;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>*outfile<sp/>&lt;&lt;<sp/>&quot;\t\t\t&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>for(it_points=bodyPoints.begin();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>it_points!=bodyPoints.end();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/>++it_points){</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>*outfile<sp/>&lt;&lt;<sp/>(*it_points)-&gt;getNumber()<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>*outfile<sp/>&lt;&lt;<sp/>std::endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="comment">//<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="comment">//<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="comment">//<sp/>void<sp/>CellBoundary::gnuplotOutStress(<sp/>std::ofstream<sp/>&amp;<sp/>gptension<sp/>)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="comment">//<sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>int<sp/>counter;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>for(std::vector&lt;GaussPoint*&gt;::iterator<sp/>it=gPoints.begin();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>it!=gPoints.end();</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++it)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>{</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++counter;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*it)-&gt;gnuplotOutStress(<sp/>gptension<sp/>);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>if<sp/>(counter%4<sp/>==<sp/>0)<sp/>gptension<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}<sp/></highlight><highlight class="comment">//Namespace<sp/>mknix</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/daniel/Projects/MkniX/src/core/cellboundary.cpp"/>
+  </compounddef>
+</doxygen>

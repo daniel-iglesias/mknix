@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="db/d8f/classmknix_1_1_analysis_static" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="db/d8f/classmknix_1_1_analysis_static" kind="class" language="C++" prot="public">
     <compoundname>mknix::AnalysisStatic</compoundname>
     <basecompoundref refid="df/d86/classmknix_1_1_analysis" prot="public" virt="non-virtual">mknix::Analysis</basecompoundref>
     <includes refid="d4/d87/analysisstatic_8h" local="no">analysisstatic.h</includes>
@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisstatic.h" line="44" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisstatic.h" bodystart="44" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisstatic.h" line="46" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisstatic.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="db/d8f/classmknix_1_1_analysis_static_1aed90593a61181100e265dadfc341ead5" prot="private" static="no" mutable="no">
         <type>lmx::NLSolver&lt; <ref refid="db/d0b/classmknix_1_1_simulation" kindref="compound">Simulation</ref>, <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt;</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisstatic.h" line="45" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisstatic.h" bodystart="45" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisstatic.h" line="47" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisstatic.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisstatic.h" line="33" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisstatic.cpp" bodystart="25" bodyend="28"/>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisstatic.h" line="33" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisstatic.cpp" bodystart="25" bodyend="28"/>
       </memberdef>
       <memberdef kind="function" id="db/d8f/classmknix_1_1_analysis_static_1a18cfe64c3b4b6b3f54acc3caa6780e92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -65,11 +65,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisstatic.h" line="35" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisstatic.cpp" bodystart="31" bodyend="40"/>
-        <references refid="df/d86/classmknix_1_1_analysis_1a1abc29e3b8565590b6bf0ce2d8b3b68f" compoundref="d2/d40/analysis_8h" startline="51">mknix::Analysis::theSimulation</references>
-        <references refid="db/d0b/classmknix_1_1_simulation_1a1a65d519f553ac9d060c526ae508f152" compoundref="d2/d93/simulation_8cpp" startline="603" endline="632">mknix::Simulation::staticResidue</references>
-        <references refid="db/d0b/classmknix_1_1_simulation_1a4ec8a62eed31911238142b362f60f43e" compoundref="d2/d93/simulation_8cpp" startline="634" endline="642">mknix::Simulation::staticTangent</references>
-        <references refid="db/d0b/classmknix_1_1_simulation_1a3a9b6e1b8cf5a63ad6e3a7d2cce5d171" compoundref="d2/d93/simulation_8cpp" startline="644" endline="662">mknix::Simulation::staticConvergence</references>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisstatic.h" line="35" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisstatic.cpp" bodystart="31" bodyend="40"/>
+        <references refid="df/d86/classmknix_1_1_analysis_1a1abc29e3b8565590b6bf0ce2d8b3b68f" compoundref="d2/d40/analysis_8h" startline="58">mknix::Analysis::theSimulation</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a1a65d519f553ac9d060c526ae508f152" compoundref="d2/d93/simulation_8cpp" startline="856" endline="880">mknix::Simulation::staticResidue</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a4ec8a62eed31911238142b362f60f43e" compoundref="d2/d93/simulation_8cpp" startline="882" endline="890">mknix::Simulation::staticTangent</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a3a9b6e1b8cf5a63ad6e3a7d2cce5d171" compoundref="d2/d93/simulation_8cpp" startline="892" endline="911">mknix::Simulation::staticConvergence</references>
       </memberdef>
       <memberdef kind="function" id="db/d8f/classmknix_1_1_analysis_static_1a67877fe7b967f91b1b8c92cf4afe1658" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisstatic.h" line="37" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisstatic.cpp" bodystart="43" bodyend="45"/>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisstatic.h" line="37" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisstatic.cpp" bodystart="43" bodyend="45"/>
       </memberdef>
       <memberdef kind="function" id="db/d8f/classmknix_1_1_analysis_static_1a14ab31bf7d144b576cbc7ea8de0d4fd9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>std::string</type>
@@ -96,21 +96,25 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisstatic.h" line="39" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisstatic.h" bodystart="39" bodyend="39"/>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisstatic.h" line="39" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisstatic.h" bodystart="39" bodyend="41"/>
       </memberdef>
-      <memberdef kind="function" id="db/d8f/classmknix_1_1_analysis_static_1a1f2d048b8625d58f820a7f7d8dfe2f7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="db/d8f/classmknix_1_1_analysis_static_1adf4229a33d4f4c938d9cea19f818d5c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
         <definition>void mknix::AnalysisStatic::solve</definition>
-        <argsstring>(lmx::Vector&lt; data_type &gt; *, lmx::Vector&lt; data_type &gt; *)</argsstring>
+        <argsstring>(lmx::Vector&lt; data_type &gt; *, lmx::Vector&lt; data_type &gt; *, lmx::Vector&lt; data_type &gt; *)</argsstring>
         <name>solve</name>
-        <reimplements refid="df/d86/classmknix_1_1_analysis_1a2a02ee6ab0728bc1ab5e6aab010afe87">solve</reimplements>
+        <reimplements refid="df/d86/classmknix_1_1_analysis_1a515bc01fa8704395d310c5e7ebd45081">solve</reimplements>
         <param>
-          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; *</type>
+          <type><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; *</type>
           <defname>q_in</defname>
         </param>
         <param>
-          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; *</type>
+          <type><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; *</type>
           <defname>qdot_in</defname>
+        </param>
+        <param>
+          <type><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; *</type>
+          <defname>not_used</defname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -118,7 +122,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisstatic.h" line="41" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisstatic.cpp" bodystart="48" bodyend="63"/>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisstatic.h" line="43" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisstatic.cpp" bodystart="48" bodyend="64"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -127,45 +131,47 @@
 <para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
 </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="247">
+      <node id="435">
         <label>mknix::AnalysisStatic</label>
         <link refid="db/d8f/classmknix_1_1_analysis_static"/>
-        <childnode refid="248" relation="public-inheritance">
+        <childnode refid="436" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="248">
+      <node id="436">
         <label>mknix::Analysis</label>
         <link refid="df/d86/classmknix_1_1_analysis"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="249">
+      <node id="437">
         <label>mknix::AnalysisStatic</label>
         <link refid="db/d8f/classmknix_1_1_analysis_static"/>
-        <childnode refid="250" relation="public-inheritance">
+        <childnode refid="438" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="251">
+      <node id="439">
         <label>mknix::Simulation</label>
         <link refid="db/d0b/classmknix_1_1_simulation"/>
       </node>
-      <node id="250">
+      <node id="438">
         <label>mknix::Analysis</label>
         <link refid="df/d86/classmknix_1_1_analysis"/>
-        <childnode refid="251" relation="usage">
+        <childnode refid="439" relation="usage">
           <edgelabel>theSimulation</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisstatic.h" line="31" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisstatic.h" bodystart="30" bodyend="46"/>
+    <location file="/home/daniel/Projects/MkniX/src/simulation/analysisstatic.h" line="31" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisstatic.h" bodystart="30" bodyend="48"/>
     <listofallmembers>
       <member refid="df/d86/classmknix_1_1_analysis_1a524d9cd12f302975c64a0c4266cd91ed" prot="public" virt="non-virtual"><scope>mknix::AnalysisStatic</scope><name>Analysis</name></member>
       <member refid="df/d86/classmknix_1_1_analysis_1a58f5b79c2b28457ae18186991306abb3" prot="public" virt="non-virtual"><scope>mknix::AnalysisStatic</scope><name>Analysis</name></member>
       <member refid="db/d8f/classmknix_1_1_analysis_static_1ac64781280792830016fe43f344966f99" prot="public" virt="non-virtual"><scope>mknix::AnalysisStatic</scope><name>AnalysisStatic</name></member>
       <member refid="db/d8f/classmknix_1_1_analysis_static_1a18cfe64c3b4b6b3f54acc3caa6780e92" prot="public" virt="non-virtual"><scope>mknix::AnalysisStatic</scope><name>AnalysisStatic</name></member>
       <member refid="df/d86/classmknix_1_1_analysis_1a7e0439caf5fa5f90d808acec6d75b72f" prot="protected" virt="non-virtual"><scope>mknix::AnalysisStatic</scope><name>epsilon</name></member>
+      <member refid="df/d86/classmknix_1_1_analysis_1af9e3f13a8644466d416c7666a93c21ca" prot="public" virt="virtual"><scope>mknix::AnalysisStatic</scope><name>init</name></member>
+      <member refid="df/d86/classmknix_1_1_analysis_1a238dc1446726315d1d988c2b8eeda8e5" prot="public" virt="virtual"><scope>mknix::AnalysisStatic</scope><name>nextStep</name></member>
       <member refid="df/d86/classmknix_1_1_analysis_1a4e6baab7f63725b4ed816bb3bdbdc1d8" prot="public" virt="non-virtual"><scope>mknix::AnalysisStatic</scope><name>setEpsilon</name></member>
-      <member refid="db/d8f/classmknix_1_1_analysis_static_1a1f2d048b8625d58f820a7f7d8dfe2f7d" prot="public" virt="virtual"><scope>mknix::AnalysisStatic</scope><name>solve</name></member>
+      <member refid="db/d8f/classmknix_1_1_analysis_static_1adf4229a33d4f4c938d9cea19f818d5c8" prot="public" virt="virtual"><scope>mknix::AnalysisStatic</scope><name>solve</name></member>
       <member refid="db/d8f/classmknix_1_1_analysis_static_1aed90593a61181100e265dadfc341ead5" prot="private" virt="non-virtual"><scope>mknix::AnalysisStatic</scope><name>theProblem</name></member>
       <member refid="df/d86/classmknix_1_1_analysis_1a1abc29e3b8565590b6bf0ce2d8b3b68f" prot="protected" virt="non-virtual"><scope>mknix::AnalysisStatic</scope><name>theSimulation</name></member>
       <member refid="db/d8f/classmknix_1_1_analysis_static_1ab37e48afb657999cbb32597563ca36a0" prot="private" virt="non-virtual"><scope>mknix::AnalysisStatic</scope><name>time</name></member>

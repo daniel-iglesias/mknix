@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="df/dde/classmknix_1_1_contact" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="df/dde/classmknix_1_1_contact" kind="class" language="C++" prot="public">
     <compoundname>mknix::Contact</compoundname>
     <includes refid="d9/d54/generalcontact_8h" local="no">generalcontact.h</includes>
       <sectiondef kind="private-attrib">
@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="84" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="84" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="82" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="82" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1a7738eb4c70718d44cafd09fd000ea8fe" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="85" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="85" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="83" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="83" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1a327cb368f64c4ea74e50770ec24d04d7" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="86" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="86" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="84" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="84" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1a04c52a883dd8115c1ba39c7cdea4a713" prot="private" static="no" mutable="no">
         <type>int</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="87" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="87" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="85" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="85" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1a6e57d1f3f620e3d6e603ea18e95225ab" prot="private" static="no" mutable="no">
         <type>vtkPoints *</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="88" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="88" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="86" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="86" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1a1b341b0931b189415b812142bd355314" prot="private" static="no" mutable="no">
         <type>vtkCellArray *</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="89" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="89" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="87" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="87" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1aa0cd88a898eadf0687ef35f84c5fd7d6" prot="private" static="no" mutable="no">
         <type>vtkPolyData *</type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="90" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="90" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="88" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="88" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1aa8f2bf5e56cbb96db0e68c3f4d2357d2" prot="private" static="no" mutable="no">
         <type>vtkDelaunay2D *</type>
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="91" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="91" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="89" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="89" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1a59e9955bd59453c1269db6b7e11d5d67" prot="private" static="no" mutable="no">
         <type>vtkPolyData *</type>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="92" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="92" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="90" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="90" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1a0b7d8821238895e7943cffabe48e65d4" prot="private" static="no" mutable="no">
         <type>vtkPolyDataMapper *</type>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="93" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="93" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="91" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="91" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1aa2831aecd4651b91c035b3220523a6bd" prot="private" static="no" mutable="no">
         <type>vtkActor *</type>
@@ -145,7 +145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="94" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="94" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="92" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="92" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1a185cba2fa836b7d246ee0f77792f4877" prot="private" static="no" mutable="no">
         <type>vtkExtractEdges *</type>
@@ -158,7 +158,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="95" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="95" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="93" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="93" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1a53e3fd3ee9095ce81e3f4d2b65124280" prot="private" static="no" mutable="no">
         <type>vtkTubeFilter *</type>
@@ -171,7 +171,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="96" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="96" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="94" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="94" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1a89d2e5158bad08928c6dcd12d860f16b" prot="private" static="no" mutable="no">
         <type>vtkPolyDataMapper *</type>
@@ -184,7 +184,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="97" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="97" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="95" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="95" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1a3036bf69958750ca5bb7f7c924ca4c67" prot="private" static="no" mutable="no">
         <type>vtkActor *</type>
@@ -197,7 +197,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="98" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="98" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="96" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="96" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1a0ec9efd58687e35bdb52cd78e126b0a4" prot="private" static="no" mutable="no">
         <type>vtkRenderer *</type>
@@ -210,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="99" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="99" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="97" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="97" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1afdda5ed112b2f448d4eaaa38fc9036aa" prot="private" static="no" mutable="no">
         <type>vtkRenderWindow *</type>
@@ -223,7 +223,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="100" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="100" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="98" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="98" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1afc891322d8584c3454c71e95e08fb922" prot="private" static="no" mutable="no">
         <type>vtkRenderWindowInteractor *</type>
@@ -236,7 +236,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="101" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="101" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="99" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="99" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1a102ca2b27ff418081a9bae074f9d539c" prot="private" static="no" mutable="no">
         <type>vtkWindowToImageFilter *</type>
@@ -249,7 +249,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="102" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="102" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="100" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="100" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1a9f9398bf0a95ef3ed7886d9f73378b9f" prot="private" static="no" mutable="no">
         <type>vtkJPEGWriter *</type>
@@ -262,7 +262,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="103" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="103" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="101" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="101" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1a184621c5d9c688922fff9b6e65d88b2b" prot="private" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> * &gt;</type>
@@ -275,7 +275,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="105" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="105" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="103" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="103" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1a12a2f56c232e53113c268aca9f88b2dc" prot="private" static="no" mutable="no">
         <type>std::map&lt; int, int &gt;</type>
@@ -288,7 +288,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="106" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="106" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="104" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="104" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1aad07e0096139f26c3f3d0d47d7632421" prot="private" static="no" mutable="no">
         <type>std::vector&lt; std::vector&lt; <ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> * &gt; &gt;</type>
@@ -301,7 +301,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="107" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="107" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="105" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="105" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1a05e65dd12542ad8c9bbc79fd9f2cf4de" prot="private" static="no" mutable="no">
         <type>int</type>
@@ -314,7 +314,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="108" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="108" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="106" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="106" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1ac1da7a50963f5041b90d0da118a555da" prot="private" static="no" mutable="no">
         <type>std::vector&lt; int &gt;</type>
@@ -327,7 +327,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="109" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="109" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="107" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="107" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1af4dfe57b40a802200d9d1629d4b0226d" prot="private" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="da/dd3/classmknix_1_1_constraint" kindref="compound">Constraint</ref> * &gt;</type>
@@ -340,7 +340,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="110" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="110" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="108" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="108" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="df/dde/classmknix_1_1_contact_1ad63607c55b162a1987d8cfe245a820cb" prot="private" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="d1/d90/classmknix_1_1_comp_bar" kindref="compound">CompBar</ref> * &gt;</type>
@@ -353,7 +353,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="111" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="111" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="109" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="109" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -368,7 +368,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="54" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.cpp" bodystart="46" bodyend="47"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="52" column="1"/>
       </memberdef>
       <memberdef kind="function" id="df/dde/classmknix_1_1_contact_1a4bab5ac8e3e65ba5c7dda16de9451fd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -377,11 +377,9 @@
         <name>Contact</name>
         <param>
           <type><ref refid="db/d0b/classmknix_1_1_simulation" kindref="compound">Simulation</ref> *</type>
-          <defname>theSimulation_in</defname>
         </param>
         <param>
           <type>double</type>
-          <defname>alpha_in</defname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -389,7 +387,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="55" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.cpp" bodystart="49" bodyend="55"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="53" column="1"/>
       </memberdef>
       <memberdef kind="function" id="df/dde/classmknix_1_1_contact_1a409ca0c936dcc34ce4ca1b25780b7635" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -402,7 +400,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="56" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="56" bodyend="56"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="54" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="54" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="df/dde/classmknix_1_1_contact_1aff0010eaf0d50819b7cc502449443b71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -415,9 +413,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="58" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.cpp" bodystart="57" bodyend="124"/>
-        <references refid="df/dd9/classmknix_1_1_system_1a7569699ef2cda26032879de3ea96b2e6" compoundref="d6/df8/system_8cpp" startline="650" endline="675">mknix::System::writeBoundaryNodes</references>
-        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a616f0712431201275269aa05eadb8779" compoundref="d2/d93/simulation_8cpp" startline="71" endline="98">mknix::Simulation::run</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="56" column="1"/>
       </memberdef>
       <memberdef kind="function" id="df/dde/classmknix_1_1_contact_1a0a9eb3950c6d13b5241cb8a58d9ad11e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -430,8 +426,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="60" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.cpp" bodystart="126" bodyend="170"/>
-        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a9fd95351d7fe3ce2ba1991d6aae6a804" compoundref="d2/d93/simulation_8cpp" startline="665" endline="680">mknix::Simulation::stepTriggered</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="58" column="1"/>
       </memberdef>
       <memberdef kind="function" id="df/dde/classmknix_1_1_contact_1a5334a5c12debb8d064345929201673f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -444,10 +439,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="62" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.cpp" bodystart="172" bodyend="229"/>
-        <references refid="df/dd9/classmknix_1_1_system_1a8636993e61acc2af30b0cab7e79d8c01" compoundref="d6/df8/system_8cpp" startline="678" endline="703">mknix::System::writeBoundaryConnectivity</references>
-        <references refid="df/dde/classmknix_1_1_contact_1a1f363d51121555347584e34cd880ef12" compoundref="de/d37/generalcontact_8cpp" startline="231" endline="239">updateLines</references>
-        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a616f0712431201275269aa05eadb8779" compoundref="d2/d93/simulation_8cpp" startline="71" endline="98">mknix::Simulation::run</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="60" column="1"/>
       </memberdef>
       <memberdef kind="function" id="df/dde/classmknix_1_1_contact_1a1f363d51121555347584e34cd880ef12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -460,9 +452,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="64" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.cpp" bodystart="231" bodyend="239"/>
-        <referencedby refid="df/dde/classmknix_1_1_contact_1a5334a5c12debb8d064345929201673f6" compoundref="de/d37/generalcontact_8cpp" startline="172" endline="229">createPolys</referencedby>
-        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a9fd95351d7fe3ce2ba1991d6aae6a804" compoundref="d2/d93/simulation_8cpp" startline="665" endline="680">mknix::Simulation::stepTriggered</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="62" column="1"/>
       </memberdef>
       <memberdef kind="function" id="df/dde/classmknix_1_1_contact_1aac0574d8683e781d6f811c782f9604c8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -475,8 +465,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="66" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.cpp" bodystart="439" bodyend="455"/>
-        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a616f0712431201275269aa05eadb8779" compoundref="d2/d93/simulation_8cpp" startline="71" endline="98">mknix::Simulation::run</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="64" column="1"/>
       </memberdef>
       <memberdef kind="function" id="df/dde/classmknix_1_1_contact_1acd4f6166d705a7641a84aae19fb0ffb3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -489,8 +478,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="68" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.cpp" bodystart="457" bodyend="471"/>
-        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a9fd95351d7fe3ce2ba1991d6aae6a804" compoundref="d2/d93/simulation_8cpp" startline="665" endline="680">mknix::Simulation::stepTriggered</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="66" column="1"/>
       </memberdef>
       <memberdef kind="function" id="df/dde/classmknix_1_1_contact_1a3489052672cf092120e096649448eebb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -503,8 +491,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="70" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.cpp" bodystart="474" bodyend="499"/>
-        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a616f0712431201275269aa05eadb8779" compoundref="d2/d93/simulation_8cpp" startline="71" endline="98">mknix::Simulation::run</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="68" column="1"/>
       </memberdef>
       <memberdef kind="function" id="df/dde/classmknix_1_1_contact_1a17e1256371ff92d395ef71e23396b509" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -517,8 +504,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="72" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.cpp" bodystart="501" bodyend="529"/>
-        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a616f0712431201275269aa05eadb8779" compoundref="d2/d93/simulation_8cpp" startline="71" endline="98">mknix::Simulation::run</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="70" column="1"/>
       </memberdef>
       <memberdef kind="function" id="df/dde/classmknix_1_1_contact_1a86ab86ad903f956284324fc2fb69e195" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -531,9 +517,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="74" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.cpp" bodystart="532" bodyend="557"/>
-        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a616f0712431201275269aa05eadb8779" compoundref="d2/d93/simulation_8cpp" startline="71" endline="98">mknix::Simulation::run</referencedby>
-        <referencedby refid="db/d0b/classmknix_1_1_simulation_1a9fd95351d7fe3ce2ba1991d6aae6a804" compoundref="d2/d93/simulation_8cpp" startline="665" endline="680">mknix::Simulation::stepTriggered</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="72" column="1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -548,7 +532,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="77" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.cpp" bodystart="241" bodyend="273"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="75" column="1"/>
       </memberdef>
       <memberdef kind="function" id="df/dde/classmknix_1_1_contact_1a3606b6490471c37ae67051fe897a8c8f" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -561,7 +545,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="79" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.cpp" bodystart="275" bodyend="382"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="77" column="1"/>
       </memberdef>
       <memberdef kind="function" id="df/dde/classmknix_1_1_contact_1a6a4fdc71c1b353ce572a18bdc3952a91" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -574,14 +558,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="81" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.cpp" bodystart="384" bodyend="437"/>
+        <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="79" column="1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" line="52" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/generalcontact.h" bodystart="52" bodyend="112"/>
+    <location file="/home/daniel/Projects/MkniX/src/system/generalcontact.h" line="50" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/generalcontact.h" bodystart="50" bodyend="110"/>
     <listofallmembers>
       <member refid="df/dde/classmknix_1_1_contact_1a327cb368f64c4ea74e50770ec24d04d7" prot="private" virt="non-virtual"><scope>mknix::Contact</scope><name>alpha</name></member>
       <member refid="df/dde/classmknix_1_1_contact_1ad63607c55b162a1987d8cfe245a820cb" prot="private" virt="non-virtual"><scope>mknix::Contact</scope><name>bars</name></member>

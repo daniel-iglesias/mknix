@@ -9,6 +9,7 @@ var classmknix_1_1_constraint_distance =
     [ "calcRo", "d7/de2/classmknix_1_1_constraint_distance.html#a32df0e5f0198ce5c7871e2b6a5cafb7c", null ],
     [ "getInternalForces", "d7/de2/classmknix_1_1_constraint_distance.html#aae757ba28e181259a196fbc0a1e8bfaf", null ],
     [ "getStiffnessMatrix", "d7/de2/classmknix_1_1_constraint_distance.html#a847365545dcef34ee44bbadd20d819bf", null ],
+    [ "setLenght", "d7/de2/classmknix_1_1_constraint_distance.html#aadda81ffe998ebc5d03adc91f73a016e", null ],
     [ "ro", "d7/de2/classmknix_1_1_constraint_distance.html#a2d4a4e3c3b75b23f63a772b71c4badaa", null ],
     [ "rt", "d7/de2/classmknix_1_1_constraint_distance.html#ae4054619a2e3205079c4911ad69db4eb", null ]
 ];

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="d5/d55/point_8cpp" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d5/d55/point_8cpp" kind="file" language="C++">
     <compoundname>point.cpp</compoundname>
     <includes refid="d2/d91/point_8h" local="yes">point.h</includes>
     <includes refid="d1/d77/node_8h" local="yes">node.h</includes>
@@ -9,401 +9,133 @@
     <includes refid="d1/db5/shapefunctiontriangle_8h" local="yes">shapefunctiontriangle.h</includes>
     <includes refid="db/d91/shapefunctiontetrahedron_8h" local="yes">shapefunctiontetrahedron.h</includes>
     <includes refid="d0/d2e/shapefunctionlinear_8h" local="yes">shapefunctionlinear.h</includes>
-    <includes refid="dd/d6a/simulation_8h" local="yes">simulation.h</includes>
+    <includes refid="d6/d09/shapefunctionlinear-x_8h" local="yes">shapefunctionlinear-x.h</includes>
+    <includes refid="dd/d6a/simulation_8h" local="no">simulation/simulation.h</includes>
     <incdepgraph>
-      <node id="7399">
-        <label>celltriang.h</label>
-        <link refid="dc/d6a/celltriang_8h"/>
-        <childnode refid="7396" relation="include">
+      <node id="3839">
+        <label>simulation/simulation.h</label>
+        <link refid="dd/d6a/simulation_8h"/>
+        <childnode refid="3831" relation="include">
+        </childnode>
+        <childnode refid="3828" relation="include">
+        </childnode>
+        <childnode refid="3840" relation="include">
         </childnode>
       </node>
-      <node id="7377">
-        <label>shapefunctionRBF.h</label>
-        <link refid="d9/d2f/shapefunction_r_b_f_8h"/>
-        <childnode refid="7378" relation="include">
-        </childnode>
-      </node>
-      <node id="7406">
-        <label>bodyrigid2D.h</label>
-        <link refid="d3/d80/bodyrigid2_d_8h"/>
-        <childnode refid="7404" relation="include">
-        </childnode>
-        <childnode refid="7375" relation="include">
-        </childnode>
-      </node>
-      <node id="7414">
-        <label>constraintclearance.h</label>
-        <link refid="df/de4/constraintclearance_8h"/>
-        <childnode refid="7411" relation="include">
-        </childnode>
-      </node>
-      <node id="7392">
-        <label>bodyflexglobalgalerkin.h</label>
-        <link refid="df/d1c/bodyflexglobalgalerkin_8h"/>
-        <childnode refid="7393" relation="include">
-        </childnode>
-      </node>
-      <node id="7398">
-        <label>material.h</label>
-        <link refid="d3/d65/material_8h"/>
-        <childnode refid="7376" relation="include">
-        </childnode>
-      </node>
-      <node id="7394">
-        <label>body.h</label>
-        <link refid="d0/d77/body_8h"/>
-        <childnode refid="7374" relation="include">
-        </childnode>
-        <childnode refid="7376" relation="include">
-        </childnode>
-      </node>
-      <node id="7379">
-        <label>shapefunctionMLS.h</label>
-        <link refid="db/da5/shapefunction_m_l_s_8h"/>
-        <childnode refid="7378" relation="include">
-        </childnode>
-      </node>
-      <node id="7396">
-        <label>cell.h</label>
-        <link refid="d0/ddd/cell_8h"/>
-        <childnode refid="7397" relation="include">
-        </childnode>
-      </node>
-      <node id="7411">
-        <label>constraint.h</label>
-        <link refid="dc/d4d/constraint_8h"/>
-        <childnode refid="7374" relation="include">
-        </childnode>
-        <childnode refid="7376" relation="include">
-        </childnode>
-      </node>
-      <node id="7373">
+      <node id="3827">
         <label>string</label>
       </node>
-      <node id="7378">
-        <label>shapefunction.h</label>
-        <link refid="d3/d16/shapefunction_8h"/>
-        <childnode refid="7376" relation="include">
+      <node id="3838">
+        <label>shapefunctionlinear-x.h</label>
+        <link refid="d6/d09/shapefunctionlinear-x_8h"/>
+        <childnode refid="3833" relation="include">
         </childnode>
       </node>
-      <node id="7372">
+      <node id="3826">
         <label>map</label>
       </node>
-      <node id="7370">
-        <label>point.h</label>
-        <link refid="d2/d91/point_8h"/>
-        <childnode refid="7371" relation="include">
-        </childnode>
-        <childnode refid="7372" relation="include">
-        </childnode>
-        <childnode refid="7373" relation="include">
-        </childnode>
-        <childnode refid="7374" relation="include">
-        </childnode>
-      </node>
-      <node id="7388">
-        <label>analysisthermaldynamic.h</label>
-        <link refid="d1/d1f/analysisthermaldynamic_8h"/>
-        <childnode refid="7385" relation="include">
-        </childnode>
-      </node>
-      <node id="7380">
-        <label>shapefunctiontriangle.h</label>
-        <link refid="d1/db5/shapefunctiontriangle_8h"/>
-        <childnode refid="7378" relation="include">
-        </childnode>
-      </node>
-      <node id="7374">
+      <node id="3828">
         <label>common.h</label>
         <link refid="dc/d54/common_8h"/>
-      </node>
-      <node id="7381">
-        <label>shapefunctiontetrahedron.h</label>
-        <link refid="db/d91/shapefunctiontetrahedron_8h"/>
-        <childnode refid="7378" relation="include">
+        <childnode refid="3826" relation="include">
+        </childnode>
+        <childnode refid="3829" relation="include">
         </childnode>
       </node>
-      <node id="7408">
-        <label>bodythermal.h</label>
-        <link refid="d3/d0b/bodythermal_8h"/>
-        <childnode refid="7376" relation="include">
-        </childnode>
-        <childnode refid="7395" relation="include">
-        </childnode>
-        <childnode refid="7399" relation="include">
-        </childnode>
-        <childnode refid="7400" relation="include">
-        </childnode>
-        <childnode refid="7401" relation="include">
-        </childnode>
-        <childnode refid="7402" relation="include">
-        </childnode>
-        <childnode refid="7375" relation="include">
-        </childnode>
-        <childnode refid="7409" relation="include">
+      <node id="3832">
+        <label>shapefunctionRBF.h</label>
+        <link refid="d9/d2f/shapefunction_r_b_f_8h"/>
+        <childnode refid="3833" relation="include">
         </childnode>
       </node>
-      <node id="7383">
-        <label>simulation.h</label>
-        <link refid="dd/d6a/simulation_8h"/>
-        <childnode refid="7384" relation="include">
-        </childnode>
-        <childnode refid="7388" relation="include">
-        </childnode>
-        <childnode refid="7389" relation="include">
-        </childnode>
-        <childnode refid="7390" relation="include">
-        </childnode>
-        <childnode refid="7391" relation="include">
-        </childnode>
-        <childnode refid="7375" relation="include">
-        </childnode>
-        <childnode refid="7398" relation="include">
-        </childnode>
-      </node>
-      <node id="7390">
-        <label>analysisthermalstatic.h</label>
-        <link refid="db/d65/analysisthermalstatic_8h"/>
-        <childnode refid="7385" relation="include">
-        </childnode>
-      </node>
-      <node id="7409">
-        <label>thermalload.h</label>
-        <link refid="de/df4/thermalload_8h"/>
-        <childnode refid="7374" relation="include">
-        </childnode>
-        <childnode refid="7376" relation="include">
-        </childnode>
-        <childnode refid="7372" relation="include">
-        </childnode>
-      </node>
-      <node id="7384">
-        <label>analysisdynamic.h</label>
-        <link refid="da/d83/analysisdynamic_8h"/>
-        <childnode refid="7385" relation="include">
-        </childnode>
-      </node>
-      <node id="7402">
-        <label>elemtetrahedron.h</label>
-        <link refid="d3/d9f/elemtetrahedron_8h"/>
-        <childnode refid="7400" relation="include">
-        </childnode>
-      </node>
-      <node id="7389">
-        <label>analysisstatic.h</label>
-        <link refid="d4/d87/analysisstatic_8h"/>
-        <childnode refid="7385" relation="include">
-        </childnode>
-      </node>
-      <node id="7415">
-        <label>force.h</label>
-        <link refid="dd/d0d/force_8h"/>
-        <childnode refid="7416" relation="include">
-        </childnode>
-      </node>
-      <node id="7401">
-        <label>elemtriangle.h</label>
-        <link refid="df/d03/elemtriangle_8h"/>
-        <childnode refid="7399" relation="include">
-        </childnode>
-      </node>
-      <node id="7371">
-        <label>vector</label>
-      </node>
-      <node id="7412">
-        <label>constraintfixedcoordinates.h</label>
-        <link refid="d4/d28/constraintfixedcoordinates_8h"/>
-        <childnode refid="7411" relation="include">
-        </childnode>
-      </node>
-      <node id="7395">
-        <label>cellrect.h</label>
-        <link refid="d8/d84/cellrect_8h"/>
-        <childnode refid="7396" relation="include">
-        </childnode>
-      </node>
-      <node id="7369">
+      <node id="3823">
         <label>point.cpp</label>
         <link refid="point.cpp"/>
-        <childnode refid="7370" relation="include">
+        <childnode refid="3824" relation="include">
         </childnode>
-        <childnode refid="7375" relation="include">
+        <childnode refid="3830" relation="include">
         </childnode>
-        <childnode refid="7377" relation="include">
+        <childnode refid="3832" relation="include">
         </childnode>
-        <childnode refid="7379" relation="include">
+        <childnode refid="3834" relation="include">
         </childnode>
-        <childnode refid="7380" relation="include">
+        <childnode refid="3835" relation="include">
         </childnode>
-        <childnode refid="7381" relation="include">
+        <childnode refid="3836" relation="include">
         </childnode>
-        <childnode refid="7382" relation="include">
+        <childnode refid="3837" relation="include">
         </childnode>
-        <childnode refid="7383" relation="include">
+        <childnode refid="3838" relation="include">
         </childnode>
-      </node>
-      <node id="7410">
-        <label>constraintdistance.h</label>
-        <link refid="da/df6/constraintdistance_8h"/>
-        <childnode refid="7411" relation="include">
+        <childnode refid="3839" relation="include">
         </childnode>
       </node>
-      <node id="7382">
-        <label>shapefunctionlinear.h</label>
-        <link refid="d0/d2e/shapefunctionlinear_8h"/>
-        <childnode refid="7378" relation="include">
+      <node id="3840">
+        <label>core/material.h</label>
+        <link refid="d3/d65/material_8h"/>
+        <childnode refid="3831" relation="include">
+        </childnode>
+        <childnode refid="3828" relation="include">
         </childnode>
       </node>
-      <node id="7376">
+      <node id="3833">
+        <label>shapefunction.h</label>
+        <link refid="d3/d16/shapefunction_8h"/>
+        <childnode refid="3831" relation="include">
+        </childnode>
+      </node>
+      <node id="3836">
+        <label>shapefunctiontetrahedron.h</label>
+        <link refid="db/d91/shapefunctiontetrahedron_8h"/>
+        <childnode refid="3833" relation="include">
+        </childnode>
+      </node>
+      <node id="3825">
+        <label>vector</label>
+      </node>
+      <node id="3831">
         <label>LMX/lmx.h</label>
       </node>
-      <node id="7393">
-        <label>bodyflex.h</label>
-        <link refid="dd/dbc/bodyflex_8h"/>
-        <childnode refid="7394" relation="include">
-        </childnode>
-        <childnode refid="7395" relation="include">
-        </childnode>
-        <childnode refid="7399" relation="include">
-        </childnode>
-        <childnode refid="7400" relation="include">
-        </childnode>
-        <childnode refid="7401" relation="include">
-        </childnode>
-        <childnode refid="7402" relation="include">
-        </childnode>
-        <childnode refid="7375" relation="include">
-        </childnode>
-      </node>
-      <node id="7386">
-        <label>LMX/lmx_diff_problem_first.h</label>
-      </node>
-      <node id="7391">
-        <label>system.h</label>
-        <link refid="dc/db2/system_8h"/>
-        <childnode refid="7372" relation="include">
-        </childnode>
-        <childnode refid="7373" relation="include">
-        </childnode>
-        <childnode refid="7376" relation="include">
-        </childnode>
-        <childnode refid="7392" relation="include">
-        </childnode>
-        <childnode refid="7403" relation="include">
-        </childnode>
-        <childnode refid="7405" relation="include">
-        </childnode>
-        <childnode refid="7406" relation="include">
-        </childnode>
-        <childnode refid="7407" relation="include">
-        </childnode>
-        <childnode refid="7408" relation="include">
-        </childnode>
-        <childnode refid="7410" relation="include">
-        </childnode>
-        <childnode refid="7412" relation="include">
-        </childnode>
-        <childnode refid="7413" relation="include">
-        </childnode>
-        <childnode refid="7414" relation="include">
-        </childnode>
-        <childnode refid="7415" relation="include">
-        </childnode>
-        <childnode refid="7409" relation="include">
-        </childnode>
-      </node>
-      <node id="7413">
-        <label>constraintfixedaxis.h</label>
-        <link refid="d8/dfb/constraintfixedaxis_8h"/>
-        <childnode refid="7411" relation="include">
-        </childnode>
-      </node>
-      <node id="7400">
-        <label>celltetrahedron.h</label>
-        <link refid="d1/d94/celltetrahedron_8h"/>
-        <childnode refid="7396" relation="include">
-        </childnode>
-      </node>
-      <node id="7405">
-        <label>bodyrigid1D.h</label>
-        <link refid="d7/d1c/bodyrigid1_d_8h"/>
-        <childnode refid="7404" relation="include">
-        </childnode>
-        <childnode refid="7375" relation="include">
-        </childnode>
-      </node>
-      <node id="7397">
-        <label>gausspoint.h</label>
-        <link refid="d4/dc6/gausspoint_8h"/>
-        <childnode refid="7371" relation="include">
-        </childnode>
-        <childnode refid="7372" relation="include">
-        </childnode>
-        <childnode refid="7375" relation="include">
-        </childnode>
-        <childnode refid="7370" relation="include">
-        </childnode>
-        <childnode refid="7374" relation="include">
-        </childnode>
-        <childnode refid="7398" relation="include">
-        </childnode>
-      </node>
-      <node id="7375">
+      <node id="3830">
         <label>node.h</label>
         <link refid="d1/d77/node_8h"/>
-        <childnode refid="7371" relation="include">
+        <childnode refid="3824" relation="include">
         </childnode>
-        <childnode refid="7370" relation="include">
-        </childnode>
-        <childnode refid="7376" relation="include">
+        <childnode refid="3831" relation="include">
         </childnode>
       </node>
-      <node id="7387">
-        <label>LMX/lmx_diff_problem_second.h</label>
-      </node>
-      <node id="7403">
-        <label>bodyrigid0D.h</label>
-        <link refid="da/d60/bodyrigid0_d_8h"/>
-        <childnode refid="7404" relation="include">
-        </childnode>
-        <childnode refid="7375" relation="include">
+      <node id="3837">
+        <label>shapefunctionlinear.h</label>
+        <link refid="d0/d2e/shapefunctionlinear_8h"/>
+        <childnode refid="3833" relation="include">
         </childnode>
       </node>
-      <node id="7385">
-        <label>analysis.h</label>
-        <link refid="d2/d40/analysis_8h"/>
-        <childnode refid="7374" relation="include">
+      <node id="3824">
+        <label>point.h</label>
+        <link refid="d2/d91/point_8h"/>
+        <childnode refid="3825" relation="include">
         </childnode>
-        <childnode refid="7376" relation="include">
+        <childnode refid="3826" relation="include">
         </childnode>
-        <childnode refid="7386" relation="include">
+        <childnode refid="3827" relation="include">
         </childnode>
-        <childnode refid="7387" relation="include">
-        </childnode>
-      </node>
-      <node id="7404">
-        <label>bodyrigid.h</label>
-        <link refid="d1/d67/bodyrigid_8h"/>
-        <childnode refid="7394" relation="include">
+        <childnode refid="3828" relation="include">
         </childnode>
       </node>
-      <node id="7407">
-        <label>bodyrigid3D.h</label>
-        <link refid="d1/dbe/bodyrigid3_d_8h"/>
-        <childnode refid="7404" relation="include">
-        </childnode>
-        <childnode refid="7375" relation="include">
+      <node id="3835">
+        <label>shapefunctiontriangle.h</label>
+        <link refid="d1/db5/shapefunctiontriangle_8h"/>
+        <childnode refid="3833" relation="include">
         </childnode>
       </node>
-      <node id="7416">
-        <label>load.h</label>
-        <link refid="dc/d61/load_8h"/>
-        <childnode refid="7374" relation="include">
+      <node id="3834">
+        <label>shapefunctionMLS.h</label>
+        <link refid="db/da5/shapefunction_m_l_s_8h"/>
+        <childnode refid="3833" relation="include">
         </childnode>
-        <childnode refid="7376" relation="include">
-        </childnode>
-        <childnode refid="7375" relation="include">
-        </childnode>
+      </node>
+      <node id="3829">
+        <label>memory</label>
       </node>
     </incdepgraph>
     <innernamespace refid="d2/dde/namespacemknix">mknix</innernamespace>
@@ -413,249 +145,359 @@
     </detaileddescription>
     <programlisting>
 <codeline lineno="1"><highlight class="comment">//--<sp/>Licencia<sp/>--</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d2/d91/point_8h" kindref="compound" tooltip="Point of interest. ">point.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d2/d91/point_8h" kindref="compound">point.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d1/d77/node_8h" kindref="compound">node.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d9/d2f/shapefunction_r_b_f_8h" kindref="compound" tooltip="Function for interpolation of basic variables by means of Radial basis Functions. ...">shapefunctionRBF.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="db/da5/shapefunction_m_l_s_8h" kindref="compound" tooltip="Function for aproximation of basic variables by Moving Least Squares fit. ">shapefunctionMLS.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d9/d2f/shapefunction_r_b_f_8h" kindref="compound">shapefunctionRBF.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="db/da5/shapefunction_m_l_s_8h" kindref="compound">shapefunctionMLS.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d1/db5/shapefunctiontriangle_8h" kindref="compound">shapefunctiontriangle.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="db/d91/shapefunctiontetrahedron_8h" kindref="compound">shapefunctiontetrahedron.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d0/d2e/shapefunctionlinear_8h" kindref="compound">shapefunctionlinear.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="dd/d6a/simulation_8h" kindref="compound">simulation.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d6/d09/shapefunctionlinear-x_8h" kindref="compound">shapefunctionlinear-x.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="10"><highlight class="normal"></highlight></codeline>
-<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mknix<sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="dd/d6a/simulation_8h" kindref="compound">simulation/simulation.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="12"><highlight class="normal"></highlight></codeline>
-<codeline lineno="13" refid="d3/d19/classmknix_1_1_point_1ade62bb71dbbd34efa4ed5090f37f2d9a" refkind="member"><highlight class="normal"><ref refid="d3/d19/classmknix_1_1_point_1ade62bb71dbbd34efa4ed5090f37f2d9a" kindref="member">Point::Point</ref>()</highlight></codeline>
-<codeline lineno="14"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="16"><highlight class="normal"></highlight></codeline>
-<codeline lineno="17"><highlight class="normal"></highlight></codeline>
-<codeline lineno="18" refid="d3/d19/classmknix_1_1_point_1ae9012b54d57e557b16d47e56857cd624" refkind="member"><highlight class="normal"><ref refid="d3/d19/classmknix_1_1_point_1ade62bb71dbbd34efa4ed5090f37f2d9a" kindref="member">Point::Point</ref>(<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coor_x,</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coor_y,</highlight></codeline>
-<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coor_z</highlight></codeline>
-<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="22"><highlight class="normal"><sp/><sp/>:<sp/>dim(<ref refid="db/d0b/classmknix_1_1_simulation" kindref="compound">Simulation</ref>::getDim())</highlight></codeline>
-<codeline lineno="23"><highlight class="normal"><sp/><sp/>,<sp/>X(coor_x)</highlight></codeline>
-<codeline lineno="24"><highlight class="normal"><sp/><sp/>,<sp/>Y(coor_y)</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"><sp/><sp/>,<sp/>Z(coor_z)</highlight></codeline>
-<codeline lineno="26"><highlight class="normal"><sp/><sp/>,<sp/>alphai(0)</highlight></codeline>
-<codeline lineno="27"><highlight class="normal"><sp/><sp/>,<sp/>dc(0)</highlight></codeline>
-<codeline lineno="28"><highlight class="normal"><sp/><sp/>,<sp/>shapeFun(0)</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"><sp/><sp/>,<sp/>supportNodesSize(0)</highlight></codeline>
-<codeline lineno="30"><highlight class="normal"><sp/><sp/>,<sp/>jacobian(0)</highlight></codeline>
-<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="34" refid="d3/d19/classmknix_1_1_point_1ad47e79bd02cbfe8e668caf9d5b9c13f0" refkind="member"><highlight class="normal"><ref refid="d3/d19/classmknix_1_1_point_1ade62bb71dbbd34efa4ed5090f37f2d9a" kindref="member">Point::Point</ref>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim_in,</highlight></codeline>
-<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coor_x,</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coor_y,</highlight></codeline>
-<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coor_z,</highlight></codeline>
-<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha_in,</highlight></codeline>
-<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dc_in</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>:<sp/>dim(dim_in)</highlight></codeline>
-<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>X(coor_x)</highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>Y(coor_y)</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>Z(coor_z)</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>alphai(alpha_in)</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>dc(dc_in)</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>shapeFun(0)</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>supportNodesSize(0)</highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/>jacobian(0)</highlight></codeline>
-<codeline lineno="50"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight></codeline>
-<codeline lineno="53" refid="d3/d19/classmknix_1_1_point_1ad20e0663241df1986b8250a0ab7f2358" refkind="member"><highlight class="normal"><ref refid="d3/d19/classmknix_1_1_point_1ad20e0663241df1986b8250a0ab7f2358" kindref="member">Point::~Point</ref>()</highlight></codeline>
-<codeline lineno="54"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="56"><highlight class="normal"></highlight></codeline>
-<codeline lineno="57" refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" kindref="member">Point::distance</ref>(<sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref>&amp;<sp/>node_in<sp/>)</highlight></codeline>
-<codeline lineno="58"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::sqrt(<sp/>std::pow(node_in.<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>()<sp/>-<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref>,<sp/>2)</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+std::pow(node_in.<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>()<sp/>-<sp/><ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref>,<sp/>2)</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+std::pow(node_in.<ref refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" kindref="member">getZ</ref>()<sp/>-<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" kindref="member">Z</ref>,<sp/>2)<sp/>);</highlight></codeline>
-<codeline lineno="62"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"></highlight></codeline>
-<codeline lineno="64" refid="d3/d19/classmknix_1_1_point_1a41f06a5ee1993d52db1c629a1ab8ae3f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a41f06a5ee1993d52db1c629a1ab8ae3f" kindref="member">Point::addSupportNode</ref>(<sp/><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref>*<sp/>node_in<sp/>)</highlight></codeline>
-<codeline lineno="65"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>.push_back(<sp/>node_in<sp/>);</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/>++<ref refid="d3/d19/classmknix_1_1_point_1af2f2861988d3dfd6625822140f8e04d3" kindref="member">supportNodesSize</ref>;</highlight></codeline>
-<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"></highlight></codeline>
-<codeline lineno="70"><highlight class="normal"></highlight></codeline>
-<codeline lineno="71" refid="d3/d19/classmknix_1_1_point_1a88289f6649c16591f708e2a6f5eb749e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a88289f6649c16591f708e2a6f5eb749e" kindref="member">Point::findSupportNodes</ref>(<sp/>std::vector&lt;<sp/>Node*<sp/>&gt;<sp/>&amp;<sp/>domainNodes<sp/>)</highlight></codeline>
-<codeline lineno="72"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="73"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>di<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" kindref="member">alphai</ref><sp/>*<sp/><ref refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" kindref="member">dc</ref>;</highlight></codeline>
-<codeline lineno="74"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>smax<sp/>=<sp/>0.;</highlight></codeline>
-<codeline lineno="75"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" kindref="member">distance</ref>;</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minX<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>-<sp/>di;</highlight></codeline>
-<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxX<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>+<sp/>di;</highlight></codeline>
-<codeline lineno="78"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minY<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>-<sp/>di;</highlight></codeline>
-<codeline lineno="79"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxY<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>+<sp/>di;</highlight></codeline>
-<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>cout<sp/>&lt;&lt;<sp/>alphai<sp/>&lt;&lt;<sp/>&quot;*&quot;&lt;&lt;dc&lt;&lt;&quot;<sp/>=<sp/>&quot;<sp/>&lt;&lt;<sp/>di<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;(&quot;&lt;&lt;minX&lt;&lt;&quot;-&quot;&lt;&lt;maxX&lt;&lt;&quot;)&quot;&lt;&lt;&quot;,(&quot;&lt;&lt;minY&lt;&lt;&quot;-&quot;&lt;&lt;maxY&lt;&lt;&quot;)&quot;&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="82"><highlight class="normal"></highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>std::vector&lt;<sp/>Node*<sp/>&gt;::iterator<sp/>it<sp/>=<sp/>domainNodes.begin();</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>it<sp/>!=<sp/>domainNodes.end();</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++it){</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>enclose<sp/>first<sp/>in<sp/>a<sp/>rectangle,<sp/>seems<sp/>more<sp/>efficient:</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>(*it)-&gt;getx()<sp/>&gt;=<sp/>minX<sp/>&amp;&amp;<sp/>(*it)-&gt;getx()<sp/>&lt;=<sp/>maxX<sp/>){</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>(*it)-&gt;gety()<sp/>&gt;=<sp/>minY<sp/>&amp;&amp;<sp/>(*it)-&gt;gety()<sp/>&lt;=<sp/>maxY<sp/>){</highlight></codeline>
-<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>distance<sp/>criteria:</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>distance<sp/>=<sp/>sqrt(<sp/>pow((*it)-&gt;getx()-<ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref>,2)<sp/></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+pow((*it)-&gt;gety()-<ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref>,2)</highlight></codeline>
-<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+pow((*it)-&gt;getz()-<ref refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" kindref="member">Z</ref>,2)<sp/>);</highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>distance<sp/>&lt;=<sp/>di<sp/>){</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;Distance<sp/>=<sp/>&quot;<sp/>&lt;&lt;<sp/>distance<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>.push_back(<sp/>(*it)<sp/>);</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(distance<sp/>&gt;<sp/>smax)<sp/>smax<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" kindref="member">distance</ref>;</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="100"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="101"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;Old<sp/>alphai<sp/>=<sp/>&quot;<sp/>&lt;&lt;<sp/>alphai;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" kindref="member">alphai</ref><sp/>=<sp/>smax<sp/>/<sp/><ref refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" kindref="member">dc</ref>;</highlight></codeline>
-<codeline lineno="103"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;,<sp/>New<sp/>alphai<sp/>=<sp/>&quot;<sp/>&lt;&lt;<sp/>alphai<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="104"><highlight class="normal"><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1af2f2861988d3dfd6625822140f8e04d3" kindref="member">supportNodesSize</ref><sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>.size();</highlight></codeline>
-<codeline lineno="105"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="106"><highlight class="normal"></highlight></codeline>
-<codeline lineno="107"><highlight class="normal"></highlight></codeline>
-<codeline lineno="108"><highlight class="normal"></highlight><highlight class="comment">//<sp/>for<sp/>rectangular<sp/>domains</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="109" refid="d3/d19/classmknix_1_1_point_1a13907374f703f15ffda3bb376bd19073" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a88289f6649c16591f708e2a6f5eb749e" kindref="member">Point::findSupportNodes</ref>(<sp/>std::vector&lt;<sp/>Node*<sp/>&gt;<sp/>&amp;<sp/>domainNodes,</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>domain_minX,</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>domain_maxX,</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>domain_minY,</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>domain_maxY</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
-<codeline lineno="115"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dix<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" kindref="member">alphai</ref><sp/>*<sp/><ref refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" kindref="member">dc</ref>;</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>diy<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" kindref="member">alphai</ref><sp/>*<sp/><ref refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" kindref="member">dc</ref>;</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"></highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>std::vector&lt;<sp/>Node*<sp/>&gt;::iterator<sp/>it<sp/>=<sp/>domainNodes.begin();</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>it<sp/>!=<sp/>domainNodes.end();</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++it)</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>First,<sp/>check<sp/>if<sp/>bounding<sp/>box<sp/>is<sp/>outside<sp/>the<sp/>cells&apos;<sp/>patch<sp/>domain</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>and<sp/>define<sp/>the<sp/>box<sp/>of<sp/>searching:</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minX;</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxX;</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>-<sp/>dix<sp/>&lt;<sp/>domain_minX){</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>minX<sp/>=<sp/>domain_minX;</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>maxX<sp/>=<sp/>minX<sp/>+<sp/>2*dix;</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>+<sp/>dix<sp/>&gt;<sp/>domain_maxX){</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>maxX<sp/>=<sp/>domain_maxX;</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>minX<sp/>=<sp/>maxX<sp/>-<sp/>2*dix;</highlight></codeline>
-<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>minX<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>-<sp/>dix;</highlight></codeline>
-<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>maxX<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>+<sp/>dix;</highlight></codeline>
-<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minY;</highlight></codeline>
-<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxY;</highlight></codeline>
-<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>-<sp/>diy<sp/>&lt;<sp/>domain_minY){</highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>minY<sp/>=<sp/>domain_minY;</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>maxY<sp/>=<sp/>minY<sp/>+<sp/>2*diy;</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>+<sp/>diy<sp/>&gt;<sp/>domain_maxY){</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>maxY<sp/>=<sp/>domain_maxY;</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>minY<sp/>=<sp/>maxY<sp/>-<sp/>2*diy;</highlight></codeline>
-<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>minY<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>-<sp/>dix;</highlight></codeline>
-<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>maxY<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>+<sp/>dix;</highlight></codeline>
-<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"></highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Search<sp/>for<sp/>nodes<sp/>inside<sp/>the<sp/>box:</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>(*it)-&gt;getx()<sp/>&gt;=<sp/>minX<sp/>&amp;&amp;<sp/>(*it)-&gt;getx()<sp/>&lt;=<sp/>maxX<sp/>){</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<sp/>(*it)-&gt;gety()<sp/>&gt;=<sp/>minY<sp/>&amp;&amp;<sp/>(*it)-&gt;gety()<sp/>&lt;=<sp/>maxY<sp/>){</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>.push_back(<sp/>(*it)<sp/>);</highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1af2f2861988d3dfd6625822140f8e04d3" kindref="member">supportNodesSize</ref><sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>.size();</highlight></codeline>
-<codeline lineno="158"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"></highlight></codeline>
-<codeline lineno="160" refid="d3/d19/classmknix_1_1_point_1a1843d81646fbca9519358eb3c8787e18" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a1843d81646fbca9519358eb3c8787e18" kindref="member">Point::shapeFunSolve</ref>(<sp/>std::string<sp/>type_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q_in<sp/>)</highlight></codeline>
-<codeline lineno="161"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;INFO<sp/>AT<sp/>shapeFunSolve<sp/>IN<sp/>Point:<sp/>(x,<sp/>y)<sp/>=<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>this-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>this-&gt;<ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t<sp/>alphai<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" kindref="member">alphai</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;dc<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" kindref="member">dc</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;q_in<sp/>=<sp/>&quot;</highlight><highlight class="normal">&lt;&lt;<sp/>q_in<sp/></highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="168"><highlight class="normal"><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t<sp/>Number<sp/>of<sp/>Support<sp/>Nodes<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1af2f2861988d3dfd6625822140f8e04d3" kindref="member">supportNodesSize</ref><sp/><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="169"><highlight class="normal"><sp/><sp/>q_in<sp/>=<sp/>.5;</highlight></codeline>
-<codeline lineno="170"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref>){</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(type_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;RBF&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1ad76d1b525e65d47484187892160efd74" kindref="member">ShapeFunctionRBF</ref>(<ref refid="d3/d19/classmknix_1_1_point_1af2f2861988d3dfd6625822140f8e04d3" kindref="member">supportNodesSize</ref>,</highlight></codeline>
-<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/></highlight><highlight class="comment">//<sp/>RBF<sp/>type</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" kindref="member">alphai</ref>,</highlight></codeline>
-<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" kindref="member">dc</ref>,</highlight></codeline>
-<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>q_in,</highlight></codeline>
-<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>);</highlight></codeline>
-<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(type_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;MLS&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a07440917ac5f62def0ce649ad0066552" kindref="member">ShapeFunctionMLS</ref>(<ref refid="d3/d19/classmknix_1_1_point_1af2f2861988d3dfd6625822140f8e04d3" kindref="member">supportNodesSize</ref>,</highlight></codeline>
-<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1,</highlight></codeline>
-<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1,<sp/></highlight><highlight class="comment">//<sp/>weight<sp/>type</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" kindref="member">alphai</ref>,</highlight></codeline>
-<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" kindref="member">dc</ref>,</highlight></codeline>
-<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>);</highlight></codeline>
-<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(type_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;BAR&quot;</highlight><highlight class="normal">)</highlight></codeline>
-<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a141afa4d313293225cc307a84fa17756" kindref="member">ShapeFunctionLinear</ref>(<sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal"><sp/>);</highlight></codeline>
-<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref>-&gt;<ref refid="dd/d8d/classmknix_1_1_shape_function_1ac4a0d1b43ff7d4adf788e677912a87f7" kindref="member">calc</ref>();</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="191"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="192"><highlight class="normal"></highlight></codeline>
-<codeline lineno="193" refid="d3/d19/classmknix_1_1_point_1ad985b1bb6595c64f6bfc60b557e86ec9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1ad985b1bb6595c64f6bfc60b557e86ec9" kindref="member">Point::gnuplotOut</ref>(<sp/>std::ofstream&amp;<sp/>gpdata<sp/>)</highlight></codeline>
-<codeline lineno="194"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="195"><highlight class="normal"><sp/><sp/>std::ofstream<sp/>this_gp(</highlight><highlight class="stringliteral">&quot;onegp.dat&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="196"><highlight class="normal"><sp/><sp/>std::ofstream<sp/>this_gp_sup_nodes(</highlight><highlight class="stringliteral">&quot;onegpsupportnodes.dat&quot;</highlight><highlight class="normal">);</highlight></codeline>
-<codeline lineno="197"><highlight class="normal"></highlight></codeline>
-<codeline lineno="198"><highlight class="normal"><sp/><sp/>gpdata<sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" kindref="member">Z</ref><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="199"><highlight class="normal"><sp/><sp/>this_gp<sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" kindref="member">Z</ref><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="200"><highlight class="normal"></highlight></codeline>
-<codeline lineno="201"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>output<sp/>of<sp/>support<sp/>nodes.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="202"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>std::vector&lt;Node*&gt;::iterator<sp/>it<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>.begin();</highlight></codeline>
-<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>it<sp/>!=<sp/><ref refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" kindref="member">supportNodes</ref>.end();</highlight></codeline>
-<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++it)</highlight></codeline>
-<codeline lineno="205"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>this_gp_sup_nodes<sp/>&lt;&lt;<sp/>(*it)-&gt;getx()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(*it)-&gt;gety()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>(*it)-&gt;getz()<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="207"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="208"><highlight class="normal"></highlight></codeline>
-<codeline lineno="209"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>output<sp/>of<sp/>shape<sp/>function.</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="210"><highlight class="normal"><sp/><sp/>this-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref>-&gt;<ref refid="dd/d8d/classmknix_1_1_shape_function_1a6b287c3758e7d16be4c7c8e86bbb7077" kindref="member">gnuplotOut</ref>();</highlight></codeline>
-<codeline lineno="211"><highlight class="normal"></highlight></codeline>
-<codeline lineno="212"><highlight class="normal"><sp/><sp/>std::ofstream<sp/>out(</highlight><highlight class="stringliteral">&quot;gnuplot.plt&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="d2/dde/namespacemknix" kindref="compound">mknix</ref><sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="d3/d19/classmknix_1_1_point_1ade62bb71dbbd34efa4ed5090f37f2d9a" refkind="member"><highlight class="normal"><ref refid="d3/d19/classmknix_1_1_point_1ade62bb71dbbd34efa4ed5090f37f2d9a" kindref="member">Point::Point</ref>()</highlight></codeline>
+<codeline lineno="16"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="d3/d19/classmknix_1_1_point_1a7788033d9afd368dd8d446d4a20e9cd2" refkind="member"><highlight class="normal"><ref refid="d3/d19/classmknix_1_1_point_1ade62bb71dbbd34efa4ed5090f37f2d9a" kindref="member">Point::Point</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref>&amp;<sp/>point_in)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>dim(point_in.dim)</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>num(point_in.getNumber())</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>X(point_in.X)</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>Y(point_in.Y)</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>Z(point_in.Z)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>alphai(point_in.alphai)</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>dc(point_in.dc)</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>shapeFunType(point_in.shapeFunType)</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>shapeFun(point_in.shapeFun)</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>supportNodes(point_in.supportNodes)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>supportNodesSize(point_in.supportNodesSize)</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>jacobian(point_in.jacobian)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="d3/d19/classmknix_1_1_point_1a05ad07bb27e53ab3bd8a253cddff5a9e" refkind="member"><highlight class="normal"><ref refid="d3/d19/classmknix_1_1_point_1ade62bb71dbbd34efa4ed5090f37f2d9a" kindref="member">Point::Point</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref><sp/>*<sp/>point_in)</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>dim(point_in-&gt;dim)</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>num(point_in-&gt;getNumber())</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>X(point_in-&gt;X)</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>Y(point_in-&gt;Y)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>Z(point_in-&gt;Z)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>alphai(point_in-&gt;alphai)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>dc(point_in-&gt;dc)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>shapeFunType(point_in-&gt;shapeFunType)</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>shapeFun(point_in-&gt;shapeFun)</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>supportNodes(point_in-&gt;supportNodes)</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>supportNodesSize(point_in-&gt;supportNodesSize)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>jacobian(point_in-&gt;jacobian)</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="d3/d19/classmknix_1_1_point_1ab94ec4f0045e65b7e80b94ffd75eace1" refkind="member"><highlight class="normal"><ref refid="d3/d19/classmknix_1_1_point_1ade62bb71dbbd34efa4ed5090f37f2d9a" kindref="member">Point::Point</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coor_x,</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coor_y,</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coor_z</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>dim(<ref refid="db/d0b/classmknix_1_1_simulation" kindref="compound">Simulation</ref>::getDim())</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>num(i)</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>X(coor_x)</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>Y(coor_y)</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>Z(coor_z)</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>alphai(0)</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>dc(0)</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>shapeFun(0)</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>supportNodesSize(0)</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>jacobian(0)<sp/></highlight><highlight class="comment">//<sp/>initialized<sp/>to<sp/>one<sp/>for<sp/>rigid<sp/>body<sp/>additional<sp/>points</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69" refid="d3/d19/classmknix_1_1_point_1a290d5ac42d31be5f6b2a462b422d35e7" refkind="member"><highlight class="normal"><ref refid="d3/d19/classmknix_1_1_point_1ade62bb71dbbd34efa4ed5090f37f2d9a" kindref="member">Point::Point</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim_in,</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coor_x,</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coor_y,</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coor_z,</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha_in,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dc_in</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>dim(dim_in)</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>num(i)</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>X(coor_x)</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>Y(coor_y)</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>Z(coor_z)</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>alphai(alpha_in)</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>dc(dc_in)</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>shapeFun(0)</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>supportNodesSize(0)</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>jacobian(0)</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="d3/d19/classmknix_1_1_point_1a69ac488240dc683a38330883d3635d87" refkind="member"><highlight class="normal"><ref refid="d3/d19/classmknix_1_1_point_1ade62bb71dbbd34efa4ed5090f37f2d9a" kindref="member">Point::Point</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim_in,</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coor_x,</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coor_y,</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>coor_z,</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>jacobian_in,</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha_in,</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dc_in</highlight></codeline>
+<codeline lineno="98"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>dim(dim_in)</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>num(i)</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>X(coor_x)</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>Y(coor_y)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>Z(coor_z)</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>alphai(alpha_in)</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>dc(dc_in)</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>shapeFun(0)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>supportNodesSize(0)</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>jacobian(jacobian_in)</highlight></codeline>
+<codeline lineno="109"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112" refid="d3/d19/classmknix_1_1_point_1ad20e0663241df1986b8250a0ab7f2358" refkind="member"><highlight class="normal"><ref refid="d3/d19/classmknix_1_1_point_1ad20e0663241df1986b8250a0ab7f2358" kindref="member">Point::~Point</ref>()</highlight></codeline>
+<codeline lineno="113"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref>)<sp/>{<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal"><sp/>(<ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref>);<sp/>}</highlight></codeline>
+<codeline lineno="115"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117" refid="d3/d19/classmknix_1_1_point_1a7fcc933a13b61e990feaaaaef7c193f6" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a7fcc933a13b61e990feaaaaef7c193f6" kindref="member">Point::getTemp</ref>()</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="118"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>conf_value(0);</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0u;<sp/>i<sp/>&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1a141fd098ad72a85cb4d11362b80ca0d8" kindref="member">supportNodesSize</ref>;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>conf_value<sp/>+=<sp/><ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref>-&gt;<ref refid="dd/d8d/classmknix_1_1_shape_function_1a13f35e2b1cfc89c26ee03ede4bfff586" kindref="member">getPhi</ref>(0,<sp/>i)<sp/>*<sp/>(<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[i]-&gt;getqt());</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>conf_value;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126" refid="d3/d19/classmknix_1_1_point_1a8bfbde170c041c55d7e31f596701c977" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a8bfbde170c041c55d7e31f596701c977" kindref="member">Point::getConf</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dof)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="127"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>conf_value(0);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0u;<sp/>i<sp/>&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1a141fd098ad72a85cb4d11362b80ca0d8" kindref="member">supportNodesSize</ref>;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>conf_value<sp/>+=<sp/><ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref>-&gt;<ref refid="dd/d8d/classmknix_1_1_shape_function_1a13f35e2b1cfc89c26ee03ede4bfff586" kindref="member">getPhi</ref>(0,<sp/>i)<sp/>*<sp/>(<ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[i]-&gt;getqx(dof));</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>conf_value;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="d3/d19/classmknix_1_1_point_1a138d3c418c3147aead7f3958f1db9b42" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a138d3c418c3147aead7f3958f1db9b42" kindref="member">Point::distance</ref>(<ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref>&amp;<sp/>node_in)</highlight><highlight class="keyword"><sp/>const</highlight></codeline>
+<codeline lineno="136"><highlight class="keyword"></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::sqrt(std::pow(node_in.<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>()<sp/>-<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref>,<sp/>2)</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>std::pow(node_in.<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>()<sp/>-<sp/><ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref>,<sp/>2)</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>std::pow(node_in.<ref refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" kindref="member">getZ</ref>()<sp/>-<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" kindref="member">Z</ref>,<sp/>2));</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142" refid="d3/d19/classmknix_1_1_point_1a64039f7f478db03bdfa481bd525d2c45" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a64039f7f478db03bdfa481bd525d2c45" kindref="member">Point::getSupportNodeNumber</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>deriv,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>s_node)</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>[s_node]-&gt;getNumber();</highlight></codeline>
+<codeline lineno="145"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="147"><highlight class="normal"></highlight></codeline>
+<codeline lineno="148" refid="d3/d19/classmknix_1_1_point_1a41f06a5ee1993d52db1c629a1ab8ae3f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a41f06a5ee1993d52db1c629a1ab8ae3f" kindref="member">Point::addSupportNode</ref>(<ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref><sp/>*<sp/>node_in)</highlight></codeline>
+<codeline lineno="149"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>.push_back(node_in);</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>++<ref refid="d3/d19/classmknix_1_1_point_1a141fd098ad72a85cb4d11362b80ca0d8" kindref="member">supportNodesSize</ref>;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155" refid="d3/d19/classmknix_1_1_point_1a88289f6649c16591f708e2a6f5eb749e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a88289f6649c16591f708e2a6f5eb749e" kindref="member">Point::findSupportNodes</ref>(std::vector&lt;Node<sp/>*&gt;&amp;<sp/>domainNodes)</highlight></codeline>
+<codeline lineno="156"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>di<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" kindref="member">alphai</ref><sp/>*<sp/><ref refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" kindref="member">dc</ref>;</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>smax<sp/>=<sp/>0.;</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a138d3c418c3147aead7f3958f1db9b42" kindref="member">distance</ref>;</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minX<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>-<sp/>di;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxX<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>+<sp/>di;</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minY<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>-<sp/>di;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxY<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>+<sp/>di;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>cout<sp/>&lt;&lt;<sp/>alphai<sp/>&lt;&lt;<sp/>&quot;*&quot;&lt;&lt;dc&lt;&lt;&quot;<sp/>=<sp/>&quot;<sp/>&lt;&lt;<sp/>di<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;(&quot;&lt;&lt;minX&lt;&lt;&quot;-&quot;&lt;&lt;maxX&lt;&lt;&quot;)&quot;&lt;&lt;&quot;,(&quot;&lt;&lt;minY&lt;&lt;&quot;-&quot;&lt;&lt;maxY&lt;&lt;&quot;)&quot;&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d3/d19/classmknix_1_1_point_1ab97e4bca7f299237ff3f8cc2449b1be1" kindref="member">dim</ref><sp/>==<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>node<sp/>:<sp/>domainNodes)<sp/>{</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>enclose<sp/>first<sp/>in<sp/>a<sp/>rectangle,<sp/>seems<sp/>more<sp/>efficient:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(node-&gt;getX()<sp/>&gt;=<sp/>minX<sp/>&amp;&amp;<sp/>node-&gt;getX()<sp/>&lt;=<sp/>maxX)<sp/>{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(node-&gt;getY()<sp/>&gt;=<sp/>minY<sp/>&amp;&amp;<sp/>node-&gt;getY()<sp/>&lt;=<sp/>maxY)<sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>distance<sp/>criteria:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>distance<sp/>=<sp/>sqrt(pow(node-&gt;getX()<sp/>-<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref>,<sp/>2)</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>pow(node-&gt;getY()<sp/>-<sp/><ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref>,<sp/>2));</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(distance<sp/>&lt;=<sp/>di)<sp/>{</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;Distance<sp/>=<sp/>&quot;<sp/>&lt;&lt;<sp/>distance<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>.push_back(node);</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(distance<sp/>&gt;<sp/>smax)<sp/>smax<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1a138d3c418c3147aead7f3958f1db9b42" kindref="member">distance</ref>;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d3/d19/classmknix_1_1_point_1ab97e4bca7f299237ff3f8cc2449b1be1" kindref="member">dim</ref><sp/>==<sp/>3)<sp/>{</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxZ<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" kindref="member">Z</ref><sp/>+<sp/>di;</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minZ<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" kindref="member">Z</ref><sp/>-<sp/>di;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>node<sp/>:<sp/>domainNodes)<sp/>{</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>enclose<sp/>first<sp/>in<sp/>a<sp/>rectangle,<sp/>seems<sp/>more<sp/>efficient:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(node-&gt;getX()<sp/>&gt;=<sp/>minX<sp/>&amp;&amp;<sp/>node-&gt;getX()<sp/>&lt;=<sp/>maxX)<sp/>{</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(node-&gt;getY()<sp/>&gt;=<sp/>minY<sp/>&amp;&amp;<sp/>node-&gt;getY()<sp/>&lt;=<sp/>maxY)<sp/>{</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(node-&gt;getZ()<sp/>&gt;=<sp/>minZ<sp/>&amp;&amp;<sp/>node-&gt;getZ()<sp/>&lt;=<sp/>maxZ)<sp/>{</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>distance<sp/>criteria:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>distance<sp/>=<sp/>sqrt(pow(node-&gt;getX()<sp/>-<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref>,<sp/>2)</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>pow(node-&gt;getY()<sp/>-<sp/><ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref>,<sp/>2)</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+<sp/>pow(node-&gt;getZ()<sp/>-<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" kindref="member">Z</ref>,<sp/>2));</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(distance<sp/>&lt;=<sp/>di)<sp/>{</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;Distance<sp/>=<sp/>&quot;<sp/>&lt;&lt;<sp/>distance<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>.push_back(node);</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(distance<sp/>&gt;<sp/>smax)<sp/>smax<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1a138d3c418c3147aead7f3958f1db9b42" kindref="member">distance</ref>;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;Old<sp/>alphai<sp/>=<sp/>&quot;<sp/>&lt;&lt;<sp/>alphai;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight><highlight class="comment">//<sp/>TODO:<sp/>investigate<sp/>if<sp/>it&apos;s<sp/>worthy<sp/>to<sp/>set<sp/>automatically<sp/>alphai</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" kindref="member">alphai</ref><sp/>=<sp/>smax<sp/>/<sp/><ref refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" kindref="member">dc</ref>;</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;,<sp/>New<sp/>alphai<sp/>=<sp/>&quot;<sp/>&lt;&lt;<sp/>alphai<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a141fd098ad72a85cb4d11362b80ca0d8" kindref="member">supportNodesSize</ref><sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>.size();</highlight></codeline>
+<codeline lineno="212"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="213"><highlight class="normal"></highlight></codeline>
-<codeline lineno="214"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;#!/usr/bin/gnuplot<sp/>-persist&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="215"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;#<sp/><sp/><sp/><sp/><sp/>G<sp/>N<sp/>U<sp/>P<sp/>L<sp/>O<sp/>T&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="216"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>encoding<sp/>iso_8859_1&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="217"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>terminal<sp/>x11&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="218"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>key<sp/>nobox<sp/>right<sp/>spacing<sp/>1.7&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="219"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>xlabel<sp/>\&quot;\\textsf{X}\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="220"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>ylabel<sp/>\&quot;\\textsf{Y}\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="221"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>zlabel<sp/>\&quot;\\textsf{Z}\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="222"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>title<sp/>\&quot;\\textsf{title}\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="223"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>xrange<sp/>[*:*]&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="224"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>yrange<sp/>[*:*]&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="225"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>zrange<sp/>[*:*]&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="226"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>samples<sp/>25;<sp/>set<sp/>isosamples<sp/>20&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="227"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/>&quot;set<sp/>pm3d;<sp/>set<sp/>hidden&quot;<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="228"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;splot<sp/>&apos;onegp.dat&apos;<sp/>with<sp/>points<sp/>ps<sp/>1<sp/>palette&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="229"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;replot<sp/>&apos;onegpsupportnodes.dat&apos;<sp/>with<sp/>points<sp/>ps<sp/>2<sp/>palette&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="230"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;pause<sp/>-1&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="231"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>pm3d&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="232"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;splot<sp/>&apos;shapefunction.dat&apos;<sp/>with<sp/>lines<sp/>palette<sp/>linewidth<sp/>4&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="233"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;pause<sp/>-1&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="234"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;splot<sp/>&apos;shapefunction_x.dat&apos;<sp/>with<sp/>lines<sp/>palette<sp/>linewidth<sp/>4&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="235"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;pause<sp/>-1&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="236"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;splot<sp/>&apos;shapefunction_y.dat&apos;<sp/>with<sp/>lines<sp/>palette<sp/>linewidth<sp/>4&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="237"><highlight class="normal"><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;pause<sp/>-1&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="238"><highlight class="normal"></highlight></codeline>
-<codeline lineno="239"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>system(&quot;gnuplot<sp/>-bg<sp/>white<sp/>gnuplot.plt&quot;);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="240"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="241"><highlight class="normal"></highlight></codeline>
-<codeline lineno="242"><highlight class="normal"></highlight></codeline>
-<codeline lineno="243"><highlight class="normal">}<sp/></highlight><highlight class="comment">//Namespace<sp/>mknix</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"></highlight><highlight class="comment">//<sp/>for<sp/>rectangular<sp/>domains</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="216" refid="d3/d19/classmknix_1_1_point_1a13907374f703f15ffda3bb376bd19073" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a88289f6649c16591f708e2a6f5eb749e" kindref="member">Point::findSupportNodes</ref>(std::vector&lt;Node<sp/>*&gt;&amp;<sp/>domainNodes,</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>domain_minX,</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>domain_maxX,</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>domain_minY,</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>domain_maxY</highlight></codeline>
+<codeline lineno="221"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="222"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dix<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" kindref="member">alphai</ref><sp/>*<sp/><ref refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" kindref="member">dc</ref>;</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>diy<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" kindref="member">alphai</ref><sp/>*<sp/><ref refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" kindref="member">dc</ref>;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>node<sp/>:<sp/>domainNodes)<sp/>{</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>First,<sp/>check<sp/>if<sp/>bounding<sp/>box<sp/>is<sp/>outside<sp/>the<sp/>cells&apos;<sp/>patch<sp/>domain</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>and<sp/>define<sp/>the<sp/>box<sp/>of<sp/>searching:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minX;</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxX;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>-<sp/>dix<sp/>&lt;<sp/>domain_minX)<sp/>{</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minX<sp/>=<sp/>domain_minX;</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxX<sp/>=<sp/>minX<sp/>+<sp/>2<sp/>*<sp/>dix;</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>+<sp/>dix<sp/>&gt;<sp/>domain_maxX)<sp/>{</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxX<sp/>=<sp/>domain_maxX;</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minX<sp/>=<sp/>maxX<sp/>-<sp/>2<sp/>*<sp/>dix;</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minX<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>-<sp/>dix;</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxX<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>+<sp/>dix;</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>minY;</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>maxY;</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>-<sp/>diy<sp/>&lt;<sp/>domain_minY)<sp/>{</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minY<sp/>=<sp/>domain_minY;</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxY<sp/>=<sp/>minY<sp/>+<sp/>2<sp/>*<sp/>diy;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>+<sp/>diy<sp/>&gt;<sp/>domain_maxY)<sp/>{</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxY<sp/>=<sp/>domain_maxY;</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minY<sp/>=<sp/>maxY<sp/>-<sp/>2<sp/>*<sp/>diy;</highlight></codeline>
+<codeline lineno="249"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="250"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>minY<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>-<sp/>dix;</highlight></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>maxY<sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>+<sp/>dix;</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Search<sp/>for<sp/>nodes<sp/>inside<sp/>the<sp/>box:</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(node-&gt;getX()<sp/>&gt;=<sp/>minX<sp/>&amp;&amp;<sp/>node-&gt;getX()<sp/>&lt;=<sp/>maxX)<sp/>{</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(node-&gt;getY()<sp/>&gt;=<sp/>minY<sp/>&amp;&amp;<sp/>node-&gt;getY()<sp/>&lt;=<sp/>maxY)<sp/>{</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>.push_back(node);</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a141fd098ad72a85cb4d11362b80ca0d8" kindref="member">supportNodesSize</ref><sp/>=<sp/><ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>.size();</highlight></codeline>
+<codeline lineno="262"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"></highlight></codeline>
+<codeline lineno="264" refid="d3/d19/classmknix_1_1_point_1a1843d81646fbca9519358eb3c8787e18" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a1843d81646fbca9519358eb3c8787e18" kindref="member">Point::shapeFunSolve</ref>(std::string<sp/>type_in,<sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>q_in)</highlight></codeline>
+<codeline lineno="265"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;RBF&quot;</highlight><highlight class="normal"><sp/>||<sp/>type_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;MLS&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;INFO<sp/>AT<sp/>shapeFunSolve<sp/>IN<sp/>Point:<sp/>(x,<sp/>y)<sp/>=<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="268"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>this-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>this-&gt;<ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="269"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t<sp/>alphai<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" kindref="member">alphai</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="270"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;dc<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" kindref="member">dc</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;,<sp/>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="271"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;q_in<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>q_in</highlight></codeline>
+<codeline lineno="272"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t<sp/>Number<sp/>of<sp/>Support<sp/>Nodes<sp/>=<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1a141fd098ad72a85cb4d11362b80ca0d8" kindref="member">supportNodesSize</ref><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="274"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>q_in<sp/>=<sp/>.5;</highlight></codeline>
+<codeline lineno="275"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="277"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;RBF&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="278"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1ad76d1b525e65d47484187892160efd74" kindref="member">ShapeFunctionRBF</ref>(<ref refid="d3/d19/classmknix_1_1_point_1a141fd098ad72a85cb4d11362b80ca0d8" kindref="member">supportNodesSize</ref>,</highlight></codeline>
+<codeline lineno="279"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,</highlight></codeline>
+<codeline lineno="280"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0,<sp/></highlight><highlight class="comment">//<sp/>RBF<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="281"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" kindref="member">alphai</ref>,</highlight></codeline>
+<codeline lineno="282"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" kindref="member">dc</ref>,</highlight></codeline>
+<codeline lineno="283"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>q_in,</highlight></codeline>
+<codeline lineno="284"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="285"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;MLS&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="286"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a07440917ac5f62def0ce649ad0066552" kindref="member">ShapeFunctionMLS</ref>(<ref refid="d3/d19/classmknix_1_1_point_1a141fd098ad72a85cb4d11362b80ca0d8" kindref="member">supportNodesSize</ref>,</highlight></codeline>
+<codeline lineno="287"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1,</highlight></codeline>
+<codeline lineno="288"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>1,<sp/></highlight><highlight class="comment">//<sp/>weight<sp/>type</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="289"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1afbd74e8b9e7081984e5b03d802f7ae14" kindref="member">alphai</ref>,</highlight></codeline>
+<codeline lineno="290"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a310b40e3859627d344de048bbdb1db6f" kindref="member">dc</ref>,</highlight></codeline>
+<codeline lineno="291"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="292"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;1D&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="293"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a141afa4d313293225cc307a84fa17756" kindref="member">ShapeFunctionLinear</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="294"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;1D-X&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="295"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a76341329b3f806ca6d7595b9a99af5b9" kindref="member">ShapeFunctionLinearX</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="296"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;2D&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="297"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1a64bc125443b7c740a25d032c8294c4db" kindref="member">ShapeFunctionTriangle</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="298"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(type_in<sp/>==<sp/></highlight><highlight class="stringliteral">&quot;3D&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="299"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref><sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1aa3a0c73566e859e80c29b9e691b31451" kindref="member">ShapeFunctionTetrahedron</ref>(</highlight><highlight class="keyword">this</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="300"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="301"><highlight class="normal"></highlight></codeline>
+<codeline lineno="302"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref>-&gt;<ref refid="dd/d8d/classmknix_1_1_shape_function_1ac4a0d1b43ff7d4adf788e677912a87f7" kindref="member">calc</ref>();</highlight></codeline>
+<codeline lineno="303"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="304"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="305"><highlight class="normal"></highlight></codeline>
+<codeline lineno="306" refid="d3/d19/classmknix_1_1_point_1ad985b1bb6595c64f6bfc60b557e86ec9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d3/d19/classmknix_1_1_point_1ad985b1bb6595c64f6bfc60b557e86ec9" kindref="member">Point::gnuplotOut</ref>(std::ofstream&amp;<sp/>gpdata)</highlight></codeline>
+<codeline lineno="307"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="308"><highlight class="normal"><sp/><sp/><sp/><sp/>std::ofstream<sp/>this_gp(</highlight><highlight class="stringliteral">&quot;onegp.dat&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="309"><highlight class="normal"><sp/><sp/><sp/><sp/>std::ofstream<sp/>this_gp_sup_nodes(</highlight><highlight class="stringliteral">&quot;onegpsupportnodes.dat&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="310"><highlight class="normal"></highlight></codeline>
+<codeline lineno="311"><highlight class="normal"><sp/><sp/><sp/><sp/>gpdata<sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" kindref="member">Z</ref><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="312"><highlight class="normal"><sp/><sp/><sp/><sp/>this_gp<sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1ab5edb86e6de2df07c3d11ed7c2ca99" kindref="member">X</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1aeb9947adb5c6a4cd01ca81f4c4934ed5" kindref="member">Y</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="d3/d19/classmknix_1_1_point_1a1742974a0d33897c3b04bc420ef87d31" kindref="member">Z</ref><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="313"><highlight class="normal"></highlight></codeline>
+<codeline lineno="314"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>output<sp/>of<sp/>support<sp/>nodes.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="315"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>node<sp/>:<sp/><ref refid="d3/d19/classmknix_1_1_point_1a3e608826c9042a2ddad6053f5b233211" kindref="member">supportNodes</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="316"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this_gp_sup_nodes<sp/>&lt;&lt;<sp/>node-&gt;getX()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>node-&gt;getY()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>node-&gt;getZ()<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="317"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="318"><highlight class="normal"></highlight></codeline>
+<codeline lineno="319"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>For<sp/>output<sp/>of<sp/>shape<sp/>function.</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="320"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a852c997f667d6029c6062ef68582c275" kindref="member">shapeFun</ref>-&gt;<ref refid="dd/d8d/classmknix_1_1_shape_function_1a6b287c3758e7d16be4c7c8e86bbb7077" kindref="member">gnuplotOut</ref>();</highlight></codeline>
+<codeline lineno="321"><highlight class="normal"></highlight></codeline>
+<codeline lineno="322"><highlight class="normal"><sp/><sp/><sp/><sp/>std::ofstream<sp/>out(</highlight><highlight class="stringliteral">&quot;gnuplot.plt&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="323"><highlight class="normal"></highlight></codeline>
+<codeline lineno="324"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;#!/usr/bin/gnuplot<sp/>-persist&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="325"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;#<sp/><sp/><sp/><sp/><sp/>G<sp/>N<sp/>U<sp/>P<sp/>L<sp/>O<sp/>T&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="326"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>encoding<sp/>iso_8859_1&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="327"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>terminal<sp/>x11&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="328"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>key<sp/>nobox<sp/>right<sp/>spacing<sp/>1.7&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="329"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>xlabel<sp/>\&quot;\\textsf{X}\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="330"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>ylabel<sp/>\&quot;\\textsf{Y}\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="331"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>zlabel<sp/>\&quot;\\textsf{Z}\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="332"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>title<sp/>\&quot;\\textsf{title}\&quot;&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="333"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>xrange<sp/>[*:*]&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="334"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>yrange<sp/>[*:*]&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="335"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>zrange<sp/>[*:*]&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="336"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>samples<sp/>25;<sp/>set<sp/>isosamples<sp/>20&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="337"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/>&quot;set<sp/>pm3d;<sp/>set<sp/>hidden&quot;<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="338"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;splot<sp/>&apos;onegp.dat&apos;<sp/>with<sp/>points<sp/>ps<sp/>1<sp/>palette&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="339"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;replot<sp/>&apos;onegpsupportnodes.dat&apos;<sp/>with<sp/>points<sp/>ps<sp/>2<sp/>palette&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="340"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;pause<sp/>-1&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="341"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;set<sp/>pm3d&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="342"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;splot<sp/>&apos;shapefunction.dat&apos;<sp/>with<sp/>lines<sp/>palette<sp/>linewidth<sp/>4&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="343"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;pause<sp/>-1&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;splot<sp/>&apos;shapefunction_x.dat&apos;<sp/>with<sp/>lines<sp/>palette<sp/>linewidth<sp/>4&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;pause<sp/>-1&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;splot<sp/>&apos;shapefunction_y.dat&apos;<sp/>with<sp/>lines<sp/>palette<sp/>linewidth<sp/>4&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/>out<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;pause<sp/>-1&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"></highlight></codeline>
+<codeline lineno="349"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>system(&quot;gnuplot<sp/>-bg<sp/>white<sp/>gnuplot.plt&quot;);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="350"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="351"><highlight class="normal"></highlight></codeline>
+<codeline lineno="352"><highlight class="normal"></highlight></codeline>
+<codeline lineno="353"><highlight class="normal">}<sp/></highlight><highlight class="comment">//Namespace<sp/>mknix</highlight><highlight class="normal"></highlight></codeline>
     </programlisting>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/point.cpp"/>
+    <location file="/home/daniel/Projects/MkniX/src/core/point.cpp"/>
   </compounddef>
 </doxygen>

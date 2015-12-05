@@ -1,7 +1,7 @@
 <map id="mknix::Cell" name="mknix::Cell">
-<area shape="rect" id="node3" href="$dd/d89/classmknix_1_1_cell_rect.html" title="mknix::CellRect" alt="" coords="5,83,120,112"/>
-<area shape="rect" id="node5" href="$d9/d39/classmknix_1_1_cell_tetrahedron.html" title="mknix::CellTetrahedron" alt="" coords="144,83,301,112"/>
-<area shape="rect" id="node9" href="$de/db4/classmknix_1_1_cell_triang.html" title="mknix::CellTriang" alt="" coords="331,83,453,112"/>
-<area shape="rect" id="node7" href="$dd/d4d/classmknix_1_1_elem_tetrahedron.html" title="mknix::ElemTetrahedron" alt="" coords="137,160,300,189"/>
-<area shape="rect" id="node11" href="$d8/d3f/classmknix_1_1_elem_triangle.html" title="mknix::ElemTriangle" alt="" coords="324,160,465,189"/>
+<area shape="rect" id="node2" href="$dd/d89/classmknix_1_1_cell_rect.html" title="mknix::CellRect" alt="" coords="5,80,121,107"/>
+<area shape="rect" id="node3" href="$d9/d39/classmknix_1_1_cell_tetrahedron.html" title="mknix::CellTetrahedron" alt="" coords="146,80,303,107"/>
+<area shape="rect" id="node5" href="$de/db4/classmknix_1_1_cell_triang.html" title="mknix::CellTriang" alt="" coords="333,80,457,107"/>
+<area shape="rect" id="node4" href="$dd/d4d/classmknix_1_1_elem_tetrahedron.html" title="mknix::ElemTetrahedron" alt="" coords="140,155,304,181"/>
+<area shape="rect" id="node6" href="$d8/d3f/classmknix_1_1_elem_triangle.html" title="mknix::ElemTriangle" alt="" coords="329,155,470,181"/>
 </map>

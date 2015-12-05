@@ -1,6 +1,5 @@
 <map id="mknix::Analysis::type" name="mknix::Analysis::type">
-<area shape="rect" id="node3" href="$db/d0b/classmknix_1_1_simulation.html#ae769b1ff16dc5eada23b3aae69da8168" title="mknix::Simulation::\lrunThermalAnalysis" alt="" coords="213,5,349,51"/>
-<area shape="rect" id="node9" href="$db/d0b/classmknix_1_1_simulation.html#a5b02493acba04c0dd6a1450eb2ae548a" title="mknix::Simulation::\lrunMechanicalAnalysis" alt="" coords="204,74,359,121"/>
-<area shape="rect" id="node5" href="$db/d0b/classmknix_1_1_simulation.html#a616f0712431201275269aa05eadb8779" title="mknix::Simulation::run" alt="" coords="408,48,560,77"/>
-<area shape="rect" id="node7" href="$d9/d06/mknix_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="608,48,659,77"/>
+<area shape="rect" id="node2" href="$db/d0b/classmknix_1_1_simulation.html#ae769b1ff16dc5eada23b3aae69da8168" title="mknix::Simulation::\lrunThermalAnalysis" alt="" coords="211,5,348,47"/>
+<area shape="rect" id="node4" href="$db/d0b/classmknix_1_1_simulation.html#a5b02493acba04c0dd6a1450eb2ae548a" title="mknix::Simulation::\lrunMechanicalAnalysis" alt="" coords="201,71,357,112"/>
+<area shape="rect" id="node3" href="$db/d0b/classmknix_1_1_simulation.html#a616f0712431201275269aa05eadb8779" title="mknix::Simulation::run" alt="" coords="405,46,557,73"/>
 </map>

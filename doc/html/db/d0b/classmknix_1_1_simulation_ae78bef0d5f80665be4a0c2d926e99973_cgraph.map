@@ -1,6 +1,3 @@
 <map id="mknix::Simulation::dynamicResidue" name="mknix::Simulation::dynamicResidue">
-<area shape="rect" id="node3" href="$df/dd9/classmknix_1_1_system.html#acbc22a9f660d0f818d461934eb0f1193" title="mknix::System::calcInternal\lForces" alt="" coords="209,5,393,51"/>
-<area shape="rect" id="node5" href="$df/dd9/classmknix_1_1_system.html#a1f8741218772bc4d2b5a61b1ded98bc4" title="mknix::System::calcExternal\lForces" alt="" coords="207,74,396,121"/>
-<area shape="rect" id="node7" href="$df/dd9/classmknix_1_1_system.html#a045a56838910627b66dc981205358b78" title="mknix::System::assembleInternal\lForces" alt="" coords="193,143,409,190"/>
-<area shape="rect" id="node9" href="$df/dd9/classmknix_1_1_system.html#a3f8ef449040805bcc58e3a36a6276888" title="mknix::System::assembleExternal\lForces" alt="" coords="191,213,412,259"/>
+<area shape="rect" id="node2" href="$db/d0b/classmknix_1_1_simulation.html#adda4efbeb29fecf80bcd8552703bfed4" title="mknix::Simulation::\lgetDim" alt="" coords="188,5,323,47"/>
 </map>

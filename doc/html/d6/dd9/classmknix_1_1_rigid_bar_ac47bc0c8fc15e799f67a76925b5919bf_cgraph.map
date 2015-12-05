@@ -1,5 +1,5 @@
 <map id="mknix::RigidBar::RigidBar" name="mknix::RigidBar::RigidBar">
-<area shape="rect" id="node3" href="$d3/d25/classmknix_1_1_node.html#ab966e048b1c4bbdea0cae42ac590a55d" title="mknix::Node::getx" alt="" coords="228,5,356,35"/>
-<area shape="rect" id="node5" href="$d3/d25/classmknix_1_1_node.html#a0ebccafbcfab353bdaac6dff3394b5dc" title="mknix::Node::gety" alt="" coords="228,59,356,88"/>
-<area shape="rect" id="node7" href="$d3/d25/classmknix_1_1_node.html#adefe28450195b0afea01565fad955bdc" title="mknix::Node::getz" alt="" coords="228,112,356,141"/>
+<area shape="rect" id="node2" href="$d3/d19/classmknix_1_1_point.html#a2942110ac86c21e11986081670bb3a82" title="mknix::Point::getX" alt="" coords="227,5,357,32"/>
+<area shape="rect" id="node3" href="$d3/d19/classmknix_1_1_point.html#a16955d7ef56edea059119f93905e1196" title="mknix::Point::getY" alt="" coords="227,56,357,83"/>
+<area shape="rect" id="node4" href="$d3/d19/classmknix_1_1_point.html#a739698b4f6a21b40e7fc7c82af69c479" title="mknix::Point::getZ" alt="" coords="227,107,357,133"/>
 </map>

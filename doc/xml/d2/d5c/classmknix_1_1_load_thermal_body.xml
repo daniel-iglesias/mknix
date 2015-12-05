@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d2/d5c/classmknix_1_1_load_thermal_body" kind="class" language="C++" prot="public">
+    <compoundname>mknix::LoadThermalBody</compoundname>
+    <includes refid="da/dd4/loadthermalbody_8h" local="no">loadthermalbody.h</includes>
+      <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="d2/d5c/classmknix_1_1_load_thermal_body_1adb98192e4cdce5830b451f8272a6e20f" prot="protected" static="no" mutable="no">
+        <type>std::map&lt; double, double &gt;</type>
+        <definition>std::map&lt;double, double&gt; mknix::LoadThermalBody::srim</definition>
+        <argsstring></argsstring>
+        <name>srim</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadthermalbody.h" line="45" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadthermalbody.h" bodystart="45" bodyend="-1"/>
+        <referencedby refid="d2/d5c/classmknix_1_1_load_thermal_body_1a6bb009561ef8a680fe8483a8bc4c271d" compoundref="d7/de5/loadthermalbody_8cpp" startline="28" endline="45">LoadThermalBody</referencedby>
+        <referencedby refid="d2/d5c/classmknix_1_1_load_thermal_body_1a174097626bef1d662a7ee0c24cb62ac1" compoundref="d7/de5/loadthermalbody_8cpp" startline="52" endline="90">getLoadThermalBody</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d2/d5c/classmknix_1_1_load_thermal_body_1a6bb009561ef8a680fe8483a8bc4c271d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::LoadThermalBody::LoadThermalBody</definition>
+        <argsstring>()</argsstring>
+        <name>LoadThermalBody</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadthermalbody.h" line="36" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadthermalbody.cpp" bodystart="28" bodyend="45"/>
+        <references refid="d2/d5c/classmknix_1_1_load_thermal_body_1adb98192e4cdce5830b451f8272a6e20f" compoundref="da/dd4/loadthermalbody_8h" startline="45">srim</references>
+      </memberdef>
+      <memberdef kind="function" id="d2/d5c/classmknix_1_1_load_thermal_body_1a1dbbd71a5438bfff970ebadbebd65ae1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::LoadThermalBody::~LoadThermalBody</definition>
+        <argsstring>()</argsstring>
+        <name>~LoadThermalBody</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadthermalbody.h" line="40" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadthermalbody.cpp" bodystart="48" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="d2/d5c/classmknix_1_1_load_thermal_body_1a174097626bef1d662a7ee0c24cb62ac1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double mknix::LoadThermalBody::getLoadThermalBody</definition>
+        <argsstring>(Point *)</argsstring>
+        <name>getLoadThermalBody</name>
+        <param>
+          <type><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref> *</type>
+          <defname>thePoint</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadthermalbody.h" line="42" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadthermalbody.cpp" bodystart="52" bodyend="90"/>
+        <references refid="d2/d5c/classmknix_1_1_load_thermal_body_1adb98192e4cdce5830b451f8272a6e20f" compoundref="da/dd4/loadthermalbody_8h" startline="45">srim</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a916afeb12a5ac4c6abb5eaca2cc52e7b" compoundref="dd/d6a/simulation_8h" startline="205" endline="208">mknix::Simulation::getTime</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" compoundref="d2/d91/point_8h" startline="97" endline="100">mknix::Point::getX</references>
+        <references refid="d2/dde/namespacemknix_1a3c53b5663b9039ec67691eea93bb7f54" compoundref="d9/df9/common_8cpp" startline="24" endline="40">mknix::interpolate1D</references>
+        <referencedby refid="d2/da4/classmknix_1_1_gauss_point_1a7e569626121f05e4bf0472f634267d3f" compoundref="df/dfb/gausspoint_8cpp" startline="179" endline="187">mknix::GaussPoint::computeQext</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
+</para>    </detaileddescription>
+    <location file="/home/daniel/Projects/MkniX/src/system/loadthermalbody.h" line="34" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadthermalbody.h" bodystart="34" bodyend="46"/>
+    <listofallmembers>
+      <member refid="d2/d5c/classmknix_1_1_load_thermal_body_1a174097626bef1d662a7ee0c24cb62ac1" prot="public" virt="non-virtual"><scope>mknix::LoadThermalBody</scope><name>getLoadThermalBody</name></member>
+      <member refid="d2/d5c/classmknix_1_1_load_thermal_body_1a6bb009561ef8a680fe8483a8bc4c271d" prot="public" virt="non-virtual"><scope>mknix::LoadThermalBody</scope><name>LoadThermalBody</name></member>
+      <member refid="d2/d5c/classmknix_1_1_load_thermal_body_1adb98192e4cdce5830b451f8272a6e20f" prot="protected" virt="non-virtual"><scope>mknix::LoadThermalBody</scope><name>srim</name></member>
+      <member refid="d2/d5c/classmknix_1_1_load_thermal_body_1a1dbbd71a5438bfff970ebadbebd65ae1" prot="public" virt="non-virtual"><scope>mknix::LoadThermalBody</scope><name>~LoadThermalBody</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

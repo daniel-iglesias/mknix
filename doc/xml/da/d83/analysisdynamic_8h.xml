@@ -1,307 +1,76 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="da/d83/analysisdynamic_8h" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="da/d83/analysisdynamic_8h" kind="file" language="C++">
     <compoundname>analysisdynamic.h</compoundname>
-    <includes refid="d2/d40/analysis_8h" local="no">analysis.h</includes>
-    <includedby refid="dd/d6a/simulation_8h" local="yes">simulation.h</includedby>
+    <includes refid="d2/d40/analysis_8h" local="yes">analysis.h</includes>
+    <includedby refid="d7/dff/reader_8cpp" local="no">reader.cpp</includedby>
     <includedby refid="d3/d0b/analysisdynamic_8cpp" local="yes">analysisdynamic.cpp</includedby>
+    <includedby refid="d2/d93/simulation_8cpp" local="yes">simulation.cpp</includedby>
     <incdepgraph>
-      <node id="4380">
+      <node id="2281">
+        <label>map</label>
+      </node>
+      <node id="2280">
         <label>common.h</label>
         <link refid="dc/d54/common_8h"/>
-      </node>
-      <node id="4378">
-        <label>analysisdynamic.h</label>
-        <link refid="analysisdynamic.h"/>
-        <childnode refid="4379" relation="include">
+        <childnode refid="2281" relation="include">
+        </childnode>
+        <childnode refid="2282" relation="include">
         </childnode>
       </node>
-      <node id="4381">
+      <node id="2283">
         <label>LMX/lmx.h</label>
       </node>
-      <node id="4382">
+      <node id="2284">
         <label>LMX/lmx_diff_problem_first.h</label>
       </node>
-      <node id="4383">
+      <node id="2285">
         <label>LMX/lmx_diff_problem_second.h</label>
       </node>
-      <node id="4379">
+      <node id="2279">
         <label>analysis.h</label>
         <link refid="d2/d40/analysis_8h"/>
-        <childnode refid="4380" relation="include">
+        <childnode refid="2280" relation="include">
         </childnode>
-        <childnode refid="4381" relation="include">
+        <childnode refid="2283" relation="include">
         </childnode>
-        <childnode refid="4382" relation="include">
+        <childnode refid="2284" relation="include">
         </childnode>
-        <childnode refid="4383" relation="include">
+        <childnode refid="2285" relation="include">
         </childnode>
+      </node>
+      <node id="2278">
+        <label>analysisdynamic.h</label>
+        <link refid="analysisdynamic.h"/>
+        <childnode refid="2279" relation="include">
+        </childnode>
+      </node>
+      <node id="2282">
+        <label>memory</label>
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="4390">
-        <label>analysisthermalstatic.cpp</label>
-        <link refid="df/d52/analysisthermalstatic_8cpp"/>
-      </node>
-      <node id="4398">
-        <label>bodyrigid2D.cpp</label>
-        <link refid="dc/d0c/bodyrigid2_d_8cpp"/>
-      </node>
-      <node id="4402">
-        <label>constraintclearance.cpp</label>
-        <link refid="df/d74/constraintclearance_8cpp"/>
-      </node>
-      <node id="4423">
-        <label>shapefunction.cpp</label>
-        <link refid="d1/dde/shapefunction_8cpp"/>
-      </node>
-      <node id="4404">
-        <label>constraintdistance.cpp</label>
-        <link refid="d7/d93/constraintdistance_8cpp"/>
-      </node>
-      <node id="4400">
-        <label>bodythermal.cpp</label>
-        <link refid="dd/d15/bodythermal_8cpp"/>
-      </node>
-      <node id="4420">
-        <label>readerflex.cpp</label>
-        <link refid="d6/daf/readerflex_8cpp"/>
-      </node>
-      <node id="4397">
-        <label>bodyrigid1D_bad_1.cpp</label>
-        <link refid="d9/d73/bodyrigid1_d__bad__1_8cpp"/>
-      </node>
-      <node id="4410">
-        <label>load.cpp</label>
-        <link refid="de/dbc/load_8cpp"/>
-      </node>
-      <node id="4405">
-        <label>constraintfixedaxis.cpp</label>
-        <link refid="d8/d02/constraintfixedaxis_8cpp"/>
-      </node>
-      <node id="4418">
-        <label>readerrigid.cpp</label>
-        <link refid="d9/d6a/readerrigid_8cpp"/>
-      </node>
-      <node id="4426">
-        <label>thermalload.cpp</label>
-        <link refid="dd/dbf/thermalload_8cpp"/>
-      </node>
-      <node id="4424">
-        <label>shapefunctiontriangle.cpp</label>
-        <link refid="dc/d70/shapefunctiontriangle_8cpp"/>
-      </node>
-      <node id="4396">
-        <label>bodyrigid1D.cpp</label>
-        <link refid="d5/d29/bodyrigid1_d_8cpp"/>
-      </node>
-      <node id="4406">
-        <label>constraintfixedcoordinates.cpp</label>
-        <link refid="d6/d46/constraintfixedcoordinates_8cpp"/>
-      </node>
-      <node id="4387">
-        <label>analysisdynamic.cpp</label>
-        <link refid="d3/d0b/analysisdynamic_8cpp"/>
-      </node>
-      <node id="4386">
-        <label>analysis.cpp</label>
-        <link refid="d8/d8e/analysis_8cpp"/>
-      </node>
-      <node id="4392">
-        <label>bodyflex.cpp</label>
-        <link refid="d6/d1e/bodyflex_8cpp"/>
-      </node>
-      <node id="4391">
-        <label>body.cpp</label>
-        <link refid="d1/d5f/body_8cpp"/>
-      </node>
-      <node id="4415">
-        <label>reader.h</label>
-        <link refid="d6/dda/reader_8h"/>
-        <childnode refid="4416" relation="include">
-        </childnode>
-        <childnode refid="4417" relation="include">
-        </childnode>
-      </node>
-      <node id="4411">
-        <label>mknix.cpp</label>
-        <link refid="d9/d06/mknix_8cpp"/>
-      </node>
-      <node id="4416">
-        <label>reader.cpp</label>
-        <link refid="d7/dff/reader_8cpp"/>
-      </node>
-      <node id="4403">
-        <label>constraintcontact.cpp</label>
-        <link refid="d8/d8b/constraintcontact_8cpp"/>
-      </node>
-      <node id="4385">
-        <label>simulation.h</label>
-        <link refid="dd/d6a/simulation_8h"/>
-        <childnode refid="4386" relation="include">
-        </childnode>
-        <childnode refid="4387" relation="include">
-        </childnode>
-        <childnode refid="4388" relation="include">
-        </childnode>
-        <childnode refid="4389" relation="include">
-        </childnode>
-        <childnode refid="4390" relation="include">
-        </childnode>
-        <childnode refid="4391" relation="include">
-        </childnode>
-        <childnode refid="4392" relation="include">
-        </childnode>
-        <childnode refid="4393" relation="include">
-        </childnode>
-        <childnode refid="4394" relation="include">
-        </childnode>
-        <childnode refid="4395" relation="include">
-        </childnode>
-        <childnode refid="4396" relation="include">
-        </childnode>
-        <childnode refid="4397" relation="include">
-        </childnode>
-        <childnode refid="4398" relation="include">
-        </childnode>
-        <childnode refid="4399" relation="include">
-        </childnode>
-        <childnode refid="4400" relation="include">
-        </childnode>
-        <childnode refid="4401" relation="include">
-        </childnode>
-        <childnode refid="4402" relation="include">
-        </childnode>
-        <childnode refid="4403" relation="include">
-        </childnode>
-        <childnode refid="4404" relation="include">
-        </childnode>
-        <childnode refid="4405" relation="include">
-        </childnode>
-        <childnode refid="4406" relation="include">
-        </childnode>
-        <childnode refid="4407" relation="include">
-        </childnode>
-        <childnode refid="4408" relation="include">
-        </childnode>
-        <childnode refid="4409" relation="include">
-        </childnode>
-        <childnode refid="4410" relation="include">
-        </childnode>
-        <childnode refid="4411" relation="include">
-        </childnode>
-        <childnode refid="4412" relation="include">
-        </childnode>
-        <childnode refid="4413" relation="include">
-        </childnode>
-        <childnode refid="4414" relation="include">
-        </childnode>
-        <childnode refid="4419" relation="include">
-        </childnode>
-        <childnode refid="4421" relation="include">
-        </childnode>
-        <childnode refid="4423" relation="include">
-        </childnode>
-        <childnode refid="4424" relation="include">
-        </childnode>
-        <childnode refid="4425" relation="include">
-        </childnode>
-        <childnode refid="4417" relation="include">
-        </childnode>
-        <childnode refid="4426" relation="include">
-        </childnode>
-      </node>
-      <node id="4384">
-        <label>analysisdynamic.h</label>
-        <link refid="analysisdynamic.h"/>
-        <childnode refid="4385" relation="include">
-        </childnode>
-        <childnode refid="4387" relation="include">
-        </childnode>
-      </node>
-      <node id="4412">
-        <label>node.cpp</label>
-        <link refid="d7/d70/node_8cpp"/>
-      </node>
-      <node id="4421">
-        <label>readerconstraints.h</label>
-        <link refid="de/d6c/readerconstraints_8h"/>
-        <childnode refid="4415" relation="include">
-        </childnode>
-        <childnode refid="4422" relation="include">
-        </childnode>
-      </node>
-      <node id="4395">
-        <label>bodyrigid0D.cpp</label>
-        <link refid="dc/d48/bodyrigid0_d_8cpp"/>
-      </node>
-      <node id="4413">
-        <label>point.cpp</label>
-        <link refid="d5/d55/point_8cpp"/>
-      </node>
-      <node id="4394">
-        <label>bodyrigid.cpp</label>
-        <link refid="da/d4a/bodyrigid_8cpp"/>
-      </node>
-      <node id="4425">
-        <label>shapefunctiontriangle3D.cpp</label>
-        <link refid="d5/d04/shapefunctiontriangle3_d_8cpp"/>
-      </node>
-      <node id="4389">
-        <label>analysisthermaldynamic.cpp</label>
-        <link refid="d0/d09/analysisthermaldynamic_8cpp"/>
-      </node>
-      <node id="4414">
-        <label>readerrigid.h</label>
-        <link refid="dd/dd9/readerrigid_8h"/>
-        <childnode refid="4415" relation="include">
-        </childnode>
-        <childnode refid="4418" relation="include">
-        </childnode>
-      </node>
-      <node id="4407">
-        <label>force.cpp</label>
-        <link refid="df/d4d/force_8cpp"/>
-      </node>
-      <node id="4422">
-        <label>readerconstraints.cpp</label>
-        <link refid="d2/d38/readerconstraints_8cpp"/>
-      </node>
-      <node id="4409">
-        <label>generalcontact.cpp</label>
-        <link refid="de/d37/generalcontact_8cpp"/>
-      </node>
-      <node id="4399">
-        <label>bodyrigid3D.cpp</label>
-        <link refid="d0/da1/bodyrigid3_d_8cpp"/>
-      </node>
-      <node id="4419">
-        <label>readerflex.h</label>
-        <link refid="d9/ddf/readerflex_8h"/>
-        <childnode refid="4415" relation="include">
-        </childnode>
-        <childnode refid="4420" relation="include">
-        </childnode>
-      </node>
-      <node id="4417">
+      <node id="2289">
         <label>simulation.cpp</label>
         <link refid="d2/d93/simulation_8cpp"/>
       </node>
-      <node id="4388">
-        <label>analysisstatic.cpp</label>
-        <link refid="d4/dce/analysisstatic_8cpp"/>
+      <node id="2287">
+        <label>reader.cpp</label>
+        <link refid="d7/dff/reader_8cpp"/>
       </node>
-      <node id="4408">
-        <label>gausspoint.cpp</label>
-        <link refid="df/dfb/gausspoint_8cpp"/>
+      <node id="2288">
+        <label>analysisdynamic.cpp</label>
+        <link refid="d3/d0b/analysisdynamic_8cpp"/>
       </node>
-      <node id="4393">
-        <label>bodyflexglobalgalerkin.cpp</label>
-        <link refid="db/dcf/bodyflexglobalgalerkin_8cpp"/>
-      </node>
-      <node id="4401">
-        <label>constraint.cpp</label>
-        <link refid="d9/dab/constraint_8cpp"/>
+      <node id="2286">
+        <label>analysisdynamic.h</label>
+        <link refid="analysisdynamic.h"/>
+        <childnode refid="2287" relation="include">
+        </childnode>
+        <childnode refid="2288" relation="include">
+        </childnode>
+        <childnode refid="2289" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="d4/d8c/classmknix_1_1_analysis_dynamic" prot="public">mknix::AnalysisDynamic</innerclass>
@@ -311,31 +80,31 @@
     <detaileddescription>
     </detaileddescription>
     <programlisting>
-<codeline lineno="1"><highlight class="comment">/***************************************************************************</highlight></codeline>
-<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/><sp/>Copyright<sp/>(C)<sp/>2013<sp/>by<sp/>Daniel<sp/>Iglesias<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/>http://code.google.com/p/mknix<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/>*</highlight></codeline>
-<codeline lineno="6"><highlight class="comment"><sp/>*<sp/><sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by<sp/><sp/>*</highlight></codeline>
-<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,<sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/><sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/><sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/><sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/><sp/>along<sp/>with<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/><sp/>Free<sp/>Software<sp/>Foundation,<sp/>Inc.,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/>59<sp/>Temple<sp/>Place<sp/>-<sp/>Suite<sp/>330,<sp/>Boston,<sp/>MA<sp/><sp/>02111-1307,<sp/>USA.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
-<codeline lineno="19"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MECBRYANANALYSISDYNAMIC_H</highlight></codeline>
-<codeline lineno="21"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>MECBRYANANALYSISDYNAMIC_H</highlight></codeline>
-<codeline lineno="22"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="d2/d40/analysis_8h" kindref="compound">analysis.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="1"><highlight class="comment">/******************************************************************************</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/><sp/>Copyright<sp/>(C)<sp/>2015<sp/>by<sp/>Daniel<sp/>Iglesias<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>file<sp/>is<sp/>part<sp/>of<sp/>Nemesis.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/><sp/>Nemesis<sp/>is<sp/>free<sp/>software:<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>Lesser<sp/>General<sp/>Public<sp/>License<sp/>as<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/>published<sp/>by<sp/>the<sp/>Free<sp/>Software<sp/>Foundation,<sp/>either<sp/>version<sp/>3<sp/>of<sp/>the<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/><sp/>License,<sp/>or<sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/>Nemesis<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/><sp/>GNU<sp/>Lesser<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>Lesser<sp/>General<sp/>Public<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/>License<sp/>along<sp/>with<sp/>Nemesis.<sp/><sp/>If<sp/>not,<sp/>see<sp/>&lt;http://www.gnu.org/licenses/&gt;.<sp/><sp/>*</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*****************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>MKNIXANALYSISDYNAMIC_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>MKNIXANALYSISDYNAMIC_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d2/d40/analysis_8h" kindref="compound">analysis.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="24"><highlight class="normal"></highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mknix<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="d2/dde/namespacemknix" kindref="compound">mknix</ref><sp/>{</highlight></codeline>
 <codeline lineno="26"><highlight class="normal"></highlight></codeline>
 <codeline lineno="30" refid="d4/d8c/classmknix_1_1_analysis_dynamic" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="d4/d8c/classmknix_1_1_analysis_dynamic" kindref="compound">AnalysisDynamic</ref><sp/>:<sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal"><sp/><ref refid="df/d86/classmknix_1_1_analysis" kindref="compound">Analysis</ref></highlight></codeline>
 <codeline lineno="31"><highlight class="normal">{</highlight></codeline>
@@ -346,21 +115,23 @@
 <codeline lineno="36"><highlight class="normal"></highlight></codeline>
 <codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a85fd7662ea3228c608c6761ffc4e46d4" kindref="member">~AnalysisDynamic</ref>();</highlight></codeline>
 <codeline lineno="38"><highlight class="normal"></highlight></codeline>
-<codeline lineno="39" refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a10045ff80be02d24dc08ad7da248844f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a10045ff80be02d24dc08ad7da248844f" kindref="member">type</ref>()<sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::string(</highlight><highlight class="stringliteral">&quot;DYNAMIC&quot;</highlight><highlight class="normal">);<sp/>}</highlight></codeline>
-<codeline lineno="40"><highlight class="normal"><sp/><sp/></highlight></codeline>
-<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a43c9ab1907cb3cd72f3f4d605d2fa8ae" kindref="member">solve</ref>(<sp/>lmx::Vector&lt;data_type&gt;<sp/>*,<sp/>lmx::Vector&lt;data_type&gt;<sp/>*<sp/>);</highlight></codeline>
+<codeline lineno="39" refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a10045ff80be02d24dc08ad7da248844f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="d4/d8c/classmknix_1_1_analysis_dynamic_1a10045ff80be02d24dc08ad7da248844f" kindref="member">type</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>std::string(</highlight><highlight class="stringliteral">&quot;DYNAMIC&quot;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
-<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>integratorType;</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>to,<sp/>tf,<sp/>At;</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>lmx::DiffProblemSecond&lt;<sp/>Simulation,<sp/>data_type<sp/>&gt;<sp/>theProblem;</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"></highlight></codeline>
-<codeline lineno="48"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d4/d8c/classmknix_1_1_analysis_dynamic_1aeb742faac9f810bb18c011cf24e67c2c" kindref="member">solve</ref>(<sp/><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector&lt;data_type&gt;</ref><sp/>*,<sp/><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector&lt;data_type&gt;</ref><sp/>*,<sp/><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector&lt;data_type&gt;</ref><sp/>*<sp/>);</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>integratorType;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>to,<sp/>tf,<sp/>At;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>lmx::DiffProblemSecond&lt;<sp/>Simulation,<sp/>data_type<sp/>&gt;<sp/>theProblem;</highlight></codeline>
 <codeline lineno="49"><highlight class="normal"></highlight></codeline>
-<codeline lineno="50"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">};</highlight></codeline>
 <codeline lineno="51"><highlight class="normal"></highlight></codeline>
-<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
     </programlisting>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisdynamic.h"/>
+    <location file="/home/daniel/Projects/MkniX/src/simulation/analysisdynamic.h"/>
   </compounddef>
 </doxygen>

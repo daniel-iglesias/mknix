@@ -1,4 +1,4 @@
 <map id="mknix::FlexGlobalGalerkin::assembleMassMatrix" name="mknix::FlexGlobalGalerkin::assembleMassMatrix">
-<area shape="rect" id="node3" href="$db/d0b/classmknix_1_1_simulation.html#a49263e8630678644836bbba466e6ab4b" title="mknix::Simulation::\lgetSmoothingType" alt="" coords="231,5,364,51"/>
-<area shape="rect" id="node5" href="$db/d0b/classmknix_1_1_simulation.html#adda4efbeb29fecf80bcd8552703bfed4" title="mknix::Simulation::\lgetDim" alt="" coords="231,74,364,121"/>
+<area shape="rect" id="node2" href="$db/d0b/classmknix_1_1_simulation.html#a49263e8630678644836bbba466e6ab4b" title="mknix::Simulation::\lgetSmoothingType" alt="" coords="228,5,363,47"/>
+<area shape="rect" id="node3" href="$db/d0b/classmknix_1_1_simulation.html#adda4efbeb29fecf80bcd8552703bfed4" title="mknix::Simulation::\lgetDim" alt="" coords="228,71,363,112"/>
 </map>

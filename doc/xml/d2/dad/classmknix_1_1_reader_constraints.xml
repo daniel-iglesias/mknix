@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="d2/dad/classmknix_1_1_reader_constraints" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d2/dad/classmknix_1_1_reader_constraints" kind="class" language="C++" prot="public">
     <compoundname>mknix::ReaderConstraints</compoundname>
     <includes refid="de/d6c/readerconstraints_8h" local="no">readerconstraints.h</includes>
       <sectiondef kind="private-attrib">
@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" line="61" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" bodystart="61" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" line="69" column="1" bodyfile="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" bodystart="69" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d2/dad/classmknix_1_1_reader_constraints_1a9bde06b6ea032f3c0cedbce4157a4bb0" prot="private" static="no" mutable="no">
         <type>std::ofstream *</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" line="62" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" bodystart="62" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" line="70" column="1" bodyfile="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" bodystart="70" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d2/dad/classmknix_1_1_reader_constraints_1af5cc9afc44a121760ee374e6e9d99ce3" prot="private" static="no" mutable="no">
         <type>std::ifstream *</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" line="63" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" bodystart="63" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" line="71" column="1" bodyfile="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" bodystart="71" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d2/dad/classmknix_1_1_reader_constraints_1add8587b39da4e59d682d91c6017327d6" prot="private" static="no" mutable="no">
         <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" line="65" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" bodystart="65" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" line="73" column="1" bodyfile="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d2/dad/classmknix_1_1_reader_constraints_1a73f15e2db00199353ede3dde5cb12a68" prot="private" static="no" mutable="no">
         <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" line="66" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" bodystart="66" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" line="74" column="1" bodyfile="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" bodystart="74" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" line="40" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.cpp" bodystart="24" bodyend="31"/>
+        <location file="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" line="40" column="1" bodyfile="/home/daniel/Projects/MkniX/src/reader/readerconstraints.cpp" bodystart="37" bodyend="44"/>
       </memberdef>
       <memberdef kind="function" id="d2/dad/classmknix_1_1_reader_constraints_1a89f7f8f61866a81b47063b16c3c953a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -107,7 +107,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" line="41" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.cpp" bodystart="33" bodyend="43"/>
+        <location file="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" line="41" column="1" bodyfile="/home/daniel/Projects/MkniX/src/reader/readerconstraints.cpp" bodystart="46" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="d2/dad/classmknix_1_1_reader_constraints_1ae2c0d3f6e3c0d8fdfd99d4902fa8cd0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -120,7 +120,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" line="42" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.cpp" bodystart="46" bodyend="48"/>
+        <location file="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" line="42" column="1" bodyfile="/home/daniel/Projects/MkniX/src/reader/readerconstraints.cpp" bodystart="59" bodyend="61"/>
       </memberdef>
       <memberdef kind="function" id="d2/dad/classmknix_1_1_reader_constraints_1a6661437710a3faf4792236e7b2bf760f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -137,9 +137,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" line="43" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.cpp" bodystart="53" bodyend="216"/>
-        <references refid="db/d0b/classmknix_1_1_simulation_1ac2dcb63d177765da23658f6a552ad124" compoundref="dd/d6a/simulation_8h" startline="146" endline="146">mknix::Simulation::getAlpha</references>
-        <references refid="df/dd9/classmknix_1_1_system_1a5315a33bb61855c178110b2998783ee3" compoundref="dc/db2/system_8h" startline="60" endline="61">mknix::System::getTitle</references>
+        <location file="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" line="43" column="1" bodyfile="/home/daniel/Projects/MkniX/src/reader/readerconstraints.cpp" bodystart="66" bodyend="326"/>
+        <references refid="db/d0b/classmknix_1_1_simulation_1ac2dcb63d177765da23658f6a552ad124" compoundref="dd/d6a/simulation_8h" startline="200" endline="203">mknix::Simulation::getAlpha</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a5315a33bb61855c178110b2998783ee3" compoundref="dc/db2/system_8h" startline="61" endline="64">mknix::System::getTitle</references>
+        <references refid="df/dd9/classmknix_1_1_system_1a6777972d1e5914dbe488e704ca8a0b8d" compoundref="dc/db2/system_8h" startline="149">mknix::System::constraints</references>
+        <references refid="df/dd9/classmknix_1_1_system_1abec0485325cb37e460f9f8eab40374ea" compoundref="dc/db2/system_8h" startline="150">mknix::System::constraintsThermal</references>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -162,7 +164,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" line="46" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.cpp" bodystart="219" bodyend="245"/>
+        <location file="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" line="46" column="1" bodyfile="/home/daniel/Projects/MkniX/src/reader/readerconstraints.cpp" bodystart="329" bodyend="356"/>
       </memberdef>
       <memberdef kind="function" id="d2/dad/classmknix_1_1_reader_constraints_1a6088cd604363252ace171505edc23724" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -195,12 +197,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" line="47" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.cpp" bodystart="248" bodyend="323"/>
+        <location file="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" line="47" column="1" bodyfile="/home/daniel/Projects/MkniX/src/reader/readerconstraints.cpp" bodystart="359" bodyend="472"/>
       </memberdef>
-      <memberdef kind="function" id="d2/dad/classmknix_1_1_reader_constraints_1a3447895382aadba02504338baa55dcf2" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="d2/dad/classmknix_1_1_reader_constraints_1a4938aa4c172fe0102fa1a10261910d08" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void mknix::ReaderConstraints::outputConstraintNode</definition>
-        <argsstring>(System *, std::string &amp;, const char *, std::string &amp;, std::string &amp;)</argsstring>
+        <argsstring>(System *, std::string &amp;, const char *, std::string &amp;, std::string &amp;, int)</argsstring>
         <name>outputConstraintNode</name>
         <param>
           <type><ref refid="df/dd9/classmknix_1_1_system" kindref="compound">System</ref> *</type>
@@ -222,13 +224,54 @@
           <type>std::string &amp;</type>
           <defname>node</defname>
         </param>
+        <param>
+          <type>int</type>
+          <defname>i</defname>
+        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" line="53" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.cpp" bodystart="326" bodyend="341"/>
+        <location file="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" line="53" column="1" bodyfile="/home/daniel/Projects/MkniX/src/reader/readerconstraints.cpp" bodystart="475" bodyend="492"/>
+      </memberdef>
+      <memberdef kind="function" id="d2/dad/classmknix_1_1_reader_constraints_1a749b7e75e599e9598d52501e3f7d928a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::ReaderConstraints::outputConstraintThermalNode</definition>
+        <argsstring>(System *, std::string &amp;, const char *, std::string &amp;, std::string &amp;, int)</argsstring>
+        <name>outputConstraintThermalNode</name>
+        <param>
+          <type><ref refid="df/dd9/classmknix_1_1_system" kindref="compound">System</ref> *</type>
+          <defname>system_in</defname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <defname>consTitle</defname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <defname>nodeName</defname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <defname>bodyTitle</defname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <defname>node</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>i</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" line="60" column="1" bodyfile="/home/daniel/Projects/MkniX/src/reader/readerconstraints.cpp" bodystart="495" bodyend="512"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -236,12 +279,13 @@
     <detaileddescription>
 <para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
 </para>    </detaileddescription>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" line="38" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/readerconstraints.h" bodystart="37" bodyend="67"/>
+    <location file="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" line="38" column="1" bodyfile="/home/daniel/Projects/MkniX/src/reader/readerconstraints.h" bodystart="37" bodyend="75"/>
     <listofallmembers>
       <member refid="d2/dad/classmknix_1_1_reader_constraints_1a6088cd604363252ace171505edc23724" prot="private" virt="non-virtual"><scope>mknix::ReaderConstraints</scope><name>assignConstraintNodes</name></member>
       <member refid="d2/dad/classmknix_1_1_reader_constraints_1af5cc9afc44a121760ee374e6e9d99ce3" prot="private" virt="non-virtual"><scope>mknix::ReaderConstraints</scope><name>input</name></member>
       <member refid="d2/dad/classmknix_1_1_reader_constraints_1a9bde06b6ea032f3c0cedbce4157a4bb0" prot="private" virt="non-virtual"><scope>mknix::ReaderConstraints</scope><name>output</name></member>
-      <member refid="d2/dad/classmknix_1_1_reader_constraints_1a3447895382aadba02504338baa55dcf2" prot="private" virt="non-virtual"><scope>mknix::ReaderConstraints</scope><name>outputConstraintNode</name></member>
+      <member refid="d2/dad/classmknix_1_1_reader_constraints_1a4938aa4c172fe0102fa1a10261910d08" prot="private" virt="non-virtual"><scope>mknix::ReaderConstraints</scope><name>outputConstraintNode</name></member>
+      <member refid="d2/dad/classmknix_1_1_reader_constraints_1a749b7e75e599e9598d52501e3f7d928a" prot="private" virt="non-virtual"><scope>mknix::ReaderConstraints</scope><name>outputConstraintThermalNode</name></member>
       <member refid="d2/dad/classmknix_1_1_reader_constraints_1add8587b39da4e59d682d91c6017327d6" prot="private" virt="non-virtual"><scope>mknix::ReaderConstraints</scope><name>p_nodeA</name></member>
       <member refid="d2/dad/classmknix_1_1_reader_constraints_1a73f15e2db00199353ede3dde5cb12a68" prot="private" virt="non-virtual"><scope>mknix::ReaderConstraints</scope><name>p_nodeB</name></member>
       <member refid="d2/dad/classmknix_1_1_reader_constraints_1a6661437710a3faf4792236e7b2bf760f" prot="public" virt="non-virtual"><scope>mknix::ReaderConstraints</scope><name>readConstraints</name></member>

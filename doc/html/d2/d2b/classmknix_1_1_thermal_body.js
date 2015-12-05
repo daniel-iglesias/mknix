@@ -17,15 +17,12 @@ var classmknix_1_1_thermal_body =
     [ "outputStep", "d2/d2b/classmknix_1_1_thermal_body.html#afb78089ba843d2496cce134429cbd659", null ],
     [ "outputStep", "d2/d2b/classmknix_1_1_thermal_body.html#aeff32a838c44c34140791a39f46dbce3", null ],
     [ "outputToFile", "d2/d2b/classmknix_1_1_thermal_body.html#a0a5734b63446b11a6176eed0255efd6f", null ],
+    [ "setLoadThermal", "d2/d2b/classmknix_1_1_thermal_body.html#af1615f6d84e848749d98854ffd7bee50", null ],
     [ "setOutput", "d2/d2b/classmknix_1_1_thermal_body.html#a1b40d106be9463126117d455fb508f86", null ],
-    [ "setThermalLoad", "d2/d2b/classmknix_1_1_thermal_body.html#a8987032e5b7e180f03602705538097c7", null ],
-    [ "boundary", "d2/d2b/classmknix_1_1_thermal_body.html#accad269fb2f0b891c66633011d396cfa", null ],
     [ "cells", "d2/d2b/classmknix_1_1_thermal_body.html#a2af2b78c8e31929211f88a5a49072c06", null ],
     [ "computeEnergy", "d2/d2b/classmknix_1_1_thermal_body.html#a097e16dfcc1491dc659608f1392a504f", null ],
-    [ "energy", "d2/d2b/classmknix_1_1_thermal_body.html#aa5aa347f85714ea0766e2c1fddab4dad", null ],
-    [ "localMassMatrix", "d2/d2b/classmknix_1_1_thermal_body.html#a7ef0f85e0f2dac9fbdb23f23f16abb69", null ],
+    [ "loadThermalBody", "d2/d2b/classmknix_1_1_thermal_body.html#a30a30d13eef83ca7f39a7b0236c43dcd", null ],
     [ "nodes", "d2/d2b/classmknix_1_1_thermal_body.html#aa74c56a18ed24997dfc4bdb90a7f67bd", null ],
     [ "temperature", "d2/d2b/classmknix_1_1_thermal_body.html#af5ed33528eba7a3bf39a4bdc3d2c9ed3", null ],
-    [ "thermalLoad", "d2/d2b/classmknix_1_1_thermal_body.html#abbac7355fca5db72ce619bb327c1514c", null ],
     [ "title", "d2/d2b/classmknix_1_1_thermal_body.html#ad1b2b790274d2c987a8c461da0a3282f", null ]
 ];

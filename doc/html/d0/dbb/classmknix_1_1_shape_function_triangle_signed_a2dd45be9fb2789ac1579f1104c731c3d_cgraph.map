@@ -1,5 +1,6 @@
 <map id="mknix::ShapeFunctionTriangleSigned::calc" name="mknix::ShapeFunctionTriangleSigned::calc">
-<area shape="rect" id="node3" href="$d3/d19/classmknix_1_1_point.html#a2942110ac86c21e11986081670bb3a82" title="mknix::Point::getX" alt="" coords="253,5,384,35"/>
-<area shape="rect" id="node5" href="$d3/d19/classmknix_1_1_point.html#a16955d7ef56edea059119f93905e1196" title="mknix::Point::getY" alt="" coords="253,59,384,88"/>
-<area shape="rect" id="node7" href="$d3/d19/classmknix_1_1_point.html#a739698b4f6a21b40e7fc7c82af69c479" title="mknix::Point::getZ" alt="" coords="255,112,383,141"/>
+<area shape="rect" id="node2" href="$d3/d19/classmknix_1_1_point.html#a2942110ac86c21e11986081670bb3a82" title="mknix::Point::getX" alt="" coords="270,5,401,32"/>
+<area shape="rect" id="node3" href="$d3/d19/classmknix_1_1_point.html#a16955d7ef56edea059119f93905e1196" title="mknix::Point::getY" alt="" coords="270,56,401,83"/>
+<area shape="rect" id="node4" href="$d3/d19/classmknix_1_1_point.html#a739698b4f6a21b40e7fc7c82af69c479" title="mknix::Point::getZ" alt="" coords="271,107,400,133"/>
+<area shape="rect" id="node5" href="$d3/d19/classmknix_1_1_point.html#ad55ff02be90bf3c604dc5543fed2a5ab" title="mknix::Point::getSupport\lNodes" alt="" coords="252,158,419,199"/>
 </map>

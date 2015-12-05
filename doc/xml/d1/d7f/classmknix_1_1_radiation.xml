@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d1/d7f/classmknix_1_1_radiation" kind="class" language="C++" prot="public">
+    <compoundname>mknix::Radiation</compoundname>
+    <basecompoundref refid="db/d1c/classmknix_1_1_load" prot="public" virt="non-virtual">mknix::Load</basecompoundref>
+    <includes refid="d3/da8/loadradiation_8h" local="no">loadradiation.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="d1/d7f/classmknix_1_1_radiation_1a740d3c653aba978911d352cae6186efe" prot="private" static="no" mutable="no">
+        <type>std::map&lt; double, std::map&lt; double, std::map&lt; double, double &gt; &gt; &gt;</type>
+        <definition>std::map&lt; double, std::map&lt; double, std::map&lt; double, double &gt; &gt; &gt; mknix::Radiation::radMap</definition>
+        <argsstring></argsstring>
+        <name>radMap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadradiation.h" line="44" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadradiation.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="d1/d7f/classmknix_1_1_radiation_1a7c7076782211ce1abc7c1da01cbc7c43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Radiation::Radiation</definition>
+        <argsstring>()</argsstring>
+        <name>Radiation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadradiation.h" line="35" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadradiation.cpp" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/d7f/classmknix_1_1_radiation_1a439882270b8a60b4bb8ac98c1d5976f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::Radiation::~Radiation</definition>
+        <argsstring>()</argsstring>
+        <name>~Radiation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadradiation.h" line="37" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadradiation.cpp" bodystart="29" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/d7f/classmknix_1_1_radiation_1a14261a2fbc64e473d9ea4a6a8a75a16b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void mknix::Radiation::addVoxel</definition>
+        <argsstring>(double, double, double, double)</argsstring>
+        <name>addVoxel</name>
+        <param>
+          <type>double</type>
+          <defname>x_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>y_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>z_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>value_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadradiation.h" line="39" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadradiation.cpp" bodystart="34" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="d1/d7f/classmknix_1_1_radiation_1a17a9a0e9601e1546099ad424f249e328" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::Radiation::outputToFile</definition>
+        <argsstring>(std::ofstream *)</argsstring>
+        <name>outputToFile</name>
+        <reimplements refid="db/d1c/classmknix_1_1_load_1ada30463dd508345b27de70e3c470745c">outputToFile</reimplements>
+        <param>
+          <type>std::ofstream *</type>
+          <defname>outFile</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/system/loadradiation.h" line="41" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadradiation.cpp" bodystart="40" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
+</para>    </detaileddescription>
+    <inheritancegraph>
+      <node id="697">
+        <label>mknix::Load</label>
+        <link refid="db/d1c/classmknix_1_1_load"/>
+      </node>
+      <node id="696">
+        <label>mknix::Radiation</label>
+        <link refid="d1/d7f/classmknix_1_1_radiation"/>
+        <childnode refid="697" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="699">
+        <label>mknix::Load</label>
+        <link refid="db/d1c/classmknix_1_1_load"/>
+        <childnode refid="700" relation="usage">
+          <edgelabel>externalHeat</edgelabel>
+          <edgelabel>externalForces</edgelabel>
+        </childnode>
+      </node>
+      <node id="698">
+        <label>mknix::Radiation</label>
+        <link refid="d1/d7f/classmknix_1_1_radiation"/>
+        <childnode refid="699" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="700">
+        <label>lmx::Vector&lt; data_type &gt;</label>
+        <link refid="d1/d20/classlmx_1_1_vector"/>
+      </node>
+    </collaborationgraph>
+    <location file="/home/daniel/Projects/MkniX/src/system/loadradiation.h" line="33" column="1" bodyfile="/home/daniel/Projects/MkniX/src/system/loadradiation.h" bodystart="32" bodyend="45"/>
+    <listofallmembers>
+      <member refid="d1/d7f/classmknix_1_1_radiation_1a14261a2fbc64e473d9ea4a6a8a75a16b" prot="public" virt="non-virtual"><scope>mknix::Radiation</scope><name>addVoxel</name></member>
+      <member refid="db/d1c/classmknix_1_1_load_1a93aeafe41cb8ea7c97ae20b5870c5c9e" prot="public" virt="virtual"><scope>mknix::Radiation</scope><name>assembleExternalForces</name></member>
+      <member refid="db/d1c/classmknix_1_1_load_1afbf0c36d2962e6bd85812ef7d498d314" prot="protected" virt="non-virtual"><scope>mknix::Radiation</scope><name>externalForces</name></member>
+      <member refid="db/d1c/classmknix_1_1_load_1a6ef73045639703aac7cdebe3fedcc513" prot="protected" virt="non-virtual"><scope>mknix::Radiation</scope><name>externalHeat</name></member>
+      <member refid="db/d1c/classmknix_1_1_load_1a12f3697ad50880cb92bfc7267cca6a1c" prot="public" virt="non-virtual"><scope>mknix::Radiation</scope><name>Load</name></member>
+      <member refid="db/d1c/classmknix_1_1_load_1a0cff22a8b9f289b38d978546160b6bb6" prot="protected" virt="non-virtual"><scope>mknix::Radiation</scope><name>nodes</name></member>
+      <member refid="d1/d7f/classmknix_1_1_radiation_1a17a9a0e9601e1546099ad424f249e328" prot="public" virt="virtual"><scope>mknix::Radiation</scope><name>outputToFile</name></member>
+      <member refid="d1/d7f/classmknix_1_1_radiation_1a7c7076782211ce1abc7c1da01cbc7c43" prot="public" virt="non-virtual"><scope>mknix::Radiation</scope><name>Radiation</name></member>
+      <member refid="d1/d7f/classmknix_1_1_radiation_1a740d3c653aba978911d352cae6186efe" prot="private" virt="non-virtual"><scope>mknix::Radiation</scope><name>radMap</name></member>
+      <member refid="db/d1c/classmknix_1_1_load_1a79f63ce975fa0c0ad2d9cd8269908b8f" prot="public" virt="virtual"><scope>mknix::Radiation</scope><name>~Load</name></member>
+      <member refid="d1/d7f/classmknix_1_1_radiation_1a439882270b8a60b4bb8ac98c1d5976f3" prot="public" virt="non-virtual"><scope>mknix::Radiation</scope><name>~Radiation</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

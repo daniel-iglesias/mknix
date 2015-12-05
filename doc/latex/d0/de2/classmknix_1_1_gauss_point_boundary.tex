@@ -1,0 +1,240 @@
+\hypertarget{classmknix_1_1_gauss_point_boundary}{}\subsection{mknix\+:\+:Gauss\+Point\+Boundary Class Reference}
+\label{classmknix_1_1_gauss_point_boundary}\index{mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}}
+
+
+{\ttfamily \#include $<$gausspointboundary.\+h$>$}
+
+
+
+Inheritance diagram for mknix\+:\+:Gauss\+Point\+Boundary\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{d5/d17/classmknix_1_1_gauss_point_boundary__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for mknix\+:\+:Gauss\+Point\+Boundary\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d1/d47/classmknix_1_1_gauss_point_boundary__coll__graph}
+\end{center}
+\end{figure}
+\subsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmknix_1_1_gauss_point_boundary_a77cc44a83e7cbe635c99943cb7e2f975}{Gauss\+Point\+Boundary} ()
+\item 
+\hyperlink{classmknix_1_1_gauss_point_boundary_a2bedbbba293a2e220df87bb4fc1d8d64}{Gauss\+Point\+Boundary} (int dim\+\_\+in, double alpha\+\_\+in, double weight\+\_\+in, double jacobian\+\_\+in, int num\+\_\+in, double coor\+\_\+x, double dc\+\_\+in)
+\item 
+\hyperlink{classmknix_1_1_gauss_point_boundary_a01163e6ce3f4aaa13fa1006d0fe8773f}{Gauss\+Point\+Boundary} (int dim\+\_\+in, double alpha\+\_\+in, double weight\+\_\+in, double jacobian\+\_\+in, int num\+\_\+in, double coor\+\_\+x, double coor\+\_\+y, double dc\+\_\+in)
+\item 
+\hyperlink{classmknix_1_1_gauss_point_boundary_a8b93a88e494cca61934ae841642e11f5}{$\sim$\+Gauss\+Point\+Boundary} ()
+\item 
+virtual void \hyperlink{classmknix_1_1_gauss_point_boundary_ab57edfe411e088a9839cf266bd4ff784}{shape\+Fun\+Solve} (std\+::string, double) override
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_boundary_a404a6ee4731bab04ef54f6fc0a58986c}{compute\+Qext} (\hyperlink{classmknix_1_1_load_thermal_boundary1_d}{Load\+Thermal\+Boundary1\+D} $\ast$)
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_boundary_a4a64fbf026dc5c92ac29aa0337807d04}{assemble\+Qext} (\hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \&)
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classmknix_1_1_gauss_point_boundary_a236bd2db3efbe86c5597f797d0164d2f}{initialize\+Mat\+Vecs} ()
+\end{DoxyCompactItemize}
+\subsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{classmknix_1_1_gauss_point_boundary_a372aae851a09ae56adbf636aa3e2840f}{num}
+\item 
+double \hyperlink{classmknix_1_1_gauss_point_boundary_a2c17d0b362d6a658ef01f69f0d2baa17}{weight}
+\item 
+\hyperlink{classlmx_1_1_vector}{lmx\+::\+Vector}$<$ \hyperlink{namespacemknix_a16be4b246fbf2cceb141e3a179111020}{data\+\_\+type} $>$ \hyperlink{classmknix_1_1_gauss_point_boundary_a7dcc50dbaeface891d0658b4ead424f7}{Qext}
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Daniel Iglesias 
+\end{DoxyAuthor}
+
+
+Definition at line 44 of file gausspointboundary.\+h.
+
+
+
+\subsubsection{Constructor \& Destructor Documentation}
+\hypertarget{classmknix_1_1_gauss_point_boundary_a77cc44a83e7cbe635c99943cb7e2f975}{}\index{mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}!Gauss\+Point\+Boundary@{Gauss\+Point\+Boundary}}
+\index{Gauss\+Point\+Boundary@{Gauss\+Point\+Boundary}!mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}}
+\paragraph[{Gauss\+Point\+Boundary}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+Gauss\+Point\+Boundary\+::\+Gauss\+Point\+Boundary (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_gauss_point_boundary_a77cc44a83e7cbe635c99943cb7e2f975}
+
+
+Definition at line 14 of file gausspointboundary.\+cpp.
+
+\hypertarget{classmknix_1_1_gauss_point_boundary_a2bedbbba293a2e220df87bb4fc1d8d64}{}\index{mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}!Gauss\+Point\+Boundary@{Gauss\+Point\+Boundary}}
+\index{Gauss\+Point\+Boundary@{Gauss\+Point\+Boundary}!mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}}
+\paragraph[{Gauss\+Point\+Boundary}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+Gauss\+Point\+Boundary\+::\+Gauss\+Point\+Boundary (
+\begin{DoxyParamCaption}
+\item[{int}]{dim\+\_\+in, }
+\item[{double}]{alpha\+\_\+in, }
+\item[{double}]{weight\+\_\+in, }
+\item[{double}]{jacobian\+\_\+in, }
+\item[{int}]{num\+\_\+in, }
+\item[{double}]{coor\+\_\+x, }
+\item[{double}]{dc\+\_\+in}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_gauss_point_boundary_a2bedbbba293a2e220df87bb4fc1d8d64}
+
+
+Definition at line 19 of file gausspointboundary.\+cpp.
+
+\hypertarget{classmknix_1_1_gauss_point_boundary_a01163e6ce3f4aaa13fa1006d0fe8773f}{}\index{mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}!Gauss\+Point\+Boundary@{Gauss\+Point\+Boundary}}
+\index{Gauss\+Point\+Boundary@{Gauss\+Point\+Boundary}!mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}}
+\paragraph[{Gauss\+Point\+Boundary}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+Gauss\+Point\+Boundary\+::\+Gauss\+Point\+Boundary (
+\begin{DoxyParamCaption}
+\item[{int}]{dim\+\_\+in, }
+\item[{double}]{alpha\+\_\+in, }
+\item[{double}]{weight\+\_\+in, }
+\item[{double}]{jacobian\+\_\+in, }
+\item[{int}]{num\+\_\+in, }
+\item[{double}]{coor\+\_\+x, }
+\item[{double}]{coor\+\_\+y, }
+\item[{double}]{dc\+\_\+in}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_gauss_point_boundary_a01163e6ce3f4aaa13fa1006d0fe8773f}
+
+
+Definition at line 32 of file gausspointboundary.\+cpp.
+
+\hypertarget{classmknix_1_1_gauss_point_boundary_a8b93a88e494cca61934ae841642e11f5}{}\index{mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}!````~Gauss\+Point\+Boundary@{$\sim$\+Gauss\+Point\+Boundary}}
+\index{````~Gauss\+Point\+Boundary@{$\sim$\+Gauss\+Point\+Boundary}!mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}}
+\paragraph[{$\sim$\+Gauss\+Point\+Boundary}]{\setlength{\rightskip}{0pt plus 5cm}mknix\+::\+Gauss\+Point\+Boundary\+::$\sim$\+Gauss\+Point\+Boundary (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_gauss_point_boundary_a8b93a88e494cca61934ae841642e11f5}
+
+
+Definition at line 46 of file gausspointboundary.\+cpp.
+
+
+
+\subsubsection{Member Function Documentation}
+\hypertarget{classmknix_1_1_gauss_point_boundary_a4a64fbf026dc5c92ac29aa0337807d04}{}\index{mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}!assemble\+Qext@{assemble\+Qext}}
+\index{assemble\+Qext@{assemble\+Qext}!mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}}
+\paragraph[{assemble\+Qext}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Gauss\+Point\+Boundary\+::assemble\+Qext (
+\begin{DoxyParamCaption}
+\item[{{\bf lmx\+::\+Vector}$<$ {\bf data\+\_\+type} $>$ \&}]{global\+Heat}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_gauss_point_boundary_a4a64fbf026dc5c92ac29aa0337807d04}
+
+
+Definition at line 103 of file gausspointboundary.\+cpp.
+
+\hypertarget{classmknix_1_1_gauss_point_boundary_a404a6ee4731bab04ef54f6fc0a58986c}{}\index{mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}!compute\+Qext@{compute\+Qext}}
+\index{compute\+Qext@{compute\+Qext}!mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}}
+\paragraph[{compute\+Qext}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Gauss\+Point\+Boundary\+::compute\+Qext (
+\begin{DoxyParamCaption}
+\item[{{\bf Load\+Thermal\+Boundary1\+D} $\ast$}]{load\+Thermal\+Boundary\+\_\+in}
+\end{DoxyParamCaption}
+)}\label{classmknix_1_1_gauss_point_boundary_a404a6ee4731bab04ef54f6fc0a58986c}
+
+
+Definition at line 88 of file gausspointboundary.\+cpp.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/de2/classmknix_1_1_gauss_point_boundary_a404a6ee4731bab04ef54f6fc0a58986c_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_gauss_point_boundary_a236bd2db3efbe86c5597f797d0164d2f}{}\index{mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}!initialize\+Mat\+Vecs@{initialize\+Mat\+Vecs}}
+\index{initialize\+Mat\+Vecs@{initialize\+Mat\+Vecs}!mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}}
+\paragraph[{initialize\+Mat\+Vecs}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Gauss\+Point\+Boundary\+::initialize\+Mat\+Vecs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_gauss_point_boundary_a236bd2db3efbe86c5597f797d0164d2f}
+
+
+Definition at line 119 of file gausspointboundary.\+cpp.
+
+
+
+Here is the caller graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/de2/classmknix_1_1_gauss_point_boundary_a236bd2db3efbe86c5597f797d0164d2f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{classmknix_1_1_gauss_point_boundary_ab57edfe411e088a9839cf266bd4ff784}{}\index{mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}!shape\+Fun\+Solve@{shape\+Fun\+Solve}}
+\index{shape\+Fun\+Solve@{shape\+Fun\+Solve}!mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}}
+\paragraph[{shape\+Fun\+Solve}]{\setlength{\rightskip}{0pt plus 5cm}void mknix\+::\+Gauss\+Point\+Boundary\+::shape\+Fun\+Solve (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{type\+\_\+in, }
+\item[{double}]{q\+\_\+in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}\label{classmknix_1_1_gauss_point_boundary_ab57edfe411e088a9839cf266bd4ff784}
+
+
+Reimplemented from \hyperlink{classmknix_1_1_point_a1843d81646fbca9519358eb3c8787e18}{mknix\+::\+Point}.
+
+
+
+Definition at line 51 of file gausspointboundary.\+cpp.
+
+
+
+Here is the call graph for this function\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d0/de2/classmknix_1_1_gauss_point_boundary_ab57edfe411e088a9839cf266bd4ff784_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsubsection{Member Data Documentation}
+\hypertarget{classmknix_1_1_gauss_point_boundary_a372aae851a09ae56adbf636aa3e2840f}{}\index{mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}!num@{num}}
+\index{num@{num}!mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}}
+\paragraph[{num}]{\setlength{\rightskip}{0pt plus 5cm}int mknix\+::\+Gauss\+Point\+Boundary\+::num\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_gauss_point_boundary_a372aae851a09ae56adbf636aa3e2840f}
+
+
+Definition at line 79 of file gausspointboundary.\+h.
+
+\hypertarget{classmknix_1_1_gauss_point_boundary_a7dcc50dbaeface891d0658b4ead424f7}{}\index{mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}!Qext@{Qext}}
+\index{Qext@{Qext}!mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}}
+\paragraph[{Qext}]{\setlength{\rightskip}{0pt plus 5cm}{\bf lmx\+::\+Vector}$<${\bf data\+\_\+type}$>$ mknix\+::\+Gauss\+Point\+Boundary\+::\+Qext\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_gauss_point_boundary_a7dcc50dbaeface891d0658b4ead424f7}
+
+
+Definition at line 82 of file gausspointboundary.\+h.
+
+\hypertarget{classmknix_1_1_gauss_point_boundary_a2c17d0b362d6a658ef01f69f0d2baa17}{}\index{mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}!weight@{weight}}
+\index{weight@{weight}!mknix\+::\+Gauss\+Point\+Boundary@{mknix\+::\+Gauss\+Point\+Boundary}}
+\paragraph[{weight}]{\setlength{\rightskip}{0pt plus 5cm}double mknix\+::\+Gauss\+Point\+Boundary\+::weight\hspace{0.3cm}{\ttfamily [protected]}}\label{classmknix_1_1_gauss_point_boundary_a2c17d0b362d6a658ef01f69f0d2baa17}
+
+
+Definition at line 80 of file gausspointboundary.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{gausspointboundary_8h}{gausspointboundary.\+h}\item 
+\hyperlink{gausspointboundary_8cpp}{gausspointboundary.\+cpp}\end{DoxyCompactItemize}

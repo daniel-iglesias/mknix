@@ -1,0 +1,5 @@
+<map id="mknix::Body::addNode" name="mknix::Body::addNode">
+<area shape="rect" id="node2" href="$d6/dd9/classmknix_1_1_rigid_bar.html#a1f05aae37c654229c4f6c3ef32944125" title="mknix::RigidBar::addNode" alt="" coords="208,5,383,32"/>
+<area shape="rect" id="node3" href="$d6/d6d/classmknix_1_1_rigid_body2_d.html#a62a44eed6a60518564005506cefc7595" title="mknix::RigidBody2D\l::addNode" alt="" coords="224,57,367,98"/>
+<area shape="rect" id="node4" href="$dd/d2a/classmknix_1_1_rigid_body3_d.html#a276784501249da5c366003a27afba4ea" title="mknix::RigidBody3D\l::addNode" alt="" coords="224,122,367,163"/>
+</map>

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="de/d5f/namespacelmx" kind="namespace" language="C++">
+    <compoundname>lmx</compoundname>
+    <innerclass refid="d2/d8d/classlmx_1_1_dense_matrix" prot="public">lmx::DenseMatrix</innerclass>
+    <innerclass refid="d9/db0/classlmx_1_1_matrix" prot="public">lmx::Matrix</innerclass>
+    <innerclass refid="d1/d20/classlmx_1_1_vector" prot="public">lmx::Vector</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/daniel/Projects/MkniX/src/core/cell.h" line="38" column="1"/>
+  </compounddef>
+</doxygen>

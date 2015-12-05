@@ -1,3 +1,5 @@
 <map id="mknix::GaussPoint" name="mknix::GaussPoint">
-<area shape="rect" id="node2" href="$d3/d19/classmknix_1_1_point.html" title="mknix::Point" alt="" coords="25,5,119,35"/>
+<area shape="rect" id="node3" href="$df/d77/classmknix_1_1_gauss_point2_d.html" title="mknix::GaussPoint2D" alt="" coords="5,155,156,181"/>
+<area shape="rect" id="node4" href="$d6/d47/classmknix_1_1_gauss_point3_d.html" title="mknix::GaussPoint3D" alt="" coords="180,155,331,181"/>
+<area shape="rect" id="node2" href="$d3/d19/classmknix_1_1_point.html" title="mknix::Point" alt="" coords="120,5,215,32"/>
 </map>

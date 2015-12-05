@@ -1,37 +1,12 @@
 <map id="bodyrigid1D.cpp" name="bodyrigid1D.cpp">
-<area shape="rect" id="node3" href="$d7/d1c/bodyrigid1_d_8h.html" title="bodyrigid1D.h" alt="" coords="1952,237,2053,267"/>
-<area shape="rect" id="node26" href="$dd/d6a/simulation_8h.html" title="simulation.h" alt="" coords="1003,83,1093,112"/>
-<area shape="rect" id="node5" href="$d1/d67/bodyrigid_8h.html" title="bodyrigid.h" alt="" coords="1193,324,1279,353"/>
-<area shape="rect" id="node13" href="$d1/d77/node_8h.html" title="node.h" alt="" coords="1581,720,1643,749"/>
-<area shape="rect" id="node7" href="$d0/d77/body_8h.html" title="body.h" alt="" coords="1244,488,1305,517"/>
-<area shape="rect" id="node9" href="$dc/d54/common_8h.html" title="common.h" alt="" coords="1145,875,1228,904"/>
-<area shape="rect" id="node17" href="$d2/d91/point_8h.html" title="Point of interest. " alt="" coords="1971,797,2032,827"/>
-<area shape="rect" id="node28" href="$da/d83/analysisdynamic_8h.html" title="analysisdynamic.h" alt="" coords="683,160,813,189"/>
-<area shape="rect" id="node38" href="$d1/d1f/analysisthermaldynamic_8h.html" title="analysisthermaldynamic.h" alt="" coords="877,160,1051,189"/>
-<area shape="rect" id="node41" href="$d4/d87/analysisstatic_8h.html" title="analysisstatic.h" alt="" coords="124,160,236,189"/>
-<area shape="rect" id="node44" href="$db/d65/analysisthermalstatic_8h.html" title="analysisthermalstatic.h" alt="" coords="423,160,577,189"/>
-<area shape="rect" id="node47" href="$dc/db2/system_8h.html" title="system.h" alt="" coords="1095,160,1169,189"/>
-<area shape="rect" id="node68" href="$d3/d65/material_8h.html" title="material.h" alt="" coords="1819,720,1896,749"/>
-<area shape="rect" id="node30" href="$d2/d40/analysis_8h.html" title="analysis.h" alt="" coords="129,237,209,267"/>
-<area shape="rect" id="node52" href="$df/d1c/bodyflexglobalgalerkin_8h.html" title="bodyflexglobalgalerkin.h" alt="" coords="1601,237,1761,267"/>
-<area shape="rect" id="node84" href="$da/d60/bodyrigid0_d_8h.html" title="bodyrigid0D.h" alt="" coords="1217,237,1319,267"/>
-<area shape="rect" id="node89" href="$d3/d80/bodyrigid2_d_8h.html" title="bodyrigid2D.h" alt="" coords="1343,237,1444,267"/>
-<area shape="rect" id="node93" href="$d1/dbe/bodyrigid3_d_8h.html" title="bodyrigid3D.h" alt="" coords="1092,237,1193,267"/>
-<area shape="rect" id="node97" href="$d3/d0b/bodythermal_8h.html" title="bodythermal.h" alt="" coords="1432,324,1536,353"/>
-<area shape="rect" id="node106" href="$de/df4/thermalload_8h.html" title="thermalload.h" alt="" coords="1137,720,1236,749"/>
-<area shape="rect" id="node111" href="$da/df6/constraintdistance_8h.html" title="constraintdistance.h" alt="" coords="404,237,543,267"/>
-<area shape="rect" id="node117" href="$d4/d28/constraintfixedcoordinates_8h.html" title="constraintfixedcoordinates.h" alt="" coords="567,237,751,267"/>
-<area shape="rect" id="node120" href="$d8/dfb/constraintfixedaxis_8h.html" title="constraintfixedaxis.h" alt="" coords="775,237,916,267"/>
-<area shape="rect" id="node123" href="$df/de4/constraintclearance_8h.html" title="constraintclearance.h" alt="" coords="233,237,380,267"/>
-<area shape="rect" id="node126" href="$dd/d0d/force_8h.html" title="force.h" alt="" coords="956,565,1017,595"/>
-<area shape="rect" id="node54" href="$dd/dbc/bodyflex_8h.html" title="bodyflex.h" alt="" coords="1788,324,1871,353"/>
-<area shape="rect" id="node57" href="$d8/d84/cellrect_8h.html" title="Background cells for integration. " alt="" coords="1447,411,1521,440"/>
-<area shape="rect" id="node71" href="$dc/d6a/celltriang_8h.html" title="Background cells for integration. " alt="" coords="1852,488,1937,517"/>
-<area shape="rect" id="node74" href="$d1/d94/celltetrahedron_8h.html" title="Background cells for integration. " alt="" coords="1705,488,1823,517"/>
-<area shape="rect" id="node77" href="$df/d03/elemtriangle_8h.html" title="elemtriangle.h" alt="" coords="1847,411,1948,440"/>
-<area shape="rect" id="node80" href="$d3/d9f/elemtetrahedron_8h.html" title="elemtetrahedron.h" alt="" coords="1697,411,1823,440"/>
-<area shape="rect" id="node59" href="$d0/ddd/cell_8h.html" title="Background cells for integration. " alt="" coords="1803,565,1856,595"/>
-<area shape="rect" id="node61" href="$d4/dc6/gausspoint_8h.html" title="Point for numerical integration. " alt="" coords="2055,643,2151,672"/>
-<area shape="rect" id="node113" href="$dc/d4d/constraint_8h.html" title="constraint.h" alt="" coords="636,324,727,353"/>
-<area shape="rect" id="node128" href="$dc/d61/load_8h.html" title="load.h" alt="" coords="956,643,1012,672"/>
+<area shape="rect" id="node2" href="$d7/d1c/bodyrigid1_d_8h.html" title="bodyrigid1D.h" alt="" coords="341,80,444,107"/>
+<area shape="rect" id="node15" href="$dd/d6a/simulation_8h.html" title="simulation/simulation.h" alt="" coords="477,229,631,256"/>
+<area shape="rect" id="node3" href="$d1/d67/bodyrigid_8h.html" title="bodyrigid.h" alt="" coords="273,155,358,181"/>
+<area shape="rect" id="node4" href="$d0/d77/body_8h.html" title="body.h" alt="" coords="265,229,326,256"/>
+<area shape="rect" id="node5" href="$dc/d54/common_8h.html" title="common.h" alt="" coords="259,453,342,480"/>
+<area shape="rect" id="node9" href="$dc/d6b/boundarygroup_8h.html" title="boundarygroup.h" alt="" coords="301,304,420,331"/>
+<area shape="rect" id="node10" href="$db/d20/cellboundary_8h.html" title="core/cellboundary.h" alt="" coords="5,379,140,405"/>
+<area shape="rect" id="node13" href="$d1/d77/node_8h.html" title="core/node.h" alt="" coords="135,304,226,331"/>
+<area shape="rect" id="node14" href="$d2/d91/point_8h.html" title="Point of interest. " alt="" coords="165,379,226,405"/>
+<area shape="rect" id="node16" href="$d3/d65/material_8h.html" title="core/material.h" alt="" coords="547,304,655,331"/>
 </map>

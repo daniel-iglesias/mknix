@@ -1,358 +1,89 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="d9/dab/constraint_8cpp" kind="file">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d9/dab/constraint_8cpp" kind="file" language="C++">
     <compoundname>constraint.cpp</compoundname>
     <includes refid="dc/d4d/constraint_8h" local="yes">constraint.h</includes>
-    <includes refid="dd/d6a/simulation_8h" local="yes">simulation.h</includes>
-    <includes refid="d1/d77/node_8h" local="yes">node.h</includes>
+    <includes refid="d1/d77/node_8h" local="no">core/node.h</includes>
+    <includes refid="dd/d6a/simulation_8h" local="no">simulation/simulation.h</includes>
     <incdepgraph>
-      <node id="6105">
-        <label>celltriang.h</label>
-        <link refid="dc/d6a/celltriang_8h"/>
-        <childnode refid="6099" relation="include">
-        </childnode>
-      </node>
-      <node id="6112">
-        <label>bodyrigid2D.h</label>
-        <link refid="d3/d80/bodyrigid2_d_8h"/>
-        <childnode refid="6110" relation="include">
-        </childnode>
-        <childnode refid="6102" relation="include">
-        </childnode>
-      </node>
-      <node id="6119">
-        <label>constraintclearance.h</label>
-        <link refid="df/de4/constraintclearance_8h"/>
-        <childnode refid="6081" relation="include">
-        </childnode>
-      </node>
-      <node id="6095">
-        <label>bodyflexglobalgalerkin.h</label>
-        <link refid="df/d1c/bodyflexglobalgalerkin_8h"/>
-        <childnode refid="6096" relation="include">
-        </childnode>
-      </node>
-      <node id="6104">
-        <label>material.h</label>
-        <link refid="d3/d65/material_8h"/>
-        <childnode refid="6083" relation="include">
-        </childnode>
-      </node>
-      <node id="6097">
-        <label>body.h</label>
-        <link refid="d0/d77/body_8h"/>
-        <childnode refid="6082" relation="include">
-        </childnode>
-        <childnode refid="6083" relation="include">
-        </childnode>
-      </node>
-      <node id="6099">
-        <label>cell.h</label>
-        <link refid="d0/ddd/cell_8h"/>
-        <childnode refid="6100" relation="include">
-        </childnode>
-      </node>
-      <node id="6081">
+      <node id="3110">
         <label>constraint.h</label>
         <link refid="dc/d4d/constraint_8h"/>
-        <childnode refid="6082" relation="include">
+        <childnode refid="3111" relation="include">
         </childnode>
-        <childnode refid="6083" relation="include">
+        <childnode refid="3114" relation="include">
         </childnode>
       </node>
-      <node id="6094">
+      <node id="3119">
+        <label>simulation/simulation.h</label>
+        <link refid="dd/d6a/simulation_8h"/>
+        <childnode refid="3114" relation="include">
+        </childnode>
+        <childnode refid="3111" relation="include">
+        </childnode>
+        <childnode refid="3120" relation="include">
+        </childnode>
+      </node>
+      <node id="3118">
         <label>string</label>
       </node>
-      <node id="6093">
+      <node id="3112">
         <label>map</label>
       </node>
-      <node id="6103">
-        <label>point.h</label>
-        <link refid="d2/d91/point_8h"/>
-        <childnode refid="6101" relation="include">
-        </childnode>
-        <childnode refid="6093" relation="include">
-        </childnode>
-        <childnode refid="6094" relation="include">
-        </childnode>
-        <childnode refid="6082" relation="include">
-        </childnode>
-      </node>
-      <node id="6089">
-        <label>analysisthermaldynamic.h</label>
-        <link refid="d1/d1f/analysisthermaldynamic_8h"/>
-        <childnode refid="6086" relation="include">
-        </childnode>
-      </node>
-      <node id="6082">
+      <node id="3111">
         <label>common.h</label>
         <link refid="dc/d54/common_8h"/>
-      </node>
-      <node id="6114">
-        <label>bodythermal.h</label>
-        <link refid="d3/d0b/bodythermal_8h"/>
-        <childnode refid="6083" relation="include">
+        <childnode refid="3112" relation="include">
         </childnode>
-        <childnode refid="6098" relation="include">
-        </childnode>
-        <childnode refid="6105" relation="include">
-        </childnode>
-        <childnode refid="6106" relation="include">
-        </childnode>
-        <childnode refid="6107" relation="include">
-        </childnode>
-        <childnode refid="6108" relation="include">
-        </childnode>
-        <childnode refid="6102" relation="include">
-        </childnode>
-        <childnode refid="6115" relation="include">
+        <childnode refid="3113" relation="include">
         </childnode>
       </node>
-      <node id="6084">
-        <label>simulation.h</label>
-        <link refid="dd/d6a/simulation_8h"/>
-        <childnode refid="6085" relation="include">
+      <node id="3120">
+        <label>core/material.h</label>
+        <link refid="d3/d65/material_8h"/>
+        <childnode refid="3114" relation="include">
         </childnode>
-        <childnode refid="6089" relation="include">
-        </childnode>
-        <childnode refid="6090" relation="include">
-        </childnode>
-        <childnode refid="6091" relation="include">
-        </childnode>
-        <childnode refid="6092" relation="include">
-        </childnode>
-        <childnode refid="6102" relation="include">
-        </childnode>
-        <childnode refid="6104" relation="include">
+        <childnode refid="3111" relation="include">
         </childnode>
       </node>
-      <node id="6091">
-        <label>analysisthermalstatic.h</label>
-        <link refid="db/d65/analysisthermalstatic_8h"/>
-        <childnode refid="6086" relation="include">
-        </childnode>
-      </node>
-      <node id="6115">
-        <label>thermalload.h</label>
-        <link refid="de/df4/thermalload_8h"/>
-        <childnode refid="6082" relation="include">
-        </childnode>
-        <childnode refid="6083" relation="include">
-        </childnode>
-        <childnode refid="6093" relation="include">
-        </childnode>
-      </node>
-      <node id="6085">
-        <label>analysisdynamic.h</label>
-        <link refid="da/d83/analysisdynamic_8h"/>
-        <childnode refid="6086" relation="include">
-        </childnode>
-      </node>
-      <node id="6108">
-        <label>elemtetrahedron.h</label>
-        <link refid="d3/d9f/elemtetrahedron_8h"/>
-        <childnode refid="6106" relation="include">
-        </childnode>
-      </node>
-      <node id="6090">
-        <label>analysisstatic.h</label>
-        <link refid="d4/d87/analysisstatic_8h"/>
-        <childnode refid="6086" relation="include">
-        </childnode>
-      </node>
-      <node id="6120">
-        <label>force.h</label>
-        <link refid="dd/d0d/force_8h"/>
-        <childnode refid="6121" relation="include">
-        </childnode>
-      </node>
-      <node id="6107">
-        <label>elemtriangle.h</label>
-        <link refid="df/d03/elemtriangle_8h"/>
-        <childnode refid="6105" relation="include">
-        </childnode>
-      </node>
-      <node id="6101">
-        <label>vector</label>
-      </node>
-      <node id="6117">
-        <label>constraintfixedcoordinates.h</label>
-        <link refid="d4/d28/constraintfixedcoordinates_8h"/>
-        <childnode refid="6081" relation="include">
-        </childnode>
-      </node>
-      <node id="6098">
-        <label>cellrect.h</label>
-        <link refid="d8/d84/cellrect_8h"/>
-        <childnode refid="6099" relation="include">
-        </childnode>
-      </node>
-      <node id="6116">
-        <label>constraintdistance.h</label>
-        <link refid="da/df6/constraintdistance_8h"/>
-        <childnode refid="6081" relation="include">
-        </childnode>
-      </node>
-      <node id="6083">
-        <label>LMX/lmx.h</label>
-      </node>
-      <node id="6096">
-        <label>bodyflex.h</label>
-        <link refid="dd/dbc/bodyflex_8h"/>
-        <childnode refid="6097" relation="include">
-        </childnode>
-        <childnode refid="6098" relation="include">
-        </childnode>
-        <childnode refid="6105" relation="include">
-        </childnode>
-        <childnode refid="6106" relation="include">
-        </childnode>
-        <childnode refid="6107" relation="include">
-        </childnode>
-        <childnode refid="6108" relation="include">
-        </childnode>
-        <childnode refid="6102" relation="include">
-        </childnode>
-      </node>
-      <node id="6087">
-        <label>LMX/lmx_diff_problem_first.h</label>
-      </node>
-      <node id="6092">
-        <label>system.h</label>
-        <link refid="dc/db2/system_8h"/>
-        <childnode refid="6093" relation="include">
-        </childnode>
-        <childnode refid="6094" relation="include">
-        </childnode>
-        <childnode refid="6083" relation="include">
-        </childnode>
-        <childnode refid="6095" relation="include">
-        </childnode>
-        <childnode refid="6109" relation="include">
-        </childnode>
-        <childnode refid="6111" relation="include">
-        </childnode>
-        <childnode refid="6112" relation="include">
-        </childnode>
-        <childnode refid="6113" relation="include">
-        </childnode>
-        <childnode refid="6114" relation="include">
-        </childnode>
-        <childnode refid="6116" relation="include">
-        </childnode>
-        <childnode refid="6117" relation="include">
-        </childnode>
-        <childnode refid="6118" relation="include">
-        </childnode>
-        <childnode refid="6119" relation="include">
-        </childnode>
-        <childnode refid="6120" relation="include">
-        </childnode>
-        <childnode refid="6115" relation="include">
-        </childnode>
-      </node>
-      <node id="6118">
-        <label>constraintfixedaxis.h</label>
-        <link refid="d8/dfb/constraintfixedaxis_8h"/>
-        <childnode refid="6081" relation="include">
-        </childnode>
-      </node>
-      <node id="6106">
-        <label>celltetrahedron.h</label>
-        <link refid="d1/d94/celltetrahedron_8h"/>
-        <childnode refid="6099" relation="include">
-        </childnode>
-      </node>
-      <node id="6111">
-        <label>bodyrigid1D.h</label>
-        <link refid="d7/d1c/bodyrigid1_d_8h"/>
-        <childnode refid="6110" relation="include">
-        </childnode>
-        <childnode refid="6102" relation="include">
-        </childnode>
-      </node>
-      <node id="6100">
-        <label>gausspoint.h</label>
-        <link refid="d4/dc6/gausspoint_8h"/>
-        <childnode refid="6101" relation="include">
-        </childnode>
-        <childnode refid="6093" relation="include">
-        </childnode>
-        <childnode refid="6102" relation="include">
-        </childnode>
-        <childnode refid="6103" relation="include">
-        </childnode>
-        <childnode refid="6082" relation="include">
-        </childnode>
-        <childnode refid="6104" relation="include">
-        </childnode>
-      </node>
-      <node id="6102">
-        <label>node.h</label>
-        <link refid="d1/d77/node_8h"/>
-        <childnode refid="6101" relation="include">
-        </childnode>
-        <childnode refid="6103" relation="include">
-        </childnode>
-        <childnode refid="6083" relation="include">
-        </childnode>
-      </node>
-      <node id="6088">
-        <label>LMX/lmx_diff_problem_second.h</label>
-      </node>
-      <node id="6109">
-        <label>bodyrigid0D.h</label>
-        <link refid="da/d60/bodyrigid0_d_8h"/>
-        <childnode refid="6110" relation="include">
-        </childnode>
-        <childnode refid="6102" relation="include">
-        </childnode>
-      </node>
-      <node id="6086">
-        <label>analysis.h</label>
-        <link refid="d2/d40/analysis_8h"/>
-        <childnode refid="6082" relation="include">
-        </childnode>
-        <childnode refid="6083" relation="include">
-        </childnode>
-        <childnode refid="6087" relation="include">
-        </childnode>
-        <childnode refid="6088" relation="include">
-        </childnode>
-      </node>
-      <node id="6110">
-        <label>bodyrigid.h</label>
-        <link refid="d1/d67/bodyrigid_8h"/>
-        <childnode refid="6097" relation="include">
-        </childnode>
-      </node>
-      <node id="6080">
+      <node id="3109">
         <label>constraint.cpp</label>
         <link refid="constraint.cpp"/>
-        <childnode refid="6081" relation="include">
+        <childnode refid="3110" relation="include">
         </childnode>
-        <childnode refid="6084" relation="include">
+        <childnode refid="3115" relation="include">
         </childnode>
-        <childnode refid="6102" relation="include">
-        </childnode>
-      </node>
-      <node id="6113">
-        <label>bodyrigid3D.h</label>
-        <link refid="d1/dbe/bodyrigid3_d_8h"/>
-        <childnode refid="6110" relation="include">
-        </childnode>
-        <childnode refid="6102" relation="include">
+        <childnode refid="3119" relation="include">
         </childnode>
       </node>
-      <node id="6121">
-        <label>load.h</label>
-        <link refid="dc/d61/load_8h"/>
-        <childnode refid="6082" relation="include">
+      <node id="3117">
+        <label>vector</label>
+      </node>
+      <node id="3114">
+        <label>LMX/lmx.h</label>
+      </node>
+      <node id="3115">
+        <label>core/node.h</label>
+        <link refid="d1/d77/node_8h"/>
+        <childnode refid="3116" relation="include">
         </childnode>
-        <childnode refid="6083" relation="include">
+        <childnode refid="3114" relation="include">
         </childnode>
-        <childnode refid="6102" relation="include">
+      </node>
+      <node id="3116">
+        <label>point.h</label>
+        <link refid="d2/d91/point_8h"/>
+        <childnode refid="3117" relation="include">
         </childnode>
+        <childnode refid="3112" relation="include">
+        </childnode>
+        <childnode refid="3118" relation="include">
+        </childnode>
+        <childnode refid="3111" relation="include">
+        </childnode>
+      </node>
+      <node id="3113">
+        <label>memory</label>
       </node>
     </incdepgraph>
     <innernamespace refid="d2/dde/namespacemknix">mknix</innernamespace>
@@ -381,181 +112,236 @@
 <codeline lineno="18"><highlight class="comment"><sp/>*<sp/><sp/><sp/>59<sp/>Temple<sp/>Place<sp/>-<sp/>Suite<sp/>330,<sp/>Boston,<sp/>MA<sp/><sp/>02111-1307,<sp/>USA.<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*</highlight></codeline>
 <codeline lineno="19"><highlight class="comment"><sp/>***************************************************************************/</highlight><highlight class="normal"></highlight></codeline>
 <codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="dc/d4d/constraint_8h" kindref="compound">constraint.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="dd/d6a/simulation_8h" kindref="compound">simulation.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d1/d77/node_8h" kindref="compound">node.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="23"><highlight class="normal"></highlight></codeline>
-<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">mknix<sp/>{</highlight></codeline>
-<codeline lineno="25"><highlight class="normal"></highlight></codeline>
-<codeline lineno="26" refid="da/dd3/classmknix_1_1_constraint_1ae4a69ed64d7746a7f8e2d23f04bc6de6" refkind="member"><highlight class="normal"><ref refid="da/dd3/classmknix_1_1_constraint_1ae4a69ed64d7746a7f8e2d23f04bc6de6" kindref="member">Constraint::Constraint</ref>()</highlight></codeline>
-<codeline lineno="27"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="28"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="29"><highlight class="normal"></highlight></codeline>
-<codeline lineno="30" refid="da/dd3/classmknix_1_1_constraint_1a093b4ffce363485f60ba251356ff88d1" refkind="member"><highlight class="normal"><ref refid="da/dd3/classmknix_1_1_constraint_1ae4a69ed64d7746a7f8e2d23f04bc6de6" kindref="member">Constraint::Constraint</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&amp;<sp/>alpha_in,<sp/>std::string&amp;<sp/>method_in)</highlight></codeline>
-<codeline lineno="31"><highlight class="normal"><sp/><sp/>:<sp/>dim(<sp/><ref refid="db/d0b/classmknix_1_1_simulation" kindref="compound">Simulation</ref>::getDim()<sp/>)</highlight></codeline>
-<codeline lineno="32"><highlight class="normal"><sp/><sp/>,<sp/>alpha(alpha_in)</highlight></codeline>
-<codeline lineno="33"><highlight class="normal"><sp/><sp/>,<sp/>method(method_in)</highlight></codeline>
-<codeline lineno="34"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="35"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="36"><highlight class="normal"></highlight></codeline>
-<codeline lineno="37"><highlight class="normal"></highlight></codeline>
-<codeline lineno="38" refid="da/dd3/classmknix_1_1_constraint_1a84cbe5af8074dc229f583d119bbde3e1" refkind="member"><highlight class="normal"><ref refid="da/dd3/classmknix_1_1_constraint_1a84cbe5af8074dc229f583d119bbde3e1" kindref="member">Constraint::~Constraint</ref>()</highlight></codeline>
-<codeline lineno="39"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="41"><highlight class="normal"></highlight></codeline>
-<codeline lineno="42"><highlight class="normal"></highlight></codeline>
-<codeline lineno="43" refid="da/dd3/classmknix_1_1_constraint_1a00ea21a19168bc3cfd3ba97c6a2be31d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a00ea21a19168bc3cfd3ba97c6a2be31d" kindref="member">Constraint::calcInternalForces</ref>()</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="d1/d77/node_8h" kindref="compound">core/node.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="dd/d6a/simulation_8h" kindref="compound">simulation/simulation.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="d2/dde/namespacemknix" kindref="compound">mknix</ref><sp/>{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="da/dd3/classmknix_1_1_constraint_1ae4a69ed64d7746a7f8e2d23f04bc6de6" refkind="member"><highlight class="normal"><ref refid="da/dd3/classmknix_1_1_constraint_1ae4a69ed64d7746a7f8e2d23f04bc6de6" kindref="member">Constraint::Constraint</ref>()</highlight></codeline>
+<codeline lineno="28"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31" refid="da/dd3/classmknix_1_1_constraint_1a093b4ffce363485f60ba251356ff88d1" refkind="member"><highlight class="normal"><ref refid="da/dd3/classmknix_1_1_constraint_1ae4a69ed64d7746a7f8e2d23f04bc6de6" kindref="member">Constraint::Constraint</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&amp;<sp/>alpha_in,<sp/>std::string&amp;<sp/>method_in)</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>dim(<ref refid="db/d0b/classmknix_1_1_simulation" kindref="compound">Simulation</ref>::getDim())</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>alpha(alpha_in)</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>method(method_in)</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>title()</highlight></codeline>
+<codeline lineno="36"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39" refid="da/dd3/classmknix_1_1_constraint_1a286b8de04619afb63e772520d659855a" refkind="member"><highlight class="normal"><ref refid="da/dd3/classmknix_1_1_constraint_1ae4a69ed64d7746a7f8e2d23f04bc6de6" kindref="member">Constraint::Constraint</ref>(</highlight><highlight class="keywordtype">double</highlight><highlight class="normal">&amp;<sp/>alpha_in,<sp/>std::string&amp;<sp/>method_in,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>dim_in)</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/>dim(dim_in)</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>alpha(alpha_in)</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>method(method_in)</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/>title()</highlight></codeline>
 <codeline lineno="44"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="45"><highlight class="normal"><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a0b0fbbf149c32ce0a9dd6e0c4dd5851e" kindref="member">internalForces</ref>.fillIdentity(0.);</highlight></codeline>
-<codeline lineno="46"><highlight class="normal"><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a7f2b34d256d5eec54b34b0440b562ec1" kindref="member">calcPhi</ref>(<sp/>);</highlight></codeline>
-<codeline lineno="47"><highlight class="normal"><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab129143960df2b9459e274275608bcf2" kindref="member">calcPhiq</ref>(<sp/>);</highlight></codeline>
-<codeline lineno="48"><highlight class="normal"></highlight></codeline>
-<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
-<codeline lineno="50"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<sp/>i=0<sp/>;<sp/>i<sp/>&lt;<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>.size()<sp/>;<sp/>++i<sp/>)</highlight></codeline>
-<codeline lineno="51"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
-<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a0b0fbbf149c32ce0a9dd6e0c4dd5851e" kindref="member">internalForces</ref><sp/>+=<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a667ecb78177b06981c30e23cb194b806" kindref="member">phi_q</ref>[i]*(<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab76845f20e7a29693b9161e09074d55a" kindref="member">alpha</ref><sp/>*<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>[i]<sp/>+<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1aeee7c3bdd61194e3df0e958ff237040a" kindref="member">lambda</ref>[i]<sp/>);</highlight></codeline>
-<codeline lineno="53"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;i:<sp/>&quot;<sp/>&lt;&lt;<sp/>i<sp/>&lt;&lt;<sp/>&quot;,<sp/>phi_q[i]=<sp/>&quot;&lt;&lt;<sp/>phi_q[i];</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="54"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="da/dd3/classmknix_1_1_constraint_1a84cbe5af8074dc229f583d119bbde3e1" refkind="member"><highlight class="normal"><ref refid="da/dd3/classmknix_1_1_constraint_1a84cbe5af8074dc229f583d119bbde3e1" kindref="member">Constraint::~Constraint</ref>()</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="da/dd3/classmknix_1_1_constraint_1a85f9a1e3ffe92fa380deec57b25bc520" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a85f9a1e3ffe92fa380deec57b25bc520" kindref="member">Constraint::writeJointInfo</ref>(std::ofstream<sp/>*<sp/>outfile)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>nodesSize(<ref refid="da/dd3/classmknix_1_1_constraint_1aa4aa16e121963acf4c086f63137d4ac1" kindref="member">nodes</ref>.size());</highlight></codeline>
 <codeline lineno="56"><highlight class="normal"></highlight></codeline>
-<codeline lineno="57" refid="da/dd3/classmknix_1_1_constraint_1a9b7594c65aa792ffb56d3a598996a969" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a9b7594c65aa792ffb56d3a598996a969" kindref="member">Constraint::calcTangentMatrix</ref>()</highlight></codeline>
-<codeline lineno="58"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="59"><highlight class="normal"><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" kindref="member">stiffnessMatrix</ref>.fillIdentity(0.);</highlight></codeline>
-<codeline lineno="60"><highlight class="normal"><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a73ff21573b5e9c4acda789bd5ac46ea8" kindref="member">calcPhiqq</ref>(<sp/>);</highlight></codeline>
-<codeline lineno="61"><highlight class="normal"></highlight></codeline>
-<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,j,k;</highlight></codeline>
-<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<sp/>i=0<sp/>;<sp/>i<sp/>&lt;<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" kindref="member">stiffnessMatrix</ref>.rows()<sp/>;<sp/>++i<sp/>){</highlight></codeline>
-<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<sp/>j=0<sp/>;<sp/>j<sp/>&lt;<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" kindref="member">stiffnessMatrix</ref>.cols()<sp/>;<sp/>++j<sp/>){</highlight></codeline>
-<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<sp/>k=0<sp/>;<sp/>k<sp/>&lt;<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>.size()<sp/>;<sp/>++k<sp/>){</highlight></codeline>
-<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" kindref="member">stiffnessMatrix</ref>(i,j)<sp/>+=<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a9173b52da189652951ce51b1d69fcde4" kindref="member">phi_qq</ref>[k](i,j)*(<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab76845f20e7a29693b9161e09074d55a" kindref="member">alpha</ref><sp/>*<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>[k]<sp/>+<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1aeee7c3bdd61194e3df0e958ff237040a" kindref="member">lambda</ref>[k]<sp/>);</highlight></codeline>
-<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" kindref="member">stiffnessMatrix</ref>(i,j)<sp/>+=<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a667ecb78177b06981c30e23cb194b806" kindref="member">phi_q</ref>[k](i)<sp/>*<sp/>(<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab76845f20e7a29693b9161e09074d55a" kindref="member">alpha</ref><sp/>*<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a667ecb78177b06981c30e23cb194b806" kindref="member">phi_q</ref>[k](j)<sp/>);</highlight></codeline>
-<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="70"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="71"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;phi&quot;<sp/>&lt;&lt;<sp/>phi[0];</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;phi_q&quot;<sp/>&lt;&lt;<sp/>phi_q[0];</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="73"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;phi_qq&quot;<sp/>&lt;&lt;<sp/>phi_qq[0];</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="74"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;stiffnessMatrix:<sp/>&quot;<sp/>&lt;&lt;<sp/>stiffnessMatrix<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="75"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="76"><highlight class="normal"></highlight></codeline>
-<codeline lineno="77"><highlight class="normal"></highlight></codeline>
-<codeline lineno="78"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1aca5d35f6ecd8f8f3852c150c7901b890" kindref="member">Constraint::assembleInternalForces</ref></highlight></codeline>
-<codeline lineno="79" refid="da/dd3/classmknix_1_1_constraint_1aca5d35f6ecd8f8f3852c150c7901b890" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>(lmx::Vector&lt;<sp/>data_type<sp/>&gt;<sp/>&amp;<sp/>globalInternalForces)</highlight></codeline>
-<codeline lineno="80"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="81"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nodesSize<sp/>=<sp/>nodes.size();</highlight></codeline>
-<codeline lineno="82"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>m;</highlight></codeline>
-<codeline lineno="83"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>k,<sp/>counter(0);</highlight></codeline>
-<codeline lineno="84"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;<sp/>i&lt;nodesSize;<sp/>++i){</highlight></codeline>
-<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(k=0;<sp/>k<sp/>&lt;<sp/>nodes[i]-&gt;getSupportSize(0);<sp/>++k){</highlight></codeline>
-<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nodes[i]-&gt;getNumber()<sp/>&gt;=<sp/>0<sp/>){</highlight></codeline>
-<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(m=0;<sp/>m&lt;<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>();<sp/>++m){</highlight></codeline>
-<codeline lineno="88"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>endl<sp/>&lt;&lt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="89"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Simulation::getDim()*nodes[i]-&gt;getSupportNodeNumber(0,k)<sp/>+<sp/>m<sp/>=<sp/>&quot;<sp/>&lt;&lt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="90"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Simulation::getDim()*nodes[i]-&gt;getSupportNodeNumber(0,k)<sp/>+<sp/>m<sp/>&lt;&lt;<sp/>endl<sp/>&lt;&lt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="91"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Simulation::getDim()*counter<sp/>+<sp/>m<sp/>=<sp/>&quot;<sp/>&lt;&lt;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="92"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Simulation::getDim()*counter<sp/>+<sp/>m<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>globalInternalForces(<sp/>Simulation::getDim()*nodes[i]-&gt;getSupportNodeNumber(0,k)<sp/>+<sp/>m)</highlight></codeline>
-<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+=<sp/>internalForces.readElement(Simulation::getDim()*counter<sp/>+<sp/>m);</highlight></codeline>
-<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>++counter;</highlight></codeline>
-<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="99"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(m=0;<sp/>m&lt;Simulation::getDim();<sp/>++m){</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="100"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>globalInternalForces(<sp/>Simulation::getDim()*nodes[i]-&gt;getNumber()<sp/>+<sp/>m)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="101"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+=<sp/>internalForces.readElement(Simulation::getDim()*i<sp/>+<sp/>m);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="102"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="103"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="104"><highlight class="normal"></highlight></codeline>
-<codeline lineno="105"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ac376643d6d73cb3b591ba80aae9f7166" kindref="member">Constraint::assembleTangentMatrix</ref></highlight></codeline>
-<codeline lineno="106" refid="da/dd3/classmknix_1_1_constraint_1ac376643d6d73cb3b591ba80aae9f7166" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>(lmx::Matrix&lt;<sp/>data_type<sp/>&gt;<sp/>&amp;<sp/>globalTangent)</highlight></codeline>
-<codeline lineno="107"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nodesSize<sp/>=<sp/>nodes.size();</highlight></codeline>
-<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>supportNodesSize_i,<sp/>supportNodesSize_j;</highlight></codeline>
-<codeline lineno="110"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>j,<sp/>m,<sp/>n;</highlight></codeline>
-<codeline lineno="111"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>k,<sp/>l,<sp/>counter_i(0),<sp/>counter_j(0);</highlight></codeline>
-<codeline lineno="112"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>i=0;<sp/>i&lt;nodesSize;<sp/>++i<sp/>){</highlight></codeline>
-<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>supportNodesSize_i<sp/>=<sp/>nodes[i]-&gt;getSupportSize(0);</highlight></codeline>
-<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(k=0;<sp/>k<sp/>&lt;<sp/>supportNodesSize_i;<sp/>++k){</highlight></codeline>
-<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>j=0;<sp/>j&lt;nodesSize;<sp/>++j<sp/>){</highlight></codeline>
-<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>supportNodesSize_j<sp/>=<sp/>nodes[j]-&gt;getSupportSize(0);</highlight></codeline>
-<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(l=0;<sp/>l<sp/>&lt;<sp/>supportNodesSize_j;<sp/>++l){</highlight></codeline>
-<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nodes[i]-&gt;getNumber()<sp/>&gt;=<sp/>0<sp/>){</highlight></codeline>
-<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nodes[j]-&gt;getNumber()<sp/>&gt;=<sp/>0<sp/>){</highlight></codeline>
-<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>m=0;<sp/>m&lt;<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>();<sp/>++m<sp/>){</highlight></codeline>
-<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(<sp/>n=0;<sp/>n&lt;<ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>();<sp/>++n<sp/>){</highlight></codeline>
-<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>globalTangent(Simulation::getDim()*nodes[i]-&gt;getSupportNodeNumber(0,k)<sp/>+<sp/>m,<sp/></highlight></codeline>
-<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Simulation::getDim()*nodes[j]-&gt;getSupportNodeNumber(0,l)<sp/>+<sp/>n)</highlight></codeline>
-<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+=<sp/>stiffnessMatrix.readElement(Simulation::getDim()*counter_i<sp/>+<sp/>m,<sp/></highlight></codeline>
-<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Simulation::getDim()*counter_j<sp/>+<sp/>n);</highlight></codeline>
-<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++counter_j;</highlight></codeline>
-<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="132"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(<sp/>m=0;<sp/>m&lt;Simulation::getDim();<sp/>++m<sp/>){</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="133"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(<sp/>n=0;<sp/>n&lt;Simulation::getDim();<sp/>++n<sp/>){</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="134"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>globalTangent(Simulation::getDim()*nodes[i]-&gt;getNumber()<sp/>+<sp/>m,<sp/></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="135"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Simulation::getDim()*nodes[j]-&gt;getNumber()<sp/>+<sp/>n)</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="136"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+=<sp/>stiffnessMatrix.readElement(Simulation::getDim()*i<sp/>+<sp/>m,<sp/></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="137"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Simulation::getDim()*j<sp/>+<sp/>n);</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="138"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="139"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>counter_j=0;</highlight></codeline>
-<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>++counter_i;</highlight></codeline>
-<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="144"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="145"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="146"><highlight class="normal"></highlight></codeline>
-<codeline lineno="147" refid="da/dd3/classmknix_1_1_constraint_1a26923b449734b9f11ed5ca2556585dcb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a26923b449734b9f11ed5ca2556585dcb" kindref="member">Constraint::checkAugmented</ref>()</highlight></codeline>
-<codeline lineno="148"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="149"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="da/dd3/classmknix_1_1_constraint_1ab05c0dcc5cc535f4e3bed2fd34ed6d75" kindref="member">method</ref><sp/>==<sp/></highlight><highlight class="stringliteral">&quot;AUGMENTED&quot;</highlight><highlight class="normal">){</highlight></codeline>
-<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);</highlight></codeline>
-<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>energy(0);</highlight></codeline>
-<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<sp/>i=0;<sp/>i&lt;<ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>.size();<sp/>++i<sp/>){</highlight></codeline>
-<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>energy<sp/>+=<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>[i]<sp/>*<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>[i];</highlight></codeline>
-<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="155"><highlight class="normal"><sp/><sp/><sp/><sp/>energy<sp/>*=<sp/>0.5*<ref refid="da/dd3/classmknix_1_1_constraint_1ab76845f20e7a29693b9161e09074d55a" kindref="member">alpha</ref>;</highlight></codeline>
-<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<sp/>energy<sp/>&lt;=<sp/>10E-1<sp/>){</highlight></codeline>
-<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>endl<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Energy:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>energy<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t\t\t\t&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
-<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
-<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>endl<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;energy:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>energy<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t\t\t\t&quot;</highlight><highlight class="normal">;</highlight></codeline>
-<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/>i=0;<sp/>i&lt;<ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>.size();<sp/>++i<sp/>)</highlight></codeline>
-<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1aeee7c3bdd61194e3df0e958ff237040a" kindref="member">lambda</ref>[i]<sp/>+=<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab76845f20e7a29693b9161e09074d55a" kindref="member">alpha</ref>*<ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>[i];</highlight></codeline>
-<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
-<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
-<codeline lineno="166"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
-<codeline lineno="167"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!<ref refid="da/dd3/classmknix_1_1_constraint_1ae245e7947a6ae56d5d0c42b31059af72" kindref="member">title</ref>.empty())<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*outfile<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab05c0dcc5cc535f4e3bed2fd34ed6d75" kindref="member">method</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ae245e7947a6ae56d5d0c42b31059af72" kindref="member">title</ref><sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>nodesSize;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*outfile<sp/>&lt;&lt;<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1aa4aa16e121963acf4c086f63137d4ac1" kindref="member">nodes</ref>[i]-&gt;getNumber()<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*outfile<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67" refid="da/dd3/classmknix_1_1_constraint_1a00ea21a19168bc3cfd3ba97c6a2be31d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a00ea21a19168bc3cfd3ba97c6a2be31d" kindref="member">Constraint::calcInternalForces</ref>()</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a0b0fbbf149c32ce0a9dd6e0c4dd5851e" kindref="member">internalForces</ref>.fillIdentity(0.);</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a7f2b34d256d5eec54b34b0440b562ec1" kindref="member">calcPhi</ref>();</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab129143960df2b9459e274275608bcf2" kindref="member">calcPhiq</ref>();</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>.size();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a0b0fbbf149c32ce0a9dd6e0c4dd5851e" kindref="member">internalForces</ref><sp/>+=<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a667ecb78177b06981c30e23cb194b806" kindref="member">phi_q</ref>[i]<sp/>*<sp/>(<ref refid="da/dd3/classmknix_1_1_constraint_1ab76845f20e7a29693b9161e09074d55a" kindref="member">alpha</ref><sp/>*<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>[i]<sp/>+<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1aeee7c3bdd61194e3df0e958ff237040a" kindref="member">lambda</ref>[i]);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;i:<sp/>&quot;<sp/>&lt;&lt;<sp/>i<sp/>&lt;&lt;<sp/>&quot;,<sp/>phi_q[i]=<sp/>&quot;&lt;&lt;<sp/>phi_q[i];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80" refid="da/dd3/classmknix_1_1_constraint_1a9b7594c65aa792ffb56d3a598996a969" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a9b7594c65aa792ffb56d3a598996a969" kindref="member">Constraint::calcTangentMatrix</ref>()</highlight></codeline>
+<codeline lineno="81"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" kindref="member">stiffnessMatrix</ref>.fillIdentity(0.);</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a73ff21573b5e9c4acda789bd5ac46ea8" kindref="member">calcPhiqq</ref>();</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>j,<sp/>k;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" kindref="member">stiffnessMatrix</ref>.rows();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" kindref="member">stiffnessMatrix</ref>.cols();<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(k<sp/>=<sp/>0;<sp/>k<sp/>&lt;<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>.size();<sp/>++k)<sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" kindref="member">stiffnessMatrix</ref>(i,<sp/>j)<sp/>+=<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a9173b52da189652951ce51b1d69fcde4" kindref="member">phi_qq</ref>[k](i,<sp/>j)<sp/>*<sp/>(<ref refid="da/dd3/classmknix_1_1_constraint_1ab76845f20e7a29693b9161e09074d55a" kindref="member">alpha</ref><sp/>*<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>[k]<sp/>+<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1aeee7c3bdd61194e3df0e958ff237040a" kindref="member">lambda</ref>[k]);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab4b508cdbea36124b925f52525a1d5ad" kindref="member">stiffnessMatrix</ref>(i,<sp/>j)<sp/>+=<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a667ecb78177b06981c30e23cb194b806" kindref="member">phi_q</ref>[k](i)<sp/>*<sp/>(<ref refid="da/dd3/classmknix_1_1_constraint_1ab76845f20e7a29693b9161e09074d55a" kindref="member">alpha</ref><sp/>*<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a667ecb78177b06981c30e23cb194b806" kindref="member">phi_q</ref>[k](j));</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;phi&quot;<sp/>&lt;&lt;<sp/>phi[0];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;phi_q&quot;<sp/>&lt;&lt;<sp/>phi_q[0];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;phi_qq&quot;<sp/>&lt;&lt;<sp/>phi_qq[0];</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;stiffnessMatrix:<sp/>&quot;<sp/>&lt;&lt;<sp/>stiffnessMatrix<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1aca5d35f6ecd8f8f3852c150c7901b890" kindref="member">Constraint::assembleInternalForces</ref></highlight></codeline>
+<codeline lineno="102" refid="da/dd3/classmknix_1_1_constraint_1aca5d35f6ecd8f8f3852c150c7901b890" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector&lt;data_type&gt;</ref>&amp;<sp/>globalInternalForces)</highlight></codeline>
+<codeline lineno="103"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nodesSize<sp/>=<sp/>nodes.size();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>m;</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>k,<sp/>counter(0);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>nodesSize;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(k<sp/>=<sp/>0;<sp/>k<sp/>&lt;<sp/>nodes[i]-&gt;getSupportSize(0);<sp/>++k)<sp/>{</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nodes[i]-&gt;getNumber()<sp/>&gt;=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(m<sp/>=<sp/>0;<sp/>m<sp/>&lt;<sp/><ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>();<sp/>++m)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>endl<sp/>&lt;&lt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Simulation::getDim()*nodes[i]-&gt;getSupportNodeNumber(0,k)<sp/>+<sp/>m<sp/>=<sp/>&quot;<sp/>&lt;&lt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Simulation::getDim()*nodes[i]-&gt;getSupportNodeNumber(0,k)<sp/>+<sp/>m<sp/>&lt;&lt;<sp/>endl<sp/>&lt;&lt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&quot;Simulation::getDim()*counter<sp/>+<sp/>m<sp/>=<sp/>&quot;<sp/>&lt;&lt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Simulation::getDim()*counter<sp/>+<sp/>m<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>globalInternalForces(Simulation::getDim()<sp/>*<sp/>nodes[i]-&gt;getSupportNodeNumber(0,<sp/>k)<sp/>+<sp/>m)</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+=<sp/>internalForces.readElement(Simulation::getDim()<sp/>*<sp/>counter<sp/>+<sp/>m);</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++counter;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(m=0;<sp/>m&lt;Simulation::getDim();<sp/>++m){</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>globalInternalForces(<sp/>Simulation::getDim()*nodes[i]-&gt;getNumber()<sp/>+<sp/>m)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+=<sp/>internalForces.readElement(Simulation::getDim()*i<sp/>+<sp/>m);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ac376643d6d73cb3b591ba80aae9f7166" kindref="member">Constraint::assembleTangentMatrix</ref></highlight></codeline>
+<codeline lineno="129" refid="da/dd3/classmknix_1_1_constraint_1ac376643d6d73cb3b591ba80aae9f7166" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(<ref refid="d9/db0/classlmx_1_1_matrix" kindref="compound">lmx::Matrix&lt;data_type&gt;</ref>&amp;<sp/>globalTangent)</highlight></codeline>
+<codeline lineno="130"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nodesSize<sp/>=<sp/>nodes.size();</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>supportNodesSize_i,<sp/>supportNodesSize_j;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/>j,<sp/>m,<sp/>n;</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>k,<sp/>l,<sp/>counter_i(0),<sp/>counter_j(0);</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>nodesSize;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>supportNodesSize_i<sp/>=<sp/>nodes[i]-&gt;getSupportSize(0);</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(k<sp/>=<sp/>0;<sp/>k<sp/>&lt;<sp/>supportNodesSize_i;<sp/>++k)<sp/>{</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(j<sp/>=<sp/>0;<sp/>j<sp/>&lt;<sp/>nodesSize;<sp/>++j)<sp/>{</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>supportNodesSize_j<sp/>=<sp/>nodes[j]-&gt;getSupportSize(0);</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(l<sp/>=<sp/>0;<sp/>l<sp/>&lt;<sp/>supportNodesSize_j;<sp/>++l)<sp/>{</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nodes[i]-&gt;getNumber()<sp/>&gt;=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(nodes[j]-&gt;getNumber()<sp/>&gt;=<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(m<sp/>=<sp/>0;<sp/>m<sp/>&lt;<sp/><ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>();<sp/>++m)<sp/>{</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(n<sp/>=<sp/>0;<sp/>n<sp/>&lt;<sp/><ref refid="db/d0b/classmknix_1_1_simulation_1adda4efbeb29fecf80bcd8552703bfed4" kindref="member">Simulation::getDim</ref>();<sp/>++n)<sp/>{</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>globalTangent(Simulation::getDim()<sp/>*<sp/>nodes[i]-&gt;getSupportNodeNumber(0,<sp/>k)<sp/>+<sp/>m,</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Simulation::getDim()<sp/>*<sp/>nodes[j]-&gt;getSupportNodeNumber(0,<sp/>l)<sp/>+<sp/>n)</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+=<sp/>stiffnessMatrix.readElement(Simulation::getDim()<sp/>*<sp/>counter_i<sp/>+<sp/>m,</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Simulation::getDim()<sp/>*<sp/>counter_j<sp/>+<sp/>n);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++counter_j;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(<sp/>m=0;<sp/>m&lt;Simulation::getDim();<sp/>++m<sp/>){</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>for<sp/>(<sp/>n=0;<sp/>n&lt;Simulation::getDim();<sp/>++n<sp/>){</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>globalTangent(Simulation::getDim()*nodes[i]-&gt;getNumber()<sp/>+<sp/>m,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Simulation::getDim()*nodes[j]-&gt;getNumber()<sp/>+<sp/>n)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>+=<sp/>stiffnessMatrix.readElement(Simulation::getDim()*i<sp/>+<sp/>m,</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Simulation::getDim()*j<sp/>+<sp/>n);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>counter_j<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++counter_i;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
 <codeline lineno="168"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="169"><highlight class="normal"></highlight></codeline>
-<codeline lineno="170"><highlight class="normal">}</highlight></codeline>
-<codeline lineno="171"><highlight class="normal"></highlight></codeline>
-<codeline lineno="172" refid="da/dd3/classmknix_1_1_constraint_1a2e1f0de7e983151fb892468774dcdf12" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a2e1f0de7e983151fb892468774dcdf12" kindref="member">mknix::Constraint::clearAugmented</ref>()</highlight></codeline>
-<codeline lineno="173"><highlight class="normal">{</highlight></codeline>
-<codeline lineno="174"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>if(<sp/>nodes[0]-&gt;getNumber()<sp/>&lt;<sp/>0<sp/>||<sp/>nodes[0]-&gt;getNumber()<sp/>&lt;<sp/>0<sp/>){</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="175"><highlight class="normal"></highlight><highlight class="comment">/*<sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;Convergence<sp/>in<sp/>constraint...<sp/>NODEA:<sp/>&quot;<sp/>&lt;&lt;<sp/>endl</highlight></codeline>
-<codeline lineno="176"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>nodes[0]-&gt;getNumber()<sp/>&lt;&lt;<sp/>&quot;,&quot;</highlight></codeline>
-<codeline lineno="177"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>nodes[0]-&gt;getx()<sp/>&lt;&lt;<sp/>&quot;,&quot;</highlight></codeline>
-<codeline lineno="178"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>nodes[0]-&gt;gety()<sp/>&lt;&lt;<sp/>&quot;,&quot;</highlight></codeline>
-<codeline lineno="179"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>nodes[0]-&gt;getz()<sp/>&lt;&lt;<sp/>&quot;,&quot;</highlight></codeline>
-<codeline lineno="180"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;NODEB:<sp/>&quot;<sp/>&lt;&lt;<sp/>endl</highlight></codeline>
-<codeline lineno="181"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>nodes[1]-&gt;getNumber()<sp/>&lt;&lt;<sp/>&quot;,&quot;</highlight></codeline>
-<codeline lineno="182"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>nodes[1]-&gt;getx()<sp/>&lt;&lt;<sp/>&quot;,&quot;</highlight></codeline>
-<codeline lineno="183"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>nodes[1]-&gt;gety()<sp/>&lt;&lt;<sp/>&quot;,&quot;</highlight></codeline>
-<codeline lineno="184"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>nodes[1]-&gt;getz()<sp/>&lt;&lt;<sp/>&quot;,&quot;</highlight></codeline>
-<codeline lineno="185"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
-<codeline lineno="186"><highlight class="comment">//<sp/><sp/><sp/>}*/</highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
-<codeline lineno="188"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal">(<ref refid="da/dd3/classmknix_1_1_constraint_1ab05c0dcc5cc535f4e3bed2fd34ed6d75" kindref="member">method</ref><sp/>==<sp/></highlight><highlight class="stringliteral">&quot;AUGMENTED&quot;</highlight><highlight class="normal">){</highlight></codeline>
-<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i(0);</highlight></codeline>
-<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(<sp/>i=0;<sp/>i&lt;<ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>.size();<sp/>++i<sp/>)</highlight></codeline>
-<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1aeee7c3bdd61194e3df0e958ff237040a" kindref="member">lambda</ref>[i]<sp/>=<sp/>0.;</highlight></codeline>
-<codeline lineno="192"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="170" refid="da/dd3/classmknix_1_1_constraint_1a26923b449734b9f11ed5ca2556585dcb" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a26923b449734b9f11ed5ca2556585dcb" kindref="member">Constraint::checkAugmented</ref>()</highlight></codeline>
+<codeline lineno="171"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="da/dd3/classmknix_1_1_constraint_1ab05c0dcc5cc535f4e3bed2fd34ed6d75" kindref="member">method</ref><sp/>==<sp/></highlight><highlight class="stringliteral">&quot;AUGMENTED&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>energy(0);</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0u;<sp/>i<sp/>&lt;<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>.size();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>energy<sp/>+=<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>[i]<sp/>*<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>[i];</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>energy<sp/>*=<sp/>0.5<sp/>*<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab76845f20e7a29693b9161e09074d55a" kindref="member">alpha</ref>;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(energy<sp/>&lt;=<sp/>10E-1)<sp/>{</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>endl<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;Energy:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>energy<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t\t\t\t&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="183"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>endl<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;energy:<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>energy<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;\t\t\t\t&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0u;<sp/>i<sp/>&lt;<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>.size();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1aeee7c3bdd61194e3df0e958ff237040a" kindref="member">lambda</ref>[i]<sp/>+=<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1ab76845f20e7a29693b9161e09074d55a" kindref="member">alpha</ref><sp/>*<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>[i];</highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>1;<sp/>}</highlight></codeline>
+<codeline lineno="191"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="192"><highlight class="normal"></highlight></codeline>
 <codeline lineno="193"><highlight class="normal">}</highlight></codeline>
 <codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195" refid="da/dd3/classmknix_1_1_constraint_1a2e1f0de7e983151fb892468774dcdf12" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a2e1f0de7e983151fb892468774dcdf12" kindref="member">mknix::Constraint::clearAugmented</ref>()</highlight></codeline>
+<codeline lineno="196"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>if(<sp/>nodes[0]-&gt;getNumber()<sp/>&lt;<sp/>0<sp/>||<sp/>nodes[0]-&gt;getNumber()<sp/>&lt;<sp/>0<sp/>){</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/><sp/>cout<sp/>&lt;&lt;<sp/>&quot;Convergence<sp/>in<sp/>constraint...<sp/>NODEA:<sp/>&quot;<sp/>&lt;&lt;<sp/>endl</highlight></codeline>
+<codeline lineno="199"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>nodes[0]-&gt;getNumber()<sp/>&lt;&lt;<sp/>&quot;,&quot;</highlight></codeline>
+<codeline lineno="200"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>nodes[0]-&gt;getx()<sp/>&lt;&lt;<sp/>&quot;,&quot;</highlight></codeline>
+<codeline lineno="201"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>nodes[0]-&gt;gety()<sp/>&lt;&lt;<sp/>&quot;,&quot;</highlight></codeline>
+<codeline lineno="202"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>nodes[0]-&gt;getz()<sp/>&lt;&lt;<sp/>&quot;,&quot;</highlight></codeline>
+<codeline lineno="203"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>&quot;NODEB:<sp/>&quot;<sp/>&lt;&lt;<sp/>endl</highlight></codeline>
+<codeline lineno="204"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>nodes[1]-&gt;getNumber()<sp/>&lt;&lt;<sp/>&quot;,&quot;</highlight></codeline>
+<codeline lineno="205"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>nodes[1]-&gt;getx()<sp/>&lt;&lt;<sp/>&quot;,&quot;</highlight></codeline>
+<codeline lineno="206"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>nodes[1]-&gt;gety()<sp/>&lt;&lt;<sp/>&quot;,&quot;</highlight></codeline>
+<codeline lineno="207"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>nodes[1]-&gt;getz()<sp/>&lt;&lt;<sp/>&quot;,&quot;</highlight></codeline>
+<codeline lineno="208"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="209"><highlight class="comment"><sp/><sp/><sp/><sp/>//<sp/><sp/><sp/>}*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"></highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="da/dd3/classmknix_1_1_constraint_1ab05c0dcc5cc535f4e3bed2fd34ed6d75" kindref="member">method</ref><sp/>==<sp/></highlight><highlight class="stringliteral">&quot;AUGMENTED&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0u;<sp/>i<sp/>&lt;<sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a10e027fc12cb248a49a1ded049f0a161" kindref="member">phi</ref>.size();<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1aeee7c3bdd61194e3df0e958ff237040a" kindref="member">lambda</ref>[i]<sp/>=<sp/>0.;</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="216"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"></highlight></codeline>
+<codeline lineno="218" refid="da/dd3/classmknix_1_1_constraint_1a51d31cadb80963fac74eca26487a4f39" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a51d31cadb80963fac74eca26487a4f39" kindref="member">mknix::Constraint::outputStep</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector&lt;data_type&gt;</ref>&amp;<sp/>q,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector&lt;data_type&gt;</ref>&amp;<sp/>qdot)</highlight></codeline>
+<codeline lineno="219"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!title.empty())<sp/>{<sp/></highlight><highlight class="comment">//<sp/>do<sp/>not<sp/>store<sp/>internal<sp/>constraints<sp/>of<sp/>rigid<sp/>bodies</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="221"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>internalForcesOutput.push_back(<ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector&lt;data_type&gt;</ref>(internalForces.size()));</highlight></codeline>
+<codeline lineno="222"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>internalForcesOutput.back()<sp/>=<sp/>internalForces;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="224"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226" refid="da/dd3/classmknix_1_1_constraint_1a72947f21c4d519a9da8877e45a453212" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1a51d31cadb80963fac74eca26487a4f39" kindref="member">mknix::Constraint::outputStep</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector&lt;data_type&gt;</ref>&amp;<sp/>q)</highlight></codeline>
+<codeline lineno="227"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(!title.empty())<sp/>{<sp/></highlight><highlight class="comment">//<sp/>do<sp/>not<sp/>store<sp/>internal<sp/>constraints<sp/>of<sp/>rigid<sp/>bodies</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>internalForcesOutput.push_back(<ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector&lt;data_type&gt;</ref>(internalForces.size()));</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>internalForcesOutput.back()<sp/>=<sp/>internalForces;</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="232"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234" refid="da/dd3/classmknix_1_1_constraint_1afca864e3f350bdd6647084a52057dc47" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="da/dd3/classmknix_1_1_constraint_1afca864e3f350bdd6647084a52057dc47" kindref="member">mknix::Constraint::outputToFile</ref>(std::ofstream<sp/>*<sp/>outFile)</highlight></codeline>
+<codeline lineno="235"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>vectorSize<sp/>=<sp/>internalForces.size();</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(internalForcesOutput.size()<sp/>&gt;<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="239"><highlight class="normal"></highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*outFile<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;FORCES<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>title<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal"><sp/>&lt;&lt;<sp/>vectorSize<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>force<sp/>:<sp/>internalForcesOutput)<sp/>{</highlight></codeline>
+<codeline lineno="242"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0u;<sp/>i<sp/>&lt;<sp/>vectorSize;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*outFile<sp/>&lt;&lt;<sp/>force.readElement(i)<sp/>&lt;&lt;<sp/></highlight><highlight class="stringliteral">&quot;<sp/>&quot;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*outFile<sp/>&lt;&lt;<sp/>endl;</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="247"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="248"><highlight class="normal"></highlight></codeline>
+<codeline lineno="249"><highlight class="normal">}</highlight></codeline>
     </programlisting>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/constraint.cpp"/>
+    <location file="/home/daniel/Projects/MkniX/src/system/constraint.cpp"/>
   </compounddef>
 </doxygen>

@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="d5/dd9/classmknix_1_1_analysis_thermal_dynamic" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d5/dd9/classmknix_1_1_analysis_thermal_dynamic" kind="class" language="C++" prot="public">
     <compoundname>mknix::AnalysisThermalDynamic</compoundname>
     <basecompoundref refid="df/d86/classmknix_1_1_analysis" prot="public" virt="non-virtual">mknix::Analysis</basecompoundref>
     <includes refid="d1/d1f/analysisthermaldynamic_8h" local="no">analysisthermaldynamic.h</includes>
@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.h" line="44" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.h" bodystart="44" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" line="48" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" bodystart="48" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a0fce4ae42771b793ba0628c7fd23bf21" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.h" line="45" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.h" bodystart="45" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" line="49" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" bodystart="49" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a58ef6a7bf688501680e201b5a05e3c09" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.h" line="45" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.h" bodystart="45" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" line="49" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" bodystart="49" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1ae2037b0ddbe77234b3c59e739c84aafe" prot="private" static="no" mutable="no">
         <type>double</type>
@@ -55,7 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.h" line="45" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.h" bodystart="45" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" line="49" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" bodystart="49" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a86d69f0d465a03fc490025a6b1b437a3" prot="private" static="no" mutable="no">
         <type>lmx::DiffProblemFirst&lt; <ref refid="db/d0b/classmknix_1_1_simulation" kindref="compound">Simulation</ref>, <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt;</type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.h" line="46" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.h" bodystart="46" bodyend="-1"/>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" line="50" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" bodystart="50" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -83,7 +83,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.h" line="33" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.cpp" bodystart="25" bodyend="28"/>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" line="33" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.cpp" bodystart="25" bodyend="28"/>
       </memberdef>
       <memberdef kind="function" id="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a161ebe1ed696232ed05ef778cdcabcb8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -116,14 +116,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.h" line="35" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.cpp" bodystart="31" bodyend="56"/>
-        <references refid="df/d86/classmknix_1_1_analysis_1a1abc29e3b8565590b6bf0ce2d8b3b68f" compoundref="d2/d40/analysis_8h" startline="51">mknix::Analysis::theSimulation</references>
-        <references refid="db/d0b/classmknix_1_1_simulation_1a4b2297b6adf5b7c2f0c65bae5ea75f7f" compoundref="d2/d93/simulation_8cpp" startline="383" endline="406">mknix::Simulation::dynamicThermalEvaluation</references>
-        <references refid="db/d0b/classmknix_1_1_simulation_1abc0f23c897ee438c5cb5c889134ad436" compoundref="d2/d93/simulation_8cpp" startline="408" endline="431">mknix::Simulation::dynamicThermalResidue</references>
-        <references refid="db/d0b/classmknix_1_1_simulation_1afcf44a0289808f80bf6789a9671c9c55" compoundref="d2/d93/simulation_8cpp" startline="433" endline="444">mknix::Simulation::dynamicThermalTangent</references>
-        <references refid="df/d86/classmknix_1_1_analysis_1a7e0439caf5fa5f90d808acec6d75b72f" compoundref="d2/d40/analysis_8h" startline="52">mknix::Analysis::epsilon</references>
-        <references refid="db/d0b/classmknix_1_1_simulation_1ac54cb3aace5dd45148abc3a85766a107" compoundref="d2/d93/simulation_8cpp" startline="446" endline="480">mknix::Simulation::dynamicThermalConvergence</references>
-        <references refid="db/d0b/classmknix_1_1_simulation_1a9fd95351d7fe3ce2ba1991d6aae6a804" compoundref="d2/d93/simulation_8cpp" startline="665" endline="680">mknix::Simulation::stepTriggered</references>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" line="35" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.cpp" bodystart="31" bodyend="61"/>
+        <references refid="df/d86/classmknix_1_1_analysis_1a1abc29e3b8565590b6bf0ce2d8b3b68f" compoundref="d2/d40/analysis_8h" startline="58">mknix::Analysis::theSimulation</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1ac832fe81a1b651b2cd667011de5645f7" compoundref="d2/d93/simulation_8cpp" startline="531" endline="559">mknix::Simulation::explicitThermalEvaluation</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a4b2297b6adf5b7c2f0c65bae5ea75f7f" compoundref="d2/d93/simulation_8cpp" startline="561" endline="591">mknix::Simulation::dynamicThermalEvaluation</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1abc0f23c897ee438c5cb5c889134ad436" compoundref="d2/d93/simulation_8cpp" startline="593" endline="634">mknix::Simulation::dynamicThermalResidue</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1afcf44a0289808f80bf6789a9671c9c55" compoundref="d2/d93/simulation_8cpp" startline="636" endline="647">mknix::Simulation::dynamicThermalTangent</references>
+        <references refid="df/d86/classmknix_1_1_analysis_1a7e0439caf5fa5f90d808acec6d75b72f" compoundref="d2/d40/analysis_8h" startline="59">mknix::Analysis::epsilon</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1ac54cb3aace5dd45148abc3a85766a107" compoundref="d2/d93/simulation_8cpp" startline="649" endline="683">mknix::Simulation::dynamicThermalConvergence</references>
+        <references refid="db/d0b/classmknix_1_1_simulation_1a9fd95351d7fe3ce2ba1991d6aae6a804" compoundref="d2/d93/simulation_8cpp" startline="914" endline="938">mknix::Simulation::stepTriggered</references>
       </memberdef>
       <memberdef kind="function" id="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1ad0dbaa6affc6e4a285d310e209fe2b73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -136,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.h" line="37" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.cpp" bodystart="59" bodyend="61"/>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" line="37" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.cpp" bodystart="64" bodyend="66"/>
       </memberdef>
       <memberdef kind="function" id="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1ae1d271bfca189706a101259cff192ec9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>std::string</type>
@@ -150,21 +151,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.h" line="39" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.h" bodystart="39" bodyend="39"/>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" line="39" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" bodystart="39" bodyend="41"/>
       </memberdef>
-      <memberdef kind="function" id="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1aafe2cdc0b12567535eedc9f675c0944d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a616aac65d4489996979a0c9120089e37" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
-        <definition>void mknix::AnalysisThermalDynamic::solve</definition>
-        <argsstring>(lmx::Vector&lt; data_type &gt; *, lmx::Vector&lt; data_type &gt; *)</argsstring>
-        <name>solve</name>
-        <reimplements refid="df/d86/classmknix_1_1_analysis_1a2a02ee6ab0728bc1ab5e6aab010afe87">solve</reimplements>
+        <definition>void mknix::AnalysisThermalDynamic::init</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; *)</argsstring>
+        <name>init</name>
+        <reimplements refid="df/d86/classmknix_1_1_analysis_1af9e3f13a8644466d416c7666a93c21ca">init</reimplements>
         <param>
-          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; *</type>
+          <type><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; *</type>
           <defname>qt_in</defname>
-        </param>
-        <param>
-          <type>lmx::Vector&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; *</type>
-          <defname>qdot_in</defname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -172,7 +169,47 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.h" line="41" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.cpp" bodystart="64" bodyend="73"/>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" line="43" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.cpp" bodystart="68" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a2c5b1abfa4cfbfea523e27286146fe77" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::AnalysisThermalDynamic::nextStep</definition>
+        <argsstring>()</argsstring>
+        <name>nextStep</name>
+        <reimplements refid="df/d86/classmknix_1_1_analysis_1a238dc1446726315d1d988c2b8eeda8e5">nextStep</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" line="44" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.cpp" bodystart="77" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a17a9d48a88a1268960dc15371ab703a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void mknix::AnalysisThermalDynamic::solve</definition>
+        <argsstring>(lmx::Vector&lt; data_type &gt; *, lmx::Vector&lt; data_type &gt; *, lmx::Vector&lt; data_type &gt; *)</argsstring>
+        <name>solve</name>
+        <reimplements refid="df/d86/classmknix_1_1_analysis_1a515bc01fa8704395d310c5e7ebd45081">solve</reimplements>
+        <param>
+          <type><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; *</type>
+          <defname>qt_in</defname>
+        </param>
+        <param>
+          <type><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; *</type>
+          <defname>qdot_in</defname>
+        </param>
+        <param>
+          <type><ref refid="d1/d20/classlmx_1_1_vector" kindref="compound">lmx::Vector</ref>&lt; <ref refid="d2/dde/namespacemknix_1a16be4b246fbf2cceb141e3a179111020" kindref="member">data_type</ref> &gt; *</type>
+          <defname>not_used</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" line="45" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.cpp" bodystart="83" bodyend="93"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -181,37 +218,37 @@
 <para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
 </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="252">
+      <node id="440">
         <label>mknix::AnalysisThermalDynamic</label>
         <link refid="d5/dd9/classmknix_1_1_analysis_thermal_dynamic"/>
-        <childnode refid="253" relation="public-inheritance">
+        <childnode refid="441" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="253">
+      <node id="441">
         <label>mknix::Analysis</label>
         <link refid="df/d86/classmknix_1_1_analysis"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="254">
+      <node id="442">
         <label>mknix::AnalysisThermalDynamic</label>
         <link refid="d5/dd9/classmknix_1_1_analysis_thermal_dynamic"/>
-        <childnode refid="255" relation="public-inheritance">
+        <childnode refid="443" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="256">
+      <node id="444">
         <label>mknix::Simulation</label>
         <link refid="db/d0b/classmknix_1_1_simulation"/>
       </node>
-      <node id="255">
+      <node id="443">
         <label>mknix::Analysis</label>
         <link refid="df/d86/classmknix_1_1_analysis"/>
-        <childnode refid="256" relation="usage">
+        <childnode refid="444" relation="usage">
           <edgelabel>theSimulation</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.h" line="31" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/analysisthermaldynamic.h" bodystart="30" bodyend="48"/>
+    <location file="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" line="31" column="1" bodyfile="/home/daniel/Projects/MkniX/src/simulation/analysisthermaldynamic.h" bodystart="30" bodyend="52"/>
     <listofallmembers>
       <member refid="df/d86/classmknix_1_1_analysis_1a524d9cd12f302975c64a0c4266cd91ed" prot="public" virt="non-virtual"><scope>mknix::AnalysisThermalDynamic</scope><name>Analysis</name></member>
       <member refid="df/d86/classmknix_1_1_analysis_1a58f5b79c2b28457ae18186991306abb3" prot="public" virt="non-virtual"><scope>mknix::AnalysisThermalDynamic</scope><name>Analysis</name></member>
@@ -219,9 +256,11 @@
       <member refid="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a161ebe1ed696232ed05ef778cdcabcb8" prot="public" virt="non-virtual"><scope>mknix::AnalysisThermalDynamic</scope><name>AnalysisThermalDynamic</name></member>
       <member refid="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1ae2037b0ddbe77234b3c59e739c84aafe" prot="private" virt="non-virtual"><scope>mknix::AnalysisThermalDynamic</scope><name>At</name></member>
       <member refid="df/d86/classmknix_1_1_analysis_1a7e0439caf5fa5f90d808acec6d75b72f" prot="protected" virt="non-virtual"><scope>mknix::AnalysisThermalDynamic</scope><name>epsilon</name></member>
+      <member refid="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a616aac65d4489996979a0c9120089e37" prot="public" virt="virtual"><scope>mknix::AnalysisThermalDynamic</scope><name>init</name></member>
       <member refid="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a2c9c2fc765668c99d78024ae465577cf" prot="private" virt="non-virtual"><scope>mknix::AnalysisThermalDynamic</scope><name>integratorType</name></member>
+      <member refid="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a2c5b1abfa4cfbfea523e27286146fe77" prot="public" virt="virtual"><scope>mknix::AnalysisThermalDynamic</scope><name>nextStep</name></member>
       <member refid="df/d86/classmknix_1_1_analysis_1a4e6baab7f63725b4ed816bb3bdbdc1d8" prot="public" virt="non-virtual"><scope>mknix::AnalysisThermalDynamic</scope><name>setEpsilon</name></member>
-      <member refid="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1aafe2cdc0b12567535eedc9f675c0944d" prot="public" virt="virtual"><scope>mknix::AnalysisThermalDynamic</scope><name>solve</name></member>
+      <member refid="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a17a9d48a88a1268960dc15371ab703a7" prot="public" virt="virtual"><scope>mknix::AnalysisThermalDynamic</scope><name>solve</name></member>
       <member refid="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a58ef6a7bf688501680e201b5a05e3c09" prot="private" virt="non-virtual"><scope>mknix::AnalysisThermalDynamic</scope><name>tf</name></member>
       <member refid="d5/dd9/classmknix_1_1_analysis_thermal_dynamic_1a86d69f0d465a03fc490025a6b1b437a3" prot="private" virt="non-virtual"><scope>mknix::AnalysisThermalDynamic</scope><name>theProblem</name></member>
       <member refid="df/d86/classmknix_1_1_analysis_1a1abc29e3b8565590b6bf0ce2d8b3b68f" prot="protected" virt="non-virtual"><scope>mknix::AnalysisThermalDynamic</scope><name>theSimulation</name></member>

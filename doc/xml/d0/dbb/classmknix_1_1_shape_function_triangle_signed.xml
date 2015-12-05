@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="d0/dbb/classmknix_1_1_shape_function_triangle_signed" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d0/dbb/classmknix_1_1_shape_function_triangle_signed" kind="class" language="C++" prot="public">
     <compoundname>mknix::ShapeFunctionTriangleSigned</compoundname>
     <basecompoundref refid="dd/d8d/classmknix_1_1_shape_function" prot="public" virt="non-virtual">mknix::ShapeFunction</basecompoundref>
     <includes refid="d8/db5/shapefunctiontriangle3_d_8h" local="no">shapefunctiontriangle3D.h</includes>
@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctiontriangle3D.h" line="33" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctiontriangle3D.cpp" bodystart="27" bodyend="31"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/shapefunctiontriangle3D.h" line="33" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctiontriangle3D.cpp" bodystart="26" bodyend="30"/>
       </memberdef>
       <memberdef kind="function" id="d0/dbb/classmknix_1_1_shape_function_triangle_signed_1ae494b0d1f44b82afd93a91616fb8f216" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -33,8 +33,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctiontriangle3D.h" line="35" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctiontriangle3D.cpp" bodystart="34" bodyend="38"/>
-        <references refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" compoundref="d3/d16/shapefunction_8h" startline="29">mknix::ShapeFunction::phi</references>
+        <location file="/home/daniel/Projects/MkniX/src/core/shapefunctiontriangle3D.h" line="35" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctiontriangle3D.cpp" bodystart="33" bodyend="37"/>
+        <references refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" compoundref="d3/d16/shapefunction_8h" startline="47">mknix::ShapeFunction::phi</references>
       </memberdef>
       <memberdef kind="function" id="d0/dbb/classmknix_1_1_shape_function_triangle_signed_1acf9337e7665af9d12d72240c19880cb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctiontriangle3D.h" line="37" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctiontriangle3D.cpp" bodystart="41" bodyend="43"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/shapefunctiontriangle3D.h" line="37" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctiontriangle3D.cpp" bodystart="40" bodyend="42"/>
       </memberdef>
       <memberdef kind="function" id="d0/dbb/classmknix_1_1_shape_function_triangle_signed_1a2dd45be9fb2789ac1579f1104c731c3d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -61,14 +61,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctiontriangle3D.h" line="39" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctiontriangle3D.cpp" bodystart="46" bodyend="100"/>
-        <references refid="dd/d8d/classmknix_1_1_shape_function_1a1ca9a4d7bc5f82c887ac7e9bdd54aa1e" compoundref="d3/d16/shapefunction_8h" startline="28">mknix::ShapeFunction::dim</references>
-        <references refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" compoundref="d3/d16/shapefunction_8h" startline="30">mknix::ShapeFunction::gp</references>
-        <references refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" compoundref="d2/d91/point_8h" startline="55" endline="55">mknix::Point::getX</references>
-        <references refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" compoundref="d2/d91/point_8h" startline="57" endline="57">mknix::Point::getY</references>
-        <references refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" compoundref="d2/d91/point_8h" startline="59" endline="59">mknix::Point::getZ</references>
-        <references refid="d3/d19/classmknix_1_1_point_1ad258bb20504bbe5c32360f73ec62671a" compoundref="d2/d91/point_8h" startline="98">mknix::Point::supportNodes</references>
-        <references refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" compoundref="d3/d16/shapefunction_8h" startline="29">mknix::ShapeFunction::phi</references>
+        <location file="/home/daniel/Projects/MkniX/src/core/shapefunctiontriangle3D.h" line="39" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctiontriangle3D.cpp" bodystart="45" bodyend="107"/>
+        <references refid="dd/d8d/classmknix_1_1_shape_function_1a1ca9a4d7bc5f82c887ac7e9bdd54aa1e" compoundref="d3/d16/shapefunction_8h" startline="46">mknix::ShapeFunction::dim</references>
+        <references refid="dd/d8d/classmknix_1_1_shape_function_1a70f36189e78b80d045076234e4c668da" compoundref="d3/d16/shapefunction_8h" startline="48">mknix::ShapeFunction::gp</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" compoundref="d2/d91/point_8h" startline="97" endline="100">mknix::Point::getX</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" compoundref="d2/d91/point_8h" startline="102" endline="105">mknix::Point::getY</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" compoundref="d2/d91/point_8h" startline="107" endline="110">mknix::Point::getZ</references>
+        <references refid="d3/d19/classmknix_1_1_point_1ad55ff02be90bf3c604dc5543fed2a5ab" compoundref="d2/d91/point_8h" startline="169" endline="172">mknix::Point::getSupportNodes</references>
+        <references refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" compoundref="d3/d16/shapefunction_8h" startline="47">mknix::ShapeFunction::phi</references>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -77,40 +77,47 @@
 <para><simplesect kind="author"><para>AUTHORS &lt;MAILS&gt; </para></simplesect>
 </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="456">
+      <node id="823">
         <label>mknix::ShapeFunctionTriangleSigned</label>
         <link refid="d0/dbb/classmknix_1_1_shape_function_triangle_signed"/>
-        <childnode refid="457" relation="public-inheritance">
+        <childnode refid="824" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="457">
+      <node id="824">
         <label>mknix::ShapeFunction</label>
         <link refid="dd/d8d/classmknix_1_1_shape_function"/>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="458">
+      <node id="825">
         <label>mknix::ShapeFunctionTriangleSigned</label>
         <link refid="d0/dbb/classmknix_1_1_shape_function_triangle_signed"/>
-        <childnode refid="459" relation="public-inheritance">
+        <childnode refid="826" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="460">
+      <node id="828">
         <label>mknix::Point</label>
         <link refid="d3/d19/classmknix_1_1_point"/>
-        <childnode refid="459" relation="usage">
+        <childnode refid="826" relation="usage">
           <edgelabel>shapeFun</edgelabel>
         </childnode>
       </node>
-      <node id="459">
+      <node id="826">
         <label>mknix::ShapeFunction</label>
         <link refid="dd/d8d/classmknix_1_1_shape_function"/>
-        <childnode refid="460" relation="usage">
+        <childnode refid="827" relation="usage">
+          <edgelabel>phi</edgelabel>
+        </childnode>
+        <childnode refid="828" relation="usage">
           <edgelabel>gp</edgelabel>
         </childnode>
       </node>
+      <node id="827">
+        <label>lmx::DenseMatrix&lt; double &gt;</label>
+        <link refid="d2/d8d/classlmx_1_1_dense_matrix"/>
+      </node>
     </collaborationgraph>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/shapefunctiontriangle3D.h" line="31" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/shapefunctiontriangle3D.h" bodystart="30" bodyend="40"/>
+    <location file="/home/daniel/Projects/MkniX/src/core/shapefunctiontriangle3D.h" line="31" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/shapefunctiontriangle3D.h" bodystart="30" bodyend="40"/>
     <listofallmembers>
       <member refid="d0/dbb/classmknix_1_1_shape_function_triangle_signed_1a2dd45be9fb2789ac1579f1104c731c3d" prot="public" virt="virtual"><scope>mknix::ShapeFunctionTriangleSigned</scope><name>calc</name></member>
       <member refid="dd/d8d/classmknix_1_1_shape_function_1a1ca9a4d7bc5f82c887ac7e9bdd54aa1e" prot="protected" virt="non-virtual"><scope>mknix::ShapeFunctionTriangleSigned</scope><name>dim</name></member>
@@ -121,6 +128,7 @@
       <member refid="dd/d8d/classmknix_1_1_shape_function_1ac1eaf8c2e5d8d6abf4726eb416de13d9" prot="protected" virt="non-virtual"><scope>mknix::ShapeFunctionTriangleSigned</scope><name>phi</name></member>
       <member refid="dd/d8d/classmknix_1_1_shape_function_1a45248275e5e6fcaed37195155009e72e" prot="public" virt="virtual"><scope>mknix::ShapeFunctionTriangleSigned</scope><name>setPhi</name></member>
       <member refid="dd/d8d/classmknix_1_1_shape_function_1a4a35da60e8eb2645a217cce36e6e323a" prot="public" virt="non-virtual"><scope>mknix::ShapeFunctionTriangleSigned</scope><name>ShapeFunction</name></member>
+      <member refid="dd/d8d/classmknix_1_1_shape_function_1ae8a319daf0505fbacb0f159226e1a5ab" prot="public" virt="non-virtual"><scope>mknix::ShapeFunctionTriangleSigned</scope><name>ShapeFunction</name></member>
       <member refid="dd/d8d/classmknix_1_1_shape_function_1adaf264f0f7ae964f9c9dc513e3fe7195" prot="public" virt="non-virtual"><scope>mknix::ShapeFunctionTriangleSigned</scope><name>ShapeFunction</name></member>
       <member refid="d0/dbb/classmknix_1_1_shape_function_triangle_signed_1a61cfb35f68b96b8f3bed2527ca346537" prot="public" virt="non-virtual"><scope>mknix::ShapeFunctionTriangleSigned</scope><name>ShapeFunctionTriangleSigned</name></member>
       <member refid="d0/dbb/classmknix_1_1_shape_function_triangle_signed_1ae494b0d1f44b82afd93a91616fb8f216" prot="public" virt="non-virtual"><scope>mknix::ShapeFunctionTriangleSigned</scope><name>ShapeFunctionTriangleSigned</name></member>

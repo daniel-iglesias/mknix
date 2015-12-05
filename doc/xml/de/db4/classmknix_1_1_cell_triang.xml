@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
-<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
-  <compounddef id="de/db4/classmknix_1_1_cell_triang" kind="class" prot="public">
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="de/db4/classmknix_1_1_cell_triang" kind="class" language="C++" prot="public">
     <compoundname>mknix::CellTriang</compoundname>
     <basecompoundref refid="db/dd4/classmknix_1_1_cell" prot="public" virt="non-virtual">mknix::Cell</basecompoundref>
     <derivedcompoundref refid="d8/d3f/classmknix_1_1_elem_triangle" prot="public" virt="non-virtual">mknix::ElemTriangle</derivedcompoundref>
     <includes refid="dc/d6a/celltriang_8h" local="no">celltriang.h</includes>
       <sectiondef kind="protected-attrib">
-      <memberdef kind="variable" id="de/db4/classmknix_1_1_cell_triang_1a6f3e6ae0d06cbd4703c073e0860e38ed" prot="protected" static="no" mutable="no">
+      <memberdef kind="variable" id="de/db4/classmknix_1_1_cell_triang_1a22bff969ea4955bd817c94ae2915e60c" prot="protected" static="no" mutable="no">
         <type>cofe::TensorRank2&lt; 3, double &gt;</type>
-        <definition>cofe::TensorRank2&lt;3,double&gt; mknix::CellTriang::points</definition>
+        <definition>cofe::TensorRank2&lt;3, double&gt; mknix::CellTriang::points</definition>
         <argsstring></argsstring>
         <name>points</name>
         <briefdescription>
@@ -17,10 +17,11 @@
 <para>position of vertex points </para>        </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/celltriang.h" line="29" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/celltriang.h" bodystart="29" bodyend="-1"/>
-        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a419492f1358e31432d6f686ee8ef1609" compoundref="d0/ddf/celltriang_8cpp" startline="11" endline="40">CellTriang</referencedby>
-        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a2a2c65fbd2682eba8225473a7dc841f0" compoundref="d0/ddf/celltriang_8cpp" startline="47" endline="109">createGaussPoints</referencedby>
-        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a374f66822e2e37d94a2cfe09c5173e8a" compoundref="d0/ddf/celltriang_8cpp" startline="112" endline="125">gnuplotOut</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/core/celltriang.h" line="45" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/celltriang.h" bodystart="45" bodyend="-1"/>
+        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a1d988a4f96b2f51d2a617fc105f9539b" compoundref="d0/ddf/celltriang_8cpp" startline="14" endline="46">CellTriang</referencedby>
+        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a2a2c65fbd2682eba8225473a7dc841f0" compoundref="d0/ddf/celltriang_8cpp" startline="86" endline="285">createGaussPoints</referencedby>
+        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a374f66822e2e37d94a2cfe09c5173e8a" compoundref="d0/ddf/celltriang_8cpp" startline="288" endline="299">gnuplotOut</referencedby>
+        <referencedby refid="d8/d3f/classmknix_1_1_elem_triangle_1a621f85e7743f5382cb553f1bef1b2235" compoundref="d9/d6d/elemtriangle_8cpp" startline="86" endline="297">mknix::ElemTriangle::createGaussPoints_MC</referencedby>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -35,12 +36,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/celltriang.h" line="32" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/celltriang.cpp" bodystart="6" bodyend="8"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/celltriang.h" line="48" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/celltriang.cpp" bodystart="9" bodyend="11"/>
       </memberdef>
-      <memberdef kind="function" id="de/db4/classmknix_1_1_cell_triang_1a419492f1358e31432d6f686ee8ef1609" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="de/db4/classmknix_1_1_cell_triang_1a1d988a4f96b2f51d2a617fc105f9539b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>mknix::CellTriang::CellTriang</definition>
-        <argsstring>(Material &amp;, std::string, double, int, Node *, Node *, Node *)</argsstring>
+        <argsstring>(Material &amp;, std::string, double, int, Point *, Point *, Point *)</argsstring>
         <name>CellTriang</name>
         <param>
           <type><ref refid="d6/d4a/classmknix_1_1_material" kindref="compound">Material</ref> &amp;</type>
@@ -59,15 +60,15 @@
           <defname>nGPoints_in</defname>
         </param>
         <param>
-          <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+          <type><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref> *</type>
           <defname>n1_in</defname>
         </param>
         <param>
-          <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+          <type><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref> *</type>
           <defname>n2_in</defname>
         </param>
         <param>
-          <type><ref refid="d3/d25/classmknix_1_1_node" kindref="compound">Node</ref> *</type>
+          <type><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref> *</type>
           <defname>n3_in</defname>
         </param>
         <briefdescription>
@@ -76,15 +77,67 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/celltriang.h" line="34" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/celltriang.cpp" bodystart="11" bodyend="40"/>
-        <references refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" compoundref="d0/ddd/cell_8h" startline="36">mknix::Cell::nodes</references>
-        <references refid="de/db4/classmknix_1_1_cell_triang_1a6f3e6ae0d06cbd4703c073e0860e38ed" compoundref="dc/d6a/celltriang_8h" startline="29">points</references>
-        <references refid="d3/d25/classmknix_1_1_node_1ab966e048b1c4bbdea0cae42ac590a55d" compoundref="d1/d77/node_8h" startline="52" endline="52">mknix::Node::getx</references>
-        <references refid="d3/d25/classmknix_1_1_node_1a0ebccafbcfab353bdaac6dff3394b5dc" compoundref="d1/d77/node_8h" startline="54" endline="54">mknix::Node::gety</references>
-        <references refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" compoundref="d0/ddd/cell_8h" startline="35">mknix::Cell::jacobian</references>
-        <references refid="db/dd4/classmknix_1_1_cell_1a7108fef12b0319adebeff93cab664314" compoundref="d0/ddd/cell_8h" startline="37">mknix::Cell::dc</references>
-        <references refid="d3/d19/classmknix_1_1_point_1a93551900ae5e76ec764af9eb894cd0c0" compoundref="d5/d55/point_8cpp" startline="57" endline="62">mknix::Point::distance</references>
-        <references refid="de/db4/classmknix_1_1_cell_triang_1a2a2c65fbd2682eba8225473a7dc841f0" compoundref="d0/ddf/celltriang_8cpp" startline="47" endline="109">createGaussPoints</references>
+        <location file="/home/daniel/Projects/MkniX/src/core/celltriang.h" line="50" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/celltriang.cpp" bodystart="14" bodyend="46"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" compoundref="d0/ddd/cell_8h" startline="123">mknix::Cell::bodyPoints</references>
+        <references refid="de/db4/classmknix_1_1_cell_triang_1a22bff969ea4955bd817c94ae2915e60c" compoundref="dc/d6a/celltriang_8h" startline="45">points</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" compoundref="d2/d91/point_8h" startline="97" endline="100">mknix::Point::getX</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" compoundref="d2/d91/point_8h" startline="102" endline="105">mknix::Point::getY</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" compoundref="d0/ddd/cell_8h" startline="122">mknix::Cell::jacobian</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a7108fef12b0319adebeff93cab664314" compoundref="d0/ddd/cell_8h" startline="124">mknix::Cell::dc</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a138d3c418c3147aead7f3958f1db9b42" compoundref="d5/d55/point_8cpp" startline="135" endline="140">mknix::Point::distance</references>
+        <references refid="de/db4/classmknix_1_1_cell_triang_1a2a2c65fbd2682eba8225473a7dc841f0" compoundref="d0/ddf/celltriang_8cpp" startline="86" endline="285">createGaussPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="de/db4/classmknix_1_1_cell_triang_1a745b852f45fac5becaeeca26b86123c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>mknix::CellTriang::CellTriang</definition>
+        <argsstring>(Material &amp;, std::string, double, int, Point *, Point *, Point *, double)</argsstring>
+        <name>CellTriang</name>
+        <param>
+          <type><ref refid="d6/d4a/classmknix_1_1_material" kindref="compound">Material</ref> &amp;</type>
+          <defname>material_in</defname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <defname>formulation_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>alpha_in</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>nGPoints_in</defname>
+        </param>
+        <param>
+          <type><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref> *</type>
+          <defname>n1_in</defname>
+        </param>
+        <param>
+          <type><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref> *</type>
+          <defname>n2_in</defname>
+        </param>
+        <param>
+          <type><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref> *</type>
+          <defname>n3_in</defname>
+        </param>
+        <param>
+          <type>double</type>
+          <defname>dc_in</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/daniel/Projects/MkniX/src/core/celltriang.h" line="59" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/celltriang.cpp" bodystart="48" bodyend="79"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" compoundref="d0/ddd/cell_8h" startline="123">mknix::Cell::bodyPoints</references>
+        <references refid="de/db4/classmknix_1_1_cell_triang_1a22bff969ea4955bd817c94ae2915e60c" compoundref="dc/d6a/celltriang_8h" startline="45">points</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" compoundref="d2/d91/point_8h" startline="97" endline="100">mknix::Point::getX</references>
+        <references refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" compoundref="d2/d91/point_8h" startline="102" endline="105">mknix::Point::getY</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" compoundref="d0/ddd/cell_8h" startline="122">mknix::Cell::jacobian</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a7108fef12b0319adebeff93cab664314" compoundref="d0/ddd/cell_8h" startline="124">mknix::Cell::dc</references>
+        <references refid="de/db4/classmknix_1_1_cell_triang_1a2a2c65fbd2682eba8225473a7dc841f0" compoundref="d0/ddf/celltriang_8cpp" startline="86" endline="285">createGaussPoints</references>
       </memberdef>
       <memberdef kind="function" id="de/db4/classmknix_1_1_cell_triang_1af0a12b3f4f6106291f3252716c4be025" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -97,7 +150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/celltriang.h" line="42" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/celltriang.cpp" bodystart="42" bodyend="44"/>
+        <location file="/home/daniel/Projects/MkniX/src/core/celltriang.h" line="69" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/celltriang.cpp" bodystart="81" bodyend="83"/>
       </memberdef>
       <memberdef kind="function" id="de/db4/classmknix_1_1_cell_triang_1a374f66822e2e37d94a2cfe09c5173e8a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -119,9 +172,9 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/celltriang.h" line="44" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/celltriang.cpp" bodystart="112" bodyend="125"/>
-        <references refid="de/db4/classmknix_1_1_cell_triang_1a6f3e6ae0d06cbd4703c073e0860e38ed" compoundref="dc/d6a/celltriang_8h" startline="29">points</references>
-        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">mknix::Cell::gPoints</references>
+        <location file="/home/daniel/Projects/MkniX/src/core/celltriang.h" line="71" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/celltriang.cpp" bodystart="288" bodyend="299"/>
+        <references refid="de/db4/classmknix_1_1_cell_triang_1a22bff969ea4955bd817c94ae2915e60c" compoundref="dc/d6a/celltriang_8h" startline="45">points</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="120">mknix::Cell::gPoints</references>
       </memberdef>
       </sectiondef>
       <sectiondef kind="protected-func">
@@ -136,15 +189,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="/home/dani/Dropbox/MkniX_cmake/src/celltriang.h" line="47" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/celltriang.cpp" bodystart="47" bodyend="109"/>
-        <references refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" compoundref="d0/ddd/cell_8h" startline="33">mknix::Cell::nGPoints</references>
-        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="34">mknix::Cell::gPoints</references>
-        <references refid="db/dd4/classmknix_1_1_cell_1a79afef7ecbdfee69e687bb2e7559520b" compoundref="d0/ddd/cell_8h" startline="32">mknix::Cell::alpha</references>
-        <references refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" compoundref="d0/ddd/cell_8h" startline="35">mknix::Cell::jacobian</references>
-        <references refid="db/dd4/classmknix_1_1_cell_1a83ca13ff89196b3ab378d2a28820a08e" compoundref="d0/ddd/cell_8h" startline="30">mknix::Cell::mat</references>
-        <references refid="de/db4/classmknix_1_1_cell_triang_1a6f3e6ae0d06cbd4703c073e0860e38ed" compoundref="dc/d6a/celltriang_8h" startline="29">points</references>
-        <references refid="db/dd4/classmknix_1_1_cell_1a7108fef12b0319adebeff93cab664314" compoundref="d0/ddd/cell_8h" startline="37">mknix::Cell::dc</references>
-        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a419492f1358e31432d6f686ee8ef1609" compoundref="d0/ddf/celltriang_8cpp" startline="11" endline="40">CellTriang</referencedby>
+        <location file="/home/daniel/Projects/MkniX/src/core/celltriang.h" line="74" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/celltriang.cpp" bodystart="86" bodyend="285"/>
+        <references refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" compoundref="d0/ddd/cell_8h" startline="119">mknix::Cell::nGPoints</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" compoundref="d0/ddd/cell_8h" startline="120">mknix::Cell::gPoints</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a79afef7ecbdfee69e687bb2e7559520b" compoundref="d0/ddd/cell_8h" startline="118">mknix::Cell::alpha</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" compoundref="d0/ddd/cell_8h" startline="122">mknix::Cell::jacobian</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a83ca13ff89196b3ab378d2a28820a08e" compoundref="d0/ddd/cell_8h" startline="116">mknix::Cell::mat</references>
+        <references refid="de/db4/classmknix_1_1_cell_triang_1a22bff969ea4955bd817c94ae2915e60c" compoundref="dc/d6a/celltriang_8h" startline="45">points</references>
+        <references refid="db/dd4/classmknix_1_1_cell_1a7108fef12b0319adebeff93cab664314" compoundref="d0/ddd/cell_8h" startline="124">mknix::Cell::dc</references>
+        <referencedby refid="de/db4/classmknix_1_1_cell_triang_1a1d988a4f96b2f51d2a617fc105f9539b" compoundref="d0/ddf/celltriang_8cpp" startline="14" endline="46">CellTriang</referencedby>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -153,43 +206,43 @@
 <para><simplesect kind="author"><para>Daniel Iglesias </para></simplesect>
 </para>    </detaileddescription>
     <inheritancegraph>
-      <node id="290">
+      <node id="499">
         <label>mknix::CellTriang</label>
         <link refid="de/db4/classmknix_1_1_cell_triang"/>
-        <childnode refid="291" relation="public-inheritance">
+        <childnode refid="500" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="291">
+      <node id="500">
         <label>mknix::Cell</label>
         <link refid="db/dd4/classmknix_1_1_cell"/>
       </node>
-      <node id="292">
+      <node id="501">
         <label>mknix::ElemTriangle</label>
         <link refid="d8/d3f/classmknix_1_1_elem_triangle"/>
-        <childnode refid="290" relation="public-inheritance">
+        <childnode refid="499" relation="public-inheritance">
         </childnode>
       </node>
     </inheritancegraph>
     <collaborationgraph>
-      <node id="293">
+      <node id="502">
         <label>mknix::CellTriang</label>
         <link refid="de/db4/classmknix_1_1_cell_triang"/>
-        <childnode refid="294" relation="public-inheritance">
+        <childnode refid="503" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="294">
+      <node id="503">
         <label>mknix::Cell</label>
         <link refid="db/dd4/classmknix_1_1_cell"/>
-        <childnode refid="295" relation="usage">
+        <childnode refid="504" relation="usage">
           <edgelabel>mat</edgelabel>
         </childnode>
       </node>
-      <node id="295">
+      <node id="504">
         <label>mknix::Material</label>
         <link refid="d6/d4a/classmknix_1_1_material"/>
       </node>
     </collaborationgraph>
-    <location file="/home/dani/Dropbox/MkniX_cmake/src/celltriang.h" line="27" column="1" bodyfile="/home/dani/Dropbox/MkniX_cmake/src/celltriang.h" bodystart="27" bodyend="50"/>
+    <location file="/home/daniel/Projects/MkniX/src/core/celltriang.h" line="43" column="1" bodyfile="/home/daniel/Projects/MkniX/src/core/celltriang.h" bodystart="42" bodyend="77"/>
     <listofallmembers>
       <member refid="db/dd4/classmknix_1_1_cell_1a79afef7ecbdfee69e687bb2e7559520b" prot="protected" virt="non-virtual"><scope>mknix::CellTriang</scope><name>alpha</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a4d4af2c299e451b91a81819ccf5d6358" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>assembleCapacityGaussPoints</name></member>
@@ -201,13 +254,15 @@
       <member refid="db/dd4/classmknix_1_1_cell_1af65d528a607f3215d04449551db94dcd" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>assembleNLRGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a130944ac8867e93ce882e7cc8c3555ca" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>assembleQextGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a97fdd8bbf158f3b03b1af601177c2585" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>assembleRGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a3b99f21386f177893f32289c95df4684" prot="protected" virt="non-virtual"><scope>mknix::CellTriang</scope><name>bodyPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a1b59c56aa8983a27571c6809b03604c5" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>calcElasticEGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1aa0b40b9534a376333490fe73d921e552" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>calcKineticEGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a9aba982ff2a54738ec8b38446d333f8d" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>calcPotentialEGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a1c285cc4f38656550e8e2926058e8612" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>Cell</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1ad0988ed8a4aac7c7440bee9413e1189f" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>Cell</name></member>
       <member refid="de/db4/classmknix_1_1_cell_triang_1a17a2c3768e9f2aad3a7bfd8041775fb6" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>CellTriang</name></member>
-      <member refid="de/db4/classmknix_1_1_cell_triang_1a419492f1358e31432d6f686ee8ef1609" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>CellTriang</name></member>
+      <member refid="de/db4/classmknix_1_1_cell_triang_1a1d988a4f96b2f51d2a617fc105f9539b" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>CellTriang</name></member>
+      <member refid="de/db4/classmknix_1_1_cell_triang_1a745b852f45fac5becaeeca26b86123c9" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>CellTriang</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a675db1cafb39d5abab7b13994df21045" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>computeCapacityGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a5d8c11ba58bbaa6f70d5dc2b530868e7" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>computeConductivityGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a19b4ed719612fe2e0043d0cebcbe1537" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>computeFextGaussPoints</name></member>
@@ -216,7 +271,7 @@
       <member refid="db/dd4/classmknix_1_1_cell_1a32a01eb5f854fc23353c0eb64b65e2da" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>computeMGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a84014b9ed9c8a49c604f4ddb91b524fe" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>computeNLFintGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a56231c1df8cd13f6b3f04356da6c2955" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>computeNLKGaussPoints</name></member>
-      <member refid="db/dd4/classmknix_1_1_cell_1a45c2f8b146cafa0ba3a6503f70eb38a7" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>computeQextGaussPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a98f6864613cfbac05b0f8ccbe067e743" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>computeQextGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a6772f09fe6965faff4b53486b09f7235" prot="public" virt="virtual"><scope>mknix::CellTriang</scope><name>computeShapeFunctions</name></member>
       <member refid="de/db4/classmknix_1_1_cell_triang_1a2a2c65fbd2682eba8225473a7dc841f0" prot="protected" virt="non-virtual"><scope>mknix::CellTriang</scope><name>createGaussPoints</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a7108fef12b0319adebeff93cab664314" prot="protected" virt="non-virtual"><scope>mknix::CellTriang</scope><name>dc</name></member>
@@ -224,12 +279,13 @@
       <member refid="de/db4/classmknix_1_1_cell_triang_1a374f66822e2e37d94a2cfe09c5173e8a" prot="public" virt="virtual"><scope>mknix::CellTriang</scope><name>gnuplotOut</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a6dd6795d452d5bd8ff26de1419baef31" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>gnuplotOutStress</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a980ae62ad7e6dda296257455ee173f86" prot="protected" virt="non-virtual"><scope>mknix::CellTriang</scope><name>gPoints</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1a45f0c5d52208a6166a71e05b190ece44" prot="protected" virt="non-virtual"><scope>mknix::CellTriang</scope><name>gPoints_MC</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a77d7851793538f99d8aa0ea664fa0fb7" prot="public" virt="virtual"><scope>mknix::CellTriang</scope><name>initialize</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a4922bf34ba543606a8d9c5ca4847b589" prot="protected" virt="non-virtual"><scope>mknix::CellTriang</scope><name>jacobian</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a83ca13ff89196b3ab378d2a28820a08e" prot="protected" virt="non-virtual"><scope>mknix::CellTriang</scope><name>mat</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1a7d406d6e6f58c14da07387723986ae38" prot="protected" virt="non-virtual"><scope>mknix::CellTriang</scope><name>nGPoints</name></member>
-      <member refid="db/dd4/classmknix_1_1_cell_1a6afd7987e2b95a27ec9229caf2244015" prot="protected" virt="non-virtual"><scope>mknix::CellTriang</scope><name>nodes</name></member>
-      <member refid="de/db4/classmknix_1_1_cell_triang_1a6f3e6ae0d06cbd4703c073e0860e38ed" prot="protected" virt="non-virtual"><scope>mknix::CellTriang</scope><name>points</name></member>
+      <member refid="db/dd4/classmknix_1_1_cell_1ab004ce4e03c629bd57a457e0a74f4d8b" prot="public" virt="non-virtual"><scope>mknix::CellTriang</scope><name>outputConnectivityToFile</name></member>
+      <member refid="de/db4/classmknix_1_1_cell_triang_1a22bff969ea4955bd817c94ae2915e60c" prot="protected" virt="non-virtual"><scope>mknix::CellTriang</scope><name>points</name></member>
       <member refid="db/dd4/classmknix_1_1_cell_1ab4efc3f7c10212304dd776e7b58bb57b" prot="public" virt="virtual"><scope>mknix::CellTriang</scope><name>~Cell</name></member>
       <member refid="de/db4/classmknix_1_1_cell_triang_1af0a12b3f4f6106291f3252716c4be025" prot="public" virt="virtual"><scope>mknix::CellTriang</scope><name>~CellTriang</name></member>
     </listofallmembers>

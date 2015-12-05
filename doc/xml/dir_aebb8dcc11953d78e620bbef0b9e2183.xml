@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="dir_aebb8dcc11953d78e620bbef0b9e2183" kind="dir">
+    <compoundname>core</compoundname>
+    <innerfile refid="d6/d68/cell_8cpp">cell.cpp</innerfile>
+    <innerfile refid="d0/ddd/cell_8h">cell.h</innerfile>
+    <innerfile refid="d6/dbd/cellboundary_8cpp">cellboundary.cpp</innerfile>
+    <innerfile refid="db/d20/cellboundary_8h">cellboundary.h</innerfile>
+    <innerfile refid="d8/d2d/cellboundarylinear_8cpp">cellboundarylinear.cpp</innerfile>
+    <innerfile refid="db/d1c/cellboundarylinear_8h">cellboundarylinear.h</innerfile>
+    <innerfile refid="d4/d83/cellrect_8cpp">cellrect.cpp</innerfile>
+    <innerfile refid="d8/d84/cellrect_8h">cellrect.h</innerfile>
+    <innerfile refid="d3/d93/celltetrahedron_8cpp">celltetrahedron.cpp</innerfile>
+    <innerfile refid="d1/d94/celltetrahedron_8h">celltetrahedron.h</innerfile>
+    <innerfile refid="d0/ddf/celltriang_8cpp">celltriang.cpp</innerfile>
+    <innerfile refid="dc/d6a/celltriang_8h">celltriang.h</innerfile>
+    <innerfile refid="db/dcb/compbar_8cpp">compbar.cpp</innerfile>
+    <innerfile refid="d9/d92/compbar_8h">compbar.h</innerfile>
+    <innerfile refid="d6/dfd/dictionary_8h">dictionary.h</innerfile>
+    <innerfile refid="d3/d50/elemtetrahedron_8cpp">elemtetrahedron.cpp</innerfile>
+    <innerfile refid="d3/d9f/elemtetrahedron_8h">elemtetrahedron.h</innerfile>
+    <innerfile refid="d9/d6d/elemtriangle_8cpp">elemtriangle.cpp</innerfile>
+    <innerfile refid="df/d03/elemtriangle_8h">elemtriangle.h</innerfile>
+    <innerfile refid="df/dfb/gausspoint_8cpp">gausspoint.cpp</innerfile>
+    <innerfile refid="d4/dc6/gausspoint_8h">gausspoint.h</innerfile>
+    <innerfile refid="d2/d0a/gausspoint2_d_8cpp">gausspoint2D.cpp</innerfile>
+    <innerfile refid="d3/de2/gausspoint2_d_8h">gausspoint2D.h</innerfile>
+    <innerfile refid="d8/d55/gausspoint3_d_8cpp">gausspoint3D.cpp</innerfile>
+    <innerfile refid="dc/da4/gausspoint3_d_8h">gausspoint3D.h</innerfile>
+    <innerfile refid="d9/d1e/gausspointboundary_8cpp">gausspointboundary.cpp</innerfile>
+    <innerfile refid="d5/d62/gausspointboundary_8h">gausspointboundary.h</innerfile>
+    <innerfile refid="d7/d5c/material_8cpp">material.cpp</innerfile>
+    <innerfile refid="d3/d65/material_8h">material.h</innerfile>
+    <innerfile refid="d7/d70/node_8cpp">node.cpp</innerfile>
+    <innerfile refid="d1/d77/node_8h">node.h</innerfile>
+    <innerfile refid="d5/d55/point_8cpp">point.cpp</innerfile>
+    <innerfile refid="d2/d91/point_8h">point.h</innerfile>
+    <innerfile refid="d1/dde/shapefunction_8cpp">shapefunction.cpp</innerfile>
+    <innerfile refid="d3/d16/shapefunction_8h">shapefunction.h</innerfile>
+    <innerfile refid="d5/d18/shapefunctionlinear-x_8cpp">shapefunctionlinear-x.cpp</innerfile>
+    <innerfile refid="d6/d09/shapefunctionlinear-x_8h">shapefunctionlinear-x.h</innerfile>
+    <innerfile refid="dc/deb/shapefunctionlinear_8cpp">shapefunctionlinear.cpp</innerfile>
+    <innerfile refid="d0/d2e/shapefunctionlinear_8h">shapefunctionlinear.h</innerfile>
+    <innerfile refid="d1/d8f/shapefunction_m_l_s_8cpp">shapefunctionMLS.cpp</innerfile>
+    <innerfile refid="db/da5/shapefunction_m_l_s_8h">shapefunctionMLS.h</innerfile>
+    <innerfile refid="de/d62/shapefunction_m_l_s2_d_8cpp">shapefunctionMLS2D.cpp</innerfile>
+    <innerfile refid="d5/d3d/shapefunction_m_l_s2_d_8h">shapefunctionMLS2D.h</innerfile>
+    <innerfile refid="d8/d1b/shapefunction_m_l_s3_d_8cpp">shapefunctionMLS3D.cpp</innerfile>
+    <innerfile refid="d6/df9/shapefunction_m_l_s3_d_8h">shapefunctionMLS3D.h</innerfile>
+    <innerfile refid="db/d27/shapefunction_r_b_f_8cpp">shapefunctionRBF.cpp</innerfile>
+    <innerfile refid="d9/d2f/shapefunction_r_b_f_8h">shapefunctionRBF.h</innerfile>
+    <innerfile refid="d1/d85/shapefunctiontetrahedron_8cpp">shapefunctiontetrahedron.cpp</innerfile>
+    <innerfile refid="db/d91/shapefunctiontetrahedron_8h">shapefunctiontetrahedron.h</innerfile>
+    <innerfile refid="dc/d70/shapefunctiontriangle_8cpp">shapefunctiontriangle.cpp</innerfile>
+    <innerfile refid="d1/db5/shapefunctiontriangle_8h">shapefunctiontriangle.h</innerfile>
+    <innerfile refid="d5/d04/shapefunctiontriangle3_d_8cpp">shapefunctiontriangle3D.cpp</innerfile>
+    <innerfile refid="d8/db5/shapefunctiontriangle3_d_8h">shapefunctiontriangle3D.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/daniel/Projects/MkniX/src/core/"/>
+  </compounddef>
+</doxygen>

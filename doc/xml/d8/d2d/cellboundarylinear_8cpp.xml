@@ -1,0 +1,287 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.9.1">
+  <compounddef id="d8/d2d/cellboundarylinear_8cpp" kind="file" language="C++">
+    <compoundname>cellboundarylinear.cpp</compoundname>
+    <includes refid="db/d1c/cellboundarylinear_8h" local="yes">cellboundarylinear.h</includes>
+    <includes refid="d5/d62/gausspointboundary_8h" local="yes">gausspointboundary.h</includes>
+    <includes refid="d1/d77/node_8h" local="no">core/node.h</includes>
+    <incdepgraph>
+      <node id="2871">
+        <label>LMX/cofe_TensorRank2.h</label>
+      </node>
+      <node id="2870">
+        <label>cellboundarylinear.h</label>
+        <link refid="db/d1c/cellboundarylinear_8h"/>
+        <childnode refid="2871" relation="include">
+        </childnode>
+        <childnode refid="2872" relation="include">
+        </childnode>
+      </node>
+      <node id="2872">
+        <label>cellboundary.h</label>
+        <link refid="db/d20/cellboundary_8h"/>
+        <childnode refid="2873" relation="include">
+        </childnode>
+        <childnode refid="2874" relation="include">
+        </childnode>
+        <childnode refid="2875" relation="include">
+        </childnode>
+      </node>
+      <node id="2874">
+        <label>string</label>
+      </node>
+      <node id="2876">
+        <label>map</label>
+      </node>
+      <node id="2875">
+        <label>common.h</label>
+        <link refid="dc/d54/common_8h"/>
+        <childnode refid="2876" relation="include">
+        </childnode>
+        <childnode refid="2877" relation="include">
+        </childnode>
+      </node>
+      <node id="2869">
+        <label>cellboundarylinear.cpp</label>
+        <link refid="cellboundarylinear.cpp"/>
+        <childnode refid="2870" relation="include">
+        </childnode>
+        <childnode refid="2878" relation="include">
+        </childnode>
+        <childnode refid="2881" relation="include">
+        </childnode>
+      </node>
+      <node id="2873">
+        <label>vector</label>
+      </node>
+      <node id="2878">
+        <label>gausspointboundary.h</label>
+        <link refid="d5/d62/gausspointboundary_8h"/>
+        <childnode refid="2879" relation="include">
+        </childnode>
+        <childnode refid="2880" relation="include">
+        </childnode>
+      </node>
+      <node id="2879">
+        <label>LMX/lmx.h</label>
+      </node>
+      <node id="2881">
+        <label>core/node.h</label>
+        <link refid="d1/d77/node_8h"/>
+        <childnode refid="2880" relation="include">
+        </childnode>
+        <childnode refid="2879" relation="include">
+        </childnode>
+      </node>
+      <node id="2880">
+        <label>core/point.h</label>
+        <link refid="d2/d91/point_8h"/>
+        <childnode refid="2873" relation="include">
+        </childnode>
+        <childnode refid="2876" relation="include">
+        </childnode>
+        <childnode refid="2874" relation="include">
+        </childnode>
+        <childnode refid="2875" relation="include">
+        </childnode>
+      </node>
+      <node id="2877">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="d2/dde/namespacemknix">mknix</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">//--<sp/>Licencia<sp/>--</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="db/d1c/cellboundarylinear_8h" kindref="compound">cellboundarylinear.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="d5/d62/gausspointboundary_8h" kindref="compound">gausspointboundary.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="d1/d77/node_8h" kindref="compound">core/node.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="d2/dde/namespacemknix" kindref="compound">mknix</ref><sp/>{</highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aa83f76ade7dd5353609685270f0cc91d" refkind="member"><highlight class="normal"><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aa83f76ade7dd5353609685270f0cc91d" kindref="member">CellBoundaryLinear::CellBoundaryLinear</ref>()</highlight></codeline>
+<codeline lineno="10"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1abd081fad99e161a237a72223f6d70887" refkind="member"><highlight class="normal"><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aa83f76ade7dd5353609685270f0cc91d" kindref="member">CellBoundaryLinear::CellBoundaryLinear</ref>(std::string<sp/>formulation_in,</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha_in,</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nGPoints_in,</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref><sp/>*<sp/>n1_in,</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref><sp/>*<sp/>n2_in</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary" kindref="compound">CellBoundary</ref>(formulation_in,<sp/>alpha_in,<sp/>nGPoints_in</highlight></codeline>
+<codeline lineno="21"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="22"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1ab69bec01bb7bb184f74e56f477b4e938" kindref="member">bodyPoints</ref>.push_back(n1_in);</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1ab69bec01bb7bb184f74e56f477b4e938" kindref="member">bodyPoints</ref>.push_back(n2_in);</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(0,<sp/>0)<sp/>=<sp/>n1_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>();</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(0,<sp/>1)<sp/>=<sp/>n1_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>();</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(0,<sp/>2)<sp/>=<sp/>n1_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" kindref="member">getZ</ref>();</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(1,<sp/>0)<sp/>=<sp/>n2_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>();</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(1,<sp/>1)<sp/>=<sp/>n2_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a16955d7ef56edea059119f93905e1196" kindref="member">getY</ref>();</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(1,<sp/>2)<sp/>=<sp/>n2_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a739698b4f6a21b40e7fc7c82af69c479" kindref="member">getZ</ref>();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1aef298cd6eecdfce7582ff4ab31b8ae8d" kindref="member">jacobian</ref><sp/>=<sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(0,<sp/>0)<sp/>-<sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(1,<sp/>0);</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>this-&gt;jacobian<sp/>=<sp/>n1_in-&gt;distance(*n2_in);<sp/>//<sp/>if<sp/>in<sp/>X-only:<sp/>points(0,0)<sp/>-<sp/>points(1,0);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/><sp/><sp/>cout<sp/>&lt;&lt;<sp/>this-&gt;jacobian<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;<sp/>&lt;&lt;<sp/>points(0,0)<sp/>&lt;&lt;<sp/>&quot;,<sp/>&quot;<sp/>&lt;&lt;<sp/>points(1,0)<sp/>&lt;&lt;<sp/>endl;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1ad70e12585e45e068a3dcb8dc98b1347f" kindref="member">dc</ref><sp/>=<sp/>this-&gt;<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1aef298cd6eecdfce7582ff4ab31b8ae8d" kindref="member">jacobian</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1a45b26c454824aac48876515f9bf154e9" kindref="member">createGaussPoints</ref>();</highlight></codeline>
+<codeline lineno="40"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1a3e2f2235aa3af604f1a81af20d4429f2" refkind="member"><highlight class="normal"><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aa83f76ade7dd5353609685270f0cc91d" kindref="member">CellBoundaryLinear::CellBoundaryLinear</ref>(std::string<sp/>formulation_in,</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>alpha_in,</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nGPoints_in,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref><sp/>*<sp/>n1_in,</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d3/d19/classmknix_1_1_point" kindref="compound">Point</ref><sp/>*<sp/>n2_in,</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dc_in</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>:<sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary" kindref="compound">CellBoundary</ref>(</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>formulation_in,<sp/>alpha_in,<sp/>nGPoints_in</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">)</highlight></codeline>
+<codeline lineno="52"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1ab69bec01bb7bb184f74e56f477b4e938" kindref="member">bodyPoints</ref>.push_back(n1_in);</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1ab69bec01bb7bb184f74e56f477b4e938" kindref="member">bodyPoints</ref>.push_back(n2_in);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(0,<sp/>0)<sp/>=<sp/>n1_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>();</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(0,<sp/>1)<sp/>=<sp/>0.;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(0,<sp/>2)<sp/>=<sp/>0.;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(1,<sp/>0)<sp/>=<sp/>n2_in-&gt;<ref refid="d3/d19/classmknix_1_1_point_1a2942110ac86c21e11986081670bb3a82" kindref="member">getX</ref>();</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(1,<sp/>1)<sp/>=<sp/>0.;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(1,<sp/>2)<sp/>=<sp/>0.;</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1aef298cd6eecdfce7582ff4ab31b8ae8d" kindref="member">jacobian</ref><sp/>=<sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(0,<sp/>0)<sp/>-<sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(1,<sp/>0);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1ad70e12585e45e068a3dcb8dc98b1347f" kindref="member">dc</ref><sp/>=<sp/>dc_in;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1a45b26c454824aac48876515f9bf154e9" kindref="member">createGaussPoints</ref>();</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70" refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1acf34a61929cd06bbc0cfedf4005254c9" refkind="member"><highlight class="normal"><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1acf34a61929cd06bbc0cfedf4005254c9" kindref="member">CellBoundaryLinear::~CellBoundaryLinear</ref>()</highlight></codeline>
+<codeline lineno="71"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="72"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1ab0f0e66b92accf5c88aaa7fac0b8bf59" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1ab0f0e66b92accf5c88aaa7fac0b8bf59" kindref="member">CellBoundaryLinear::initialize</ref>(std::vector&lt;Node<sp/>*&gt;&amp;<sp/>nodes_in)</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Meshfree<sp/>CellBoundarys,<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1afeb33c21dbf85f27d372a06d1a249459" kindref="member">CellBoundary::initialize</ref>(nodes_in);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="comment">//<sp/>function<sp/>is<sp/>specialized<sp/>for<sp/>FEM<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1af33b7951a3757bf0362ab8e3164d4bc4" kindref="member">formulation</ref><sp/>!=<sp/></highlight><highlight class="stringliteral">&quot;RPIM&quot;</highlight><highlight class="normal"><sp/>||<sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1af33b7951a3757bf0362ab8e3164d4bc4" kindref="member">formulation</ref><sp/>!=<sp/></highlight><highlight class="stringliteral">&quot;EFG&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>This<sp/>function<sp/>can<sp/>be<sp/>joined<sp/>with<sp/>assembleGaussPoints<sp/>so<sp/>the<sp/>Gpoints<sp/>are<sp/>iterated<sp/>only<sp/>once...</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>point<sp/>:<sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1ae27f45b466e1bfc213bcca47d0ff85df" kindref="member">gPoints</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>2;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>point-&gt;addSupportNode(dynamic_cast&lt;Node<sp/>*&gt;(this-&gt;<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1ab69bec01bb7bb184f74e56f477b4e938" kindref="member">bodyPoints</ref>[i]));</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="89"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92" refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aea9ed39a191f3e6e89c465f6e3db3002" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aea9ed39a191f3e6e89c465f6e3db3002" kindref="member">CellBoundaryLinear::computeShapeFunctions</ref>()</highlight></codeline>
+<codeline lineno="93"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Meshfree<sp/>CellBoundarys,<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1a3821f8f675ec0545a25e9971a4f8aaf3" kindref="member">CellBoundary::computeShapeFunctions</ref>();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="comment">//<sp/>function<sp/>is<sp/>specialized<sp/>for<sp/>FEM<sp/>here</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1af33b7951a3757bf0362ab8e3164d4bc4" kindref="member">formulation</ref><sp/>!=<sp/></highlight><highlight class="stringliteral">&quot;RPIM&quot;</highlight><highlight class="normal"><sp/>||<sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1af33b7951a3757bf0362ab8e3164d4bc4" kindref="member">formulation</ref><sp/>!=<sp/></highlight><highlight class="stringliteral">&quot;EFG&quot;</highlight><highlight class="normal">)<sp/>{</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keyword">auto</highlight><highlight class="normal">&amp;<sp/>point<sp/>:<sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1ae27f45b466e1bfc213bcca47d0ff85df" kindref="member">gPoints</ref>)<sp/>{</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>point-&gt;shapeFunSolve(</highlight><highlight class="stringliteral">&quot;1D-X&quot;</highlight><highlight class="normal">,<sp/>1.03);<sp/></highlight><highlight class="comment">//<sp/>Could<sp/>be<sp/>changed<sp/>to<sp/>more<sp/>generic<sp/>´´1D´´</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="102"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105" refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1a45b26c454824aac48876515f9bf154e9" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1a45b26c454824aac48876515f9bf154e9" kindref="member">CellBoundaryLinear::createGaussPoints</ref>()</highlight></codeline>
+<codeline lineno="106"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="d2/d8d/classlmx_1_1_dense_matrix" kindref="compound">lmx::DenseMatrix&lt;double&gt;</ref><sp/>gCoef(size_type(<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1a38706fffd4e1f057f52d86b19beb5ac7" kindref="member">nGPoints</ref>),<sp/>2);</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>reference:<sp/>http://www.cs.rpi.edu/~flaherje/pdf/fea6.pdf</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1a38706fffd4e1f057f52d86b19beb5ac7" kindref="member">nGPoints</ref><sp/>==<sp/>1)<sp/>{</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(0,<sp/>0)<sp/>=<sp/>0.;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(0,<sp/>1)<sp/>=<sp/>2.;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1a38706fffd4e1f057f52d86b19beb5ac7" kindref="member">nGPoints</ref><sp/>==<sp/>2)<sp/>{</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>wdist1<sp/>=<sp/>0.5773502691896257645091487805019574556476017512701268760186023264839776723029333456937153955857495252252087138051355676766566483649996508262705518373647912161760310773007685273559916067003615583077550051041144223011076288835574182229739459904090157105534559538626730166621791266197964892168;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>w1<sp/>=<sp/>1.;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(0,<sp/>0)<sp/>=<sp/>-wdist1;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(0,<sp/>1)<sp/>=<sp/>w1;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(1,<sp/>0)<sp/>=<sp/>wdist1;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(1,<sp/>1)<sp/>=<sp/>w1;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1a38706fffd4e1f057f52d86b19beb5ac7" kindref="member">nGPoints</ref><sp/>==<sp/>3)<sp/>{</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>wdist1<sp/>=<sp/>0.774596669241483377035853079956479922166584341058318165317514753222696618387395806703857475371734703583260441372189929402637908087832729923135978349224240702213750958202698716256783906245777858513169283405612501838634682531972963691092925710263188052523534528101729260090115562126394576188;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>wdist2<sp/>=<sp/>0.;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>w1<sp/>=<sp/>8.<sp/>/<sp/>9.;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>w2<sp/>=<sp/>5.<sp/>/<sp/>9.;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(0,<sp/>0)<sp/>=<sp/>-wdist1;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(0,<sp/>1)<sp/>=<sp/>w1;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(1,<sp/>0)<sp/>=<sp/>wdist2;</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(1,<sp/>1)<sp/>=<sp/>w2;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(2,<sp/>0)<sp/>=<sp/>wdist1;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(2,<sp/>1)<sp/>=<sp/>w1;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1a38706fffd4e1f057f52d86b19beb5ac7" kindref="member">nGPoints</ref><sp/>==<sp/>4)<sp/>{<sp/></highlight><highlight class="comment">//must<sp/>be<sp/>checked</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>wdist1<sp/>=<sp/>0.8611363115940525752239464888928095050957253796297176376157219209065294714950488657041623398844793052105769209319781763249637438391157919764084938458618855762872931327441369944290122598469710261906458681564745219362114916066097678053187180580268539141223471780870198639372247416951073770551;</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>wdist2<sp/>=<sp/>0.3399810435848562648026657591032446872005758697709143525929539768210200304632370344778752804355548115489602395207464932135845003241712491992776363684338328221538611182352836311104158340621521124125023821932864240034767086752629560943410821534146791671405442668508151756169732898924953195536;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>w1<sp/>=<sp/>0.3399810435848562648026657591032446872005758697709143525929539768210200304632370344778752804355548115489602395207464932135845003241712491992776363684338328221538611182352836311104158340621521124125023821932864240034767086752629560943410821534146791671405442668508151756169732898924953195536;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>w2<sp/>=<sp/>0.6521451548625461426269360507780005927646513041661064595074706804812481325340896482780162322677418404902018960952364978455755577496740182191429757016783303751407135229556360801973666260481564013273531860737119707353160256000107787211587578617532049337456560923057986412084590467808124974086;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(0,<sp/>0)<sp/>=<sp/>-wdist1;</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(0,<sp/>1)<sp/>=<sp/>w1;</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(1,<sp/>0)<sp/>=<sp/>-wdist2;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(1,<sp/>1)<sp/>=<sp/>w2;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(2,<sp/>0)<sp/>=<sp/>wdist2;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(2,<sp/>1)<sp/>=<sp/>w2;</highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(3,<sp/>0)<sp/>=<sp/>wdist1;</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>gCoef(3,<sp/>1)<sp/>=<sp/>w1;</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>else<sp/>if(nGPoints<sp/>==<sp/>20){</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="149"><highlight class="normal"></highlight><highlight class="comment">//<sp/><sp/><sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="150"><highlight class="normal"></highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>x0<sp/>=<sp/>(<ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(0,<sp/>0)<sp/>+<sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(1,<sp/>0))<sp/>/<sp/>2.;</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dx0<sp/>=<sp/>(<ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(0,<sp/>0)<sp/>-<sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(1,<sp/>0))<sp/>/<sp/>2.;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>y0<sp/>=<sp/>(<ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(0,<sp/>1)<sp/>+<sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(1,<sp/>1))<sp/>/<sp/>2.;</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/>dy0<sp/>=<sp/>(<ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(0,<sp/>1)<sp/>-<sp/><ref refid="d2/dfc/classmknix_1_1_cell_boundary_linear_1aacc5e09eb0a0659471b7d464f506d276" kindref="member">points</ref>(1,<sp/>1))<sp/>/<sp/>2.;</highlight></codeline>
+<codeline lineno="155"><highlight class="normal"></highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1a38706fffd4e1f057f52d86b19beb5ac7" kindref="member">nGPoints</ref>;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1ae27f45b466e1bfc213bcca47d0ff85df" kindref="member">gPoints</ref>.push_back(</highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/><ref refid="d0/de2/classmknix_1_1_gauss_point_boundary" kindref="compound">GaussPointBoundary</ref>(1,<sp/></highlight><highlight class="comment">//dimension</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;<ref refid="d8/d1e/classmknix_1_1_cell_boundary_1acb76359011a0d0d6be9ed8e4cd24a4d5" kindref="member">alpha</ref>,</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0.5<sp/>*<sp/>gCoef(i,<sp/>1),</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1aef298cd6eecdfce7582ff4ab31b8ae8d" kindref="member">jacobian</ref>,</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i,</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>x0<sp/>+<sp/>dx0<sp/>*<sp/>gCoef(i,<sp/>0),</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>y0<sp/>+<sp/>dy0<sp/>*<sp/>gCoef(i,<sp/>0),</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="d8/d1e/classmknix_1_1_cell_boundary_1ad70e12585e45e068a3dcb8dc98b1347f" kindref="member">dc</ref></highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>)</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>);</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="168"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="171"><highlight class="comment">void<sp/>CellBoundaryLinear::gnuplotOut(<sp/>std::ofstream&amp;<sp/>data,<sp/>std::ofstream&amp;<sp/>gpdata<sp/>)</highlight></codeline>
+<codeline lineno="172"><highlight class="comment">{</highlight></codeline>
+<codeline lineno="173"><highlight class="comment"><sp/><sp/><sp/><sp/>for<sp/>(int<sp/>i=0;<sp/>i&lt;3;<sp/>++i)<sp/>{</highlight></codeline>
+<codeline lineno="174"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>data<sp/>&lt;&lt;<sp/>points(i,0)<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>points(i,1)<sp/>&lt;&lt;<sp/>&quot;<sp/>0\n&quot;;</highlight></codeline>
+<codeline lineno="175"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="176"><highlight class="comment"><sp/><sp/><sp/><sp/>data<sp/>&lt;&lt;<sp/>points(0,0)<sp/>&lt;&lt;<sp/>&quot;<sp/>&quot;<sp/>&lt;&lt;<sp/>points(0,1)<sp/>&lt;&lt;<sp/>&quot;<sp/>0\n&quot;;</highlight></codeline>
+<codeline lineno="177"><highlight class="comment"><sp/><sp/><sp/><sp/>data<sp/>&lt;&lt;<sp/>std::endl;</highlight></codeline>
+<codeline lineno="178"><highlight class="comment"></highlight></codeline>
+<codeline lineno="179"><highlight class="comment"><sp/><sp/><sp/><sp/>for(std::vector&lt;GaussPoint*&gt;::iterator<sp/>it=gPoints.begin();</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>it!=gPoints.end();</highlight></codeline>
+<codeline lineno="181"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>++it)<sp/>{</highlight></codeline>
+<codeline lineno="182"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(*it)-&gt;gnuplotOut(<sp/>gpdata<sp/>);</highlight></codeline>
+<codeline lineno="183"><highlight class="comment"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="184"><highlight class="comment">}*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal">}<sp/></highlight><highlight class="comment">//Namespace<sp/>mknix</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/home/daniel/Projects/MkniX/src/core/cellboundarylinear.cpp"/>
+  </compounddef>
+</doxygen>
