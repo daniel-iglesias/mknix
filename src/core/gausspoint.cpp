@@ -59,10 +59,10 @@ GaussPoint::~GaussPoint()
 
 void GaussPoint::shapeFunSolve(std::string type_in, double q_in)
 {
-    q_in = 0.5; // TODO: Check WTF I did this!!
+    q_in = 0.5; // Original RBF
     if (!shapeFun) {
         if (type_in == "RBF") {
-            alphai = 3.5; // For the validation triangle, this works better: phi closer to 1.
+//             alphai = 3.5; // For the validation triangle, this works better: phi closer to 1.
             this->shapeFun = new ShapeFunctionRBF(supportNodesSize,
                                                   0,
                                                   0, // RBF type
