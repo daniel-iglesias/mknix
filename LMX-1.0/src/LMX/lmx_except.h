@@ -290,7 +290,7 @@ namespace lmx {
   /** user function for throwing warning messages. */
 #define LMX_WARNING(level_, thestr) {                                 \
     std::stringstream msg;                                            \
-    msg << "Level " << level_ << " Warning in "__FILE__ << ", line "  \
+    msg << "Level " << level_ << " Warning in " __FILE__ << ", line "  \
         << __LINE__ << " " << LMX_PRETTY_FUNCTION << ": " << thestr << ends; \
     if ((level_) <= lmx::warning_level::level())                      \
        std::cerr << msg.str() << std::endl;                           \
