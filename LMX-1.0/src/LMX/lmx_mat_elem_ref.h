@@ -20,7 +20,7 @@
 #ifndef LMXELEM_REF_H
 #define LMXELEM_REF_H
 
-class Data;
+#include "lmx_mat_data.h"
 
 //////////////////////////////////////////// Doxygen file documentation entry:
     /*!
