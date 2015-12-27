@@ -20,9 +20,9 @@
         <p class="header">Nonlinear thermo-mechanical multibody systems simulation using FEM and meshfree methods</p>
 
         <ul>
-          <li class="download"><a class="buttons" href="https://github.com/daniel-iglesias/MkniX/zipball/master">Download ZIP</a></li>
-          <li class="download"><a class="buttons" href="https://github.com/daniel-iglesias/MkniX/tarball/master">Download TAR</a></li>
-          <li><a class="buttons github" href="https://github.com/daniel-iglesias/MkniX">View On GitHub</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/daniel-iglesias/mknix/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/daniel-iglesias/mknix/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/daniel-iglesias/mknix">View On GitHub</a></li>
         </ul>
 
         <p class="header">This project is maintained by <a class="header name" href="https://github.com/daniel-iglesias">daniel-iglesias</a></p>
@@ -31,22 +31,276 @@
       </header>
       <section>
         <h2>
-<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+<a id="1-overview" class="anchor" href="#1-overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Overview</h2>
 
 <p>MkniX is a code design for the simulation of nonlinear flexible multibody systems, including thermal effects. It is organised as a library but, as it already has all necesary I/O functions, building a binary is trivial. Several examples of applications using the MkniX library are provided in the <code>tests/</code> folder.</p>
 
 <h2>
-<a id="description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description</h2>
-
-<p>TBD</p>
+<a id="2-description" class="anchor" href="#2-description" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Description</h2>
 
 <h2>
-<a id="building-and-testing" class="anchor" href="#building-and-testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building and testing</h2>
+<a id="21-systems-module" class="anchor" href="#21-systems-module" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1. Systems module</h2>
+
+<p>Hierarchical and recursive scheme of systems and subsystems with no limit in depth. Bodies are linked by joints and are independent of each other in terms of formulation and degrees of freedom, which allows mixing rigid and flexible solid bodies with different discretizations in the same model.</p>
+
+<h3>
+<a id="211-rigid-bodies" class="anchor" href="#211-rigid-bodies" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1.1. Rigid bodies</h3>
+
+<ul>
+<li>0D mass points.</li>
+<li>1D bars and chains (in 2D or 3D spaces).</li>
+<li>2D and 3D generic solid bodies:
+
+<ul>
+<li>CoG and main in\ertia vectors.</li>
+<li>Meshed 3D body.</li>
+</ul>
+</li>
+<li>CAD (STEP, STL) body [TBD].</li>
+</ul>
+
+<h3>
+<a id="212-continuum-bodies" class="anchor" href="#212-continuum-bodies" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1.2. Continuum bodies</h3>
+
+<ul>
+<li>2D and 3D Thermal rigid bodies.</li>
+<li>2D and 3D Flexible nonlinear bodies using ANCF with FEM or Meshfree methods.</li>
+<li>Weakly coupled thermo-mechanical flexible bodies.</li>
+</ul>
+
+<h3>
+<a id="213-joints-and-contacts" class="anchor" href="#213-joints-and-contacts" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1.3. Joints and contacts</h3>
+
+<ul>
+<li>Constraint methods:
+
+<ul>
+<li>Penalty.</li>
+<li>Augmented Lagrangian.</li>
+</ul>
+</li>
+<li>Types of joints (can be defined at any point in space):
+
+<ul>
+<li>Spherical.</li>
+<li>Spherical with clearances.</li>
+<li>Revolute (pin joint) [in-work].</li>
+<li>Cylindrical slider [in-work].</li>
+<li>Prismatic slider [in-work].</li>
+<li>Planar [in-work].</li>
+</ul>
+</li>
+<li>Contact detection:
+
+<ul>
+<li>Auto generated contact elements by α-shapes.</li>
+<li>Generalized normal contact force (penalty potential) w/o friction.</li>
+<li>1D wire boundary interfaces.</li>
+<li>2D faceted boundary interfaces [TBD].</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="214-loads" class="anchor" href="#214-loads" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.1.4 Loads</h3>
+
+<ul>
+<li>Mechanical:
+
+<ul>
+<li>Generalized acceleration (gravity).</li>
+<li>Point loads (non-following).</li>
+<li>Surface loads [in-work].</li>
+<li>Volumetric (body) loads.</li>
+</ul>
+</li>
+<li>Thermal:
+
+<ul>
+<li>Heat flux (surface) [in-work]:
+
+<ul>
+<li>Explicitly defined in any boundary.</li>
+<li>Convection effects (HTC and Tbulk as inputs).</li>
+</ul>
+</li>
+<li>Heat flow (volume):
+
+<ul>
+<li>Explicitly defined in local or global frames.</li>
+<li>Calculated from radiation maps (see below).</li>
+</ul>
+</li>
+<li>Beam particle models:
+
+<ul>
+<li>Bi-gaussian distributions defined by a vector in space.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Radiation [in-work]
+
+<ul>
+<li>2D or 3D gamma maps.</li>
+<li>Fixed in space or associated to a moving frame of any body.</li>
+<li>Accumulated damage monitoring (non-shadowed body).</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="22-core-module" class="anchor" href="#22-core-module" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2. Core module</h2>
+
+<p>Implements the continuum mechanics residual contributions for solid bodies. It also provides the generic point and node classes used by rigid bodies and joints.</p>
+
+<h3>
+<a id="221-formulations" class="anchor" href="#221-formulations" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2.1. Formulations</h3>
+
+<ul>
+<li>Rigid body dynamics.</li>
+<li>Linear elasticity (small displacements).</li>
+<li>Nonlinear elasticity in a total Lagrangian approach (large strains and large displacements).</li>
+<li>Thermal formulation for rigid bodies (small /large displacements).</li>
+<li>Linear thermoelasticity.</li>
+<li>Nonlinear thermoelasticity in a total Lagrangian form (static/dynamics weakly coupled).</li>
+</ul>
+
+<h3>
+<a id="222-discretization-methods-for-continuum-bodies" class="anchor" href="#222-discretization-methods-for-continuum-bodies" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2.2. Discretization methods for continuum bodies</h3>
+
+<ul>
+<li>Finite element:
+
+<ul>
+<li>2D triangle, multiple order.</li>
+<li>3D tetrahedron, multiple order.</li>
+</ul>
+</li>
+<li>Meshfree Galerkin methods:
+
+<ul>
+<li>Radial Basis interpolated functions.</li>
+<li>Moving least squares approximated shape functions.</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="223-material-models-for-all-elasticthermoelastic-formulations" class="anchor" href="#223-material-models-for-all-elasticthermoelastic-formulations" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.2.3. Material models for all elastic/thermoelastic formulations</h3>
+
+<ul>
+<li>Isotropic elastic (linear) Hooke model</li>
+<li>Isotropic hyperelastic (nonlinear) Saint-Venant Kirchhoff</li>
+<li>All materials available in 3D and 2D (plain stress [TBD] or strain) spaces</li>
+<li>Nonlinear properties (i.e. temperature dependent)</li>
+</ul>
+
+<h2>
+<a id="23-simulation-module" class="anchor" href="#23-simulation-module" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.3. Simulation module</h2>
+
+<p>It is the main interface of the Mknix code. The module controls the time stepping, integration method, and the convergence criteria for the nonlinear solver. Most procedures are provided by the numerical library LMX. It also owns and controls the global matrices and the top level systems.</p>
+
+<h3>
+<a id="231-analysis-types-and-integrators" class="anchor" href="#231-analysis-types-and-integrators" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.3.1 Analysis types and integrators</h3>
+
+<ul>
+<li>Static and quasi-static.</li>
+<li>Implicit dynamics:
+
+<ul>
+<li>Central differences.</li>
+<li>Newmark.</li>
+<li>HTT-α [in work].</li>
+<li>Linear multistep integrators:
+
+<ul>
+<li>BDF (Order 1-5).</li>
+<li>Adams Moulton (O 1-5).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Explicit dynamics:
+
+<ul>
+<li>Adams Bashforth (O 1-5).</li>
+<li>Dual order integration for thermo-mechanical dynamic analysis.</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="232-linear-solvers" class="anchor" href="#232-linear-solvers" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.3.2. Linear solvers</h3>
+
+<ul>
+<li>Direct:
+
+<ul>
+<li>Gauss elimination for dense matrices</li>
+<li>LU decomposition methods (SuperLU and Gmm::lu_solve)</li>
+</ul>
+</li>
+<li>Iterative Krylov methods:
+
+<ul>
+<li>Conjugate gradient for symmetric matrices</li>
+<li>Preconditioned conjugate gradient</li>
+<li>Generalized minimal residual method (GMRES)</li>
+</ul>
+</li>
+</ul>
+
+<h3>
+<a id="233-nonlinear-solvers" class="anchor" href="#233-nonlinear-solvers" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.3.3. Nonlinear solvers</h3>
+
+<ul>
+<li>Newton-Raphson</li>
+<li>Tangent method (quasi-Newton, BFGS) [TBD]</li>
+</ul>
+
+<h2>
+<a id="24-reader-module" class="anchor" href="#24-reader-module" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.4. Reader module</h2>
+
+<p>Controls the input, output by bridging the Analysis’ solvers required functions with the Systems’ formulation. </p>
+
+<h3>
+<a id="241-input-readers" class="anchor" href="#241-input-readers" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.4.1 Input readers</h3>
+
+<p>One input file referring to other geometry and mesh files is usually used. The file is structured in sections, each one read by independent object classes and member functions:</p>
+
+<ul>
+<li>General class reader for Systems´ structure, materials, loads and Analysis.</li>
+<li>Rigid body reader, including mass properties and geometry.</li>
+<li>Flexbody reader, with formulation type, geometry (with or without mesh file), assigned material number, and discretization parameters.</li>
+<li>Constraints reader, for joints definition between bodies.</li>
+</ul>
+
+<p>Accepted geometry files:</p>
+
+<ul>
+<li>Gmsh format.</li>
+<li>Salome mesh format.</li>
+<li>STL Cad models [in work].</li>
+</ul>
+
+<h3>
+<a id="242-output-writers" class="anchor" href="#242-output-writers" aria-hidden="true"><span class="octicon octicon-link"></span></a>2.4.2 Output writers</h3>
+
+<ul>
+<li>Results summary including displacements and temperatures, nodal stress, energies, etc.</li>
+<li>Simulation times (real stopwatch output).</li>
+<li>Reader output, used mainly for checking and debugging.</li>
+<li>Shapefunctions data for checking consistency of the approximation.</li>
+</ul>
+
+<h2>
+<a id="3-building-and-testing" class="anchor" href="#3-building-and-testing" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Building and testing</h2>
 
 <p>See README.md for a description of requirements and procedure for building the MkniX library and using it for creating binary executables.</p>
 
 <h2>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+<a id="4-license" class="anchor" href="#4-license" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. License</h2>
 
 <p>MkniX library is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as
