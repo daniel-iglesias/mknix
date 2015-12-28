@@ -1,9 +1,0 @@
-<map id="mknix::AnalysisThermalDynamic::AnalysisThermalDynamic" name="mknix::AnalysisThermalDynamic::AnalysisThermalDynamic">
-<area shape="rect" id="node2" href="$db/d0b/classmknix_1_1_simulation.html#ac832fe81a1b651b2cd667011de5645f7" title="mknix::Simulation::\lexplicitThermalEvaluation" alt="" coords="280,5,451,47"/>
-<area shape="rect" id="node3" href="$db/d0b/classmknix_1_1_simulation.html#a4b2297b6adf5b7c2f0c65bae5ea75f7f" title="mknix::Simulation::\ldynamicThermalEvaluation" alt="" coords="276,71,455,112"/>
-<area shape="rect" id="node4" href="$db/d0b/classmknix_1_1_simulation.html#abc0f23c897ee438c5cb5c889134ad436" title="mknix::Simulation::\ldynamicThermalResidue" alt="" coords="282,136,449,177"/>
-<area shape="rect" id="node5" href="$db/d0b/classmknix_1_1_simulation.html#afcf44a0289808f80bf6789a9671c9c55" title="mknix::Simulation::\ldynamicThermalTangent" alt="" coords="283,201,448,243"/>
-<area shape="rect" id="node6" href="$db/d0b/classmknix_1_1_simulation.html#ac54cb3aace5dd45148abc3a85766a107" title="mknix::Simulation::\ldynamicThermalConvergence" alt="" coords="268,267,463,308"/>
-<area shape="rect" id="node7" href="$db/d0b/classmknix_1_1_simulation.html#a9fd95351d7fe3ce2ba1991d6aae6a804" title="mknix::Simulation::\lstepTriggered" alt="" coords="298,332,433,373"/>
-<area shape="rect" id="node8" href="$db/d0b/classmknix_1_1_simulation.html#a5d4227d2d500003664587afadecb1081" title="mknix::Simulation::\lwriteConfStep" alt="" coords="511,332,645,373"/>
-</map>

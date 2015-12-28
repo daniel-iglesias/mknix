@@ -1,7 +1,0 @@
-<map id="mknix::GaussPoint::computeCij" name="mknix::GaussPoint::computeCij">
-<area shape="rect" id="node2" href="$d6/d4a/classmknix_1_1_material.html#a65d3c9fb96d96ba179c9e4c3c68b814b" title="mknix::Material::getDensity" alt="" coords="198,5,381,32"/>
-<area shape="rect" id="node3" href="$d6/d4a/classmknix_1_1_material.html#aacb94c35534ffe8a2d15d977ce630b44" title="mknix::Material::getCapacity" alt="" coords="195,56,384,83"/>
-<area shape="rect" id="node5" href="$d3/d19/classmknix_1_1_point.html#a7fcc933a13b61e990feaaaaef7c193f6" title="mknix::Point::getTemp" alt="" coords="212,107,367,133"/>
-<area shape="rect" id="node6" href="$dd/d8d/classmknix_1_1_shape_function.html#a13f35e2b1cfc89c26ee03ede4bfff586" title="mknix::ShapeFunction\l::getPhi" alt="" coords="432,129,584,170"/>
-<area shape="rect" id="node4" href="$d2/dde/namespacemknix.html#a3c53b5663b9039ec67691eea93bb7f54" title="mknix::interpolate1D" alt="" coords="437,56,579,83"/>
-</map>

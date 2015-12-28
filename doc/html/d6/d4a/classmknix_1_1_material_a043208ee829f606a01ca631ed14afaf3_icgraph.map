@@ -1,8 +1,0 @@
-<map id="mknix::Material::getD" name="mknix::Material::getD">
-<area shape="rect" id="node2" href="$df/d77/classmknix_1_1_gauss_point2_d.html#a42ca0ecb4a8d01315da3992b7a596250" title="mknix::GaussPoint2D\l::computeKij" alt="" coords="200,5,351,47"/>
-<area shape="rect" id="node4" href="$df/d77/classmknix_1_1_gauss_point2_d.html#a83cd389403d0293f1e634b40195db230" title="mknix::GaussPoint2D\l::computeStress" alt="" coords="200,71,351,112"/>
-<area shape="rect" id="node5" href="$d6/d47/classmknix_1_1_gauss_point3_d.html#ae9df1aabb0be56e262fa2de682443d03" title="mknix::GaussPoint3D\l::computeKij" alt="" coords="200,136,351,177"/>
-<area shape="rect" id="node7" href="$d6/d47/classmknix_1_1_gauss_point3_d.html#afa3d26578c0ab96f01ac2eb84d2b7172" title="mknix::GaussPoint3D\l::computeStress" alt="" coords="200,201,351,243"/>
-<area shape="rect" id="node3" href="$df/d77/classmknix_1_1_gauss_point2_d.html#a11a49bfbf496768d12d61f8c6de69a33" title="mknix::GaussPoint2D\l::computeFint" alt="" coords="399,5,549,47"/>
-<area shape="rect" id="node6" href="$d6/d47/classmknix_1_1_gauss_point3_d.html#a5a81d408afc7f05339c2ef2fe7aa374d" title="mknix::GaussPoint3D\l::computeFint" alt="" coords="399,136,549,177"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="mknix::Body::outputStep" name="mknix::Body::outputStep">
-<area shape="rect" id="node2" href="$db/d6e/classmknix_1_1_flex_frame_galerkin.html#ae3f612bf542ac40c5a3d531760f12edd" title="Postprocess and store step results for dynamic analysis. " alt="" coords="231,5,405,47"/>
-<area shape="rect" id="node3" href="$d6/d4a/classmknix_1_1_flex_global_galerkin.html#a031a130b73e3fe0fc862393f94d235cb" title="Postprocess and store step results for dynamic analysis. " alt="" coords="231,71,405,112"/>
-<area shape="rect" id="node4" href="$d0/d13/classmknix_1_1_rigid_body.html#a721e9f81cfba9a3d425df36f7cf5ef71" title="mknix::RigidBody::outputStep" alt="" coords="220,137,416,163"/>
-</map>

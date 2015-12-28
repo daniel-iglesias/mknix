@@ -1,8 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$db/dd4/classmknix_1_1_cell.html" title="mknix::Cell" alt="" coords="5,56,93,83"/>
-<area shape="rect" id="node2" href="$dd/d89/classmknix_1_1_cell_rect.html" title="mknix::CellRect" alt="" coords="162,5,278,32"/>
-<area shape="rect" id="node3" href="$d9/d39/classmknix_1_1_cell_tetrahedron.html" title="mknix::CellTetrahedron" alt="" coords="141,56,299,83"/>
-<area shape="rect" id="node5" href="$de/db4/classmknix_1_1_cell_triang.html" title="mknix::CellTriang" alt="" coords="158,107,282,133"/>
-<area shape="rect" id="node4" href="$dd/d4d/classmknix_1_1_elem_tetrahedron.html" title="mknix::ElemTetrahedron" alt="" coords="347,56,511,83"/>
-<area shape="rect" id="node6" href="$d8/d3f/classmknix_1_1_elem_triangle.html" title="mknix::ElemTriangle" alt="" coords="358,107,499,133"/>
-</map>

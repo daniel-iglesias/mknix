@@ -1,5 +1,0 @@
-<map id="mknix::GaussPoint2D::computeNLFint" name="mknix::GaussPoint2D::computeNLFint">
-<area shape="rect" id="node2" href="$dd/d8d/classmknix_1_1_shape_function.html#a13f35e2b1cfc89c26ee03ede4bfff586" title="mknix::ShapeFunction\l::getPhi" alt="" coords="431,16,583,57"/>
-<area shape="rect" id="node3" href="$d6/d4a/classmknix_1_1_material.html#ad7776950a550d384c1a00bd4c33bab2a" title="mknix::Material::computeS" alt="" coords="204,23,383,50"/>
-<area shape="rect" id="node4" href="$d3/d19/classmknix_1_1_point.html#a7fcc933a13b61e990feaaaaef7c193f6" title="mknix::Point::getTemp" alt="" coords="216,74,371,101"/>
-</map>

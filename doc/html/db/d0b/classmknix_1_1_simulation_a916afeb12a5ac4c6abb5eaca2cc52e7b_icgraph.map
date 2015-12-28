@@ -1,6 +1,0 @@
-<map id="mknix::Simulation::getTime" name="mknix::Simulation::getTime">
-<area shape="rect" id="node2" href="$d2/d5c/classmknix_1_1_load_thermal_body.html#a174097626bef1d662a7ee0c24cb62ac1" title="mknix::LoadThermalBody\l::getLoadThermalBody" alt="" coords="205,5,376,47"/>
-<area shape="rect" id="node4" href="$df/df4/classmknix_1_1_load_thermal_boundary1_d.html#a28be37a4ae82bde77b7dd048d36503f5" title="mknix::LoadThermalBoundary1\lD::getLoadThermalBoundary1D" alt="" coords="188,71,393,112"/>
-<area shape="rect" id="node3" href="$d2/da4/classmknix_1_1_gauss_point.html#a7e569626121f05e4bf0472f634267d3f" title="mknix::GaussPoint::\lcomputeQext" alt="" coords="465,5,606,47"/>
-<area shape="rect" id="node5" href="$d0/de2/classmknix_1_1_gauss_point_boundary.html#a404a6ee4731bab04ef54f6fc0a58986c" title="mknix::GaussPointBoundary\l::computeQext" alt="" coords="441,71,629,112"/>
-</map>

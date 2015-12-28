@@ -1,7 +1,0 @@
-<map id="mknix::System::calcExternalHeat" name="mknix::System::calcExternalHeat">
-<area shape="rect" id="node3" href="$db/d0b/classmknix_1_1_simulation.html#ae86305b2478ec8fdffe9f4866f9389e2" title="mknix::Simulation::\lstaticThermalResidue" alt="" coords="287,5,436,51"/>
-<area shape="rect" id="node7" href="$db/d0b/classmknix_1_1_simulation.html#a4b2297b6adf5b7c2f0c65bae5ea75f7f" title="mknix::Simulation::\ldynamicThermalEvaluation" alt="" coords="272,74,451,121"/>
-<area shape="rect" id="node11" href="$db/d0b/classmknix_1_1_simulation.html#abc0f23c897ee438c5cb5c889134ad436" title="mknix::Simulation::\ldynamicThermalResidue" alt="" coords="279,143,444,190"/>
-<area shape="rect" id="node5" href="$d4/d3e/classmknix_1_1_analysis_thermal_static.html#a340001a574c5c2ad92020c6bc8b99602" title="mknix::AnalysisThermalStatic\l::AnalysisThermalStatic" alt="" coords="509,5,704,51"/>
-<area shape="rect" id="node9" href="$d5/dd9/classmknix_1_1_analysis_thermal_dynamic.html#a161ebe1ed696232ed05ef778cdcabcb8" title="mknix::AnalysisThermalDynamic\l::AnalysisThermalDynamic" alt="" coords="500,109,713,155"/>
-</map>

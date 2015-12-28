@@ -1,6 +1,0 @@
-<map id="mknix::Node::getz" name="mknix::Node::getz">
-<area shape="rect" id="node3" href="$d6/dd9/classmknix_1_1_rigid_bar.html#ac47bc0c8fc15e799f67a76925b5919bf" title="mknix::RigidBar::RigidBar" alt="" coords="189,5,363,35"/>
-<area shape="rect" id="node5" href="$d9/d39/classmknix_1_1_cell_tetrahedron.html#aa462fd7b0dffd4896100e413e60b55d1" title="mknix::CellTetrahedron\l::CellTetrahedron" alt="" coords="197,58,355,105"/>
-<area shape="rect" id="node7" href="$d1/d90/classmknix_1_1_comp_bar.html#afdb8c9aeaa0ac6aec90075dad6e35c92" title="mknix::CompBar::CompBar" alt="" coords="185,128,367,157"/>
-<area shape="rect" id="node9" href="$d1/d90/classmknix_1_1_comp_bar.html#aadfecc285b6aecc94d45df348f1974b3" title="mknix::CompBar::actualize\lPoints" alt="" coords="187,181,365,227"/>
-</map>

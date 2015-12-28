@@ -1,7 +1,0 @@
-<map id="mknix::Analysis" name="mknix::Analysis">
-<area shape="rect" id="node2" href="$d4/d8c/classmknix_1_1_analysis_dynamic.html" title="mknix::AnalysisDynamic" alt="" coords="197,5,364,32"/>
-<area shape="rect" id="node3" href="$db/d8f/classmknix_1_1_analysis_static.html" title="mknix::AnalysisStatic" alt="" coords="206,56,355,83"/>
-<area shape="rect" id="node4" href="$d5/dd9/classmknix_1_1_analysis_thermal_dynamic.html" title="mknix::AnalysisThermalDynamic" alt="" coords="173,107,388,133"/>
-<area shape="rect" id="node5" href="$d4/d3e/classmknix_1_1_analysis_thermal_static.html" title="mknix::AnalysisThermalStatic" alt="" coords="183,157,379,184"/>
-<area shape="rect" id="node6" href="$da/df3/classmknix_1_1_analysis_thermo_mechanical_dynamic.html" title="mknix::AnalysisThermoMechanical\lDynamic" alt="" coords="168,209,393,250"/>
-</map>

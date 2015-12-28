@@ -1,5 +1,0 @@
-<map id="mknix::LoadThermalBody::getLoadThermalBody" name="mknix::LoadThermalBody::getLoadThermalBody">
-<area shape="rect" id="node2" href="$db/d0b/classmknix_1_1_simulation.html#a916afeb12a5ac4c6abb5eaca2cc52e7b" title="mknix::Simulation::\lgetTime" alt="" coords="228,5,363,47"/>
-<area shape="rect" id="node3" href="$d3/d19/classmknix_1_1_point.html#a2942110ac86c21e11986081670bb3a82" title="mknix::Point::getX" alt="" coords="230,71,361,98"/>
-<area shape="rect" id="node4" href="$d2/dde/namespacemknix.html#a3c53b5663b9039ec67691eea93bb7f54" title="mknix::interpolate1D" alt="" coords="224,122,367,149"/>
-</map>

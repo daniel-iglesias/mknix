@@ -1,8 +1,0 @@
-<map id="mknix::Point::getNumber" name="mknix::Point::getNumber">
-<area shape="rect" id="node2" href="$dd/d8d/classmknix_1_1_flex_body.html#a504be54b6f3009687ed85d17d5ade510" title="mknix::FlexBody::writeBodyInfo" alt="" coords="220,5,428,32"/>
-<area shape="rect" id="node3" href="$df/d77/classmknix_1_1_gauss_point2_d.html#ab345c399a5a0e1f22b036a75c9049e4d" title="mknix::GaussPoint2D\l::calcPotentialE" alt="" coords="249,57,399,98"/>
-<area shape="rect" id="node4" href="$df/d77/classmknix_1_1_gauss_point2_d.html#a75d64f3a689bb38054a3c4f9726cccc3" title="mknix::GaussPoint2D\l::calcKineticE" alt="" coords="249,122,399,163"/>
-<area shape="rect" id="node5" href="$d6/d47/classmknix_1_1_gauss_point3_d.html#aedda1028e8eae297cb2b0a8dcd72b0f8" title="mknix::GaussPoint3D\l::calcPotentialE" alt="" coords="249,187,399,229"/>
-<area shape="rect" id="node6" href="$d6/d47/classmknix_1_1_gauss_point3_d.html#a9787d14c30b6cb5558cf16ac620a0524" title="mknix::GaussPoint3D\l::calcKineticE" alt="" coords="249,253,399,294"/>
-<area shape="rect" id="node7" href="$d3/d25/classmknix_1_1_node.html#a209f5158efc66c282da2be880535c392" title="mknix::Node::getSupportNode\lNumber" alt="" coords="225,318,423,359"/>
-</map>

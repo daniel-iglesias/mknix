@@ -1,5 +1,0 @@
-<map id="mknix::GaussPoint2D::computeNLStress" name="mknix::GaussPoint2D::computeNLStress">
-<area shape="rect" id="node2" href="$db/d0b/classmknix_1_1_simulation.html#a49263e8630678644836bbba466e6ab4b" title="mknix::Simulation::\lgetSmoothingType" alt="" coords="228,5,363,47"/>
-<area shape="rect" id="node3" href="$dd/d8d/classmknix_1_1_shape_function.html#a13f35e2b1cfc89c26ee03ede4bfff586" title="mknix::ShapeFunction\l::getPhi" alt="" coords="219,71,371,112"/>
-<area shape="rect" id="node4" href="$d6/d4a/classmknix_1_1_material.html#a65d3c9fb96d96ba179c9e4c3c68b814b" title="mknix::Material::getDensity" alt="" coords="204,137,387,163"/>
-</map>

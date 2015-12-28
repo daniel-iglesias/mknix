@@ -1,9 +1,0 @@
-<map id="mknix::AnalysisDynamic::AnalysisDynamic" name="mknix::AnalysisDynamic::AnalysisDynamic">
-<area shape="rect" id="node2" href="$db/d0b/classmknix_1_1_simulation.html#ace4ce2a959690e14c443b3c6e83c2690" title="mknix::Simulation::\ldynamicAcceleration" alt="" coords="223,5,365,47"/>
-<area shape="rect" id="node4" href="$db/d0b/classmknix_1_1_simulation.html#ae78bef0d5f80665be4a0c2d926e99973" title="mknix::Simulation::\ldynamicResidue" alt="" coords="227,71,361,112"/>
-<area shape="rect" id="node5" href="$db/d0b/classmknix_1_1_simulation.html#a226a281591cb1b0bac253a3dcce19e5b" title="mknix::Simulation::\ldynamicTangent" alt="" coords="227,136,361,177"/>
-<area shape="rect" id="node6" href="$db/d0b/classmknix_1_1_simulation.html#a0bb5d6c4c6eccc35e892b710af40616f" title="mknix::Simulation::\ldynamicConvergence" alt="" coords="220,201,368,243"/>
-<area shape="rect" id="node7" href="$db/d0b/classmknix_1_1_simulation.html#a9fd95351d7fe3ce2ba1991d6aae6a804" title="mknix::Simulation::\lstepTriggered" alt="" coords="227,267,361,308"/>
-<area shape="rect" id="node3" href="$db/d0b/classmknix_1_1_simulation.html#adda4efbeb29fecf80bcd8552703bfed4" title="mknix::Simulation::\lgetDim" alt="" coords="416,39,551,80"/>
-<area shape="rect" id="node8" href="$db/d0b/classmknix_1_1_simulation.html#a5d4227d2d500003664587afadecb1081" title="mknix::Simulation::\lwriteConfStep" alt="" coords="416,267,551,308"/>
-</map>
