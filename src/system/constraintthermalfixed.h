@@ -42,14 +42,6 @@ public:
 
     void calcPhiqq( ) ;
 
-    lmx::Vector<data_type>& getInternalForces( ) {
-        return this->internalForces;
-    }
-
-    lmx::DenseMatrix<data_type>& getStiffnessMatrix( ) {
-        return this->stiffnessMatrix;
-    }
-
 protected:
     double To;
     double Tt;

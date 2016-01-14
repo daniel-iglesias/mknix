@@ -21,6 +21,7 @@
 #include "analysisdynamic.h"
 
 #include <system/system.h>
+#include <system/constraintthermal.h>
 #include <core/node.h>
 #include <reader/reader.h>
 #include <system/generalcontact.h>
@@ -78,6 +79,16 @@ void Simulation::inputFromFile(const std::string& FileIn)
     reader->inputFromFile(FileIn);
 }
 
+int Simulation::getInterfaceNumberOfNodes(string name)
+{
+    return baseSystem->getSystem(name)->getNumberOfNodes();
+}
+
+
+Node* Simulation::getInterfaceNode(std::string name, int num ){
+    return baseSystem->getSystem(name)->getNode(num);
+}
+
 std::vector<double> Simulation::getInterfaceNodesCoords()
 {
     // Loads have access to the nodes, and are part of the system.
@@ -85,6 +96,11 @@ std::vector<double> Simulation::getInterfaceNodesCoords()
     baseSystem->getThermalNodes(temp_x_coordinates);
 
     return temp_x_coordinates;
+}
+
+double Simulation::getConstraintOutput( std::string constraintName, std::string systemName, int component)
+{
+    return -( baseSystem->getSystem(systemName)->getConstraintThermal(constraintName)->getInternalForces().readElement(component) );
 }
 
 

@@ -22,6 +22,15 @@
 
 #include <map>
 #include <memory>
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
+#include <sstream>
+#include <iterator>
+#include <algorithm>
+
+using namespace std;
 
 namespace mknix {
 
@@ -37,6 +46,21 @@ std::unique_ptr<T> make_unique(Args&& ... args)
 {
     return std::unique_ptr<T>(new T{ std::forward<Args>(args)... });
 };
+
+class boxFIR
+{
+    int numCoeffs; //MUST be > 0
+    vector<double> b; //Filter coefficients
+    vector<double> m; //Filter memories
+    
+public:
+    boxFIR(int);
+    void filter(vector<double> &);
+};
+
+std::vector<double> doubles_in_vector( const std::string& );
+
+std::vector< std::vector<double> > read_lines( std::istream& );
 
 }
 

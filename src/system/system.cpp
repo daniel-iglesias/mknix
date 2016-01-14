@@ -76,7 +76,7 @@ System::~System()
     }
 }
 
-// BUG: Specific for tiles subsystem. That can change in input
+// FIXME: Specific for tiles subsystem. That can change in input
 void System::getThermalNodes(std::vector<double>& x_coordinates)
 {
     for (auto& load : subSystems["tiles"]->loadsThermal) {

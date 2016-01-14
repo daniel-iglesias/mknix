@@ -131,7 +131,7 @@ public:
 
     void setqt( const lmx::Vector<data_type>& globalConf );
 
-    void setqt( double& temp_in ){
+    void setqt( double temp_in ){
       qt = temp_in;
     }
 //     inline void setx(double x_in) {

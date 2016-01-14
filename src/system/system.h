@@ -63,10 +63,17 @@ public:
         return this->title;
     }
 
-    virtual Node* getNode( int index)
-    {
-        return groundNodes[index];
-    }
+    int getNumberOfNodes()
+    { return groundNodes.size(); }
+    
+    Node* getNode( int index)
+    { return groundNodes[index]; }
+    
+    System* getSystem( std::string sysName )
+    { return subSystems.at(sysName); }
+    
+    ConstraintThermal* getConstraintThermal( std::string constraintName )
+    { return constraintsThermal.at(constraintName); }
     
     void getThermalNodes( std::vector<double>& );
 

@@ -71,8 +71,12 @@ public:
 
 //     void geometryFile(char*);
 //     void outputFile(char*);
+    int getInterfaceNumberOfNodes( std::string );
+    Node* getInterfaceNode( std::string, int );
+    double getConstraintOutput( std::string constraintName, std::string systemName="", int component=0 );
+    
     std::vector<double> getInterfaceNodesCoords();
-
+    
     void setOutputFilesDetail(int level_in) // 0 none, 1 only times, 2 all
     { outputFilesDetail = level_in; }
 

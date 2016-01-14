@@ -42,6 +42,14 @@ public:
     void setTitle( std::string& title_in )
     { title = title_in; }
   
+    lmx::Vector<data_type>& getInternalForces( ) {
+        return this->internalForces;
+    }
+    
+    lmx::DenseMatrix<data_type>& getStiffnessMatrix( ) {
+        return this->stiffnessMatrix;
+    }
+
     virtual void writeJointInfo( std::ofstream* );
 
     virtual void calcPhi( ) = 0 ;
