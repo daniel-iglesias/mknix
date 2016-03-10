@@ -30,6 +30,7 @@ Constraint::Constraint()
 
 Constraint::Constraint(double& alpha_in, std::string& method_in)
         : dim(Simulation::getDim())
+        , iter_augmented(0)
         , alpha(alpha_in)
         , method(method_in)
         , title()
@@ -38,6 +39,7 @@ Constraint::Constraint(double& alpha_in, std::string& method_in)
 
 Constraint::Constraint(double& alpha_in, std::string& method_in, int dim_in)
         : dim(dim_in)
+        , iter_augmented(0)
         , alpha(alpha_in)
         , method(method_in)
         , title()
@@ -66,7 +68,7 @@ void Constraint::writeJointInfo(std::ofstream * outfile)
 
 void Constraint::calcInternalForces()
 {
-    internalForces.fillIdentity(0.);
+    internalForces.reset();
     calcPhi();
     calcPhiq();
 
@@ -79,7 +81,7 @@ void Constraint::calcInternalForces()
 
 void Constraint::calcTangentMatrix()
 {
-    stiffnessMatrix.fillIdentity(0.);
+    stiffnessMatrix.reset();
     calcPhiqq();
 
     unsigned int i, j, k;
@@ -169,25 +171,29 @@ void Constraint::assembleTangentMatrix
 
 bool Constraint::checkAugmented()
 {
-    if (method == "AUGMENTED") {
-        double energy(0);
-        for (auto i = 0u; i < phi.size(); ++i) {
-            energy += phi[i] * phi[i];
+     if (method == "AUGMENTED") {
+//         double energy(0);
+         double delta(0);
+         for (auto i = 0u; i < phi.size(); ++i) {
+            delta += std::abs(phi[i]);
+//             energy += phi[i] * phi[i];
+//             cout << endl << "Phi: " << phi[0] << "\t\t\t\t";
         }
-        energy *= 0.5 * alpha;
-        if (energy <= 10E-1) {
-            cout << endl << "Energy: " << energy << "\t\t\t\t";
+//         energy *= 0.5 * alpha;
+//         if (energy <= 2E5) {
+        if (delta <= 5) {
+//             cout << endl << "Energy: " << energy << "\t\t\t\t";
             return 1;
         }
         else {
-            cout << endl << "energy: " << energy << "\t\t\t\t";
+//             cout << endl << "energy: " << energy << "\t\t\t\t";
             for (auto i = 0u; i < phi.size(); ++i) {
                 lambda[i] += alpha * phi[i];
             }
             return 0;
         }
-    }
-    else { return 1; }
+     }
+     else { return 1; }
 }
 
 }

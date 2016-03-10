@@ -51,7 +51,7 @@ public:
                         lmx::Vector<data_type> * = 0
                       ) = 0;
     
-    virtual void init(lmx::Vector< data_type > *){} // specialised in AnalysisThermalDynamic
+    virtual void init(lmx::Vector< data_type > *, int){} // specialised in AnalysisThermalDynamic
     virtual void nextStep(){} // specialised in AnalysisThermalDynamic
 
 protected:

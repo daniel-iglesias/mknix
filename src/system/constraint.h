@@ -82,7 +82,7 @@ public:
     void outputToFile( std::ofstream* );
 
 protected:
-    int dim;
+    int dim, iter_augmented;
     double alpha;
     std::string method;
     std::string title;

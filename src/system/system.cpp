@@ -543,11 +543,19 @@ bool mknix::System::checkAugmented()
     bool convergence = 1;
 
     for (auto& constraint : constraints) {
+//         bool convergence = 1;
         if (!constraint.second->checkAugmented()) {
             convergence = 0;
         }
     }
 
+    for (auto& constraintThermal : constraintsThermal) {
+//         bool convergence = 1;
+        if (!constraintThermal.second->checkAugmented()) {
+            convergence = 0;
+        }
+    }
+    
     for (auto& system : subSystems) {
         if (!system.second->checkAugmented()) {
             convergence = 0;
@@ -560,6 +568,9 @@ bool mknix::System::checkAugmented()
 void mknix::System::clearAugmented()
 {
     for (auto& constraint : constraints) {
+        constraint.second->clearAugmented();
+    }
+    for (auto& constraint : constraintsThermal) {
         constraint.second->clearAugmented();
     }
     for (auto& system : subSystems) {

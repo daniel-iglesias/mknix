@@ -68,7 +68,9 @@ public:
             , theNLSolver(0)
             , theSystem(0)
             , p_delta_q(0)
-            , b_steptriggered(0) { }
+            , b_steptriggered(0)
+            , vervosity(2)
+            { }
 
     /** Destructor. */
     virtual ~DiffProblem()
@@ -108,6 +110,10 @@ public:
         if (theIntegrator) return this->theIntegrator->isExplicit();
         return false;
     }
+    
+    void setVervosity(int level){
+        vervosity = level;
+    }
 
     /**
      * Solve method to be implemented in derived classes.
@@ -141,6 +147,7 @@ protected:
     double epsilon; ///< Value for L2 convergence.
     std::map<int, std::ofstream *> fileOutMap; ///< collection of output streams for each diff-order requested.
     void (Sys::* stepTriggered)(); ///< function called at the end of each time step
+    int vervosity;
 };
 
 
@@ -229,7 +236,7 @@ void DiffProblem<Sys, T>::setInitialConfiguration(lmx::Vector<T>& q_o)
     }
 
     theConfiguration->setInitialCondition(0, q_o);
-
+    if (vervosity == 0) theConfiguration->quiet();
 }
 
 /**
@@ -246,7 +253,7 @@ void DiffProblem<Sys, T>::setInitialConfiguration(lmx::Vector<T>& q_o, lmx::Vect
 
     theConfiguration->setInitialCondition(0, q_o);
     theConfiguration->setInitialCondition(1, qdot_o);
-
+    if (vervosity == 0) theConfiguration->quiet();
 }
 
 

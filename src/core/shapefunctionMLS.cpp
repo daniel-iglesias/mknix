@@ -396,8 +396,8 @@ void ShapeFunctionMLS::computePhi(double xp, double yp, double zp)
     for(int i=0; i<nn ; ++i) {
         sumphi += this->phi(0,i);
     }
-    cout << "nPs: " << nn << ", SUM_PHI = " << sumphi << endl;
-    cout << "PHI = " << phi << endl;
+//     cout << "nPs: " << nn << ", SUM_PHI = " << sumphi << endl;
+//     cout << "PHI = " << phi << endl;
 
 //  this->outputValues();
 //  this->gnuplotOut();

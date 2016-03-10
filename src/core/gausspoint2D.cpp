@@ -254,7 +254,7 @@ void GaussPoint2D::computeNLStress()
 
 void GaussPoint2D::computeFint()
 {
-    fint.fillIdentity(0.);
+    fint.reset();
     computeKij();
     lmx::Vector<data_type> disp(2 * supportNodesSize);
     for (auto a = 0u; a < supportNodesSize; ++a) {
@@ -271,7 +271,7 @@ void GaussPoint2D::computeFint()
 void GaussPoint2D::computeFext()
 {
     // Mass matrix must be computed previously
-    fext.fillIdentity(0.);
+    fext.reset();
     lmx::Vector<data_type> gravity(2 * supportNodesSize);
     for (auto a = 0u; a < supportNodesSize; ++a) {
         for (auto j = 0u; j < 2; ++j) {
@@ -297,7 +297,7 @@ void GaussPoint2D::computeNLFint()
     }
     mat->computeS(S2, F2, this->getTemp());
     P2.beProductOf(F2, S2);
-    fint.fillIdentity(0.);
+    fint.reset();
     for (auto a = 0u; a < supportNodesSize; ++a) {
         for (auto j = 0u; j < 2; ++j) {
             for (auto k = 0u; k < 2; ++k) { //dot product

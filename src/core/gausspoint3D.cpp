@@ -268,7 +268,7 @@ void GaussPoint3D::computeNLStress()
 
 void GaussPoint3D::computeFint()
 {
-    fint.fillIdentity(0.);
+    fint.reset();
     computeKij();
     lmx::Vector<data_type> disp(3 * supportNodesSize);
     for (auto a = 0u; a < supportNodesSize; ++a) {
@@ -285,7 +285,7 @@ void GaussPoint3D::computeFint()
 void GaussPoint3D::computeFext()
 {
     // Mass matrix must be computed previously
-    fext.fillIdentity(0.);
+    fext.reset();
     lmx::Vector<data_type> gravity(3 * supportNodesSize);
     for (auto a = 0u; a < supportNodesSize; ++a) {
         for (auto j = 0u; j < 3; ++j) {
@@ -311,7 +311,7 @@ void GaussPoint3D::computeNLFint()
     }
     mat->computeS(S3, F3);
     P3.beProductOf(F3, S3);
-    fint.fillIdentity(0.);
+    fint.reset();
     for (auto a = 0u; a < supportNodesSize; ++a) {
         for (auto j = 0u; j < 3; ++j) {
             for (auto k = 0u; k < 3; ++k) { //dot product

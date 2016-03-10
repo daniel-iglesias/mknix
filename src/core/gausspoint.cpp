@@ -95,23 +95,33 @@ void GaussPoint::shapeFunSolve(std::string type_in, double q_in)
 
 void GaussPoint::computeCij()
 {
+    // TODO: not sure why it's needed to be done here too, but for the moment is required for positive validation
+    avgTemp = 0;
+    for (auto i = 0u; i < supportNodesSize; ++i) {
+        avgTemp += supportNodes[i]->getTemp() * shapeFun->getPhi(0, i);
+    }
+    double avgFactor = mat->getDensity() * mat->getCapacity(avgTemp) * weight * std::abs(jacobian);
     //////////////// Calculation of Capacity matrix:
     //////////////// M = rho * Cp * wg * N^T * N * |Jc|
     //////////////// Mij = rho * Cp * wg * Ni * Nj * |Jc| = M(i ,j)
+    int j;
 //   cout << mat->getDensity() << " " << mat->getCapacity() << " = density, capacity" << endl;
-//     C.fillIdentity(0.);
+//     C.reset();
     for (auto i = 0u; i < supportNodesSize; ++i) {
-//         for (j=0; j<supportNodesSize; ++j) {
-//             C.writeElement( mat->getDensity() * mat->getCapacity() * weight * shapeFun->getPhi(0,i)
-//                             * shapeFun->getPhi(0,j) * std::abs(jacobian), i, j );	
+        for (j=0; j<supportNodesSize; ++j) {
+            C.writeElement( avgFactor * shapeFun->getPhi(0,i) * shapeFun->getPhi(0,j), i, j );
+        }
+/////////////////////////////////
+// Do not use Lumped in ALICIA //
+/////////////////////////////////
 // Lumped matrix:
 //          C.addElement( mat->getDensity() * mat->getCapacity() * weight * shapeFun->getPhi(0,i)
 //                             * shapeFun->getPhi(0,j) * std::abs(jacobian), i, i );	
 //         }
 // Faster lumped matrix:
-        C.writeElement(
-                mat->getDensity() * mat->getCapacity(supportNodes[i]->getTemp()) * weight * shapeFun->getPhi(0, i)
-                * std::abs(jacobian), i, i);
+//         C.writeElement(
+//                 mat->getDensity() * mat->getCapacity(supportNodes[i]->getTemp()) * weight * shapeFun->getPhi(0, i)
+//                 * std::abs(jacobian), i, i);
 // 	  cout << i << "," << j << " = "
 // 	       << mat->getDensity() << "*" 
 // 	       << mat->getCapacity() << "*" 
@@ -127,12 +137,13 @@ void GaussPoint::computeCij()
 
 void GaussPoint::computeHij()
 {
-    double avgTemp = 0;
     int max_deriv_index = dim + 1;
-    H.fillIdentity(0.);
+    H.reset();
+    avgTemp = 0;
     for (auto i = 0u; i < supportNodesSize; ++i) {
         avgTemp += supportNodes[i]->getTemp() * shapeFun->getPhi(0, i);
     }
+    double avgFactor = mat->getKappa(avgTemp) * weight * std::abs(jacobian);
     // Hij = wg * grad(N_j) * kappa * grad(N_I) * |Jc|
     for (auto i = 0u; i < supportNodesSize; ++i) {
         for (auto j = 0u; j < supportNodesSize; ++j) {
@@ -146,12 +157,12 @@ void GaussPoint::computeHij()
             for (auto m = 1; m < max_deriv_index; ++m) {
 //         for ( n=1; n<max_deriv_index; ++n ){
                 //           K(2*i + m, 2*j + n) = Kij(m,n);
-                H.addElement(weight * (shapeFun->getPhi(m, i)
+                H.addElement( (shapeFun->getPhi(m, i)
                                        // 					 * mat->getKappa(supportNodes[i]->getTemp())
                                        // 					 + .5*mat->getKappa(supportNodes[j]->getTemp())/*.readElement(m,n)*/
-                                       * mat->getKappa(avgTemp) /*.readElement(m,n)*/
+//                                        * mat->getKappa(avgTemp) /*.readElement(m,n)*/
                                        // 					 * 0.5*( mat->getKappa(supportNodes[i]->getTemp()) + mat->getKappa(supportNodes[j]->getTemp()) )/*.readElement(m,n)*/
-                                       * shapeFun->getPhi(m, j)) * std::abs(jacobian),
+                                * shapeFun->getPhi(m, j)) * avgFactor,
                              i,
                              j);
 // 	  cout << i << "," << j << " = "

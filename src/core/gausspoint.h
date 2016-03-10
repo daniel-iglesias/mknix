@@ -112,6 +112,7 @@ protected:
     double weight;
     Material* mat;
     bool stressPoint;
+    double avgTemp;
 
     lmx::DenseMatrix<data_type> B;
     lmx::DenseMatrix<data_type> C;

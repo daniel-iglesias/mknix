@@ -40,7 +40,7 @@ public:
         return std::string("THERMAL");
     }
 
-    void init(lmx::Vector< data_type > *);
+    void init(lmx::Vector< data_type > *, int);
     void nextStep();
     void solve( lmx::Vector<data_type> *, lmx::Vector< data_type >*, lmx::Vector<data_type> * );
 

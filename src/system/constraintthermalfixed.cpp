@@ -42,7 +42,7 @@ ConstraintThermalFixed::ConstraintThermalFixed( Node* a_in, Node* b_in, double& 
 //   cout << "node B: " << nodes[1]->getNumber() << endl;
 //   cout << "node B support size: " << b_in->getSupportSize(0) << endl;
 
-    To = nodes[1]->getTemp() - nodes[0]->getTemp() ;
+    Tt = nodes[1]->getTemp() - nodes[0]->getTemp() ;
 
     this->stiffnessMatrix.resize(total_support_nodes*dim,total_support_nodes*dim);
     this->internalForces.resize(total_support_nodes*dim);
@@ -66,9 +66,9 @@ ConstraintThermalFixed::~ConstraintThermalFixed()
 
 void ConstraintThermalFixed::calcPhi()
 {
-    Tt = nodes[1]->getTemp() - nodes[0]->getTemp() ;
+    Tt = nodes[1]->getTemp() ;
 
-    this->phi[0] = Tt - To ;
+    this->phi[0] = Tt - nodes[0]->getTemp() ;
 
 //  cout << endl << "Tt = " << nodes[1]->getTemp() << " - " << nodes[0]->getTemp()<< " = " << Tt << endl;
 //  cout << endl << "Phi in fixedcoordinates = " << phi[0] << endl;
@@ -84,19 +84,49 @@ void ConstraintThermalFixed::calcPhiq()
         this->phi_q[0](i+j) = nodes[1]->getShapeFunValue(0,j);
     }
 //  this->phi_q[0](0) = -1.0;
-//  this->phi_q[0](dim) = +1.0;
+//  this->phi_q[0](1) =  1.0;
 //
-//  this->phi_q[1](1) = -1.0;
-//  this->phi_q[1](dim+1) = +1.0;
-//
-//  if (dim == 3){
-//    this->phi_q[2](2) = -1.0;
-//    this->phi_q[2](dim+2) = +1.0;
-//  }
 }
 
 void ConstraintThermalFixed::calcPhiqq()
 {
 }
 
+bool ConstraintThermalFixed::checkAugmented()
+{// TODO: Define as parameters in the input file: Aug-stage T limit (Tt), max_iter_augmented and delta_T for stage1, and delta_T for stage2.
+    if (method == "AUGMENTED") {
+//         if(Tt>300){
+        //         double energy(0);
+        double delta(0);
+        for (auto i = 0u; i < phi.size(); ++i) {
+            delta += std::abs(phi[i]);
+            //             energy += phi[i] * phi[i];
+            //             cout << endl << "Phi: " << phi[0] << "\t\t\t\t";
+        }
+        //         energy *= 0.5 * alpha;
+        //         if (energy <= 2E5) {
+        if ( (delta <= 10) && (Tt>=300) ) {
+            iter_augmented=0;
+            return 1;
+        }
+        if ( ( (iter_augmented == 2) || (delta <= 20) ) && (Tt<300) ) {
+            iter_augmented=0;
+            return 1;
+        }
+        else {
+            //             cout << endl << "energy: " << energy << "\t\t\t\t";
+            for (auto i = 0u; i < phi.size(); ++i) {
+                lambda[i] += alpha * phi[i];
+            }
+            ++iter_augmented;
+            return 0;
+        }
+    }
+    else {
+        iter_augmented=0;
+        return 1; 
+    }
 }
+
+}
+

@@ -42,8 +42,9 @@ public:
 
     void calcPhiqq( ) ;
 
+    bool checkAugmented();
+    
 protected:
-    double To;
     double Tt;
 
 };

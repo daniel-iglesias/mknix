@@ -80,7 +80,7 @@ public:
     void setOutputFilesDetail(int level_in) // 0 none, 1 only times, 2 all
     { outputFilesDetail = level_in; }
 
-    void init();
+    void init(int vervosity=2);
 
     void setInitialTemperatures(double);
 
@@ -281,7 +281,7 @@ private:
     static double epsilon;
     static std::string smoothingType;
 
-    lmx::Vector<data_type> initThermalSimulation(Analysis * analysis, bool init = true);
+    lmx::Vector<data_type> initThermalSimulation(Analysis * analysis, int, bool init = true);
     lmx::Vector<data_type> initMechanicalSimulation(Analysis * analysis, bool init = true);
 };
 

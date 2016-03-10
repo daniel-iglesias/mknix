@@ -289,6 +289,7 @@ template <typename Sys, typename T>
                               this->theConfiguration->setConf(1),
                               this->theConfiguration->getTime( )
                             );
+    if(this->vervosity<2) theNLSolver.setInfo(0);
     theNLSolver.setInitialConfiguration( this->theConfiguration->getConf(0) );
     theNLSolver.setDeltaInResidue(  );
     theNLSolver.setSystem( *this );
@@ -349,7 +350,7 @@ template <typename Sys, typename T>
 {
   this->theConfiguration->nextStep( this->stepSize );
   this->theIntegrator->advance( );
-  theNLSolver.solve( 100 );
+  theNLSolver.solve( 10000 );
   if(this->b_steptriggered) (this->theSystem->*stepTriggered)( );
   this->writeStepFiles();
 }

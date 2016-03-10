@@ -136,9 +136,9 @@ public:
       * \param matrix_in_1 pointer to an object that belongs to a class derived from Data.
       * \param matrix_in_2 pointer to an object that belongs to a class derived from Data. */
   void multiply(const Data<T>* matrix_in_1, const Data<T>* matrix_in_2)
-  {/* gmm::mult(static_cast<const Type_gmm_sparse*>(matrix_in_1)->contents,
+  { gmm::mult(static_cast<const Type_gmm_sparse*>(matrix_in_1)->contents,
               static_cast<const  Type_gmm_sparse*>(matrix_in_2)->contents,
-              contents);*/
+              contents);
   }
    
     /** Multiply scalar method.
@@ -220,8 +220,9 @@ public:
 
    /**
     * Clear method.
-    * Wipes all data.
+    * Wipes all data. 
     */
+   //TODO: Eliminate all information and size
    void clear()
    {
      gmm::clear(contents); /**< Matrix data contents. */
@@ -230,11 +231,11 @@ public:
 	//begin JCGO 18/03/09
    /**
     * Reset method.
-    * Wipes all data.
+    * Resets all elements to 0.
     */
    void reset()
    {
-   	gmm::clean(contents,0.0);
+   	gmm::clear(contents);
    }
    //end JCGO
 
