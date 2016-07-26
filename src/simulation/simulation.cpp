@@ -318,7 +318,7 @@ void Simulation::run()
 
 void Simulation::runThermalAnalysis(Analysis * theAnalysis_in)
 {
-    auto q = initThermalSimulation(theAnalysis_in, false);
+    auto q = initThermalSimulation(theAnalysis_in, 2, false);
 
     if (theAnalysis->type() == "THERMAL") {
         theAnalysis->solve(&q);

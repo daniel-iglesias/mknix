@@ -138,6 +138,16 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                     << meshfreeFormulation
                     << std::endl;
                 }
+                else if (keyword == "LAYER") { // Needs to be called after TRIANGLES or TETRAHEDRONS
+                    int newMaterial, counter(0);
+                    double thickness;
+                    *input >> newMaterial >> thickness;
+                    *output << "Layer: Material = " << newMaterial << '\t Thickness = ' << thickness << endl;
+                    for(auto& p_cell : system_in->flexBodies[flexTitle]->getCells() ){
+                        counter += p_cell.second->setMaterialIfLayer(theSimulation->materials[newMaterial], thickness);
+                    }
+                    *output << '\t' << "Number of cells changed: " << counter << endl;                        
+                }
                 else if (keyword == "BOUNDARYGROUP") {
                     std::string boundaryFormulation;
                     std::string boundaryName;
@@ -717,7 +727,6 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                         }
                     }
                 }
-
                 else if (keyword == "MESH") {
                     cout << "bodyType " << bodyType << endl;
                     char a;
@@ -736,10 +745,7 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                     *output << "Material: " << material << endl;
                     *output << "Number of GPs per cell: " << nGPs << endl;
                     *output << "Influence domain factor (alpha): " << alpha << endl;
-                    do {
-                        input->get(a);
-                    }
-                    while (a != '\n');
+                    do { input->get(a); } while (a != '\n');
                     *input >> keyword;
                     if (keyword == "TRIANGLES") {
                         *input >> keyword;

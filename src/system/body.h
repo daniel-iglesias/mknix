@@ -180,6 +180,11 @@ public:
         this->boundaryGroups[boundaryName_in]->setLoadThermal(load_in);
     }
 
+    std::map<int, Cell *>& getCells()
+    {
+        return this->cells;
+    }
+    
     int getCellLastNumber()
     {
         return this->cells.end()->first;

@@ -59,6 +59,8 @@ public:
     Cell( Material&, std::string, double, int );
 
     virtual ~Cell();
+    
+    bool setMaterialIfLayer( Material&, double );
 
     virtual void initialize( std::vector<Node*> & );
 

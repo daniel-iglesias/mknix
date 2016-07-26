@@ -38,6 +38,33 @@ Cell::~Cell()
     */
 }
 
+bool Cell::setMaterialIfLayer(Material& newMat, double thickness)
+{
+    bool changed(0);
+    // First we check if the minimum distance between nodes is less than the thickness
+    //   This assumes that the layer is composed by the smallest elements of the mesh.
+    for (auto& point1 : bodyPoints){
+        for (auto& point2 : bodyPoints){
+            if(point1 != point2){ // Avoid comparing a point with itself
+//                 cout << point1->distance(*point2) << endl;
+                if (point1->distance(*point2) < thickness){
+                    
+                    // Given the case, we iterate in the gPoints to change the Material
+                    for (auto& gPoint : gPoints) {
+                        gPoint->setMaterial( newMat );
+                    }
+                    for (auto& gPoint : gPoints_MC) {
+                        gPoint->setMaterial( newMat );
+                    }
+                    changed=1;
+                }
+            }
+        }
+    }
+    return changed;
+}
+
+
 // Only for Meshfree Cells, function is specialized for FEM elements
 void Cell::initialize(std::vector<Node *>& nodes_in)
 {
