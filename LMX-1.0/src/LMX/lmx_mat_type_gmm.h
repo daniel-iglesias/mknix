@@ -228,7 +228,7 @@ public:
     */
    void reset()
    {
-   	gmm::clean(contents,0.0);
+   	gmm::clear(contents);
    }
    //end JCGO
 
