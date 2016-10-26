@@ -118,18 +118,18 @@ void GaussPoint::computeCij()
 /////////////////////////////////
 // Lumped matrix:
 //          C.addElement( mat->getDensity() * mat->getCapacity() * weight * shapeFun->getPhi(0,i)
-//                             * shapeFun->getPhi(0,j) * std::abs(jacobian), i, i );	
+//                             * shapeFun->getPhi(0,j) * std::abs(jacobian), i, i );
 //         }
 // Faster lumped matrix:
 //         C.writeElement(
 //                 mat->getDensity() * mat->getCapacity(supportNodes[i]->getTemp()) * weight * shapeFun->getPhi(0, i)
 //                 * std::abs(jacobian), i, i);
 // 	  cout << i << "," << j << " = "
-// 	       << mat->getDensity() << "*" 
-// 	       << mat->getCapacity() << "*" 
-// 	       << weight  << "*" 
-// 	       << shapeFun->getPhi(0,i) << "*" 
-// 	       << shapeFun->getPhi(0,j)  << "*" 
+// 	       << mat->getDensity() << "*"
+// 	       << mat->getCapacity() << "*"
+// 	       << weight  << "*"
+// 	       << shapeFun->getPhi(0,i) << "*"
+// 	       << shapeFun->getPhi(0,j)  << "*"
 // 	       << std::abs(jacobian)  << " = "
 // 	       << C.readElement(i,j) << endl;
     }
@@ -146,12 +146,12 @@ void GaussPoint::computeHij()
         avgTemp += supportNodes[i]->getTemp() * shapeFun->getPhi(0, i);
     }
     double avgFactor = mat->getKappa(avgTemp) * weight * std::abs(jacobian);
-      // BUG: 
+      // BUG:
       // This is a test for adding lower conductivity layer for y > -1E-5 (MAST-U CFC tiles)
       // if (this->Y > -142E-6) {avgFactor*=0.08;}
       // if (this->Y > -0.7E-5) {avgFactor*=0.005;}
       // This is a test for adding W higher conductivity layer for y > -1E-5 (Tile 6)
-      // 
+      //
     // Hij = wg * grad(N_j) * kappa * grad(N_I) * |Jc|
     for (auto i = 0u; i < supportNodesSize; ++i) {
         for (auto j = 0u; j < supportNodesSize; ++j) {
@@ -174,11 +174,11 @@ void GaussPoint::computeHij()
                              i,
                              j);
 // 	  cout << i << "," << j << " = "
-// 	       << mat->getDensity() << "*" 
-// 	       << mat->getKappa() << "*" 
-// 	       << weight  << "*" 
-// 	       << shapeFun->getPhi(m,i) << "*" 
-// 	       << shapeFun->getPhi(m,j)  << "*" 
+// 	       << mat->getDensity() << "*"
+// 	       << mat->getKappa() << "*"
+// 	       << weight  << "*"
+// 	       << shapeFun->getPhi(m,i) << "*"
+// 	       << shapeFun->getPhi(m,j)  << "*"
 // 	       << jacobian  << " = "
 // 	       << H.readElement(i,j) << endl;
 //         }
