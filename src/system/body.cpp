@@ -21,7 +21,7 @@
 
 #include <core/cell.h>
 #include <gpu/chTimer.h>
-#include <gpu/gpu_assembly.cuh>
+#include <gpu/assembly_kernels.h>
 
 namespace mknix {
 
@@ -29,6 +29,7 @@ Body::Body()
         : computeEnergy(0)
         , isThermal(1)
 {
+  _use_gpu = true;
 }
 
 /**
@@ -182,6 +183,10 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->assembleCapacityGaussPoints(globalCapacity);
     }
+ if(_use_gpu){
+
+ }
+
 }
 
 /**
@@ -192,16 +197,12 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
  **/
 void Body::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity)
 {
-   //cpuClock ck;
-   //cpuTick(&ck);
     auto end_int = this->cells.size();
 //     #pragma omp parallel for
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->assembleConductivityGaussPoints(globalConductivity);
     }
-    //std::cout << "assembleConductivityMatrix ";
-  //  cpuTock(&ck);
-  w_function();//test wrapping function
+
 }
 
 /**

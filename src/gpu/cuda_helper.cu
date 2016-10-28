@@ -1,3 +1,7 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <iomanip>
+
 #include <thrust/sort.h>
 #include <thrust/device_ptr.h>
 #include <thrust/scan.h>
@@ -6,7 +10,7 @@
 #include <thrust/inner_product.h>
 #include <thrust/reduce.h>
 
-#include "cuda_helper.hpp"
+#include "cuda_helper.h"
 
 /**
  * Divides each element of the array by the given value
@@ -48,7 +52,7 @@ bool CudaHelper::divide_array_by_value(T*  array,
     cudaError_t cudaError = cudaGetLastError();
     if (cudaError != cudaSuccess)
     {
-      LOG(ERROR) << "GPU.CudaError k_divide_array_by_value"
+      std::cout << "GPU.CudaError k_divide_array_by_value"
                     "{\"cuda_error:\"" << cudaError <<
                     ",\"cuda_error_message\":" << "\"" << cudaGetErrorString(cudaError) << "\"" <<
                     ",\"array_size:\"" << size <<
@@ -83,7 +87,7 @@ bool CudaHelper::exclusive_scan(int *input_first,
   cudaError_t cudaError = cudaGetLastError();
   if (cudaError != cudaSuccess)
   {
-    LOG(ERROR) << "GPU.CudaError thrust::exclusive_scan"
+    std::cout << "GPU.CudaError thrust::exclusive_scan"
                   "{\"cuda_error:\"" << cudaError <<
                   ",\"cuda_error_message\":" << "\"" << cudaGetErrorString(cudaError) << "\"" << "}";
     return false;
@@ -144,7 +148,7 @@ __global__ void k_init_array_to_value(T *array,
      cudaError_t cudaError = cudaGetLastError();
      if (cudaError != cudaSuccess)
      {
-       LOG(ERROR) << "GPU.CudaError k_init_array_to_value"
+       std::cout << "GPU.CudaError k_init_array_to_value"
                      "{\"cuda_error:\"" << cudaError <<
                      ",\"cuda_error_message\":" << "\"" << cudaGetErrorString(cudaError) << "\"" <<
                      ",\"array_size:\"" << size <<
@@ -191,7 +195,7 @@ __global__ void k_init_array_to_value(T *array,
      cudaError_t cudaError = cudaGetLastError();
      if (cudaError != cudaSuccess)
      {
-       LOG(ERROR) << "GPU.CudaError k_init_index_array"
+       std::cout << "GPU.CudaError k_init_index_array"
                      "{\"cuda_error:\"" << cudaError <<
                      ",\"cuda_error_message\":" << "\"" << cudaGetErrorString(cudaError) << "\"" <<
                      ",\"array_size:\"" << size <<
@@ -234,7 +238,7 @@ __global__ void k_init_array_to_value(T *array,
    cudaError_t cudaError = cudaGetLastError();
    if (cudaError != cudaSuccess)
    {
-     LOG(ERROR) << "GPU.CudaError k_multiply_arrays_by_element"
+     std::cout << "GPU.CudaError k_multiply_arrays_by_element"
                    "{\"cuda_error:\"" << cudaError <<
                    ",\"cuda_error_message\":" << "\"" << cudaGetErrorString(cudaError) << "\"" <<
                    ",\"array_size:\"" << size <<
@@ -255,7 +259,7 @@ __global__ void k_init_array_to_value(T *array,
 
    if (cudaSuccess != cudaMemGetInfo( &free_byte0, &total_byte0 ) )
    {
-     	 LOG(ERROR) <<"GPU.CudaError cudaMemGetInfo fails";
+     	 std::cout <<"GPU.CudaError cudaMemGetInfo fails";
         return;
    }
 
@@ -265,7 +269,7 @@ __global__ void k_init_array_to_value(T *array,
 
    double memperc = (100 * used_db0)/total_db0;
 
-   LOG(INFO) << "---- GPU memory usage : "<< memperc << "% ---" << std::endl
+   std::cout << "---- GPU memory usage : "<< memperc << "% ---" << std::endl
              << " used = " << used_db0 <<" MB" << std::endl
              << " free = " << free_db0 <<" MB" << std::endl
              << " total = " << total_db0 << " MB" << std::endl

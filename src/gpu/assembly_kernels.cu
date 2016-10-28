@@ -1,16 +1,18 @@
 #ifndef ASSEMBLY_KERNELS_H
 #define ASSEMBLY_KERNELS_H
 
-#include "assembly_kernels.hpp"
+#include "assembly_kernels.h"
 #define WARPSIZE 32 //just in case
 #include <stdlib.h>
+#include <stdio.h>
+#include <vector>
 
 /**
  * Performs atomic addition on double precision.
  * @param  {[type]} double* address  memory position for the atomic operation
  * @param  {[type]} double  val      value to add atomically
  */
-__device__ double atomicAdd((double* address, double val)
+__device__ double atomicAdd(double* address, double val)
 {
     unsigned long long int* address_as_ull = (unsigned long long int*) address;
     unsigned long long int old = *address_as_ull, assumed;
@@ -31,7 +33,7 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
                                         int number_elements)
 {
   int tid = threadIdx.x + blockIdx.x * blockDim.x;
-  if(tid >= num_cells * support_node_size * support_node_size) return;
+  if(tid >= num_points * support_node_size * support_node_size) return;
   int map_pos = full_map[tid];
   atomicAdd(&global_matrix[map_pos], 1.0);
 }
@@ -46,7 +48,7 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
  * @param  {[type]} cudaStream_t stream     cuda stream executing the kernel
  */
   template <typename T>
-  bool AssemblyKernels::gpu_assemble_global_matrix(T *global_matrix,
+  bool gpu_assemble_global_matrix(T *global_matrix,
                                                   int* full_map,
                                                   int num_points,
                                                   int support_node_size,
@@ -54,35 +56,69 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
                                                   int threads_per_block,
                                                   cudaStream_t stream = 0)
   {
-    int size = num_cells * support_node_size * support_node_size;
+    int size = num_points * support_node_size * support_node_size;
     dim3 gridDim = dim3((size+threads_per_block-1) / threads_per_block, 1, 1);
     dim3 blockDim = dim3(threads_per_block,1,1);
 
     k_assemble_global_matrix<<<gridDim, blockDim, 0, stream>>>(global_matrix,
                                                               full_map,
-                                                              num_cells,
+                                                              num_points,
                                                               support_node_size,
                                                               number_elements);
     cudaError_t cudaError = cudaGetLastError();
     if (cudaError != cudaSuccess)
     {
-      std::cout << "GPU.CudaError k_assemble_global_matrix"
+      /*std::cout << "GPU.CudaError k_assemble_global_matrix"
       "{\"cuda_error:\"" << cudaError <<
       ",\"cuda_error_message\":" << "\"" << cudaGetErrorString(cudaError) << "\"" <<
       ",\"array_size:\"" << size <<
-      ",\"value:\"" << value <<
-      ",\"stream:\"" << stream <<
-      ",\"threads_per_block:\"" << threads_per_block << "}";
-      return false;
+      ",\"gridDim.x:\"" << gridDim.x <<
+      ",\"threads_per_block:\"" << threads_per_block <<
+      ",\"stream:\"" << stream << "}";
+
+      return false;*/
     }
     return true;
   }
-
-  bool AssemblyKernels::map_global_matrix(int *presence_matrix,
+  /**
+  * @brief Creates a Map for a global sparse matrix in either the Compressed
+  * Column Storage format (CCS) or Compressed Row Storage(CRS) as explained
+  * in http://www.netlib.org/utk/people/JackDongarra/etemplates/node373.html
+  * This function also allocates all the supplementary arrays for the sparse format.
+  * the allocation of the values array is not performed here as depends the data types and wether atomics will be used.
+  * @param full_map Reference to the global matrix positions, accesible by [row_id * totcols + col_id ]. lhs.
+  * @param row_ind. Array with the vec_ind of each element. lhs.
+  * @param cvec_ptr. Array with the memory position where each cvec starts. lhs.
+  * @param presence_matrix Reference to the global matrix counter where if an element is nonzero will have a counter greater than zero. rhs.
+  * @param all_point_nodes Reference to the array where each point keeps the relation of support nodes is using. rhs.
+  * @param number_rows. Integer with the total number of rows of the matrix. rhs.
+  * @param number_columns. Integer with the total number of columns of the matrix. rhs.
+  * @return void. lhs
+  **/
+  bool map_global_matrix(std::vector<int> &full_map,
+                                          std::vector<int> &vec_ind,
+                                          std::vector<int> &cvec_ptr,
+                                          int *presence_matrix,
                                           int *all_point_nodes,
-                                          int *position_map,
-                                          int *col_ind,
-                                          int *row_ptr);
+                                          int number_rows,
+                                          int number_columns)
+{
+  /*build_CRS_sparse_matrix_from_map(full_map,
+                                   vec_ind,
+                                   cvec_ptr,
+                                   presence_matrix,
+                                   number_rows,
+                                   number_columns);*/
+  //build_CCS_sparse_matrix_from_map(full_map,
+  //                                vec_ind,
+  //                                cvec_ptr,
+  //                                presence_matrix,
+  //                                number_rows,
+  //                                number_columns);
+
+  return true;
+
+}
 
 /**
 * @brief Allocates and Creates a Map for a global sparse matrix in the Compressed
@@ -97,7 +133,7 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
 * @param number_columns. Integer with the total number of columns of the matrix. rhs.
 * @return void. lhs
 **/
-  bool AssemblyKernels::build_CCS_sparse_matrix_from_map(std::vector<int> &full_map,
+  bool build_CCS_sparse_matrix_from_map(std::vector<int> &full_map,
                                                         std::vector<int> &row_ind,
                                                         std::vector<int> &col_ptr,
                                                         int *presence_matrix,
@@ -129,6 +165,8 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
       }
 
       col_ptr[number_columns] = total_elements;//convention
+
+      return true;
   }
 
   /**
@@ -144,7 +182,7 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
    * @param number_columns. Integer with the total number of columns of the matrix. rhs.
    * @return void. lhs
    **/
-  bool AssemblyKernels::build_CRS_sparse_matrix_from_map(std::vector<int> &full_map,
+  bool build_CRS_sparse_matrix_from_map(std::vector<int> &full_map,
                                                         std::vector<int> &col_ind,
                                                         std::vector<int> &row_ptr,
                                                         int *presence_matrix,
@@ -176,6 +214,7 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
     }
 
     row_ptr[number_rows] = total_elements;//convention
+    return true;
 }
 
 #endif //ASSEMBLY_KERNELS_H

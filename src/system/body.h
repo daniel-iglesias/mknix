@@ -28,6 +28,8 @@
 #include <core/cellboundary.h>
 #include <core/node.h>
 
+#include <gpu/assembly_kernels.h>
+
 namespace mknix {
 
 class Point;
@@ -138,7 +140,7 @@ public:
 //     {
 //       this->boundaryGroups[boundary_name];
 //     }
-// 
+//
 //     BoundaryGroup& getBoundaryGroup( std::string boundary_name )
 //     {
 //       return this->boundaryGroups[boundary_name];
@@ -184,7 +186,7 @@ public:
     {
         return this->cells;
     }
-    
+
     int getCellLastNumber()
     {
         return this->cells.end()->first;
@@ -225,6 +227,11 @@ protected:
     bool isThermal;
     std::vector<lmx::Vector<data_type> *> temperature;
     LoadThermalBody * loadThermalBody;
+
+    //GPU related
+    bool _use_gpu;
+    data_type *_d_globalCapacity;
+    int         *_d_capacity_map;
 
 };
 

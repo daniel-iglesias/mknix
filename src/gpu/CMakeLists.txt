@@ -9,5 +9,6 @@ CUDA_COMPILE(CU_O ${SOURCES_CUDA} ${HEADERS_CUDA})
 
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
-add_library(gpu_host OBJECT ${SOURCES} ${HEADERS})
-add_library(gpu_device OBJECT ${SOURCES_CUDA} ${HEADERS_CUDA})
+#add_library(gpu_host OBJECT ${SOURCES} ${HEADERS})
+#add_library(gpu_device OBJECT ${SOURCES_CUDA} ${HEADERS_CUDA})
+add_library(cuda_compile OBJECT ${SOURCES} ${HEADERS} ${SOURCES_CUDA} ${HEADERS_CUDA})
