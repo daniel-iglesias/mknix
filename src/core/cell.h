@@ -59,7 +59,7 @@ public:
     Cell( Material&, std::string, double, int );
 
     virtual ~Cell();
-    
+
     bool setMaterialIfLayer( Material&, double );
 
     virtual void initialize( std::vector<Node*> & );
@@ -69,6 +69,7 @@ public:
     void computeCapacityGaussPoints(  );
 
     void assembleCapacityGaussPoints( lmx::Matrix<data_type> & );
+    void presenceCapacityGaussPoints(int* presence_matrix, int number_nodes);
 
     void computeConductivityGaussPoints(  );
 
@@ -109,7 +110,7 @@ public:
     double calcElasticEGaussPoints(  );
 
     void outputConnectivityToFile(std::ofstream*);
-    
+
     virtual void gnuplotOut( std::ofstream&, std::ofstream& ) = 0;
 
     void gnuplotOutStress( std::ofstream& );

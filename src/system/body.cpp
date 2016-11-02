@@ -65,6 +65,7 @@ Body::~Body()
     for (auto& group : boundaryGroups) {
         delete group.second;
     }
+    free(_h_presence_matrix);
 }
 
 /**
@@ -99,7 +100,7 @@ void Body::initialize()
 
 //The iteration on nodes MUST be done AFTER the cells.
     end_int = this->nodes.size();
-
+    int number_nodes = end_int;
 //     #pragma omp parallel for
     for (auto i = 0u; i < end_int; ++i) {
         if (this->nodes[i]->getShapeFunType() == "RBF" ||
@@ -121,6 +122,16 @@ void Body::initialize()
     for (auto& group : boundaryGroups) {
         group.second->initialize();
     }
+
+    _h_presence_matrix = (int*) malloc(number_nodes * number_nodes * sizeof(int));
+    //GPU part
+    if(_use_gpu){
+      data_type *_d_globalCapacity;
+      int         *_d_capacity_map;
+      //CudaHelper::allocate_gpu_array(_d_globalCapacity, end_int * end_int);
+      //cudaMalloc((void**)&_d_globalCapacity, end_int * end_int* sizeof(data_type));
+    }
+    mapConectivityCapacityMatrix();
 }
 
 /**
@@ -138,6 +149,22 @@ void Body::calcCapacityMatrix()
 }
 
 /**
+ * @brief Computes the local Capacity of the material body by calling each cell's cascade function.
+ *
+ * @return void
+ **/
+void Body::mapConectivityCapacityMatrix()
+{
+ std::cout << "Mapping capacity matrix"<< std::endl;
+    auto end_int = this->cells.size();
+//#pragma omp parallel for
+    for (auto i = 0u; i < end_int; ++i) {
+        this->cells[i]->presenceCapacityGaussPoints(_h_presence_matrix, (int) end_int);
+    }
+  
+}
+
+/**
  * @brief Computes the local Conductivity of the material body by calling each cell's cascade function.
  *
  * @return void
@@ -150,6 +177,7 @@ void Body::calcConductivityMatrix()
         this->cells[i]->computeConductivityGaussPoints();
     }
 }
+
 
 /**
  * @brief Computes the local volumetric heat vector of the material body by calling each cell's cascade function.
@@ -184,7 +212,12 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
         this->cells[i]->assembleCapacityGaussPoints(globalCapacity);
     }
  if(_use_gpu){
-
+   gpu_assemble_global_matrix(_d_globalCapacity,
+                              _d_capacity_map,
+                              this->cells.size(),
+                              4,//dummy
+                              1000,//dummy
+                              128);
  }
 
 }

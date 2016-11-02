@@ -12,6 +12,21 @@
 
 #include "cuda_helper.h"
 
+
+/**
+ * allocate GPU memory
+ * @param  {[type]} T*                    array         array of values
+ * @param  {[type]} T   value             dividend
+ * @param  {[type]} int size              size of the array
+ */
+template <typename T>
+bool allocate_gpu_array(T *array,int size)
+{
+    cudaMalloc((void**)&array, size * sizeof(T));
+    return true;
+}
+
+
 /**
  * Divides each element of the array by the given value
  * @param  {[type]} T*                    array         array of values

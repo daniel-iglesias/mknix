@@ -28,6 +28,7 @@
 #include <core/cellboundary.h>
 #include <core/node.h>
 
+#include <gpu/cuda_helper.h>
 #include <gpu/assembly_kernels.h>
 
 namespace mknix {
@@ -66,6 +67,7 @@ public:
     virtual void calcExternalHeat();
 
     virtual void assembleCapacityMatrix(lmx::Matrix<data_type>&);
+    virtual void mapConectivityCapacityMatrix();
 
     virtual void assembleConductivityMatrix(lmx::Matrix<data_type>&);
 
@@ -231,7 +233,8 @@ protected:
     //GPU related
     bool _use_gpu;
     data_type *_d_globalCapacity;
-    int         *_d_capacity_map;
+    int       *_d_capacity_map;
+    int       *_h_presence_matrix;
 
 };
 

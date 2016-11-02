@@ -218,6 +218,18 @@ void GaussPoint::assembleCij(lmx::Matrix<data_type>& globalCapacity)
     }
 }
 
+void GaussPoint::presenceCij(int* presenceMatrix, int num_nodes)
+{
+    for (auto i = 0u; i < supportNodesSize; ++i) {
+        for (auto j = 0u; j < supportNodesSize; ++j) {
+            int rowNode = supportNodes[i]->getThermalNumber();
+            int colNode = supportNodes[j]->getThermalNumber();
+            int positionGlobal = rowNode + colNode * num_nodes;//col storage format
+            presenceMatrix[positionGlobal] = 1;
+        }
+    }
+}
+
 void GaussPoint::assembleHij(lmx::Matrix<data_type>& globalConductivity)
 {
     for (auto i = 0u; i < supportNodesSize; ++i) {

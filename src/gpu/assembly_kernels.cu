@@ -54,7 +54,7 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
                                                   int support_node_size,
                                                   int number_elements,
                                                   int threads_per_block,
-                                                  cudaStream_t stream = 0)
+                                                  cudaStream_t stream)
   {
     int size = num_points * support_node_size * support_node_size;
     dim3 gridDim = dim3((size+threads_per_block-1) / threads_per_block, 1, 1);
@@ -216,5 +216,20 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
     row_ptr[number_rows] = total_elements;//convention
     return true;
 }
+
+template bool gpu_assemble_global_matrix <float>(float *,
+                                                int*,
+                                                int,
+                                                int,
+                                                int,
+                                                int,
+                                                cudaStream_t stream);
+template bool gpu_assemble_global_matrix <double> (double *,
+                                                int*,
+                                                int,
+                                                int,
+                                                int,
+                                                int,
+                                                cudaStream_t stream);
 
 #endif //ASSEMBLY_KERNELS_H

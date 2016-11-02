@@ -63,7 +63,7 @@ public:
 
     void setMaterial( Material& mat_in )
     {this->mat = &mat_in; }
-    
+
     void computeCij( );
 
     void computeHij( );
@@ -87,6 +87,7 @@ public:
     virtual void computeNLKij( )=0;
 
     void assembleCij( lmx::Matrix<data_type> & );
+    void presenceCij(int* presenceMatrix, int num_nodes);
 
     void assembleHij( lmx::Matrix<data_type> & );
 

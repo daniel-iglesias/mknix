@@ -48,7 +48,7 @@ bool Cell::setMaterialIfLayer(Material& newMat, double thickness)
             if(point1 != point2){ // Avoid comparing a point with itself
 //                 cout << point1->distance(*point2) << endl;
                 if (point1->distance(*point2) < thickness){
-                    
+
                     // Given the case, we iterate in the gPoints to change the Material
                     for (auto& gPoint : gPoints) {
                         gPoint->setMaterial( newMat );
@@ -109,6 +109,13 @@ void Cell::computeCapacityGaussPoints()
     for (auto& point : gPoints_MC) {
         point->computeCij();
     }
+}
+
+void Cell::presenceCapacityGaussPoints(int* presence_matrix, int number_nodes)
+{
+  for (auto& point : gPoints_MC) {
+      point->presenceCij(presence_matrix, number_nodes);
+  }
 }
 
 void Cell::assembleCapacityGaussPoints(lmx::Matrix<data_type>& globalCapacity)

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.8)
+cmake_minimum_required(VERSION 3.0)
 
 enable_testing()
 
@@ -10,6 +10,8 @@ include_directories(${LMX_INCLUDE_DIR})
 include_directories(${GMM_INCLUDE_DIR})
 
 add_executable(mknixrunner mknix.cpp)
+
+#link_directories( ${PROJECT_SOURCE_DIR}/src/gpu)
 target_link_libraries(mknixrunner mknix)
 
 set(test1dir ${CMAKE_CURRENT_BINARY_DIR}/test1)
@@ -30,4 +32,3 @@ add_test(NAME test1
       -Doutput_test=2triangfem.mec
       -P ${CMAKE_CURRENT_SOURCE_DIR}/runtest.cmake
     WORKING_DIRECTORY ${test1dir})
-

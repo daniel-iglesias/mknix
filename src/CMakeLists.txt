@@ -1,17 +1,19 @@
-cmake_minimum_required(VERSION 2.8.8)
+cmake_minimum_required(VERSION 3.0)
 
-find_package(CUDA REQUIRED)
-set(CUDA_ARCH -arch=sm_30)
-set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS} ${CUDA_ARCH} ; --std=c++11)
+#find_package(CUDA REQUIRED)
+#set(CUDA_ARCH -arch=sm_30)
+#set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS} ${CUDA_ARCH} ; -Xcompiler; -fPIC; --std=c++11; -rdc=true)
+#set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS} ${CUDA_ARCH} ; -Xcompiler; -fPIC; --std=c++11; -rdc=true)
 set(LMX_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/LMX-1.0/src)
 set(GMM_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/gmm/gmm-3.0/include)
+set(GPU_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/src/gpu)
 set(CUDA_INCLUDE_DIRECTORIES /usr/local/cuda-7.5/include)
-set(CUDA_SEPARABLE_COMPILATION ON)
-set(CUDA_PROPAGATE_HOST_FLAGS OFF)
+#set(CUDA_SEPARABLE_COMPILATION ON)
+#set(CUDA_PROPAGATE_HOST_FLAGS OFF)
 #set(CUDA_HOST_COMPILER clang++)
-set(CUDA_LIBRARIES cudart)
-set(CU nvcc)
-set(DEVICE_LIB "device")
+#set(CUDA_LIBRARIES cudart)
+#set(CU nvcc)
+#set(DEVICE_LIB device_o)
 
 add_definitions(-DHAVE_GMM)
 include_directories(${LMX_INCLUDE_DIR})
@@ -27,11 +29,6 @@ add_subdirectory(gpu)
 
 file(GLOB HEADERS *.h)
 file(GLOB SOURCES *.cpp)
-file(GLOB HEADERS_CUDA *.cuh)
-file(GLOB SOURCES_CUDA *.cu)
-
-cuda_compile(CU_O ${HEADERS_CUDA} ${SOURCES_CUDA})
-cuda_compile(DEVICE_CU_O ${HEADERS_CUDA} ${SOURCES_CUDA})
 
 add_library(mknix ${HEADERS} ${SOURCES}
     $<TARGET_OBJECTS:core>
@@ -39,5 +36,5 @@ add_library(mknix ${HEADERS} ${SOURCES}
     $<TARGET_OBJECTS:simulation>
     $<TARGET_OBJECTS:system>)
 
-#cuda_add_library(mknix ${HEADERS_CUDA} ${SOURCES_CUDA})
-cuda_add_library(${DEVICE_LIB} STATIC ${DEVICE_CU_O})
+#link_directories( ${PROJECT_SOURCE_DIR}/src/gpu)
+target_link_libraries(mknix gpu)

@@ -8,6 +8,9 @@
 
 namespace CudaHelper{
 
+   template <typename T>
+   bool allocate_gpu_array(T *array,int size);
+
     template <typename T>
     bool divide_array_by_value(T*  array,
                                T value,
