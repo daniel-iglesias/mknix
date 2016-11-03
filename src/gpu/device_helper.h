@@ -1,5 +1,5 @@
-#ifndef CUDA_HELPER_H
-#define CUDA_HELPER_H
+#ifndef DEVICE_HELPER_H
+#define DEVICE_HELPER_H
 #include <iostream>
 #include <iomanip>
 #include <cuda.h>
@@ -9,7 +9,7 @@
 // Define this to turn on error checking
 #define CUDA_ERROR_CHECK
 
-namespace CudaHelper{
+//namespace CudaHelper{
 
 #define CudaSafeCall( err ) __cudaSafeCall( err, __FILE__, __LINE__ )
 #define CudaCheckError()    __cudaCheckError( __FILE__, __LINE__ )
@@ -64,29 +64,33 @@ void checkGPUMemory()
 	std::cout << " total = " << total_db0 << " MB" << std::endl;
 	std::cout << "----------------------------------" << std::endl;}
 
-struct cudaClock{
+struct cudaClock
+{
   cudaEvent_t start, stop;
   float gpu_time, last_measure;
 };
 
-void cudaTick(cudaClock *ck){
+void cudaTick(cudaClock *ck)
+{
   cudaEventCreate(&(ck->start));
   cudaEventCreate(&(ck->stop));
   cudaEventRecord(ck->start,0);
 }
 
-void cudaTock(cudaClock *ck){
+double cudaTock(cudaClock *ck)
+{//modified to suit mknix
   cudaEventRecord(ck->stop, 0);
   cudaEventSynchronize(ck->stop);
   cudaEventElapsedTime(&(ck->gpu_time), ck->start, ck->stop);;
-  std::cout << "GPU clock measured "<<  ck->gpu_time *1000.0f << " microseconds" << std::endl;
+//  std::cout << "GPU clock measured "<<  ck->gpu_time *1000.0f << " microseconds" << std::endl;
   cudaEventDestroy(ck->start); //cleaning up a bit
   cudaEventDestroy(ck->stop);
   ck->last_measure = ck->gpu_time;//not really suing it yet
   ck->gpu_time = 0.0f;
+  return ck->last_measure * 1000.0;
 }
 
 
-}
+//}
 
-#endif //CUDA_HELPER_H
+#endif //DEVICE_HELPER_H

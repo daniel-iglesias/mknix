@@ -22,6 +22,9 @@
 #include <core/cell.h>
 #include <gpu/chTimer.h>
 #include <gpu/assembly_kernels.h>
+#include <gpu/cuda_helper.h>
+//#include <gpu/device_helper.h>
+#include <cuda_runtime_api.h>
 
 namespace mknix {
 
@@ -29,7 +32,7 @@ Body::Body()
         : computeEnergy(0)
         , isThermal(1)
 {
-  _use_gpu = true;
+  //_use_gpu = true;
 }
 
 /**
@@ -43,6 +46,7 @@ Body::Body(std::string title_in)
         , computeEnergy(0)
         , isThermal(1)
 {
+  //_use_gpu = true;
 }
 
 
@@ -66,6 +70,17 @@ Body::~Body()
         delete group.second;
     }
     free(_h_presence_matrix);
+    int num_measures = microCPU.size();
+    double avg_CPU = 0.0;
+    for(int i =0 ; i < num_measures; i++)avg_CPU += microCPU[i];
+    avg_CPU /= num_measures;
+    std::cout << "average CPU time " << avg_CPU << " microseconds" << std::endl;
+
+    int num_measures2 = microGPU.size();
+    double avg_GPU = 0.0;
+    for(int i =0 ; i < num_measures2; i++)avg_GPU += microGPU[i];
+    avg_GPU /= num_measures2;
+    std::cout << "average GPU time " << avg_GPU << " microseconds" << std::endl;
 }
 
 /**
@@ -78,7 +93,10 @@ void Body::initialize()
 {
     lastNode = nodes.back();
     auto end_int = this->cells.size();
-
+    _number_points = end_int;
+    //suppossition all nodes have same supportNodesSize
+    _support_node_size = 4;
+    std::cout << "last node " << lastNode << std::endl;
     nodes.insert(nodes.end(), bondedBodyNodes.begin(), bondedBodyNodes.end());
 
 //     #pragma omp parallel for
@@ -100,7 +118,7 @@ void Body::initialize()
 
 //The iteration on nodes MUST be done AFTER the cells.
     end_int = this->nodes.size();
-    int number_nodes = end_int;
+    _number_nodes = end_int;
 //     #pragma omp parallel for
     for (auto i = 0u; i < end_int; ++i) {
         if (this->nodes[i]->getShapeFunType() == "RBF" ||
@@ -123,15 +141,41 @@ void Body::initialize()
         group.second->initialize();
     }
 
-    _h_presence_matrix = (int*) malloc(number_nodes * number_nodes * sizeof(int));
-    //GPU part
-    if(_use_gpu){
-      data_type *_d_globalCapacity;
-      int         *_d_capacity_map;
-      //CudaHelper::allocate_gpu_array(_d_globalCapacity, end_int * end_int);
-      //cudaMalloc((void**)&_d_globalCapacity, end_int * end_int* sizeof(data_type));
-    }
+    _h_presence_matrix = (int*) malloc(_number_nodes * _number_nodes * sizeof(int));
+    std::cout << "number of nodes " << _number_nodes << std::endl;
+    std::cout << "number of points " << _number_points << std::endl;
+    std::cout << "support node size " << _support_node_size << std::endl;
+    std::cout << "max matrix size " << _number_nodes * _number_nodes << std::endl;
+
+    print_gpu_memory();
+
     mapConectivityCapacityMatrix();
+    map_global_matrix(_full_map,
+                      _vec_ind,
+                      _cvec_ptr,
+                      _h_presence_matrix,
+                      _number_nodes,
+                      _number_nodes);
+                      //GPU part
+  //  if(_use_gpu){
+       //data_type *_d_globalCapacity;
+       //int         *_d_capacity_map;
+       _sparse_matrix_size = _cvec_ptr[_number_nodes];//convention
+       std::cout << "sparse matrix has " << _sparse_matrix_size << " elements" << std::endl;
+       //allocate_gpu_array(_d_globalCapacity, _sparse_matrix_size);
+       cudaMalloc((void**)&_d_capacity_map, _sparse_matrix_size * sizeof(data_type));
+       std::cout << "waaaaa" << std::endl;
+       //allocate_gpu_array(_d_capacity_map, _number_nodes * _number_nodes);
+       cudaMalloc((void**)&_d_capacity_map, _number_nodes * _number_nodes*sizeof(int));
+       std::cout << "waaaaa" << std::endl;
+       int* dummy_host_array = (int*)malloc(_number_nodes * _number_nodes*sizeof(int));
+       int* dummy_device_array;
+
+       cudaMemcpy(_d_capacity_map, _full_map.data(),_number_nodes * _number_nodes*sizeof(int), cudaMemcpyHostToDevice);
+       CudaCheckError();
+       //copy_to_gpu(dummy_device_array,dummy_host_array,_number_nodes * _number_nodes);// _full_map.data(), _number_nodes * _number_nodes);
+       std::cout << "waaaaa" << std::endl;
+  //  }
 }
 
 /**
@@ -155,13 +199,14 @@ void Body::calcCapacityMatrix()
  **/
 void Body::mapConectivityCapacityMatrix()
 {
- std::cout << "Mapping capacity matrix"<< std::endl;
+
     auto end_int = this->cells.size();
+    std::cout << "Mapping capacity matrix with "<< end_int << " cells" <<std::endl;
 //#pragma omp parallel for
     for (auto i = 0u; i < end_int; ++i) {
-        this->cells[i]->presenceCapacityGaussPoints(_h_presence_matrix, (int) end_int);
+        this->cells[i]->presenceCapacityGaussPoints(_h_presence_matrix, _number_nodes);
     }
-  
+
 }
 
 /**
@@ -206,19 +251,33 @@ void Body::calcExternalHeat()
  **/
 void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
 {
+  chTimerTimestamp start, stop;
+  chTimerGetTime(&start);
     auto end_int = this->cells.size();
 //     #pragma omp parallel for
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->assembleCapacityGaussPoints(globalCapacity);
     }
- if(_use_gpu){
+    chTimerGetTime(&stop);
+    double time_elapsed_CPU = 1e6 * chTimerElapsedTime(&start, &stop);
+    microCPU.push_back(time_elapsed_CPU);
+
+   //CudaCheckError();
+ //if(_use_gpu){
+   cudaClock ck;
+   cudaTick(&ck);
+   init_array_to_value(&_d_globalCapacity, 0.0, _sparse_matrix_size,128);
+   //k_init_array_to_value<<< dim3(25,1,1),dim3(128,1,1),0,0>>>((double*)_d_globalCapacity,(double) 0.0, _sparse_matrix_size);
+   CudaCheckError();
    gpu_assemble_global_matrix(_d_globalCapacity,
                               _d_capacity_map,
                               this->cells.size(),
-                              4,//dummy
+                              _support_node_size,//dummy
                               1000,//dummy
                               128);
- }
+  double time_elapsed_GPU = cudaTock(&ck);
+  microGPU.push_back(time_elapsed_GPU);
+ //}
 
 }
 

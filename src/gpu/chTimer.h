@@ -33,26 +33,27 @@ chTimerElapsedTime( chTimerTimestamp *pStart, chTimerTimestamp *pStop )
                     (pStop->tv_nsec - pStart->tv_nsec)/1e9;
 }
 
-void cpuTick(cpuClock *ck){
+/*void cpuTick(cpuClock *ck){
   chTimerGetTime(&ck->start);
 }
 
 void cpuTock(cpuClock *ck){
   chTimerGetTime(&ck->end);
   double nano = chTimerElapsedTime(&ck->start, &ck->end);
-  std::cout << "Time Consumed: " << nano * 1e6 << " microseconds" <<std::endl; 
-}
+  std::cout << "Time Consumed: " << nano * 1e6 << " microseconds" <<std::endl;
+}*/
 
-#endif
-
+//#endif
+/*
 inline double
 chTimerBandwidth( chTimerTimestamp *pStart, chTimerTimestamp *pStop, double cBytes )
 {
     double et = chTimerElapsedTime( pStart, pStop );
     return cBytes / et;
-}
+}*/
 
 #ifdef __cplusplus
 };
 #endif
 
+#endif

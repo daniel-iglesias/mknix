@@ -3,9 +3,11 @@
 
 #include "assembly_kernels.h"
 #define WARPSIZE 32 //just in case
+#include <iostream>
+#include <iomanip>
 #include <stdlib.h>
-#include <stdio.h>
 #include <vector>
+#include "cuda_helper.h"
 
 /**
  * Performs atomic addition on double precision.
@@ -49,12 +51,12 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
  */
   template <typename T>
   bool gpu_assemble_global_matrix(T *global_matrix,
-                                                  int* full_map,
-                                                  int num_points,
-                                                  int support_node_size,
-                                                  int number_elements,
-                                                  int threads_per_block,
-                                                  cudaStream_t stream)
+                                  int* full_map,
+                                  int num_points,
+                                  int support_node_size,
+                                  int number_elements,
+                                  int threads_per_block,
+                                  cudaStream_t stream)
   {
     int size = num_points * support_node_size * support_node_size;
     dim3 gridDim = dim3((size+threads_per_block-1) / threads_per_block, 1, 1);
@@ -68,18 +70,68 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
     cudaError_t cudaError = cudaGetLastError();
     if (cudaError != cudaSuccess)
     {
-      /*std::cout << "GPU.CudaError k_assemble_global_matrix"
+      std::cout << "GPU.CudaError k_assemble_global_matrix"
       "{\"cuda_error:\"" << cudaError <<
       ",\"cuda_error_message\":" << "\"" << cudaGetErrorString(cudaError) << "\"" <<
       ",\"array_size:\"" << size <<
       ",\"gridDim.x:\"" << gridDim.x <<
       ",\"threads_per_block:\"" << threads_per_block <<
-      ",\"stream:\"" << stream << "}";
+      ",\"stream:\"" << stream << "}" << std::endl;
 
-      return false;*/
+      return false;
     }
     return true;
   }
+
+  /**
+  * @brief Allocates and Creates a Map for a global sparse matrix in the Compressed
+  * Column Storage format (CCS) as explained in http://www.netlib.org/utk/people/JackDongarra/etemplates/node373.html
+  * This function also allocates all the supplementary arrays for the sparse format.
+  * the allocation of the values array is not performed here as depends the data types and wether atomics will be used.
+  * @param full_map Reference to the global matrix positions, accesible by [row_id * totcols + col_id ]. lhs.
+  * @param row_ind. Array with the col id of each element. lhs.
+  * @param col_ptr. Array with the memory position where each row starts. lhs.
+  * @param presence_matrix Reference to the global matrix counter where if an element is nonzero will have a counter greater than zero. rhs.
+  * @param number_rows. Integer with the total number of rows of the matrix. rhs.
+  * @param number_columns. Integer with the total number of columns of the matrix. rhs.
+  * @return void. lhs
+  **/
+    bool build_CCS_sparse_matrix_from_map(std::vector<int> &full_map,
+                                          std::vector<int> &row_ind,
+                                          std::vector<int> &col_ptr,
+                                          int *presence_matrix,
+                                          int number_rows,
+                                          int number_columns)//Compressed Column Storage
+    {
+      //calculates total memory needed to allocate memory
+        int total_elements = 0;
+        for(int i = 1; i < number_rows * number_columns; i++)
+            if(presence_matrix[i] > 0) total_elements++;
+
+        row_ind.resize(total_elements);
+        full_map.resize(number_rows * number_columns);
+        col_ptr.resize(number_rows + 1);
+
+        //prefix sum scan will give us the full map
+        full_map[0] = 0;
+        for(int i = 1; i < number_rows * number_columns; i++)
+                full_map[i] = full_map[i-1] + presence_matrix[i-1];
+
+        for(int j = 1; j < number_rows; j++){
+          for(int i = 1; i < number_columns; i++){
+            if(presence_matrix[j * number_rows + i] > 0){
+              row_ind[full_map[j * number_rows + i]] = i;//row id of every element
+            }
+
+          }
+          col_ptr[j] = full_map[j * number_rows];//pointers to start of every col
+        }
+
+        col_ptr[number_columns] = total_elements;//convention
+
+        return true;
+    }
+
   /**
   * @brief Creates a Map for a global sparse matrix in either the Compressed
   * Column Storage format (CCS) or Compressed Row Storage(CRS) as explained
@@ -96,12 +148,11 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
   * @return void. lhs
   **/
   bool map_global_matrix(std::vector<int> &full_map,
-                                          std::vector<int> &vec_ind,
-                                          std::vector<int> &cvec_ptr,
-                                          int *presence_matrix,
-                                          int *all_point_nodes,
-                                          int number_rows,
-                                          int number_columns)
+                        std::vector<int> &vec_ind,
+                        std::vector<int> &cvec_ptr,
+                        int *presence_matrix,
+                        int number_rows,
+                        int number_columns)
 {
   /*build_CRS_sparse_matrix_from_map(full_map,
                                    vec_ind,
@@ -109,65 +160,18 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
                                    presence_matrix,
                                    number_rows,
                                    number_columns);*/
-  //build_CCS_sparse_matrix_from_map(full_map,
-  //                                vec_ind,
-  //                                cvec_ptr,
-  //                                presence_matrix,
-  //                                number_rows,
-  //                                number_columns);
+  build_CCS_sparse_matrix_from_map(full_map,
+                                  vec_ind,
+                                  cvec_ptr,
+                                  presence_matrix,
+                                  number_rows,
+                                  number_columns);
 
   return true;
 
 }
 
-/**
-* @brief Allocates and Creates a Map for a global sparse matrix in the Compressed
-* Column Storage format (CCS) as explained in http://www.netlib.org/utk/people/JackDongarra/etemplates/node373.html
-* This function also allocates all the supplementary arrays for the sparse format.
-* the allocation of the values array is not performed here as depends the data types and wether atomics will be used.
-* @param full_map Reference to the global matrix positions, accesible by [row_id * totcols + col_id ]. lhs.
-* @param row_ind. Array with the col id of each element. lhs.
-* @param col_ptr. Array with the memory position where each row starts. lhs.
-* @param presence_matrix Reference to the global matrix counter where if an element is nonzero will have a counter greater than zero. rhs.
-* @param number_rows. Integer with the total number of rows of the matrix. rhs.
-* @param number_columns. Integer with the total number of columns of the matrix. rhs.
-* @return void. lhs
-**/
-  bool build_CCS_sparse_matrix_from_map(std::vector<int> &full_map,
-                                                        std::vector<int> &row_ind,
-                                                        std::vector<int> &col_ptr,
-                                                        int *presence_matrix,
-                                                        int number_rows,
-                                                        int number_columns)//Compressed Column Storage
-  {
-    //calculates total memory needed to allocate memory
-      int total_elements = 0;
-      for(int i = 1; i < number_rows * number_columns; i++)
-          if(presence_matrix[i] > 0) total_elements++;
 
-      row_ind.resize(total_elements);
-      full_map.resize(number_rows * number_columns);
-      col_ptr.resize(number_rows + 1);
-
-      //prefix sum scan will give us the full map
-      full_map[0] = 0;
-      for(int i = 1; i < number_rows * number_columns; i++)
-              full_map[i] = full_map[i-1] + presence_matrix[i-1];
-
-      for(int j = 1; j < number_rows; j++){
-        for(int i = 1; i < number_columns; i++){
-          if(presence_matrix[j * number_rows + i] > 0){
-            row_ind[full_map[j * number_rows + i]] = i;//row id of every element
-          }
-
-        }
-        col_ptr[j] = full_map[j * number_rows];//pointers to start of every col
-      }
-
-      col_ptr[number_columns] = total_elements;//convention
-
-      return true;
-  }
 
   /**
    * @brief Allocates and Creates a Map for a global sparse matrix in the Compressed

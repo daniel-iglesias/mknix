@@ -148,7 +148,7 @@ lmx::Vector<data_type> Simulation::initThermalSimulation(Analysis * theAnalysis_
     baseSystem->assembleConductivityMatrix(globalConductivity);
     baseSystem->calcCapacityMatrix();
     baseSystem->assembleCapacityMatrix(globalCapacity);
-    
+
     writeConfStep();
 
     if (outputFilesDetail > 1 && theAnalysis->type() == "THERMAL") {
@@ -399,7 +399,7 @@ void Simulation::runMechanicalAnalysis(Analysis * theAnalysis_in)
         baseSystem->assembleConductivityMatrix(globalConductivity);
         baseSystem->calcCapacityMatrix();
         baseSystem->assembleCapacityMatrix(globalCapacity);
-        
+
         // output first step data
         systemOuputStep(q);
         theAnalysis->setEpsilon(epsilon);
@@ -505,7 +505,7 @@ void Simulation::staticThermalResidue(lmx::Vector<data_type>& residue,
     residue += globalInternalHeat;
     residue -= globalExternalHeat;
 
-//   cout << endl << "RESIDUE PARTS: " << (globalConductivity*q).norm2() 
+//   cout << endl << "RESIDUE PARTS: " << (globalConductivity*q).norm2()
 //     << " " << globalInternalHeat.norm2() << " " << globalExternalHeat.norm2() << endl;
 
 }
@@ -555,7 +555,7 @@ void Simulation::explicitThermalEvaluation
 //     globalCapacity.reset();
 globalExternalHeat.reset();
     globalInternalHeat.reset();
-    
+
 //     baseSystem->calcConductivityMatrix();
 //     baseSystem->calcCapacityMatrix();
     baseSystem->calcExternalHeat();
@@ -895,7 +895,7 @@ void Simulation::staticResidue(lmx::Vector<data_type>& residue,
     residue -= globalExternalForces;
 
 //   cout << "residue:" << residue;
-// 
+//
 //   cout << "q : " << q;
 //   cout << "globalInternalForces : " << globalInternalForces;
 //   cout << "globalExternalForces : " << globalExternalForces;
@@ -1000,4 +1000,3 @@ void Simulation::systemOuputStep(const lmx::Vector<data_type>& q, const lmx::Vec
 }
 
 }
-

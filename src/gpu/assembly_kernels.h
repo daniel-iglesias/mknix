@@ -4,7 +4,7 @@
 #include <cuda.h>
 #include <cuda_runtime_api.h>
 
-#include "cuda_helper.h"
+//#include "cuda_helper.h"
 
 //namespace AssemblyKernels
 //{
@@ -17,16 +17,17 @@
                                   int threads_per_block,
                                   cudaStream_t stream = 0);
 
-  bool map_global_matrix(int *presence_matrix,
-                         int *all_point_nodes,
-                         int *position_map,
-                         int *col_ind,
-                         int *row_ptr);
+  bool map_global_matrix(std::vector<int> &full_map,
+                         std::vector<int> &vec_ind,
+                         std::vector<int> &cvec_ptr,
+                         int *presence_matrix,
+                         int number_rows,
+                         int number_columns);
 
-  bool build_CRS_sparse_matrix_from_map(int *full_map,
+  bool build_CCS_sparse_matrix_from_map(std::vector<int> &full_map,
+                                        std::vector<int> &col_ind,
+                                        std::vector<int> &row_ptr,
                                         int *presence_matrix,
-                                        int *col_ind,
-                                        int *row_ptr,
                                         int number_rows,
                                         int number_columns);//Compressed Column Storage
 
