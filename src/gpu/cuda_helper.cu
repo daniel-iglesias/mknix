@@ -219,7 +219,7 @@ __global__ void k_init_array_to_value(int *array,
  * @param  {[type]} int threads_per_block threads per cuda block
  */
  template <typename T>
- bool init_array_to_value(T **array,
+ bool init_array_to_value(T *array,
                                       T value,
                                       int size,
                                       int threads_per_block,
@@ -229,7 +229,7 @@ __global__ void k_init_array_to_value(int *array,
      dim3 gridDim = dim3((size + threads_per_block-1) / threads_per_block, 1, 1);
      dim3 blockDim = dim3(threads_per_block,1,1);
 
-     k_init_array_to_value<<<gridDim, blockDim, 0, stream>>>(*array,
+     k_init_array_to_value<<<gridDim, blockDim, 0, stream>>>(array,
                                    value,
                                    size);
 
@@ -386,7 +386,6 @@ __global__ void k_init_array_to_value(int *array,
  	std::cout << " total = " << total_db0 << " MB" << std::endl;
  	std::cout << "----------------------------------" << std::endl;}
 
-
  void cudaTick(cudaClock *ck)
  {
    cudaEventCreate(&(ck->start));
@@ -394,26 +393,24 @@ __global__ void k_init_array_to_value(int *array,
    cudaEventRecord(ck->start,0);
  }
 
- double cudaTock(cudaClock *ck)
- {//modified to suit mknix
+ void cudaTock(cudaClock *ck)
+ {
+   cudaEventCreate(&(ck->stop));
    cudaEventRecord(ck->stop, 0);
    cudaEventSynchronize(ck->stop);
    cudaEventElapsedTime(&(ck->gpu_time), ck->start, ck->stop);;
- //  std::cout << "GPU clock measured "<<  ck->gpu_time *1000.0f << " microseconds" << std::endl;
    cudaEventDestroy(ck->start); //cleaning up a bit
    cudaEventDestroy(ck->stop);
    ck->last_measure = ck->gpu_time;//not really suing it yet
-   ck->gpu_time = 0.0f;
-   return ck->last_measure * 1000.0;
  }
 
 /* template bool allocate_gpu_array<double>(double *array,int size);
  template bool allocate_gpu_array<float>(float *array,int size);
  template bool allocate_gpu_array<int>(int *array,int size);*/
 
- template bool init_array_to_value<double>(double **array,double value,int size,int threads_per_block,cudaStream_t stream);
- template bool init_array_to_value<float>(float **array,float value,int size,int threads_per_block,cudaStream_t stream);
- template bool init_array_to_value<int>(int **array,int value,int size,int threads_per_block,cudaStream_t stream);
+ template bool init_array_to_value<double>(double *array,double value,int size,int threads_per_block,cudaStream_t stream);
+ template bool init_array_to_value<float>(float *array,float value,int size,int threads_per_block,cudaStream_t stream);
+ template bool init_array_to_value<int>(int *array,int value,int size,int threads_per_block,cudaStream_t stream);
 
  template bool copy_to_gpu<double>(double *gpu_array, double *cpu_array, int size);
  template bool copy_to_gpu<float>(float *gpu_array, float *cpu_array, int size);

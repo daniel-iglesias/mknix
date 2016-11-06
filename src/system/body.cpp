@@ -24,6 +24,8 @@
 #include <gpu/assembly_kernels.h>
 #include <gpu/cuda_helper.h>
 //#include <gpu/device_helper.h>
+#include <cuda.h>
+#include <cuda_runtime.h>
 #include <cuda_runtime_api.h>
 
 namespace mknix {
@@ -32,7 +34,7 @@ Body::Body()
         : computeEnergy(0)
         , isThermal(1)
 {
-  //_use_gpu = true;
+  _use_gpu = true;
 }
 
 /**
@@ -46,7 +48,7 @@ Body::Body(std::string title_in)
         , computeEnergy(0)
         , isThermal(1)
 {
-  //_use_gpu = true;
+  _use_gpu = true;
 }
 
 
@@ -70,6 +72,12 @@ Body::~Body()
         delete group.second;
     }
     free(_h_presence_matrix);
+
+    if(_use_gpu){
+      cudaFree(_d_globalCapacityf);
+      cudaFree(_d_globalConductivityf);
+      cudaFree(_d_capacity_map);
+    }
     int num_measures = microCPU.size();
     double avg_CPU = 0.0;
     for(int i =0 ; i < num_measures; i++)avg_CPU += microCPU[i];
@@ -81,6 +89,7 @@ Body::~Body()
     for(int i =0 ; i < num_measures2; i++)avg_GPU += microGPU[i];
     avg_GPU /= num_measures2;
     std::cout << "average GPU time " << avg_GPU << " microseconds" << std::endl;
+    std::cout << "GPU running " << avg_CPU / avg_GPU << "x times faster" << std::endl;
 }
 
 /**
@@ -142,12 +151,6 @@ void Body::initialize()
     }
 
     _h_presence_matrix = (int*) malloc(_number_nodes * _number_nodes * sizeof(int));
-    std::cout << "number of nodes " << _number_nodes << std::endl;
-    std::cout << "number of points " << _number_points << std::endl;
-    std::cout << "support node size " << _support_node_size << std::endl;
-    std::cout << "max matrix size " << _number_nodes * _number_nodes << std::endl;
-
-    print_gpu_memory();
 
     mapConectivityCapacityMatrix();
     map_global_matrix(_full_map,
@@ -156,26 +159,16 @@ void Body::initialize()
                       _h_presence_matrix,
                       _number_nodes,
                       _number_nodes);
-                      //GPU part
-  //  if(_use_gpu){
-       //data_type *_d_globalCapacity;
-       //int         *_d_capacity_map;
+    //GPU part
+    if(_use_gpu){
        _sparse_matrix_size = _cvec_ptr[_number_nodes];//convention
        std::cout << "sparse matrix has " << _sparse_matrix_size << " elements" << std::endl;
-       //allocate_gpu_array(_d_globalCapacity, _sparse_matrix_size);
-       cudaMalloc((void**)&_d_capacity_map, _sparse_matrix_size * sizeof(data_type));
-       std::cout << "waaaaa" << std::endl;
-       //allocate_gpu_array(_d_capacity_map, _number_nodes * _number_nodes);
+       cudaMalloc((void**)&_d_globalCapacityf, _sparse_matrix_size * sizeof(float));
+       cudaMalloc((void**)&_d_globalConductivityf, _sparse_matrix_size * sizeof(float));
        cudaMalloc((void**)&_d_capacity_map, _number_nodes * _number_nodes*sizeof(int));
-       std::cout << "waaaaa" << std::endl;
-       int* dummy_host_array = (int*)malloc(_number_nodes * _number_nodes*sizeof(int));
-       int* dummy_device_array;
-
        cudaMemcpy(_d_capacity_map, _full_map.data(),_number_nodes * _number_nodes*sizeof(int), cudaMemcpyHostToDevice);
        CudaCheckError();
-       //copy_to_gpu(dummy_device_array,dummy_host_array,_number_nodes * _number_nodes);// _full_map.data(), _number_nodes * _number_nodes);
-       std::cout << "waaaaa" << std::endl;
-  //  }
+    }
 }
 
 /**
@@ -260,24 +253,23 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
     }
     chTimerGetTime(&stop);
     double time_elapsed_CPU = 1e6 * chTimerElapsedTime(&start, &stop);
-    microCPU.push_back(time_elapsed_CPU);
+  microCPU.push_back(time_elapsed_CPU);
 
-   //CudaCheckError();
- //if(_use_gpu){
+ if(_use_gpu){
+   float time_elapsed_GPU = 0.0f;
    cudaClock ck;
    cudaTick(&ck);
-   init_array_to_value(&_d_globalCapacity, 0.0, _sparse_matrix_size,128);
-   //k_init_array_to_value<<< dim3(25,1,1),dim3(128,1,1),0,0>>>((double*)_d_globalCapacity,(double) 0.0, _sparse_matrix_size);
-   CudaCheckError();
-   gpu_assemble_global_matrix(_d_globalCapacity,
+   init_array_to_value(_d_globalCapacityf, 0.0f, _sparse_matrix_size,128);
+   gpu_assemble_global_matrix(_d_globalCapacityf,
                               _d_capacity_map,
                               this->cells.size(),
                               _support_node_size,//dummy
                               1000,//dummy
                               128);
-  double time_elapsed_GPU = cudaTock(&ck);
-  microGPU.push_back(time_elapsed_GPU);
- //}
+  cudaTock(&ck);
+  time_elapsed_GPU = ck.last_measure;
+  microGPU.push_back(time_elapsed_GPU * 1000.0);
+ }
 
 }
 
@@ -289,10 +281,31 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
  **/
 void Body::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity)
 {
+  chTimerTimestamp start, stop;
+  chTimerGetTime(&start);
     auto end_int = this->cells.size();
 //     #pragma omp parallel for
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->assembleConductivityGaussPoints(globalConductivity);
+    }
+    chTimerGetTime(&stop);
+    double time_elapsed_CPU = 1e6 * chTimerElapsedTime(&start, &stop);
+    microCPU.push_back(time_elapsed_CPU);
+
+    if(_use_gpu){
+      float time_elapsed_GPU = 0.0f;
+      cudaClock ck;
+      cudaTick(&ck);
+      init_array_to_value(_d_globalConductivityf, 0.0f, _sparse_matrix_size,128);
+      gpu_assemble_global_matrix(_d_globalConductivityf,
+                                _d_capacity_map,
+                                this->cells.size(),
+                                _support_node_size,//dummy
+                                1000,//dummy
+                                128);
+     cudaTock(&ck);
+     time_elapsed_GPU = ck.last_measure;
+     microGPU.push_back(time_elapsed_GPU * 1000.0);
     }
 
 }

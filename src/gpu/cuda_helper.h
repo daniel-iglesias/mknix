@@ -57,7 +57,7 @@ struct cudaClock
 
 void cudaTick(cudaClock *ck);
 
-double cudaTock(cudaClock *ck);
+void cudaTock(cudaClock *ck);
 //namespace CudaHelper{
 
    bool allocate_gpu_array(double *array,int size);
@@ -88,7 +88,7 @@ double cudaTock(cudaClock *ck);
     size_t free_memory_gpu();
 
     template <typename T>
-    bool init_array_to_value(T **array,
+    bool init_array_to_value(T *array,
                              T value,
                              int size,
                              int threads_per_block,

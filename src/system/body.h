@@ -240,6 +240,9 @@ protected:
     //GPU related
     bool _use_gpu;
     data_type *_d_globalCapacity;
+    data_type *_d_globalConductivity;
+    float     *_d_globalCapacityf;
+    float     *_d_globalConductivityf;
     int       *_d_capacity_map;
     int       *_h_presence_matrix;
     int       _number_nodes;

@@ -58,6 +58,7 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
                                   int threads_per_block,
                                   cudaStream_t stream)
   {
+
     int size = num_points * support_node_size * support_node_size;
     dim3 gridDim = dim3((size+threads_per_block-1) / threads_per_block, 1, 1);
     dim3 blockDim = dim3(threads_per_block,1,1);
@@ -67,6 +68,7 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
                                                               num_points,
                                                               support_node_size,
                                                               number_elements);
+
     cudaError_t cudaError = cudaGetLastError();
     if (cudaError != cudaSuccess)
     {
