@@ -30,14 +30,16 @@ __device__ double atomicAdd(double* address, double val)
 template <typename T>
 __global__ void k_assemble_global_matrix(T* global_matrix,
                                         int* full_map,
+                                        T* local_matrices_array,
                                         int num_points,
                                         int support_node_size,
                                         int number_elements)
 {
   int tid = threadIdx.x + blockIdx.x * blockDim.x;
   if(tid >= num_points * support_node_size * support_node_size) return;
+  T value = local_matrices_array[tid];
   int map_pos = full_map[tid];
-  atomicAdd(&global_matrix[map_pos], 1.0);
+  atomicAdd(&global_matrix[map_pos], value);
 }
 /**
  * Makes a direct assembly of the global matrix from map
@@ -52,6 +54,7 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
   template <typename T>
   bool gpu_assemble_global_matrix(T *global_matrix,
                                   int* full_map,
+                                  T* local_matrices_array,
                                   int num_points,
                                   int support_node_size,
                                   int number_elements,
@@ -65,6 +68,7 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
 
     k_assemble_global_matrix<<<gridDim, blockDim, 0, stream>>>(global_matrix,
                                                               full_map,
+                                                              local_matrices_array,
                                                               num_points,
                                                               support_node_size,
                                                               number_elements);
@@ -156,12 +160,7 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
                         int number_rows,
                         int number_columns)
 {
-  /*build_CRS_sparse_matrix_from_map(full_map,
-                                   vec_ind,
-                                   cvec_ptr,
-                                   presence_matrix,
-                                   number_rows,
-                                   number_columns);*/
+
   build_CCS_sparse_matrix_from_map(full_map,
                                   vec_ind,
                                   cvec_ptr,
@@ -169,11 +168,17 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
                                   number_rows,
                                   number_columns);
 
+  /*build_CRS_sparse_matrix_from_map(full_map,
+                                  vec_ind,
+                                  cvec_ptr,
+                                  presence_matrix,
+                                  number_rows,
+                                  number_columns);*/
+
+
   return true;
 
 }
-
-
 
   /**
    * @brief Allocates and Creates a Map for a global sparse matrix in the Compressed
@@ -225,17 +230,19 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
 
 template bool gpu_assemble_global_matrix <float>(float *,
                                                 int*,
+                                                float *,
                                                 int,
                                                 int,
                                                 int,
                                                 int,
                                                 cudaStream_t stream);
 template bool gpu_assemble_global_matrix <double> (double *,
-                                                int*,
-                                                int,
-                                                int,
-                                                int,
-                                                int,
-                                                cudaStream_t stream);
+                                                  int*,
+                                                  double *,
+                                                  int,
+                                                  int,
+                                                  int,
+                                                  int,
+                                                  cudaStream_t stream);
 
 #endif //ASSEMBLY_KERNELS_H

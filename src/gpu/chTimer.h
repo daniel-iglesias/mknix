@@ -28,29 +28,30 @@ chTimerGetTime( chTimerTimestamp *p )
 
 inline double
 chTimerElapsedTime( chTimerTimestamp *pStart, chTimerTimestamp *pStop )
-{
+{ //returns in seconds up to the nanosecond resolution
     return (double) (pStop->tv_sec - pStart->tv_sec) +
                     (pStop->tv_nsec - pStart->tv_nsec)/1e9;
 }
 
-/*void cpuTick(cpuClock *ck){
+void cpuTick(cpuClock *ck){
   chTimerGetTime(&ck->start);
 }
 
-void cpuTock(cpuClock *ck){
+void cpuTock(cpuClock *ck, std::string function_name = ""){
   chTimerGetTime(&ck->end);
   double nano = chTimerElapsedTime(&ck->start, &ck->end);
-  std::cout << "Time Consumed: " << nano * 1e6 << " microseconds" <<std::endl;
-}*/
+  ck->elapsedMicroseconds = nano * 1e6 ;
+  std::cout << function_name <<" Time Consumed: " << ck->elapsedMicroseconds  << " microseconds" <<std::endl;
+}
 
 //#endif
-/*
+
 inline double
 chTimerBandwidth( chTimerTimestamp *pStart, chTimerTimestamp *pStop, double cBytes )
 {
     double et = chTimerElapsedTime( pStart, pStop );
     return cBytes / et;
-}*/
+}
 
 #ifdef __cplusplus
 };

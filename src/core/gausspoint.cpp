@@ -222,11 +222,9 @@ void GaussPoint::presenceCij(int* presenceMatrix, int num_nodes)
 {
     for (auto i = 0u; i < supportNodesSize; ++i) {
         for (auto j = 0u; j < supportNodesSize; ++j) {
-          //std::cout << "(" << i << "," << j << ")";
             int rowNode = supportNodes[i]->getThermalNumber();
             int colNode = supportNodes[j]->getThermalNumber();
             int positionGlobal = rowNode + colNode * num_nodes;//col storage format
-            //std::cout << "= (" << rowNode << "," << colNode << ")" << " = " << positionGlobal << std::endl;
             presenceMatrix[positionGlobal] = 1;
         }
     }
@@ -252,6 +250,15 @@ void GaussPoint::assembleQext(lmx::Vector<data_type>& globalHeat)
         );
     }
 }
+
+/*void GaussPoint::mapThermalNumber(std::vector<int> &_locaThermalNumbers m)
+{
+    for (auto i = 0u; i < supportNodesSize; ++i) {
+        int positionGlobal = supportNodes[i]->getThermalNumber;
+        _locaThermalNumbers[positionGlobal] = 1;
+        );
+    }
+}*/
 
 
 void GaussPoint::gnuplotOutStress(std::ofstream& gptension)

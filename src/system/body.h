@@ -30,7 +30,7 @@
 
 //#include <gpu/cuda_helper.h>
 #include <gpu/assembly_kernels.h>
-#include <gpu/chTimer.h>
+
 
 namespace mknix {
 
@@ -235,6 +235,7 @@ protected:
     std::vector<int> _full_map;
     std::vector<int> _vec_ind;
     std::vector<int> _cvec_ptr;
+    std::vector<int> _locaThermalNumbers;
 
 
     //GPU related
@@ -243,6 +244,8 @@ protected:
     data_type *_d_globalConductivity;
     float     *_d_globalCapacityf;
     float     *_d_globalConductivityf;
+    float     *_d_localCapacityf;
+    float     *_d_localConductivityf;
     int       *_d_capacity_map;
     int       *_h_presence_matrix;
     int       _number_nodes;
@@ -250,8 +253,8 @@ protected:
     int       _support_node_size;
     int       _sparse_matrix_size;
     //measurement related
-    std::vector<double> microCPU;
-    std::vector<double> microGPU;
+    std::vector<double> microCPU1, microCPU2, microCPU3;
+    std::vector<double> microGPU1, microGPU2, microGPU3;
 
 };
 

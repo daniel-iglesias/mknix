@@ -393,7 +393,7 @@ __global__ void k_init_array_to_value(int *array,
    cudaEventRecord(ck->start,0);
  }
 
- void cudaTock(cudaClock *ck)
+ void cudaTock(cudaClock *ck, std::string function_name = "")
  {
    cudaEventCreate(&(ck->stop));
    cudaEventRecord(ck->stop, 0);
@@ -402,6 +402,8 @@ __global__ void k_init_array_to_value(int *array,
    cudaEventDestroy(ck->start); //cleaning up a bit
    cudaEventDestroy(ck->stop);
    ck->last_measure = ck->gpu_time;//not really suing it yet
+   ck->elapsedMicroseconds = ck->gpu_time * 1000.0;
+   std::cout << function_name <<" Time Consumed: " << ck->elapsedMicroseconds  << " microseconds" <<std::endl;
  }
 
 /* template bool allocate_gpu_array<double>(double *array,int size);

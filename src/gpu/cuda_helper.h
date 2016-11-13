@@ -2,6 +2,7 @@
 #define CUDA_HELPER_H
 #include <iostream>
 #include <iomanip>
+#include <stdio.h>
 #include <cuda.h>
 //#include <cuda_runtime.h>
 #include <cuda_runtime_api.h>
@@ -53,11 +54,12 @@ struct cudaClock
 {
   cudaEvent_t start, stop;
   float gpu_time, last_measure;
+  double elapsedMicroseconds; //to have same as chTimer
 };
 
 void cudaTick(cudaClock *ck);
 
-void cudaTock(cudaClock *ck);
+void cudaTock(cudaClock *ck, std::string function_name);
 //namespace CudaHelper{
 
    bool allocate_gpu_array(double *array,int size);
