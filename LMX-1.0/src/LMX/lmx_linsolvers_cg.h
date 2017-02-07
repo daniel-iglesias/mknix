@@ -22,6 +22,9 @@
 
 
 #include "lmx_mat_vector.h"
+#include "lmx_mat_matrix.h"
+//#define TRACE true
+
 
 
 //////////////////////////////////////////// Doxygen file documentation entry:
@@ -62,6 +65,8 @@ private:
 	size_type nrow;	//+Matrix size;
 	size_type kmax;	//+Max iterations;
 	Vector<T> mp;	//+Preconditioner;
+	bool TRACE = true;
+	int _trace_iter;
 
 public:
 	Cg(Matrix<T>*, Vector<T>*);	//+Constructor;
@@ -87,13 +92,14 @@ template <typename T> Cg<T>::Cg(Matrix<T>* A_in, Vector<T>* b_in)
 	b(*b_in),
 	x(),
 	tol(1.0e-6),
-	nrow(0), 
+	nrow(0),
 	kmax(0),
 	mp(*b_in)
 {
 	nrow = A_in->rows();
 	kmax = 3*nrow;
 	x.resize( nrow );
+	_trace_iter = 0;
 }
 
 
@@ -110,7 +116,7 @@ template <typename T>
  * Preconditioner function.
  */
 void Cg<T>::precond(){
-  
+
 	// Diagonal preconditioner
 	for (size_type i=0; i < nrow; ++i) mp(i) = 1. / A.readElement(i,i);
 }
@@ -121,9 +127,18 @@ template <typename T>
 /**
  * Solver function
  * @param info output iteration information
- * @return 
+ * @return
  */
 Vector<T> Cg<T>::solve(int info){
+if(TRACE){
+	_trace_iter++;
+	std::string A_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_A_" + _trace_iter;
+	std::cout << "Iter "<< _trace_iter << ":saving A in " << A_path <<std::endl;
+	A.harwellBoeingSave((char*)A_path.c_str());
+	std::string b_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_b_" + _trace_iter;
+	std::cout << "Iter "<< _trace_iter << ":saving b in " << b_path <<std::endl;
+	b.save((char*)b_path.c_str());
+}
 
 ///////// If vector b=0 -> x=0 and end
   int i;
@@ -147,38 +162,38 @@ Vector<T> Cg<T>::solve(int info){
 	T alpha;
 	T tole;
 	T bdelta;
-	
+
 	Vector<T> vAux(nrow);
 	T aux;
 
 	size_type k=1;
 
 // -----
-		
+
 	vAux.mult(A,x);
 	r.subs(b,vAux);		// r = b - A*x
-	
+
 	h.multElements(mp,r);	// h = mp*r;
 	delta = r*h;			// delta = r*h;
 	p = h;
-	
+
 	vAux.multElements(mp,b);
 	bdelta = b*vAux;		// bdelta = b*mp*b
-	
+
 	tole = tol*tol*bdelta;
-	
+
 	while (k < kmax && delta > tole )
 	{
 		if (info > 0) cout<<"iteration :"<<k<<"\t";
-		
+
 		s.mult(A,p);		// s = A*p
-		
+
 		aux = p*s;
 		alpha = delta/aux;	// alpha = delta/(p*s)
 
 		vAux.mult(alpha,p);
 		x += vAux;			// x = x + alpha*p
-		
+
 	    if(k%50 != 0){
 			vAux.mult(alpha,s);
 			r -= vAux;		// r = r - alpha*s
@@ -188,7 +203,7 @@ Vector<T> Cg<T>::solve(int info){
 			vAux.mult(A,x);
 			r.subs(b,vAux);	// r = b - A*x
 		}
-		
+
 		h.multElements(mp,r);	// h = mp*r
 
 		deltaPrev = delta;
@@ -197,7 +212,7 @@ Vector<T> Cg<T>::solve(int info){
 		aux = delta/deltaPrev;
 		vAux.mult(aux,p);
 		p.add(h,vAux);		// p = h + (delta/deltaPrev)*p
-		
+
 		if (info > 0) cout << "residual = " << delta << "\t";
 		if (info > 0) cout << "tolerance = " << tole << endl;
 
@@ -213,6 +228,11 @@ Vector<T> Cg<T>::solve(int info){
 	else
     {
 		cout<<":::System solved after " << k << " iterations:::"<<endl;
+	}
+	if(TRACE){
+		std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + _trace_iter;
+		std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+		x.save((char*)x_path.c_str());
 	}
 
 return x;

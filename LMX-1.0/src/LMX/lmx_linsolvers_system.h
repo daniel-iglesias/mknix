@@ -35,6 +35,11 @@
 #include "lmx_linsolvers_superlu_interface.h"
 #endif
 
+//performancxe measure and report
+#include "gpu/chTimer.h"
+#include <fstream>
+
+
 //////////////////////////////////////////// Doxygen file documentation entry:
     /*!
       \file lmx_linsolvers_system.h
@@ -58,20 +63,22 @@ int getLinSolverType();
 
 
     /**
-    \class LinearSystem 
+    \class LinearSystem
     \brief Template class LinearSystem.
     Linear systems implementation: "A*x = b" .
 
-    This class permits the creation of a linear system object. 
-    Each object has three parameters, corresponding to each of the matrices or 
-    vectors base of the problem. The basic methods solve the problem and add 
-    functionality to control the solution procedure. Not only one solver can be 
+    This class permits the creation of a linear system object.
+    Each object has three parameters, corresponding to each of the matrices or
+    vectors base of the problem. The basic methods solve the problem and add
+    functionality to control the solution procedure. Not only one solver can be
     used as well as the number data type (class) may be differ between the input
     and the one used to solve the system.
 
     @author Daniel Iglesias.
     */
 template <class T> class LinearSystem{
+public:
+  int _trace_iter;
 private:
   Matrix<T>* A;
   DenseMatrix<T>* dA;
@@ -81,6 +88,8 @@ private:
   Matrix<T>* B;
   bool A_new, x_new, b_new;
   int info; /**< sets level of information in std output **/
+  bool TRACE = true;
+
 #ifdef HAVE_SUPERLU
   Superlu<T>* S;
 #endif
@@ -90,7 +99,7 @@ public:
   /** Empty constructor. */
   LinearSystem() : A(0), dA(0), x(0), b(0), X(0), B(0)
                  , A_new(0), x_new(0), b_new(0)
-  { 
+  {
     #ifdef HAVE_SUPERLU
         S = 0;
         initSLU();
@@ -102,10 +111,11 @@ public:
    * @param A_in LHS Matrix.
    * @param b_in RHS Vector.
    */
-  LinearSystem(Matrix<T>& A_in, Vector<T>& b_in) 
+  LinearSystem(Matrix<T>& A_in, Vector<T>& b_in)
   : A(&A_in), dA(0), b(&b_in), x(0), X(0), B(0)
   , A_new(0), x_new(1), b_new(0), info(0)
   {
+     _trace_iter = 0;
     x = new Vector<T>( b_in.size() );
 //     x->resize( b_in.size() );
     *x = b_in;
@@ -122,7 +132,7 @@ public:
    * @param dA_in LHS DenseMatrix.
    * @param b_in RHS Vector.
    */
-  LinearSystem(DenseMatrix<T>& dA_in, Vector<T>& b_in) 
+  LinearSystem(DenseMatrix<T>& dA_in, Vector<T>& b_in)
   : A(0), dA(&dA_in), b(&b_in), x(0), X(0), B(0)
   , A_new(0), x_new(1), b_new(0), info(0)
   {
@@ -139,13 +149,13 @@ public:
 
   template <class C>
   /**
-   * Standard constructor with two parameters with different data type as that 
+   * Standard constructor with two parameters with different data type as that
    * of LinearSystem.
    *
    * @param A_in LHS Matrix.
    * @param b_in RHS Vector.
    */
-  LinearSystem(Matrix<C>& A_in, Vector<C>& b_in) 
+  LinearSystem(Matrix<C>& A_in, Vector<C>& b_in)
   : dA(0), X(0), B(0), A_new(1), x_new(1), b_new(1), info(0)
   {
     A = new Matrix<T>;
@@ -173,7 +183,7 @@ public:
    * @param b_in RHS Vector.
    * @return
    */
-  LinearSystem(Matrix<T>& A_in, Vector<T>& x_in, Vector<T>& b_in) 
+  LinearSystem(Matrix<T>& A_in, Vector<T>& x_in, Vector<T>& b_in)
   : A(&A_in), dA(0), x(&x_in), b(&b_in), X(0), B(0)
   , A_new(0), x_new(0), b_new(0), info(0)
   {
@@ -189,7 +199,7 @@ public:
    * @param x_in Solution vector.
    * @param b_in RHS Vector.
    */
-  LinearSystem(DenseMatrix<T>& dA_in, Vector<T>& x_in, Vector<T>& b_in) 
+  LinearSystem(DenseMatrix<T>& dA_in, Vector<T>& x_in, Vector<T>& b_in)
   : A(0), dA(&dA_in), x(&x_in), b(&b_in), X(0), B(0)
   , A_new(0), x_new(0), b_new(0), info(0)
   {
@@ -201,7 +211,7 @@ public:
 
   template <class C>
   /**
-   * Standard constructor with three parameters, two of them with different 
+   * Standard constructor with three parameters, two of them with different
    * data types.
    *
    * @param A_in LHS Matrix.
@@ -209,7 +219,7 @@ public:
    * @param b_in RHS Vector.
    * @return
    */
-  LinearSystem(Matrix<C>& A_in, Vector<T>& x_in, Vector<C>& b_in) 
+  LinearSystem(Matrix<C>& A_in, Vector<T>& x_in, Vector<C>& b_in)
   : dA(0), x(&x_in), X(0), B(0), A_new(1), x_new(0), b_new(1), info(0)
   {
     A = new Matrix<T>;
@@ -231,7 +241,7 @@ public:
    * @param dA_in LHS DenseMatrix.
    * @param b_in RHS Vector.
    */
-  LinearSystem(DenseMatrix<T>& A_in, DenseMatrix<T>& B_in) 
+  LinearSystem(DenseMatrix<T>& A_in, DenseMatrix<T>& B_in)
   : A(&A_in), dA(0), b(0), x(0), X(0), B(&B_in)
   , A_new(0), x_new(1), b_new(0), info(0)
   {
@@ -243,7 +253,7 @@ public:
 #endif
   }
 
-  LinearSystem(Matrix<T>& A_in, DenseMatrix<T>& B_in) 
+  LinearSystem(Matrix<T>& A_in, DenseMatrix<T>& B_in)
   : A(&A_in), dA(0), b(0), x(0), X(0), B(&B_in)
   , A_new(0), x_new(1), b_new(0), info(0)
   {
@@ -255,7 +265,7 @@ public:
 #endif
   }
 
-  LinearSystem(DenseMatrix<T>& A_in, Matrix<T>& B_in) 
+  LinearSystem(DenseMatrix<T>& A_in, Matrix<T>& B_in)
   : A(&A_in), dA(0), b(0), x(0), X(0), B(&B_in)
   , A_new(0), x_new(1), b_new(0), info(0)
   {
@@ -267,7 +277,7 @@ public:
 #endif
   }
 
-  LinearSystem(Matrix<T>& A_in, Matrix<T>& B_in) 
+  LinearSystem(Matrix<T>& A_in, Matrix<T>& B_in)
   : A(&A_in), dA(0), b(0), x(0), X(0), B(&B_in)
   , A_new(0), x_new(1), b_new(0), info(0)
   {
@@ -306,12 +316,12 @@ public:
 #endif
   }
 
-  /** Set information level. 
+  /** Set information level.
     */
   void setInfo(int level)
   { info = level; }
 
-  
+
 //begin JCGO
 /*
   void solve(bool);
@@ -349,7 +359,7 @@ public:
 
 //begin JCGO 30/03/09
 	void setb( Vector<T>& b_in);
-	void setA( Matrix<T>& A_in); 
+	void setA( Matrix<T>& A_in);
 // end JCGO
 };
 
@@ -439,7 +449,7 @@ void LinearSystem<T>::subsSolve()
 
   /**
    * \brief Solve function.
-   * 
+   *
    * Depending on Matrix and lin_solver types selected, the following combinations are possible:
    *
    * <table> <tr> <td>getLinSolverType()</td>    <td>getMatrixType()</td>    <td>Solver used:</td> </tr>
@@ -478,18 +488,38 @@ void LinearSystem<T>::subsSolve()
   void LinearSystem<T>::solve(int recalc)
 //end JCGO
   {
+    /*cpuClock ck;
+    if(TRACE){
+    	_trace_iter++;
+    	std::string A_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_A_" + _trace_iter;
+    	std::cout << "Iter "<< _trace_iter << ":saving A in " << A_path <<std::endl;
+    	A.harwellBoeingSave((char*)A_path.c_str());
+    	std::string b_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_b_" + _trace_iter;
+    	std::cout << "Iter "<< _trace_iter << ":saving b in " << b_path <<std::endl;
+    	b.save((char*)b_path.c_str());
+    }
+    cpuTick(&ck);*/
     // Routine for rhs Vector:
     if (B==0 && b!=0) solveYourself(recalc);
     // Routine for nrhs Matrix:
     else solveYourselfMatrix();
+  /*  cpuTock(&ck);
+    if(TRACE){
+  		std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + _trace_iter;
+  		std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+  		x.save((char*)x_path.c_str());
+      std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+      saveClock(&ck, clock_path, solver_type);
+  	}*/
   }
-  
+
   template <class T>
 //begin JCGO
 //      void LinearSystem<T>::solveYourselfMatrix(bool recalc = 0)
       void LinearSystem<T>::solveYourselfMatrix(int recalc)
 //end JCGO
   {
+    //cpuClock ck;
       if ( ( A->cols() != A->cols() ) || (A->rows() != B->rows() ) ){
         std::stringstream message;
         message << "Error in LinearSystem \"A*X = B\": Dimensions mismatch. \n"
@@ -510,13 +540,25 @@ void LinearSystem<T>::subsSolve()
 
   }
 
-  
+
   template <class T>
 //begin JCGO
 //      Vector<T>& LinearSystem<T>::solveYourself(bool recalc = 0)
       Vector<T>& LinearSystem<T>::solveYourself(int recalc)
 //end JCGO
   {
+    cpuClock ck;
+    std::string solver_type;
+    if(TRACE){
+      _trace_iter++;
+      std::string A_path = "/home/vicen/Develop/temp_folder/mknix_cg/iter_A_" + std::to_string(_trace_iter)+ ".mat";
+      std::cout << "Iter "<< _trace_iter << ":saving A in " << A_path <<std::endl;
+      A->harwellBoeingSave((char*)A_path.c_str());
+      std::string b_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_b_" + std::to_string(_trace_iter)+ ".vec";
+      std::cout << "Iter "<< _trace_iter << ":saving b in " << b_path <<std::endl;
+      b->save((char*)b_path.c_str());
+    }
+    cpuTick(&ck);//------------------------------------<
     // Routine for DenseMatrix:
     if (A==0 && dA!=0){
       if ( ( dA->cols() != x->size() ) || (dA->rows() != b->size() ) ){
@@ -529,16 +571,26 @@ void LinearSystem<T>::subsSolve()
       }
       // Using built-in gauss elimination procedure:
 #ifdef HAVE_LAPACK
+      solver_type = "lapack_gesv";
       Gesv<T> solver( dA, x, b );
       solver.solve();
 #else
+       solver_type = "LU";
       LU<T> solver( dA, b );
       *x = solver.solve();
 #endif
+   cpuTock(&ck); //------------------------------------<
+if(TRACE){
+  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+  x->save((char*)x_path.c_str());
+  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+  saveClock(&ck, clock_path, solver_type);
+}
       return *x;
     }
-    
     else{
+      cpuTick(&ck); //------------------------------------<
       if ( ( A->cols() != x->size() ) || (A->rows() != b->size() ) ){
         std::stringstream message;
         message << "Error in LinearSystem \"A*x = b\": Dimensions mismatch. \n"
@@ -560,12 +612,21 @@ void LinearSystem<T>::subsSolve()
               LU<T> solver( A, b );
               *x = solver.solve();
 #endif
+cpuTock(&ck); //------------------------------------<
+if(TRACE){
+  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+  x->save((char*)x_path.c_str());
+  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+  saveClock(&ck, clock_path, solver_type);
+}
               return *x;
             }
             break;
 
             case 1 :
 #ifdef HAVE_SUPERLU
+        solver_type = "SUPERLU";
 				//begin JCGO
                 //if (recalc == FALSE){
               	if (recalc == 0)
@@ -611,6 +672,14 @@ void LinearSystem<T>::subsSolve()
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
+cpuTock(&ck); //------------------------------------<
+if(TRACE){
+  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+  x->save((char*)x_path.c_str());
+  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+  saveClock(&ck, clock_path, solver_type);
+}
               return *x;
             break;
 
@@ -618,9 +687,10 @@ void LinearSystem<T>::subsSolve()
 #ifdef HAVE_GMM
               switch (getVectorType()) {
                 case 0:
+                solver_type = "gmm_lu";
                 // Posible sustituci�n con SuperLU con flag de simetrico
                   gmm::lu_solve(*(static_cast<Type_gmm<T>*>(A->type_matrix)->data_pointer()), *(static_cast<Type_stdVector<T>*>(x->type_vector)->data_pointer()), *(static_cast<Type_stdVector<T>*>(b->type_vector)->data_pointer()));
-    
+
                   break;
 
                 case 1:
@@ -642,6 +712,14 @@ void LinearSystem<T>::subsSolve()
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
+cpuTock(&ck); //------------------------------------<
+if(TRACE){
+  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+  x->save((char*)x_path.c_str());
+  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+  saveClock(&ck, clock_path, solver_type);
+}
               return *x;
               break;
 
@@ -667,6 +745,14 @@ void LinearSystem<T>::subsSolve()
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
+cpuTock(&ck); //------------------------------------<
+if(TRACE){
+  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+  x->save((char*)x_path.c_str());
+  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+  saveClock(&ck, clock_path, solver_type);
+}
               return *x;
               break;
 
@@ -675,7 +761,7 @@ void LinearSystem<T>::subsSolve()
 
 
           case 1 : // solver_type == 1 -> directos para sistemas simetricos y no simetricos
-
+             solver_type = "solver_type == 1 LU";
             switch (getMatrixType()) {
             case 0 :
             {  // Using built-in gauss elimination procedure:
@@ -732,6 +818,14 @@ void LinearSystem<T>::subsSolve()
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
+cpuTock(&ck); //------------------------------------<
+if(TRACE){
+  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+  x->save((char*)x_path.c_str());
+  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+  saveClock(&ck, clock_path, solver_type);
+}
               return *x;
             break;
 
@@ -741,7 +835,7 @@ void LinearSystem<T>::subsSolve()
                 case 0:
                 // Posible sustituci�n con SuperLU
                   gmm::lu_solve(*(static_cast<Type_gmm<T>*>(A->type_matrix)->data_pointer()), *(static_cast<Type_stdVector<T>*>(x->type_vector)->data_pointer()), *(static_cast<Type_stdVector<T>*>(b->type_vector)->data_pointer()));
-    
+
                   break;
 
                 case 1:
@@ -759,6 +853,14 @@ void LinearSystem<T>::subsSolve()
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
+cpuTock(&ck); //------------------------------------<
+if(TRACE){
+  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+  x->save((char*)x_path.c_str());
+  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+  saveClock(&ck, clock_path, solver_type);
+}
               return *x;
             break;
 
@@ -784,6 +886,14 @@ void LinearSystem<T>::subsSolve()
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
+cpuTock(&ck); //------------------------------------<
+if(TRACE){
+  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+  x->save((char*)x_path.c_str());
+  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+  saveClock(&ck, clock_path, solver_type);
+}
               return *x;
               break;
             }
@@ -796,7 +906,13 @@ void LinearSystem<T>::subsSolve()
               Cg<T> cg_solver(A, b);
               cg_solver.precond();
               *x = cg_solver.solve(info);
-
+              if(TRACE){
+                std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+                std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+                x->save((char*)x_path.c_str());
+                std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+                saveClock(&ck, clock_path, solver_type);
+              }
               return *x;
             }
             break;
@@ -806,13 +922,19 @@ void LinearSystem<T>::subsSolve()
               Cg<T> cg_solver(A, b);
               cg_solver.precond();
               *x = cg_solver.solve(info);
-
+              if(TRACE){
+                std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+                std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+                x->save((char*)x_path.c_str());
+                std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+                saveClock(&ck, clock_path, solver_type);
+              }
               return *x;
             }
             break;
 
             case 2 :
-            { 
+            {
               // CG de lmx
               Cg<T> cg_solver(A, b);
               cg_solver.precond();
@@ -835,17 +957,17 @@ void LinearSystem<T>::subsSolve()
   //////////////////////////////////////// Just another form of calling gmm's CG, BEGIN:
   //           { gmm::csc_matrix<T> GM;
   //             gmm::copy(*(static_cast<Type_gmm_sparse<T>*>(A->type_matrix)->data_pointer() ), GM);
-  // 
+  //
   //             gmm::ilut_precond< gmm::csc_matrix<T> > PR(GM, 10, 1e-4);
-  // 
+  //
   //             gmm::iteration iter(1E-8);
   //             iter.set_noisy(1);
-  // 
+  //
   //             gmm::identity_matrix PS;   // Optional scalar product for cg
-  // 
+  //
   //             gmm::cg(GM,  *(static_cast<Type_stdVector<T>*>(x->type_vector)->data_pointer()), *(static_cast<Type_stdVector<T>*>(b->type_vector)->data_pointer()), PS, PR, iter);
   // //             gmm::cg(*(static_cast<Type_gmm_sparse<T>*>(A->type_matrix)->data_pointer()),  *(static_cast<Type_stdVector<T>*>(x->type_vector)->data_pointer()), *(static_cast<Type_stdVector<T>*>(b->type_vector)->data_pointer()), PS, P, iter);
-  // 
+  //
   //             return *x;
   //            }
   //////////////////////////////////////// Just another form of calling gmm's CG, END:
@@ -860,6 +982,7 @@ void LinearSystem<T>::subsSolve()
 
               // CG de gmm SOLO PARA VECTORES STL
   #ifdef HAVE_GMM
+
               gmm::diagonal_precond< gmm::row_matrix< gmm::rsvector<T> > > PR(*(static_cast<Type_gmm_sparse<T>*>( A->type_matrix)->data_pointer() ) );
 
               gmm::iteration iter(1E-6);
@@ -870,6 +993,14 @@ void LinearSystem<T>::subsSolve()
               gmm::cg(*(static_cast<Type_gmm_sparse<T>*>(A->type_matrix)->data_pointer()),
                       *(static_cast<Type_stdVector<T>*>(x->type_vector)->data_pointer()), *(static_cast<Type_stdVector<T>*>(b->type_vector)->data_pointer()), PS, PR, iter);
   #endif
+  cpuTock(&ck); //------------------------------------<
+  if(TRACE){
+    std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+    std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+    x->save((char*)x_path.c_str());
+    std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+    saveClock(&ck, clock_path, solver_type);
+  }
             return *x;
           }
   //////////////////////////////////////// Just another form of calling gmm's CG, BEGIN:
@@ -936,7 +1067,7 @@ void LinearSystem<T>::subsSolve()
                   gmm::gmres(*(static_cast<Type_gmm_sparse<T>*>(A->type_matrix)->data_pointer()),  *(static_cast<Type_gmmVector_sparse<T>*>(x->type_vector)->data_pointer()), *(static_cast<Type_gmmVector_sparse<T>*>(b->type_vector)->data_pointer()), P, 50, iter);
                 }
                 break;
-    
+
             }
 #else
               {
@@ -945,6 +1076,14 @@ void LinearSystem<T>::subsSolve()
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
+cpuTock(&ck); //------------------------------------<
+if(TRACE){
+  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+  x->save((char*)x_path.c_str());
+  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+  saveClock(&ck, clock_path, solver_type);
+}
             return *x;
 
             break;
@@ -955,7 +1094,7 @@ void LinearSystem<T>::subsSolve()
     }
     return *x;
   }
- 
+
 //begin JCGO
 template <class T>
 void LinearSystem<T>::initSLU()

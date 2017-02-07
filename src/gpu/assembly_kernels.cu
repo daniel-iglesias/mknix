@@ -14,7 +14,7 @@
  * @param  {[type]} double* address  memory position for the atomic operation
  * @param  {[type]} double  val      value to add atomically
  */
-__device__ double atomicAdd(double* address, double val)
+/*__device__ double atomicAdd(double* address, double val)
 {
     unsigned long long int* address_as_ull = (unsigned long long int*) address;
     unsigned long long int old = *address_as_ull, assumed;
@@ -25,7 +25,7 @@ __device__ double atomicAdd(double* address, double val)
                         __longlong_as_double(assumed)));
     } while (assumed != old);
     return __longlong_as_double(old);
-}
+}*/
 
 template <typename T>
 __global__ void k_assemble_global_matrix(T* global_matrix,
