@@ -78,7 +78,7 @@ int getLinSolverType();
     */
 template <class T> class LinearSystem{
 public:
-  int _trace_iter;
+  int _trace_iter = 0;
 private:
   Matrix<T>* A;
   DenseMatrix<T>* dA;
@@ -100,6 +100,7 @@ public:
   LinearSystem() : A(0), dA(0), x(0), b(0), X(0), B(0)
                  , A_new(0), x_new(0), b_new(0)
   {
+    _trace_iter = 0;
     #ifdef HAVE_SUPERLU
         S = 0;
         initSLU();
@@ -136,6 +137,7 @@ public:
   : A(0), dA(&dA_in), b(&b_in), x(0), X(0), B(0)
   , A_new(0), x_new(1), b_new(0), info(0)
   {
+    _trace_iter = 0;
     x = new Vector<T>;
     x->resize( b_in.size() );
     *x = b_in;
@@ -158,6 +160,7 @@ public:
   LinearSystem(Matrix<C>& A_in, Vector<C>& b_in)
   : dA(0), X(0), B(0), A_new(1), x_new(1), b_new(1), info(0)
   {
+    _trace_iter = 0;
     A = new Matrix<T>;
     *A = A_in;
 
@@ -187,6 +190,7 @@ public:
   : A(&A_in), dA(0), x(&x_in), b(&b_in), X(0), B(0)
   , A_new(0), x_new(0), b_new(0), info(0)
   {
+    _trace_iter = 0;
 #ifdef HAVE_SUPERLU
     S = 0;
     initSLU();
@@ -203,6 +207,7 @@ public:
   : A(0), dA(&dA_in), x(&x_in), b(&b_in), X(0), B(0)
   , A_new(0), x_new(0), b_new(0), info(0)
   {
+    _trace_iter = 0;
 #ifdef HAVE_SUPERLU
     S = 0;
     initSLU();
@@ -222,6 +227,7 @@ public:
   LinearSystem(Matrix<C>& A_in, Vector<T>& x_in, Vector<C>& b_in)
   : dA(0), x(&x_in), X(0), B(0), A_new(1), x_new(0), b_new(1), info(0)
   {
+    _trace_iter = 0;
     A = new Matrix<T>;
     *A = A_in;
 
@@ -245,6 +251,7 @@ public:
   : A(&A_in), dA(0), b(0), x(0), X(0), B(&B_in)
   , A_new(0), x_new(1), b_new(0), info(0)
   {
+    _trace_iter = 0;
     X = new DenseMatrix<T>;
     X->resize( A_in.rows(), A_in.cols() );
 #ifdef HAVE_SUPERLU
@@ -257,6 +264,7 @@ public:
   : A(&A_in), dA(0), b(0), x(0), X(0), B(&B_in)
   , A_new(0), x_new(1), b_new(0), info(0)
   {
+    _trace_iter = 0;
     X = new DenseMatrix<T>;
     X->resize( A_in.rows(), A_in.cols() );
 #ifdef HAVE_SUPERLU
@@ -269,6 +277,7 @@ public:
   : A(&A_in), dA(0), b(0), x(0), X(0), B(&B_in)
   , A_new(0), x_new(1), b_new(0), info(0)
   {
+    _trace_iter = 0;
     X = new DenseMatrix<T>;
     X->resize( A_in.rows(), A_in.cols() );
 #ifdef HAVE_SUPERLU
@@ -281,6 +290,7 @@ public:
   : A(&A_in), dA(0), b(0), x(0), X(0), B(&B_in)
   , A_new(0), x_new(1), b_new(0), info(0)
   {
+    _trace_iter = 0;
     X = new DenseMatrix<T>;
     X->resize( A_in.rows(), A_in.cols() );
 #ifdef HAVE_SUPERLU
@@ -584,7 +594,7 @@ if(TRACE){
   std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
   std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
   x->save((char*)x_path.c_str());
-  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
   saveClock(&ck, clock_path, solver_type);
 }
       return *x;
@@ -617,7 +627,7 @@ if(TRACE){
   std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
   std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
   x->save((char*)x_path.c_str());
-  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
   saveClock(&ck, clock_path, solver_type);
 }
               return *x;
@@ -677,7 +687,7 @@ if(TRACE){
   std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
   std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
   x->save((char*)x_path.c_str());
-  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
   saveClock(&ck, clock_path, solver_type);
 }
               return *x;
@@ -717,7 +727,7 @@ if(TRACE){
   std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
   std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
   x->save((char*)x_path.c_str());
-  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
   saveClock(&ck, clock_path, solver_type);
 }
               return *x;
@@ -750,7 +760,7 @@ if(TRACE){
   std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
   std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
   x->save((char*)x_path.c_str());
-  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
   saveClock(&ck, clock_path, solver_type);
 }
               return *x;
@@ -823,7 +833,7 @@ if(TRACE){
   std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
   std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
   x->save((char*)x_path.c_str());
-  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
   saveClock(&ck, clock_path, solver_type);
 }
               return *x;
@@ -858,7 +868,7 @@ if(TRACE){
   std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
   std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
   x->save((char*)x_path.c_str());
-  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
   saveClock(&ck, clock_path, solver_type);
 }
               return *x;
@@ -891,7 +901,7 @@ if(TRACE){
   std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
   std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
   x->save((char*)x_path.c_str());
-  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
   saveClock(&ck, clock_path, solver_type);
 }
               return *x;
@@ -910,7 +920,7 @@ if(TRACE){
                 std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
                 std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
                 x->save((char*)x_path.c_str());
-                std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+                std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
                 saveClock(&ck, clock_path, solver_type);
               }
               return *x;
@@ -926,7 +936,7 @@ if(TRACE){
                 std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
                 std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
                 x->save((char*)x_path.c_str());
-                std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+                std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
                 saveClock(&ck, clock_path, solver_type);
               }
               return *x;
@@ -998,7 +1008,7 @@ if(TRACE){
     std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
     std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
     x->save((char*)x_path.c_str());
-    std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+    std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
     saveClock(&ck, clock_path, solver_type);
   }
             return *x;
@@ -1081,7 +1091,7 @@ if(TRACE){
   std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
   std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
   x->save((char*)x_path.c_str());
-  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + _trace_iter;
+  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
   saveClock(&ck, clock_path, solver_type);
 }
             return *x;
