@@ -88,7 +88,7 @@ private:
   Matrix<T>* B;
   bool A_new, x_new, b_new;
   int info; /**< sets level of information in std output **/
-  bool TRACE = true;
+  bool TRACE = false;
 
 #ifdef HAVE_SUPERLU
   Superlu<T>* S;

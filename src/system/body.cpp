@@ -21,13 +21,16 @@
 
 #include <core/cell.h>
 #include <gpu/chTimer.h>
+#include <gpu/assembly_cpu.h>
+#ifdef HAVE_CUDA
 #include <gpu/assembly_kernels.h>
 #include <gpu/cuda_helper.h>
-//#include <gpu/device_helper.h>
 #include <cuda.h>
 #include <cuda_runtime.h>
 #include <cuda_runtime_api.h>
-#include <gpu/chTimer.h>
+#endif
+
+
 
 namespace mknix {
 
@@ -73,50 +76,59 @@ Body::~Body()
         delete group.second;
     }
     free(_h_presence_matrix);
+  double cpuAvg = 0.0;
+  int cpuMeasures = microCPU1.size();
+  for(int i = 0; i < cpuMeasures; i++)
+        cpuAvg += microCPU1.at(i);
+  cpuAvg /= cpuMeasures;
 
+  std::cout << "AssembleCapacityMatrix time measurements = "<< cpuMeasures << std::endl;
+  std::cout << "CPU Avg:  " << cpuAvg << std::endl;
+  //std::cout << "CPU Avg:  " << cpuAvg << " vs GPU Avg: " << gpuAvg
+  cpuMeasures = microCPU2.size();
+  cpuAvg = 0.0;
+  for(int i = 0; i < cpuMeasures; i++) cpuAvg += microCPU2.at(i);
+  cpuAvg /= cpuMeasures;
+
+
+  #ifdef HAVE_CUDA
     if(_use_gpu){
       cudaFree(_d_globalCapacityf);
       cudaFree(_d_globalConductivityf);
       cudaFree(_d_capacity_map);
     }
     ////////////////////////////////////
-    int cpuMeasures = microCPU1.size();
+
     int gpuMeasures = microGPU1.size();
-    std::cout << "AssembleCapacityMatrix time measurements = "<< cpuMeasures << std::endl;
+
     if(cpuMeasures != gpuMeasures)
       std::cout << "WARNING we have " << cpuMeasures << " CPU measures and " << gpuMeasures << " GPU ones, the should be the same!"<< std::endl;
-   double cpuAvg = 0.0;
+
    double gpuAvg = 0.0;
-    for(int i = 0; i < cpuMeasures; i++)
-          cpuAvg += microCPU1.at(i);
-    cpuAvg /= cpuMeasures;
 
     for(int i = 0; i < gpuMeasures; i++)
           gpuAvg += microGPU1.at(i);
    gpuAvg /= gpuMeasures;
-
-     std::cout << "CPU Avg:  " << cpuAvg << " vs GPU Avg: " << gpuAvg << std::endl;
+   std::cout << "CPU Avg:  " << cpuAvg << " vs GPU Avg: " << gpuAvg << std::endl;
      std::cout << "Represent and average of  " << cpuAvg/gpuAvg << "x speedup" << std::endl;
-////////////////////////////////////////////////////////////////////////
 
-     cpuMeasures = microCPU2.size();
+////////////////////////////////////////////////////////////////////////
      gpuMeasures = microGPU2.size();
      std::cout << "AssembleConductivityMatrix time measurements = "<< cpuMeasures << std::endl;
      if(cpuMeasures != gpuMeasures)
        std::cout << "WARNING we have " << cpuMeasures << " CPU measures and " << gpuMeasures << " GPU ones, the should be the same!"<< std::endl;
-     cpuAvg = 0.0;
+
      gpuAvg = 0.0;
-     for(int i = 0; i < cpuMeasures; i++)
-           cpuAvg += microCPU2.at(i);
-     cpuAvg /= cpuMeasures;
+
 
      for(int i = 0; i < gpuMeasures; i++)
            gpuAvg += microGPU2.at(i);
      gpuAvg /= gpuMeasures;
 
-      std::cout << "CPU Avg:  " << cpuAvg << " vs GPU Avg: " << gpuAvg << std::endl;
+
       std::cout << "Represent and average of  " << cpuAvg/gpuAvg << "x speedup" << std::endl;
   /////////////////////////////////////////////////////////////////////////////////////
+#endif
 
 
 }
@@ -192,17 +204,19 @@ void Body::initialize()
 
     //map_vector_thermal_numbers(_locaThermalNumbers);
     //GPU part
+  #ifdef HAVE_CUDA
     if(_use_gpu){
        _sparse_matrix_size = _cvec_ptr[_number_nodes];//convention
        std::cout << "sparse matrix has " << _sparse_matrix_size << " elements" << std::endl;
-       cudaMalloc((void**)&_d_globalCapacityf, _sparse_matrix_size * sizeof(float));
-       cudaMalloc((void**)&_d_globalConductivityf, _sparse_matrix_size * sizeof(float));
-       cudaMalloc((void**)&_d_localCapacityf, _number_points * _support_node_size * _support_node_size * sizeof(float));
-       cudaMalloc((void**)&_d_localConductivityf, _number_points * _support_node_size * _support_node_size * sizeof(float));
-       cudaMalloc((void**)&_d_capacity_map, _number_nodes * _number_nodes*sizeof(int));
-       cudaMemcpy(_d_capacity_map, _full_map.data(),_number_nodes * _number_nodes*sizeof(int), cudaMemcpyHostToDevice);
+       CudaSafeCall(cudaMalloc((void**)&_d_globalCapacityf, _sparse_matrix_size * sizeof(float)));
+       CudaSafeCall(cudaMalloc((void**)&_d_globalConductivityf, _sparse_matrix_size * sizeof(float)));
+       CudaSafeCall(cudaMalloc((void**)&_d_localCapacityf, _number_points * _support_node_size * _support_node_size * sizeof(float)));
+       CudaSafeCall(cudaMalloc((void**)&_d_localConductivityf, _number_points * _support_node_size * _support_node_size * sizeof(float)));
+       CudaSafeCall(cudaMalloc((void**)&_d_capacity_map, _number_nodes * _number_nodes*sizeof(int)));
+       CudaSafeCall(cudaMemcpy(_d_capacity_map, _full_map.data(),_number_nodes * _number_nodes*sizeof(int), cudaMemcpyHostToDevice));
        CudaCheckError();
     }
+ #endif
 }
 
 /**
@@ -288,7 +302,7 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
   cpuTock(&cck1, "CPU assembleCapacityMatrix");
   microCPU1.push_back(cck1.elapsedMicroseconds);
   //std::cout << "miiiii " << cck1.elapsedMicroseconds <<std::endl;
-
+#ifdef HAVE_CUDA
 cudaClock gck1;
  if(_use_gpu){
    init_array_to_value(_d_globalCapacityf, 0.0f, _sparse_matrix_size,128);
@@ -303,6 +317,7 @@ cudaClock gck1;
    cudaTock(&gck1, "GPU assembleCapacityMatrix");
    microGPU1.push_back(gck1.elapsedMicroseconds);
  }
+ #endif
 
 }
 
@@ -322,7 +337,7 @@ void Body::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity
     }
     cpuTock(&cck2, "CPU assembleConductivityMatrix");
     microCPU2.push_back(cck2.elapsedMicroseconds);
-
+  #ifdef HAVE_CUDA
     cudaClock gck2;
     if(_use_gpu){
       init_array_to_value(_d_globalConductivityf, 0.0f, _sparse_matrix_size,128);
@@ -337,6 +352,7 @@ void Body::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity
     cudaTock(&gck2, "GPU assembleConductivityMatrix");
     microGPU2.push_back(gck2.elapsedMicroseconds);
     }
+  #endif
 
 }
 
@@ -355,7 +371,8 @@ void Body::assembleExternalHeat(lmx::Vector<data_type>& globalExternalHeat)
     for (auto group : boundaryGroups) {
         group.second->assembleExternalHeat(globalExternalHeat);
     }
-    /*if(_use_gpu){
+  #ifdef HAVE_CUDA
+    if(_use_gpu){
       init_array_to_value(_d_globalExternalHeat, 0.0f, _sparse_matrix_size,128);
       gpu_assemble_global_vector(_d_globalExternalHeat,
                                 _d_locaThermalNumbers,
@@ -363,7 +380,14 @@ void Body::assembleExternalHeat(lmx::Vector<data_type>& globalExternalHeat)
                                 _support_node_size,
                                 _number_points,
                                 128);
-    }*/
+      gpu_assemble_global_vector(_d_globalExternalHeat,
+                                _d_locaThermalNumbers,
+                                _d_localHeatf,
+                                _support_node_size,
+                                _number_points,
+                                128);
+    }
+  #endif
 }
 
 void Body::setTemperature(double temp_in)

@@ -28,8 +28,10 @@
 #include <core/cellboundary.h>
 #include <core/node.h>
 
+#ifdef HAVE_CUDA
 //#include <gpu/cuda_helper.h>
 #include <gpu/assembly_kernels.h>
+#endif
 
 
 namespace mknix {

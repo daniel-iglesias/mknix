@@ -65,7 +65,7 @@ private:
 	size_type nrow;	//+Matrix size;
 	size_type kmax;	//+Max iterations;
 	Vector<T> mp;	//+Preconditioner;
-	bool TRACE = true;
+	bool TRACE = false;
 	int _trace_iter;
 
 public:
