@@ -109,7 +109,7 @@ bool ConstraintThermalFixed::checkAugmented()
             iter_augmented=0;
             return 1;
         }
-        if ( ( (iter_augmented == 2) || (delta <= 20) ) && (Tt<300) ) {
+        if ( ( (iter_augmented == 3) || (delta <= 10) ) && (Tt<300) ) {
             iter_augmented=0;
             return 1;
         }
