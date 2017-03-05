@@ -24,6 +24,17 @@
 #include "common.h"
 
 #include <core/material.h>
+#include <system/constraint.h>
+
+#if defined(_WIN32) || defined(WIN32)
+#  ifdef MKNIX_EXPORT
+#    define MKNIX_API __declspec(dllexport)
+#  else
+#    define MKNIX_API __declspec(dllimport)
+#  endif
+#else
+#  define MKNIX_API
+#endif
 
 namespace mknix {
 
@@ -39,11 +50,10 @@ class Node;
 
 class Point;
 
-
 /**
   @author AUTHORS <MAILS>
 */
-class Simulation
+class MKNIX_API Simulation
 {
 
     friend class Reader;
@@ -69,51 +79,57 @@ public:
 
     void inputFromFile(const std::string& fileIn);
 
-//     void geometryFile(char*);
-//     void outputFile(char*);
-    int getInterfaceNumberOfNodes( std::string );
-    Node* getInterfaceNode( std::string, int );
-    double getConstraintOutput( std::string constraintName, std::string systemName="", int component=0 );
-    
+    size_t getInterfaceNumberOfNodes(const std::string& name) const;
+
+    Node* getInterfaceNode(const std::string& system_name, size_t num) const;
+
+    std::vector<Node*> getSignalNodes(const std::string& system_name, const std::string& name) const;
+
+    Node* getOuputNode(const std::string& system_name, const std::string& name) const;
+
+    std::vector<string> getConstraintNames(const std::string& systemName = "") const;
+
+    Constraint* getConstraint(const std::string& constraintName, const std::string& systemName = "") const;
+
+    double getConstraintOutput(const std::string& constraintName, const std::string& systemName = "",
+                               size_t component = 0);
+
     std::vector<double> getInterfaceNodesCoords();
 
     void setOutputFilesDetail(int level_in) // 0 none, 1 only times, 2 all
-    { outputFilesDetail = level_in; }
-
-    void init(int vervosity=2);
-
-    void updateConstraint(std::string name, std::vector<double>);
+    {
+        outputFilesDetail = level_in;
+    }
 
     // COBS_section_lift1.ground1
     // COBS_section_lift1.ground1.v
 
-    enum class OutputType {
+    enum class OutputType
+    {
         POSITION, FORCE, STRESS
     };
 
-    std::vector<double> getOutput(std::string name, OutputType type);
-
     // COBS_section_lift1.bgroup1
 
-    void init();
+    void init(int verbosity=2);
 
     void setInitialTemperatures(double);
 
     void solveStep();
 
-    void solveStep(double *, double * o_output = 0);
+    void solveStep(double*, double* o_output = 0);
 
     void endSimulation();
 
     std::vector<std::string> bodyNames();
 
-    std::vector<double> bodyPoints(const std::string& system_name, const std::string& body_name);
+    std::vector<double> bodyPoints(const std::string& system_name, const std::string& body_name) const;
 
     void run();
 
-    void runThermalAnalysis(Analysis *);
+    void runThermalAnalysis(Analysis*);
 
-    void runMechanicalAnalysis(Analysis *);
+    void runMechanicalAnalysis(Analysis*);
 
     void writeSystem();
 
@@ -129,9 +145,7 @@ public:
                                   lmx::Vector<data_type>& q
     );
 
-    void explicitThermalEvaluation
-            (const lmx::Vector<data_type>& qt, lmx::Vector<data_type>& qtdot, double time
-            );
+    void explicitThermalEvaluation(const lmx::Vector<data_type>& qt, lmx::Vector<data_type>& qtdot, double time);
 
     void dynamicThermalEvaluation(const lmx::Vector<data_type>& q,
                                   lmx::Vector<data_type>& qdot,
@@ -259,20 +273,21 @@ private:
 #ifdef HAVE_VTK
     Contact * theContact;
 #endif
-    Analysis * theAnalysis;
+    Analysis* theAnalysis;
 
     std::vector<std::unique_ptr<Analysis>> analyses;
 //     std::vector<std::vector< double > > pointsTimeConfiguration;
-    std::map<int, Point *> outputPoints;
-    std::map<int, Node *> nodes;
-    std::map<int, Node *> thermalNodes;
+    std::map<int, Point*> outputPoints;
+    std::map<int, Node*> nodes;
+    std::map<int, Node*> thermalNodes;
     std::map<int, Material> materials;
     /**< Map of materials. */
 
-    lmx::ExactStopwatch * globalTimer;
-    std::ofstream * timerFile;
-    std::ofstream * configurationFile;
-    static double stepTime, oldClockTime;
+    lmx::ExactStopwatch* globalTimer;
+    std::ofstream* timerFile;
+    std::ofstream* configurationFile;
+	static double stepTime;
+	static double oldClockTime;
     int iterationsNLSolver;
     int outputFilesDetail;
 
@@ -300,8 +315,9 @@ private:
     static double epsilon;
     static std::string smoothingType;
 
-    lmx::Vector<data_type> initThermalSimulation(Analysis * analysis, int, bool init = true);
-    lmx::Vector<data_type> initMechanicalSimulation(Analysis * analysis, bool init = true);
+    lmx::Vector<data_type> initThermalSimulation(Analysis* analysis, int verbosity, bool init = true);
+
+    lmx::Vector<data_type> initMechanicalSimulation(Analysis* analysis, int verbosity, bool init = true);
 };
 
 }

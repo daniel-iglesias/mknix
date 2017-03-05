@@ -17,8 +17,8 @@
  *  License along with Nemesis.  If not, see <http://www.gnu.org/licenses/>.  *
  *****************************************************************************/
 
-#ifndef SHAPEFUNCTIONMLS_H
-#define SHAPEFUNCTIONMLS_H
+#ifndef SHAPEFUNCTIONMLS3D_H
+#define SHAPEFUNCTIONMLS3D_H
 
 //////////////////////////////////////////// Doxygen file documentation entry:
 /*!
@@ -39,7 +39,7 @@ namespace mknix {
 /**
 @author Daniel Iglesias
 */
-class ShapeFunctionMLS : public ShapeFunction {
+class ShapeFunctionMLS3D : public ShapeFunction {
 
 private:
 //    int dim; /**< Dimension of problem's space.*/
@@ -58,11 +58,11 @@ private:
     std::vector< std::vector< lmx::Vector<double> > > B; /** Container of B_I */
 
 public:
-    ShapeFunctionMLS();
+    ShapeFunctionMLS3D();
 
-    ShapeFunctionMLS(int, int, int, double&, double&, Point* );
+    ShapeFunctionMLS3D(int, int, int, double&, double&, Point* );
 
-    ~ShapeFunctionMLS();
+    ~ShapeFunctionMLS3D();
 
     void calc();
 

@@ -220,7 +220,7 @@ public:
 
    /**
     * Clear method.
-    * Wipes all data.
+    * Wipes all data. 
     */
    //TODO: Eliminate all information and size
    void clear()

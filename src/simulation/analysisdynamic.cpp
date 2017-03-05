@@ -95,7 +95,7 @@ void AnalysisDynamic::nextStep()
     theProblem.stepSolve();
 }
 
-void AnalysisDynamic::init(lmx::Vector<data_type> * qt_in, lmx::Vector<data_type> * qdot_in)
+void AnalysisDynamic::init(lmx::Vector<data_type> * qt_in, lmx::Vector<data_type> * qdot_in, int verbosity)
 {
     theProblem.setInitialConfiguration(*qt_in, *qdot_in);
     theProblem.initialize();

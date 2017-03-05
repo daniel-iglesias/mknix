@@ -54,7 +54,7 @@ public:
                        lmx::Vector<data_type> * = 0
     ) = 0;
 
-    virtual void init(lmx::Vector<data_type> * q_in, lmx::Vector<data_type> * qdot_in) = 0; // specialised in AnalysisThermalDynamic
+    virtual void init(lmx::Vector<data_type> * q_in, lmx::Vector<data_type> * qdot_in, int verbosity) = 0; // specialised in AnalysisThermalDynamic
     virtual void nextStep() = 0; // specialised in AnalysisThermalDynamic
 
 protected:

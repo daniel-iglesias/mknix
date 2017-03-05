@@ -42,7 +42,7 @@ namespace mknix {
 class ShapeFunctionRBF : public ShapeFunction {
 
 private:
-    int nn, mm; /**< Number of radial basis functions(nn) and monomials(mm). */
+    size_t nn, mm; /**< Number of radial basis functions(nn) and monomials(mm). */
     int rbfType; /**< Selector of radial basis functions type.
                   * Can be == 0 for Multi-Quadrics (MQ)
                   *        == 1 for Gaussian (EXP)
@@ -54,7 +54,7 @@ private:
 public:
     ShapeFunctionRBF();
 
-    ShapeFunctionRBF(int, int, int,
+    ShapeFunctionRBF(size_t, size_t, int,
                      double&, double&, double&, Point *);
 
     ~ShapeFunctionRBF();

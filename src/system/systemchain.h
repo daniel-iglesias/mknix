@@ -26,12 +26,14 @@
 namespace mknix {
 
 class Simulation;
+
 class ConstraintDistance;
 
 /**
   @author AUTHORS <MAILS>
 */
-class SystemChain : public System {
+class SystemChain : public System
+{
 
 //   friend class Reader;
 //   friend class ReaderFlex;
@@ -42,59 +44,59 @@ class SystemChain : public System {
 public:
     SystemChain();
 
-    SystemChain( const char* );
+    SystemChain(const char*);
 
     ~SystemChain();
 
     void setInterfaceNodeA(double x, double y, double z)
     {
-        x0=x;
-        y0=y;
-        z0=z;
+        x0 = x;
+        y0 = y;
+        z0 = z;
     }
 
     void setInterfaceNodeB(double x, double y, double z)
     {
-        x1=x;
-        y1=y;
-        z1=z;
+        x1 = x;
+        y1 = y;
+        z1 = z;
     }
 
-    void setProperties( int segments_in, double length_in )
+    void setProperties(int segments_in, double length_in)
     {
         segments = segments_in;
         length = length_in;
     }
 
-    void setMass( double mass_in )
+    void setMass(double mass_in)
     {
         mass = mass_in;
     }
 
     // Note: timeLength[0] is updated in populate() function
-    void setTimeLengths( std::map<double, double>& timeLenghts_in )
+    void setTimeLengths(std::map<double, double>& timeLenghts_in)
     {
         timeLenghts = timeLenghts_in;
     }
 
-    Node* getNode( int ) override;
+    Node* getNode(size_t) override;
 
-    void addTimeLenght( double time_in, double length_in )
+    void addTimeLenght(double time_in, double length_in)
     {
         timeLenghts[time_in] = length_in;
     }
 
-    void populate( Simulation*, std::string& );
+    void populate(Simulation*, std::string&);
 
-    void update( double ) override;
+    void update(double) override;
 
 private:
     double length, currentLength, mass;
     int segments;
     double x0, y0, z0;
     double x1, y1, z1;
-    std::map< double, double > timeLenghts;
-    std::map< std::string, ConstraintDistance* > localConstraintDistance;
+    std::map<double, double> timeLenghts;
+    std::map<std::string, ConstraintDistance*> localConstraintDistance;
 
 };
 

@@ -101,8 +101,6 @@ void GaussPoint::computeCij()
         avgTemp += supportNodes[i]->getTemp() * shapeFun->getPhi(0, i);
     }
     double avgFactor = mat->getDensity() * mat->getCapacity(avgTemp) * weight * std::abs(jacobian);
-    // BUG: This is a test for adding lower conductivity layer for y > -1E-5 (MAST-U CFC tiles)
-//     if (this->Y > -20E-5) {avgFactor*=0.001;}
     //////////////// Calculation of Capacity matrix:
     //////////////// M = rho * Cp * wg * N^T * N * |Jc|
     //////////////// Mij = rho * Cp * wg * Ni * Nj * |Jc| = M(i ,j)
@@ -146,12 +144,6 @@ void GaussPoint::computeHij()
         avgTemp += supportNodes[i]->getTemp() * shapeFun->getPhi(0, i);
     }
     double avgFactor = mat->getKappa(avgTemp) * weight * std::abs(jacobian);
-      // BUG: 
-      // This is a test for adding lower conductivity layer for y > -1E-5 (MAST-U CFC tiles)
-      // if (this->Y > -142E-6) {avgFactor*=0.08;}
-      // if (this->Y > -0.7E-5) {avgFactor*=0.005;}
-      // This is a test for adding W higher conductivity layer for y > -1E-5 (Tile 6)
-      // 
     // Hij = wg * grad(N_j) * kappa * grad(N_I) * |Jc|
     for (auto i = 0u; i < supportNodesSize; ++i) {
         for (auto j = 0u; j < supportNodesSize; ++j) {

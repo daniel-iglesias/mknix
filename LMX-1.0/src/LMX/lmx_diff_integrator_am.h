@@ -125,6 +125,8 @@ namespace lmx {
   template <class T>
       void IntegratorAM<T>::initialize( Configuration<T>* configuration_in )
   {
+#undef max
+
     q = configuration_in;
     q->setStoredSteps( 2, std::max(order,2), order );
   }

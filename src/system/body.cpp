@@ -128,7 +128,7 @@ void Body::initialize()
 void Body::calcCapacityMatrix()
 {
     auto end_int = this->cells.size();
-//     #pragma omp parallel for
+//#pragma omp parallel for
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->computeCapacityGaussPoints();
     }
@@ -142,7 +142,7 @@ void Body::calcCapacityMatrix()
 void Body::calcConductivityMatrix()
 {
     auto end_int = this->cells.size();
-//     #pragma omp parallel for
+//#pragma omp parallel for
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->computeConductivityGaussPoints();
     }
@@ -317,6 +317,53 @@ void Body::translate(double x_in, double y_in, double z_in)
         node->setX(node->getX() + x_in);
         node->setY(node->getY() + y_in);
         node->setZ(node->getZ() + z_in);
+    }
+}
+
+constexpr double deg2rad(double deg)
+{
+    return deg * M_PI / 180.0;
+}
+
+void Body::rotate(double phi, double theta, double psi)
+{
+    phi = deg2rad(phi);
+    theta = deg2rad(theta);
+    psi = deg2rad(psi);
+
+    lmx::DenseMatrix<double> r_x(3, 3);
+    r_x.writeElement(1, 0, 0);
+    r_x.writeElement(cos(phi), 1, 1);
+    r_x.writeElement(-sin(phi), 2, 1);
+    r_x.writeElement(sin(phi), 1, 2);
+    r_x.writeElement(cos(phi), 2, 2);
+
+    lmx::DenseMatrix<double> r_y(3, 3);
+    r_y.writeElement(cos(theta), 0, 0);
+    r_y.writeElement(sin(theta), 2, 0);
+    r_y.writeElement(1, 1, 1);
+    r_y.writeElement(-sin(theta), 0, 2);
+    r_y.writeElement(cos(theta), 2, 2);
+
+    lmx::DenseMatrix<double> r_z(3, 3);
+    r_z.writeElement(cos(psi), 0, 0);
+    r_z.writeElement(-sin(psi), 1, 0);
+    r_z.writeElement(sin(psi), 0, 1);
+    r_z.writeElement(cos(psi), 1, 1);
+    r_z.writeElement(1, 2, 2);
+
+    auto r = r_z * r_y * r_x;
+
+    lmx::Vector<double> v(3);
+
+    for (auto node : nodes) {
+        v.writeElement(node->getX(), 0);
+        v.writeElement(node->getY(), 1);
+        v.writeElement(node->getZ(), 2);
+        auto v2 = r * v;
+        node->setX(v2(0));
+        node->setY(v2(1));
+        node->setZ(v2(2));
     }
 }
 

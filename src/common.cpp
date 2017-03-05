@@ -40,81 +40,81 @@ double interpolate1D(double key, const std::map<double, double>& theMap)
 }
 
 boxFIR::boxFIR(int _numCoeffs) :
-numCoeffs(_numCoeffs*2)
+        numCoeffs(_numCoeffs * 2)
 {
-    if (numCoeffs<1) //Must be > 0 or bad stuff happens
+    if (numCoeffs < 1) { //Must be > 0 or bad stuff happens
         numCoeffs = 2;
-    
-    double val = 1./numCoeffs;
-    for (int ii=0; ii<numCoeffs; ++ii) {
+    }
+
+    double val = 1. / numCoeffs;
+    for (std::size_t ii = 0; ii < numCoeffs; ++ii) {
         b.push_back(val);
         m.push_back(0.);
     }
-}    
+}
 
-void boxFIR::filter(vector<double> &a)
+void boxFIR::filter(vector<double>& a)
 {
     double output;
-    
+
     // init with all memories equal to first values:
-    for (int ii=0; ii<numCoeffs; ++ii) {
+    for (std::size_t ii = 0; ii < numCoeffs; ++ii) {
         m[ii] = a[ii];
-    }        
-    
-    for (int nn=0; nn<a.size(); ++nn)
-    {
+    }
+
+    for (std::size_t nn = 0; nn < a.size(); ++nn) {
         output = 0;
-        if(nn<numCoeffs/2){
+        if (nn < numCoeffs / 2) {
             //Apply smoothing filter to signal
             //     m[0] = a[nn+numCoeffs/2];
-            for (int ii=0; ii<numCoeffs; ++ii) {
-                output+=b[ii]*m[ii];
+            for (std::size_t ii = 0; ii < numCoeffs; ++ii) {
+                output += b[ii] * m[ii];
             }
         }
-        else if( (a.size()-nn) < numCoeffs){
+        else if ((a.size() - nn) < numCoeffs) {
             //Apply smoothing filter to signal
             m[0] = a[nn];
-            for (int ii=0; ii<numCoeffs; ++ii) {
-                output+=b[ii]*m[ii];
+            for (std::size_t ii = 0; ii < numCoeffs; ++ii) {
+                output += b[ii] * m[ii];
             }
         }
-        else{
+        else {
             //Apply smoothing filter to signal
-            m[0] = a[nn+numCoeffs/2];
-            for (int ii=0; ii<numCoeffs; ++ii) {
-                output+=b[ii]*m[ii];
+            m[0] = a[nn + numCoeffs / 2];
+            for (std::size_t ii = 0; ii < numCoeffs; ++ii) {
+                output += b[ii] * m[ii];
             }
         }
-        
+
         //Reshuffle memories
-        if(nn>numCoeffs/2){
-            for (int ii = numCoeffs-1; ii!=0; --ii) {
-                m[ii] = m[ii-1];
+        if (nn > numCoeffs / 2) {
+            for (std::size_t ii = numCoeffs - 1; ii != 0; --ii) {
+                m[ii] = m[ii - 1];
             }
-        }   
+        }
         a[nn] = output;
     }
 }
 
-std::vector<double> doubles_in_vector( const std::string& str )
+std::vector<double> doubles_in_vector(const std::string& str)
 {
-    std::istringstream stm(str) ; // input stringstream to read from the line
-    
+    std::istringstream stm(str); // input stringstream to read from the line
+
     // create a vector containing doubles in the line (left to right)
-    using iterator = std::istream_iterator<double> ;
-    std::vector<double> seq { iterator(stm), iterator() } ;
-    
-    return seq ; // and return it
+    using iterator = std::istream_iterator<double>;
+    std::vector<double> seq{ iterator(stm), iterator() };
+
+    return seq; // and return it
 }
 
-std::vector< std::vector<double> > read_lines( std::istream& stm )
+std::vector<std::vector<double>> read_lines(std::istream& stm)
 {
-    std::vector< std::vector<double> > result ;
-    std::string line ;
-    
-    while( std::getline( stm, line ) ) result.push_back( doubles_in_vector(line) ) ;
-    
-    return result ;
+    std::vector<std::vector<double>> result;
+    std::string line;
+
+    while (std::getline(stm, line)) result.push_back(doubles_in_vector(line));
+
+    return result;
 }
 
 

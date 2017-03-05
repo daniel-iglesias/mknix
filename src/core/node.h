@@ -28,7 +28,8 @@ namespace mknix {
 /**
   @author AUTHORS <MAILS>
 */
-class Node : public Point {
+class Node : public Point
+{
 public:
     Node();
 
@@ -40,23 +41,28 @@ public:
 
     ~Node();
 
-    void addWeight( double w_in ) {
+    void addWeight(double w_in)
+    {
         this->weight += w_in;
     }
 
-    inline const double& getWeight() const {
+    inline const double& getWeight() const
+    {
         return this->weight;
     }
 
-    inline const int& getThermalNumber() const {
+    inline const int& getThermalNumber() const
+    {
         return this->thermalNum;
     }
 
-    inline const void setNumber( int num_in ) {
+    inline const void setNumber(int num_in)
+    {
         num = num_in;
     }
 
-    inline const void setThermalNumber( int num_in ) {
+    inline const void setThermalNumber(int num_in)
+    {
         thermalNum = num_in;
     }
 
@@ -72,68 +78,81 @@ public:
 //         return this->z;
 //     }
 
-    inline const double& getqt() const {
+    inline const double& getqt() const
+    {
         return this->qt;
     }
 
     inline double getqx(int i) const
     {
-        if(i==0) return qx;
-        if(i==1) return qy;
-        if(i==2) return qz;
-        else return 1E10;
+        switch (i) {
+        case 0: return qx;
+        case 1: return qy;
+        case 2: return qz;
+        default: return 1E10;
+        }
     }
 
-    inline double getUx() const {
-        return getConf(0)-X;
+    inline double getUx() const
+    {
+        return getConf(0) - X;
     }
 
-    inline double getUy() const {
-        return getConf(1)-Y;
+    inline double getUy() const
+    {
+        return getConf(1) - Y;
     }
 
-    inline double getUz() const {
-        return getConf(2)-Z;
+    inline double getUz() const
+    {
+        return getConf(2) - Z;
     }
 
     inline double getU(int i) const
     {
-        if(i==0) return getConf(0)-X;
-        if(i==1) return getConf(1)-Y;
-        if(i==2) return getConf(2)-Z;
-        else return 1E10;
+        switch (i) {
+        case 0: return getConf(0) - X;
+        case 1: return getConf(1) - Y;
+        case 2: return getConf(2) - Z;
+        default: return 1E10;
+        }
     }
 
     double getConf(int dof) const override;
 
     double getTemp() const override;
 
-    size_t getSupportSize( int deriv );
+    size_t getSupportSize(int deriv);
 
-    int getSupportNodeNumber( int deriv, int s_node );
+    int getSupportNodeNumber(int deriv, int s_node);
 
-    double getShapeFunValue( int deriv, int s_node );
+    double getShapeFunValue(int deriv, int s_node);
 
 //  TODO: Check the following functions:
-    inline void setUx(double ux_in) {
+    inline void setUx(double ux_in)
+    {
         qx = X + ux_in;
     }
 
-    inline void setUy(double uy_in) {
+    inline void setUy(double uy_in)
+    {
         qy = Y + uy_in;
     }
 
-    inline void setUz(double uz_in) {
+    inline void setUz(double uz_in)
+    {
         qz = Z + uz_in;
     }
 
     void setqx(const lmx::Vector<data_type>& globalConf, int dim);
 
-    void setqt( const lmx::Vector<data_type>& globalConf );
+    void setqt(const lmx::Vector<data_type>& globalConf);
 
-    void setqt( double temp_in ){
-      qt = temp_in;
+    void setqt(double temp_in)
+    {
+        qt = temp_in;
     }
+
 //     inline void setx(double x_in) {
 //         qx = x_in;
 //     }
@@ -146,17 +165,20 @@ public:
 //         z = z_in;
 //     }
 // 
-    inline void setX(double X_in) {
+    inline void setX(double X_in)
+    {
         X = X_in;
         qx = X_in;
     }
 
-    inline void setY(double Y_in) {
+    inline void setY(double Y_in)
+    {
         Y = Y_in;
         qy = Y_in;
     }
 
-    inline void setZ(double Z_in) {
+    inline void setZ(double Z_in)
+    {
         Z = Z_in;
         qz = Z_in;
     }

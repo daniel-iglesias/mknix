@@ -32,7 +32,7 @@ Node::Node(const Node& p_node_in)
         , qt(p_node_in.getqt())
         , weight(0) { }
 
-Node::Node(const Node * p_node_in)
+Node::Node(const Node* p_node_in)
         : Point(p_node_in)
         , qx(p_node_in->getqx(0))
         , qy(p_node_in->getqx(1))
@@ -160,8 +160,8 @@ double Node::getShapeFunValue(int deriv, int s_node)
             && shapeFunType != "1D"
             && shapeFunType != "2D"
             && shapeFunType != "3D")) {
-                return 1.;
-            } else { return this->shapeFun->getPhi(deriv, s_node); }
+        return 1.;
+    } else { return this->shapeFun->getPhi(deriv, s_node); }
 }
 
 

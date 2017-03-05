@@ -23,7 +23,6 @@
 #include <simulation/simulation.h>
 #include <system/bodyflex.h>
 #include <system/bodyrigid.h>
-#include <system/constraint.h>
 #include <system/constraintclearance.h>
 #include <system/constraintdistance.h>
 #include <system/constraintfixedaxis.h>
@@ -31,9 +30,7 @@
 #include <system/constraintthermalfixed.h>
 #include <system/system.h>
 
-namespace mknix {
-
-ReaderConstraints::ReaderConstraints()
+mknix::ReaderConstraints::ReaderConstraints()
         : theSimulation(0)
         , output(0)
         , input(0)
@@ -42,10 +39,9 @@ ReaderConstraints::ReaderConstraints()
 {
 }
 
-ReaderConstraints::ReaderConstraints(Simulation * simulation_in,
+mknix::ReaderConstraints::ReaderConstraints(Simulation* simulation_in,
                                      std::ofstream& output_in,
-                                     std::ifstream& input_in
-)
+                                     std::ifstream& input_in)
         : theSimulation(simulation_in)
         , output(&output_in)
         , input(&input_in)
@@ -54,15 +50,11 @@ ReaderConstraints::ReaderConstraints(Simulation * simulation_in,
 {
 }
 
-
-ReaderConstraints::~ReaderConstraints()
+mknix::ReaderConstraints::~ReaderConstraints()
 {
 }
 
-
-} // namespace mknix
-
-void mknix::ReaderConstraints::readConstraints(System * system_in)
+void mknix::ReaderConstraints::readConstraints(System* system_in)
 {
     std::string keyword;
     std::string consTitle;
@@ -82,8 +74,8 @@ void mknix::ReaderConstraints::readConstraints(System * system_in)
         else if (keyword == "ALPHA") {
             *input >> Simulation::alpha;
             *output << "ALPHA: "
-            << Simulation::getAlpha()
-            << endl;
+                    << Simulation::getAlpha()
+                    << endl;
         }
         else if (keyword == "SPHERICAL") {
             /* Igual a una restriccion de distancia constante */
@@ -95,9 +87,9 @@ void mknix::ReaderConstraints::readConstraints(System * system_in)
 
             *input >> consTitle;
             *output << "SPHERICAL: "
-            << system_in->getTitle()
-            << "."
-            << consTitle << std::endl;
+                    << system_in->getTitle()
+                    << "."
+                    << consTitle << std::endl;
 
             while (*input >> keyword) {
                 if (keyword == "ENDSPHERICAL") {
@@ -109,24 +101,13 @@ void mknix::ReaderConstraints::readConstraints(System * system_in)
                     this->readNodeName(bodyTitleB, nodeB);
                 }
             }
-            this->assignConstraintNodes(system_in,
-                                        bodyTitleA,
-                                        nodeA,
-                                        bodyTitleB,
-                                        nodeB
-            );
+            this->assignConstraintNodes(system_in, consTitle, bodyTitleA, nodeA, bodyTitleB, nodeB);
             system_in->constraints[consTitle]
-                    = new ConstraintFixedCoordinates(p_nodeA,
-                                                     p_nodeB,
-                                                     Simulation::alpha,
-                                                     Simulation::constraintMethod
-            );
+                    = new ConstraintFixedCoordinates(p_nodeA, p_nodeB, Simulation::alpha, Simulation::constraintMethod);
             system_in->constraints[consTitle]->setTitle(consTitle);
 
-            this->outputConstraintNode(system_in, consTitle, "NODEA",
-                                       bodyTitleA, nodeA, 0);
-            this->outputConstraintNode(system_in, consTitle, "NODEB",
-                                       bodyTitleB, nodeB, 1);
+            this->outputConstraintNode(system_in, consTitle, "NODEA", bodyTitleA, nodeA, 0);
+            this->outputConstraintNode(system_in, consTitle, "NODEB", bodyTitleB, nodeB, 1);
         }
 
         else if (keyword == "DISTANCE") {
@@ -139,9 +120,9 @@ void mknix::ReaderConstraints::readConstraints(System * system_in)
 
             *input >> consTitle;
             *output << "DISTANCE: "
-            << system_in->getTitle()
-            << "."
-            << consTitle << std::endl;
+                    << system_in->getTitle()
+                    << "."
+                    << consTitle << std::endl;
 
             while (*input >> keyword) {
                 if (keyword == "ENDDISTANCE") {
@@ -153,24 +134,13 @@ void mknix::ReaderConstraints::readConstraints(System * system_in)
                     this->readNodeName(bodyTitleB, nodeB);
                 }
             }
-            this->assignConstraintNodes(system_in,
-                                        bodyTitleA,
-                                        nodeA,
-                                        bodyTitleB,
-                                        nodeB
-            );
+            this->assignConstraintNodes(system_in, consTitle, bodyTitleA, nodeA, bodyTitleB, nodeB);
             system_in->constraints[consTitle]
-                    = new ConstraintDistance(p_nodeA,
-                                             p_nodeB,
-                                             Simulation::alpha,
-                                             Simulation::constraintMethod
-            );
+                    = new ConstraintDistance(p_nodeA, p_nodeB, Simulation::alpha, Simulation::constraintMethod);
             system_in->constraints[consTitle]->setTitle(consTitle);
 
-            this->outputConstraintNode(system_in, consTitle, "NODEA",
-                                       bodyTitleA, nodeA, 0);
-            this->outputConstraintNode(system_in, consTitle, "NODEB",
-                                       bodyTitleB, nodeB, 1);
+            this->outputConstraintNode(system_in, consTitle, "NODEA", bodyTitleA, nodeA, 0);
+            this->outputConstraintNode(system_in, consTitle, "NODEB", bodyTitleB, nodeB, 1);
         }
 
         else if (keyword == "AXIS") {
@@ -184,9 +154,9 @@ void mknix::ReaderConstraints::readConstraints(System * system_in)
 
             *input >> consTitle;
             *output << "AXIS: "
-            << system_in->getTitle()
-            << "."
-            << consTitle << std::endl;
+                    << system_in->getTitle()
+                    << "."
+                    << consTitle << std::endl;
             while (*input >> keyword) {
                 if (keyword == "ENDAXIS") {
                     break;
@@ -200,25 +170,14 @@ void mknix::ReaderConstraints::readConstraints(System * system_in)
                     this->readNodeName(bodyTitleB, nodeB);
                 }
             }
-            this->assignConstraintNodes(system_in,
-                                        bodyTitleA,
-                                        nodeA,
-                                        bodyTitleB,
-                                        nodeB
-            );
+            this->assignConstraintNodes(system_in, consTitle, bodyTitleA, nodeA, bodyTitleB, nodeB);
             system_in->constraints[consTitle]
-                    = new ConstraintFixedAxis(p_nodeA,
-                                              p_nodeB,
-                                              axisName,
-                                              Simulation::alpha,
-                                              Simulation::constraintMethod
-            );
+                    = new ConstraintFixedAxis(p_nodeA, p_nodeB, axisName, Simulation::alpha,
+                                              Simulation::constraintMethod);
             system_in->constraints[consTitle]->setTitle(consTitle);
 
-            this->outputConstraintNode(system_in, consTitle, "NODEA",
-                                       bodyTitleA, nodeA, 0);
-            this->outputConstraintNode(system_in, consTitle, "NODEB",
-                                       bodyTitleB, nodeB, 1);
+            this->outputConstraintNode(system_in, consTitle, "NODEA", bodyTitleA, nodeA, 0);
+            this->outputConstraintNode(system_in, consTitle, "NODEB", bodyTitleB, nodeB, 1);
         }
         else if (keyword == "CLEARANCE") {
             // Igual a una restricción de distancia constante
@@ -231,9 +190,9 @@ void mknix::ReaderConstraints::readConstraints(System * system_in)
 
             *input >> consTitle;
             *output << "CLEARANCE: "
-            << system_in->getTitle()
-            << "."
-            << consTitle << std::endl;
+                    << system_in->getTitle()
+                    << "."
+                    << consTitle << std::endl;
             while (*input >> keyword) {
                 if (keyword == "ENDCLEARANCE") {
                     break;
@@ -247,25 +206,14 @@ void mknix::ReaderConstraints::readConstraints(System * system_in)
                     this->readNodeName(bodyTitleB, nodeB);
                 }
             }
-            this->assignConstraintNodes(system_in,
-                                        bodyTitleA,
-                                        nodeA,
-                                        bodyTitleB,
-                                        nodeB
-            );
+            this->assignConstraintNodes(system_in, consTitle, bodyTitleA, nodeA, bodyTitleB, nodeB);
             system_in->constraints[consTitle]
-                    = new ConstraintClearance(p_nodeA,
-                                              p_nodeB,
-                                              tolerance,
-                                              Simulation::alpha,
-                                              Simulation::constraintMethod
-            );
+                    = new ConstraintClearance(p_nodeA, p_nodeB, tolerance, Simulation::alpha,
+                                              Simulation::constraintMethod);
             system_in->constraints[consTitle]->setTitle(consTitle);
 
-            this->outputConstraintNode(system_in, consTitle, "NODEA",
-                                       bodyTitleA, nodeA, 0);
-            this->outputConstraintNode(system_in, consTitle, "NODEB",
-                                       bodyTitleB, nodeB, 1);
+            this->outputConstraintNode(system_in, consTitle, "NODEA", bodyTitleA, nodeA, 0);
+            this->outputConstraintNode(system_in, consTitle, "NODEB", bodyTitleB, nodeB, 1);
         }
         else if (keyword == "THERMALSPHERICAL") {
             /* Igual a una restriccion de distancia constante */
@@ -277,9 +225,9 @@ void mknix::ReaderConstraints::readConstraints(System * system_in)
 
             *input >> consTitle;
             *output << "THERMALSPHERICAL: "
-            << system_in->getTitle()
-            << "."
-            << consTitle << std::endl;
+                    << system_in->getTitle()
+                    << "."
+                    << consTitle << std::endl;
 
             while (*input >> keyword) {
                 if (keyword == "ENDTHERMALSPHERICAL") {
@@ -291,24 +239,13 @@ void mknix::ReaderConstraints::readConstraints(System * system_in)
                     this->readNodeName(bodyTitleB, nodeB);
                 }
             }
-            this->assignConstraintNodes(system_in,
-                                        bodyTitleA,
-                                        nodeA,
-                                        bodyTitleB,
-                                        nodeB
-            );
+            this->assignConstraintNodes(system_in, consTitle, bodyTitleA, nodeA, bodyTitleB, nodeB);
             system_in->constraintsThermal[consTitle]
-                    = new ConstraintThermalFixed(p_nodeA,
-                                                 p_nodeB,
-                                                 Simulation::alpha,
-                                                 Simulation::constraintMethod
-            );
+                    = new ConstraintThermalFixed(p_nodeA, p_nodeB, Simulation::alpha, Simulation::constraintMethod);
             system_in->constraintsThermal[consTitle]->setTitle(consTitle);
 
-            this->outputConstraintThermalNode(system_in, consTitle, "NODEA",
-                                              bodyTitleA, nodeA, 0);
-            this->outputConstraintThermalNode(system_in, consTitle, "NODEB",
-                                              bodyTitleB, nodeB, 1);
+            this->outputConstraintThermalNode(system_in, consTitle, "NODEA", bodyTitleA, nodeA, 0);
+            this->outputConstraintThermalNode(system_in, consTitle, "NODEB", bodyTitleB, nodeB, 1);
         }
 
         else if (keyword == "OTRO") {
@@ -346,156 +283,115 @@ void mknix::ReaderConstraints::readNodeName(std::string& bodyTitle, std::string&
 }
 
 
-void mknix::ReaderConstraints::assignConstraintNodes(System * system_in,
-                                                     std::string& bodyTitleA,
-                                                     std::string& nodeA,
-                                                     std::string& bodyTitleB,
-                                                     std::string& nodeB
-)
+void mknix::ReaderConstraints::assignConstraintNodes(System* system_in,
+                                                     const std::string& consName,
+                                                     const std::string& bodyTitleA,
+                                                     const std::string& nodeA,
+                                                     const std::string& bodyTitleB,
+                                                     const std::string& nodeB)
 {
     if (bodyTitleA == "GROUND") {
-        /* If the body is a system */
-        if (system_in->subSystems.find(bodyTitleB) !=
-            system_in->subSystems.end()) {
-            system_in->groundNodes.push_back
-                    (new Node(*system_in->subSystems[bodyTitleB]
-                            ->getNode(atoi(nodeB.c_str()))
-                    )
-                    );
+        Node* node = nullptr;
+
+        if (system_in->subSystems.find(bodyTitleB) != system_in->subSystems.end()) {
+            /* If the body is a system */
+            node = new Node(*system_in->subSystems[bodyTitleB]->getNode(atoi(nodeB.c_str())));
+        } else if (system_in->rigidBodies.find(bodyTitleB) != system_in->rigidBodies.end()) {
+            /* If the body is a rigidbody */
+            node = new Node(*system_in->rigidBodies[bodyTitleB]->getNode(atoi(nodeB.c_str())));
         } else {
-            if (system_in->rigidBodies.find(bodyTitleB) !=
-                system_in->rigidBodies.end()) {
-                system_in->groundNodes.push_back
-                        (new Node(*system_in->rigidBodies[bodyTitleB]
-                                //                         ->getDomainNode( nodeB )
-                                ->getNode(atoi(nodeB.c_str()))
-                        )
-                        );
-                /* The body is a flexbody*/
-            } else {
-                system_in->groundNodes.push_back
-                        (new Node(*system_in->flexBodies[bodyTitleB]
-                                ->getNode(atoi(nodeB.c_str()))
-                        )
-                        );
-            }
+            /* The body is a flexbody*/
+            node = new Node(*system_in->flexBodies[bodyTitleB]->getNode(atoi(nodeB.c_str())));
         }
-        p_nodeA = system_in->groundNodes.back();
+
+        system_in->groundNodes.push_back(node);
+        system_in->groundNodesMap[consName] = node;
+        p_nodeA = node;
         p_nodeA->setNumber(-1);
         p_nodeA->setThermalNumber(-1);
     }
+
     if (bodyTitleB == "GROUND") {
-        if (system_in->subSystems.find(bodyTitleA) !=
-            system_in->subSystems.end()) {
-            system_in->groundNodes.push_back
-                    (new Node(*system_in->subSystems[bodyTitleA]
-                            ->getNode(atoi(nodeA.c_str()))
-                    )
-                    );
-        } else {
+        Node* node = nullptr;
+
+        if (system_in->subSystems.find(bodyTitleA) != system_in->subSystems.end()) {
+            /* If the body is a system */
+            node = new Node(*system_in->subSystems[bodyTitleA]->getNode(atoi(nodeA.c_str())));
+        } else if (system_in->rigidBodies.find(bodyTitleA) != system_in->rigidBodies.end()) {
             /* If the body is a rigidbody */
-            if (system_in->rigidBodies.find(bodyTitleA) !=
-                system_in->rigidBodies.end()) {
-                system_in->groundNodes.push_back
-                        (new Node(system_in->rigidBodies[bodyTitleA]
-                                          //                         ->getDomainNode(  nodeA )
-                                          ->getNode(atoi(nodeA.c_str()))
-                        )
-                        );
-            }
-                /* the body is a flexbody */
-            else {
-                system_in->groundNodes.push_back
-                        (new Node(*system_in->flexBodies[bodyTitleA]
-                                ->getNode(atoi(nodeA.c_str()))
-                        )
-                        );
-            }
+            node = new Node(system_in->rigidBodies[bodyTitleA]->getNode(atoi(nodeA.c_str())));
+        } else {
+            /* the body is a flexbody */
+            node = new Node(*system_in->flexBodies[bodyTitleA]->getNode(atoi(nodeA.c_str())));
         }
-        p_nodeB = system_in->groundNodes.back();
+
+        system_in->groundNodes.push_back(node);
+        system_in->groundNodesMap[consName] = node;
+        p_nodeB = node;
         p_nodeB->setNumber(-1);
         p_nodeB->setThermalNumber(-1);
-//         cout << system_in->groundNodes.size()
-//              << "(i)x="
-//              << *system_in
-//                  ->groundNodes[system_in->groundNodes.size()-1]->getx()
-//              << endl;
     }
+
     /* if it's not grounded */
-    if (p_nodeA == 0) {
-        if (system_in->subSystems.find(bodyTitleA) !=
-            system_in->subSystems.end()) {
-            p_nodeA = system_in->subSystems[bodyTitleA]
-                    ->getNode(atoi(nodeA.c_str()));
+    if (p_nodeA == nullptr) {
+        if (system_in->subSystems.find(bodyTitleA) != system_in->subSystems.end()) {
+            p_nodeA = system_in->subSystems[bodyTitleA]->getNode(atoi(nodeA.c_str()));
+        } else if (system_in->rigidBodies.find(bodyTitleA) != system_in->rigidBodies.end()) {
+            //if the body is a rigidbody
+            p_nodeA = system_in->rigidBodies[bodyTitleA]->getNode(atoi(nodeA.c_str()));
         } else {
-            if (system_in->rigidBodies.find(bodyTitleA) !=
-                system_in->rigidBodies.end()) { //if the body is a rigidbody
-                p_nodeA = system_in->rigidBodies[bodyTitleA]
-                        // 		  ->getDomainNode( nodeA );
-                        ->getNode(atoi(nodeA.c_str()));
-            } else { //the body is a flexbody
-                p_nodeA = system_in->flexBodies[bodyTitleA]
-                        ->getNode(atoi(nodeA.c_str()));
-            }
+            //the body is a flexbody
+            p_nodeA = system_in->flexBodies[bodyTitleA]->getNode(atoi(nodeA.c_str()));
         }
     }
+
     /* if it's not grounded */
-    if (p_nodeB == 0) {
-        if (system_in->subSystems.find(bodyTitleB) !=
-            system_in->subSystems.end()) {
-            p_nodeB = system_in->subSystems[bodyTitleB]
-                    ->getNode(atoi(nodeB.c_str()));
+    if (p_nodeB == nullptr) {
+        if (system_in->subSystems.find(bodyTitleB) != system_in->subSystems.end()) {
+            p_nodeB = system_in->subSystems[bodyTitleB]->getNode(atoi(nodeB.c_str()));
+        } else if (system_in->rigidBodies.find(bodyTitleB) != system_in->rigidBodies.end()) {
+            //if the body is a rigidbody
+            p_nodeB = system_in->rigidBodies[bodyTitleB]->getNode(atoi(nodeB.c_str()));
         } else {
-            if (system_in->rigidBodies.find(bodyTitleB) !=
-                system_in->rigidBodies.end()) { //if the body is a rigidbody
-                p_nodeB = system_in->rigidBodies[bodyTitleB]
-                        // 		  ->getDomainNode( nodeB );
-                        ->getNode(atoi(nodeB.c_str()));
-            } else { //the body is a flexbody
-                p_nodeB = system_in->flexBodies[bodyTitleB]
-                        ->getNode(atoi(nodeB.c_str()));
-            }
+            //the body is a flexbody
+            p_nodeB = system_in->flexBodies[bodyTitleB]->getNode(atoi(nodeB.c_str()));
         }
     }
 }
 
 
-void mknix::ReaderConstraints::outputConstraintNode(System * system_in,
-                                                    std::string& consTitle,
-                                                    const char * nodeName,
-                                                    std::string& bodyTitle,
-                                                    std::string& node,
-                                                    int i
-)
+void mknix::ReaderConstraints::outputConstraintNode(System* system_in,
+                                                    const std::string& consTitle,
+                                                    const std::string& nodeName,
+                                                    const std::string& bodyTitle,
+                                                    const std::string& node,
+                                                    std::size_t i)
 {
     *output << "\t"
-    << consTitle << "." << nodeName << ": "
-    << bodyTitle << "." << node
-    << ": " << system_in->constraints[consTitle]->getNode(i)->getNumber()
-    << ": " << system_in->constraints[consTitle]->getNode(i)->getX()
-    << ", " << system_in->constraints[consTitle]->getNode(i)->getY()
-    << ", " << system_in->constraints[consTitle]->getNode(i)->getZ()
-    << std::endl;
-
+            << consTitle << "." << nodeName << ": "
+            << bodyTitle << "." << node
+            << ": " << system_in->constraints[consTitle]->getNode(i)->getNumber()
+            << ": " << system_in->constraints[consTitle]->getNode(i)->getX()
+            << ", " << system_in->constraints[consTitle]->getNode(i)->getY()
+            << ", " << system_in->constraints[consTitle]->getNode(i)->getZ()
+            << std::endl;
 }
 
 
-void mknix::ReaderConstraints::outputConstraintThermalNode(System * system_in,
-                                                           std::string& consTitle,
-                                                           const char * nodeName,
-                                                           std::string& bodyTitle,
-                                                           std::string& node,
-                                                           int i
-)
+void mknix::ReaderConstraints::outputConstraintThermalNode(System* system_in,
+                                                           const std::string& consTitle,
+                                                           const std::string& nodeName,
+                                                           const std::string& bodyTitle,
+                                                           const std::string& node,
+                                                           std::size_t i)
 {
     *output << "\t"
-    << consTitle << "." << nodeName << ": "
-    << bodyTitle << "." << node
-    << ": " << system_in->constraintsThermal[consTitle]->getNode(i)->getNumber()
-    << ": " << system_in->constraintsThermal[consTitle]->getNode(i)->getX()
-    << ", " << system_in->constraintsThermal[consTitle]->getNode(i)->getY()
-    << ", " << system_in->constraintsThermal[consTitle]->getNode(i)->getZ()
-    << std::endl;
-
+            << consTitle << "." << nodeName << ": "
+            << bodyTitle << "." << node
+            << ": " << system_in->constraintsThermal[consTitle]->getNode(i)->getNumber()
+            << ": " << system_in->constraintsThermal[consTitle]->getNode(i)->getX()
+            << ", " << system_in->constraintsThermal[consTitle]->getNode(i)->getY()
+            << ", " << system_in->constraintsThermal[consTitle]->getNode(i)->getZ()
+            << std::endl;
 }
 

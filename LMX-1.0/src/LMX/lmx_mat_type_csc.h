@@ -552,7 +552,7 @@ template <typename T>
     void Type_csc<T>::trn()
 {
 
-  size_type ja_starO[Nnze];
+  std::vector<size_type> ja_starO(Nnze);
 
   size_type NrowT = Ncol;
   size_type NcolT = Nrow;

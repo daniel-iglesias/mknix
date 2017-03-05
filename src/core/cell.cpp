@@ -296,7 +296,7 @@ void Cell::outputConnectivityToFile(std::ofstream * outfile)
 
 void Cell::gnuplotOutStress(std::ofstream& gptension)
 {
-    int counter;
+    int counter = 0;
     for (auto& point : gPoints) {
         ++counter;
         point->gnuplotOutStress(gptension);

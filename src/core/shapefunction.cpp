@@ -74,15 +74,15 @@ void ShapeFunction::gnuplotOut()
             tempx = (*it)->getX();
         }
 
-        data  << (*it)->getX() << " "
-              << (*it)->getY() << " "
-              << phi(0,counter) << endl;
-        data_x  << (*it)->getX() << " "
-                << (*it)->getY() << " "
-                << phi(1,counter) << endl;
-        data_y  << (*it)->getX() << " "
-                << (*it)->getY() << " "
-                << phi(2,counter) << endl;
+        data << (*it)->getX() << " "
+        << (*it)->getY() << " "
+        << phi(0, counter) << endl;
+        data_x << (*it)->getX() << " "
+        << (*it)->getY() << " "
+        << phi(1, counter) << endl;
+        data_y << (*it)->getX() << " "
+        << (*it)->getY() << " "
+        << phi(2, counter) << endl;
 
         counter++;
     }

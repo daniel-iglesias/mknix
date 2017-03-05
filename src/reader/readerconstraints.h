@@ -23,12 +23,18 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <unistd.h>
+#if defined(_WIN32) || defined(WIN32)
+#  include <io.h>
+#else
+#  include <unistd.h>
+#endif
 
 namespace mknix {
 
 class Node;
+
 class Simulation;
+
 class System;
 
 /**
@@ -38,40 +44,44 @@ class ReaderConstraints
 {
 public:
     ReaderConstraints();
-    ReaderConstraints( Simulation*, std::ofstream &, std::ifstream & );
+
+    ReaderConstraints(Simulation*, std::ofstream&, std::ifstream&);
+
     ~ReaderConstraints();
-    void readConstraints( System* );
+
+    void readConstraints(System*);
 
 private:
-    void readNodeName( std::string & , std::string & );
-    void assignConstraintNodes( System* ,
-                                std::string & ,
-                                std::string & ,
-                                std::string & ,
-                                std::string &
-                              );
-    void outputConstraintNode( System* ,
-                               std::string & ,
-                               const char * ,
-                               std::string & ,
-                               std::string & ,
-                               int
-                             );
-    void outputConstraintThermalNode( System* ,
-                               std::string & ,
-                               const char * ,
-                               std::string & ,
-                               std::string & ,
-                               int
-                             );
+    void readNodeName(std::string&, std::string&);
+
+    void assignConstraintNodes(System* system_in,
+                               const std::string& consName,
+                               const std::string& bodyTitleA,
+                               const std::string& nodeA,
+                               const std::string& bodyTitleB,
+                               const std::string& nodeB);
+
+    void outputConstraintNode(System* system_in,
+                              const std::string& consTitle,
+                              const std::string& nodeName,
+                              const std::string& bodyTitle,
+                              const std::string& node,
+                              std::size_t i);
+
+    void outputConstraintThermalNode(System* system_in,
+                                     const std::string& consTitle,
+                                     const std::string& nodeName,
+                                     const std::string& bodyTitle,
+                                     const std::string& node,
+                                     std::size_t i);
 
 private:
     Simulation* theSimulation;
-    std::ofstream * output;
-    std::ifstream * input; // file to read points from
+    std::ofstream* output;
+    std::ifstream* input; // file to read points from
     /* temporary pointers to constraint nodes */
-    Node * p_nodeA;
-    Node * p_nodeB;
+    Node* p_nodeA;
+    Node* p_nodeB;
 };
 
 }

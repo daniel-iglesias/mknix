@@ -41,7 +41,7 @@ SystemChain::~SystemChain()
 {
 }
 
-Node* SystemChain::getNode(int node_i)
+Node* SystemChain::getNode(size_t node_i)
 {
     std::stringstream barName;
     barName << this->title << segments-1;

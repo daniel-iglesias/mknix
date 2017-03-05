@@ -64,6 +64,10 @@ public:
 
     friend class ShapeFunctionMLS;
 
+    friend class ShapeFunctionMLS2D;
+
+    friend class ShapeFunctionMLS3D;
+
     friend class ShapeFunctionTetrahedron;
 
     friend class ShapeFunctionTriangle;
@@ -77,7 +81,7 @@ public:
 
     Point(const Point& point_in);
 
-    Point(const Point * point_in);
+    Point(const Point* point_in);
 
     Point(int i, double coor_x, double coor_y, double coor_z);
 
@@ -147,12 +151,12 @@ public:
         alphai = alphai_in;
     }
 
-    void addSupportNode(Node *);
+    void addSupportNode(Node*);
 
-    void findSupportNodes(std::vector<Node *>&);
+    void findSupportNodes(std::vector<Node*>&);
 
     // for rectangular domains
-    void findSupportNodes(std::vector<Node *>&,
+    void findSupportNodes(std::vector<Node*>&,
                           double, double, double, double);
 
     virtual void shapeFunSolve(std::string, double);
@@ -166,7 +170,7 @@ public:
 
     void gnuplotOut(std::ofstream&);
 
-    const std::vector<Node *>& getSupportNodes() const
+    const std::vector<Node*>& getSupportNodes() const
     {
         return supportNodes;
     }
@@ -178,8 +182,8 @@ protected:
     double alphai;
     double dc;
     std::string shapeFunType;
-    ShapeFunction * shapeFun;
-    std::vector<Node *> supportNodes;
+    ShapeFunction* shapeFun;
+    std::vector<Node*> supportNodes;
     size_t supportNodesSize;
     double jacobian;
 };

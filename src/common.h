@@ -49,7 +49,7 @@ std::unique_ptr<T> make_unique(Args&& ... args)
 
 class boxFIR
 {
-    int numCoeffs; //MUST be > 0
+    std::size_t numCoeffs;
     vector<double> b; //Filter coefficients
     vector<double> m; //Filter memories
     

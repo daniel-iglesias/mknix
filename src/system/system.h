@@ -24,6 +24,7 @@
 #include <string>
 #include "LMX/lmx.h"
 #include "common.h"
+#include "constraint.h"
 #include "bodyflex.h"
 
 namespace mknix {
@@ -78,36 +79,50 @@ public:
         return this->title;
     }
 
-    int getNumberOfNodes()
-    { return groundNodes.size(); }
-    
-    virtual Node * getNode(int index)
+    size_t getNumberOfNodes() { return groundNodes.size(); }
+
+    virtual Node* getNode(size_t index) { return groundNodes[index]; }
+
+    virtual Node* getOutputNode(const std::string& name) { return outputSignals[name]; }
+
+    Node* getNode(const std::string& name) { return groundNodesMap[name]; }
+
+    System* getSystem(const std::string& sysName) { return subSystems.at(sysName); }
+
+    std::vector<std::string> getConstraintNames()
     {
-        return groundNodes[index];
+        std::vector<std::string> names{ constraints.size() };
+        std::transform(constraints.begin(), constraints.end(), names.begin(),
+                       [](std::pair<std::string, Constraint*> el) { return el.first; });
+        return names;
     }
-    
-    System* getSystem( std::string sysName )
-    { return subSystems.at(sysName); }
-    
-    ConstraintThermal* getConstraintThermal( std::string constraintName )
-    { return constraintsThermal.at(constraintName); }
-    
+
+    ConstraintThermal* getConstraintThermal(const std::string& constraintName)
+    {
+        return constraintsThermal.at(constraintName);
+    }
+
+    Constraint* getConstraint(const std::string& constraintName)
+    {
+        return constraints[constraintName];
+    }
+
     void getThermalNodes(std::vector<double>&);
 
-    void getOutputSignalThermal(double *);
+    void getOutputSignalThermal(double*);
 
-    void updateThermalLoads(double *);
+    void updateThermalLoads(double*);
 
     virtual void update(double);
 
     void initFlexBodies();
 
-    void writeRigidBodies(std::ofstream *);
+    void writeRigidBodies(std::ofstream*);
 
-    void writeFlexBodies(std::ofstream *);
+    void writeFlexBodies(std::ofstream*);
 
-    void writeJoints(std::ofstream *);
-  
+    void writeJoints(std::ofstream*);
+
     void calcCapacityMatrix();
 
     void calcConductivityMatrix();
@@ -152,42 +167,49 @@ public:
 
     void outputStep(const lmx::Vector<data_type>&);
 
-    void outputToFile(std::ofstream *);
+    void outputToFile(std::ofstream*);
 
     bool checkAugmented();
 
     void clearAugmented();
 
-    void writeBoundaryNodes(std::vector<Point *>&);
+    void writeBoundaryNodes(std::vector<Point*>&);
 
-    void writeBoundaryConnectivity(std::vector<std::vector<Point *> >&);
+    void writeBoundaryConnectivity(std::vector<std::vector<Point*>>&);
 
     std::vector<std::string> flexBodyNames()
     {
-        std::vector<std::string> names;
-        for (const auto& pair : flexBodies) {
-            names.push_back(pair.first);
-        }
+        std::vector<std::string> names{ flexBodies.size() };
+        std::transform(flexBodies.begin(), flexBodies.end(), names.begin(),
+                       [](std::pair<std::string, FlexBody*> el) { return el.first; });
         return names;
     }
 
-    Body * getBody(const std::string& system_name, const std::string& name);
+    Body * getBody(const std::string& system_name, const std::string& body_name);
+
+    std::vector<Node*> getSignalNodes(const std::string& name)
+    {
+        return inputSignals[name];
+    }
+
 
 protected:
     std::string title;
+
     std::vector<Node *> groundNodes;
-
-    std::map<std::string, System *> subSystems;
-    std::map<std::string, RigidBody *> rigidBodies;
-    std::map<std::string, FlexBody *> flexBodies;
-    std::map<std::string, Body *> thermalBodies;
-    std::map<std::string, Constraint *> constraints;
-    std::map<std::string, ConstraintThermal *> constraintsThermal;
-    std::vector<Load *> loads;
-    std::vector<LoadThermal *> loadsThermal;
-    std::vector<Node *> outputSignalThermal;
-    std::vector<Motion *> motions;
-
+    std::map<std::string, Node *> groundNodesMap;
+    std::map<std::string, System*> subSystems;
+    std::map<std::string, RigidBody*> rigidBodies;
+    std::map<std::string, FlexBody*> flexBodies;
+    std::map<std::string, Body*> thermalBodies;
+    std::map<std::string, Constraint*> constraints;
+    std::map<std::string, ConstraintThermal*> constraintsThermal;
+    std::vector<Load*> loads;
+    std::vector<LoadThermal*> loadsThermal;
+    std::vector<Node*> outputSignalThermal;
+    std::vector<Motion*> motions;
+    std::map<std::string, Node*> outputSignals;
+    std::map<std::string, std::vector<Node*>> inputSignals;
 };
 
 }

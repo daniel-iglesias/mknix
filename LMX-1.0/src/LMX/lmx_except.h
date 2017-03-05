@@ -44,6 +44,7 @@
 #include <stdexcept>
 #include <string>
 #include <sstream>
+#include <algorithm>
 
 using std::endl; using std::cout; using std::cerr;
 using std::ends; using std::cin;

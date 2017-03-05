@@ -535,7 +535,7 @@ namespace gmm {
     const_iterator end(void) const { return const_iterator(pr+n, ir+n); }
     
     value_type operator[](size_type i) const
-    { return linalg_traits<this_type>::access(pr, begin(), end(),i); }
+    { return linalg_traits<this_type>::access(pr, begin(), end(), i); }
   };
 
   template <typename PT1, typename PT2, int shift>
@@ -831,8 +831,8 @@ namespace gmm {
     }
     
     void fill(T a, T b = T(0)) { 
-      std::fill(begin_, end+nbc*nbl, b);
-      iterator p = begin_, e = end+nbc*nbl;
+      std::fill(begin_, end(), b);
+      iterator p = begin_, e = end();
       while (p < e) { *p = a; p += nbl+1; }
     }
     inline size_type nrows(void) const { return nbl; }
@@ -957,8 +957,8 @@ namespace gmm {
     }
     
     void fill(T a, T b = T(0)) { 
-      std::fill(begin_, end+nbc*nbl, b);
-      iterator p = begin_, e = end+nbc*nbl;
+      std::fill(begin_, end(), b);
+      iterator p = begin_, e = end();
       while (p < e) { *p = a; p += nbc+1; }
     }
     inline size_type nrows(void) const { return nbl; }

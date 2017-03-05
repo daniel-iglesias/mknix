@@ -43,7 +43,7 @@ class Point;
 class ShapeFunction {
 
 protected:
-    int dim;
+    size_t dim;
     lmx::DenseMatrix<double> phi;
     Point* gp;
 
@@ -58,12 +58,12 @@ public:
 
     virtual void calc() = 0;
 
-    virtual double getPhi(int i, int j) // i = derivative order, j = node
+    virtual double getPhi(size_t i, size_t j) // i = derivative order, j = node
     {
         return phi.readElement(i, j);
     }
 
-    virtual void setPhi(double value_in, int i, int j) // i = derivative order, j = node
+    virtual void setPhi(double value_in, size_t i, size_t j) // i = derivative order, j = node
     {
         phi.writeElement(value_in, i, j);
     }

@@ -23,7 +23,14 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <unistd.h>
+#include "sectionreader.h"
+#if defined(_WIN32) || defined(WIN32)
+#  include <io.h>
+#  define chdir _chdir
+#  define getcwd _getcwd
+#else
+#  include <unistd.h>
+#endif
 
 namespace mknix {
 
@@ -64,6 +71,8 @@ private:
 
     void readAnalysis();
 
+    void readSignals(System *);
+
 //    void readNodeName( std::string & , std::string & );
 //    void createConstraintNodes( System* ,
 //                                std::string & ,
@@ -85,6 +94,7 @@ private:
     ReaderRigid * theReaderRigid; //used to read RIGIDBODIES
     ReaderFlex * theReaderFlex; //used to read FLEXBODIES
     ReaderConstraints * theReaderConstraints; //used to read CONSTRAINTS
+    SectionReader sectionReader;
 };
 
 }

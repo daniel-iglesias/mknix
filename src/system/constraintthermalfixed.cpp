@@ -105,11 +105,11 @@ bool ConstraintThermalFixed::checkAugmented()
         }
         //         energy *= 0.5 * alpha;
         //         if (energy <= 2E5) {
-        if ( (delta <= 5) && (Tt>=300) ) {
+        if ( (delta <= 10) && (Tt>=300) ) {
             iter_augmented=0;
             return 1;
         }
-        if ( ( (iter_augmented == 3) || (delta <= 10) ) && (Tt<300) ) {
+        if ( ( (iter_augmented == 2) || (delta <= 20) ) && (Tt<300) ) {
             iter_augmented=0;
             return 1;
         }
@@ -129,3 +129,4 @@ bool ConstraintThermalFixed::checkAugmented()
 }
 
 }
+

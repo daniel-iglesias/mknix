@@ -39,7 +39,7 @@ ReaderFlex::ReaderFlex()
 {
 }
 
-ReaderFlex::ReaderFlex(Simulation * simulation_in,
+ReaderFlex::ReaderFlex(Simulation* simulation_in,
                        std::ofstream& output_in,
                        std::ifstream& input_in
 )
@@ -58,7 +58,7 @@ ReaderFlex::~ReaderFlex()
 } // namespace mknix
 
 
-void mknix::ReaderFlex::readFlexBodies(System * system_in)
+void mknix::ReaderFlex::readFlexBodies(System* system_in)
 {
     std::string keyword;
     std::string bodyType;
@@ -91,12 +91,11 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
             }
         }
         else if (bodyType == "MESHFREE" || bodyType == "FEMESH") {
-            char a;
             *input >> flexTitle;
             *output << "FLEXBODY: "
-            << system_in->getTitle()
-            << "."
-            << flexTitle << std::endl;
+                    << system_in->getTitle()
+                    << "."
+                    << flexTitle << std::endl;
             system_in->flexBodies[flexTitle]
                     = new FlexGlobalGalerkin(flexTitle);
             system_in->flexBodies[flexTitle]->setType(bodyType);
@@ -128,31 +127,22 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                     double init_temp;
                     *input >> init_temp; // Type of formulation: EFG or RPIM
                     *output << "INITIAL TEMPERATURE SET TO: "
-                    << init_temp
-                    << std::endl;
+                            << init_temp
+                            << std::endl;
                     // BUG: No effect as it's overriden by Simulation class setting:
                     system_in->flexBodies[flexTitle]->setTemperature(init_temp);
                 }
                 else if (keyword == "METHOD") {
                     *input >> meshfreeFormulation; // Type of formulation: EFG or RPIM
                     *output << "METHOD SET TO: "
-                    << meshfreeFormulation
-                    << std::endl;
-                }
-                else if (keyword == "LAYER") { // Needs to be called after TRIANGLES or TETRAHEDRONS
-                    int newMaterial, counter(0);
-                    double thickness;
-                    *input >> newMaterial >> thickness;
-                    *output << "Layer: Material = " << newMaterial << '\t Thickness = ' << thickness << endl;
-                    for(auto& p_cell : system_in->flexBodies[flexTitle]->getCells() ){
-                        counter += p_cell.second->setMaterialIfLayer(theSimulation->materials[newMaterial], thickness);
-                    }
-                    *output << '\t' << "Number of cells changed: " << counter << endl;                        
+                            << meshfreeFormulation
+                            << std::endl;
                 }
                 else if (keyword == "BOUNDARYGROUP") {
                     std::string boundaryFormulation;
                     std::string boundaryName;
-                    double nGPs, alpha;
+                    int nGPs = 0;
+                    double alpha = 0;
                     *input >> boundaryName;
                     system_in->flexBodies[flexTitle]->addBoundaryGroup(boundaryName);
                     *output << "BOUNDARYGROUP: " << keyword << endl;
@@ -180,9 +170,9 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                                 meshfile >> nodeNumberInFile >> x >> y >> z;
                                 system_in->flexBodies[flexTitle]->addNodeToBoundaryGroup(nodeNumberInFile - 1,
                                                                                          boundaryName);
-                                *output
-                                << '\t' << system_in->flexBodies[flexTitle]->getNode(nodeNumberInFile - 1)->getNumber()
-                                << std::endl;
+                                *output << '\t'
+                                        << system_in->flexBodies[flexTitle]->getNode(nodeNumberInFile - 1)->getNumber()
+                                        << std::endl;
                             }
                             int elementType, node1, node2, cellCount;
                             *output << '\t' << "Cells: " << totalCells << endl;
@@ -204,14 +194,13 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                                                                                       node2 - 1)
                                                                              ), boundaryName
                                             );
-                                    *output
-                                    << '\t'
-                                    << /*old_size +*/ cellCount
-                                    << "\t"
-                                    << system_in->flexBodies[flexTitle]->getNode(node1 - 1)->getNumber()
-                                    << "\t"
-                                    << system_in->flexBodies[flexTitle]->getNode(node2 - 1)->getNumber()
-                                    << std::endl;
+                                    *output << '\t'
+                                            << /*old_size +*/ cellCount
+                                            << "\t"
+                                            << system_in->flexBodies[flexTitle]->getNode(node1 - 1)->getNumber()
+                                            << "\t"
+                                            << system_in->flexBodies[flexTitle]->getNode(node2 - 1)->getNumber()
+                                            << std::endl;
                                 }
                             }
 
@@ -219,6 +208,7 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                     }
                 }
                 else if (keyword == "NODES") {
+                    char a;
                     do {
                         input->get(a);
                     }
@@ -243,58 +233,41 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                             for (int i = 0; i <= nx; ++i) {
                                 newNumber = old_size + (ny + 1) * i + j;
                                 newThermalNumber = thermal_old_size + (ny + 1) * i + j;
-                                theSimulation->nodes[newNumber] =
-                                        new Node(newNumber, x1 + i * Ax, y1 + j * Ay, z);
-                                system_in->flexBodies[flexTitle]
-                                        ->addNode(theSimulation->nodes[newNumber]);
-                                theSimulation->nodes[newNumber]
-                                        ->setThermalNumber(newThermalNumber);
-                                theSimulation->thermalNodes[newThermalNumber]
-                                        = theSimulation->nodes[newNumber];
-                                *output
-                                << '\t'
-                                << theSimulation->nodes[newNumber]->getNumber()
-                                << "\t"
-                                << theSimulation->nodes[newNumber]->getX()
-                                << "\t"
-                                << theSimulation->nodes[newNumber]->getY()
-                                << "\t"
-                                << theSimulation->nodes[newNumber]->getZ()
-                                << std::endl;
+                                theSimulation->nodes[newNumber] = new Node(newNumber, x1 + i * Ax, y1 + j * Ay, z);
+                                system_in->flexBodies[flexTitle]->addNode(theSimulation->nodes[newNumber]);
+                                theSimulation->nodes[newNumber]->setThermalNumber(newThermalNumber);
+                                theSimulation->thermalNodes[newThermalNumber]= theSimulation->nodes[newNumber];
+                                *output << '\t'
+                                        << theSimulation->nodes[newNumber]->getNumber()
+                                        << "\t"
+                                        << theSimulation->nodes[newNumber]->getX()
+                                        << "\t"
+                                        << theSimulation->nodes[newNumber]->getY()
+                                        << "\t"
+                                        << theSimulation->nodes[newNumber]->getZ()
+                                        << std::endl;
                             }
                         }
                         // build the boundary lines:
                         for (int i = 0; i < nx; ++i) { //bottom line:
                             system_in->flexBodies[flexTitle]
-                                    ->addBoundaryLine(system_in->flexBodies[flexTitle]
-                                                              ->getNode((ny + 1) * i),
-                                                      system_in->flexBodies[flexTitle]
-                                                              ->getNode((ny + 1) * (i + 1))
-                                    );
+                                    ->addBoundaryLine(system_in->flexBodies[flexTitle]->getNode((ny + 1) * i),
+                                                      system_in->flexBodies[flexTitle]->getNode((ny + 1) * (i + 1)));
                         }
                         for (int i = 0; i < ny; ++i) { //right line:
                             system_in->flexBodies[flexTitle]
-                                    ->addBoundaryLine(system_in->flexBodies[flexTitle]
-                                                              ->getNode(nx * (ny + 1) + i),
-                                                      system_in->flexBodies[flexTitle]
-                                                              ->getNode(nx * (ny + 1) + i + 1)
-                                    );
+                                    ->addBoundaryLine(system_in->flexBodies[flexTitle]->getNode(nx * (ny + 1) + i),
+                                                      system_in->flexBodies[flexTitle]->getNode(nx * (ny + 1) + i + 1));
                         }
                         for (int i = nx; i > 0; --i) { //top line:
                             system_in->flexBodies[flexTitle]
-                                    ->addBoundaryLine(system_in->flexBodies[flexTitle]
-                                                              ->getNode((ny + 1) * (i + 1) - 1),
-                                                      system_in->flexBodies[flexTitle]
-                                                              ->getNode((ny + 1) * (i) - 1)
-                                    );
+                                    ->addBoundaryLine(system_in->flexBodies[flexTitle]->getNode((ny + 1) * (i + 1) - 1),
+                                                      system_in->flexBodies[flexTitle]->getNode((ny + 1) * (i) - 1));
                         }
                         for (int i = ny; i > 0; --i) { //left line:
                             system_in->flexBodies[flexTitle]
-                                    ->addBoundaryLine(system_in->flexBodies[flexTitle]
-                                                              ->getNode(i),
-                                                      system_in->flexBodies[flexTitle]
-                                                              ->getNode(i - 1)
-                                    );
+                                    ->addBoundaryLine(system_in->flexBodies[flexTitle]->getNode(i),
+                                                      system_in->flexBodies[flexTitle]->getNode(i - 1));
                         }
 
                         do {
@@ -343,8 +316,7 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                         char a;
                         do {
                             input->get(a);
-                        }
-                        while (a != '\n');
+                        } while (a != '\n');
                         int totalNodes, totalCells;
                         //          int nodeNumber;
                         //          double x, y;
@@ -364,25 +336,26 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                             *output << "\tNode\tx\ty\tz \n";
                             for (int i = 0; i < totalNodes; ++i) {
                                 meshfile >> nodeNumberInFile >> x >> y >> z;
-                                theSimulation->nodes[old_size + i] =
-                                        new Node(old_size + i, x, y, z);
+                                theSimulation->nodes[old_size + i] = new Node(old_size + i, x, y, z);
                                 theSimulation->nodes[old_size + i]->setThermalNumber(thermal_old_size + i);
-                                theSimulation->thermalNodes[thermal_old_size + i]
-                                        = theSimulation->nodes[old_size + i];
-                                system_in->flexBodies[flexTitle]
-                                        ->addNode(theSimulation->nodes[old_size + i]);
-                                *output
-                                << '\t' << theSimulation->nodes[old_size + i]->getNumber()
-                                << "\t" << theSimulation->nodes[old_size + i]->getX()
-                                << "\t" << theSimulation->nodes[old_size + i]->getY()
-                                << "\t" << theSimulation->nodes[old_size + i]->getZ()
-                                << std::endl;
+                                theSimulation->thermalNodes[thermal_old_size + i] = theSimulation->nodes[old_size + i];
+                                system_in->flexBodies[flexTitle]->addNode(theSimulation->nodes[old_size + i]);
+                                *output << '\t' << theSimulation->nodes[old_size + i]->getNumber()
+                                        << "\t" << theSimulation->nodes[old_size + i]->getX()
+                                        << "\t" << theSimulation->nodes[old_size + i]->getY()
+                                        << "\t" << theSimulation->nodes[old_size + i]->getZ()
+                                        << std::endl;
                             }
                         }
                         else if (keyword == "TETRAHEDRONS") {
-                            *input >> keyword;
-                            *output << "FILE: " << keyword << endl;
-                            std::ifstream meshfile(keyword.c_str()); // file to read points from
+
+                            string file_name;
+                            double translation[3] = { 0.0, 0.0, 0.0 };
+                            double rotation[3] = { 0.0, 0.0, 0.0 };
+                            readTetrahedronsLine(file_name, translation, rotation);
+
+                            *output << "FILE: " << file_name << endl;
+                            std::ifstream meshfile(file_name); // file to read points from
                             int nodeNumberInFile; // read number but do not use it
 // 			  double x, y, z;
                             int old_size = theSimulation->nodes.end()->first;
@@ -394,21 +367,18 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                             for (int i = 0; i < totalNodes; ++i) {
                                 meshfile >> nodeNumberInFile >> x >> y >> z;
                                 nodesFile[nodeNumberInFile] = old_size + i;
-                                theSimulation->nodes[old_size + i] =
-                                        new Node(old_size + i, x, y, z);
+                                theSimulation->nodes[old_size + i] = new Node(old_size + i, x, y, z);
                                 theSimulation->nodes[old_size + i]->setThermalNumber(thermal_old_size + i);
-                                theSimulation->thermalNodes[thermal_old_size + i]
-                                        = theSimulation->nodes[old_size + i];
-                                theSimulation->outputPoints[old_size + i]
-                                        = theSimulation->nodes[old_size + i];
-                                system_in->flexBodies[flexTitle]
-                                        ->addNode(theSimulation->nodes[old_size + i]);
-                                *output
-                                << '\t' << theSimulation->nodes[old_size + i]->getNumber()
-                                << "\t" << theSimulation->nodes[old_size + i]->getX()
-                                << "\t" << theSimulation->nodes[old_size + i]->getY()
-                                << "\t" << theSimulation->nodes[old_size + i]->getZ()
-                                << std::endl;
+                                theSimulation->thermalNodes[thermal_old_size + i] = theSimulation->nodes[old_size + i];
+                                theSimulation->outputPoints[old_size + i] = theSimulation->nodes[old_size + i];
+                                system_in->flexBodies[flexTitle]->addNode(theSimulation->nodes[old_size + i]);
+                                system_in->flexBodies[flexTitle]->rotate(rotation[0], rotation[1], rotation[2]);
+                                system_in->flexBodies[flexTitle]->translate(translation[0], translation[1], translation[2]);
+                                *output << '\t' << theSimulation->nodes[old_size + i]->getNumber()
+                                        << "\t" << theSimulation->nodes[old_size + i]->getX()
+                                        << "\t" << theSimulation->nodes[old_size + i]->getY()
+                                        << "\t" << theSimulation->nodes[old_size + i]->getZ()
+                                        << std::endl;
                             }
                         }
                     }
@@ -444,13 +414,13 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                         int material_in;
                         //           int old_size = cells.size();
                         *input >> material_in
-                        >> dcx >> dcy
-                        >> nx >> ny
-                        >> x1 >> y1
-                        >> x2 >> y2;
+                                >> dcx >> dcy
+                                >> nx >> ny
+                                >> x1 >> y1
+                                >> x2 >> y2;
                         *output << '\t' << "Rectangular patch: " << "material: "
-                        << material_in << " dimension: " << nx << " x " << ny
-                        << endl;
+                                << material_in << " dimension: " << nx << " x " << ny
+                                << endl;
                         Ax = (x2 - x1) / nx;
                         Ay = (y2 - y1) / ny;
                         for (int i = 0; i < nx; ++i) {
@@ -472,15 +442,15 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                                                   )
                                         );
                                 *output << "\t\t" << "Cell:" << /*old_size +*/ ny * i + j
-                                << endl
-                                << "\t\t\t(" << x1 + i * Ax << ", " << y1 + j * Ay << ")"
-                                << endl
-                                << "\t\t\t(" << x1 + (i + 1) * Ax << ", " << y1 + j * Ay << ")"
-                                << endl
-                                << "\t\t\t(" << x1 + (i + 1) * Ax << ", " << y1 + (j + 1) * Ay << ")"
-                                << endl
-                                << "\t\t\t(" << x1 + i * Ax << ", " << y1 + (j + 1) * Ay << ")"
-                                << endl;
+                                        << endl
+                                        << "\t\t\t(" << x1 + i * Ax << ", " << y1 + j * Ay << ")"
+                                        << endl
+                                        << "\t\t\t(" << x1 + (i + 1) * Ax << ", " << y1 + j * Ay << ")"
+                                        << endl
+                                        << "\t\t\t(" << x1 + (i + 1) * Ax << ", " << y1 + (j + 1) * Ay << ")"
+                                        << endl
+                                        << "\t\t\t(" << x1 + i * Ax << ", " << y1 + (j + 1) * Ay << ")"
+                                        << endl;
                             }
                         }
                         do {
@@ -560,12 +530,11 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                                                   dc); // dc is set to 1.03 for the moment
                                 system_in->flexBodies[flexTitle]
                                         ->addBodyPoint(theSimulation->outputPoints[old_size + i], meshfreeFormulation);
-                                *output
-                                << '\t' << theSimulation->outputPoints[old_size + i]->getNumber()
-                                << "\t" << theSimulation->outputPoints[old_size + i]->getX()
-                                << "\t" << theSimulation->outputPoints[old_size + i]->getY()
-                                << "\t" << theSimulation->outputPoints[old_size + i]->getZ()
-                                << std::endl;
+                                *output << '\t' << theSimulation->outputPoints[old_size + i]->getNumber()
+                                        << "\t" << theSimulation->outputPoints[old_size + i]->getX()
+                                        << "\t" << theSimulation->outputPoints[old_size + i]->getY()
+                                        << "\t" << theSimulation->outputPoints[old_size + i]->getZ()
+                                        << std::endl;
                             }
                             int elementType, node1, node2, node3, cellCount;
                             *output << '\t' << "Cells: " << totalCells << endl;
@@ -590,16 +559,15 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                                                                                   dc
                                                                                  )
                                                 );
-                                        *output
-                                        << '\t'
-                                        << /*old_size +*/ cellCount
-                                        << "\t"
-                                        << theSimulation->outputPoints[pointsFile[node1]]->getNumber()
-                                        << "\t"
-                                        << theSimulation->outputPoints[pointsFile[node2]]->getNumber()
-                                        << "\t"
-                                        << theSimulation->outputPoints[pointsFile[node3]]->getNumber()
-                                        << std::endl;
+                                        *output << '\t'
+                                                << /*old_size +*/ cellCount
+                                                << "\t"
+                                                << theSimulation->outputPoints[pointsFile[node1]]->getNumber()
+                                                << "\t"
+                                                << theSimulation->outputPoints[pointsFile[node2]]->getNumber()
+                                                << "\t"
+                                                << theSimulation->outputPoints[pointsFile[node3]]->getNumber()
+                                                << std::endl;
                                     }
                                     else if (bodyType == "FEMESH") {
                                         std::cout << "ERROR: NOT POSSIBLE TO CREATE A FEMESH OF THIS TYPE" << std::endl;
@@ -625,9 +593,9 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                                         cerr << ":::ERROR: BOUNDARY ORIENTATION UNKNOWN:::" << endl;
                                     }
                                     *output << "\t Bound"
-                                    << "\t" << node1
-                                    << "\t" << node2
-                                    << std::endl;
+                                            << "\t" << node1
+                                            << "\t" << node2
+                                            << std::endl;
                                 }
                                 else {
                                     do {
@@ -642,9 +610,14 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                             while (a != '\n');
                         }
                         else if (keyword == "TETRAHEDRONS") {
-                            *input >> keyword;
-                            *output << "FILE: " << keyword << endl;
-                            std::ifstream meshfile(keyword.c_str()); // file to read points from
+
+                            string file_name;
+                            double translation[3] = { 0.0, 0.0, 0.0 };
+                            double rotation[3] = { 0.0, 0.0, 0.0 };
+                            readTetrahedronsLine(file_name, translation, rotation);
+
+                            *output << "FILE: " << file_name << endl;
+                            std::ifstream meshfile(file_name); // file to read points from
                             int pointNumberInFile; // read number but do not use it
                             double x, y, z;
                             int old_size = theSimulation->outputPoints.end()->first;
@@ -655,18 +628,18 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                             for (int i = 0; i < totalPoints; ++i) {
                                 meshfile >> pointNumberInFile >> x >> y >> z;
                                 pointsFile[pointNumberInFile] = old_size + i;
-                                theSimulation->outputPoints[old_size + i] =
-                                        new Point(Simulation::getDim(), old_size + i, x, y, z, alpha,
-                                                  dc); // dc is set to 1.03 for the moment
-                                system_in->flexBodies[flexTitle]
-                                        ->addBodyPoint(theSimulation->outputPoints[old_size + i], meshfreeFormulation);
-                                *output
-                                << '\t' << theSimulation->outputPoints[old_size + i]->getNumber()
-                                << "\t" << theSimulation->outputPoints[old_size + i]->getX()
-                                << "\t" << theSimulation->outputPoints[old_size + i]->getY()
-                                << "\t" << theSimulation->outputPoints[old_size + i]->getZ()
-                                << std::endl;
+                                theSimulation->outputPoints[old_size + i] = new Point(Simulation::getDim(),
+                                                                                      old_size + i,  x, y, z, alpha,
+                                                                                      dc); // dc is set to 1.03 for the moment
+                                system_in->flexBodies[flexTitle] ->addBodyPoint(theSimulation->outputPoints[old_size + i], meshfreeFormulation);
+                                *output << '\t' << theSimulation->outputPoints[old_size + i]->getNumber()
+                                        << "\t" << theSimulation->outputPoints[old_size + i]->getX()
+                                        << "\t" << theSimulation->outputPoints[old_size + i]->getY()
+                                        << "\t" << theSimulation->outputPoints[old_size + i]->getZ()
+                                        << std::endl;
                             }
+                            system_in->flexBodies[flexTitle]->rotate(rotation[0], rotation[1], rotation[2]);
+                            system_in->flexBodies[flexTitle]->translate(translation[0], translation[1], translation[2]);
                             int elementType, node1, node2, node3, node4, cellCount;
                             std::vector<int> nodes(3);
                             *output << '\t' << "Cells: " << totalCells << endl;
@@ -710,18 +683,17 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                                     else if (bodyType == "FEMESH") {
                                         std::cout << "ERROR: NOT POSSIBLE TO CREATE A FEMESH OF THIS TYPE" << std::endl;
                                     }
-                                    *output
-                                    << '\t'
-                                    << /*old_size +*/ cellCount
-                                    << "\t"
-                                    << theSimulation->outputPoints[pointsFile[node1]]->getNumber()
-                                    << "\t"
-                                    << theSimulation->outputPoints[pointsFile[node2]]->getNumber()
-                                    << "\t"
-                                    << theSimulation->outputPoints[pointsFile[node3]]->getNumber()
-                                    << "\t"
-                                    << theSimulation->outputPoints[pointsFile[node4]]->getNumber()
-                                    << std::endl;
+                                    *output << '\t'
+                                            << /*old_size +*/ cellCount
+                                            << "\t"
+                                            << theSimulation->outputPoints[pointsFile[node1]]->getNumber()
+                                            << "\t"
+                                            << theSimulation->outputPoints[pointsFile[node2]]->getNumber()
+                                            << "\t"
+                                            << theSimulation->outputPoints[pointsFile[node3]]->getNumber()
+                                            << "\t"
+                                            << theSimulation->outputPoints[pointsFile[node4]]->getNumber()
+                                            << std::endl;
                                     ++cellCount;
                                 }
                             }
@@ -767,21 +739,16 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                         for (int i = 0; i < totalNodes; ++i) {
                             meshfile >> nodeNumberInFile >> x >> y >> z;
                             nodesFile[nodeNumberInFile] = old_size + i;
-                            theSimulation->nodes[old_size + i] =
-                                    new Node(old_size + i, x, y, z);
+                            theSimulation->nodes[old_size + i] = new Node(old_size + i, x, y, z);
                             theSimulation->nodes[old_size + i]->setThermalNumber(thermal_old_size + i);
-                            theSimulation->thermalNodes[thermal_old_size + i]
-                                    = theSimulation->nodes[old_size + i];
-                            theSimulation->outputPoints[old_size + i]
-                                    = theSimulation->nodes[old_size + i];
-                            system_in->flexBodies[flexTitle]
-                                    ->addNode(theSimulation->nodes[old_size + i]);
-                            *output
-                            << '\t' << theSimulation->nodes[old_size + i]->getNumber()
-                            << "\t" << theSimulation->nodes[old_size + i]->getX()
-                            << "\t" << theSimulation->nodes[old_size + i]->getY()
-                            << "\t" << theSimulation->nodes[old_size + i]->getZ()
-                            << std::endl;
+                            theSimulation->thermalNodes[thermal_old_size + i] = theSimulation->nodes[old_size + i];
+                            theSimulation->outputPoints[old_size + i] = theSimulation->nodes[old_size + i];
+                            system_in->flexBodies[flexTitle]->addNode(theSimulation->nodes[old_size + i]);
+                            *output << '\t' << theSimulation->nodes[old_size + i]->getNumber()
+                                    << "\t" << theSimulation->nodes[old_size + i]->getX()
+                                    << "\t" << theSimulation->nodes[old_size + i]->getY()
+                                    << "\t" << theSimulation->nodes[old_size + i]->getZ()
+                                    << std::endl;
                         }
                         int elementType, node1, node2, node3, cellCount;
                         *output << '\t' << "Cells: " << totalCells << endl;
@@ -806,16 +773,15 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                                                                               theSimulation->nodes[nodesFile[node3]]
                                                                              )
                                             );
-                                    *output
-                                    << '\t'
-                                    << /*old_size +*/ cellCount
-                                    << "\t"
-                                    << theSimulation->nodes[nodesFile[node1]]->getNumber()
-                                    << "\t"
-                                    << theSimulation->nodes[nodesFile[node2]]->getNumber()
-                                    << "\t"
-                                    << theSimulation->nodes[nodesFile[node3]]->getNumber()
-                                    << std::endl;
+                                    *output << '\t'
+                                            << /*old_size +*/ cellCount
+                                            << "\t"
+                                            << theSimulation->nodes[nodesFile[node1]]->getNumber()
+                                            << "\t"
+                                            << theSimulation->nodes[nodesFile[node2]]->getNumber()
+                                            << "\t"
+                                            << theSimulation->nodes[nodesFile[node3]]->getNumber()
+                                            << std::endl;
                                 }
                                 else if (bodyType == "FEMESH") {
                                     system_in->flexBodies[flexTitle]
@@ -829,16 +795,15 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                                                                                theSimulation->nodes[nodesFile[node3]]
                                                                               )
                                             );
-                                    *output
-                                    << '\t'
-                                    << /*old_size +*/ cellCount
-                                    << "\t"
-                                    << theSimulation->nodes[nodesFile[node1]]->getNumber()
-                                    << "\t"
-                                    << theSimulation->nodes[nodesFile[node2]]->getNumber()
-                                    << "\t"
-                                    << theSimulation->nodes[nodesFile[node3]]->getNumber()
-                                    << std::endl;
+                                    *output     << '\t'
+                                            << /*old_size +*/ cellCount
+                                            << "\t"
+                                            << theSimulation->nodes[nodesFile[node1]]->getNumber()
+                                            << "\t"
+                                            << theSimulation->nodes[nodesFile[node2]]->getNumber()
+                                            << "\t"
+                                            << theSimulation->nodes[nodesFile[node3]]->getNumber()
+                                            << std::endl;
                                 }
 
                                 ++cellCount;
@@ -868,9 +833,9 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
 //                                 else
 //                                     cerr << ":::ERROR: BOUNDARY ORIENTATION UNKNOWN:::" << endl;
                                 *output << "\t Bound"
-                                << "\t" << node1
-                                << "\t" << node2
-                                << std::endl;
+                                        << "\t" << node1
+                                        << "\t" << node2
+                                        << std::endl;
                             }
                             else {
                                 do {
@@ -885,9 +850,14 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                         while (a != '\n');
                     }
                     else if (keyword == "TETRAHEDRONS") {
-                        *input >> keyword;
-                        *output << "FILE: " << keyword << endl;
-                        std::ifstream meshfile(keyword.c_str()); // file to read points from
+
+                        string file_name;
+                        double translation[3] = { 0.0, 0.0, 0.0 };
+                        double rotation[3] = { 0.0, 0.0, 0.0 };
+                        readTetrahedronsLine(file_name, translation, rotation);
+
+                        *output << "FILE: " << file_name << endl;
+                        std::ifstream meshfile(file_name); // file to read points from
                         int nodeNumberInFile; // read number but do not use it
                         double x, y, z;
                         int old_size = theSimulation->nodes.end()->first;
@@ -899,22 +869,19 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                         for (int i = 0; i < totalNodes; ++i) {
                             meshfile >> nodeNumberInFile >> x >> y >> z;
                             nodesFile[nodeNumberInFile] = old_size + i;
-                            theSimulation->nodes[old_size + i] =
-                                    new Node(old_size + i, x, y, z);
+                            theSimulation->nodes[old_size + i] = new Node(old_size + i, x, y, z);
                             theSimulation->nodes[old_size + i]->setThermalNumber(thermal_old_size + i);
-                            theSimulation->thermalNodes[thermal_old_size + i]
-                                    = theSimulation->nodes[old_size + i];
-                            theSimulation->outputPoints[old_size + i]
-                                    = theSimulation->nodes[old_size + i];
-                            system_in->flexBodies[flexTitle]
-                                    ->addNode(theSimulation->nodes[old_size + i]);
-                            *output
-                            << '\t' << theSimulation->nodes[old_size + i]->getNumber()
-                            << "\t" << theSimulation->nodes[old_size + i]->getX()
-                            << "\t" << theSimulation->nodes[old_size + i]->getY()
-                            << "\t" << theSimulation->nodes[old_size + i]->getZ()
-                            << std::endl;
+                            theSimulation->thermalNodes[thermal_old_size + i] = theSimulation->nodes[old_size + i];
+                            theSimulation->outputPoints[old_size + i] = theSimulation->nodes[old_size + i];
+                            system_in->flexBodies[flexTitle]->addNode(theSimulation->nodes[old_size + i]);
+                            *output << '\t' << theSimulation->nodes[old_size + i]->getNumber()
+                                    << "\t" << theSimulation->nodes[old_size + i]->getX()
+                                    << "\t" << theSimulation->nodes[old_size + i]->getY()
+                                    << "\t" << theSimulation->nodes[old_size + i]->getZ()
+                                    << std::endl;
                         }
+                        system_in->flexBodies[flexTitle]->rotate(rotation[0], rotation[1], rotation[2]);
+                        system_in->flexBodies[flexTitle]->translate(translation[0], translation[1], translation[2]);
                         int elementType, node1, node2, node3, node4, cellCount;
                         std::vector<int> nodes(3);
                         *output << '\t' << "Cells: " << totalCells << endl;
@@ -932,9 +899,9 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                                 nodes[2] = --node3;
                                 system_in->flexBodies[flexTitle]->addBoundaryConnectivity(nodes);
                                 *output << "\t" << i << "\t"
-                                << nodes[0] << "\t"
-                                << nodes[1] << "\t"
-                                << nodes[2] << endl;
+                                    << nodes[0] << "\t"
+                                    << nodes[1] << "\t"
+                                    << nodes[2] << endl;
                             }
                             else if (elementType == 102) { //TODO: read linear boundary
                                 // at the moment we dump the information
@@ -971,18 +938,17 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                                                                               )
                                             );
                                 }
-                                *output
-                                << '\t'
-                                << /*old_size +*/ cellCount
-                                << "\t"
-                                << theSimulation->nodes[nodesFile[node1]]->getNumber()
-                                << "\t"
-                                << theSimulation->nodes[nodesFile[node2]]->getNumber()
-                                << "\t"
-                                << theSimulation->nodes[nodesFile[node3]]->getNumber()
-                                << "\t"
-                                << theSimulation->nodes[nodesFile[node4]]->getNumber()
-                                << std::endl;
+                                *output << '\t'
+                                        << /*old_size +*/ cellCount
+                                        << "\t"
+                                        << theSimulation->nodes[nodesFile[node1]]->getNumber()
+                                        << "\t"
+                                        << theSimulation->nodes[nodesFile[node2]]->getNumber()
+                                        << "\t"
+                                        << theSimulation->nodes[nodesFile[node3]]->getNumber()
+                                        << "\t"
+                                        << theSimulation->nodes[nodesFile[node4]]->getNumber()
+                                        << std::endl;
                                 ++cellCount;
                             }
                         }
@@ -992,4 +958,24 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
         } // MESHFREE
     }
     system_in->initFlexBodies();
+}
+
+void mknix::ReaderFlex::readTetrahedronsLine(string& file_name, double* translation, double* rotation) const
+{
+    std::string line;
+    std::getline(*input, line);
+
+    std::stringstream ss(line);
+
+    int i = 0;
+    while (ss) {
+        if (i == 0) {
+            ss >> file_name;
+        } else if (i < 4) {
+            ss >> translation[i-1];
+        } else if (i < 7) {
+            ss >> rotation[i-4];
+        }
+        ++i;
+    }
 }

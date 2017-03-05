@@ -21,6 +21,7 @@
 #define LMXSELECTOR_H
 
 #include <iostream>
+#include <sstream>
 
 //////////////////////////////////////////// Doxygen file documentation entry:
 /*!

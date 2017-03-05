@@ -26,10 +26,12 @@
 
 namespace mknix {
 class Node;
+
 /**
 	@author AUTHORS <MAILS>
 */
-class Constraint {
+class Constraint
+{
 public:
     Constraint();
 
@@ -38,48 +40,54 @@ public:
     Constraint(double&, std::string&, int);
 
     virtual ~Constraint();
-    
-    void setTitle( std::string& title_in )
-    { title = title_in; }
-  
-    lmx::Vector<data_type>& getInternalForces( ) {
+
+    void setTitle(std::string& title_in) { title = title_in; }
+
+    lmx::Vector<data_type>& getInternalForces()
+    {
         return this->internalForces;
     }
-    
-    lmx::DenseMatrix<data_type>& getStiffnessMatrix( ) {
+
+    lmx::DenseMatrix<data_type>& getStiffnessMatrix()
+    {
         return this->stiffnessMatrix;
     }
 
-    virtual void writeJointInfo( std::ofstream* );
+    virtual void writeJointInfo(std::ofstream*);
 
-    virtual void calcPhi( ) = 0 ;
+    virtual void calcPhi() = 0;
 
-    virtual void calcPhiq( ) = 0 ;
+    virtual void calcPhiq() = 0;
 
-    virtual void calcPhiqq( ) = 0 ;
+    virtual void calcPhiqq() = 0;
 
-    virtual void calcInternalForces( );
+    virtual void calcInternalForces();
 
-    virtual void calcTangentMatrix( );
+    virtual void calcTangentMatrix();
 
-    virtual void assembleInternalForces( lmx::Vector<data_type> & );
+    virtual void assembleInternalForces(lmx::Vector<data_type>&);
 
-    virtual void assembleTangentMatrix( lmx::Matrix<data_type> & );
+    virtual void assembleTangentMatrix(lmx::Matrix<data_type>&);
 
     virtual bool checkAugmented();
 
     virtual void clearAugmented();
 
-    virtual Node* getNode( int nodeNumber )
+    virtual Node* getNode(size_t nodeNumber)
     {
         return nodes[nodeNumber];
     }
 
-    void outputStep( const lmx::Vector<data_type>&, const lmx::Vector<data_type>& );
+    virtual size_t getNodeCount()
+    {
+        return nodes.size();
+    }
 
-    void outputStep( const lmx::Vector<data_type>& );
+    void outputStep(const lmx::Vector<data_type>&, const lmx::Vector<data_type>&);
 
-    void outputToFile( std::ofstream* );
+    void outputStep(const lmx::Vector<data_type>&);
+
+    void outputToFile(std::ofstream*);
 
 protected:
     int dim, iter_augmented;
@@ -88,12 +96,12 @@ protected:
     std::string title;
     std::vector<Node*> nodes;
     lmx::Vector<data_type> internalForces;
-    std::vector< lmx::Vector<data_type> > internalForcesOutput;
+    std::vector<lmx::Vector<data_type>> internalForcesOutput;
     lmx::DenseMatrix<data_type> stiffnessMatrix;
-    std::vector< double > lambda;
-    std::vector< double > phi;
-    std::vector< lmx::Vector<data_type> > phi_q;
-    std::vector< lmx::DenseMatrix<data_type> > phi_qq;
+    std::vector<double> lambda;
+    std::vector<double> phi;
+    std::vector<lmx::Vector<data_type>> phi_q;
+    std::vector<lmx::DenseMatrix<data_type>> phi_qq;
 
 };
 

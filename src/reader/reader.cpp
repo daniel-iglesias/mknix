@@ -21,6 +21,7 @@
 #include "readerrigid.h"
 #include "readerflex.h"
 #include "readerconstraints.h"
+#include "sectionreader.h"
 
 #include <simulation/simulation.h>
 #include <simulation/analysisdynamic.h>
@@ -38,6 +39,13 @@
 #include <system/loadthermalbody.h>
 #include <system/loadthermalboundary1D.h>
 
+#ifdef __WIN32__
+#  include <direct.h>
+#endif
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+
 namespace {
 constexpr auto pathSep = "/";
 
@@ -53,6 +61,7 @@ namespace mknix {
 Reader::Reader()
         : theSimulation(nullptr)
         , theReaderRigid(nullptr)
+        , sectionReader("")
 {
     output.open("output.reader");
 }
@@ -60,8 +69,73 @@ Reader::Reader()
 Reader::Reader(Simulation * simulation_in)
         : theSimulation(simulation_in)
         , theReaderRigid(nullptr)
+        , sectionReader("")
 {
     output.open("output.reader");
+
+    sectionReader
+            .addField("TITLE")
+            .addField("GRAVITY")
+            .addField("DIMENSION")
+            .addSubSection(
+                    SectionReader("MATERIALS")
+                           .addField("PLSTRAIN")
+            )
+            .addField("SMOOTHING")
+            .addSubSection(
+                    SectionReader("SYSTEM")
+                            .addSubSection(
+                                    SectionReader("RIGIDBODIES")
+                                            .addField("ALPHA")
+                                            .addSubSection(
+                                                    SectionReader("GENERIC3D")
+                                                            .addField("MASS")
+                                                            .addField("IXX")
+                                                            .addField("IYY")
+                                                            .addField("IZZ")
+                                                            .addField("POSITION")
+                                                            .addField("TETRAHEDRONS")
+                                            )
+                            )
+                            .addSubSection(
+                                    SectionReader("FLEXBODIES")
+                                            .addSubSection(
+                                                    SectionReader("MESHFREE")
+                                                            .addField("FORMULATION")
+                                                            .addField("METHOD")
+                                                            .addField("MESH")
+                                                            .addField("TETRAHEDRONS")
+                                            )
+                            )
+                            .addSubSection(
+                                    SectionReader("JOINTS")
+                                            .addField("PENALTY")
+                                            .addField("ALPHA")
+                                            .addSubSection(
+                                                    SectionReader("SPHERICAL")
+                                                            .addField("NODEA")
+                                                            .addField("NODEB")
+                                            )
+                                            .addSubSection(
+                                                    SectionReader("AXIS")
+                                                            .addField("DIRECTIONS")
+                                                            .addField("NODEA")
+                                                            .addField("NODEB")
+                                            )
+                            )
+                            .addSubSection(
+                                    SectionReader("LOADS")
+                            )
+            )
+            .addSubSection(
+                    SectionReader("ANALYSIS")
+                            .addSubSection(
+                                    SectionReader("DYNAMIC")
+                                            .addField("EPSILON")
+                                            .addField("INTEGRATOR")
+                                            .addField("TIME")
+                            )
+            );
 }
 
 
@@ -76,11 +150,17 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
 {
     input.open(fileIn);
 
+//    size_t line_no = 0;
+//    sectionReader.read(input, output, line_no);
+
     std::string keyword;
 
     // Change to directory of input file so all mesh file paths are relative to here
     auto dir = dirName(fileIn);
-    chdir(dir.c_str());
+    int rc = chdir(dir.c_str());
+    if (rc) {
+        throw std::runtime_error("failed to changed directory");
+    }
 
     while (input >> keyword) {
 
@@ -90,19 +170,22 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
                 input.get(a);
             }
             while (a != '\n');
-        }
-        else if (keyword == "TITLE") {
+        } else if (keyword == "TITLE") {
             input >> theSimulation->title;
             output << "TITLE: " << theSimulation->title << std::endl;
-        }
-        else if (keyword == "WORKINGDIR") {
+        } else if (keyword == "WORKINGDIR") {
             input >> keyword;
-            chdir(keyword.c_str());
+            rc = chdir(keyword.c_str());
+            if (rc) {
+                throw std::runtime_error("failed to changed directory");
+            }
             char working_dir[100];
-            getcwd(working_dir, 100);
+            char * ret = getcwd(working_dir, 100);
+            if (ret == nullptr) {
+                throw std::runtime_error("failed to get current working directory");
+            }
             output << "WORKINGDIR: " << working_dir << std::endl;
-        }
-        else if (keyword == "GRAVITY") {
+        } else if (keyword == "GRAVITY") {
             double value;
             input >> value;
             Simulation::gravity(0) = value;
@@ -111,20 +194,18 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
             input >> value;
             Simulation::gravity(2) = value;
             output << "GRAVITY: "
-            << Simulation::getGravity(0) << ", "
-            << Simulation::getGravity(1) << ", "
-            << Simulation::getGravity(2) << std::endl;
-        }
-        else if (keyword == "DIMENSION") {
+                    << Simulation::getGravity(0) << ", "
+                    << Simulation::getGravity(1) << ", "
+                    << Simulation::getGravity(2) << std::endl;
+        } else if (keyword == "DIMENSION") {
             int value;
 
             input >> value;
             Simulation::dimension = value;
 
             output << "DIMENSION: "
-            << Simulation::dimension << std::endl;
-        }
-        else if (keyword == "MATERIALS") {
+                    << Simulation::dimension << std::endl;
+        } else if (keyword == "MATERIALS") {
             char a;
             do {
                 input.get(a);
@@ -147,14 +228,13 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
                     theSimulation->materials.at(num_mat).setMechanicalProps(Simulation::dimension, young, poisson,
                                                                             density);
                     output << "MATERIAL: " << keyword
-                    << ", number = " << num_mat << ",\n\t E = " << young
-                    << ", mu = " << poisson << ", density = " << density << std::endl;
+                            << ", number = " << num_mat << ",\n\t E = " << young
+                            << ", mu = " << poisson << ", density = " << density << std::endl;
                     do {
                         input.get(a);
                     }
                     while (a != '\n');
-                }
-                else if (keyword == "THERMAL") {
+                } else if (keyword == "THERMAL") {
                     int num_mat;
                     double capacity, kappa, beta, density; // Capacity, Conductivity, Thermal expansion, Density
                     input >> num_mat >> capacity >> kappa >> beta >> density;
@@ -166,14 +246,13 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
 
                     theSimulation->materials.at(num_mat).setThermalProps(capacity, kappa, beta, density);
                     output << "MATERIAL: " << keyword
-                    << ", number = " << num_mat << ",\n\t Cp = " << capacity
-                    << ", kappa = " << kappa << ", density = " << density << std::endl;
+                            << ", number = " << num_mat << ",\n\t Cp = " << capacity
+                            << ", kappa = " << kappa << ", density = " << density << std::endl;
                     do {
                         input.get(a);
                     }
                     while (a != '\n');
-                }
-                else if (keyword == "FILES") {
+                } else if (keyword == "FILES") {
                     while (input >> keyword) {
                         if (keyword == "ENDFILES") {
                             break;
@@ -185,7 +264,7 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
                                 theSimulation->materials[num_mat];
                             }
                             output << "THERMALFILE CAPACITY: " << keyword
-                            << " for mat # " << num_mat << endl;
+                                    << " for mat # " << num_mat << endl;
                             std::ifstream thermalfile(keyword); // file to read points from
                             while (thermalfile >> temperature) {
                                 thermalfile >> capacity;
@@ -196,8 +275,7 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
                                 input.get(a);
                             }
                             while (a != '\n');
-                        }
-                        else if (keyword == "CONDUCTIVITY") {
+                        } else if (keyword == "CONDUCTIVITY") {
                             int num_mat;
                             double temperature, conductivity;
                             input >> num_mat >> keyword;
@@ -205,7 +283,7 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
                                 theSimulation->materials[num_mat];
                             }
                             output << "THERMALFILE CONDUCTIVITY: " << keyword
-                            << " for mat # " << num_mat << endl;
+                                    << " for mat # " << num_mat << endl;
                             std::ifstream thermalfile(keyword); // file to read points from
                             while (thermalfile >> temperature) {
                                 thermalfile >> conductivity;
@@ -220,71 +298,60 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
                     }
                 }
             }
-        }
-        else if (keyword == "CONTACT") {
+        } else if (keyword == "CONTACT") {
             std::string type;
             input >> type; // Valid types: GLOBAL, NONE
             Simulation::contact = type;
             output << "CONTACT: "
-            << Simulation::contact << std::endl;
-        }
-        else if (keyword == "VISUALIZATION") {
+                    << Simulation::contact << std::endl;
+        } else if (keyword == "VISUALIZATION") {
             std::string type;
             input >> type;
             if (type == "ON") Simulation::visualization = 1;
-            if (type == "OFF")Simulation::visualization = 0;
+            if (type == "OFF") Simulation::visualization = 0;
             output << "VISUALIZATION: "
-            << Simulation::contact << std::endl;
-        }
-        else if (keyword == "OUTPUT") {
+                    << Simulation::contact << std::endl;
+        } else if (keyword == "OUTPUT") {
             std::string type;
             input >> type;
             if (type == "MATRICES") {
                 Simulation::outputMatrices = 1;
                 output << "OUTPUT: MATRICES"
-                << Simulation::outputMatrices << std::endl;
+                        << Simulation::outputMatrices << std::endl;
             }
-        }
-        else if (keyword == "SMOOTHING") {
+        } else if (keyword == "SMOOTHING") {
             std::string type;
             input >> type;
             if (type == "OFF") {
                 Simulation::smoothingType = "OFF";
                 output << keyword << " "
-                << Simulation::smoothingType << std::endl;
-            }
-            if (type == "LOCAL") {
+                        << Simulation::smoothingType << std::endl;
+            } else if (type == "LOCAL") {
                 Simulation::smoothingType = "LOCAL";
                 output << keyword << " "
-                << Simulation::smoothingType << std::endl;
-            }
-            if (type == "CONSTANT") {
+                        << Simulation::smoothingType << std::endl;
+            } else if (type == "CONSTANT") {
                 Simulation::smoothingType = "CONSTANT";
                 output << keyword << " "
-                << Simulation::smoothingType << std::endl;
-            }
-            if (type == "GLOBAL") {
+                        << Simulation::smoothingType << std::endl;
+            } else if (type == "GLOBAL") {
                 Simulation::smoothingType = "GLOBAL";
                 output << keyword << " "
-                << Simulation::smoothingType << std::endl;
+                        << Simulation::smoothingType << std::endl;
             }
-        }
-        else if (keyword == "INITIALTEMPERATURE") {
+        } else if (keyword == "INITIALTEMPERATURE") {
             double init_temp;
             input >> init_temp; // Type of formulation: EFG or RPIM
             output << "SIMULATION INITIAL TEMPERATURE SET TO: "
-            << init_temp
-            << std::endl;
+                    << init_temp
+                    << std::endl;
             theSimulation->setInitialTemperatures(init_temp);
-        }
-        else if (keyword == "SYSTEM") {
+        } else if (keyword == "SYSTEM") {
             readSystem(theSimulation->baseSystem.get());
-        }
-        else if (keyword == "ANALYSIS") {
+        } else if (keyword == "ANALYSIS") {
             readAnalysis();
         }
     }
-
 }
 
 void mknix::Reader::readSystem(System * system_in)
@@ -293,47 +360,39 @@ void mknix::Reader::readSystem(System * system_in)
     std::string keyword;
     input >> sysTitle;
     output << "SYSTEM: "
-    << system_in->getTitle()
-    << "."
-    << sysTitle << std::endl;
+            << system_in->getTitle()
+            << "."
+            << sysTitle << std::endl;
 
     system_in->subSystems[sysTitle] = new System(sysTitle);
     while (input >> keyword) {
         if (keyword == "ENDSYSTEM") {
             return;
-
         } else if (keyword == "RIGIDBODIES") {
             theReaderRigid = new ReaderRigid(theSimulation, output, input);
             theReaderRigid->readRigidBodies(system_in->subSystems[sysTitle]);
             delete theReaderRigid;
             theReaderRigid = nullptr;
-        }
-        else if (keyword == "FLEXBODIES") {
+        } else if (keyword == "FLEXBODIES") {
             theReaderFlex = new ReaderFlex(theSimulation, output, input);
             theReaderFlex->readFlexBodies(system_in->subSystems[sysTitle]);
             delete theReaderFlex;
             theReaderFlex = nullptr;
-        }
-        else if (keyword == "BODYPOINTS") {
+        } else if (keyword == "BODYPOINTS") {
             this->readBodyPoints(system_in->subSystems[sysTitle]);
-        }
-        else if (keyword == "JOINTS") {
+        } else if (keyword == "JOINTS") {
             theReaderConstraints
                     = new ReaderConstraints(theSimulation, output, input);
             theReaderConstraints->readConstraints(system_in->subSystems[sysTitle]);
             delete theReaderConstraints;
             theReaderConstraints = nullptr;
-        }
-        else if (keyword == "LOADS") {
+        } else if (keyword == "LOADS") {
             this->readLoads(system_in->subSystems[sysTitle]);
-        }
-        else if (keyword == "ENVIRONMENT") {
+        } else if (keyword == "ENVIRONMENT") {
             this->readEnvironment(system_in->subSystems[sysTitle]);
-        }
-        else if (keyword == "MOTION") {
+        } else if (keyword == "MOTION") {
             this->readMotion(system_in->subSystems[sysTitle]);
-        }
-        else if (keyword == "SCALE") {
+        } else if (keyword == "SCALE") {
             double temp, xValue, yValue, zValue;
 
             input >> xValue >> yValue >> zValue;
@@ -346,8 +405,7 @@ void mknix::Reader::readSystem(System * system_in)
                 temp = node.second->getZ();
                 node.second->setZ(temp * zValue);
             }
-        }
-        else if (keyword == "MIRROR") {
+        } else if (keyword == "MIRROR") {
             double temp;
             std::string axis;
 
@@ -371,8 +429,7 @@ void mknix::Reader::readSystem(System * system_in)
                     node.second->setZ(-temp);
                 }
             }
-        }
-        else if (keyword == "SHIFT") {
+        } else if (keyword == "SHIFT") {
             double temp, xValue, yValue, zValue;
 
             input >> xValue >> yValue >> zValue;
@@ -385,6 +442,8 @@ void mknix::Reader::readSystem(System * system_in)
                 temp = node.second->getZ();
                 node.second->setZ(temp + zValue);
             }
+        } else if (keyword == "SIGNALS") {
+            readSignals(system_in->subSystems[sysTitle]);
         }
     }
 }
@@ -560,22 +619,18 @@ void mknix::Reader::readLoads(System * system_in)
     // 		  ->getDomainNode( sNode );
                             ->getNode(atoi(sNode.c_str()));
                 } else if (sBody == "MAX_INTERFACE_TEMP") { // avoid else
-            }
-            else { //the body is a flexbody
+            } else { //the body is a flexbody
                 pNode = system_in->flexBodies[sBody]->getNode(atoi(sNode.c_str()));
             }
 
             if (sBody == "MAX_INTERFACE_TEMP") {
                 system_in->outputMaxInterfaceTemp = true;
-            }
-            else {
+            } else {
                 output << "THERMALOUTPUT " << pNode->getNumber() << endl;
 
                 system_in->outputSignalThermal.push_back(pNode);
             }
-        }
-
-        else if (keyword == "THERMALBODY") {
+        } else if (keyword == "THERMALBODY") {
             std::string sBody;
             char a;
             while (input.get(a)) { // we read the body...
@@ -589,8 +644,7 @@ void mknix::Reader::readLoads(System * system_in)
                 }
             }
             system_in->thermalBodies[sBody]->setLoadThermal(new LoadThermalBody());
-        }
-        else if (keyword == "THERMALFLUX1D") { //Improvement from above
+        } else if (keyword == "THERMALFLUX1D") { //Improvement from above
             std::string sBody, sBoundary;
             char a;
             while (input.get(a)) { // we read the body...
@@ -646,9 +700,9 @@ void mknix::Reader::readLoads(System * system_in)
             system_in->loads.push_back(theRad);
 
             output << "ENVIRONMENT "
-            << system_in->getTitle()
-            << "."
-            << "RADIATION" << std::endl;
+                    << system_in->getTitle()
+                    << "."
+                    << "RADIATION" << std::endl;
 
             while (input >> keyword) { // Options for definition: 2D, 3D, rad map in file
                 if (keyword == "ENDRADIATION") {
@@ -724,9 +778,9 @@ void mknix::Reader::readMotion(System * system_in)
     input >> groundNodeNumber; // Ground node to move
     pNode = system_in->getNode(atoi(groundNodeNumber.c_str()));
     output << "MOTION "
-    << system_in->getTitle()
-    << "."
-    << groundNodeNumber << std::endl;
+            << system_in->getTitle()
+            << "."
+            << groundNodeNumber << std::endl;
 
     system_in->motions.push_back(new Motion(pNode));
 
@@ -743,10 +797,10 @@ void mknix::Reader::readMotion(System * system_in)
             timey[time] = uy;
             timez[time] = uz;
             output << "\t"
-            << /*groundNodeNumber <<*/ "TIMECONF: "
-            << time << " = "
-            << ux << ", " << uy << ", " << uz << ", "
-            << endl;
+                    << /*groundNodeNumber <<*/ "TIMECONF: "
+                    << time << " = "
+                    << ux << ", " << uy << ", " << uz << ", "
+                    << endl;
         }
     }
 }
@@ -771,21 +825,20 @@ void mknix::Reader::readAnalysis()
                     input >> time; //just to not create another variable
                     Simulation::epsilon = time;
                     output << "\t\t"
-                    << "EPSILON: "
-                    << Simulation::epsilon
-                    << endl;
+                            << "EPSILON: "
+                            << Simulation::epsilon
+                            << endl;
                 }
                 else if (keyword == "TIME") {
                     input >> time;
                     output << "\t\t"
-                    << "TIME: " << time << std::endl;
+                            << "TIME: " << time << std::endl;
                 }
             }
             this->theSimulation->analyses.push_back
                     (make_unique<AnalysisStatic>(theSimulation, time));
 
-        }
-        else if (keyword == "THERMALSTATIC") {
+        } else if (keyword == "THERMALSTATIC") {
             double time;
             output << "\t" << keyword << ":"
             << std::endl;
@@ -796,21 +849,20 @@ void mknix::Reader::readAnalysis()
                     input >> time; //just to not create another variable
                     Simulation::epsilon = time;
                     output << "\t\t"
-                    << "EPSILON: "
-                    << Simulation::epsilon
-                    << endl;
+                            << "EPSILON: "
+                            << Simulation::epsilon
+                            << endl;
                 }
                 else if (keyword == "TIME") {
                     input >> time;
                     output << "\t\t"
-                    << "TIME: " << time << std::endl;
+                            << "TIME: " << time << std::endl;
                 }
             }
             this->theSimulation->analyses.push_back
                     (make_unique<AnalysisThermalStatic>(theSimulation, time));
 
-        }
-        else if (keyword == "THERMALDYNAMIC") {
+        } else if (keyword == "THERMALDYNAMIC") {
             char integratorType[20];
             double to, tf, At;
             output << "\t" << keyword << ":"
@@ -822,25 +874,25 @@ void mknix::Reader::readAnalysis()
                     input >> to; //just to not create another variable
                     Simulation::epsilon = to;
                     output << "\t\t"
-                    << "EPSILON: "
-                    << Simulation::epsilon
-                    << endl;
+                            << "EPSILON: "
+                            << Simulation::epsilon
+                            << endl;
                 }
                 else if (keyword == "INTEGRATOR") {
                     input >> integratorType;
                     output << "\t\t"
-                    << "INTEGRATOR: " << integratorType
-                    << std::endl;
+                            << "INTEGRATOR: " << integratorType
+                            << std::endl;
                 }
                 else if (keyword == "TIME") {
                     input >> to
                     >> tf
                     >> At;
                     output << "\t\t"
-                    << "TIME: "
-                    << to << ", "
-                    << tf << ", "
-                    << At << std::endl;
+                            << "TIME: "
+                            << to << ", "
+                            << tf << ", "
+                            << At << std::endl;
                 }
             }
             this->theSimulation->analyses.push_back
@@ -858,25 +910,25 @@ void mknix::Reader::readAnalysis()
                     input >> to; //just to not create another variable
                     Simulation::epsilon = to;
                     output << "\t\t"
-                    << "EPSILON: "
-                    << Simulation::epsilon
-                    << endl;
+                            << "EPSILON: "
+                            << Simulation::epsilon
+                            << endl;
                 }
                 else if (keyword == "INTEGRATOR") {
                     input >> integratorType;
                     output << "\t\t"
-                    << "INTEGRATOR: " << integratorType
-                    << std::endl;
+                            << "INTEGRATOR: " << integratorType
+                            << std::endl;
                 }
                 else if (keyword == "TIME") {
                     input >> to
                     >> tf
                     >> At;
                     output << "\t\t"
-                    << "TIME: "
-                    << to << ", "
-                    << tf << ", "
-                    << At << std::endl;
+                            << "TIME: "
+                            << to << ", "
+                            << tf << ", "
+                            << At << std::endl;
                 }
             }
             this->theSimulation->analyses.push_back
@@ -897,72 +949,129 @@ void mknix::Reader::readAnalysis()
                     input >> to; //just to not create another variable
                     Simulation::epsilon = to;
                     output << "\t\t"
-                    << "EPSILON: "
-                    << Simulation::epsilon
-                    << endl;
+                            << "EPSILON: "
+                            << Simulation::epsilon
+                            << endl;
                 }
                 else if (keyword == "INTEGRATOR") {
                     input >> integratorType;
                     if (integratorType == "NEWMARK") {
                         input >> par1 >> par2;
                         output << "\t\t"
-                        << "INTEGRATOR: "
-                        << integratorType
-                        << " " << par1 // beta
-                        << " " << par2 // gamma
-                        << std::endl;
+                                << "INTEGRATOR: "
+                                << integratorType
+                                << " " << par1 // beta
+                                << " " << par2 // gamma
+                                << std::endl;
                     }
                     else if (integratorType == "NEWMARK-ALPHA") {
                         integratorType = "NEWMARK";
                         input >> par1 >> par2;
                         output << "\t\t"
-                        << "INTEGRATOR: "
-                        << integratorType
-                        << " " << par1
-                        << " " << par2
-                        << " " << par3
-                        << std::endl;
+                                << "INTEGRATOR: "
+                                << integratorType
+                                << " " << par1
+                                << " " << par2
+                                << " " << par3
+                                << std::endl;
                     }
                     else if (integratorType == "HHT-SIMPLE") {
                         integratorType = "ALPHA";
                         input >> par1;
                         output << "\t\t"
-                        << "INTEGRATOR: " << integratorType << " " << par1
-                        << std::endl;
+                                << "INTEGRATOR: " << integratorType << " " << par1
+                                << std::endl;
                     }
                     else if (integratorType == "HHT-GENERALIZED") {
                         integratorType = "ALPHA";
                         input >> par1;
                         output << "\t\t"
-                        << "INTEGRATOR: "
-                        << integratorType
-                        << " " << par1
-                        << " " << par2
-                        << " " << par3
-                        << std::endl;
+                                << "INTEGRATOR: "
+                                << integratorType
+                                << " " << par1
+                                << " " << par2
+                                << " " << par3
+                                << std::endl;
                     }
                     else {
                         output << "\t\t"
-                        << "INTEGRATOR: " << integratorType
-                        << std::endl;
+                                << "INTEGRATOR: " << integratorType
+                                << std::endl;
                     }
                 }
                 else if (keyword == "TIME") {
                     input >> to
-                    >> tf
-                    >> At;
+                            >> tf
+                            >> At;
                     output << "\t\t"
-                    << "TIME: "
-                    << to << ", "
-                    << tf << ", "
-                    << At << std::endl;
+                            << "TIME: "
+                            << to << ", "
+                            << tf << ", "
+                            << At << std::endl;
                 }
             }
             this->theSimulation->analyses.push_back
                     (make_unique<AnalysisDynamic>(theSimulation, to, tf, At, integratorType.c_str(), par1, par2, par3));
         }
-        else if (keyword == "OTHER") {
+        else if (keyword == "OTRO") {
         }
     }
 }
 
+void mknix::Reader::readSignals(System * system_in)
+{
+    std::string keyword;
+
+    output << "SIGNALS: " << std::endl;
+
+    while (input >> keyword) {
+        if (keyword == "ENDSIGNALS") {
+            return;
+        } else if (keyword == "MECHANICALOUTPUT") {
+            std::string name;
+
+            input >> name;
+            char a;
+            std::string rem;
+            while (input.get(a)) {
+                if (a == '\n') break;
+                if (a != ' ') rem += a;
+            }
+
+            std::string sBody = rem.substr(0, rem.find('.'));
+            std::string sNode = rem.substr(rem.find('.') + 1);
+
+            Node * pNode = nullptr;
+            if (system_in->rigidBodies.find(sBody) != system_in->rigidBodies.end()) {
+                //if the body is a rigidbody
+                pNode = system_in->rigidBodies[sBody]->getNode(atoi(sNode.c_str()));
+            } else {
+                //the body is a flexbody
+                pNode = system_in->flexBodies[sBody]->getNode(atoi(sNode.c_str()));
+            }
+
+            output << "MECHANICALOUTPUT " << pNode->getNumber() << endl;
+            system_in->outputSignals[name] = pNode;
+        } else if (keyword == "MECHANICALINPUT") {
+            std::string name;
+            std::vector<Node*> nodes;
+
+            input >> name;
+            char a;
+            std::string rem;
+            while (input.get(a)) {
+                if (a == '\n') break;
+                rem += a;
+            }
+            std::stringstream line(rem);
+
+            for (std::string constraintName; line >> constraintName;) {
+                auto node = system_in->getNode(constraintName);
+                nodes.push_back(node);
+            }
+
+            output << "MECHANICALINPUT " << name << endl;
+            system_in->inputSignals[name] = nodes;
+        }
+    }
+}

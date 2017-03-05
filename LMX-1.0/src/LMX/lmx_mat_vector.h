@@ -145,8 +145,8 @@ public:
   T readElement(size_type m) const
   { if (m >= elements){
       std::stringstream message;
-      message << "Row index exceeds vector dimensions. Trying to access element (" << m << "of vecor with dimension " << elements << "." << endl;
-      LMX_THROW(dimension_error, message.str() );
+      message << "Row index exceeds vector dimensions. Trying to access element " << m << " of vecor with dimension " << elements << "." << endl;
+      LMX_THROW(dimension_error, message.str());
     }
     return type_vector->readElement(m,zero);
   }

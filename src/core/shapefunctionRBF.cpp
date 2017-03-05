@@ -3,7 +3,6 @@
 #include "shapefunctionRBF.h"
 #include "point.h"
 #include "node.h"
-#include "LMX/lmx.h"
 
 namespace mknix {
 
@@ -12,29 +11,29 @@ ShapeFunctionRBF::ShapeFunctionRBF()
 }
 
 
-ShapeFunctionRBF::ShapeFunctionRBF( int nn_in,
-                                    int mm_in,
-                                    int rbfType_in,
-                                    double& alpha_c_in,
-                                    double& d_c_in,
-                                    double& q_in,
-                                    Point* gp_in
-                                  )
-    : ShapeFunction(gp_in)
-    , nn(nn_in)
-    , mm(mm_in)
-    , rbfType(rbfType_in)
-    , alpha_c(alpha_c_in)
-    , d_c(d_c_in)
-    , q(q_in)
+ShapeFunctionRBF::ShapeFunctionRBF(size_t nn_in,
+                                   size_t mm_in,
+                                   int rbfType_in,
+                                   double& alpha_c_in,
+                                   double& d_c_in,
+                                   double& q_in,
+                                   Point * gp_in
+)
+        : ShapeFunction(gp_in)
+        , nn(nn_in)
+        , mm(mm_in)
+        , rbfType(rbfType_in)
+        , alpha_c(alpha_c_in)
+        , d_c(d_c_in)
+        , q(q_in)
 {
     g_o.resize(nn + mm, nn + mm);
     if (dim == 2) {
         this->phi.resize(6, nn + mm);
     } else if (dim == 3) {
         std::cout << "Warning, space dimension is partially implemented."
-                  << std::endl;
-        this->phi.resize(4, nn+mm);
+        << std::endl;
+        this->phi.resize(4, nn + mm);
     }
 
 //   std::ofstream sout("shapefunction.out");
@@ -69,7 +68,7 @@ void ShapeFunctionRBF::computeMomentMatrix()
 
     if (dim != 2) {
         std::cout << "Warning, space dimension is partially implemented."
-                  << std::endl;
+        << std::endl;
     }
     // Switch type of RBF:
     switch (rbfType) {
@@ -82,8 +81,8 @@ void ShapeFunctionRBF::computeMomentMatrix()
                                               gp->supportNodes[j]->getX(), 2)
                                      + std::pow(gp->supportNodes[i]->getY() -
                                                 gp->supportNodes[j]->getY(), 2)
-//                                      +std::pow(gp->supportNodes[i]->getZ() -
-//                                                gp->supportNodes[j]->getZ(), 2)
+                                     //                                      +std::pow(gp->supportNodes[i]->getZ() -
+                                     //                                                gp->supportNodes[j]->getZ(), 2)
                                      + std::pow((alpha_c * d_c), 2), q);
             }
         }
@@ -102,7 +101,7 @@ void ShapeFunctionRBF::computeMomentMatrix()
                                                   - gp->supportNodes[j]->getY(), 2)
 //                                        + std::pow (gp->supportNodes[i]->getZ()
 //                                                  - gp->supportNodes[j]->getZ() , 2)
-                                      ) * qq);
+                ) * qq);
             }
         }
         break;
@@ -165,7 +164,7 @@ void ShapeFunctionRBF::computePhi(double xp, double yp, double zp)
     // For each derivative, first the rhs is calculated (= d^n/dx^n{ R(x) Pm(x) }^T) and then the linear system is solved to get {phi(n)}
     if (dim != 2)
         std::cout << "Warning, space dimension is partially implemented."
-                  << std::endl;
+        << std::endl;
     // Switch type of RBF:
     switch (rbfType) {
     case 0:

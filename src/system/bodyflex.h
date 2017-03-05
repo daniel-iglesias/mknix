@@ -44,21 +44,21 @@ public:
 
     virtual void initialize() override;
 
-    Point * getBodyPoint(int point_number)
+    Point* getBodyPoint(int point_number)
     {
         cout << "req " << point_number << ", first: " << bodyPoints.front()->getNumber() << ", last: " <<
         bodyPoints.back()->getNumber() << endl;
         return this->bodyPoints[point_number];
     }
 
-    virtual Node * getNode(int node_number) override
+    virtual Node* getNode(int node_number) override
     {
         if (node_number < 0) {
             return this->points[-1 - node_number];
         } else { return this->nodes[node_number]; }
     }
 
-    Point * getLastBodyPoint()
+    Point* getLastBodyPoint()
     {
         return this->bodyPoints.back();
     }
@@ -81,9 +81,9 @@ public:
 
     virtual void assembleTangentMatrix(lmx::Matrix<data_type>&) = 0;
 
-    void addBodyPoint(Point *, std::string);
+    void addBodyPoint(Point*, std::string);
 
-    void addPoint( /*const*/ Node *);
+    void addPoint( /*const*/ Node*);
 
     void addPoint(int, double, double, double, double, double);
 
@@ -97,24 +97,26 @@ public:
 
     void setOutput(std::string) override;
 
-    void outputToFile(std::ofstream *) override;
+    void outputToFile(std::ofstream*) override;
 
-    void writeBodyInfo(std::ofstream *) override;
+    void writeBodyInfo(std::ofstream*) override;
 
-    void writeBoundaryNodes(std::vector<Point *>&) override;
+    void writeBoundaryNodes(std::vector<Point*>&) override;
 
-    void writeBoundaryConnectivity(std::vector<std::vector<Point *> >&) override;
+    void writeBoundaryConnectivity(std::vector<std::vector<Point*>>&) override;
 
 protected:
     std::string formulation;
-    std::vector<Node*> points; /**< Additional points to define loads or constraints */
-    std::vector<Point*> bodyPoints; /**< Points to define integration domain */
+    std::vector<Node*> points;
+    /**< Additional points to define loads or constraints */
+    std::vector<Point*> bodyPoints;
+    /**< Points to define integration domain */
     bool computeStress;
     bool computeEnergy;
 //     std::vector<Node*> points; 
     lmx::Matrix<data_type> smoothingMassMatrix;
-    std::vector<lmx::Vector<data_type> > stresses;
-    std::vector<lmx::Vector<data_type> *> energies;
+    std::vector<lmx::Vector<data_type>> stresses;
+    std::vector<lmx::Vector<data_type>*> energies;
 };
 
 }

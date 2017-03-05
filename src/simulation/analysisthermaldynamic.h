@@ -41,7 +41,7 @@ public:
         return std::string("THERMAL");
     }
 
-    void init(lmx::Vector<data_type> * q_in, lmx::Vector<data_type> * qdot_in, int vervosity) override;
+    void init(lmx::Vector<data_type> * q_in, lmx::Vector<data_type> * qdot_in, int verbosity) override;
 
     void nextStep() override;
 

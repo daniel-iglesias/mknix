@@ -26,6 +26,7 @@
 namespace mknix {
 
 class Simulation;
+
 class System;
 
 /**
@@ -35,18 +36,24 @@ class ReaderFlex
 {
 public:
     ReaderFlex();
-    ReaderFlex( Simulation*, std::ofstream &, std::ifstream & );
+
+    ReaderFlex(Simulation*, std::ofstream&, std::ifstream&);
+
     ~ReaderFlex();
-    void readFlexBodies( System* );
+
+    void readFlexBodies(System*);
 
 private:
-    void readFlexbody( System*, std::string& );
-    void readMultiFlexBody( System* );
+    void readFlexbody(System*, std::string&);
+
+    void readMultiFlexBody(System*);
+
+    void readTetrahedronsLine(std::string& file_name, double* translation, double* rotation) const;
 
 private:
     Simulation* theSimulation;
-    std::ofstream * output;
-    std::ifstream * input; // file to read points from
+    std::ofstream* output;
+    std::ifstream* input; // file to read points from
 };
 
 }

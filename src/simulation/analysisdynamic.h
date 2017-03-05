@@ -45,7 +45,7 @@ public:
 
     void nextStep() override;
 
-    void init(lmx::Vector<data_type> * q_in, lmx::Vector<data_type> * qdot_in) override;
+   void init(lmx::Vector<data_type> * q_in, lmx::Vector<data_type> * qdot_in, int verbosity) override;
 
 private:
     std::string integratorType;

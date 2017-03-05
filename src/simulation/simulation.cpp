@@ -22,9 +22,9 @@
 
 #include <system/system.h>
 #include <system/constraintthermal.h>
-#include <core/node.h>
 #include <reader/reader.h>
 #include <system/generalcontact.h>
+#include <system/body.h>
 
 namespace mknix {
 
@@ -79,14 +79,24 @@ void Simulation::inputFromFile(const std::string& FileIn)
     reader->inputFromFile(FileIn);
 }
 
-int Simulation::getInterfaceNumberOfNodes(string name)
+size_t Simulation::getInterfaceNumberOfNodes(const std::string& name) const
 {
     return baseSystem->getSystem(name)->getNumberOfNodes();
 }
 
+Node* Simulation::getInterfaceNode(const std::string& system_name, size_t num) const
+{
+    return baseSystem->getSystem(system_name)->getNode(num);
+}
 
-Node* Simulation::getInterfaceNode(std::string name, int num ){
-    return baseSystem->getSystem(name)->getNode(num);
+std::vector<Node*> Simulation::getSignalNodes(const std::string& system_name, const std::string& name) const
+{
+    return baseSystem->getSystem(system_name)->getSignalNodes(name);
+}
+
+Node* Simulation::getOuputNode(const std::string& system_name, const std::string& name) const
+{
+    return baseSystem->getSystem(system_name)->getOutputNode(name);
 }
 
 std::vector<double> Simulation::getInterfaceNodesCoords()
@@ -98,9 +108,28 @@ std::vector<double> Simulation::getInterfaceNodesCoords()
     return temp_x_coordinates;
 }
 
-double Simulation::getConstraintOutput( std::string constraintName, std::string systemName, int component)
+
+std::vector<std::string> Simulation::getConstraintNames(const std::string& systemName) const
 {
-    return -( baseSystem->getSystem(systemName)->getConstraintThermal(constraintName)->getInternalForces().readElement(component) );
+    auto system = baseSystem->getSystem(systemName);
+    return system->getConstraintNames();
+}
+
+Constraint* Simulation::getConstraint(const std::string& constraintName, const std::string& systemName) const
+{
+    auto system = baseSystem->getSystem(systemName);
+    auto constraint = system->getConstraint(constraintName);
+    if (constraint == nullptr) {
+        constraint = system->getConstraintThermal(constraintName);
+    }
+    return constraint;
+}
+
+double Simulation::getConstraintOutput(const std::string& constraintName, const std::string& systemName,
+                                       size_t component)
+{
+    auto constraint = getConstraint(constraintName, systemName);
+    return -(constraint->getInternalForces().readElement(component));
 }
 
 
@@ -110,7 +139,7 @@ void Simulation::setInitialTemperatures(double temp_in)
 }
 
 // Part copy of run(), limited to preparation and thermal dynamic analysis
-void Simulation::init(int vervosity)
+void Simulation::init(int verbosity)
 {
     if (outputFilesDetail > 1) {
         writeSystem();
@@ -123,32 +152,32 @@ void Simulation::init(int vervosity)
 
     for (auto& analysis : analyses) {
         if (analysis->type() == "THERMAL" || analysis->type() == "THERMALSTATIC") {
-            initThermalSimulation(analysis.get(), vervosity);
+            initThermalSimulation(analysis.get(), verbosity);
         }
         else {
-            initMechanicalSimulation(analysis.get());
+            initMechanicalSimulation(analysis.get(), verbosity);
         }
     }
 }
 
-lmx::Vector<data_type> Simulation::initThermalSimulation(Analysis * theAnalysis_in, int vervosity, bool init)
+lmx::Vector<data_type> Simulation::initThermalSimulation(Analysis* theAnalysis_in, int verbosity, bool init)
 {
     theAnalysis = theAnalysis_in;
     auto gdlSize = nodes.size();
     lmx::Vector<data_type> q(gdlSize);
     q.fillIdentity(initialTemperature);
 
-    globalCapacity.resize(gdlSize, gdlSize);
     globalConductivity.resize(gdlSize, gdlSize);
+    globalCapacity.resize(gdlSize, gdlSize);
     globalRHSHeat.resize(gdlSize);
     globalExternalHeat.resize(gdlSize);
     globalInternalHeat.resize(gdlSize);
 
-    baseSystem->calcCapacityMatrix();
-    baseSystem->assembleCapacityMatrix(globalCapacity);
     baseSystem->calcConductivityMatrix();
     baseSystem->assembleConductivityMatrix(globalConductivity);
-
+    baseSystem->calcCapacityMatrix();
+    baseSystem->assembleCapacityMatrix(globalCapacity);
+    
     writeConfStep();
 
     if (outputFilesDetail > 1 && theAnalysis->type() == "THERMAL") {
@@ -156,13 +185,13 @@ lmx::Vector<data_type> Simulation::initThermalSimulation(Analysis * theAnalysis_
     }
 
     if (init) {
-        theAnalysis->init(&q, nullptr, vervosity);
+        theAnalysis->init(&q, nullptr, verbosity);
     }
 
     return q;
 }
 
-lmx::Vector<data_type> Simulation::initMechanicalSimulation(Analysis * analysis, bool init)
+lmx::Vector<data_type> Simulation::initMechanicalSimulation(Analysis* analysis, int verbosity, bool init)
 {
     theAnalysis = analysis;
     auto gdlSize = nodes.size() * Simulation::dimension;
@@ -198,8 +227,8 @@ lmx::Vector<data_type> Simulation::initMechanicalSimulation(Analysis * analysis,
         lmx::Matrix<data_type> K_temp(gdlSize, gdlSize);
         baseSystem->calcTangentMatrix();
         baseSystem->assembleTangentMatrix(K_temp);
-        K_temp.harwellBoeingSave((char *) "K.mat");
-        globalMass.harwellBoeingSave((char *) "M.mat");
+        K_temp.harwellBoeingSave((char*)"K.mat");
+        globalMass.harwellBoeingSave((char*)"M.mat");
         // save raw matrices:
         std::ofstream Kfile("K");
         Kfile << K_temp;
@@ -214,7 +243,7 @@ lmx::Vector<data_type> Simulation::initMechanicalSimulation(Analysis * analysis,
 
     if (init) {
         lmx::Vector<data_type> qdot(gdlSize);
-        theAnalysis->init(&q, &qdot);
+        theAnalysis->init(&q, &qdot, verbosity);
     }
 
     return q;
@@ -225,8 +254,7 @@ void setSignal(std::string node, std::vector<double>)
     return;
 }
 
-
-std::vector<double> getSignal(std::string node)
+std::vector<double> getSignal(const std::string& node)
 {
     return { };
 }
@@ -236,7 +264,7 @@ void Simulation::solveStep()
     theAnalysis->nextStep();
 }
 
-void Simulation::solveStep(double * signal, double * outputSignal)
+void Simulation::solveStep(double* signal, double* outputSignal)
 {
     baseSystem->updateThermalLoads(signal);
     theAnalysis->nextStep();
@@ -321,9 +349,9 @@ void Simulation::run()
     }
 }
 
-void Simulation::runThermalAnalysis(Analysis * theAnalysis_in)
+void Simulation::runThermalAnalysis(Analysis* theAnalysis_in)
 {
-    auto q = initThermalSimulation(theAnalysis_in, 2, false);
+    auto q = initThermalSimulation(theAnalysis_in, false);
 
     if (theAnalysis->type() == "THERMAL") {
         theAnalysis->solve(&q);
@@ -369,7 +397,7 @@ void Simulation::runThermalAnalysis(Analysis * theAnalysis_in)
     }
 }
 
-void Simulation::runMechanicalAnalysis(Analysis * theAnalysis_in)
+void Simulation::runMechanicalAnalysis(Analysis* theAnalysis_in)
 {
     auto q = initMechanicalSimulation(theAnalysis_in, false);
 
@@ -400,11 +428,11 @@ void Simulation::runMechanicalAnalysis(Analysis * theAnalysis_in)
         globalExternalHeat.resize(thermalSize);
         globalInternalHeat.resize(thermalSize);
 
-        baseSystem->calcCapacityMatrix();
-        baseSystem->assembleCapacityMatrix(globalCapacity);
         baseSystem->calcConductivityMatrix();
         baseSystem->assembleConductivityMatrix(globalConductivity);
-
+        baseSystem->calcCapacityMatrix();
+        baseSystem->assembleCapacityMatrix(globalCapacity);
+        
         // output first step data
         systemOuputStep(q);
         theAnalysis->setEpsilon(epsilon);
@@ -558,7 +586,7 @@ void Simulation::explicitThermalEvaluation
 
 //     globalConductivity.reset();
 //     globalCapacity.reset();
-    globalExternalHeat.reset();
+globalExternalHeat.reset();
     globalInternalHeat.reset();
     
 //     baseSystem->calcConductivityMatrix();
@@ -595,8 +623,8 @@ void Simulation::dynamicThermalEvaluation(const lmx::Vector<data_type>& qt,
     globalExternalHeat.reset();
     globalInternalHeat.reset();
 
-    baseSystem->calcCapacityMatrix();
     baseSystem->calcConductivityMatrix();
+    baseSystem->calcCapacityMatrix();
     baseSystem->calcExternalHeat();
     baseSystem->calcInternalHeat();
     baseSystem->assembleCapacityMatrix(globalCapacity);
@@ -632,8 +660,8 @@ void Simulation::dynamicThermalResidue(lmx::Vector<data_type>& residue,
     globalExternalHeat.reset();
     globalInternalHeat.reset();
 
-    baseSystem->calcCapacityMatrix();
     baseSystem->calcConductivityMatrix();
+    baseSystem->calcCapacityMatrix();
     baseSystem->calcExternalHeat();
     baseSystem->calcInternalHeat();
 
@@ -669,7 +697,7 @@ void Simulation::dynamicThermalTangent(lmx::Matrix<data_type>& tangent_in,
     tangent_in.reset();
 //   baseSystem->calcTangentMatrix(  );
 //   baseSystem->assembleTangentMatrix( tangent_in );
-    tangent_in += (data_type) partial_qdot * globalCapacity;
+    tangent_in += (data_type)partial_qdot * globalCapacity;
     tangent_in += globalConductivity;
 }
 
@@ -835,7 +863,7 @@ void Simulation::dynamicTangent(lmx::Matrix<data_type>& tangent_in,
     tangent_in.reset();
     baseSystem->calcTangentMatrix();
     baseSystem->assembleTangentMatrix(tangent_in);
-    tangent_in += (data_type) partial_qddot * globalMass;
+    tangent_in += (data_type)partial_qddot * globalMass;
 }
 
 bool Simulation::dynamicConvergence(const lmx::Vector<data_type>& q,
@@ -1009,7 +1037,7 @@ std::vector<std::string> Simulation::bodyNames()
     return baseSystem->flexBodyNames();
 }
 
-std::vector<double> Simulation::bodyPoints(const std::string& system_name, const std::string& name)
+std::vector<double> Simulation::bodyPoints(const std::string& system_name, const std::string& name) const
 {
     std::vector<double> points;
 
