@@ -29,33 +29,36 @@
 namespace mknix {
 
 class Simulation;
+
 /**
 	@author AUTHORS <MAILS>
 */
-class Analysis {
+class Analysis
+{
 public:
     Analysis();
 
-    Analysis( Simulation* );
+    Analysis(Simulation *);
 
     virtual ~Analysis();
 
     virtual std::string type() = 0;
 
-    void setEpsilon( double epsilon_in) {
+    void setEpsilon(double epsilon_in)
+    {
         epsilon = epsilon_in;
     }
 
-    virtual void solve( lmx::Vector<data_type> *,
-                        lmx::Vector<data_type> * = 0,
-                        lmx::Vector<data_type> * = 0
-                      ) = 0;
-    
-    virtual void init(lmx::Vector< data_type > *, int){} // specialised in AnalysisThermalDynamic
-    virtual void nextStep(){} // specialised in AnalysisThermalDynamic
+    virtual void solve(lmx::Vector<data_type> *,
+                       lmx::Vector<data_type> * = 0,
+                       lmx::Vector<data_type> * = 0
+    ) = 0;
+
+    virtual void init(lmx::Vector<data_type> * q_in, lmx::Vector<data_type> * qdot_in) = 0; // specialised in AnalysisThermalDynamic
+    virtual void nextStep() = 0; // specialised in AnalysisThermalDynamic
 
 protected:
-    Simulation* theSimulation;
+    Simulation * theSimulation;
     double epsilon;
 
 };

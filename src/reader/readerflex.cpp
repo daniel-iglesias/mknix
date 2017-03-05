@@ -60,7 +60,8 @@ ReaderFlex::~ReaderFlex()
 
 void mknix::ReaderFlex::readFlexBodies(System * system_in)
 {
-    std::string keyword, bodyType;
+    std::string keyword;
+    std::string bodyType;
     std::string boundaryType("CLOCKWISE");
     std::string stringKeyword, flexTitle;
     std::string meshfreeFormulation("RPIM");
@@ -727,6 +728,7 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                         }
                     }
                 }
+
                 else if (keyword == "MESH") {
                     cout << "bodyType " << bodyType << endl;
                     char a;
@@ -745,7 +747,10 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                     *output << "Material: " << material << endl;
                     *output << "Number of GPs per cell: " << nGPs << endl;
                     *output << "Influence domain factor (alpha): " << alpha << endl;
-                    do { input->get(a); } while (a != '\n');
+                    do {
+                        input->get(a);
+                    }
+                    while (a != '\n');
                     *input >> keyword;
                     if (keyword == "TRIANGLES") {
                         *input >> keyword;

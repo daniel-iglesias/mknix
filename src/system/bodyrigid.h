@@ -30,55 +30,61 @@ class Node;
 /**
 	@author AUTHORS <MAILS>
 */
-class RigidBody : public Body {
+class RigidBody : public Body
+{
 public:
     RigidBody();
 
-    RigidBody( std::string );
+    RigidBody(std::string);
 
     virtual ~RigidBody();
 
-    void assembleMassMatrix( lmx::Matrix<data_type> & );
+    void assembleMassMatrix(lmx::Matrix<data_type>&) override;
 
-    void assembleExternalForces( lmx::Vector<data_type> & );
+    void assembleExternalForces(lmx::Vector<data_type>&) override;
 
 //     virtual Node* getDomainNode( std::string ); // Redefined by RigidBar
 
-    void setMass( double mass_in ) {
+    void setMass(double mass_in)
+    {
         mass = mass_in;
     }
-    void setDensityFactor( double density_in ) {
+
+    void setDensityFactor(double density_in)
+    {
         densityFactor = density_in;
     }
-    virtual void setInertia( double, int ) = 0;
-    virtual void setPosition( std::vector<double>& ) = 0;
 
-    void setOutput( std::string );
+    virtual void setInertia(double, int) = 0;
 
-    Node* getNode( int );
+    virtual void setPosition(std::vector<double>&) = 0;
 
-    void outputStep( const lmx::Vector<data_type>&, const lmx::Vector<data_type>& );
+    void setOutput(std::string) override;
 
-    void outputStep( const lmx::Vector<data_type>& );
+    Node * getNode(int) override;
 
-    void outputToFile( std::ofstream* );
+    void outputStep(const lmx::Vector<data_type>&, const lmx::Vector<data_type>&) override;
 
-    void writeBodyInfo( std::ofstream* );
+    void outputStep(const lmx::Vector<data_type>&) override;
 
-    virtual void writeBoundaryNodes( std::vector<Point*>& );
+    void outputToFile(std::ofstream *) override;
 
-    virtual void writeBoundaryConnectivity(std::vector< std::vector<Point*> >&);
+    void writeBodyInfo(std::ofstream *) override;
+
+    virtual void writeBoundaryNodes(std::vector<Point *>&) override;
+
+    virtual void writeBoundaryConnectivity(std::vector<std::vector<Point *> >&) override;
 
 
 protected:
     bool computeEnergy;
     int dim;
     double mass, densityFactor;
-    std::vector<Node*> frameNodes;
-    std::vector< lmx::Vector<data_type>* > domainConf;
+    std::vector<Node *> frameNodes;
+    std::vector<lmx::Vector<data_type> *> domainConf;
     lmx::Vector<data_type> externalForces;
-    lmx::DenseMatrix< data_type > localMassMatrix;
-    std::vector< lmx::Vector<data_type>* > energy;
+    lmx::DenseMatrix<data_type> localMassMatrix;
+    std::vector<lmx::Vector<data_type> *> energy;
 };
 
 }

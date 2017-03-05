@@ -26,41 +26,46 @@
 namespace mknix {
 
 class Point;
+
 class Node;
 
 /**
 	@author AUTHORS <MAILS>
 */
-class FlexBody : public Body {
+class FlexBody : public Body
+{
 
 public:
     FlexBody();
 
-    FlexBody( std::string );
+    FlexBody(std::string);
 
     virtual ~FlexBody();
 
-    virtual void initialize( );
+    virtual void initialize() override;
 
-    Point* getBodyPoint( int point_number )
+    Point * getBodyPoint(int point_number)
     {
-      cout << "req " << point_number << ", first: " << bodyPoints.front()->getNumber()  << ", last: " << bodyPoints.back()->getNumber() << endl;
+        cout << "req " << point_number << ", first: " << bodyPoints.front()->getNumber() << ", last: " <<
+        bodyPoints.back()->getNumber() << endl;
         return this->bodyPoints[point_number];
     }
 
-    virtual Node* getNode( int node_number )
-    {   if(node_number<0) return this->points[-1-node_number];
-        else return this->nodes[node_number];
+    virtual Node * getNode(int node_number) override
+    {
+        if (node_number < 0) {
+            return this->points[-1 - node_number];
+        } else { return this->nodes[node_number]; }
     }
 
-    Point* getLastBodyPoint( )
+    Point * getLastBodyPoint()
     {
         return this->bodyPoints.back();
     }
 
-    virtual void setType( std::string type_in ) = 0;
+    virtual void setType(std::string type_in) = 0;
 
-    virtual void setFormulation( std::string formulation_in )
+    virtual void setFormulation(std::string formulation_in)
     {
         formulation = formulation_in;
         cout << formulation << endl;
@@ -68,22 +73,21 @@ public:
 
 //     virtual void initialize( ) = 0;
 
-    virtual void calcInternalForces( ) = 0;
+    virtual void calcInternalForces() = 0;
 
-    virtual void calcTangentMatrix( ) = 0;
+    virtual void calcTangentMatrix() = 0;
 
-    virtual void assembleInternalForces( lmx::Vector<data_type> & ) = 0;
+    virtual void assembleInternalForces(lmx::Vector<data_type>&) = 0;
 
-    virtual void assembleTangentMatrix( lmx::Matrix<data_type> & ) = 0;
+    virtual void assembleTangentMatrix(lmx::Matrix<data_type>&) = 0;
 
-    void addBodyPoint( Point*, std::string );
-    
-    void addPoint( /*const*/ Node* );
-    
-    void addPoint( int, double, double, double, double, double );
-    
-    virtual int getNumberOfPoints( )
-    { return points.size();  }
+    void addBodyPoint(Point *, std::string);
+
+    void addPoint( /*const*/ Node *);
+
+    void addPoint(int, double, double, double, double, double);
+
+    virtual int getNumberOfPoints() { return points.size(); }
 
 //     Node* getPoint( int node_number )
 //     {
@@ -91,15 +95,15 @@ public:
 //       return this->points[node_number];
 //     }
 
-    void setOutput( std::string );
+    void setOutput(std::string) override;
 
-    void outputToFile( std::ofstream* );
+    void outputToFile(std::ofstream *) override;
 
-    void writeBodyInfo( std::ofstream* );
+    void writeBodyInfo(std::ofstream *) override;
 
-    void writeBoundaryNodes( std::vector<Point*>& );
+    void writeBoundaryNodes(std::vector<Point *>&) override;
 
-    void writeBoundaryConnectivity(std::vector< std::vector<Point*> >&);
+    void writeBoundaryConnectivity(std::vector<std::vector<Point *> >&) override;
 
 protected:
     std::string formulation;
@@ -108,9 +112,9 @@ protected:
     bool computeStress;
     bool computeEnergy;
 //     std::vector<Node*> points; 
-    lmx::Matrix< data_type > smoothingMassMatrix;
-    std::vector< lmx::Vector<data_type> > stresses;
-    std::vector< lmx::Vector<data_type>* > energies;
+    lmx::Matrix<data_type> smoothingMassMatrix;
+    std::vector<lmx::Vector<data_type> > stresses;
+    std::vector<lmx::Vector<data_type> *> energies;
 };
 
 }

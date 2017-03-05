@@ -32,21 +32,25 @@ class AnalysisDynamic : public Analysis
 public:
     AnalysisDynamic();
 
-    AnalysisDynamic( Simulation*, double, double, double, char*, double, double, double );
+    AnalysisDynamic(Simulation *, double, double, double, const char *, double, double, double);
 
     ~AnalysisDynamic();
 
-    std::string type() {
+    std::string type()
+    {
         return std::string("DYNAMIC");
     }
 
-    void solve( lmx::Vector<data_type> *, lmx::Vector<data_type> *, lmx::Vector<data_type> * );
+    void solve(lmx::Vector<data_type> *, lmx::Vector<data_type> *, lmx::Vector<data_type> *) override;
+
+    void nextStep() override;
+
+    void init(lmx::Vector<data_type> * q_in, lmx::Vector<data_type> * qdot_in) override;
 
 private:
-    char* integratorType;
+    std::string integratorType;
     double to, tf, At;
-    lmx::DiffProblemSecond< Simulation, data_type > theProblem;
-
+    lmx::DiffProblemSecond<Simulation, data_type> theProblem;
 };
 
 }

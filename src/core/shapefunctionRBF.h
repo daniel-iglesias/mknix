@@ -55,7 +55,7 @@ public:
     ShapeFunctionRBF();
 
     ShapeFunctionRBF(int, int, int,
-                     double&, double&, double&, Point* );
+                     double&, double&, double&, Point *);
 
     ~ShapeFunctionRBF();
 

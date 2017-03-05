@@ -57,54 +57,54 @@ ReaderRigid::~ReaderRigid()
 
 void mknix::ReaderRigid::readRigidBodies(System * system_in)
 {
-    char keyword[20];
+    std::string keyword;
 
     while (*input >> keyword) {
-        if (!strcmp(keyword, "ENDRIGIDBODIES")) {
+        if (keyword == "ENDRIGIDBODIES") {
             return;
         }
             /*Set Penalty method*/
-        else if (!strcmp(keyword, "PENALTY")) {
+        else if (keyword == "PENALTY") {
             Simulation::constraintMethod = "PENALTY";
             *output << "PENALTY set" << endl;
         }
             /*Set Augmented Lagrange method*/
-        else if (!strcmp(keyword, "AUGMENTED")) {
+        else if (keyword == "AUGMENTED") {
             Simulation::constraintMethod = "AUGMENTED";
             *output << "AUGMENTED set" << endl;
         }
             /*Set Alpha parameter*/
-        else if (!strcmp(keyword, "ALPHA")) {
+        else if (keyword == "ALPHA") {
             *input >> Simulation::alpha;
             *output << "ALPHA: " << Simulation::getAlpha() << endl;
         }
             /*Defined RigidBody:0D:MassPoint*/
-        else if (!strcmp(keyword, "MASSPOINT")) {
+        else if (keyword == "MASSPOINT") {
             this->readRigidBody0DMassPoint(system_in);
         }
             /*Defined RigidBody:1D:Bar*/
-        else if (!strcmp(keyword, "BAR")) {
+        else if (keyword == "BAR") {
             this->readRigidBody1DBar(system_in);
         }
-        else if (!strcmp(keyword, "CHAIN")) {
+        else if (keyword == "CHAIN") {
             this->readRigidBody1DChain(system_in);
         }
             /*Defined RigidBody:2D:Generic*/
-        else if (!strcmp(keyword, "GENERIC2D")) {
+        else if (keyword == "GENERIC2D") {
             this->readRigidBody2DMesh(system_in);
         }
             /*Defined RigidBody:3D:Generic*/
-        else if (!strcmp(keyword, "GENERIC3D")) {
+        else if (keyword == "GENERIC3D") {
             this->readRigidBody3DGeneric(system_in);
         }
-        else if (!strcmp(keyword, "OTRO")) {
+        else if (keyword == "OTHER") {
         }
     }
 }
 
 void mknix::ReaderRigid::readRigidBody0DMassPoint(System * system_in)
 {
-    char keyword[20];
+    std::string keyword;
 
     std::string rigidTitle;
     std::string nameNode;
@@ -120,16 +120,16 @@ void mknix::ReaderRigid::readRigidBody0DMassPoint(System * system_in)
             << rigidTitle << std::endl;
 
     while (*input >> keyword) {
-        if (!strcmp(keyword, "ENDMASSPOINT")) {
+        if (keyword == "ENDMASSPOINT") {
             break;
         }
             /*Read NodeA*/
-        else if (!strcmp(keyword, "NODEA")) {
+        else if (keyword == "NODEA") {
             nameNode = rigidTitle + ".NODEA";
             this->readNode(xA, yA, zA, nameNode);
         }
             /*Read Mass*/
-        else if (!strcmp(keyword, "MASS")) {
+        else if (keyword == "MASS") {
             *input >> mass;
             *output << "\t"
             << rigidTitle << ".MASS: " << mass << endl;
@@ -149,7 +149,7 @@ void mknix::ReaderRigid::readRigidBody0DMassPoint(System * system_in)
 
 void mknix::ReaderRigid::readRigidBody1DBar(System * system_in)
 {
-    char keyword[20];
+    std::string keyword;
 
     std::string rigidTitle;
     std::string nameNode;
@@ -167,27 +167,27 @@ void mknix::ReaderRigid::readRigidBody1DBar(System * system_in)
     << rigidTitle << std::endl;
 
     while (*input >> keyword) {
-        if (!strcmp(keyword, "ENDBAR")) {
+        if (keyword == "ENDBAR") {
             break;
         }
-        else if (!strcmp(keyword, "OUTPUT")) {
+        else if (keyword == "OUTPUT") {
             *input >> energyKeyword;
             if (energyKeyword == "ENERGY") {
                 *output << "OUTPUT: " << energyKeyword << endl;
             }
         }
             /*Read NodeA*/
-        else if (!strcmp(keyword, "NODEA")) {
+        else if (keyword == "NODEA") {
             nameNode = rigidTitle + ".NODEA";
             this->readNode(xA, yA, zA, nameNode);
         }
             /*Read NodeB*/
-        else if (!strcmp(keyword, "NODEB")) {
+        else if (keyword == "NODEB") {
             nameNode = rigidTitle + ".NODEB";
             this->readNode(xB, yB, zB, nameNode);
         }
             /*Read Mass*/
-        else if (!strcmp(keyword, "MASS")) {
+        else if (keyword == "MASS") {
             *input >> mass;
             *output << "\t"
             << rigidTitle << ".MASS: " << mass << endl;
@@ -222,7 +222,7 @@ void mknix::ReaderRigid::readRigidBody1DBar(System * system_in)
 
 void mknix::ReaderRigid::readRigidBody1DChain(System * system_in)
 {
-    char keyword[20];
+    std::string keyword;
 
     std::string rigidTitle;
     std::string nameNode;
@@ -242,42 +242,42 @@ void mknix::ReaderRigid::readRigidBody1DChain(System * system_in)
     << rigidTitle << std::endl;
 
     while (*input >> keyword) {
-        if (!strcmp(keyword, "ENDCHAIN")) {
+        if (keyword == "ENDCHAIN") {
             break;
         }
-        else if (!strcmp(keyword, "OUTPUT")) {
+        else if (keyword == "OUTPUT") {
             *input >> energyKeyword;
             if (energyKeyword == "ENERGY") {
                 *output << "OUTPUT: " << energyKeyword << endl;
             }
         }
             /*Read NodeA*/
-        else if (!strcmp(keyword, "NODEA")) {
+        else if (keyword == "NODEA") {
             nameNode = rigidTitle + ".NODEA";
             this->readNode(xA, yA, zA, nameNode);
         }
             /*Read NodeB*/
-        else if (!strcmp(keyword, "NODEB")) {
+        else if (keyword == "NODEB") {
             nameNode = rigidTitle + ".NODEB";
             this->readNode(xB, yB, zB, nameNode);
         }
             /*Read Mass*/
-        else if (!strcmp(keyword, "MASS")) {
+        else if (keyword == "MASS") {
             *input >> mass;
             *output << "\t"
             << rigidTitle << ".MASS: " << mass << endl;
         }
-        else if (!strcmp(keyword, "SEGMENTS")) {
+        else if (keyword == "SEGMENTS") {
             *input >> segments;
             *output << "\t"
             << rigidTitle << ".SEGMENTS: " << segments << endl;
         }
-        else if (!strcmp(keyword, "LENGTH")) {
+        else if (keyword == "LENGTH") {
             *input >> length;
             *output << "\t"
             << rigidTitle << ".LENGTH: " << length << endl;
         }
-        else if (!strcmp(keyword, "TIMELENGTH")) {
+        else if (keyword == "TIMELENGTH") {
             *input >> temp1 >> temp2; // time and length
             timelengths[temp1] = temp2;
             *output << "\t"
@@ -305,7 +305,8 @@ void mknix::ReaderRigid::readRigidBody1DChain(System * system_in)
 
 void mknix::ReaderRigid::readRigidBody2DMesh(System * system_in)
 {
-    char rigidTitle[30], keyword[20];
+    std::string rigidTitle;
+    std::string keyword;
 
     std::string stringKeyword;
     std::string meshfreeFormulation("RPIM");
@@ -363,47 +364,47 @@ void mknix::ReaderRigid::readRigidBody2DMesh(System * system_in)
     );
     /*Read Rigid Body Attributes*/
     while (*input >> keyword) {
-        if (!strcmp(keyword, "ENDGENERIC2D")) {
+        if (keyword == "ENDGENERIC2D") {
             break;
         }
-        else if (!strcmp(keyword, "DENSITY")) {
+        else if (keyword == "DENSITY") {
             *input >> aValue;
             *output << "\t"
             << rigidTitle << ".DENSITYFACTOR: " << aValue << endl;
             system_in->rigidBodies[rigidTitle]->setDensityFactor(aValue);
         }
-        else if (!strcmp(keyword, "OUTPUT")) {
+        else if (keyword == "OUTPUT") {
             *input >> stringKeyword;
             if (stringKeyword == "ENERGY") {
                 system_in->rigidBodies[rigidTitle]->setOutput(stringKeyword);
                 *output << "OUTPUT: " << stringKeyword << endl;
             }
         }
-        else if (!strcmp(keyword, "MASS")) {
+        else if (keyword == "MASS") {
             *input >> aValue;
             *output << "\t"
             << rigidTitle << ".MASS: " << aValue << endl;
             system_in->rigidBodies[rigidTitle]->setMass(aValue);
         }
-        else if (!strcmp(keyword, "IXX")) {
+        else if (keyword == "IXX") {
             *input >> aValue;
             *output << "\t"
             << rigidTitle << ".IXX: " << aValue << endl;
             system_in->rigidBodies[rigidTitle]->setInertia(aValue, 0); // 0 is xx-axis
         }
-        else if (!strcmp(keyword, "IYY")) {
+        else if (keyword == "IYY") {
             *input >> aValue;
             *output << "\t"
             << rigidTitle << ".IYY: " << aValue << endl;
             system_in->rigidBodies[rigidTitle]->setInertia(aValue, 1); // 1 is yy-axis
         }
-        else if (!strcmp(keyword, "IXY")) {
+        else if (keyword == "IXY") {
             *input >> aValue;
             *output << "\t"
             << rigidTitle << ".IXY: " << aValue << endl;
             system_in->rigidBodies[rigidTitle]->setInertia(aValue, 2); // 2 is xy-axis
         }
-        else if (!strcmp(keyword, "POSITION")) {
+        else if (keyword == "POSITION") {
             someValues.clear();
             // Read three values: CoG (x, y) and rotation angle (Theta)
             *input >> aValue;
@@ -418,7 +419,7 @@ void mknix::ReaderRigid::readRigidBody2DMesh(System * system_in)
             *output << "), Rotation (" << aValue << ")" << endl;
             system_in->rigidBodies[rigidTitle]->setPosition(someValues);
         }
-        else if (!strcmp(keyword, "TRIANGLES")) {
+        else if (keyword == "TRIANGLES") {
             char a;
             std::string boundaryType("CLOCKWISE");
             int totalNodes, totalCells;
@@ -507,7 +508,8 @@ void mknix::ReaderRigid::readRigidBody2DMesh(System * system_in)
 
 void mknix::ReaderRigid::readRigidBody3DGeneric(System * system_in)
 {
-    char rigidTitle[30], keyword[20];
+    std::string rigidTitle;
+    std::string keyword;
 
     std::string stringKeyword;
     std::string meshfreeFormulation("RPIM");
@@ -591,65 +593,65 @@ void mknix::ReaderRigid::readRigidBody3DGeneric(System * system_in)
     );
     /*Read Rigid Body Attributes*/
     while (*input >> keyword) {
-        if (!strcmp(keyword, "ENDGENERIC3D")) {
+        if (keyword == "ENDGENERIC3D") {
             break;
         }
-        else if (!strcmp(keyword, "DENSITYFACTOR")) {
+        else if (keyword == "DENSITYFACTOR") {
             *input >> aValue;
             *output << "\t"
             << rigidTitle << ".DENSITYFACTOR: " << aValue << endl;
             system_in->rigidBodies[rigidTitle]->setDensityFactor(aValue);
         }
-        else if (!strcmp(keyword, "OUTPUT")) {
+        else if (keyword == "OUTPUT") {
             *input >> stringKeyword;
             if (stringKeyword == "ENERGY") {
                 system_in->rigidBodies[rigidTitle]->setOutput(stringKeyword);
                 *output << "OUTPUT: " << stringKeyword << endl;
             }
         }
-        else if (!strcmp(keyword, "MASS")) {
+        else if (keyword == "MASS") {
             *input >> aValue;
             *output << "\t"
             << rigidTitle << ".MASS: " << aValue << endl;
             system_in->rigidBodies[rigidTitle]->setMass(aValue);
         }
-        else if (!strcmp(keyword, "IXX")) {
+        else if (keyword == "IXX") {
             *input >> aValue;
             *output << "\t"
             << rigidTitle << ".IXX: " << aValue << endl;
             system_in->rigidBodies[rigidTitle]->setInertia(aValue, 0); // 0 is xx-axis
         }
-        else if (!strcmp(keyword, "IYY")) {
+        else if (keyword == "IYY") {
             *input >> aValue;
             *output << "\t"
             << rigidTitle << ".IYY: " << aValue << endl;
             system_in->rigidBodies[rigidTitle]->setInertia(aValue, 1); // 1 is yy-axis
         }
-        else if (!strcmp(keyword, "IZZ")) {
+        else if (keyword == "IZZ") {
             *input >> aValue;
             *output << "\t"
             << rigidTitle << ".IZZ: " << aValue << endl;
             system_in->rigidBodies[rigidTitle]->setInertia(aValue, 2); // 2 is zz-axis
         }
-        else if (!strcmp(keyword, "IXY")) {
+        else if (keyword == "IXY") {
             *input >> aValue;
             *output << "\t"
             << rigidTitle << ".IXY: " << aValue << endl;
             system_in->rigidBodies[rigidTitle]->setInertia(aValue, 3); // 3 is xy-axis
         }
-        else if (!strcmp(keyword, "IYZ")) {
+        else if (keyword == "IYZ") {
             *input >> aValue;
             *output << "\t"
             << rigidTitle << ".IYZ: " << aValue << endl;
             system_in->rigidBodies[rigidTitle]->setInertia(aValue, 4); // 4 is yz-axis
         }
-        else if (!strcmp(keyword, "IXZ")) {
+        else if (keyword == "IXZ") {
             *input >> aValue;
             *output << "\t"
             << rigidTitle << ".IXZ: " << aValue << endl;
             system_in->rigidBodies[rigidTitle]->setInertia(aValue, 5); // 5 is yz-axis
         }
-        else if (!strcmp(keyword, "POSITION")) {
+        else if (keyword == "POSITION") {
             someValues.clear();
             // Read three values: CoG (x, y, z). No rotation angles yet
             *input >> aValue;
@@ -664,7 +666,7 @@ void mknix::ReaderRigid::readRigidBody3DGeneric(System * system_in)
             *output << ", " << aValue << ")" << endl;
             system_in->rigidBodies[rigidTitle]->setPosition(someValues);
         }
-        else if (!strcmp(keyword, "TETRAHEDRONS")) {
+        else if (keyword == "TETRAHEDRONS") {
             int totalNodes, totalCells;
             *input >> keyword;
             *output << "FILE: " << keyword << endl;

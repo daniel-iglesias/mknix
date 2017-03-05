@@ -76,11 +76,26 @@ public:
     double getConstraintOutput( std::string constraintName, std::string systemName="", int component=0 );
     
     std::vector<double> getInterfaceNodesCoords();
-    
+
     void setOutputFilesDetail(int level_in) // 0 none, 1 only times, 2 all
     { outputFilesDetail = level_in; }
 
     void init(int vervosity=2);
+
+    void updateConstraint(std::string name, std::vector<double>);
+
+    // COBS_section_lift1.ground1
+    // COBS_section_lift1.ground1.v
+
+    enum class OutputType {
+        POSITION, FORCE, STRESS
+    };
+
+    std::vector<double> getOutput(std::string name, OutputType type);
+
+    // COBS_section_lift1.bgroup1
+
+    void init();
 
     void setInitialTemperatures(double);
 
@@ -89,6 +104,10 @@ public:
     void solveStep(double *, double * o_output = 0);
 
     void endSimulation();
+
+    std::vector<std::string> bodyNames();
+
+    std::vector<double> bodyPoints(const std::string& system_name, const std::string& body_name);
 
     void run();
 

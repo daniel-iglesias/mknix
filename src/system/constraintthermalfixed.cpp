@@ -129,4 +129,3 @@ bool ConstraintThermalFixed::checkAugmented()
 }
 
 }
-

@@ -610,3 +610,23 @@ void mknix::System::writeBoundaryConnectivity(std::vector<std::vector<Point *> >
         system.second->writeBoundaryConnectivity(connectivity_nodes);
     }
 }
+
+mknix::Body * mknix::System::getBody(const std::string& system_name, const std::string& body_name)
+{
+    auto it = std::find_if(subSystems.begin(), subSystems.end(),
+                           [&system_name](std::pair<std::string, System *> el){ return el.first == system_name; });
+
+    if (it == subSystems.end()) {
+        throw std::out_of_range("system " + system_name + " not found");
+    }
+
+    auto system = it->second;
+
+    if (system->rigidBodies.count(body_name)) {
+        return system->rigidBodies[body_name];
+    } else if (system->flexBodies.count(body_name)) {
+        return system->flexBodies[body_name];
+    }
+
+    throw std::out_of_range("body " + body_name + " not found");
+}

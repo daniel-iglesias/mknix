@@ -23,51 +23,52 @@
 namespace mknix {
 
 AnalysisDynamic::AnalysisDynamic()
-    : Analysis()
+        : Analysis()
 {
 }
 
 
-AnalysisDynamic::AnalysisDynamic( Simulation* simulation_in,
-                                  double to_in,
-                                  double tf_in,
-                                  double At_in,
-                                  char * integrator_in,
-                                  double par1 = -1.,
-                                  double par2 = -1.,
-                                  double par3 = -1. )
-    :   Analysis(simulation_in)
-    , integratorType(integrator_in)
-    , to(to_in)
-    , tf(tf_in)
-    , At(At_in)
+AnalysisDynamic::AnalysisDynamic(Simulation * simulation_in,
+                                 double to_in,
+                                 double tf_in,
+                                 double At_in,
+                                 const char * integrator_in,
+                                 double par1 = -1.,
+                                 double par2 = -1.,
+                                 double par3 = -1.)
+        : Analysis(simulation_in)
+        , integratorType(integrator_in)
+        , to(to_in)
+        , tf(tf_in)
+        , At(At_in)
 {
-    theProblem.setDiffSystem( *theSimulation );
-    if(par1 == -1.) {
-        theProblem.setIntegrator( integrator_in );
+    theProblem.setDiffSystem(*theSimulation);
+    if (par1 == -1.) {
+        theProblem.setIntegrator(integrator_in);
     }
-    else if(par2 == -1.) {
-        theProblem.setIntegrator( integrator_in, par1 );
+    else if (par2 == -1.) {
+        theProblem.setIntegrator(integrator_in, par1);
     }
-    else if(par3 == -1.) {
-        theProblem.setIntegrator( integrator_in, par1, par2 );
+    else if (par3 == -1.) {
+        theProblem.setIntegrator(integrator_in, par1, par2);
     }
     else {
-        theProblem.setIntegrator( integrator_in, par1, par2, par3 );
+        theProblem.setIntegrator(integrator_in, par1, par2, par3);
     }
-    theProblem.setTimeParameters( to_in, tf_in, At_in );
+    theProblem.setTimeParameters(to_in, tf_in, At_in);
 
 //  theProblem.setOutputFile("dis.dat", 0);
     theProblem.setOutputFile("vel.dat", 1);
     theProblem.setOutputFile("acc.dat", 2);
-    theProblem.setEvaluation( &Simulation::dynamicAcceleration );
-    theProblem.setResidue( &Simulation::dynamicResidue );
-    theProblem.setJacobian( &Simulation::dynamicTangent );
-    if (epsilon == 0.0)
-        theProblem.setConvergence( &Simulation::dynamicConvergence );
-    else
-        theProblem.setConvergence( epsilon );
-    theProblem.setStepTriggered( &Simulation::stepTriggered );
+    theProblem.setEvaluation(&Simulation::dynamicAcceleration);
+    theProblem.setResidue(&Simulation::dynamicResidue);
+    theProblem.setJacobian(&Simulation::dynamicTangent);
+    if (epsilon == 0.0) {
+        theProblem.setConvergence(&Simulation::dynamicConvergence);
+    } else {
+        theProblem.setConvergence(epsilon);
+    }
+    theProblem.setStepTriggered(&Simulation::stepTriggered);
 }
 
 
@@ -76,16 +77,28 @@ AnalysisDynamic::~AnalysisDynamic()
 }
 
 
-void AnalysisDynamic::solve( lmx::Vector< data_type > * q_in,
-                             lmx::Vector< data_type > * qdot_in,
-                             lmx::Vector< data_type >* not_used = 0
-                           )
+void AnalysisDynamic::solve(lmx::Vector<data_type> * q_in,
+                            lmx::Vector<data_type> * qdot_in,
+                            lmx::Vector<data_type> *
+)
 {
-    if( lmx::getMatrixType() == 1 )
-        theProblem.setSparsePatternJacobian( theSimulation->getSparsePattern() );
-    theProblem.setInitialConfiguration( *q_in, *qdot_in );
+    if (lmx::getMatrixType() == 1) {
+        theProblem.setSparsePatternJacobian(theSimulation->getSparsePattern());
+    }
+    theProblem.setInitialConfiguration(*q_in, *qdot_in);
     theProblem.solve();
 }
 
+
+void AnalysisDynamic::nextStep()
+{
+    theProblem.stepSolve();
+}
+
+void AnalysisDynamic::init(lmx::Vector<data_type> * qt_in, lmx::Vector<data_type> * qdot_in)
+{
+    theProblem.setInitialConfiguration(*qt_in, *qdot_in);
+    theProblem.initialize();
+}
 
 }

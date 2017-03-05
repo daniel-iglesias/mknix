@@ -128,7 +128,7 @@ void Body::initialize()
 void Body::calcCapacityMatrix()
 {
     auto end_int = this->cells.size();
-//#pragma omp parallel for
+//     #pragma omp parallel for
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->computeCapacityGaussPoints();
     }
@@ -142,7 +142,7 @@ void Body::calcCapacityMatrix()
 void Body::calcConductivityMatrix()
 {
     auto end_int = this->cells.size();
-//#pragma omp parallel for
+//     #pragma omp parallel for
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->computeConductivityGaussPoints();
     }
@@ -220,7 +220,6 @@ void Body::setTemperature(double temp_in)
     for (auto& node : nodes) {
         node->setqt(temp_in);
     }
-
 }
 
 
@@ -266,8 +265,6 @@ void Body::outputStep()
  **/
 void Body::outputToFile(std::ofstream * outFile)
 {
-    std::vector<std::vector<int> >::iterator itBoundary;
-    std::vector<int>::iterator itOneBoundarySegment;
 //   if( computeEnergy ){
 //     std::vector< lmx::Vector<data_type>* >::iterator itEnergy;
 //     int i, vectorSize;

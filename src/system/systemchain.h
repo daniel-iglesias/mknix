@@ -77,7 +77,7 @@ public:
         timeLenghts = timeLenghts_in;
     }
 
-    Node* getNode( int );
+    Node* getNode( int ) override;
 
     void addTimeLenght( double time_in, double length_in )
     {
@@ -86,7 +86,7 @@ public:
 
     void populate( Simulation*, std::string& );
 
-    void update( double );
+    void update( double ) override;
 
 private:
     double length, currentLength, mass;

@@ -24,29 +24,44 @@
 #include <string>
 #include "LMX/lmx.h"
 #include "common.h"
+#include "bodyflex.h"
 
 namespace mknix {
 
 class Body;
+
 class RigidBody;
+
 class FlexBody;
+
 class Constraint;
+
 class ConstraintThermal;
+
 class Load;
+
 class LoadThermal;
+
 class Node;
+
 class Point;
+
 class Motion;
 
 /**
   @author AUTHORS <MAILS>
 */
-class System {
+class System
+{
 
     friend class Reader;
+
     friend class ReaderFlex;
+
     friend class ReaderRigid;
+
     friend class ReaderConstraints;
+
     friend class Contact;
 
 public:
@@ -58,7 +73,7 @@ public:
 
     bool outputMaxInterfaceTemp;
 
-    std::string getTitle( )
+    std::string getTitle()
     {
         return this->title;
     }
@@ -66,8 +81,10 @@ public:
     int getNumberOfNodes()
     { return groundNodes.size(); }
     
-    Node* getNode( int index)
-    { return groundNodes[index]; }
+    virtual Node * getNode(int index)
+    {
+        return groundNodes[index];
+    }
     
     System* getSystem( std::string sysName )
     { return subSystems.at(sysName); }
@@ -75,90 +92,101 @@ public:
     ConstraintThermal* getConstraintThermal( std::string constraintName )
     { return constraintsThermal.at(constraintName); }
     
-    void getThermalNodes( std::vector<double>& );
+    void getThermalNodes(std::vector<double>&);
 
-    void getOutputSignalThermal(double* );
+    void getOutputSignalThermal(double *);
 
-    void updateThermalLoads( double* );
+    void updateThermalLoads(double *);
 
-    virtual void update( double );
-    
+    virtual void update(double);
+
     void initFlexBodies();
 
-    void writeRigidBodies( std::ofstream* );
+    void writeRigidBodies(std::ofstream *);
 
-    void writeFlexBodies( std::ofstream* );
+    void writeFlexBodies(std::ofstream *);
 
-    void writeJoints( std::ofstream* );
+    void writeJoints(std::ofstream *);
   
-    void calcCapacityMatrix( );
+    void calcCapacityMatrix();
 
-    void calcConductivityMatrix( );
+    void calcConductivityMatrix();
 
-    void calcInternalHeat( );
+    void calcInternalHeat();
 
-    void calcExternalHeat( );
+    void calcExternalHeat();
 
-    void calcThermalTangentMatrix( );
+    void calcThermalTangentMatrix();
 
-    void assembleCapacityMatrix( lmx::Matrix<data_type>& );
+    void assembleCapacityMatrix(lmx::Matrix<data_type>&);
 
-    void assembleConductivityMatrix( lmx::Matrix<data_type>& );
+    void assembleConductivityMatrix(lmx::Matrix<data_type>&);
 
-    void assembleExternalHeat( lmx::Vector<data_type>& );
+    void assembleExternalHeat(lmx::Vector<data_type>&);
 
-    void assembleInternalHeat( lmx::Vector<data_type>& );
+    void assembleInternalHeat(lmx::Vector<data_type>&);
 
-    void assembleThermalTangentMatrix( lmx::Matrix<data_type>& );
+    void assembleThermalTangentMatrix(lmx::Matrix<data_type>&);
 
-    void calcMassMatrix( );
+    void calcMassMatrix();
 
-    void calcInternalForces( );
+    void calcInternalForces();
 
-    void calcExternalForces( );
+    void calcExternalForces();
 
-    void calcTangentMatrix( );
+    void calcTangentMatrix();
 
-    void assembleMassMatrix( lmx::Matrix<data_type>& );
+    void assembleMassMatrix(lmx::Matrix<data_type>&);
 
-    void assembleInternalForces( lmx::Vector<data_type>& );
+    void assembleInternalForces(lmx::Vector<data_type>&);
 
-    void assembleExternalForces( lmx::Vector<data_type>& );
+    void assembleExternalForces(lmx::Vector<data_type>&);
 
-    void assembleTangentMatrix( lmx::Matrix<data_type>& );
+    void assembleTangentMatrix(lmx::Matrix<data_type>&);
 
-    void assembleConstraintForces( lmx::Vector<data_type>& );
+    void assembleConstraintForces(lmx::Vector<data_type>&);
 
-    void setMechanical( );
+    void setMechanical();
 
-    void outputStep( const lmx::Vector<data_type>&, const lmx::Vector<data_type>& );
+    void outputStep(const lmx::Vector<data_type>&, const lmx::Vector<data_type>&);
 
-    void outputStep( const lmx::Vector<data_type>& );
+    void outputStep(const lmx::Vector<data_type>&);
 
-    void outputToFile( std::ofstream* );
+    void outputToFile(std::ofstream *);
 
     bool checkAugmented();
 
     void clearAugmented();
 
-    void writeBoundaryNodes( std::vector<Point*>& );
+    void writeBoundaryNodes(std::vector<Point *>&);
 
-    void writeBoundaryConnectivity( std::vector< std::vector<Point*> >& );
+    void writeBoundaryConnectivity(std::vector<std::vector<Point *> >&);
+
+    std::vector<std::string> flexBodyNames()
+    {
+        std::vector<std::string> names;
+        for (const auto& pair : flexBodies) {
+            names.push_back(pair.first);
+        }
+        return names;
+    }
+
+    Body * getBody(const std::string& system_name, const std::string& name);
 
 protected:
     std::string title;
-    std::vector<Node*> groundNodes;
+    std::vector<Node *> groundNodes;
 
-    std::map< std::string, System* > subSystems;
-    std::map< std::string, RigidBody* > rigidBodies;
-    std::map< std::string, FlexBody* > flexBodies;
-    std::map< std::string, Body* > thermalBodies;
-    std::map< std::string, Constraint* > constraints;
-    std::map< std::string, ConstraintThermal* > constraintsThermal;
-    std::vector< Load* > loads;
-    std::vector< LoadThermal* > loadsThermal;
-    std::vector< Node* > outputSignalThermal;
-    std::vector< Motion* > motions;
+    std::map<std::string, System *> subSystems;
+    std::map<std::string, RigidBody *> rigidBodies;
+    std::map<std::string, FlexBody *> flexBodies;
+    std::map<std::string, Body *> thermalBodies;
+    std::map<std::string, Constraint *> constraints;
+    std::map<std::string, ConstraintThermal *> constraintsThermal;
+    std::vector<Load *> loads;
+    std::vector<LoadThermal *> loadsThermal;
+    std::vector<Node *> outputSignalThermal;
+    std::vector<Motion *> motions;
 
 };
 

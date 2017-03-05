@@ -32,22 +32,25 @@ class AnalysisThermalDynamic : public Analysis
 public:
     AnalysisThermalDynamic();
 
-    AnalysisThermalDynamic( Simulation*, double, double, double, char* );
+    AnalysisThermalDynamic(Simulation *, double, double, double, char *);
 
     ~AnalysisThermalDynamic();
 
-    std::string type() {
+    std::string type()
+    {
         return std::string("THERMAL");
     }
 
-    void init(lmx::Vector< data_type > *, int);
-    void nextStep();
-    void solve( lmx::Vector<data_type> *, lmx::Vector< data_type >*, lmx::Vector<data_type> * );
+    void init(lmx::Vector<data_type> * q_in, lmx::Vector<data_type> * qdot_in, int vervosity) override;
+
+    void nextStep() override;
+
+    void solve(lmx::Vector<data_type> *, lmx::Vector<data_type> *, lmx::Vector<data_type> *) override;
 
 private:
-    char* integratorType;
+    char * integratorType;
     double to, tf, At;
-    lmx::DiffProblemFirst< Simulation, data_type > theProblem;
+    lmx::DiffProblemFirst<Simulation, data_type> theProblem;
 
 };
 

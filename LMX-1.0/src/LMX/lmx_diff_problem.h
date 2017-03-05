@@ -86,7 +86,7 @@ public:
 
     void setIntegrator(int type, int opt1 = 0, int opt2 = 0);
 
-    void setIntegrator(const char * type, int opt2 = 0);
+    void setIntegrator(const std::string& type, int opt2 = 0);
 
     void setInitialConfiguration(lmx::Vector<T>& q_o);
 
@@ -106,7 +106,8 @@ public:
     // needs documentation:
     const lmx::Vector<T>& getConfiguration(int order, int step = 0) { return theConfiguration->getConf(order, step); }
 
-    bool isIntegratorExplicit() {
+    bool isIntegratorExplicit()
+    {
         if (theIntegrator) return this->theIntegrator->isExplicit();
         return false;
     }
@@ -189,39 +190,39 @@ void DiffProblem<Sys, T>::setIntegrator(int type, int opt1, int opt2)
  * @param opt2 Optional value for some integrators.
  */
 template<typename Sys, typename T>
-void DiffProblem<Sys, T>::setIntegrator(const char * type, int opt2)
+void DiffProblem<Sys, T>::setIntegrator(const std::string& type, int opt2)
 {
-    if (!strcmp(type, "AB-1")) {
+    if (type == "AB-1") {
         theIntegrator = new IntegratorAB<T>(1);
-    } else if (!strcmp(type, "AB-2")) {
+    } else if (type == "AB-2") {
         theIntegrator = new IntegratorAB<T>(2);
-    } else if (!strcmp(type, "AB-3")) {
+    } else if (type == "AB-3") {
         theIntegrator = new IntegratorAB<T>(3);
-    } else if (!strcmp(type, "AB-4")) {
+    } else if (type == "AB-4") {
         theIntegrator = new IntegratorAB<T>(4);
-    } else if (!strcmp(type, "AB-5")) {
+    } else if (type == "AB-5") {
         theIntegrator = new IntegratorAB<T>(5);
-    } else if (!strcmp(type, "AM-1")) {
+    } else if (type == "AM-1") {
         theIntegrator = new IntegratorAM<T>(1);
-    } else if (!strcmp(type, "AM-2")) {
+    } else if (type == "AM-2") {
         theIntegrator = new IntegratorAM<T>(2);
-    } else if (!strcmp(type, "AM-3")) {
+    } else if (type == "AM-3") {
         theIntegrator = new IntegratorAM<T>(3);
-    } else if (!strcmp(type, "AM-4")) {
+    } else if (type == "AM-4") {
         theIntegrator = new IntegratorAM<T>(4);
-    } else if (!strcmp(type, "AM-5")) {
+    } else if (type == "AM-5") {
         theIntegrator = new IntegratorAM<T>(5);
-    } else if (!strcmp(type, "BDF-1")) {
+    } else if (type == "BDF-1") {
         theIntegrator = new IntegratorBDF<T>(1);
-    } else if (!strcmp(type, "BDF-2")) {
+    } else if (type == "BDF-2") {
         theIntegrator = new IntegratorBDF<T>(2);
-    } else if (!strcmp(type, "BDF-3")) {
+    } else if (type == "BDF-3") {
         theIntegrator = new IntegratorBDF<T>(3);
-    } else if (!strcmp(type, "BDF-4")) {
+    } else if (type == "BDF-4") {
         theIntegrator = new IntegratorBDF<T>(4);
-    } else if (!strcmp(type, "BDF-5")) {
+    } else if (type == "BDF-5") {
         theIntegrator = new IntegratorBDF<T>(5);
-    } else if (!strcmp(type, "CD")) theIntegrator = new IntegratorCentralDifference<T>();
+    } else if (type == "CD") theIntegrator = new IntegratorCentralDifference<T>();
 }
 
 /**

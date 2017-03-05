@@ -7,21 +7,21 @@
 namespace mknix {
 
 ShapeFunction::ShapeFunction()
-    : dim(Simulation::getDim())
+        : dim(Simulation::getDim())
 {
 }
 
-ShapeFunction::ShapeFunction( const ShapeFunction* sf_in )
-    : dim(sf_in->dim)
-    , phi(sf_in->phi)
-    , gp(sf_in->gp)
+ShapeFunction::ShapeFunction(const ShapeFunction * sf_in)
+        : dim(sf_in->dim)
+        , phi(sf_in->phi)
+        , gp(sf_in->gp)
 {
 }
 
 
-ShapeFunction::ShapeFunction( Point* gp_in )
-    : dim( gp_in->getDim() )
-    , gp( gp_in )
+ShapeFunction::ShapeFunction(Point * gp_in)
+        : dim(gp_in->getDim())
+        , gp(gp_in)
 {
 }
 
@@ -33,24 +33,23 @@ ShapeFunction::~ShapeFunction()
 void ShapeFunction::outputValues()
 {
     // output values:
-    double tempx = (*gp->supportNodes.begin() )->getX();
-    int counter = 0;
+    double tempx = (*gp->supportNodes.begin())->getX();
+    auto counter = 0u;
 
 
     cout << endl << gp->X << " " << gp->Y << endl;
 
-    for ( std::vector<Node*>::iterator it = gp->supportNodes.begin();
-            it != gp->supportNodes.end();
-            ++it)
-    {
-        if(tempx != (*it)->getX() ) {
+    for (std::vector<Node *>::iterator it = gp->supportNodes.begin();
+         it != gp->supportNodes.end();
+         ++it) {
+        if (tempx != (*it)->getX()) {
             tempx = (*it)->getX();
         }
-        cout  << (*it)->getX() << " "
-              << (*it)->getY() << " "
-              << phi(0,counter) << " "
-              << phi(1,counter) << " "
-              << phi(2,counter) << endl;
+        cout << (*it)->getX() << " "
+        << (*it)->getY() << " "
+        << phi(0, counter) << " "
+        << phi(1, counter) << " "
+        << phi(2, counter) << endl;
 
         counter++;
     }
@@ -62,14 +61,13 @@ void ShapeFunction::gnuplotOut()
     std::ofstream data("shapefunction.dat");
     std::ofstream data_x("shapefunction_x.dat");
     std::ofstream data_y("shapefunction_y.dat");
-    double tempx = (*gp->supportNodes.begin() )->getX();
-    int counter = 0;
+    double tempx = (*gp->supportNodes.begin())->getX();
+    auto counter = 0u;
 
-    for ( std::vector<Node*>::iterator it = gp->supportNodes.begin();
-            it != gp->supportNodes.end();
-            ++it)
-    {
-        if(tempx != (*it)->getX() ) {
+    for (std::vector<Node *>::iterator it = gp->supportNodes.begin();
+         it != gp->supportNodes.end();
+         ++it) {
+        if (tempx != (*it)->getX()) {
             data << endl;
             data_x << endl;
             data_y << endl;

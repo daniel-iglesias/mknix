@@ -55,7 +55,7 @@ class Point
 {
 
 public:
-    // TODO: This frind class stuff should be removed. It is dangerous!
+    // TODO: This friend class stuff should be removed. It is dangerous!
     friend class GaussPoint;
 
     friend class ShapeFunction;

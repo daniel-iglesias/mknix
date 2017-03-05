@@ -63,5 +63,4 @@ void AnalysisStatic::solve( lmx::Vector< data_type >* q_in,
 //  disp.close();
 }
 
-
 }

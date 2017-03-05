@@ -32,15 +32,20 @@ class AnalysisStatic : public Analysis
 public:
     AnalysisStatic();
 
-    AnalysisStatic( Simulation*, double );
+    AnalysisStatic(Simulation *, double);
 
     ~AnalysisStatic();
 
-    std::string type() {
+    std::string type()
+    {
         return std::string("STATIC");
     }
 
-    void solve( lmx::Vector<data_type> *, lmx::Vector<data_type> *, lmx::Vector<data_type> * );
+    void solve(lmx::Vector<data_type> *, lmx::Vector<data_type> *, lmx::Vector<data_type> *) override;
+
+    void nextStep() override { };
+
+    void init(lmx::Vector<data_type> * q_in, lmx::Vector<data_type> * qdot_in) override { };
 
 private:
     double time;
