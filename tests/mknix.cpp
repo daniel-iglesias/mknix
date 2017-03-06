@@ -42,6 +42,7 @@ int main(int argc, char * argv[])
 //     cout << "EXECUTING: $ mknix " << argv[1] << endl;
 //     system("echo -n '1. Current Directory is '; pwd");
         mknix::Simulation mySimulation;
+        cout << argv[1];
         mySimulation.inputFromFile(argv[1]);
         mySimulation.run();
 //       mySimulation.outputFile("mknix.msg");

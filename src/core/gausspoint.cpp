@@ -107,10 +107,11 @@ void GaussPoint::computeCij()
     int j;
 //   cout << mat->getDensity() << " " << mat->getCapacity() << " = density, capacity" << endl;
 //     C.reset();
+    // TODO: Select between lumped and consistent matrices as an input option
     for (auto i = 0u; i < supportNodesSize; ++i) {
-        for (j=0; j<supportNodesSize; ++j) {
-            C.writeElement( avgFactor * shapeFun->getPhi(0,i) * shapeFun->getPhi(0,j), i, j );
-        }
+//         for (j=0; j<supportNodesSize; ++j) {
+//             C.writeElement( avgFactor * shapeFun->getPhi(0,i) * shapeFun->getPhi(0,j), i, j );
+//         }
 /////////////////////////////////
 // Do not use Lumped in ALICIA //
 /////////////////////////////////
@@ -119,9 +120,9 @@ void GaussPoint::computeCij()
 //                             * shapeFun->getPhi(0,j) * std::abs(jacobian), i, i );	
 //         }
 // Faster lumped matrix:
-//         C.writeElement(
-//                 mat->getDensity() * mat->getCapacity(supportNodes[i]->getTemp()) * weight * shapeFun->getPhi(0, i)
-//                 * std::abs(jacobian), i, i);
+        C.writeElement(
+                mat->getDensity() * mat->getCapacity(supportNodes[i]->getTemp()) * weight * shapeFun->getPhi(0, i)
+                * std::abs(jacobian), i, i);
 // 	  cout << i << "," << j << " = "
 // 	       << mat->getDensity() << "*" 
 // 	       << mat->getCapacity() << "*" 

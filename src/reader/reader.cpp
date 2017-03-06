@@ -156,11 +156,16 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
     std::string keyword;
 
     // Change to directory of input file so all mesh file paths are relative to here
-    auto dir = dirName(fileIn);
-    int rc = chdir(dir.c_str());
-    if (rc) {
-        throw std::runtime_error("failed to changed directory");
-    }
+    // BUG: Does not work when the name of file has no trailing path. I.e. "./file.mknix" works but "file.mknix" doesn't.
+    int rc;
+//     auto dir = dirName(fileIn);
+//     cout << endl;
+//     cout << "dir: " << dir << endl;
+//     int rc = chdir(dir.c_str());
+//     cout << "rc: " << rc << endl;
+//     if (rc) {
+//         throw std::runtime_error("failed to changed directory");
+//     }
 
     while (input >> keyword) {
 

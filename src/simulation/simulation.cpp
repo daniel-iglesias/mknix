@@ -351,7 +351,7 @@ void Simulation::run()
 
 void Simulation::runThermalAnalysis(Analysis* theAnalysis_in)
 {
-    auto q = initThermalSimulation(theAnalysis_in, false);
+    auto q = initThermalSimulation(theAnalysis_in, 1, false);
 
     if (theAnalysis->type() == "THERMAL") {
         theAnalysis->solve(&q);
@@ -399,7 +399,7 @@ void Simulation::runThermalAnalysis(Analysis* theAnalysis_in)
 
 void Simulation::runMechanicalAnalysis(Analysis* theAnalysis_in)
 {
-    auto q = initMechanicalSimulation(theAnalysis_in, false);
+    auto q = initMechanicalSimulation(theAnalysis_in, 1, false);
 
     auto gdlSize = nodes.size() * Simulation::dimension;
 
