@@ -301,6 +301,14 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
     }
   cpuTock(&cck1, "CPU assembleCapacityMatrix");
   microCPU1.push_back(cck1.elapsedMicroseconds);
+  //new CPU assembly function
+  cpuClock cck1b;
+  cpuTick(&cck1b);
+    for (auto i = 0u; i < end_int; ++i) {
+        this->cells[i]->assembleCapacityGaussPointsWithMap(_h_globalCapacityf,_h_capacity_map);
+    }
+  cpuTock(&cck1b, "CPU assembleCapacityMatrixWithMap");
+  microCPU1b.push_back(cck1b.elapsedMicroseconds);
   //std::cout << "miiiii " << cck1.elapsedMicroseconds <<std::endl;
 #ifdef HAVE_CUDA
 cudaClock gck1;
@@ -308,12 +316,12 @@ cudaClock gck1;
    init_array_to_value(_d_globalCapacityf, 0.0f, _sparse_matrix_size,128);
    cudaTick(&gck1);
      gpu_assemble_global_matrix(_d_globalCapacityf,
-                              _d_capacity_map,
-                              _d_localCapacityf,
-                              this->cells.size(),
-                              _support_node_size,
-                              _number_points,
-                              128);
+                                _d_capacity_map,
+                                _d_localCapacityf,
+                                this->cells.size(),
+                                _support_node_size,
+                                _number_points,
+                                128);
    cudaTock(&gck1, "GPU assembleCapacityMatrix");
    microGPU1.push_back(gck1.elapsedMicroseconds);
  }
@@ -337,6 +345,14 @@ void Body::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity
     }
     cpuTock(&cck2, "CPU assembleConductivityMatrix");
     microCPU2.push_back(cck2.elapsedMicroseconds);
+    //new CPU assembly function
+    cpuClock cck2b;
+    cpuTick(&cck2b);
+      for (auto i = 0u; i < end_int; ++i) {
+          this->cells[i]->assembleConductivityGaussPointsWithMap(_h_globalConductivityf,_h_capacity_map);
+      }
+    cpuTock(&cck2b, "CPU assembleConductivityGaussPointsWithMap");
+    microCPU2b.push_back(cck2b.elapsedMicroseconds);
   #ifdef HAVE_CUDA
     cudaClock gck2;
     if(_use_gpu){

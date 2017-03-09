@@ -87,9 +87,16 @@ public:
     virtual void computeNLKij( )=0;
 
     void assembleCij( lmx::Matrix<data_type> & );
+    void assembleCijWithMap(data_type *globalCapacity,
+                            int *matrixMap,
+                            int num_nodes);
+
     void presenceCij(int* presenceMatrix, int num_nodes);
 
     void assembleHij( lmx::Matrix<data_type> & );
+    void assembleHijWithMap(data_type *globalConductivity,
+                            int *matrixMap,
+                            int num_nodes);
 
     void assembleQext( lmx::Vector<data_type> & );
 

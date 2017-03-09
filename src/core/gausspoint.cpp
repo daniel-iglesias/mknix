@@ -218,6 +218,23 @@ void GaussPoint::assembleCij(lmx::Matrix<data_type>& globalCapacity)
     }
 }
 
+void GaussPoint::assembleCijWithMap(data_type *globalCapacity,
+                                    int *matrixMap,
+                                    int num_nodes)
+{
+    for (auto i = 0u; i < supportNodesSize; ++i) {
+        for (auto j = 0u; j < supportNodesSize; ++j) {
+           //we recover the point position in the sparse matrix
+           int rowNode = supportNodes[i]->getThermalNumber();
+           int colNode = supportNodes[j]->getThermalNumber();
+           int positionGlobal = rowNode + colNode * num_nodes;
+           int mypos = matrixMap[positionGlobal];
+           //we add the value directly into position
+            globalCapacity[pos] += C.readElement(i, j);
+        }
+    }
+}
+
 void GaussPoint::presenceCij(int* presenceMatrix, int num_nodes)
 {
     for (auto i = 0u; i < supportNodesSize; ++i) {
@@ -238,6 +255,23 @@ void GaussPoint::assembleHij(lmx::Matrix<data_type>& globalConductivity)
                                           supportNodes[i]->getThermalNumber(),
                                           supportNodes[j]->getThermalNumber()
             );
+        }
+    }
+}
+
+void GaussPoint::assembleHijWithMap(data_type *globalConductivity,
+                                    int *matrixMap,
+                                    int num_nodes)
+{
+    for (auto i = 0u; i < supportNodesSize; ++i) {
+        for (auto j = 0u; j < supportNodesSize; ++j) {
+          //we recover the point position in the sparse matrix
+          int rowNode = supportNodes[i]->getThermalNumber();
+          int colNode = supportNodes[j]->getThermalNumber();
+          int positionGlobal = rowNode + colNode * num_nodes;
+          int mypos = matrixMap[positionGlobal];
+          //we add the value directly into position
+          globalConductivity[pos] += H.readElement(i, j);
         }
     }
 }

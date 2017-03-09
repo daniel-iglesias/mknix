@@ -69,11 +69,20 @@ public:
     void computeCapacityGaussPoints(  );
 
     void assembleCapacityGaussPoints( lmx::Matrix<data_type> & );
+
+    void assembleCapacityGaussPointsWithMap(data_type *globalCapacity,
+                                            int *matrixMap,
+                                            int number_nodes);
+
     void presenceCapacityGaussPoints(int* presence_matrix, int number_nodes);
 
     void computeConductivityGaussPoints(  );
 
     void assembleConductivityGaussPoints( lmx::Matrix<data_type> & );
+
+    void assembleConductivityGaussPointsWithMap(data_type *globalConductivity,
+                                                int *matrixMap,
+                                                int number_nodes);
 
     void computeQextGaussPoints( LoadThermalBody* );
 
