@@ -230,7 +230,7 @@ void GaussPoint::assembleCijWithMap(data_type *globalCapacity,
            int positionGlobal = rowNode + colNode * num_nodes;
            int mypos = matrixMap[positionGlobal];
            //we add the value directly into position
-            globalCapacity[pos] += C.readElement(i, j);
+            globalCapacity[mypos] += C.readElement(i, j);
         }
     }
 }
@@ -271,7 +271,7 @@ void GaussPoint::assembleHijWithMap(data_type *globalConductivity,
           int positionGlobal = rowNode + colNode * num_nodes;
           int mypos = matrixMap[positionGlobal];
           //we add the value directly into position
-          globalConductivity[pos] += H.readElement(i, j);
+          globalConductivity[mypos] += H.readElement(i, j);
         }
     }
 }

@@ -2,6 +2,21 @@
 
 #include <vector>
 #include "assembly_cpu.h"
+
+/**
+ * initializes and array to a value in single thread
+ * @param  {[type]} T* array        array
+ * @param  {[type]} T  value        initialization value
+ * @param  {[type]} int size        number of elements in the array
+ */
+template <typename T>
+void init_host_array_to_value(T *array,
+                              T value,
+                              int size)
+{
+ for(int i = 0; i < size; i++) array[i] = value;
+ }
+
 /**
  * Makes a direct assembly of the global matrix from map in single thread
  * @param  {[type]} T *global_matrix        global sparse matrix
@@ -160,3 +175,16 @@ bool build_CRS_sparse_matrix_from_map(std::vector<int> &full_map,
 
         return true;
     }
+
+
+    ///////////////////////////////////////////////////////////////////////////
+    //////////////// templas parts ///////////////////////////////////////////
+    template void init_host_array_to_value<double>(double *array,
+                                                   double value,
+                                                   int size);
+    template void init_host_array_to_value<float>(float *array,
+                                                  float value,
+                                                  int size);
+    template void init_host_array_to_value<int>(int *array,
+                                                int value,
+                                                int size);

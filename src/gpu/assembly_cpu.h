@@ -5,6 +5,10 @@
 
 //namespace AssemblyCPU
 //{
+template <typename T>
+void init_host_array_to_value(T *array,
+                              T value,
+                              int size);
 
 
   template <typename T>

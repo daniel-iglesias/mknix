@@ -234,7 +234,7 @@ protected:
     LoadThermalBody * loadThermalBody;
 
     //map
-    std::vector<int> _full_map;
+    std::vector<int> _full_map;//also used for cpu new assembly functions
     std::vector<int> _vec_ind;
     std::vector<int> _cvec_ptr;
     std::vector<int> _locaThermalNumbers;
@@ -244,6 +244,8 @@ protected:
     bool _use_gpu;
     data_type *_d_globalCapacity;
     data_type *_d_globalConductivity;
+    data_type *_h_globalCapacity;
+    data_type *_h_globalConductivity;
     float     *_d_globalCapacityf;
     float     *_d_globalConductivityf;
     float     *_d_localCapacityf;
@@ -255,7 +257,7 @@ protected:
     int       _support_node_size;
     int       _sparse_matrix_size;
     //measurement related
-    std::vector<double> microCPU1, microCPU2, microCPU3;
+    std::vector<double> microCPU1, microCPU1b, microCPU2, microCPU2b, microCPU3;
     std::vector<double> microGPU1, microGPU2, microGPU3;
 
 };

@@ -38,7 +38,7 @@ Body::Body()
         : computeEnergy(0)
         , isThermal(1)
 {
-  _use_gpu = true;
+  _use_gpu = false;
 }
 
 /**
@@ -52,7 +52,7 @@ Body::Body(std::string title_in)
         , computeEnergy(0)
         , isThermal(1)
 {
-  _use_gpu = true;
+  _use_gpu = false;
 }
 
 
@@ -75,7 +75,11 @@ Body::~Body()
     for (auto& group : boundaryGroups) {
         delete group.second;
     }
+    ///////////////////////////////////
     free(_h_presence_matrix);
+    free(_h_globalCapacity);
+    free(_h_globalConductivity);
+    ////////////////////////////////////
   double cpuAvg = 0.0;
   int cpuMeasures = microCPU1.size();
   for(int i = 0; i < cpuMeasures; i++)
@@ -90,47 +94,45 @@ Body::~Body()
   for(int i = 0; i < cpuMeasures; i++) cpuAvg += microCPU2.at(i);
   cpuAvg /= cpuMeasures;
 
+  std::cout << "AssembleConductivityMatrix time measurements = "<< cpuMeasures << std::endl;
 
-  #ifdef HAVE_CUDA
+
+#ifdef HAVE_CUDA
     if(_use_gpu){
       cudaFree(_d_globalCapacityf);
       cudaFree(_d_globalConductivityf);
       cudaFree(_d_capacity_map);
     }
-    ////////////////////////////////////
-
     int gpuMeasures = microGPU1.size();
 
     if(cpuMeasures != gpuMeasures)
       std::cout << "WARNING we have " << cpuMeasures << " CPU measures and " << gpuMeasures << " GPU ones, the should be the same!"<< std::endl;
 
    double gpuAvg = 0.0;
-
-    for(int i = 0; i < gpuMeasures; i++)
-          gpuAvg += microGPU1.at(i);
+   for(int i = 0; i < gpuMeasures; i++)
+         gpuAvg += microGPU1.at(i);
    gpuAvg /= gpuMeasures;
    std::cout << "CPU Avg:  " << cpuAvg << " vs GPU Avg: " << gpuAvg << std::endl;
-     std::cout << "Represent and average of  " << cpuAvg/gpuAvg << "x speedup" << std::endl;
+   std::cout << "Represent and average of  " << cpuAvg/gpuAvg << "x speedup" << std::endl;
 
-////////////////////////////////////////////////////////////////////////
-     gpuMeasures = microGPU2.size();
-     std::cout << "AssembleConductivityMatrix time measurements = "<< cpuMeasures << std::endl;
-     if(cpuMeasures != gpuMeasures)
-       std::cout << "WARNING we have " << cpuMeasures << " CPU measures and " << gpuMeasures << " GPU ones, the should be the same!"<< std::endl;
+   gpuMeasures = microGPU2.size();
+   if(cpuMeasures != gpuMeasures)
+     std::cout << "WARNING we have " << cpuMeasures << " CPU measures and " << gpuMeasures << " GPU ones, the should be the same!"<< std::endl;
 
-     gpuAvg = 0.0;
+   gpuAvg = 0.0;
+   for(int i = 0; i < gpuMeasures; i++)
+         gpuAvg += microGPU2.at(i);
+   gpuAvg /= gpuMeasures;
 
-
-     for(int i = 0; i < gpuMeasures; i++)
-           gpuAvg += microGPU2.at(i);
-     gpuAvg /= gpuMeasures;
-
-
-      std::cout << "Represent and average of  " << cpuAvg/gpuAvg << "x speedup" << std::endl;
-  /////////////////////////////////////////////////////////////////////////////////////
+    std::cout << "Represent and average of  " << cpuAvg/gpuAvg << "x speedup" << std::endl;
 #endif
 
+////////////////////////////////////////////////////////////////////////
 
+
+
+
+  /////////////////////////////////////////////////////////////////////////////////////
 }
 
 /**
@@ -217,6 +219,8 @@ void Body::initialize()
        CudaCheckError();
     }
  #endif
+ _h_globalCapacity = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
+ _h_globalConductivity = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
 }
 
 /**
@@ -304,8 +308,11 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
   //new CPU assembly function
   cpuClock cck1b;
   cpuTick(&cck1b);
+    init_host_array_to_value(_h_globalCapacity, 0.0, _sparse_matrix_size);
     for (auto i = 0u; i < end_int; ++i) {
-        this->cells[i]->assembleCapacityGaussPointsWithMap(_h_globalCapacityf,_h_capacity_map);
+        this->cells[i]->assembleCapacityGaussPointsWithMap(_h_globalCapacity,
+                                                           _full_map.data(),
+                                                           _support_node_size);
     }
   cpuTock(&cck1b, "CPU assembleCapacityMatrixWithMap");
   microCPU1b.push_back(cck1b.elapsedMicroseconds);
@@ -348,8 +355,11 @@ void Body::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity
     //new CPU assembly function
     cpuClock cck2b;
     cpuTick(&cck2b);
+    init_host_array_to_value(_h_globalConductivity, 0.0, _sparse_matrix_size);
       for (auto i = 0u; i < end_int; ++i) {
-          this->cells[i]->assembleConductivityGaussPointsWithMap(_h_globalConductivityf,_h_capacity_map);
+          this->cells[i]->assembleConductivityGaussPointsWithMap(_h_globalConductivity,
+                                                                 _full_map.data(),
+                                                                 _support_node_size);
       }
     cpuTock(&cck2b, "CPU assembleConductivityGaussPointsWithMap");
     microCPU2b.push_back(cck2b.elapsedMicroseconds);

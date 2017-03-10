@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 
 add_definitions(-DHAVE_GMM)
-#add_definitions(-DHAVE_CUDA)
+add_definitions(-DHAVE_CUDA)
 
 set(LMX_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/LMX-1.0/src)
 set(GMM_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/gmm/gmm-3.0/include)
