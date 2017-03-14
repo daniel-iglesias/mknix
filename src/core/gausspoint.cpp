@@ -80,13 +80,13 @@ void GaussPoint::shapeFunSolve(std::string type_in, double q_in)
                                                   dc,
                                                   this);
         }
-        cout << "INFO AT shapeFunSolve IN GaussPoint: (x, y) = "
+        /*cout << "INFO AT shapeFunSolve IN GaussPoint: (x, y) = "
         << this->X << ", " << this->Y << endl;
         cout << "\t alphai = " << alphai << ", "
         << "dc = " << dc << ", "
         << "q_in = " << q_in
         << endl;
-        cout << "\t Number of Support Nodes = " << supportNodesSize << endl;
+        cout << "\t Number of Support Nodes = " << supportNodesSize << endl;*/
 
         shapeFun->calc();
     }
@@ -228,6 +228,7 @@ void GaussPoint::assembleCijWithMap(data_type *globalCapacity,
            int rowNode = supportNodes[i]->getThermalNumber();
            int colNode = supportNodes[j]->getThermalNumber();
            int positionGlobal = rowNode + colNode * num_nodes;
+          // int debugPos = matrixMap[positionGlobal];
            int mypos = matrixMap[positionGlobal];
            //we add the value directly into position
             globalCapacity[mypos] += C.readElement(i, j);

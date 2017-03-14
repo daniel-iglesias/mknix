@@ -17,6 +17,47 @@ void init_host_array_to_value(T *array,
  for(int i = 0; i < size; i++) array[i] = value;
  }
 
+ /**
+  * Cast a directly assembled matrix into GMM compatible sparse matrix
+  * @param  {[type]} T* array        array
+  * @param  {[type]} T  value        initialization value
+  * @param  {[type]} int size        number of elements in the array
+  */
+ template <typename T>
+  cast_host_array_to_GMM_Sparse(T *array,
+                                int * vec_ind,
+                                int * cvec_ptr,
+                                int ref_size)
+ {
+  
+  return gmm_pointer;
+  }
+
+
+ /**
+  * Checks that all values in are between given limits
+  * @param  {[type]} T* array        array
+  * @param  {[type]} T  upper_limit  upper limit value
+  * @param  {[type]} T  lower_limit  lower limit value
+  * @param  {[type]} int size        number of elements in the array
+  * @param  {[type]} std::string name    Name of the array
+  */
+ template <typename T>
+ void check_host_array_for_limits(T *array,
+                                 T upper_limit,
+                                 T lower_limit,
+                                 int size,
+                                 std::string array_name)
+ {
+   int num_errors = 0;
+    for(int i = 0; i < size; i++) {
+      if(array[i] < lower_limit) num_errors++;
+      else if(array[i] > upper_limit) num_errors++;
+    }
+    if(num_errors == 0) std::cout << "Correct: Array " << array_name << " is correct between given limits " << lower_limit << " to " << upper_limit << std::endl;
+    else std::cout << "Error: Array " << array_name << " has " << num_errors<< " outside given limits " << lower_limit << " to " << upper_limit << std::endl;
+  }
+
 /**
  * Makes a direct assembly of the global matrix from map in single thread
  * @param  {[type]} T *global_matrix        global sparse matrix
@@ -188,3 +229,21 @@ bool build_CRS_sparse_matrix_from_map(std::vector<int> &full_map,
     template void init_host_array_to_value<int>(int *array,
                                                 int value,
                                                 int size);
+
+    template void check_host_array_for_limits<double>(double *array,
+                                                      double upper_limit,
+                                                      double lower_limit,
+                                                      int size,
+                                                      std::string array_name);
+  //
+  template void check_host_array_for_limits<float>(float *array,
+                                                   float upper_limit,
+                                                   float lower_limit,
+                                                   int size,
+                                                   std::string array_name);
+//
+template void check_host_array_for_limits<int>(int *array,
+                                               int upper_limit,
+                                               int lower_limit,
+                                               int size,
+                                               std::string array_name);

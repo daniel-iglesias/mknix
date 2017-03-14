@@ -5,6 +5,7 @@
 #include <ios>
 
 
+
 inline void
 chTimerGetTime( chTimerTimestamp *p )
 {
@@ -43,4 +44,18 @@ void saveClock(cpuClock *ck, std::string file_path ,std::string message){
     s_out << message << std::endl;
     s_out << message <<" Time Consumed: " << ck->elapsedMicroseconds  << " microseconds" <<std::endl;
     s_out.close();
+}
+
+void clockFullStats(std::vector<double> &clockResultsVector,
+                    std::string function_name)
+{
+  double clockAvg = 0.0;
+  int clockMeasures = clockResultsVector.size();
+  for(int i = 0; i < clockMeasures; i++)
+        clockAvg += clockResultsVector.at(i);
+  clockAvg /= clockMeasures;
+
+  std::cout << "==  Clock measures for " << function_name << std::endl;
+  std::cout << "==  Number of measures " << clockMeasures << std::endl;
+  std::cout << "==  Average time " << clockAvg << " microseconds" << std::endl;
 }

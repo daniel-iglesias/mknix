@@ -46,7 +46,7 @@ void ShapeFunctionLinearX::calc()
 {   // Signed calculation using only the x components of the points
     double distance_x1x0 = gp->supportNodes[1]->getX() - gp->supportNodes[0]->getX(); // should use the jacobian
 
-    cout << "DISTANCE_X1X0 = " << distance_x1x0 << endl;
+  //  cout << "DISTANCE_X1X0 = " << distance_x1x0 << endl;
 
     phi.writeElement( - ( ( gp->getX() - gp->supportNodes[1]->getX() ) *  ( gp->supportNodes[1]->getX() - gp->supportNodes[0]->getX() )
                         ) / (distance_x1x0 * distance_x1x0)
@@ -55,11 +55,11 @@ void ShapeFunctionLinearX::calc()
                        ) / (distance_x1x0 * distance_x1x0)
                        , 0, 1);
 
-    cout << "support nodes = ("
+/*    cout << "support nodes = ("
          << gp->supportNodes[0]->getX() << ")("
          << gp->supportNodes[1]->getX() << ")" << endl;
 
-    cout << "PHI-1D-X (" << gp->getX() <<" ) = " << phi(0,0) << ", " << phi(0,1) << endl;
+    cout << "PHI-1D-X (" << gp->getX() <<" ) = " << phi(0,0) << ", " << phi(0,1) << endl;*/
     //////////////////////////////////////////////////////////////////
     // FIRST DERIVATIVES:
     //////////////////////////////////////////////////////////////////

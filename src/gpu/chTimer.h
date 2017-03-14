@@ -5,6 +5,7 @@
 #include <iostream>
 #include <iomanip>
 #include <stdlib.h>
+#include <vector>
 
 
 #ifdef __cplusplus
@@ -31,6 +32,9 @@ void cpuTick(cpuClock *ck);
 void cpuTock(cpuClock *ck, std::string function_name=" ");
 
 void saveClock(cpuClock *ck, std::string file_path ,std::string message=" ");
+
+void clockFullStats(std::vector<double> &clockResultsVector, std::string function_name=" ");
+
 
 //#endif
 

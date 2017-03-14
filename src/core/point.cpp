@@ -264,13 +264,13 @@ void Point::findSupportNodes(std::vector<Node *>& domainNodes,
 void Point::shapeFunSolve(std::string type_in, double q_in)
 {
     if (type_in == "RBF" || type_in == "MLS") {
-        cout << "INFO AT shapeFunSolve IN Point: (x, y) = "
+      /*  cout << "INFO AT shapeFunSolve IN Point: (x, y) = "
         << this->X << ", " << this->Y << endl;
         cout << "\t alphai = " << alphai << ", "
         << "dc = " << dc << ", "
         << "q_in = " << q_in
         << endl;
-        cout << "\t Number of Support Nodes = " << supportNodesSize << endl;
+        cout << "\t Number of Support Nodes = " << supportNodesSize << endl;*/
         q_in = .5;
     }
     if (!shapeFun) {

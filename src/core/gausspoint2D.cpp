@@ -77,7 +77,7 @@ void GaussPoint2D::shapeFunSolve(std::string type_in, double q_in)
 void GaussPoint2D::fillFEmatrices()
 {
     initializeMatVecs();
-    cout << "GP in (" << this->X << ", " << this->Y << ")" << endl;
+    //cout << "GP in (" << this->X << ", " << this->Y << ")" << endl;
 
     if (!shapeFun) {
         shapeFun = new ShapeFunctionTriangle(this);
@@ -181,7 +181,7 @@ void GaussPoint2D::computeStress()
 
     if (Simulation::getSmoothingType() == "CONSTANT") {
         for (auto i = 0u; i < supportNodesSize; ++i) {
-// 	    cout << "i=" << i << ", weight = " << weight << ", jacobian = "<< jacobian 
+// 	    cout << "i=" << i << ", weight = " << weight << ", jacobian = "<< jacobian
 // 		 << "supportNodes[i]->getWeight() = " << supportNodes[i]->getWeight() << endl;
             r.writeElement((weight * jacobian) / supportNodes[i]->getWeight()
                            * tension.readElement(0), 3 * i + 0);

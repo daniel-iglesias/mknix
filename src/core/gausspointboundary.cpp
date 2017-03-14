@@ -50,13 +50,13 @@ GaussPointBoundary::~GaussPointBoundary()
 
 void GaussPointBoundary::shapeFunSolve(std::string type_in, double q_in)
 {
-    cout << "INFO AT shapeFunSolve IN GaussPointBoundary: (x, y) = "
+  /*  cout << "INFO AT shapeFunSolve IN GaussPointBoundary: (x, y) = "
     << this->X << ", " << this->Y << endl;
     cout << "\t alphai = " << alphai << ", "
     << "dc = " << dc << ", "
     << "q_in = " << q_in
     << endl;
-    cout << "\t Number of Support Nodes = " << supportNodesSize << endl;
+    cout << "\t Number of Support Nodes = " << supportNodesSize << endl;*/
 
     q_in = .5; // TODO: Take into account and validate the variable q_in
     if (!shapeFun) {
@@ -93,10 +93,10 @@ void GaussPointBoundary::computeQext(LoadThermalBoundary1D * loadThermalBoundary
                           * std::abs(jacobian), i);
 //       M.writeElement( weight * shapeFun->getPhi(0,i) * shapeFun->getPhi(0,j) * jacobian, dim*i+2, dim*j+2 );
     }
-//     cout << weight << ", " 
-// 	 << shapeFun->getPhi(0,i)  <<  ", " 
-// 	 << loadThermalBoundary_in->getLoadThermalBoundary1D( this ) <<  ", " 
-// 	 << std::abs(jacobian) << endl; 
+//     cout << weight << ", "
+// 	 << shapeFun->getPhi(0,i)  <<  ", "
+// 	 << loadThermalBoundary_in->getLoadThermalBoundary1D( this ) <<  ", "
+// 	 << std::abs(jacobian) << endl;
 }
 
 
@@ -107,7 +107,7 @@ void GaussPointBoundary::assembleQext(lmx::Vector<data_type>& globalHeat)
                               supportNodes[i]->getThermalNumber()
         );
     }
-//     cout << Qext << endl; 
+//     cout << Qext << endl;
 }
 
 /*

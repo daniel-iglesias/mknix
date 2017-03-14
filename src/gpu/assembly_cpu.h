@@ -1,6 +1,8 @@
 #ifndef ASSEMBLY_CPU_H
 #define ASSEMBLY_CPU_H
-
+#include <iostream>
+#include <iomanip>
+#include <stdlib.h>
 //#include "parallel_helper.h"//for now commented out, will include multi-cpu code here
 
 //namespace AssemblyCPU
@@ -9,7 +11,12 @@ template <typename T>
 void init_host_array_to_value(T *array,
                               T value,
                               int size);
-
+template <typename T>
+void check_host_array_for_limits(T *array,
+                                 T upper_limit,
+                                 T lower_limit,
+                                 int size,
+                                 std::string array_name = "");
 
   template <typename T>
   bool cpu_assemble_global_matrix(T* global_matrix,

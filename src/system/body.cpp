@@ -80,22 +80,10 @@ Body::~Body()
     free(_h_globalCapacity);
     free(_h_globalConductivity);
     ////////////////////////////////////
-  double cpuAvg = 0.0;
-  int cpuMeasures = microCPU1.size();
-  for(int i = 0; i < cpuMeasures; i++)
-        cpuAvg += microCPU1.at(i);
-  cpuAvg /= cpuMeasures;
-
-  std::cout << "AssembleCapacityMatrix time measurements = "<< cpuMeasures << std::endl;
-  std::cout << "CPU Avg:  " << cpuAvg << std::endl;
-  //std::cout << "CPU Avg:  " << cpuAvg << " vs GPU Avg: " << gpuAvg
-  cpuMeasures = microCPU2.size();
-  cpuAvg = 0.0;
-  for(int i = 0; i < cpuMeasures; i++) cpuAvg += microCPU2.at(i);
-  cpuAvg /= cpuMeasures;
-
-  std::cout << "AssembleConductivityMatrix time measurements = "<< cpuMeasures << std::endl;
-
+  clockFullStats(microCPU1, "AssembleCapacityMatrix");
+  clockFullStats(microCPU1b, "AssembleCapacityMatrixWithMap");
+  clockFullStats(microCPU2, "AssembleConductivityMatrix");
+  clockFullStats(microCPU2b, "AssembleConductivityMatrixWithMap");
 
 #ifdef HAVE_CUDA
     if(_use_gpu){
@@ -103,36 +91,10 @@ Body::~Body()
       cudaFree(_d_globalConductivityf);
       cudaFree(_d_capacity_map);
     }
-    int gpuMeasures = microGPU1.size();
-
-    if(cpuMeasures != gpuMeasures)
-      std::cout << "WARNING we have " << cpuMeasures << " CPU measures and " << gpuMeasures << " GPU ones, the should be the same!"<< std::endl;
-
-   double gpuAvg = 0.0;
-   for(int i = 0; i < gpuMeasures; i++)
-         gpuAvg += microGPU1.at(i);
-   gpuAvg /= gpuMeasures;
-   std::cout << "CPU Avg:  " << cpuAvg << " vs GPU Avg: " << gpuAvg << std::endl;
-   std::cout << "Represent and average of  " << cpuAvg/gpuAvg << "x speedup" << std::endl;
-
-   gpuMeasures = microGPU2.size();
-   if(cpuMeasures != gpuMeasures)
-     std::cout << "WARNING we have " << cpuMeasures << " CPU measures and " << gpuMeasures << " GPU ones, the should be the same!"<< std::endl;
-
-   gpuAvg = 0.0;
-   for(int i = 0; i < gpuMeasures; i++)
-         gpuAvg += microGPU2.at(i);
-   gpuAvg /= gpuMeasures;
-
-    std::cout << "Represent and average of  " << cpuAvg/gpuAvg << "x speedup" << std::endl;
+    clockFullStats(microGPU1, "GPUAssembleCapacityMatrix");
+    clockFullStats(microGPU2, "GPUAssembleConductivityMatrix");
 #endif
 
-////////////////////////////////////////////////////////////////////////
-
-
-
-
-  /////////////////////////////////////////////////////////////////////////////////////
 }
 
 /**
@@ -203,24 +165,31 @@ void Body::initialize()
                       _h_presence_matrix,
                       _number_nodes,
                       _number_nodes);
+    _sparse_matrix_size = _cvec_ptr[_number_nodes];
+    /*check_host_array_for_limits(_full_map.data(),
+                                _sparse_matrix_size - 1,
+                                0,
+                                _sparse_matrix_size,
+                                "_full_map");*/
 
+  _h_globalCapacity = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
+  _h_globalConductivity = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
     //map_vector_thermal_numbers(_locaThermalNumbers);
     //GPU part
   #ifdef HAVE_CUDA
     if(_use_gpu){
-       _sparse_matrix_size = _cvec_ptr[_number_nodes];//convention
+       //_sparse_matrix_size = _cvec_ptr[_number_nodes];//convention
        std::cout << "sparse matrix has " << _sparse_matrix_size << " elements" << std::endl;
        CudaSafeCall(cudaMalloc((void**)&_d_globalCapacityf, _sparse_matrix_size * sizeof(float)));
        CudaSafeCall(cudaMalloc((void**)&_d_globalConductivityf, _sparse_matrix_size * sizeof(float)));
        CudaSafeCall(cudaMalloc((void**)&_d_localCapacityf, _number_points * _support_node_size * _support_node_size * sizeof(float)));
        CudaSafeCall(cudaMalloc((void**)&_d_localConductivityf, _number_points * _support_node_size * _support_node_size * sizeof(float)));
-       CudaSafeCall(cudaMalloc((void**)&_d_capacity_map, _number_nodes * _number_nodes*sizeof(int)));
-       CudaSafeCall(cudaMemcpy(_d_capacity_map, _full_map.data(),_number_nodes * _number_nodes*sizeof(int), cudaMemcpyHostToDevice));
+       CudaSafeCall(cudaMalloc((void**)&_d_capacity_map, _number_nodes * _number_nodes * sizeof(int)));
+       CudaSafeCall(cudaMemcpy(_d_capacity_map, _full_map.data(),_number_nodes * _number_nodes * sizeof(int), cudaMemcpyHostToDevice));
        CudaCheckError();
     }
  #endif
- _h_globalCapacity = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
- _h_globalConductivity = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
+
 }
 
 /**
@@ -316,12 +285,12 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
     }
   cpuTock(&cck1b, "CPU assembleCapacityMatrixWithMap");
   microCPU1b.push_back(cck1b.elapsedMicroseconds);
-  //std::cout << "miiiii " << cck1.elapsedMicroseconds <<std::endl;
+
 #ifdef HAVE_CUDA
 cudaClock gck1;
  if(_use_gpu){
-   init_array_to_value(_d_globalCapacityf, 0.0f, _sparse_matrix_size,128);
    cudaTick(&gck1);
+   init_array_to_value(_d_globalCapacityf, 0.0f, _sparse_matrix_size,128);
      gpu_assemble_global_matrix(_d_globalCapacityf,
                                 _d_capacity_map,
                                 _d_localCapacityf,
@@ -355,7 +324,7 @@ void Body::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity
     //new CPU assembly function
     cpuClock cck2b;
     cpuTick(&cck2b);
-    init_host_array_to_value(_h_globalConductivity, 0.0, _sparse_matrix_size);
+      init_host_array_to_value(_h_globalConductivity, 0.0, _sparse_matrix_size);
       for (auto i = 0u; i < end_int; ++i) {
           this->cells[i]->assembleConductivityGaussPointsWithMap(_h_globalConductivity,
                                                                  _full_map.data(),
