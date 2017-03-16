@@ -23,6 +23,7 @@
 // #include <string>
 #include "common.h"
 #include "LMX/lmx.h"
+#include "gmm/gmm_matrix.h"
 #include "boundarygroup.h"
 
 #include <core/cellboundary.h>
@@ -259,6 +260,8 @@ protected:
     //measurement related
     std::vector<double> microCPU1, microCPU1b, microCPU2, microCPU2b, microCPU3;
     std::vector<double> microGPU1, microGPU2, microGPU3;
+    //testing gmm casting
+    gmm::csr_matrix<data_type> gmm_sp_globalCapacity;
 
 };
 

@@ -285,6 +285,16 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
     }
   cpuTock(&cck1b, "CPU assembleCapacityMatrixWithMap");
   microCPU1b.push_back(cck1b.elapsedMicroseconds);
+/////testing the casting//////////
+  cpuClock castck;
+  cpuTick(&castck);
+  cast_into_gmm_type(gmm_sp_globalCapacity,
+                     _h_globalCapacity,
+                     _vec_ind,
+                     _cvec_ptr,
+                     _number_nodes,
+                     _number_nodes);
+  cpuTock(&castck, "cast_into_gmm_type _h_globalCapacity");
 
 #ifdef HAVE_CUDA
 cudaClock gck1;

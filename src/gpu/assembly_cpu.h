@@ -3,10 +3,28 @@
 #include <iostream>
 #include <iomanip>
 #include <stdlib.h>
+#include "LMX/lmx.h"
+#include "gmm/gmm_matrix.h"
 //#include "parallel_helper.h"//for now commented out, will include multi-cpu code here
 
 //namespace AssemblyCPU
 //{
+/*template <typename T>
+void cast_into_lmx_type(lmx::Matrix<data_type>& lmx_matrix,
+                        T *values_array,
+                        std::vector<int> &vec_ind,
+                        std::vector<int> &cvec_ptr,
+                        int number_rows,
+                        int number_columns);*/
+
+template <typename T>
+void cast_into_gmm_type(gmm::csr_matrix<T>& gmm_matrix,
+                        T *values_array,
+                        std::vector<int> &vec_ind,
+                        std::vector<int> &cvec_ptr,
+                        int number_rows,
+                        int number_columns);
+
 template <typename T>
 void init_host_array_to_value(T *array,
                               T value,
