@@ -174,6 +174,7 @@ void Body::initialize()
 
   _h_globalCapacity = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
   _h_globalConductivity = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
+  _h_globalConductivity2 = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
     //map_vector_thermal_numbers(_locaThermalNumbers);
     //GPU part
   #ifdef HAVE_CUDA
@@ -342,6 +343,30 @@ void Body::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity
       }
     cpuTock(&cck2b, "CPU assembleConductivityGaussPointsWithMap");
     microCPU2b.push_back(cck2b.elapsedMicroseconds);
+///////multi-cpu part
+int max_threads = 8;
+pthread_t threads[max_threads];
+ //p_struct param_array[MAX_THREADS];
+ p_struct* param_array = (p_struct*)malloc(max_threads * sizeof(p_struct));
+
+ for(int i = 0; i < max_threads; i++){
+   param_array[i].globalMatrix = (std::atomic<double>*)_h_globalConductivity2;
+   param_array[i].fullMap = _full_map;
+   param_array[i].numCells = this->cells.size();
+   param_array[i].supportNodeSize = _support_node_size;
+   param_array[i].thread_id = i;
+   param_array[i].max_threads = max_threads;
+ }
+
+  cpuClock cck2c;
+  cpuTock(&cck2c);
+ for(int i = 0; i < max_threads; i++)
+     pthread_create(&threads[i],NULL,threadWrapper,(void*)&(param_array[i]));
+ for(int i = 0; i < max_threads; i++)
+     pthread_join(threads[i],NULL);
+ cpuTock(&cck2c, "MULTI CPU assembleConductivityGaussPointsWithMap");
+
+////////
   #ifdef HAVE_CUDA
     cudaClock gck2;
     if(_use_gpu){

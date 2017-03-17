@@ -5,6 +5,34 @@
 #include <stdlib.h>
 #include "LMX/lmx.h"
 #include "gmm/gmm_matrix.h"
+
+#include <atomic>
+#include <pthread.h>
+//struct for multithreaded launch
+struct p_struct{
+  std::atomic<double>* globalMatrix;
+  std::vector<int> *fullMap;
+  int numCells;
+  int supportNodeSize;
+  int thread_id;
+  int max_threads;
+};
+
+void atomicAssembleGlobalMatrix(std::atomic<double>* globalMatrix,
+                                std::vector<int> &fullMap,
+                                int numPoints,
+                                int supportNodeSize,
+                                int tid,
+                                int max_threads);
+
+void* threadWrapper(void* ptr);
+
+float inline atomic_fetch_add(std::atomic<float>* target, float value){
+  float expected = target->load();
+  while(!atomic_compare_exchange_weak(target, &expected, expected + value));
+  return expected;
+}
+
 //#include "parallel_helper.h"//for now commented out, will include multi-cpu code here
 
 //namespace AssemblyCPU

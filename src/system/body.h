@@ -247,6 +247,7 @@ protected:
     data_type *_d_globalConductivity;
     data_type *_h_globalCapacity;
     data_type *_h_globalConductivity;
+    data_type *_h_globalConductivity2;
     float     *_d_globalCapacityf;
     float     *_d_globalConductivityf;
     float     *_d_localCapacityf;
