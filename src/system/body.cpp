@@ -175,6 +175,7 @@ void Body::initialize()
   _h_globalCapacity = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
   _h_globalConductivity = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
   _h_globalConductivity2 = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
+  _h_localConductivityf = (data_type*)malloc(_number_points * _support_node_size * _support_node_size * sizeof(data_type));
     //map_vector_thermal_numbers(_locaThermalNumbers);
     //GPU part
   #ifdef HAVE_CUDA
@@ -351,7 +352,8 @@ pthread_t threads[max_threads];
 
  for(int i = 0; i < max_threads; i++){
    param_array[i].globalMatrix = (std::atomic<double>*)_h_globalConductivity2;
-   param_array[i].fullMap = _full_map;
+   param_array[i].fullMap = &_full_map;
+   param_array[i].local_matrices_array = _h_localConductivityf;
    param_array[i].numCells = this->cells.size();
    param_array[i].supportNodeSize = _support_node_size;
    param_array[i].thread_id = i;
@@ -359,7 +361,7 @@ pthread_t threads[max_threads];
  }
 
   cpuClock cck2c;
-  cpuTock(&cck2c);
+  cpuTick(&cck2c);
  for(int i = 0; i < max_threads; i++)
      pthread_create(&threads[i],NULL,threadWrapper,(void*)&(param_array[i]));
  for(int i = 0; i < max_threads; i++)

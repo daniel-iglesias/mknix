@@ -252,6 +252,7 @@ protected:
     float     *_d_globalConductivityf;
     float     *_d_localCapacityf;
     float     *_d_localConductivityf;
+    data_type *_h_localConductivityf;
     int       *_d_capacity_map;
     int       *_h_presence_matrix;
     int       _number_nodes;

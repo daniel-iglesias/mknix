@@ -12,6 +12,7 @@
 struct p_struct{
   std::atomic<double>* globalMatrix;
   std::vector<int> *fullMap;
+  double *local_matrices_array;
   int numCells;
   int supportNodeSize;
   int thread_id;
@@ -20,12 +21,19 @@ struct p_struct{
 
 void atomicAssembleGlobalMatrix(std::atomic<double>* globalMatrix,
                                 std::vector<int> &fullMap,
+                                double *local_matrices_array,
                                 int numPoints,
                                 int supportNodeSize,
                                 int tid,
                                 int max_threads);
 
 void* threadWrapper(void* ptr);
+
+double inline atomic_fetch_add(std::atomic<double>* target, double value){
+  double expected = target->load();
+  while(!atomic_compare_exchange_weak(target, &expected, expected + value));
+  return expected;
+}
 
 float inline atomic_fetch_add(std::atomic<float>* target, float value){
   float expected = target->load();

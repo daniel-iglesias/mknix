@@ -5,6 +5,7 @@
 
 void atomicAssembleGlobalMatrix(std::atomic<double>* globalMatrix,
                                 std::vector<int> &fullMap,
+                                double *local_matrices_array,
                                 int numPoints,
                                 int supportNodeSize,
                                 int tid,
@@ -16,12 +17,10 @@ void atomicAssembleGlobalMatrix(std::atomic<double>* globalMatrix,
   int end_Point = ((tid+1)*points_thread < numPoints)? (tid+1)*points_thread:numPoints;
   for(int eachPoint = start_Point; eachPoint < end_Point; eachPoint++){
     for(int i = 0; i < supportNodeSize; i++){//equivalent to obtaining thermalNumber
-       int firstNode = point_nodes[eachPoint * supportNodeSize + i];
        for(int j = 0; j < supportNodeSize; j++){
-	        int secondNode = point_nodes[eachPoint * supportNodeSize + j];
-          int pos_id = eachPoint * supportNodeSize * supportNodeSize + firstNode * supportNodeSize + secondNode;
+          int pos_id = eachPoint * supportNodeSize * supportNodeSize + i * supportNodeSize + j;
+          double value = local_matrices_array[pos_id];
           int globalPos = fullMap[pos_id];
-          //double value = local_matrices[eachPoint * supportNodeSize * + ];//value from local matrix
           atomic_fetch_add(&globalMatrix[globalPos], value);
        }
      }
@@ -33,18 +32,12 @@ void* threadWrapper(void* ptr){
   parameters = (p_struct*) ptr;
   atomicAssembleGlobalMatrix(parameters->globalMatrix,
                              *parameters->fullMap,
+                             parameters->local_matrices_array,
 			                       parameters->numCells,
                              parameters->supportNodeSize,
                              parameters->thread_id,
                              parameters->max_threads);
 }
-//cpu atomics for multithreaded CPU code
-double inline atomic_fetch_add(std::atomic<double>* target, double value){
-  double expected = target->load();
-  while(!atomic_compare_exchange_weak(target, &expected, expected + value));
-  return expected;
-}
-
 
 /*template <typename T>
 void cast_into_lmx_type(lmx::Matrix<data_type>& lmx_matrix,
