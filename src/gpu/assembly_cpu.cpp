@@ -157,22 +157,24 @@ bool map_global_matrix(std::vector<int> &full_map,
                       std::vector<int> &cvec_ptr,
                       int *presence_matrix,
                       int number_rows,
-                      int number_columns)
+                      int number_columns,
+                      bool isCSC)
 {
 
-build_CCS_sparse_matrix_from_map(full_map,
+if(isCCS)
+build_CSC_sparse_matrix_from_map(full_map,
                                 vec_ind,
                                 cvec_ptr,
                                 presence_matrix,
                                 number_rows,
                                 number_columns);
-
-/*build_CRS_sparse_matrix_from_map(full_map,
+else
+build_CSR_sparse_matrix_from_map(full_map,
                                 vec_ind,
                                 cvec_ptr,
                                 presence_matrix,
                                 number_rows,
-                                number_columns);*/
+                                number_columns);
 
 
 return true;
@@ -192,7 +194,7 @@ return true;
  * @param number_columns. Integer with the total number of columns of the matrix. rhs.
  * @return void. lhs
  **/
-bool build_CRS_sparse_matrix_from_map(std::vector<int> &full_map,
+bool build_CSR_sparse_matrix_from_map(std::vector<int> &full_map,
                                                       std::vector<int> &col_ind,
                                                       std::vector<int> &row_ptr,
                                                       int *presence_matrix,
@@ -241,7 +243,7 @@ bool build_CRS_sparse_matrix_from_map(std::vector<int> &full_map,
   * @param number_columns. Integer with the total number of columns of the matrix. rhs.
   * @return void. lhs
   **/
-    bool build_CCS_sparse_matrix_from_map(std::vector<int> &full_map,
+    bool build_CSC_sparse_matrix_from_map(std::vector<int> &full_map,
                                           std::vector<int> &row_ind,
                                           std::vector<int> &col_ptr,
                                           int *presence_matrix,

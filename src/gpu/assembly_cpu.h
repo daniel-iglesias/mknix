@@ -84,16 +84,17 @@ void check_host_array_for_limits(T *array,
                          std::vector<int> &cvec_ptr,
                          int *presence_matrix,
                          int number_rows,
-                         int number_columns);
+                         int number_columns,
+                         bool isCSC = true);//CCS or CSR
 
-  bool build_CCS_sparse_matrix_from_map(std::vector<int> &full_map,
+  bool build_CSC_sparse_matrix_from_map(std::vector<int> &full_map,
                                         std::vector<int> &col_ind,
                                         std::vector<int> &row_ptr,
                                         int *presence_matrix,
                                         int number_rows,
                                         int number_columns);//Compressed Column Storage
 
-  bool build_CRS_sparse_matrix_from_map(int *full_map,
+  bool build_CSR_sparse_matrix_from_map(int *full_map,
                                         int *presence_matrix,
                                         int *col_ind,
                                         int *row_ptr,

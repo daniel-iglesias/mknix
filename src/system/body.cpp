@@ -324,7 +324,8 @@ cudaClock gck1;
  * @return void
  **/
 void Body::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity)
-{ cpuClock cck2;
+{
+    cpuClock cck2;
     cpuTick(&cck2);
     auto end_int = this->cells.size();
 //     #pragma omp parallel for
@@ -345,7 +346,7 @@ void Body::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity
     cpuTock(&cck2b, "CPU assembleConductivityGaussPointsWithMap");
     microCPU2b.push_back(cck2b.elapsedMicroseconds);
 ///////multi-cpu part
-int max_threads = 8;
+int max_threads = 4;
 pthread_t threads[max_threads];
  //p_struct param_array[MAX_THREADS];
  p_struct* param_array = (p_struct*)malloc(max_threads * sizeof(p_struct));
