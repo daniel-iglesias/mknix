@@ -161,7 +161,7 @@ bool map_global_matrix(std::vector<int> &full_map,
                       bool isCSC)
 {
 
-if(isCCS)
+if(isCSC)
 build_CSC_sparse_matrix_from_map(full_map,
                                 vec_ind,
                                 cvec_ptr,

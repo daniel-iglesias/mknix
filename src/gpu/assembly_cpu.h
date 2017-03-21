@@ -92,14 +92,14 @@ void check_host_array_for_limits(T *array,
                                         std::vector<int> &row_ptr,
                                         int *presence_matrix,
                                         int number_rows,
-                                        int number_columns);//Compressed Column Storage
+                                        int number_columns);//Compressed Sparse Column Storage
 
-  bool build_CSR_sparse_matrix_from_map(int *full_map,
+  bool build_CSR_sparse_matrix_from_map(std::vector<int> &full_map,
+                                        std::vector<int> &col_ind,
+                                        std::vector<int> &row_ptr,
                                         int *presence_matrix,
-                                        int *col_ind,
-                                        int *row_ptr,
                                         int number_rows,
-                                        int number_columns);//Compressed Row Storage
+                                        int number_columns);//Compressed Sparse Row Storage
 
 
 #endif //ASSEMBLY_CPU_H
