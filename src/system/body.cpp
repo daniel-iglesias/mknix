@@ -86,8 +86,10 @@ Body::~Body()
     ////////////////////////////////////
   clockFullStats(microCPU1, "AssembleCapacityMatrix");
   clockFullStats(microCPU1b, "AssembleCapacityMatrixWithMap");
+  clockFullStats(microCPU1c, "Multi-CPU AssembleCapacityMatrixWithMap");
   clockFullStats(microCPU2, "AssembleConductivityMatrix");
   clockFullStats(microCPU2b, "AssembleConductivityMatrixWithMap");
+  clockFullStats(microCPU2c, "Multi-CPU AssembleConductivityMatrixWithMap");
 
 #ifdef HAVE_CUDA
     if(_use_gpu){
