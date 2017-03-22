@@ -246,11 +246,13 @@ protected:
     data_type *_d_globalCapacity;
     data_type *_d_globalConductivity;
     data_type *_h_globalCapacity;
+    data_type *_h_globalCapacity2;
     data_type *_h_globalConductivity;
     data_type *_h_globalConductivity2;
     float     *_d_globalCapacityf;
     float     *_d_globalConductivityf;
     float     *_d_localCapacityf;
+    data_type *_h_localCapacityf;
     float     *_d_localConductivityf;
     data_type *_h_localConductivityf;
     int       *_d_capacity_map;
@@ -260,7 +262,8 @@ protected:
     int       _support_node_size;
     int       _sparse_matrix_size;
     //measurement related
-    std::vector<double> microCPU1, microCPU1b, microCPU2, microCPU2b, microCPU3;
+    std::vector<double> microCPU1, microCPU1b, microCPU1c,
+                        microCPU2, microCPU2b, microCPU2c, microCPU3;
     std::vector<double> microGPU1, microGPU2, microGPU3;
     //testing gmm casting
     gmm::csr_matrix<data_type> gmm_sp_globalCapacity;

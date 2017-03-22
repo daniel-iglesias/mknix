@@ -45,21 +45,22 @@ float inline atomic_fetch_add(std::atomic<float>* target, float value){
 
 //namespace AssemblyCPU
 //{
-/*template <typename T>
-void cast_into_lmx_type(lmx::Matrix<data_type>& lmx_matrix,
-                        T *values_array,
-                        std::vector<int> &vec_ind,
-                        std::vector<int> &cvec_ptr,
-                        int number_rows,
-                        int number_columns);*/
 
 template <typename T>
-void cast_into_gmm_type(gmm::csr_matrix<T>& gmm_matrix,
-                        T *values_array,
-                        std::vector<int> &vec_ind,
-                        std::vector<int> &cvec_ptr,
-                        int number_rows,
-                        int number_columns);
+void cast_into_gmm_csc_type(gmm::csc_matrix<T>& gmm_matrix,
+                            T *values_array,
+                            std::vector<int> &vec_ind,
+                            std::vector<int> &cvec_ptr,
+                            int number_rows,
+                            int number_columns);
+                            
+template <typename T>
+void cast_into_gmm_csr_type(gmm::csr_matrix<T>& gmm_matrix,
+                            T *values_array,
+                            std::vector<int> &vec_ind,
+                            std::vector<int> &cvec_ptr,
+                            int number_rows,
+                            int number_columns);
 
 template <typename T>
 void init_host_array_to_value(T *array,

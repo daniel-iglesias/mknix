@@ -50,7 +50,6 @@ void cast_into_lmx_type(lmx::Matrix<data_type>& lmx_matrix,
   lmx_matrix.nrows = number_rows;
   lmx_matrix.ncols = number_columns;
 }*/
-
 /**
  * Cast a directly assembled matrix into GMM compatible sparse matrix
  * @param  {[type]} T* array        array
@@ -58,12 +57,40 @@ void cast_into_lmx_type(lmx::Matrix<data_type>& lmx_matrix,
  * @param  {[type]} int size        number of elements in the array
  */
 template <typename T>
-void cast_into_gmm_type(gmm::csr_matrix<T>& gmm_matrix,
-                        T *values_array,
-                        std::vector<int> &vec_ind,
-                        std::vector<int> &cvec_ptr,
-                        int number_rows,
-                        int number_columns)
+void cast_into_gmm_csc_type(gmm::csc_matrix<T>& gmm_matrix,
+                            T *values_array,
+                            std::vector<int> &vec_ind,
+                            std::vector<int> &cvec_ptr,
+                            int number_rows,
+                            int number_columns)
+{
+  /*T *pr;        // values.
+  IND_TYPE *ir; // col indices.
+  IND_TYPE *jc; // row repartition on pr and ir.
+  size_type nc, nr;
+
+  typedef T value_type;
+  typedef T& access_type;*/
+  gmm_matrix.pr = values_array;
+  gmm_matrix.ir = (uint*)vec_ind.data();
+  gmm_matrix.jc = (uint*)cvec_ptr.data();
+  gmm_matrix.nr = number_rows;
+  gmm_matrix.nr = number_columns;
+
+}
+/**
+ * Cast a directly assembled matrix into GMM compatible sparse matrix
+ * @param  {[type]} T* array        array
+ * @param  {[type]} T  value        initialization value
+ * @param  {[type]} int size        number of elements in the array
+ */
+template <typename T>
+void cast_into_gmm_csr_type(gmm::csr_matrix<T>& gmm_matrix,
+                            T *values_array,
+                            std::vector<int> &vec_ind,
+                            std::vector<int> &cvec_ptr,
+                            int number_rows,
+                            int number_columns)
 {
   /*T *pr;        // values.
   IND_TYPE *ir; // col indices.
@@ -282,19 +309,33 @@ bool build_CSR_sparse_matrix_from_map(std::vector<int> &full_map,
 
     ///////////////////////////////////////////////////////////////////////////
     //////////////// templas parts ///////////////////////////////////////////
-    template void cast_into_gmm_type<float>(gmm::csr_matrix<float>& gmm_matrix,
-                                            float *values_array,
-                                            std::vector<int> &vec_ind,
-                                            std::vector<int> &cvec_ptr,
-                                            int number_rows,
-                                            int number_columns);
+    template void cast_into_gmm_csc_type<float>(gmm::csc_matrix<float>& gmm_matrix,
+                                                float *values_array,
+                                                std::vector<int> &vec_ind,
+                                                std::vector<int> &cvec_ptr,
+                                                int number_rows,
+                                                int number_columns);
     //
-    template void cast_into_gmm_type<double>(gmm::csr_matrix<double>& gmm_matrix,
-                                             double *values_array,
-                                             std::vector<int> &vec_ind,
-                                             std::vector<int> &cvec_ptr,
-                                             int number_rows,
-                                             int number_columns);
+    template void cast_into_gmm_csc_type<double>(gmm::csc_matrix<double>& gmm_matrix,
+                                                 double *values_array,
+                                                 std::vector<int> &vec_ind,
+                                                 std::vector<int> &cvec_ptr,
+                                                 int number_rows,
+                                                 int number_columns);
+    //
+    template void cast_into_gmm_csr_type<float>(gmm::csr_matrix<float>& gmm_matrix,
+                                                float *values_array,
+                                                std::vector<int> &vec_ind,
+                                                std::vector<int> &cvec_ptr,
+                                                int number_rows,
+                                                int number_columns);
+    //
+    template void cast_into_gmm_csr_type<double>(gmm::csr_matrix<double>& gmm_matrix,
+                                                double *values_array,
+                                                std::vector<int> &vec_ind,
+                                                std::vector<int> &cvec_ptr,
+                                                int number_rows,
+                                                int number_columns);
     //
     template void init_host_array_to_value<double>(double *array,
                                                    double value,
