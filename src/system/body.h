@@ -28,12 +28,13 @@
 
 #include <core/cellboundary.h>
 #include <core/node.h>
-
+#include <gpu/assembly_cpu.h>
 #ifdef HAVE_CUDA
 //#include <gpu/cuda_helper.h>
 #include <gpu/assembly_kernels.h>
 #endif
-
+//MULTICPU
+#define MAXTHREADS 4
 
 namespace mknix {
 
@@ -261,6 +262,10 @@ protected:
     int       _number_points;
     int       _support_node_size;
     int       _sparse_matrix_size;
+    //MULTI CPU part
+    pthread_t _threads[MAXTHREADS];
+    p_struct* _param_array_capacity;
+    p_struct* _param_array_conductivity;
     //measurement related
     std::vector<double> microCPU1, microCPU1b, microCPU1c,
                         microCPU2, microCPU2b, microCPU2c, microCPU3;

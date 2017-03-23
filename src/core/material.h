@@ -82,7 +82,7 @@ public:
     { m_capacity[temp_in] = capacity_in; }
     void addThermalConductivity( double temp_in, double conductivity_in)
     { m_kapppa[temp_in] = conductivity_in; }
-    
+
     void computeD();
 
     void computeC();

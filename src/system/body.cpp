@@ -21,7 +21,8 @@
 
 #include <core/cell.h>
 #include <gpu/chTimer.h>
-#include <gpu/assembly_cpu.h>
+
+//#include <gpu/calc_cpu.h>
 #ifdef HAVE_CUDA
 #include <gpu/assembly_kernels.h>
 #include <gpu/cuda_helper.h>
@@ -33,7 +34,6 @@
 //temporary switches
 #define NEWCPU true
 #define MULTICPU true
-#define MAXTHREADS 4
 
 
 namespace mknix {
@@ -184,6 +184,29 @@ void Body::initialize()
   _h_globalConductivity2 = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
   _h_localConductivityf  = (data_type*)malloc(_number_points * _support_node_size * _support_node_size * sizeof(data_type));
   _h_localCapacityf      = (data_type*)malloc(_number_points * _support_node_size * _support_node_size * sizeof(data_type));
+
+  if(MULTICPU){
+    _param_array_capacity     = (p_struct*)malloc(MAXTHREADS * sizeof(p_struct));
+    _param_array_conductivity = (p_struct*)malloc(MAXTHREADS * sizeof(p_struct));
+    for(int i = 0; i < MAXTHREADS; i++){
+        _param_array_capacity[i].globalMatrix = (std::atomic<double>*)_h_globalCapacity2;
+        _param_array_capacity[i].fullMap = &_full_map;
+        _param_array_capacity[i].local_matrices_array = _h_localCapacityf;
+        _param_array_capacity[i].numCells = this->cells.size();
+        _param_array_capacity[i].supportNodeSize = _support_node_size;
+        _param_array_capacity[i].thread_id = i;
+        _param_array_capacity[i].max_threads = MAXTHREADS;
+    }
+    for(int i = 0; i < MAXTHREADS; i++){
+        _param_array_conductivity[i].globalMatrix = (std::atomic<double>*)_h_globalConductivity2;
+        _param_array_conductivity[i].fullMap = &_full_map;
+        _param_array_conductivity[i].local_matrices_array = _h_localConductivityf;
+        _param_array_conductivity[i].numCells = this->cells.size();
+        _param_array_conductivity[i].supportNodeSize = _support_node_size;
+        _param_array_conductivity[i].thread_id = i;
+        _param_array_conductivity[i].max_threads = MAXTHREADS;
+    }
+  }
     //map_vector_thermal_numbers(_locaThermalNumbers);
     //GPU part
   #ifdef HAVE_CUDA
@@ -299,27 +322,13 @@ if(NEWCPU){
 }
 if(MULTICPU){
   ///////multi-cpu part
-  pthread_t threads[MAXTHREADS];
-   //p_struct param_array[MAX_THREADS];
-   p_struct* param_array = (p_struct*)malloc(MAXTHREADS * sizeof(p_struct));
-
-   for(int i = 0; i < MAXTHREADS; i++){
-     param_array[i].globalMatrix = (std::atomic<double>*)_h_globalCapacity2;
-     param_array[i].fullMap = &_full_map;
-     param_array[i].local_matrices_array = _h_localCapacityf;
-     param_array[i].numCells = this->cells.size();
-     param_array[i].supportNodeSize = _support_node_size;
-     param_array[i].thread_id = i;
-     param_array[i].max_threads = MAXTHREADS;
-   }
-
     cpuClock cck1c;
     cpuTick(&cck1c);
    init_host_array_to_value(_h_globalCapacity2, 0.0, _sparse_matrix_size);
    for(int i = 0; i < MAXTHREADS; i++)
-       pthread_create(&threads[i],NULL,threadWrapper,(void*)&(param_array[i]));
+       pthread_create(&_threads[i],NULL,threadWrapper,(void*)&(_param_array_capacity[i]));
    for(int i = 0; i < MAXTHREADS; i++)
-       pthread_join(threads[i],NULL);
+       pthread_join(_threads[i],NULL);
    cpuTock(&cck1c, "MULTI CPU assembleCapacityGaussPointsWithMap");
    microCPU1c.push_back(cck1c.elapsedMicroseconds);
 }
