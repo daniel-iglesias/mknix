@@ -1,9 +1,8 @@
 //compute_cpu.cpp
 
 #include <vector>
-#include "CALC_CPU_H_cpu.h"
-template<typename T>
-
+#include "calc_cpu.h"
+//template<typename T>
 computeCellAverageTemperature()
 
 
