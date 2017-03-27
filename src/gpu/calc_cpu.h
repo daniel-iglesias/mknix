@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include "LMX/lmx.h"
 #include "gmm/gmm_matrix.h"
+#include "functions_cpu.h"
 
 #include <atomic>
 #include <pthread.h>
@@ -30,9 +31,9 @@ void atomicAssembleGlobalMatrix(std::atomic<double>* globalMatrix,
 
 void* threadWrapper(void* ptr);
 
-calculateCapacityMatrix
+void calculateCapacityMatrix();
 
-calculateConductivityMatrix
+void calculateConductivityMatrix();
 
 //templating part
 

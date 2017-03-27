@@ -3,10 +3,10 @@
 #include <vector>
 #include "calc_cpu.h"
 //template<typename T>
-computeCellAverageTemperature()
 
 
-computeLocalCapacityMatrix()
+
+void computeLocalCapacityMatrix()
 {/*
  T avgTemperature = localAverageTemperature[];//precompute avrgae temperature with shape functions
  T avgFactor = localDensity[] * getCapacity(avgTemperature) * localWeight[] * std::abs(localJacobian[]);
@@ -17,7 +17,7 @@ computeLocalCapacityMatrix()
   }*/
 }
 
-computeLocalConductivityMatrix()
+void computeLocalConductivityMatrix()
 {/*
   int max_deriv_index = dim + 1;
   T avgTemperature = localAverageTemperature[];//precompute average temperature with shape functions

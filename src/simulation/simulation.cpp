@@ -305,8 +305,8 @@ void Simulation::run()
 
     for (auto& analysis : analyses) {
         if (analysis->type() == "THERMAL" || analysis->type() == "THERMALSTATIC") {
-          std::cout << "ABout to run this->runThermalAnalysis(analysis.get());"<< std::endl;
-            this->runThermalAnalysis(analysis.get());    
+          std::cout << "About to run this->runThermalAnalysis(analysis.get());"<< std::endl;
+            this->runThermalAnalysis(analysis.get());
         }
         else {
             if (analysis->type() == "STATIC" || analysis->type() == "DYNAMIC") {
