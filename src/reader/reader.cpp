@@ -75,6 +75,10 @@ Reader::~Reader()
 void mknix::Reader::inputFromFile(const std::string& fileIn)
 {
     input.open(fileIn);
+    if(!input.good()){
+      std::cout << "Error! Could not read the file: " << fileIn << std::endl;
+      throw std::runtime_error("Could not read the file: " + fileIn);
+    }
 
     char keyword[100];
 
@@ -971,4 +975,3 @@ void mknix::Reader::readAnalysis()
         }
     }
 }
-
