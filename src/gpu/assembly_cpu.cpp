@@ -3,27 +3,37 @@
 #include <vector>
 #include "assembly_cpu.h"
 
-void computeSOAAverageTemperature()
+void computeSOATemperatureAndFactors(double *local_capacity_factor,
+                                     double *local_conductivity_factor,
+                                     double *local_temperatures_array,
+                                     double *jacobian_array,
+                                     double *weight_array,
+                                     int *material_ids,
+                                     MaterialTable &materials,
+                                     int numPoints,
+                                     int supportNodeSize)
 {
-  for(int eachPoint = start_Point; eachPoint < end_Point; eachPoint++){
+  for(int eachPoint = 0; eachPoint < numPoints; eachPoint++){
     double avgTemp = 0;
     for(int i = 0; i < supportNodeSize; i++){
       //avgTemp += supportNodes[i]->getTemp() * shapeFun->getPhi(0, i);
       int lid = eachPoint * supportNodeSize + i;
       avgTemp += local_temperatures_array[lid] + local_shapeFun_phis[lid];
     }
-    local_average_temperatures[eachPoint] = avgTemp;
-  }
-}
-void computeSOAFactors()
-{
-  for(int eachPoint = start_Point; eachPoint < end_Point; eachPoint++){
-    double avgTemp = local_average_temperatures[eachPoint];
-
-    double avgCapacityFactor = ;
+    int material_id = material_ids[eachPoint];
+    double abs_jacobian = std::abs(jacobian_array[eachPoint]);
+    double weight = weight_array[eachPoint];
+    double density_val = getMaterialDensity (materials,
+                                            material_id);
+    double cap_val = getMaterialCapacity(materials,
+                                        material_id,
+                                        avgTemp);
+    double avgCapacityFactor = density_val * cap_val * weight_array[eachPoint] * weight * abs_jacobian;
     local_capacity_factor[eachPoint] = avgCapacityFactor;
-
-    double avgConductivityFactor = materials_Kappa(avgTemp) * weight_array[eachPoint] * std::abs(jacobian_array[eachPoint]);
+    double kappa_val = getMaterialKappa (materials,
+                                        material_id,
+                                        avgTemp);
+    double avgConductivityFactor = kappa_val * weight * abs_jacobian;
     local_conductivity_factor[eachPoint] = avgConductivityFactor;
   }
 }
