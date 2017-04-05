@@ -74,7 +74,8 @@ Reader::~Reader()
 
 void mknix::Reader::inputFromFile(const std::string& fileIn)
 {
-    input.open(fileIn);
+  std::cout << "Opening " << fileIn << std::endl;
+    input.open(fileIn, std::ifstream::in);
     if(!input.good()){
       std::cout << "Error! Could not read the file: " << fileIn << std::endl;
       throw std::runtime_error("Could not read the file: " + fileIn);

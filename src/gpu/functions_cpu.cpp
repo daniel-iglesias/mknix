@@ -91,8 +91,8 @@ double getMaterialDensity (MaterialTable &materials,
 }
 
 double getMaterialCapacity (MaterialTable &materials,
-                      int material_id,
-                      double average_temperature)
+                            int material_id,
+                            double average_temperature)
 {
   int n_vals =  materials.m_capacity_counters[material_id];
   int init_vals =  materials.m_capacity_inits[material_id];

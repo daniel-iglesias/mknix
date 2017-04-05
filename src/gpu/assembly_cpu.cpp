@@ -3,6 +3,65 @@
 #include <vector>
 #include "assembly_cpu.h"
 
+void computeSOAAverageTemperature()
+{
+  for(int eachPoint = start_Point; eachPoint < end_Point; eachPoint++){
+    double avgTemp = 0;
+    for(int i = 0; i < supportNodeSize; i++){
+      //avgTemp += supportNodes[i]->getTemp() * shapeFun->getPhi(0, i);
+      int lid = eachPoint * supportNodeSize + i;
+      avgTemp += local_temperatures_array[lid] + local_shapeFun_phis[lid];
+    }
+    local_average_temperatures[eachPoint] = avgTemp;
+  }
+}
+void computeSOAFactors()
+{
+  for(int eachPoint = start_Point; eachPoint < end_Point; eachPoint++){
+    double avgTemp = local_average_temperatures[eachPoint];
+
+    double avgCapacityFactor = ;
+    local_capacity_factor[eachPoint] = avgCapacityFactor;
+
+    double avgConductivityFactor = materials_Kappa(avgTemp) * weight_array[eachPoint] * std::abs(jacobian_array[eachPoint]);
+    local_conductivity_factor[eachPoint] = avgConductivityFactor;
+  }
+}
+
+void computeSOACapacityMatrix(double *local_capacity_matrices_array,
+                              int numPoints,
+                              int supportNodeSize,
+                              int tid)
+{
+  for(int eachPoint = start_Point; eachPoint < end_Point; eachPoint++){
+    double avgFactor  = local_capacity_factor[eachPoint];
+    for(int i = 0; i < supportNodeSize; i++){//equivalent to obtaining thermalNumber
+       for(int j = 0; j < supportNodeSize; j++){
+          int out_id = eachPoint * supportNodeSize * supportNodeSize + i * supportNodeSize + j;
+          double value = avgFactor * local_shapeFun_phis[eachPoint * supportNodeSize + i] * local_shapeFun_phis[eachPoint * supportNodeSize + j];
+          local_capacity_matrices_array[out_id] = value;
+       }
+     }
+   }
+}
+
+void computeSOAConductivityMatrix(double *local_capacity_matrices_array,
+                                  int numPoints,
+                                  int supportNodeSize,
+                                  int tid)
+{
+  for(int eachPoint = start_Point; eachPoint < end_Point; eachPoint++){
+    double avgFactor  = local_conductivity_factor[eachPoint];
+    for(int i = 0; i < supportNodeSize; i++){//equivalent to obtaining thermalNumber
+       for(int j = 0; j < supportNodeSize; j++){
+          int out_id = eachPoint * supportNodeSize * supportNodeSize + i * supportNodeSize + j;
+          double value = avgFactor * local_shapeFun_phis[eachPoint * supportNodeSize + i] * local_shapeFun_phis[eachPoint * supportNodeSize + j];
+          local_capacity_matrices_array[out_id] = value;
+       }
+     }
+   }
+}
+
 void atomicAssembleGlobalMatrix(std::atomic<double>* globalMatrix,
                                 std::vector<int> &fullMap,
                                 double *local_matrices_array,

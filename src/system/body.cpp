@@ -232,11 +232,31 @@ void Body::initialize()
  **/
 void Body::calcCapacityMatrix()
 {
+  if(OLD_CODE)
+  {
+      auto end_int = this->cells.size();
+  //#pragma omp parallel for
+      for (auto i = 0u; i < end_int; ++i) {
+          this->cells[i]->computeCapacityGaussPoints();
+      }
+  }
+  if(NEWCPU)
+  {
     auto end_int = this->cells.size();
-//#pragma omp parallel for
-    for (auto i = 0u; i < end_int; ++i) {
-        this->cells[i]->computeCapacityGaussPoints();
-    }
+
+  }
+  //
+  if(MULTICPU)
+  {
+    auto end_int = this->cells.size();
+
+  }
+  //
+  if(_use_gpu)
+  {
+    ;
+  }
+
 }
 
 /**
@@ -263,11 +283,28 @@ void Body::mapConectivityCapacityMatrix()
  **/
 void Body::calcConductivityMatrix()
 {
-    auto end_int = this->cells.size();
-//#pragma omp parallel for
-    for (auto i = 0u; i < end_int; ++i) {
-        this->cells[i]->computeConductivityGaussPoints();
-    }
+   if(OLD_CODE)
+   {
+      auto end_int = this->cells.size();
+  //#pragma omp parallel for
+      for (auto i = 0u; i < end_int; ++i) {
+          this->cells[i]->computeConductivityGaussPoints();
+      }
+  }
+  if(NEWCPU)
+  {
+
+  }
+  //
+  if(MULTICPU)
+  {
+
+  }
+  //
+  if(_use_gpu)
+  {
+
+  }
 }
 
 
