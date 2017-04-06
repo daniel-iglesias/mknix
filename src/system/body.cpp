@@ -34,6 +34,7 @@
 //temporary switches
 #define NEWCPU true
 #define MULTICPU true
+#define OLD_CODE true
 
 
 namespace mknix {
@@ -185,6 +186,14 @@ void Body::initialize()
   _h_localConductivityf  = (data_type*)malloc(_number_points * _support_node_size * _support_node_size * sizeof(data_type));
   _h_localCapacityf      = (data_type*)malloc(_number_points * _support_node_size * _support_node_size * sizeof(data_type));
 
+  _h_local_capacity_factor      = (data_type*)malloc(_number_points * _support_node_size * _support_node_size * sizeof(data_type));
+  _h_local_conductivity_factor  = (data_type*)malloc(_number_points * _support_node_size * _support_node_size * sizeof(data_type));
+  _h_local_temperatures_array   = (data_type*)malloc(_number_points * _support_node_size * sizeof(data_type));
+  _h_local_shapeFun_phis        = (data_type*)malloc(_number_points * _support_node_size * sizeof(data_type));//check this one
+  _h_jacobian_array             = (data_type*)malloc(_number_points * sizeof(data_type));
+  _h_weight_array               = (data_type*)malloc(_number_points * sizeof(data_type));
+
+
   if(MULTICPU){
     _param_array_capacity     = (p_struct*)malloc(MAXTHREADS * sizeof(p_struct));
     _param_array_conductivity = (p_struct*)malloc(MAXTHREADS * sizeof(p_struct));
@@ -219,6 +228,14 @@ void Body::initialize()
        CudaSafeCall(cudaMalloc((void**)&_d_localConductivityf, _number_points * _support_node_size * _support_node_size * sizeof(float)));
        CudaSafeCall(cudaMalloc((void**)&_d_capacity_map, _number_nodes * _number_nodes * sizeof(int)));
        CudaSafeCall(cudaMemcpy(_d_capacity_map, _full_map.data(),_number_nodes * _number_nodes * sizeof(int), cudaMemcpyHostToDevice));
+
+       CudaSafeCall(cudaMalloc((void**)&_d_local_capacity_factor, _number_points * _support_node_size * _support_node_size * sizeof(data_type)));
+       CudaSafeCall(cudaMalloc((void**)&_d_local_conductivity_factor, _number_points * _support_node_size * _support_node_size * sizeof(data_type)));
+       CudaSafeCall(cudaMalloc((void**)&_d_local_temperatures_array, _number_points * _support_node_size * sizeof(data_type)));
+       CudaSafeCall(cudaMalloc((void**)&_d_local_shapeFun_phis, _number_points * _support_node_size * sizeof(data_type)));
+       CudaSafeCall(cudaMalloc((void**)&_d_jacobian_array, _number_points * _support_node_size * sizeof(data_type)));
+       CudaSafeCall(cudaMalloc((void**)&_d_weight_array, _number_points * sizeof(data_type)));
+
        CudaCheckError();
     }
  #endif

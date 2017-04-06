@@ -256,6 +256,21 @@ protected:
     data_type *_h_localCapacityf;
     float     *_d_localConductivityf;
     data_type *_h_localConductivityf;
+
+    data_type *_h_local_capacity_factor;
+    data_type *_h_local_conductivity_factor;
+    data_type *_h_local_temperatures_array;
+    data_type *_h_local_shapeFun_phis;
+    data_type *_h_jacobian_array;
+    data_type *_h_weight_array;
+
+    data_type *_d_local_capacity_factor;
+    data_type *_d_local_conductivity_factor;
+    data_type *_d_local_temperatures_array;
+    data_type *_d_local_shapeFun_phis;
+    data_type *_d_jacobian_array;
+    data_type *_d_weight_array;
+
     int       *_d_capacity_map;
     int       *_h_presence_matrix;
     int       _number_nodes;
