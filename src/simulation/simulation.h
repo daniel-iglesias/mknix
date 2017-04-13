@@ -23,7 +23,8 @@
 #include "LMX/lmx.h"
 #include "common.h"
 
-#include <core/material.h>
+#include "core/material.h"
+#include "gpu/functions_cpu.h"
 
 namespace mknix {
 
@@ -74,9 +75,9 @@ public:
     int getInterfaceNumberOfNodes( std::string );
     Node* getInterfaceNode( std::string, int );
     double getConstraintOutput( std::string constraintName, std::string systemName="", int component=0 );
-    
+
     std::vector<double> getInterfaceNodesCoords();
-    
+
     void setOutputFilesDetail(int level_in) // 0 none, 1 only times, 2 all
     { outputFilesDetail = level_in; }
 
@@ -248,7 +249,7 @@ private:
     std::map<int, Node *> nodes;
     std::map<int, Node *> thermalNodes;
     std::map<int, Material> materials;
-    /**< Map of materials. */
+    MaterialTable *myMaterialTable;//SOA implementation
 
     lmx::ExactStopwatch * globalTimer;
     std::ofstream * timerFile;

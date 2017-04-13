@@ -81,6 +81,8 @@ Body::~Body()
         delete group.second;
     }
     ///////////////////////////////////
+    free(_h_materials);
+    free(_h_shapeFunctionTable);
     free(_h_presence_matrix);
     free(_h_globalCapacity);
     free(_h_globalConductivity);
@@ -91,6 +93,12 @@ Body::~Body()
   clockFullStats(microCPU2, "AssembleConductivityMatrix");
   clockFullStats(microCPU2b, "AssembleConductivityMatrixWithMap");
   clockFullStats(microCPU2c, "Multi-CPU AssembleConductivityMatrixWithMap");
+  clockFullStats(microCPU_old_capacity, "Existing CPU calcCapacityMatrix");
+  clockFullStats(microCPU_single_capacity, "New Single CPU calcCapacityMatrix");
+  clockFullStats(microCPU_old_conductivity, "Existing CPU calcConductivityMatrix");
+  clockFullStats(microCPU_single_conductivity, "New Single CPU calcConductivityMatrix");
+  clockFullStats(microCPU_single_factors, "New Single CPU calcFactors");
+  clockFullStats(microCPU_multi_factors, "New Multi CPU calcFactors");
 
 #ifdef HAVE_CUDA
     if(_use_gpu){
@@ -112,22 +120,26 @@ Body::~Body()
  **/
 void Body::initialize()
 {
+   _h_materials = (MaterialTable*) malloc(1*sizeof(MaterialTable));
+   _h_shapeFunctionTable = (ShapeFunctionTable*) malloc(1*sizeof(ShapeFunctionTable));
     lastNode = nodes.back();
     auto end_int = this->cells.size();
-    _number_points = end_int;
+    _number_points = end_int;//assuming one gausspoint per cell TODO revise this
     //suppossition all nodes have same supportNodesSize
-    _support_node_size = 4;
+    _support_node_size = 4;//TODO MAGIC NUMBER HERE!!!!!!!
     std::cout << "last node " << lastNode << std::endl;
     nodes.insert(nodes.end(), bondedBodyNodes.begin(), bondedBodyNodes.end());
 
-//     #pragma omp parallel for
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->initialize(this->nodes);
     }
 
-//     #pragma omp parallel for
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->computeShapeFunctions();
+    }
+    _h_materials_ids = (int*) malloc( _h_materials->number_materials * sizeof(int));
+    for (int i = 0; i < end_int; ++i) {
+        _h_materials_ids[i] = this->cells[i]->getMaterialId();
     }
 
 //  // Checking the output of a shapefunction:
@@ -157,6 +169,12 @@ void Body::initialize()
             this->nodes[i]->shapeFunSolve("MLS", 1.03);
         }
     }
+ ///
+    init_shape_functions_table( _h_shapeFunctionTable,
+                                3,//number_dimensions,
+                                1,//number_derivatives,
+                                _number_points * _support_node_size);
+
     std::map<std::string, BoundaryGroup *>::iterator it_boundaryGroups;
     for (auto& group : boundaryGroups) {
         group.second->initialize();
@@ -173,11 +191,6 @@ void Body::initialize()
                       _number_nodes,
                       _number_nodes);
     _sparse_matrix_size = _cvec_ptr[_number_nodes];
-    /*check_host_array_for_limits(_full_map.data(),
-                                _sparse_matrix_size - 1,
-                                0,
-                                _sparse_matrix_size,
-                                "_full_map");*/
 
   _h_globalCapacity      = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
   _h_globalCapacity2     = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
@@ -190,8 +203,8 @@ void Body::initialize()
   _h_local_conductivity_factor  = (data_type*)malloc(_number_points * _support_node_size * _support_node_size * sizeof(data_type));
   _h_local_temperatures_array   = (data_type*)malloc(_number_points * _support_node_size * sizeof(data_type));
   _h_local_shapeFun_phis        = (data_type*)malloc(_number_points * _support_node_size * sizeof(data_type));//check this one
-  _h_jacobian_array             = (data_type*)malloc(_number_points * sizeof(data_type));
-  _h_weight_array               = (data_type*)malloc(_number_points * sizeof(data_type));
+  _h_local_jacobian_array             = (data_type*)malloc(_number_points * sizeof(data_type));
+  _h_local_weight_array               = (data_type*)malloc(_number_points * sizeof(data_type));
 
 
   if(MULTICPU){
@@ -222,10 +235,10 @@ void Body::initialize()
     if(_use_gpu){
        //_sparse_matrix_size = _cvec_ptr[_number_nodes];//convention
        std::cout << "sparse matrix has " << _sparse_matrix_size << " elements" << std::endl;
-       CudaSafeCall(cudaMalloc((void**)&_d_globalCapacityf, _sparse_matrix_size * sizeof(float)));
-       CudaSafeCall(cudaMalloc((void**)&_d_globalConductivityf, _sparse_matrix_size * sizeof(float)));
-       CudaSafeCall(cudaMalloc((void**)&_d_localCapacityf, _number_points * _support_node_size * _support_node_size * sizeof(float)));
-       CudaSafeCall(cudaMalloc((void**)&_d_localConductivityf, _number_points * _support_node_size * _support_node_size * sizeof(float)));
+       CudaSafeCall(cudaMalloc((void**)&_d_globalCapacityf, _sparse_matrix_size * sizeof(data_type)));
+       CudaSafeCall(cudaMalloc((void**)&_d_globalConductivityf, _sparse_matrix_size * sizeof(data_type)));
+       CudaSafeCall(cudaMalloc((void**)&_d_localCapacityf, _number_points * _support_node_size * _support_node_size * sizeof(data_type)));
+       CudaSafeCall(cudaMalloc((void**)&_d_localConductivityf, _number_points * _support_node_size * _support_node_size * sizeof(data_type)));
        CudaSafeCall(cudaMalloc((void**)&_d_capacity_map, _number_nodes * _number_nodes * sizeof(int)));
        CudaSafeCall(cudaMemcpy(_d_capacity_map, _full_map.data(),_number_nodes * _number_nodes * sizeof(int), cudaMemcpyHostToDevice));
 
@@ -242,6 +255,58 @@ void Body::initialize()
 
 }
 
+
+void Body::setMaterialTable(MaterialTable* mt_ptr)
+{
+  _h_materials = mt_ptr;
+}
+
+void Body::calcFactors()
+{
+ if(OLD_CODE){
+   //do nothing
+ }
+
+ if(NEWCPU)
+ {
+   cpuClock cck;
+   cpuTick(&cck);
+   int num_points = this->cells.size();
+  computeSOATemperatureAndFactors(_h_local_capacity_factor,//output
+                                  _h_local_conductivity_factor,//output
+                                  _h_local_temperatures_array,
+                                  _h_local_shapeFun_phis,
+                                  _h_local_jacobian_array,
+                                  _h_local_weight_array,
+                                  _h_materials_ids,
+                                  _h_materials,
+                                  num_points,
+                                  _support_node_size);
+    cpuTock(&cck, " New Single CPU calcfactors ");
+    microCPU_single_factors.push_back(cck.elapsedMicroseconds);
+  }
+  if(MULTICPU)
+  {
+    cpuClock cck;
+    cpuTick(&cck);
+    int num_points = this->cells.size();
+   computeSOATemperatureAndFactors(_h_local_capacity_factor,//output
+                                   _h_local_conductivity_factor,//output
+                                   _h_local_temperatures_array,
+                                   _h_local_shapeFun_phis,
+                                   _h_local_jacobian_array,
+                                   _h_local_weight_array,
+                                   _h_materials_ids,
+                                   _h_materials,
+                                   num_points,
+                                   _support_node_size);
+     cpuTock(&cck, " New Multi CPU calcfactors ");
+     microCPU_multi_factors.push_back(cck.elapsedMicroseconds);
+   }
+
+
+}
+
 /**
  * @brief Computes the local Capacity of the material body by calling each cell's cascade function.
  *
@@ -251,27 +316,45 @@ void Body::calcCapacityMatrix()
 {
   if(OLD_CODE)
   {
+    cpuClock cck1;
+    cpuTick(&cck1);
       auto end_int = this->cells.size();
   //#pragma omp parallel for
       for (auto i = 0u; i < end_int; ++i) {
           this->cells[i]->computeCapacityGaussPoints();
       }
+      cpuTock(&cck1, "Existing CPU calcCapacityMatrix ");
+      microCPU_old_capacity.push_back(cck1.elapsedMicroseconds);
   }
   if(NEWCPU)
   {
-    auto end_int = this->cells.size();
-
+    cpuClock cck;
+    cpuTick(&cck);
+    int number_points = this->cells.size();
+    computeSOACapacityMatrix(_h_localCapacityf,
+                             _h_local_capacity_factor,
+                             _h_local_shapeFun_phis,
+                             number_points,
+                             _support_node_size,
+                            0);
+    cpuTock(&cck, " New Single CPU calcCapacityMatrix ");
+    microCPU_single_capacity.push_back(cck.elapsedMicroseconds);
   }
   //
   if(MULTICPU)
   {
+    cpuClock cck;
+    cpuTick(&cck);
     auto end_int = this->cells.size();
+
+    cpuTock(&cck, " New Multi CPU calcCapacityMatrix ");
+    microCPU_multi_capacity.push_back(cck.elapsedMicroseconds);
 
   }
   //
   if(_use_gpu)
   {
-    ;
+
   }
 
 }
@@ -302,15 +385,29 @@ void Body::calcConductivityMatrix()
 {
    if(OLD_CODE)
    {
+     cpuClock cck1;
+     cpuTick(&cck1);
       auto end_int = this->cells.size();
   //#pragma omp parallel for
       for (auto i = 0u; i < end_int; ++i) {
           this->cells[i]->computeConductivityGaussPoints();
       }
+      cpuTock(&cck1, "Existing CPU calcConductivityMatrix ");
+      microCPU_old_conductivity.push_back(cck1.elapsedMicroseconds);
   }
   if(NEWCPU)
   {
-
+    cpuClock cck;
+    cpuTick(&cck);
+    int number_points = this->cells.size();
+    computeSOAConductivityMatrix(_h_localConductivityf,
+                             _h_local_conductivity_factor,
+                             _h_local_shapeFun_phis,
+                             number_points,
+                             _support_node_size,
+                            0);
+    cpuTock(&cck, " New Single CPU calcConductivityMatrix ");
+    microCPU_single_conductivity.push_back(cck.elapsedMicroseconds);
   }
   //
   if(MULTICPU)

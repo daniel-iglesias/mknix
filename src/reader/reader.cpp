@@ -151,6 +151,7 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
 
                     theSimulation->materials.at(num_mat).setMechanicalProps(Simulation::dimension, young, poisson,
                                                                             density);
+                    theSimulation->materials.at(num_mat).setMaterialId(num_mat);
                     output << "MATERIAL: " << keyword
                     << ", number = " << num_mat << ",\n\t E = " << young
                     << ", mu = " << poisson << ", density = " << density << std::endl;
@@ -170,6 +171,9 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
 // 		      theSimulation->materials.insert(std::pair<int,Material>( num_mat, Material() ) );
 
                     theSimulation->materials.at(num_mat).setThermalProps(capacity, kappa, beta, density);
+                    theSimulation->materials.at(num_mat).setMaterialId(num_mat);
+                    //std::cout << "Material " << num_mat << " set" << std::endl; 
+
                     output << "MATERIAL: " << keyword
                     << ", number = " << num_mat << ",\n\t Cp = " << capacity
                     << ", kappa = " << kappa << ", density = " << density << std::endl;
@@ -227,6 +231,10 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
                     }
                 }
             }
+            //
+          theSimulation->myMaterialTable= (MaterialTable*)malloc(1*sizeof(MaterialTable));
+          setupMaterialTables(&theSimulation->myMaterialTable,theSimulation->materials);
+            //
         }
         else if (!strcmp(keyword, "CONTACT")) {
             std::string type;

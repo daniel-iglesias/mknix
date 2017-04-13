@@ -144,6 +144,8 @@ lmx::Vector<data_type> Simulation::initThermalSimulation(Analysis * theAnalysis_
     globalExternalHeat.resize(gdlSize);
     globalInternalHeat.resize(gdlSize);
 
+    baseSystem->setMaterialTable(myMaterialTable);//setting soa structture
+    baseSystem->calcFactors();//SOA for speedup
     baseSystem->calcConductivityMatrix();
     baseSystem->assembleConductivityMatrix(globalConductivity);
     baseSystem->calcCapacityMatrix();
@@ -396,6 +398,7 @@ void Simulation::runMechanicalAnalysis(Analysis * theAnalysis_in)
         globalExternalHeat.resize(thermalSize);
         globalInternalHeat.resize(thermalSize);
 
+        baseSystem->calcFactors();
         baseSystem->calcConductivityMatrix();
         baseSystem->assembleConductivityMatrix(globalConductivity);
         baseSystem->calcCapacityMatrix();
@@ -495,6 +498,7 @@ void Simulation::staticThermalResidue(lmx::Vector<data_type>& residue,
     globalExternalHeat.reset();
     globalInternalHeat.reset();
 
+    baseSystem->calcFactors();
     baseSystem->calcConductivityMatrix();
     baseSystem->calcExternalHeat();
     baseSystem->calcInternalHeat();
@@ -586,11 +590,12 @@ void Simulation::dynamicThermalEvaluation(const lmx::Vector<data_type>& qt,
                                           double time
 )
 {
-    globalCapacity.reset();
+    globalCapacity.reset();//TODO remove in new SOA versions
     globalConductivity.reset();
     globalExternalHeat.reset();
     globalInternalHeat.reset();
 
+    baseSystem->calcFactors();
     baseSystem->calcConductivityMatrix();
     baseSystem->calcCapacityMatrix();
     baseSystem->calcExternalHeat();
@@ -628,6 +633,7 @@ void Simulation::dynamicThermalResidue(lmx::Vector<data_type>& residue,
     globalExternalHeat.reset();
     globalInternalHeat.reset();
 
+    baseSystem->calcFactors();
     baseSystem->calcConductivityMatrix();
     baseSystem->calcCapacityMatrix();
     baseSystem->calcExternalHeat();

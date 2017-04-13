@@ -10,7 +10,7 @@ void computeSOATemperatureAndFactors(double *local_capacity_factor,//output
                                      double *jacobian_array,
                                      double *weight_array,
                                      int *material_ids,
-                                     MaterialTable &materials,
+                                     MaterialTable *materials,
                                      int numPoints,
                                      int supportNodeSize)
 {

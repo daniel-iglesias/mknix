@@ -38,6 +38,8 @@ Cell::~Cell()
     */
 }
 
+int Cell::getMaterialId(){return mat->getMaterialId();}
+
 bool Cell::setMaterialIfLayer(Material& newMat, double thickness)
 {
     bool changed(0);

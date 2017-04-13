@@ -27,6 +27,7 @@
 #include "load.h"
 #include "loadthermal.h"
 #include "motion.h"
+//#include "gpu/functions_cpu.h"
 
 namespace mknix {
 
@@ -163,6 +164,27 @@ void System::writeJoints(std::ofstream * outFile)
 
 } // Namespace mknix
 
+void mknix::System::setMaterialTable(MaterialTable* mt_ptr)
+{
+  for (auto& body : thermalBodies) {
+      body.second->setMaterialTable(mt_ptr);
+  }
+
+  for (auto& system : subSystems) {
+      system.second->setMaterialTable(mt_ptr);
+  }
+}
+
+void mknix::System::calcFactors()
+{
+  for (auto& body : thermalBodies) {
+      body.second->calcFactors();
+  }
+
+  for (auto& system : subSystems) {
+      system.second->calcFactors();
+  }
+}
 
 void mknix::System::calcCapacityMatrix()
 {
@@ -555,7 +577,7 @@ bool mknix::System::checkAugmented()
             convergence = 0;
         }
     }
-    
+
     for (auto& system : subSystems) {
         if (!system.second->checkAugmented()) {
             convergence = 0;

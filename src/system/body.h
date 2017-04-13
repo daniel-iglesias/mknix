@@ -29,9 +29,11 @@
 #include <core/cellboundary.h>
 #include <core/node.h>
 #include <gpu/assembly_cpu.h>
+#include "gpu/functions_cpu.h"
 #ifdef HAVE_CUDA
 //#include <gpu/cuda_helper.h>
 #include <gpu/assembly_kernels.h>
+
 #endif
 //MULTICPU
 #define MAXTHREADS 4
@@ -64,6 +66,10 @@ public:
     virtual std::string getType() = 0;
 
     virtual void initialize();
+
+    virtual void setMaterialTable(MaterialTable* mt_ptr);
+
+    virtual void calcFactors();
 
     virtual void calcCapacityMatrix();
 
@@ -218,6 +224,10 @@ public:
         loadThermalBody = theLoad;
     }
 
+    virtual MaterialTable* getMaterialTablePointer(){
+      return this->_h_materials;
+    }
+
 
 protected:
     std::string title;
@@ -250,26 +260,30 @@ protected:
     data_type *_h_globalCapacity2;
     data_type *_h_globalConductivity;
     data_type *_h_globalConductivity2;
-    float     *_d_globalCapacityf;
-    float     *_d_globalConductivityf;
-    float     *_d_localCapacityf;
+    data_type *_d_globalCapacityf;
+    data_type *_d_globalConductivityf;
+    data_type *_d_localCapacityf;
     data_type *_h_localCapacityf;
-    float     *_d_localConductivityf;
+    data_type *_d_localConductivityf;
     data_type *_h_localConductivityf;
 
     data_type *_h_local_capacity_factor;
     data_type *_h_local_conductivity_factor;
     data_type *_h_local_temperatures_array;
     data_type *_h_local_shapeFun_phis;
-    data_type *_h_jacobian_array;
-    data_type *_h_weight_array;
+    data_type *_h_local_jacobian_array;
+    data_type *_h_local_weight_array;
 
     data_type *_d_local_capacity_factor;
     data_type *_d_local_conductivity_factor;
     data_type *_d_local_temperatures_array;
     data_type *_d_local_shapeFun_phis;
-    data_type *_d_jacobian_array;
-    data_type *_d_weight_array;
+    data_type *_d_local_jacobian_array;
+    data_type *_d_local_weight_array;
+
+    MaterialTable *_h_materials;
+    int *_h_materials_ids;
+    ShapeFunctionTable *_h_shapeFunctionTable;
 
     int       *_d_capacity_map;
     int       *_h_presence_matrix;
@@ -285,6 +299,10 @@ protected:
     std::vector<double> microCPU1, microCPU1b, microCPU1c,
                         microCPU2, microCPU2b, microCPU2c, microCPU3;
     std::vector<double> microGPU1, microGPU2, microGPU3;
+    std::vector<double> microCPU_old_capacity, microCPU_single_capacity, microCPU_multi_capacity;
+    std::vector<double> microCPU_old_conductivity, microCPU_single_conductivity, microCPU_multi_conductivity;
+    std::vector<double> microCPU_single_factors, microCPU_multi_factors;
+    std::vector<double> microGPU_capacity, microGPU_conductivity, microGPU_factors;
     //testing gmm casting
     gmm::csr_matrix<data_type> gmm_sp_globalCapacity;
 

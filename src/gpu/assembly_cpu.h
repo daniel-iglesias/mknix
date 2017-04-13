@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "LMX/lmx.h"
 #include "gmm/gmm_matrix.h"
+#include "functions_cpu.h"
 
 #include <atomic>
 #include <pthread.h>
@@ -18,6 +19,31 @@ struct p_struct{
   int thread_id;
   int max_threads;
 };
+//
+void computeSOATemperatureAndFactors(double *local_capacity_factor,//output
+                                     double *local_conductivity_factor,//output
+                                     double *local_temperatures_array,
+                                     double *local_shapeFun_phis,
+                                     double *jacobian_array,
+                                     double *weight_array,
+                                     int *material_ids,
+                                     MaterialTable *materials,
+                                     int numPoints,
+                                     int supportNodeSize);
+//
+void computeSOACapacityMatrix(double *local_capacity_matrices_array,
+                              double *local_capacity_factor,
+                              double *local_shapeFun_phis,
+                              int numPoints,
+                              int supportNodeSize,
+                              int tid);
+//
+void computeSOAConductivityMatrix(double *local_conductivity_matrices_array,
+                                  double *local_conductivity_factor,
+                                  double *local_shapeFun_phis,
+                                  int numPoints,
+                                  int supportNodeSize,
+                                  int tid);
 
 void atomicAssembleGlobalMatrix(std::atomic<double>* globalMatrix,
                                 std::vector<int> &fullMap,
@@ -53,7 +79,7 @@ void cast_into_gmm_csc_type(gmm::csc_matrix<T>& gmm_matrix,
                             std::vector<int> &cvec_ptr,
                             int number_rows,
                             int number_columns);
-                            
+
 template <typename T>
 void cast_into_gmm_csr_type(gmm::csr_matrix<T>& gmm_matrix,
                             T *values_array,

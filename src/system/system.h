@@ -24,6 +24,8 @@
 #include <string>
 #include "LMX/lmx.h"
 #include "common.h"
+#include "core/material.h"
+#include "gpu/functions_cpu.h"
 
 namespace mknix {
 
@@ -65,16 +67,16 @@ public:
 
     int getNumberOfNodes()
     { return groundNodes.size(); }
-    
+
     Node* getNode( int index)
     { return groundNodes[index]; }
-    
+
     System* getSystem( std::string sysName )
     { return subSystems.at(sysName); }
-    
+
     ConstraintThermal* getConstraintThermal( std::string constraintName )
     { return constraintsThermal.at(constraintName); }
-    
+
     void getThermalNodes( std::vector<double>& );
 
     void getOutputSignalThermal(double* );
@@ -82,7 +84,7 @@ public:
     void updateThermalLoads( double* );
 
     virtual void update( double );
-    
+
     void initFlexBodies();
 
     void writeRigidBodies( std::ofstream* );
@@ -90,7 +92,11 @@ public:
     void writeFlexBodies( std::ofstream* );
 
     void writeJoints( std::ofstream* );
-  
+
+    void setMaterialTable(MaterialTable* mt_ptr);
+
+    void calcFactors();
+
     void calcCapacityMatrix( );
 
     void calcConductivityMatrix( );
@@ -144,6 +150,8 @@ public:
     void writeBoundaryNodes( std::vector<Point*>& );
 
     void writeBoundaryConnectivity( std::vector< std::vector<Point*> >& );
+
+    void setupMaterialTables(std::map<int, Material> &materials);
 
 protected:
     std::string title;

@@ -1,29 +1,27 @@
 #ifndef FUNCTIONS_CPU_H
 #define FUNCTIONS_CPU_H
 
+#include "core/material.h"
+
 double computeCellAverageTemperature();
 
-class ShapeFunctionTable{
-public:
+struct ShapeFunctionTable{
   int dim;
-  double *phis; // i derivative odrer, j node
-  int number_points;
-  int* gp_ids;
+  double *phis; // i derivative order, j node
+  int number_nodes;
+  int number_derivatives;
 };
 
 double getPhi_from_table(ShapeFunctionTable &shapeFunctionTable,
-                         int gp_id,
                          int derivative_order,
                          int node_id);
 
 void setPhi_into_table(double phiValue,
                        ShapeFunctionTable &shapeFunctionTable,
-                       int gp_id,
                        int derivative_order,
                        int node_id);
 
-class CellTable{
-public:
+struct CellTable{
   int number_cells;
   int *material_id;
 
@@ -41,36 +39,45 @@ public:
   double *dcs;
 };
 
+
 //class MaterialTable
-class MaterialTable{
-public:
+struct MaterialTable{
   int number_materials;
   double *capacity;
   double *kappa;
   double *beta;
   double *density;
-  double *m_capacity_temps;
-  double *m_capacity_values;
-  int *m_capacity_counters;
-  int *m_capacity_inits;
-  double *m_kappa_temps;
-  double *m_kappa_values;
-  int *m_kappa_counters;
-  int *m_kappa_inits;
+  double *_capacity_temps;
+  double *_capacity_values;
+  int *_capacity_counters;
+  int *_capacity_inits;
+  double *_kappa_temps;
+  double *_kappa_values;
+  int *_kappa_counters;
+  int *_kappa_inits;
 };
+//shapefunctions functions_cpuvoid
+void init_shape_functions_table(ShapeFunctionTable *shapeFunctionTable,
+                                int number_dimensions,
+                                int number_derivatives,
+                                int number_nodes);
+
 
 //Material functions
 void addMaterialToTable();
 
-double getMaterialKappa (MaterialTable &materials,
+double getMaterialKappa (MaterialTable *materials,
                          int material_id,
                          double average_temperature);
 
-double getMaterialDensity (MaterialTable &materials,
+double getMaterialDensity (MaterialTable *materials,
                           int material_id);
 
-double getMaterialCapacity (MaterialTable &materials,
+double getMaterialCapacity (MaterialTable *materials,
                             int material_id,
                             double average_temperature);
+//
+void setupMaterialTables(MaterialTable **mt,
+                        std::map<int, mknix::Material> &materials);
 
 #endif //FUNCTIONS_CPU_H

@@ -24,6 +24,7 @@
 // #include <gmm/gmm_solver_idgmres.h>
 #include "common.h"
 
+
 namespace mknix {
 
 /**
@@ -31,6 +32,7 @@ namespace mknix {
  */
 class Material {
 private:
+    int material_index; //for SOA structures
     int dim; /**< Dimension of space */
     double capacity; /**< Thermal specific capacity */
     double kappa; /**< Thermal conductivity */
@@ -94,6 +96,17 @@ public:
 
     double computeEnergy( const cofe::TensorRank2<2,double>& S );
     double computeEnergy( const cofe::TensorRank2<3,double>& S );
+//SOA structures---////////// TODO clean up find better way
+    int getMaterialId(){ return material_index;}
+    void setMaterialId(int num_at){ material_index = num_at;}
+    double retKappa()const{return kappa;}
+    double retCapacity()const{return capacity;}
+    double retDensity()const{return density;}
+    double retBeta()const{return beta;}
+    int retCapacityMapSize()const{return m_capacity.size();}
+    int retKappaMapSize()const{return m_kapppa.size();}
+    const std::map<double, double>* retCapacityMap()const{return (const std::map<double, double>*) &m_capacity;}
+    const std::map<double, double>* retKappaMap()const{return (const std::map<double, double>*) &m_kapppa;}
 
 private:
     double Cijkl( int& i, int& j, int& k, int& l );

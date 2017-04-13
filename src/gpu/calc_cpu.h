@@ -29,11 +29,11 @@ void atomicAssembleGlobalMatrix(std::atomic<double>* globalMatrix,
                                 int tid,
                                 int max_threads);*/
 
-void* threadWrapper(void* ptr);
+/*void* threadWrapper(void* ptr);
 
 void calculateCapacityMatrix();
 
-void calculateConductivityMatrix();
+void calculateConductivityMatrix();*/
 
 //templating part
 

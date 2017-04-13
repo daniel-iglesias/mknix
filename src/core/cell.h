@@ -60,6 +60,8 @@ public:
 
     virtual ~Cell();
 
+    int getMaterialId();
+
     bool setMaterialIfLayer( Material&, double );
 
     virtual void initialize( std::vector<Node*> & );
