@@ -100,6 +100,10 @@ public:
 
     void assembleQext( lmx::Vector<data_type> & );
 
+    double  getNodePhi(int deriv, int node);
+
+    double  getWeight();
+
     virtual void assembleMij( lmx::Matrix<data_type> & )=0;
 
     virtual void assembleKij( lmx::Matrix<data_type> & )=0;

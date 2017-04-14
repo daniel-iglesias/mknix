@@ -286,6 +286,16 @@ void GaussPoint::assembleQext(lmx::Vector<data_type>& globalHeat)
     }
 }
 
+double  GaussPoint::getNodePhi(int deriv, int node)
+{//for SOA purpouses
+  return shapeFun->getPhi(deriv, node);
+}
+
+double  GaussPoint::getWeight()
+{//for SOA purpouses
+  return weight;
+}
+
 /*void GaussPoint::mapThermalNumber(std::vector<int> &_locaThermalNumbers m)
 {
     for (auto i = 0u; i < supportNodesSize; ++i) {

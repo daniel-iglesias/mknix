@@ -62,6 +62,12 @@ public:
 
     int getMaterialId();
 
+    double getNodePhi(int gp, int deriv, int node);
+
+    double getWeight(int gp);
+
+    double getJacobian();
+
     bool setMaterialIfLayer( Material&, double );
 
     virtual void initialize( std::vector<Node*> & );

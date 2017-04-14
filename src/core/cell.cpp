@@ -40,6 +40,21 @@ Cell::~Cell()
 
 int Cell::getMaterialId(){return mat->getMaterialId();}
 
+double Cell::getNodePhi(int gp, int deriv, int node)
+{
+  return gPoints[gp]->getNodePhi(deriv, node);
+}
+
+double Cell::getWeight(int gp)
+{
+  return gPoints[gp]->getWeight();
+}
+
+double Cell::getJacobian()
+{
+  return jacobian;
+}
+
 bool Cell::setMaterialIfLayer(Material& newMat, double thickness)
 {
     bool changed(0);

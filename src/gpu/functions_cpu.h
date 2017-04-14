@@ -6,22 +6,26 @@
 double computeCellAverageTemperature();
 
 struct ShapeFunctionTable{
-  int dim;
   double *phis; // i derivative order, j node
-  int number_nodes;
-  int number_derivatives;
+  int support_node_size;
+  int number_points;
 };
 
-double getPhi_from_table(ShapeFunctionTable &shapeFunctionTable,
-                         int derivative_order,
-                         int node_id);
+double getPhi_from_table(ShapeFunctionTable *shapeFunctionTable,
+                         int point_id,
+                         int local_node_id);
 
 void setPhi_into_table(double phiValue,
-                       ShapeFunctionTable &shapeFunctionTable,
-                       int derivative_order,
-                       int node_id);
+                       ShapeFunctionTable *shapeFunctionTable,
+                       int point_id,
+                       int local_node_id);
 
-struct CellTable{
+//shapefunctions functions_cpuvoid
+void init_shape_functions_table(ShapeFunctionTable **shapeFunctionTable,
+                                int support_node_size,
+                                int number_points);
+
+/*struct CellTable{
   int number_cells;
   int *material_id;
 
@@ -29,15 +33,9 @@ struct CellTable{
   int *gaussPoints_count;
   int *gaussPoint_init;
   int *gaussPoints_ids;
-  /*int *gaussPoints_MC_count;
-  int *gaussPoint_MC_init;
-  int *gaussPoints_MC_ids;*/
   double *jacobians;
-  /*int *bodyPoints_count;
-  int *bodyPoint_init;
-  int *bodyPoints_ids;*/
   double *dcs;
-};
+};*/
 
 
 //class MaterialTable
@@ -56,11 +54,6 @@ struct MaterialTable{
   int *_kappa_counters;
   int *_kappa_inits;
 };
-//shapefunctions functions_cpuvoid
-void init_shape_functions_table(ShapeFunctionTable *shapeFunctionTable,
-                                int number_dimensions,
-                                int number_derivatives,
-                                int number_nodes);
 
 
 //Material functions

@@ -170,15 +170,27 @@ void Body::initialize()
         }
     }
  ///
-    init_shape_functions_table( _h_shapeFunctionTable,
-                                3,//number_dimensions,
-                                1,//number_derivatives,
-                                _number_points * _support_node_size);
+    init_shape_functions_table(&_h_shapeFunctionTable,
+                               _support_node_size,
+                               _number_points);
+
+    for(int eachpoint = 0; eachpoint < this->cells.size(); eachpoint++){
+      for(int lnode = 0; lnode < _support_node_size ; lnode++){
+          _h_shapeFunctionTable->phis[eachpoint * _support_node_size + lnode] = this->cells[eachpoint]->getNodePhi(0,0,lnode);
+      }
+    }
+    _h_local_jacobian_array = (data_type*)malloc(this->cells.size() * sizeof(data_type));
+    _h_local_weight_array = (data_type*)malloc(this->cells.size() * sizeof(data_type));
+    for(int eachpoint = 0; eachpoint < this->cells.size(); eachpoint++){
+      _h_local_jacobian_array[eachpoint] = this->cells[eachpoint]->getJacobian();
+      _h_local_weight_array[eachpoint] = this->cells[eachpoint]->getWeight(0);
+    }
 
     std::map<std::string, BoundaryGroup *>::iterator it_boundaryGroups;
     for (auto& group : boundaryGroups) {
         group.second->initialize();
     }
+
 
     _h_presence_matrix = (int*) malloc(_number_nodes * _number_nodes * sizeof(int));
     _locaThermalNumbers.resize(_number_points * _support_node_size );
@@ -303,8 +315,6 @@ void Body::calcFactors()
      cpuTock(&cck, " New Multi CPU calcfactors ");
      microCPU_multi_factors.push_back(cck.elapsedMicroseconds);
    }
-
-
 }
 
 /**
@@ -345,8 +355,14 @@ void Body::calcCapacityMatrix()
   {
     cpuClock cck;
     cpuTick(&cck);
-    auto end_int = this->cells.size();
-
+    auto number_points = this->cells.size();
+    //todo add pthreads wrapper
+    computeSOACapacityMatrix(_h_localCapacityf,
+                             _h_local_capacity_factor,
+                             _h_local_shapeFun_phis,
+                             number_points,
+                             _support_node_size,
+                            0);
     cpuTock(&cck, " New Multi CPU calcCapacityMatrix ");
     microCPU_multi_capacity.push_back(cck.elapsedMicroseconds);
 
@@ -412,7 +428,18 @@ void Body::calcConductivityMatrix()
   //
   if(MULTICPU)
   {
-
+    cpuClock cck;
+    cpuTick(&cck);
+    int number_points = this->cells.size();
+    //todo hadd pthreads wrapper
+    computeSOAConductivityMatrix(_h_localConductivityf,
+                             _h_local_conductivity_factor,
+                             _h_local_shapeFun_phis,
+                             number_points,
+                             _support_node_size,
+                            0);
+    cpuTock(&cck, " New Single CPU calcConductivityMatrix ");
+    microCPU_multi_conductivity.push_back(cck.elapsedMicroseconds);
   }
   //
   if(_use_gpu)

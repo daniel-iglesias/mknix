@@ -9,33 +9,29 @@ double computeCellAverageTemperature(){
 }
 //node_id or point_id is going to be always cell_id * supportNode_size + point_in_cell that way is all coalescent access
 double getPhi_from_table(ShapeFunctionTable *shapeFunctionTable,
-                         int derivative_order,
-                         int node_id)
+                         int point_id,
+                         int local_node_id)
 {
-  int ndim = shapeFunctionTable->dim;
-  int num_nodes = shapeFunctionTable->number_nodes;
-  return shapeFunctionTable->phis[node_id * (ndim * num_nodes) + derivative_order];
+  int support_node_size = shapeFunctionTable->support_node_size;
+  return shapeFunctionTable->phis[point_id * support_node_size + local_node_id];
 }
 
 void setPhi_into_table(double phiValue,
                        ShapeFunctionTable *shapeFunctionTable,
-                       int derivative_order,
-                       int node_id)
+                       int point_id,
+                       int local_node_id)
 {
-  int ndim = shapeFunctionTable->dim;
-  int num_nodes = shapeFunctionTable->number_nodes;
-  shapeFunctionTable->phis[node_id * (ndim * num_nodes) + derivative_order] = phiValue;
+  int support_node_size = shapeFunctionTable->support_node_size;
+  shapeFunctionTable->phis[point_id * support_node_size + local_node_id] = phiValue;
 }
 
-void init_shape_functions_table(ShapeFunctionTable *shapeFunctionTable,
-                                int number_dimensions,
-                                int number_derivatives,
-                                int number_nodes)
+void init_shape_functions_table(ShapeFunctionTable **shapeFunctionTable,
+                                int support_node_size,
+                                int number_points)
 {
-  shapeFunctionTable->dim = number_dimensions;
-  shapeFunctionTable->number_nodes = number_nodes;
-  shapeFunctionTable->number_derivatives = number_derivatives;
-  shapeFunctionTable->phis = (double*) malloc(number_dimensions * number_nodes * number_derivatives * sizeof(double));
+  (*shapeFunctionTable)->support_node_size = support_node_size;
+  (*shapeFunctionTable)->number_points = number_points;
+  (*shapeFunctionTable)->phis = (double*) malloc(number_points * support_node_size *  sizeof(double));
 }
 
 double interpolate1D(double query_value,
