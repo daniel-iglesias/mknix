@@ -34,6 +34,11 @@ void init_shape_functions_table(ShapeFunctionTable **shapeFunctionTable,
   (*shapeFunctionTable)->phis = (double*) malloc(number_points * support_node_size *  sizeof(double));
 }
 
+void free_shape_functions_table(ShapeFunctionTable **shapeFunctionTable)
+{
+  free((*shapeFunctionTable)->phis);
+}
+
 double interpolate1D(double query_value,
                     double *reference_values,
                     double *sought_values,
@@ -169,5 +174,19 @@ void setupMaterialTables(MaterialTable **mt,
       }
       i++;
     }
-
+}
+void freeMaterialTableMemory(MaterialTable **mt)
+{
+  free((*mt)->capacity);
+  free((*mt)->kappa);
+  free((*mt)->beta);
+  free((*mt)->density);
+  free((*mt)->_capacity_counters);
+  free((*mt)->_capacity_inits);
+  free((*mt)->_kappa_counters);
+  free((*mt)->_kappa_inits);
+  free((*mt)->_capacity_temps);
+  free((*mt)->_capacity_values);
+  free((*mt)->_kappa_temps);
+  free((*mt)->_kappa_values);
 }

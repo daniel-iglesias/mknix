@@ -24,19 +24,8 @@ void setPhi_into_table(double phiValue,
 void init_shape_functions_table(ShapeFunctionTable **shapeFunctionTable,
                                 int support_node_size,
                                 int number_points);
-
-/*struct CellTable{
-  int number_cells;
-  int *material_id;
-
-  double *alphas;
-  int *gaussPoints_count;
-  int *gaussPoint_init;
-  int *gaussPoints_ids;
-  double *jacobians;
-  double *dcs;
-};*/
-
+//
+void free_shape_functions_table(ShapeFunctionTable **shapeFunctionTable);
 
 //class MaterialTable
 struct MaterialTable{
@@ -72,5 +61,17 @@ double getMaterialCapacity (MaterialTable *materials,
 //
 void setupMaterialTables(MaterialTable **mt,
                         std::map<int, mknix::Material> &materials);
-
+//
+void freeMaterialTableMemory(MaterialTable **mt);
+//
+/*struct CellTable{
+  int number_cells;
+  int *material_id;
+  double *alphas;
+  int *gaussPoints_count;
+  int *gaussPoint_init;
+  int *gaussPoints_ids;
+  double *jacobians;
+  double *dcs;
+};*/
 #endif //FUNCTIONS_CPU_H

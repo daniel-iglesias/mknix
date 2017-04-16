@@ -81,11 +81,15 @@ Body::~Body()
         delete group.second;
     }
     ///////////////////////////////////
+    freeMaterialTableMemory(&_h_materials);
     free(_h_materials);
+    free_shape_functions_table(&_h_shapeFunctionTable);
     free(_h_shapeFunctionTable);
     free(_h_presence_matrix);
     free(_h_globalCapacity);
     free(_h_globalConductivity);
+    free(_h_local_jacobian_array);
+    free(_h_local_weight_array);
     ////////////////////////////////////
   clockFullStats(microCPU1, "AssembleCapacityMatrix");
   clockFullStats(microCPU1b, "AssembleCapacityMatrixWithMap");
@@ -120,6 +124,7 @@ Body::~Body()
  **/
 void Body::initialize()
 {
+  std::cout << "Initializing body "<< std::endl;
    _h_materials = (MaterialTable*) malloc(1*sizeof(MaterialTable));
    _h_shapeFunctionTable = (ShapeFunctionTable*) malloc(1*sizeof(ShapeFunctionTable));
     lastNode = nodes.back();
@@ -214,9 +219,8 @@ void Body::initialize()
   _h_local_capacity_factor      = (data_type*)malloc(_number_points * _support_node_size * _support_node_size * sizeof(data_type));
   _h_local_conductivity_factor  = (data_type*)malloc(_number_points * _support_node_size * _support_node_size * sizeof(data_type));
   _h_local_temperatures_array   = (data_type*)malloc(_number_points * _support_node_size * sizeof(data_type));
-  _h_local_shapeFun_phis        = (data_type*)malloc(_number_points * _support_node_size * sizeof(data_type));//check this one
-  _h_local_jacobian_array             = (data_type*)malloc(_number_points * sizeof(data_type));
-  _h_local_weight_array               = (data_type*)malloc(_number_points * sizeof(data_type));
+  _h_local_jacobian_array       = (data_type*)malloc(_number_points * sizeof(data_type));
+  _h_local_weight_array         = (data_type*)malloc(_number_points * sizeof(data_type));
 
 
   if(MULTICPU){
@@ -287,7 +291,7 @@ void Body::calcFactors()
   computeSOATemperatureAndFactors(_h_local_capacity_factor,//output
                                   _h_local_conductivity_factor,//output
                                   _h_local_temperatures_array,
-                                  _h_local_shapeFun_phis,
+                                  _h_shapeFunctionTable->phis,
                                   _h_local_jacobian_array,
                                   _h_local_weight_array,
                                   _h_materials_ids,
@@ -305,7 +309,7 @@ void Body::calcFactors()
    computeSOATemperatureAndFactors(_h_local_capacity_factor,//output
                                    _h_local_conductivity_factor,//output
                                    _h_local_temperatures_array,
-                                   _h_local_shapeFun_phis,
+                                   _h_shapeFunctionTable->phis,
                                    _h_local_jacobian_array,
                                    _h_local_weight_array,
                                    _h_materials_ids,
@@ -343,7 +347,7 @@ void Body::calcCapacityMatrix()
     int number_points = this->cells.size();
     computeSOACapacityMatrix(_h_localCapacityf,
                              _h_local_capacity_factor,
-                             _h_local_shapeFun_phis,
+                             _h_shapeFunctionTable->phis,
                              number_points,
                              _support_node_size,
                             0);
@@ -359,7 +363,7 @@ void Body::calcCapacityMatrix()
     //todo add pthreads wrapper
     computeSOACapacityMatrix(_h_localCapacityf,
                              _h_local_capacity_factor,
-                             _h_local_shapeFun_phis,
+                             _h_shapeFunctionTable->phis,
                              number_points,
                              _support_node_size,
                             0);
@@ -417,11 +421,11 @@ void Body::calcConductivityMatrix()
     cpuTick(&cck);
     int number_points = this->cells.size();
     computeSOAConductivityMatrix(_h_localConductivityf,
-                             _h_local_conductivity_factor,
-                             _h_local_shapeFun_phis,
-                             number_points,
-                             _support_node_size,
-                            0);
+                                  _h_local_conductivity_factor,
+                                  _h_shapeFunctionTable->phis,
+                                  number_points,
+                                  _support_node_size,
+                                  0);
     cpuTock(&cck, " New Single CPU calcConductivityMatrix ");
     microCPU_single_conductivity.push_back(cck.elapsedMicroseconds);
   }
@@ -433,11 +437,11 @@ void Body::calcConductivityMatrix()
     int number_points = this->cells.size();
     //todo hadd pthreads wrapper
     computeSOAConductivityMatrix(_h_localConductivityf,
-                             _h_local_conductivity_factor,
-                             _h_local_shapeFun_phis,
-                             number_points,
-                             _support_node_size,
-                            0);
+                                 _h_local_conductivity_factor,
+                                 _h_shapeFunctionTable->phis,
+                                 number_points,
+                                 _support_node_size,
+                                 0);
     cpuTock(&cck, " New Single CPU calcConductivityMatrix ");
     microCPU_multi_conductivity.push_back(cck.elapsedMicroseconds);
   }
