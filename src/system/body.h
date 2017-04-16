@@ -251,7 +251,6 @@ protected:
     std::vector<int> _cvec_ptr;
     std::vector<int> _locaThermalNumbers;
 
-
     //GPU related
     bool _use_gpu;
     data_type *_d_globalCapacity;
@@ -270,7 +269,6 @@ protected:
     data_type *_h_local_capacity_factor;
     data_type *_h_local_conductivity_factor;
     data_type *_h_local_temperatures_array;
-    //data_type *_h_local_shapeFun_phis;
     data_type *_h_local_jacobian_array;
     data_type *_h_local_weight_array;
 

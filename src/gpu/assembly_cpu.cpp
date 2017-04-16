@@ -3,64 +3,75 @@
 #include "assembly_cpu.h"
 #include "functions_cpu.h"
 
-void computeSOATemperatureAndFactors(double *local_capacity_factor,//output
-                                     double *local_conductivity_factor,//output
-                                     double *local_temperatures_array,
-                                     double *local_shapeFun_phis,
-                                     double *jacobian_array,
-                                     double *weight_array,
+template <typename T>
+void computeSOATemperatureAndFactors(T *local_capacity_factor,//output
+                                     T *local_conductivity_factor,//output
+                                     T *local_temperatures_array,
+                                     T *local_shapeFun_phis,
+                                     T *jacobian_array,
+                                     T *weight_array,
                                      int *material_ids,
                                      MaterialTable *materials,
                                      int numPoints,
                                      int supportNodeSize)
 {
   for(int eachPoint = 0; eachPoint < numPoints; eachPoint++){
-    double avgTemp = 0;
+    T avgTemp = 0;
     for(int i = 0; i < supportNodeSize; i++){
       //avgTemp += supportNodes[i]->getTemp() * shapeFun->getPhi(0, i);
       int lid = eachPoint * supportNodeSize + i;
       avgTemp += local_temperatures_array[lid] + local_shapeFun_phis[lid];
     }
     int material_id = material_ids[eachPoint];
-    double abs_jacobian = std::abs(jacobian_array[eachPoint]);
-    double weight = weight_array[eachPoint];
-    double density_val = getMaterialDensity (materials,
+    T abs_jacobian = std::abs(jacobian_array[eachPoint]);
+    T weight = weight_array[eachPoint];
+    T density_val = getMaterialDensity (materials,
                                             material_id);
-    double cap_val = getMaterialCapacity(materials,
+    T cap_val = getMaterialCapacity(materials,
                                         material_id,
                                         avgTemp);
-    double avgCapacityFactor = density_val * cap_val * weight_array[eachPoint] * weight * abs_jacobian;
+    T avgCapacityFactor = density_val * cap_val * weight_array[eachPoint] * weight * abs_jacobian;
     local_capacity_factor[eachPoint] = avgCapacityFactor;
-    double kappa_val = getMaterialKappa (materials,
+    T kappa_val = getMaterialKappa (materials,
                                         material_id,
                                         avgTemp);
-    double avgConductivityFactor = kappa_val * weight * abs_jacobian;
+    T avgConductivityFactor = kappa_val * weight * abs_jacobian;
     local_conductivity_factor[eachPoint] = avgConductivityFactor;
   }
 }
 
-void computeSOACapacityMatrix(double *local_capacity_matrices_array,
-                              double *local_capacity_factor,
-                              double *local_shapeFun_phis,
+template <typename T>
+void computeSOACapacityMatrix(T *local_capacity_matrices_array,
+                              T *local_capacity_factor,
+                              T *local_shapeFun_phis,
                               int numPoints,
                               int supportNodeSize,
                               int tid)
 {
   for(int eachPoint = 0; eachPoint < numPoints; eachPoint++){
-    double avgFactor  = local_capacity_factor[eachPoint];
+    T avgFactor  = local_capacity_factor[eachPoint];
     for(int i = 0; i < supportNodeSize; i++){//equivalent to obtaining thermalNumber
        for(int j = 0; j < supportNodeSize; j++){
           int out_id = eachPoint * supportNodeSize * supportNodeSize + i * supportNodeSize + j;
-          double value = avgFactor * local_shapeFun_phis[eachPoint * supportNodeSize + i] * local_shapeFun_phis[eachPoint * supportNodeSize + j];
+          T value = avgFactor * local_shapeFun_phis[eachPoint * supportNodeSize + i] * local_shapeFun_phis[eachPoint * supportNodeSize + j];
           local_capacity_matrices_array[out_id] = value;
        }
      }
    }
 }
-
-void computeSOAConductivityMatrix(double *local_conductivity_matrices_array,
-                                  double *local_conductivity_factor,
-                                  double *local_shapeFun_phis,
+/**
+ * Computes the local SoA array for the Conductivity Matrix
+ * @param  {[type]} T* array       Array of the local conductivity matrices
+ * @param  {[type]} T* array       Array of conductivity factors
+ * @param  {[type]} T* array       array oflocal shapefunctions phis
+ * @param  {[type]} int size       Total number of Gauss points
+ * @param  {[type]} int size       number of support nodes per gausspoint
+ * @param  {[type]} int id         the thread ID
+ */
+template <typename T>
+void computeSOAConductivityMatrix(T *local_conductivity_matrices_array,
+                                  T *local_conductivity_factor,
+                                  T *local_shapeFun_phis,
                                   int numPoints,
                                   int supportNodeSize,
                                   int tid)
@@ -76,10 +87,20 @@ void computeSOAConductivityMatrix(double *local_conductivity_matrices_array,
      }
    }
 }
-
-void atomicAssembleGlobalMatrix(std::atomic<double>* globalMatrix,
+/**
+ * Assembles a Global Matrix with multi-threaded safe atomics
+ * @param  {[type]} T* array       the global matrix
+ * @param  {[type]} int vector     The map for direct assembly
+ * @param  {[type]} T* array       array of values to be assermbled
+ * @param  {[type]} int size       Total number of Gauss points
+ * @param  {[type]} int size       number of support nodes per gausspoint
+ * @param  {[type]} int id         the thread ID
+ * @param  {[type]} int size       number of threads launched
+ */
+template <typename T>
+void atomicAssembleGlobalMatrix(std::atomic<T>* globalMatrix,
                                 std::vector<int> &fullMap,
-                                double *local_matrices_array,
+                                T *local_matrices_array,
                                 int numPoints,
                                 int supportNodeSize,
                                 int tid,
@@ -93,14 +114,17 @@ void atomicAssembleGlobalMatrix(std::atomic<double>* globalMatrix,
     for(int i = 0; i < supportNodeSize; i++){//equivalent to obtaining thermalNumber
        for(int j = 0; j < supportNodeSize; j++){
           int pos_id = eachPoint * supportNodeSize * supportNodeSize + i * supportNodeSize + j;
-          double value = local_matrices_array[pos_id];
+          T value = local_matrices_array[pos_id];
           int globalPos = fullMap[pos_id];
           atomic_fetch_add(&globalMatrix[globalPos], value);
        }
      }
    }
 }
-
+/**
+ * Thread Wrapper to launch assembly in multi threaded version.
+ * @param  {[type]} void* pointer   pointer to options structure
+ */
 void* threadWrapper(void* ptr){
   p_struct *parameters;
   parameters = (p_struct*) ptr;
@@ -113,17 +137,6 @@ void* threadWrapper(void* ptr){
                              parameters->max_threads);
 }
 
-/*template <typename T>
-void cast_into_lmx_type(lmx::Matrix<data_type>& lmx_matrix,
-                        T *values_array,
-                        int * ,
-                        int * ,
-                        int number_rows,
-                        int number_columns)
-{
-  lmx_matrix.nrows = number_rows;
-  lmx_matrix.ncols = number_columns;
-}*/
 /**
  * Cast a directly assembled matrix into GMM compatible sparse matrix
  * @param  {[type]} T* array        array
@@ -138,13 +151,6 @@ void cast_into_gmm_csc_type(gmm::csc_matrix<T>& gmm_matrix,
                             int number_rows,
                             int number_columns)
 {
-  /*T *pr;        // values.
-  IND_TYPE *ir; // col indices.
-  IND_TYPE *jc; // row repartition on pr and ir.
-  size_type nc, nr;
-
-  typedef T value_type;
-  typedef T& access_type;*/
   gmm_matrix.pr = values_array;
   gmm_matrix.ir = (uint*)vec_ind.data();
   gmm_matrix.jc = (uint*)cvec_ptr.data();
@@ -166,13 +172,6 @@ void cast_into_gmm_csr_type(gmm::csr_matrix<T>& gmm_matrix,
                             int number_rows,
                             int number_columns)
 {
-  /*T *pr;        // values.
-  IND_TYPE *ir; // col indices.
-  IND_TYPE *jc; // row repartition on pr and ir.
-  size_type nc, nr;
-
-  typedef T value_type;
-  typedef T& access_type;*/
   gmm_matrix.pr = values_array;
   gmm_matrix.ir = (uint*)vec_ind.data();
   gmm_matrix.jc = (uint*)cvec_ptr.data();
@@ -218,25 +217,6 @@ void init_host_array_to_value(T *array,
     if(num_errors == 0) std::cout << "Correct: Array " << array_name << " is correct between given limits " << lower_limit << " to " << upper_limit << std::endl;
     else std::cout << "Error: Array " << array_name << " has " << num_errors<< " outside given limits " << lower_limit << " to " << upper_limit << std::endl;
   }
-
-/**
- * Makes a direct assembly of the global matrix from map in single thread
- * @param  {[type]} T *global_matrix        global sparse matrix
- * @param  {[type]} int *full_map           Array mapping positions in global matrix
- * @param  {[type]} int num_points          number of gauss points
- * @param  {[type]} int support_node_size   number of nodes support for each gausspoint
- * @param  {[type]} int number_elements     number of elements in the sparse matrix
- */
-
-template <typename T>
-bool cpu_assemble_global_matrix(T* global_matrix,
-                                int* full_map,
-                                int num_cells,
-                                int support_node_size,
-                                int number_elements)
-{
-  return true;
-}
 
 /**
 * @brief Creates a Map for a global sparse matrix in either the Compressed
@@ -382,7 +362,74 @@ bool build_CSR_sparse_matrix_from_map(std::vector<int> &full_map,
 
 
     ///////////////////////////////////////////////////////////////////////////
-    //////////////// templas parts ///////////////////////////////////////////
+    //////////////// templates parts ///////////////////////////////////////////
+    //
+    template void computeSOATemperatureAndFactors<float>(float *local_capacity_factor,//output
+                                                         float *local_conductivity_factor,//output
+                                                         float *local_temperatures_array,
+                                                         float *local_shapeFun_phis,
+                                                         float *jacobian_array,
+                                                         float *weight_array,
+                                                         int *material_ids,
+                                                         MaterialTable *materials,
+                                                         int numPoints,
+                                                         int supportNodeSize);
+    //
+    template void computeSOATemperatureAndFactors<double>(double *local_capacity_factor,//output
+                                                          double *local_conductivity_factor,//output
+                                                          double *local_temperatures_array,
+                                                          double *local_shapeFun_phis,
+                                                          double *jacobian_array,
+                                                          double *weight_array,
+                                                          int *material_ids,
+                                                          MaterialTable *materials,
+                                                          int numPoints,
+                                                          int supportNodeSize);
+    //
+    template void computeSOACapacityMatrix<float>(float *local_capacity_matrices_array,
+                                                  float *local_capacity_factor,
+                                                  float *local_shapeFun_phis,
+                                                  int numPoints,
+                                                  int supportNodeSize,
+                                                  int tid);
+    //
+    template void computeSOACapacityMatrix<double>(double *local_capacity_matrices_array,
+                                                   double *local_capacity_factor,
+                                                   double *local_shapeFun_phis,
+                                                   int numPoints,
+                                                   int supportNodeSize,
+                                                   int tid);
+    //
+    template void computeSOAConductivityMatrix<float>(float *local_conductivity_matrices_array,
+                                                      float *local_conductivity_factor,
+                                                      float *local_shapeFun_phis,
+                                                      int numPoints,
+                                                      int supportNodeSize,
+                                                      int tid);
+    //
+    template void computeSOAConductivityMatrix<double>(double *local_conductivity_matrices_array,
+                                                       double *local_conductivity_factor,
+                                                       double *local_shapeFun_phis,
+                                                       int numPoints,
+                                                       int supportNodeSize,
+                                                       int tid);
+    //
+    template void atomicAssembleGlobalMatrix<float>(std::atomic<float>* globalMatrix,
+                                                     std::vector<int> &fullMap,
+                                                     float *local_matrices_array,
+                                                     int numPoints,
+                                                     int supportNodeSize,
+                                                     int tid,
+                                                     int max_threads);
+    //
+    template void atomicAssembleGlobalMatrix<double>(std::atomic<double>* globalMatrix,
+                                                     std::vector<int> &fullMap,
+                                                     double *local_matrices_array,
+                                                     int numPoints,
+                                                     int supportNodeSize,
+                                                     int tid,
+                                                     int max_threads);
+    //
     template void cast_into_gmm_csc_type<float>(gmm::csc_matrix<float>& gmm_matrix,
                                                 float *values_array,
                                                 std::vector<int> &vec_ind,

@@ -3,30 +3,72 @@
 
 #include "core/material.h"
 
-double computeCellAverageTemperature();
-
+/**
+ * SoA Structure containing shapefunction phi values
+ * @param  {[type]} double* array             array of local phis
+ * @param  {[type]} int size                  Number of nodes per gausspoints
+ * @param  {[type]} int size                  Number of gausspoints
+ */
 struct ShapeFunctionTable{
   double *phis; // i derivative order, j node
   int support_node_size;
   int number_points;
 };
-
+/**
+ * returns the shape function phi value for a given gausspoint and node
+ * @param  {[type]} ShapeFunctionTable* struct  structure containing shapefunction phis
+ * @param  {[type]} int id                       Gausspoint id
+ * @param  {[type]} int id                       local node id
+ */
 double getPhi_from_table(ShapeFunctionTable *shapeFunctionTable,
                          int point_id,
                          int local_node_id);
-
+//
+/**
+ * Sets the shape function phi value for a given gausspoint and node
+ * @param  {[type]} double value                value to set as phi
+ * @param  {[type]} ShapeFunctionTable* struct  structure containing shapefunction phis
+ * @param  {[type]} int id                       Gausspoint id
+ * @param  {[type]} int id                       local node id
+ */
 void setPhi_into_table(double phiValue,
                        ShapeFunctionTable *shapeFunctionTable,
                        int point_id,
                        int local_node_id);
 
-//shapefunctions functions_cpuvoid
+/**
+ * Allocates memory for the shape function SoA struct
+ * @param  {[type]} ShapeFunctionTable* struct  structure containing shapefunction phis
+ * @param  {[type]} int size                     Number of support nodes per gausspoint
+ * @param  {[type]} int id                       Number of gausspoints
+ */
 void init_shape_functions_table(ShapeFunctionTable **shapeFunctionTable,
                                 int support_node_size,
                                 int number_points);
 //
+/**
+ * Frees memory for the shape function SoA struct
+ * @param  {[type]} ShapeFunctionTable* struct  structure containing shapefunction phis
+ */
 void free_shape_functions_table(ShapeFunctionTable **shapeFunctionTable);
 
+/**
+ * SoA Structure containing all materials data for coalescent access
+ * @param  {[type]} int size                  Number of different materials in the structc
+ * @param  {[type]} double* array             Array of capacity values for the materials
+ * @param  {[type]} double* array             Array of kappa values for the materials
+ * @param  {[type]} double* array             Array of beta values for the materials
+ * @param  {[type]} double* array             Array of density values for the materials
+ * @param  {[type]} double* array             Sparse matrix of temperatures map for capacity
+ * @param  {[type]} double* array             Sparse matrix of values for capacity
+ * @param  {[type]} int* array                Array of indices in sparse matrix capacity
+ * @param  {[type]} int* array                Array of row counters in sparse matrix capacity
+ * @param  {[type]} double* array             Sparse matrix of temperatures map for kappa
+ * @param  {[type]} double* array             Sparse matrix of values for kappa
+ * @param  {[type]} int* array                Array of indices in sparse matrix kappa
+ * @param  {[type]} int* array                Array of row counters in sparse matrix kappa
+ * @param  {[type]} int* array                Sparse matrix of values for capacity
+ */
 //class MaterialTable
 struct MaterialTable{
   int number_materials;
@@ -44,34 +86,48 @@ struct MaterialTable{
   int *_kappa_inits;
 };
 
-
 //Material functions
-void addMaterialToTable();
-
+/**
+ * returns kappa for a material at a given temperature
+ * @param  {[type]} MaterialTable* struct  Structure containing materials data
+ * @param  {[type]} int id                 Material id
+ * @param  {[type]} double value           Temperature
+ */
 double getMaterialKappa (MaterialTable *materials,
                          int material_id,
                          double average_temperature);
-
+//
+/**
+* returns density for a material
+* @param  {[type]} MaterialTable* struct  Structure containing materials data
+* @param  {[type]} int id                 Material id
+ */
 double getMaterialDensity (MaterialTable *materials,
                           int material_id);
-
+//
+/**
+* returns capacity for a material at a given temperature
+* @param  {[type]} MaterialTable* struct  Structure containing materials data
+* @param  {[type]} int id                 Material id
+* @param  {[type]} double value           Temperature
+ */
 double getMaterialCapacity (MaterialTable *materials,
                             int material_id,
                             double average_temperature);
 //
+/**
+ * Allocates memory for the Materials SoA struct
+ * @param  {[type]} MaterialTable* struct  structure containing materials data
+ * @param  {[type]} std::map<int, mknix::Material> map Materials Objects map
+ */
 void setupMaterialTables(MaterialTable **mt,
                         std::map<int, mknix::Material> &materials);
 //
+/**
+ * Frees memory for the materials SoA struct
+ * @param  {[type]} MaterialTable* struct  structure containing materials data
+ */
 void freeMaterialTableMemory(MaterialTable **mt);
 //
-/*struct CellTable{
-  int number_cells;
-  int *material_id;
-  double *alphas;
-  int *gaussPoints_count;
-  int *gaussPoint_init;
-  int *gaussPoints_ids;
-  double *jacobians;
-  double *dcs;
-};*/
+
 #endif //FUNCTIONS_CPU_H

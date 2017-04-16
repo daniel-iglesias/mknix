@@ -3,11 +3,6 @@
 #include <stdlib.h>
 #include <map>
 
-double computeCellAverageTemperature(){
-  double avg=0.0;
-  return avg;
-}
-//node_id or point_id is going to be always cell_id * supportNode_size + point_in_cell that way is all coalescent access
 double getPhi_from_table(ShapeFunctionTable *shapeFunctionTable,
                          int point_id,
                          int local_node_id)
@@ -62,9 +57,6 @@ double interpolate1D(double query_value,
   double delta = (query_value - reference_values[init_position + lower_index]) / (reference_values[init_position + upper_index] - reference_values[init_position + lower_index]);
   return delta * sought_values[init_position + upper_index] + (1.0 - delta) * sought_values[init_position + lower_index];
 }
-
-
-void getNumbermaterials();
 
 double getMaterialKappa (MaterialTable *materials,
                         int material_id,
