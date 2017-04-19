@@ -89,6 +89,7 @@ private:
   bool A_new, x_new, b_new;
   int info; /**< sets level of information in std output **/
   bool TRACE = false;
+  bool FINDER = false;
 
 #ifdef HAVE_SUPERLU
   Superlu<T>* S;
@@ -160,6 +161,7 @@ public:
   LinearSystem(Matrix<C>& A_in, Vector<C>& b_in)
   : dA(0), X(0), B(0), A_new(1), x_new(1), b_new(1), info(0)
   {
+    if(FINDER){std::cout<< std::endl << "Constructor 1: LinearSystem(Matrix<C>& A_in, Vector<C>& b_in)" << std::endl;}
     _trace_iter = 0;
     A = new Matrix<T>;
     *A = A_in;
@@ -190,6 +192,7 @@ public:
   : A(&A_in), dA(0), x(&x_in), b(&b_in), X(0), B(0)
   , A_new(0), x_new(0), b_new(0), info(0)
   {
+    if(FINDER){std::cout<< std::endl << "Constructor 2: LinearSystem(Matrix<T>& A_in, Vector<T>& x_in, Vector<T>& b_in)" << std::endl;}
     _trace_iter = 0;
 #ifdef HAVE_SUPERLU
     S = 0;
@@ -207,6 +210,7 @@ public:
   : A(0), dA(&dA_in), x(&x_in), b(&b_in), X(0), B(0)
   , A_new(0), x_new(0), b_new(0), info(0)
   {
+    if(FINDER){std::cout<< std::endl << "Constructor 3: LinearSystem(DenseMatrix<T>& dA_in, Vector<T>& x_in, Vector<T>& b_in)" << std::endl;}
     _trace_iter = 0;
 #ifdef HAVE_SUPERLU
     S = 0;
@@ -227,6 +231,7 @@ public:
   LinearSystem(Matrix<C>& A_in, Vector<T>& x_in, Vector<C>& b_in)
   : dA(0), x(&x_in), X(0), B(0), A_new(1), x_new(0), b_new(1), info(0)
   {
+    if(FINDER){std::cout<< std::endl << "Constructor 4: LinearSystem(Matrix<C>& A_in, Vector<T>& x_in, Vector<C>& b_in)" << std::endl;}
     _trace_iter = 0;
     A = new Matrix<T>;
     *A = A_in;
@@ -251,6 +256,7 @@ public:
   : A(&A_in), dA(0), b(0), x(0), X(0), B(&B_in)
   , A_new(0), x_new(1), b_new(0), info(0)
   {
+    if(FINDER){std::cout<< std::endl << "Constructor 5: LinearSystem(DenseMatrix<T>& A_in, DenseMatrix<T>& B_in)" << std::endl;}
     _trace_iter = 0;
     X = new DenseMatrix<T>;
     X->resize( A_in.rows(), A_in.cols() );
@@ -264,6 +270,7 @@ public:
   : A(&A_in), dA(0), b(0), x(0), X(0), B(&B_in)
   , A_new(0), x_new(1), b_new(0), info(0)
   {
+    if(FINDER){std::cout<< std::endl << "Constructor 6: LinearSystem(Matrix<T>& A_in, DenseMatrix<T>& B_in)" << std::endl;}
     _trace_iter = 0;
     X = new DenseMatrix<T>;
     X->resize( A_in.rows(), A_in.cols() );
@@ -277,6 +284,7 @@ public:
   : A(&A_in), dA(0), b(0), x(0), X(0), B(&B_in)
   , A_new(0), x_new(1), b_new(0), info(0)
   {
+    if(FINDER){std::cout<< std::endl << "Constructor 7: LinearSystem(DenseMatrix<T>& A_in, Matrix<T>& B_in)" << std::endl;}
     _trace_iter = 0;
     X = new DenseMatrix<T>;
     X->resize( A_in.rows(), A_in.cols() );
@@ -290,6 +298,7 @@ public:
   : A(&A_in), dA(0), b(0), x(0), X(0), B(&B_in)
   , A_new(0), x_new(1), b_new(0), info(0)
   {
+    if(FINDER){std::cout<< std::endl << "Constructor 8: LinearSystem(Matrix<T>& A_in, Matrix<T>& B_in)" << std::endl;}
     _trace_iter = 0;
     X = new DenseMatrix<T>;
     X->resize( A_in.rows(), A_in.cols() );
@@ -557,6 +566,7 @@ void LinearSystem<T>::subsSolve()
       Vector<T>& LinearSystem<T>::solveYourself(int recalc)
 //end JCGO
   {
+    if(FINDER){std::cout<< std::endl << "\nline 566: Vector<T>& LinearSystem<T>::solveYourself(int recalc="<<recalc<<")\n" << std::endl;}
     cpuClock ck;
     std::string solver_type;
     if(TRACE){
@@ -589,7 +599,7 @@ void LinearSystem<T>::subsSolve()
       LU<T> solver( dA, b );
       *x = solver.solve();
 #endif
-   cpuTock(&ck); //------------------------------------<
+   cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
 if(TRACE){
   std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
   std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
@@ -622,7 +632,7 @@ if(TRACE){
               LU<T> solver( A, b );
               *x = solver.solve();
 #endif
-cpuTock(&ck); //------------------------------------<
+cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
 if(TRACE){
   std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
   std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
@@ -682,7 +692,7 @@ if(TRACE){
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
-cpuTock(&ck); //------------------------------------<
+cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
 if(TRACE){
   std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
   std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
@@ -722,7 +732,7 @@ if(TRACE){
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
-cpuTock(&ck); //------------------------------------<
+cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
 if(TRACE){
   std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
   std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
@@ -755,7 +765,7 @@ if(TRACE){
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
-cpuTock(&ck); //------------------------------------<
+cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
 if(TRACE){
   std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
   std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
@@ -828,7 +838,7 @@ if(TRACE){
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
-cpuTock(&ck); //------------------------------------<
+cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
 if(TRACE){
   std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
   std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
@@ -863,7 +873,7 @@ if(TRACE){
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
-cpuTock(&ck); //------------------------------------<
+cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
 if(TRACE){
   std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
   std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
@@ -913,6 +923,7 @@ if(TRACE){
           switch (getMatrixType()) {
             case 0 :
             {
+              if(FINDER){std::cout<< std::endl << "\nline 942: getMatrixType 0 :  solver_type == 2 -> iterativos para sistemas simetricos cg \n" << std::endl;}
               Cg<T> cg_solver(A, b);
               cg_solver.precond();
               *x = cg_solver.solve(info);
@@ -929,6 +940,7 @@ if(TRACE){
 
             case 1 :
             {
+              if(FINDER){std::cout<< std::endl << "\nline 942: cgetMatrixType 1 :  solver_type == 2 : cg_solver \n" << std::endl;}
               Cg<T> cg_solver(A, b);
               cg_solver.precond();
               *x = cg_solver.solve(info);
@@ -945,6 +957,8 @@ if(TRACE){
 
             case 2 :
             {
+              if(FINDER){std::cout<< std::endl << "\nline 958: getMatrixType 2 :  solver_type == 2 : CG de lmx \n" << std::endl;}
+
               // CG de lmx
               Cg<T> cg_solver(A, b);
               cg_solver.precond();
@@ -986,13 +1000,14 @@ if(TRACE){
 
             case 3 :
             {
+              if(FINDER){std::cout<< std::endl << "\nline 958: getMatrixType 3 :  solver_type == 2 : gmm::cg ";}
 //               Cg<T> cg_solver(A, b);
 //               cg_solver.precond();
 //               *x = cg_solver.solve(info);
 
               // CG de gmm SOLO PARA VECTORES STL
   #ifdef HAVE_GMM
-
+              if(FINDER){std::cout << "with HAVE_GMM TRUE \n" << std::endl;}
               gmm::diagonal_precond< gmm::row_matrix< gmm::rsvector<T> > > PR(*(static_cast<Type_gmm_sparse<T>*>( A->type_matrix)->data_pointer() ) );
 
               gmm::iteration iter(1E-6);
@@ -1003,7 +1018,7 @@ if(TRACE){
               gmm::cg(*(static_cast<Type_gmm_sparse<T>*>(A->type_matrix)->data_pointer()),
                       *(static_cast<Type_stdVector<T>*>(x->type_vector)->data_pointer()), *(static_cast<Type_stdVector<T>*>(b->type_vector)->data_pointer()), PS, PR, iter);
   #endif
-  cpuTock(&ck); //------------------------------------<
+  cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
   if(TRACE){
     std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
     std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;

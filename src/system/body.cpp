@@ -21,6 +21,7 @@
 
 #include <core/cell.h>
 #include <gpu/chTimer.h>
+#include <gpu/cpu_run_type.h>
 
 //#include <gpu/calc_cpu.h>
 #ifdef HAVE_CUDA
@@ -30,11 +31,6 @@
 #include <cuda_runtime.h>
 #include <cuda_runtime_api.h>
 #endif
-
-//temporary switches
-#define NEWCPU true
-#define MULTICPU true
-#define OLD_CODE true
 
 
 namespace mknix {
@@ -661,6 +657,7 @@ void Body::setTemperature(double temp_in)
 void Body::outputStep()
 {
     if (isThermal && nodes.size() != 0) {
+      //std::cout << "\n\nOUTPUT STEP \n\n"<< std::endl;
         temperature.push_back(new lmx::Vector<data_type>(nodes.size())); //temperature
         for (auto i = 0u; i < nodes.size(); ++i) {
             temperature.back()->writeElement(nodes[i]->getqt(), i);
