@@ -175,6 +175,17 @@ void mknix::System::setMaterialTable(MaterialTable* mt_ptr)
   }
 }
 
+void mknix::System::setTemperatureVector(lmx::Vector<data_type>& q)
+{
+  for (auto& body : thermalBodies) {
+      body.second->setTemperatureVector(q);
+  }
+
+  for (auto& system : subSystems) {
+      system.second->setTemperatureVector(q);
+  }
+}
+
 void mknix::System::calcFactors()
 {
   for (auto& body : thermalBodies) {

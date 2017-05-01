@@ -25,11 +25,11 @@
 //////////////////////////////////////////// Doxygen file documentation entry:
     /*!
       \file lmx_mat_type_gmm_sparse1.h
-      
+
       \brief This file contains both the declaration and implementation for type_gmm_sparse (sparse gmm Matrix) class member functions.
-      
-      \author Daniel Iglesias 
-      
+
+      \author Daniel Iglesias
+
     */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
@@ -37,13 +37,13 @@
 namespace lmx {
 
     /**
-    \class Type_gmm_sparse 
+    \class Type_gmm_sparse
     \brief Template class Type_gmm_sparse
-    
+
     This class implements the methods defined in virtual class data_mat so the matrix type "gmm::row_matrix< gmm::rsvector<T> >" can be used in lmx. For details about the caracteristics of this matrix type, see the gmm library manual and code.
-    
+
     @param contents Corresponds to a gmm::row_matrix< gmm::rsvector<T> > and it's the base of the methods implemented for this class.
-    
+
     @author Daniel Iglesias .
     */
 template <typename T> class Type_gmm_sparse : public Data_mat<T>
@@ -52,9 +52,9 @@ private:
   /** Matrix data contents */
     gmm::row_matrix< gmm::rsvector<T> > contents;
 //     T reference;
-    
+
 public:
-    
+
     /// Empty constructor.
     Type_gmm_sparse(){}
 
@@ -66,7 +66,7 @@ public:
   void resize(size_type, size_type);
 
   void factorize(){}
-  
+
   /** Read element method.
     * Implements a method for reading data of the sparse matrix.
     * \param mrows Row position in sparse matrix.
@@ -95,13 +95,13 @@ public:
   inline void addElement(T value, const size_type& mrows, const size_type& ncolumns)
   { contents(mrows, ncolumns) += value; }
 
-   /** Method for getting the number of data rows. 
+   /** Method for getting the number of data rows.
     * \returns Number of rows.
     */
   size_type getRows() const
   { return gmm::mat_nrows(contents); }
 
-   /** Method for knowing the number of data columns. 
+   /** Method for knowing the number of data columns.
     * \returns Number of columns.
     */
   size_type getCols() const
@@ -140,7 +140,7 @@ public:
               static_cast<const  Type_gmm_sparse*>(matrix_in_2)->contents,
               contents);
   }
-   
+
     /** Multiply scalar method.
       * Multiplies the object's matrix (contents) with a scalar.
       * Necessary for overloading the "*" operator.
@@ -148,7 +148,7 @@ public:
   void multiplyScalar(const T& scalar)
    { gmm::scale(contents, scalar);
    }
-   
+
   /** Method multiplying element-by-element of two matrices. One would be the object's contents and the other the parameter's contents.
     * Necessary for implementing  Vector to Vector multElements.
     * \param matrix_in pointer to an object that belongs to a class derived from Data.
@@ -163,7 +163,7 @@ public:
 
 
     /** Read data in Matrix Market format method.
-     * Opens the file specified and reads the matrix's data in it, 
+     * Opens the file specified and reads the matrix's data in it,
      * suposing it's stored in Matrix Market format.
      * \param input_file Name of the file to be read.
      *  */
@@ -175,7 +175,7 @@ public:
   }
 
     /** Read data in Harwell-Boeing format method.
-     * Opens the file specified and reads the matrix's data in it, 
+     * Opens the file specified and reads the matrix's data in it,
      * suposing it's stored in Harwell-Boeing format.
      * \param input_file Name of the file to be read.
      *  */
@@ -186,6 +186,19 @@ public:
     gmm::copy(matrix_loaded, contents);
   }
 
+///added by vicen april 2017
+  /** Cast a csc matrix format method.,
+   * suposing it's compressed Sparse Column.
+   * \param reference to the matrix to cast.
+   *  */
+void cast_csc_matrix(gmm::csc_matrix<T> &matrix_to_cast)
+{  gmm::resize(contents, gmm::mat_nrows(matrix_to_cast), gmm::mat_ncols(matrix_to_cast));
+   gmm::copy(matrix_to_cast, contents);
+}
+/*void cast_csc_matrix(gmm::csc_matrix<float> &matrix_to_cast)
+{  gmm::resize(contents, gmm::mat_nrows(matrix_to_cast), gmm::mat_ncols(matrix_to_cast));
+   gmm::copy(matrix_to_cast, contents);
+}*/
 /**
    * Write data in Harwell-Boeing format method.
    * Opens the file specified and writes the matrix's data in it.
@@ -200,7 +213,7 @@ public:
   }
 
     /** Traspose method.
-      * Swaps elements with respect to the diagonal: A(i,j) = A(j,i) 
+      * Swaps elements with respect to the diagonal: A(i,j) = A(j,i)
       */
    void trn()
    {
@@ -220,7 +233,7 @@ public:
 
    /**
     * Clear method.
-    * Wipes all data. 
+    * Wipes all data.
     */
    //TODO: Eliminate all information and size
    void clear()

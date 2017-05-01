@@ -95,6 +95,8 @@ public:
 
     void setMaterialTable(MaterialTable* mt_ptr);
 
+    void setTemperatureVector(lmx::Vector<data_type>& q);
+
     void calcFactors();
 
     void calcCapacityMatrix( );

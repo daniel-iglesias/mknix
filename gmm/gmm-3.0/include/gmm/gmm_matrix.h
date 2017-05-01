@@ -70,7 +70,7 @@ namespace gmm
   void mult(const identity_matrix&, const V1 &v1, V2 &v2)
   { copy(v1, v2); }
   template <typename V1, typename V2> inline
-  void mult(const identity_matrix&, const V1 &v1, const V2 &v2) 
+  void mult(const identity_matrix&, const V1 &v1, const V2 &v2)
   { copy(v1, v2); }
   template <typename V1, typename V2, typename V3> inline
   void mult(const identity_matrix&, const V1 &v1, const V2 &v2, V3 &v3)
@@ -82,25 +82,25 @@ namespace gmm
   void left_mult(const identity_matrix&, const V1 &v1, V2 &v2)
   { copy(v1, v2); }
   template <typename V1, typename V2> inline
-  void left_mult(const identity_matrix&, const V1 &v1, const V2 &v2) 
+  void left_mult(const identity_matrix&, const V1 &v1, const V2 &v2)
   { copy(v1, v2); }
   template <typename V1, typename V2> inline
   void right_mult(const identity_matrix&, const V1 &v1, V2 &v2)
   { copy(v1, v2); }
   template <typename V1, typename V2> inline
-  void right_mult(const identity_matrix&, const V1 &v1, const V2 &v2) 
+  void right_mult(const identity_matrix&, const V1 &v1, const V2 &v2)
   { copy(v1, v2); }
   template <typename V1, typename V2> inline
   void transposed_left_mult(const identity_matrix&, const V1 &v1, V2 &v2)
   { copy(v1, v2); }
   template <typename V1, typename V2> inline
-  void transposed_left_mult(const identity_matrix&, const V1 &v1,const V2 &v2) 
+  void transposed_left_mult(const identity_matrix&, const V1 &v1,const V2 &v2)
   { copy(v1, v2); }
   template <typename V1, typename V2> inline
   void transposed_right_mult(const identity_matrix&, const V1 &v1, V2 &v2)
   { copy(v1, v2); }
   template <typename V1, typename V2> inline
-  void transposed_right_mult(const identity_matrix&,const V1 &v1,const V2 &v2) 
+  void transposed_right_mult(const identity_matrix&,const V1 &v1,const V2 &v2)
   { copy(v1, v2); }
   template <typename M> void copy_ident(const identity_matrix&, M &m) {
     size_type i = 0, n = std::min(mat_nrows(m), mat_ncols(m));
@@ -108,7 +108,7 @@ namespace gmm
     for (; i < n; ++i) m(i,i) = typename linalg_traits<M>::value_type(1);
   }
   template <typename M> inline void copy(const identity_matrix&, M &m)
-  { copy_ident(identity_matrix(), m); } 
+  { copy_ident(identity_matrix(), m); }
   template <typename M> inline void copy(const identity_matrix &, const M &m)
   { copy_ident(identity_matrix(), linalg_const_cast(m)); }
   template <typename V1, typename V2> inline
@@ -132,15 +132,15 @@ namespace gmm
   protected :
     std::vector<V> li; /* array of rows.                                  */
     size_type nc;
-    
+
   public :
-    
+
     typedef typename linalg_traits<V>::reference reference;
     typedef typename linalg_traits<V>::value_type value_type;
-    
+
     row_matrix(size_type r, size_type c) : li(r, V(c)), nc(c) {}
     row_matrix(void) : nc(0) {}
-    reference operator ()(size_type l, size_type c) 
+    reference operator ()(size_type l, size_type c)
     { return li[l][c]; }
     value_type operator ()(size_type l, size_type c) const
     { return li[l][c]; }
@@ -150,19 +150,19 @@ namespace gmm
 
     typename std::vector<V>::iterator begin(void)
     { return li.begin(); }
-    typename std::vector<V>::iterator end(void)  
+    typename std::vector<V>::iterator end(void)
     { return li.end(); }
     typename std::vector<V>::const_iterator begin(void) const
     { return li.begin(); }
     typename std::vector<V>::const_iterator end(void) const
     { return li.end(); }
-    
-    
+
+
     V& row(size_type i) { return li[i]; }
     const V& row(size_type i) const { return li[i]; }
     V& operator[](size_type i) { return li[i]; }
     const V& operator[](size_type i) const { return li[i]; }
-    
+
     inline size_type nrows(void) const { return li.size(); }
     inline size_type ncols(void) const { return nc;        }
 
@@ -208,7 +208,7 @@ namespace gmm
     { return m.end(); }
     static const_sub_row_type row(const const_row_iterator &it)
     { return const_sub_row_type(*it); }
-    static sub_row_type row(const row_iterator &it) 
+    static sub_row_type row(const row_iterator &it)
     { return sub_row_type(*it); }
     static origin_type* origin(this_type &m) { return &m; }
     static const origin_type* origin(const this_type &m) { return &m; }
@@ -236,13 +236,12 @@ namespace gmm
   protected :
     std::vector<V> li; /* array of columns.                               */
     size_type nr;
-    
+
   public :
-    
+
     typedef typename linalg_traits<V>::reference reference;
     typedef typename linalg_traits<V>::value_type value_type;
-    
-    col_matrix(size_type r, size_type c) : li(c, V(r)), nr(r) { }
+        col_matrix(size_type r, size_type c) : li(c, V(r)), nr(r) { }
     col_matrix(void) : nr(0) {}
     reference operator ()(size_type l, size_type c)
     { return li[c][l]; }
@@ -259,13 +258,13 @@ namespace gmm
 
     typename std::vector<V>::iterator begin(void)
     { return li.begin(); }
-    typename std::vector<V>::iterator end(void)  
+    typename std::vector<V>::iterator end(void)
     { return li.end(); }
     typename std::vector<V>::const_iterator begin(void) const
     { return li.begin(); }
     typename std::vector<V>::const_iterator end(void) const
     { return li.end(); }
-    
+
     inline size_type ncols(void) const { return li.size(); }
     inline size_type nrows(void) const { return nr; }
 
@@ -310,7 +309,7 @@ namespace gmm
     { return m.end(); }
     static const_sub_col_type col(const const_col_iterator &it)
     { return const_sub_col_type(*it); }
-    static sub_col_type col(const col_iterator &it) 
+    static sub_col_type col(const col_iterator &it)
     { return sub_col_type(*it); }
     static origin_type* origin(this_type &m) { return &m; }
     static const origin_type* origin(const this_type &m) { return &m; }
@@ -339,12 +338,12 @@ namespace gmm
     typedef typename std::vector<T>::size_type size_type;
     typedef typename std::vector<T>::iterator iterator;
     typedef typename std::vector<T>::const_iterator const_iterator;
-    
+
   protected:
     size_type nbc, nbl;
-    
+
   public:
-    
+
     inline const T& operator ()(size_type l, size_type c) const {
       GMM_ASSERT2(l < nbl && c < nbc, "out of range");
       return *(this->begin() + c*nbl+l);
@@ -356,13 +355,13 @@ namespace gmm
 
     void resize(size_type, size_type);
     void reshape(size_type, size_type);
-    
+
     void fill(T a, T b = T(0));
     inline size_type nrows(void) const { return nbl; }
     inline size_type ncols(void) const { return nbc; }
     void swap(dense_matrix<T> &m)
     { std::vector<T>::swap(m); std::swap(nbc, m.nbc); std::swap(nbl, m.nbl); }
-    
+
     dense_matrix(size_type l, size_type c)
       : std::vector<T>(c*l), nbc(c), nbl(l)  {}
     dense_matrix(void) { nbl = nbc = 0; }
@@ -392,11 +391,11 @@ namespace gmm
     if (n*m < nbc*nbl) std::vector<T>::resize(n*m);
     nbl = m; nbc = n;
   }
-  
+
   template<typename T> void dense_matrix<T>::fill(T a, T b) {
     std::fill(this->begin(), this->end(), b);
     size_type n = std::min(nbl, nbc);
-    if (a != b) for (size_type i = 0; i < n; ++i) (*this)(i,i) = a; 
+    if (a != b) for (size_type i = 0; i < n; ++i) (*this)(i,i) = a;
   }
 
   template <typename T> struct linalg_traits<dense_matrix<T> > {
@@ -417,7 +416,7 @@ namespace gmm
     typedef dense_compressed_iterator<typename this_type::const_iterator,
 				      typename this_type::iterator,
 				      const this_type *> const_row_iterator;
-    typedef tab_ref_with_origin<typename this_type::iterator, 
+    typedef tab_ref_with_origin<typename this_type::iterator,
 				this_type> sub_col_type;
     typedef tab_ref_with_origin<typename this_type::const_iterator,
 				this_type> const_sub_col_type;
@@ -498,7 +497,7 @@ namespace gmm
     template <typename PT1, typename PT2, typename PT3, int cshift>
     void init_with(const csc_matrix_ref<PT1,PT2,PT3,cshift>& B)
     { init_with_good_format(B); }
-    template <typename U, int cshift>    
+    template <typename U, int cshift>
     void init_with(const csc_matrix<U, cshift>& B)
     { init_with_good_format(B); }
 
@@ -510,9 +509,9 @@ namespace gmm
 
     size_type nrows(void) const { return nr; }
     size_type ncols(void) const { return nc; }
-    void swap(csc_matrix<T, shift> &m) { 
-      std::swap(pr, m.pr); 
-      std::swap(ir,m.ir); std::swap(jc, m.jc); 
+    void swap(csc_matrix<T, shift> &m) {
+      std::swap(pr, m.pr);
+      std::swap(ir,m.ir); std::swap(jc, m.jc);
       std::swap(nc, m.nc); std::swap(nr,m.nr);
     }
     value_type operator()(size_type i, size_type j) const
@@ -539,18 +538,18 @@ namespace gmm
 	{ pr[jc[j]-shift+k] = *it; ir[jc[j]-shift+k] = it.index() + shift; }
     }
   }
-  
+
   template <typename T, int shift> template <typename Matrix>
   void csc_matrix<T, shift>::init_with(const Matrix &A) {
     col_matrix<wsvector<T> > B(mat_nrows(A), mat_ncols(A));
     copy(A, B);
     init_with_good_format(B);
   }
-  
+
   template <typename T, int shift>
   void csc_matrix<T, shift>::init_with_identity(size_type n) {
     if (pr) { delete[] pr; delete[] ir; delete[] jc; }
-    nc = nr = n; 
+    nc = nr = n;
     pr = new T[nc];
     ir = new IND_TYPE[nc];
     jc = new IND_TYPE[nc+1];
@@ -558,7 +557,7 @@ namespace gmm
       { ir[j] = jc[j] = shift + j; pr[j] = T(1); }
     jc[nc] = shift + nc;
   }
-  
+
   template <typename T, int shift>
   csc_matrix<T, shift>::csc_matrix(size_type nnr, size_type nnc)
     : nc(nnc), nr(nnr) {
@@ -611,7 +610,7 @@ namespace gmm
   std::ostream &operator <<
     (std::ostream &o, const csc_matrix<T, shift>& m)
   { gmm::write(o,m); return o; }
-  
+
   template <typename T, int shift>
   inline void copy(const identity_matrix &, csc_matrix<T, shift>& M)
   { M.init_with_identity(mat_nrows(M)); }
@@ -661,16 +660,16 @@ namespace gmm
 
     size_type nrows(void) const { return nr; }
     size_type ncols(void) const { return nc; }
-    void swap(csr_matrix<T, shift> &m) { 
-      std::swap(pr, m.pr); 
-      std::swap(ir,m.ir); std::swap(jc, m.jc); 
+    void swap(csr_matrix<T, shift> &m) {
+      std::swap(pr, m.pr);
+      std::swap(ir,m.ir); std::swap(jc, m.jc);
       std::swap(nc, m.nc); std::swap(nr,m.nr);
     }
-   
+
     value_type operator()(size_type i, size_type j) const
     { return mat_row(*this, i)[j]; }
   };
-  
+
   template <typename T, int shift> template <typename Matrix>
   void csr_matrix<T, shift>::init_with_good_format(const Matrix &B) {
     typedef typename linalg_traits<Matrix>::const_sub_row_type row_type;
@@ -692,17 +691,17 @@ namespace gmm
     }
   }
 
-  template <typename T, int shift> template <typename Matrix> 
-  void csr_matrix<T, shift>::init_with(const Matrix &A) { 
-    row_matrix<wsvector<T> > B(mat_nrows(A), mat_ncols(A)); 
-    copy(A, B); 
+  template <typename T, int shift> template <typename Matrix>
+  void csr_matrix<T, shift>::init_with(const Matrix &A) {
+    row_matrix<wsvector<T> > B(mat_nrows(A), mat_ncols(A));
+    copy(A, B);
     init_with_good_format(B);
   }
 
-  template <typename T, int shift> 
+  template <typename T, int shift>
   void csr_matrix<T, shift>::init_with_identity(size_type n) {
     if (pr) { delete[] pr; delete[] ir; delete[] jc; }
-    nc = nr = n; 
+    nc = nr = n;
     pr = new T[nr];
     ir = new IND_TYPE[nr];
     jc = new IND_TYPE[nr+1];
@@ -765,7 +764,7 @@ namespace gmm
   std::ostream &operator <<
     (std::ostream &o, const csr_matrix<T, shift>& m)
   { gmm::write(o,m); return o; }
-  
+
   template <typename T, int shift>
   inline void copy(const identity_matrix &, csr_matrix<T, shift>& M)
   { M.init_with_identity(mat_nrows(M)); }
@@ -797,7 +796,7 @@ namespace gmm
     size_type ncolblocks(void) const { return ncolblocks_; }
     const sub_interval &subrowinterval(size_type i) const { return introw[i]; }
     const sub_interval &subcolinterval(size_type i) const { return intcol[i]; }
-    const MAT &block(size_type i, size_type j) const 
+    const MAT &block(size_type i, size_type j) const
     { return blocks[j*ncolblocks_+i]; }
     MAT &block(size_type i, size_type j)
     { return blocks[j*ncolblocks_+i]; }
@@ -819,7 +818,7 @@ namespace gmm
 	if (j >= introw[l].min && j <  introw[l].max) break;
       return (block(k, l))(i - introw[k].min, j - introw[l].min);
     }
-    
+
     template <typename CONT> void resize(const CONT &c1, const CONT &c2);
     template <typename CONT> block_matrix(const CONT &c1, const CONT &c2)
     { resize(c1, c2); }
@@ -850,14 +849,14 @@ namespace gmm
     static origin_type* origin(this_type &m) { return &m; }
     static const origin_type* origin(const this_type &m) { return &m; }
     static void do_clear(this_type &m) { m.do_clear(); }
-    // access to be done ...    
+    // access to be done ...
     static void resize(this_type &, size_type , size_type)
     { GMM_ASSERT1(false, "Sorry, to be done"); }
     static void reshape(this_type &, size_type , size_type)
     { GMM_ASSERT1(false, "Sorry, to be done"); }
   };
 
-  template <typename MAT> void block_matrix<MAT>::do_clear(void) { 
+  template <typename MAT> void block_matrix<MAT>::do_clear(void) {
     for (size_type j = 0, l = 0; j < ncolblocks_; ++j)
       for (size_type i = 0, k = 0; i < nrowblocks_; ++i)
 	clear(block(i,j));
@@ -882,14 +881,14 @@ namespace gmm
   void copy(const block_matrix<M1> &m1, M2 &m2) {
     for (size_type j = 0; j < m1.ncolblocks(); ++j)
       for (size_type i = 0; i < m1.nrowblocks(); ++i)
-	copy(m1.block(i,j), sub_matrix(m2, m1.subrowinterval(i), 
+	copy(m1.block(i,j), sub_matrix(m2, m1.subrowinterval(i),
 				       m1.subcolinterval(j)));
   }
 
   template <typename M1, typename M2>
   void copy(const block_matrix<M1> &m1, const M2 &m2)
   { copy(m1, linalg_const_cast(m2)); }
-  
+
 
   template <typename MAT, typename V1, typename V2>
   void mult(const block_matrix<MAT> &m, const V1 &v1, V2 &v2) {
@@ -917,7 +916,7 @@ namespace gmm
 	  mult(m.block(i,j),
 	       sub_vector(v1, m.subcolinterval(j)), sv, sv);
       }
-    
+
   }
 
   template <typename MAT, typename V1, typename V2>
@@ -925,7 +924,7 @@ namespace gmm
   { mult(m, v1, linalg_const_cast(v2)); }
 
   template <typename MAT, typename V1, typename V2, typename V3>
-  void mult(const block_matrix<MAT> &m, const V1 &v1, const V2 &v2, 
+  void mult(const block_matrix<MAT> &m, const V1 &v1, const V2 &v2,
 	    const V3 &v3)
   { mult_const(m, v1, v2, linalg_const_cast(v3)); }
 
@@ -938,9 +937,9 @@ namespace gmm
 
 #ifdef GMM_USES_MPI
 #include <mpi.h>
- 
-namespace gmm { 
-  
+
+namespace gmm {
+
   template <typename T> inline MPI_Datatype mpi_type(T)
   { GMM_ASSERT1(false, "Sorry unsupported type"); return MPI_FLOAT; }
   inline MPI_Datatype mpi_type(double) { return MPI_DOUBLE; }
@@ -969,7 +968,7 @@ namespace gmm {
     const MAT &local_matrix(void) const { return M; }
     MAT &local_matrix(void) { return M; }
   };
-  
+
   template <typename MAT> inline MAT &eff_matrix(MAT &m) { return m; }
   template <typename MAT> inline
   const MAT &eff_matrix(const MAT &m) { return m; }
@@ -977,7 +976,7 @@ namespace gmm {
   MAT &eff_matrix(mpi_distributed_matrix<MAT> &m) { return m.M; }
   template <typename MAT> inline
   const MAT &eff_matrix(const mpi_distributed_matrix<MAT> &m) { return m.M; }
-  
+
 
   template <typename MAT1, typename MAT2>
   inline void copy(const mpi_distributed_matrix<MAT1> &m1,
@@ -987,14 +986,14 @@ namespace gmm {
   inline void copy(const mpi_distributed_matrix<MAT1> &m1,
 		   const mpi_distributed_matrix<MAT2> &m2)
   { copy(m1.M, m2.M); }
-  
+
   template <typename MAT1, typename MAT2>
   inline void copy(const mpi_distributed_matrix<MAT1> &m1, MAT2 &m2)
   { copy(m1.M, m2); }
   template <typename MAT1, typename MAT2>
   inline void copy(const mpi_distributed_matrix<MAT1> &m1, const MAT2 &m2)
   { copy(m1.M, m2); }
-  
+
 
   template <typename MATSP, typename V1, typename V2> inline
   typename strongest_value_type3<V1,V2,MATSP>::value_type
@@ -1050,20 +1049,20 @@ namespace gmm {
   inline void mult(const mpi_distributed_matrix<MAT> &m, const V1 &v1,
 		   const V2 &v2, V3 &v3)
   { gmm::copy(v2, v3); mult_add(m, v1, v3); }
-  
+
 
   template <typename MAT> inline
-  size_type mat_nrows(const mpi_distributed_matrix<MAT> &M) 
+  size_type mat_nrows(const mpi_distributed_matrix<MAT> &M)
   { return mat_nrows(M.M); }
   template <typename MAT> inline
-  size_type mat_ncols(const mpi_distributed_matrix<MAT> &M) 
+  size_type mat_ncols(const mpi_distributed_matrix<MAT> &M)
   { return mat_nrows(M.M); }
   template <typename MAT> inline
   void resize(mpi_distributed_matrix<MAT> &M, size_type m, size_type n)
   { resize(M.M, m, n); }
   template <typename MAT> inline void clear(mpi_distributed_matrix<MAT> &M)
   { clear(M.M); }
-  
+
 
   // For compute reduced system
   template <typename MAT1, typename MAT2> inline
@@ -1110,7 +1109,7 @@ namespace gmm {
     typename select_return<typename sub_matrix_type<const M *, SUBI1, SUBI1>
     ::matrix_type, typename sub_matrix_type<M *, SUBI1, SUBI1>::matrix_type,
     M *>::return_type
-  sub_matrix(mpi_distributed_matrix<M> &m, const SUBI1 &si1) 
+  sub_matrix(mpi_distributed_matrix<M> &m, const SUBI1 &si1)
   { return sub_matrix(m.M, si1, si1); }
 
   template <typename M, typename SUBI1>  inline
@@ -1121,11 +1120,11 @@ namespace gmm {
   { return sub_matrix(m.M, si1, si1); }
 
 
-  template <typename L> struct transposed_return<const mpi_distributed_matrix<L> *> 
+  template <typename L> struct transposed_return<const mpi_distributed_matrix<L> *>
   { typedef abstract_null_type return_type; };
-  template <typename L> struct transposed_return<mpi_distributed_matrix<L> *> 
+  template <typename L> struct transposed_return<mpi_distributed_matrix<L> *>
   { typedef abstract_null_type return_type; };
-  
+
   template <typename L> inline typename transposed_return<const L *>::return_type
   transposed(const mpi_distributed_matrix<L> &l)
   { return transposed(l.M); }
@@ -1174,10 +1173,10 @@ namespace std {
   template <typename T>
   void swap(gmm::dense_matrix<T> &m1, gmm::dense_matrix<T> &m2)
   { m1.swap(m2); }
-  template <typename T, int shift> void 
+  template <typename T, int shift> void
   swap(gmm::csc_matrix<T,shift> &m1, gmm::csc_matrix<T,shift> &m2)
   { m1.swap(m2); }
-  template <typename T, int shift> void 
+  template <typename T, int shift> void
   swap(gmm::csr_matrix<T,shift> &m1, gmm::csr_matrix<T,shift> &m2)
   { m1.swap(m2); }
 }

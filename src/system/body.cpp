@@ -22,6 +22,7 @@
 #include <core/cell.h>
 #include <gpu/chTimer.h>
 #include <gpu/cpu_run_type.h>
+#include <gpu/assembly_cpu.h>
 
 //#include <gpu/calc_cpu.h>
 #ifdef HAVE_CUDA
@@ -197,13 +198,19 @@ void Body::initialize()
     _locaThermalNumbers.resize(_number_points * _support_node_size );
 
     mapConectivityCapacityMatrix();
-    map_global_matrix(_full_map,
-                      _vec_ind,
-                      _cvec_ptr,
+    map_global_matrix(_full_map_cap,
+                      _vec_ind_cap,
+                      _cvec_ptr_cap,
                       _h_presence_matrix,
                       _number_nodes,
                       _number_nodes);
-    _sparse_matrix_size = _cvec_ptr[_number_nodes];
+    map_global_matrix(_full_map_cond,
+                      _vec_ind_cond,
+                      _cvec_ptr_cond,
+                      _h_presence_matrix,
+                      _number_nodes,
+                      _number_nodes);
+    _sparse_matrix_size = _cvec_ptr_cap[_number_nodes];
 
   _h_globalCapacity      = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
   _h_globalCapacity2     = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
@@ -224,7 +231,7 @@ void Body::initialize()
     _param_array_conductivity = (p_struct*)malloc(MAXTHREADS * sizeof(p_struct));
     for(int i = 0; i < MAXTHREADS; i++){
         _param_array_capacity[i].globalMatrix = (std::atomic<double>*)_h_globalCapacity2;
-        _param_array_capacity[i].fullMap = &_full_map;
+        _param_array_capacity[i].fullMap = &_full_map_cap;
         _param_array_capacity[i].local_matrices_array = _h_localCapacityf;
         _param_array_capacity[i].numCells = this->cells.size();
         _param_array_capacity[i].supportNodeSize = _support_node_size;
@@ -233,7 +240,7 @@ void Body::initialize()
     }
     for(int i = 0; i < MAXTHREADS; i++){
         _param_array_conductivity[i].globalMatrix = (std::atomic<double>*)_h_globalConductivity2;
-        _param_array_conductivity[i].fullMap = &_full_map;
+        _param_array_conductivity[i].fullMap = &_full_map_cond;
         _param_array_conductivity[i].local_matrices_array = _h_localConductivityf;
         _param_array_conductivity[i].numCells = this->cells.size();
         _param_array_conductivity[i].supportNodeSize = _support_node_size;
@@ -271,6 +278,11 @@ void Body::initialize()
 void Body::setMaterialTable(MaterialTable* mt_ptr)
 {
   _h_materials = mt_ptr;
+}
+
+void Body::setTemperatureVector(lmx::Vector<data_type>& q)
+{
+  _h_local_temperatures_array = q.data_pointer()->data();
 }
 
 void Body::calcFactors()
@@ -428,7 +440,7 @@ void Body::calcConductivityMatrix()
   //
   if(MULTICPU)
   {
-    cpuClock cck;
+  /*  cpuClock cck;
     cpuTick(&cck);
     int number_points = this->cells.size();
     //todo hadd pthreads wrapper
@@ -439,7 +451,7 @@ void Body::calcConductivityMatrix()
                                  _support_node_size,
                                  0);
     cpuTock(&cck, " New Single CPU calcConductivityMatrix ");
-    microCPU_multi_conductivity.push_back(cck.elapsedMicroseconds);
+    microCPU_multi_conductivity.push_back(cck.elapsedMicroseconds);*/
   }
   //
   if(_use_gpu)
@@ -476,31 +488,39 @@ void Body::calcExternalHeat()
  **/
 void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
 {
-  cpuClock cck1;
-  cpuTick(&cck1);
+  if(OLD_CODE){
+    cpuClock cck1;
+    cpuTick(&cck1);
     auto end_int = this->cells.size();
-//     #pragma omp parallel for
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->assembleCapacityGaussPoints(globalCapacity);
     }
   cpuTock(&cck1, "CPU assembleCapacityMatrix");
   microCPU1.push_back(cck1.elapsedMicroseconds);
   //new CPU assembly function
-if(NEWCPU){
-  cpuClock cck1b;
-  cpuTick(&cck1b);
+}else if(NEWCPU){
+    cpuClock cck1b;
+    cpuTick(&cck1b);
+    auto end_int = this->cells.size();
     init_host_array_to_value(_h_globalCapacity, 0.0, _sparse_matrix_size);
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->assembleCapacityGaussPointsWithMap(_h_globalCapacity,
-                                                           _full_map.data(),
+                                                           _full_map_cap.data(),
                                                            _support_node_size);
     }
-  cpuTock(&cck1b, "CPU assembleCapacityMatrixWithMap");
-  microCPU1b.push_back(cck1b.elapsedMicroseconds);
+    cpuTock(&cck1b, "CPU assembleCapacityMatrixWithMap");
+    microCPU1b.push_back(cck1b.elapsedMicroseconds);
+    cast_into_lmx_csc_type(globalCapacity,
+                           _h_globalCapacity,
+                           _vec_ind_cap,
+                           _cvec_ptr_cap,
+                           _number_nodes,
+                           _number_nodes);
+    std::cout << " after the cast" << std::endl;
 }
 if(MULTICPU){
   ///////multi-cpu part
-    cpuClock cck1c;
+/*    cpuClock cck1c;
     cpuTick(&cck1c);
    init_host_array_to_value(_h_globalCapacity2, 0.0, _sparse_matrix_size);
    for(int i = 0; i < MAXTHREADS; i++)
@@ -508,7 +528,7 @@ if(MULTICPU){
    for(int i = 0; i < MAXTHREADS; i++)
        pthread_join(_threads[i],NULL);
    cpuTock(&cck1c, "MULTI CPU assembleCapacityGaussPointsWithMap");
-   microCPU1c.push_back(cck1c.elapsedMicroseconds);
+   microCPU1c.push_back(cck1c.elapsedMicroseconds);*/
 }
 #ifdef HAVE_CUDA
 cudaClock gck1;
@@ -537,6 +557,7 @@ cudaClock gck1;
  **/
 void Body::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity)
 {
+if(OLD_CODE) {
     cpuClock cck2;
     cpuTick(&cck2);
     auto end_int = this->cells.size();
@@ -547,21 +568,29 @@ void Body::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity
     cpuTock(&cck2, "CPU assembleConductivityMatrix");
     microCPU2.push_back(cck2.elapsedMicroseconds);
     //new CPU assembly function
-if(NEWCPU){
+} else if(NEWCPU){
     cpuClock cck2b;
     cpuTick(&cck2b);
+    auto end_int = this->cells.size();
       init_host_array_to_value(_h_globalConductivity, 0.0, _sparse_matrix_size);
       for (auto i = 0u; i < end_int; ++i) {
           this->cells[i]->assembleConductivityGaussPointsWithMap(_h_globalConductivity,
-                                                                 _full_map.data(),
+                                                                 _full_map_cond.data(),
                                                                  _support_node_size);
       }
     cpuTock(&cck2b, "CPU assembleConductivityGaussPointsWithMap");
     microCPU2b.push_back(cck2b.elapsedMicroseconds);
-  }
-///////multi-cpu part
-if(MULTICPU){
-int max_threads = 4;
+    //cpuClock cck2b1;
+    //cpuTick(&cck2b1);
+    cast_into_lmx_csc_type(globalConductivity,
+                           _h_globalConductivity,
+                           _vec_ind_cond,
+                           _cvec_ptr_cond,
+                           _number_nodes,
+                           _number_nodes);
+    //cpuTock(&cck2b1, "CPU cast_into_lmx_csc_type");
+  } else if(MULTICPU){
+/*int max_threads = 4;
 pthread_t threads[max_threads];
  //p_struct param_array[MAX_THREADS];
  p_struct* param_array = (p_struct*)malloc(max_threads * sizeof(p_struct));
@@ -584,7 +613,7 @@ pthread_t threads[max_threads];
  for(int i = 0; i < max_threads; i++)
      pthread_join(threads[i],NULL);
  cpuTock(&cck2c, "MULTI CPU assembleConductivityGaussPointsWithMap");
- microCPU2c.push_back(cck2c.elapsedMicroseconds);
+ microCPU2c.push_back(cck2c.elapsedMicroseconds);*/
 }
 ////////
   #ifdef HAVE_CUDA

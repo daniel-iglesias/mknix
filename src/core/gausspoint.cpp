@@ -219,7 +219,7 @@ void GaussPoint::assembleCij(lmx::Matrix<data_type>& globalCapacity)
 }
 
 void GaussPoint::assembleCijWithMap(data_type *globalCapacity,
-                                    int *matrixMap,
+                                    uint *matrixMap,
                                     int num_nodes)
 {
     for (auto i = 0u; i < supportNodesSize; ++i) {
@@ -261,7 +261,7 @@ void GaussPoint::assembleHij(lmx::Matrix<data_type>& globalConductivity)
 }
 
 void GaussPoint::assembleHijWithMap(data_type *globalConductivity,
-                                    int *matrixMap,
+                                    uint *matrixMap,
                                     int num_nodes)
 {
     for (auto i = 0u; i < supportNodesSize; ++i) {

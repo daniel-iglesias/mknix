@@ -52,7 +52,7 @@ int setVectorType(int);
 int getVectorType();
 
     /**
-    \class Vector 
+    \class Vector
     \brief Template class Vector
 
     This class permits the creation of vector objects. The Vector class, which derives from Matrix class, has one parameter (nrows) that stores the dimension of the vector's container. The data is stored in an atribute (*type_vector) that points to some class which derives from the Data_vec class.
@@ -87,6 +87,30 @@ public:
    * \return Dimension of vector.
    */
   inline size_type size() const { return this->elements; }
+
+  /** Data pointer method
+   * Gives the direction in memory of (pointer to) the object.
+   * @return A pointer to the vector's contents (Type_stdVector).
+   */
+  //std::vector<T>* data_pointer()
+  std::vector<T>* data_pointer()
+  {
+    /*switch (getVectorType()) {
+      case 0 :*/
+        return static_cast<Type_stdVector< T >*>(this->type_vector)->data_pointer();
+/*
+  #ifdef HAVE_GMM
+      case 1 :  //Type_gmmVector_sparse< T >;
+        return static_cast<Type_gmmVector_sparse< T >*>(this->type_vector)->data_pointer();
+  #else
+      {
+          std::stringstream message;
+          message << "gmm++ not defined.\nYou must set \"#define HAVE_GMM\" in your file in order to use this library." << endl;
+          LMX_THROW(failure_error, message.str() );
+      }
+  #endif
+}*/
+  }
 
   void load(char*);
 
@@ -129,7 +153,7 @@ public:
   inline Vector& mult(const T&, const Vector<T>&);
 
   inline Vector& mult(const Vector<T>&, const Vector<T>&);
-  
+
   inline Vector& multElements(const Vector<T>&);
 
   inline Vector& multElements(const Vector<T>&, const Vector<T>&);
@@ -188,7 +212,7 @@ public:
       void reset()
   { this->type_vector->reset(); }
 	//end JCGO
-	
+
   /** Resize the Vector with given size parameter.
    *  \param i New size.
    *  */
@@ -632,7 +656,7 @@ template <typename T> inline
  * Element adding function.
  *
  * Adds two Vectors' elements and saves result in object.
- * 
+ *
  * \param A A vector.
  * \param B A vector.
  * \return Reference to result.

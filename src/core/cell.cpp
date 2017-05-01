@@ -143,7 +143,7 @@ void Cell::assembleCapacityGaussPoints(lmx::Matrix<data_type>& globalCapacity)
 }
 
 void Cell::assembleCapacityGaussPointsWithMap(data_type *globalCapacity,
-                                              int *matrixMap,
+                                              uint *matrixMap,
                                               int number_nodes)
 {
     for (auto& point : gPoints_MC) {
@@ -169,7 +169,7 @@ void Cell::assembleConductivityGaussPoints(lmx::Matrix<data_type>& globalConduct
 }
 
 void Cell::assembleConductivityGaussPointsWithMap(data_type *globalConductivity,
-                                                  int *matrixMap,
+                                                  uint *matrixMap,
                                                   int number_nodes)
 {
     for (auto& point : gPoints) {

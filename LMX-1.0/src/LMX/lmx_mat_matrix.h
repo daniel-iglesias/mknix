@@ -27,8 +27,11 @@
 #include"lmx_mat_type_stdmatrix.h"
 #include"lmx_mat_type_csc.h"
 
+//#include"lmx_mat_type_gmm.h"
+
 #ifdef HAVE_GMM
 #include"lmx_mat_type_gmm_sparse1.h"
+#include"lmx_mat_type_gmm_csc.h"
 #endif
 
 //////////////////////////////////////////// Doxygen file documentation entry:
@@ -60,19 +63,19 @@ int setMatrixType(int);
 int getMatrixType();
 
 template <typename C>
-    void latexPrint( std::ofstream& os, 
-                     char* mat_name, 
-                     Matrix<C>& mat, 
+    void latexPrint( std::ofstream& os,
+                     char* mat_name,
+                     Matrix<C>& mat,
                      int prec
                    );
 
     /**
-    \class Matrix 
+    \class Matrix
     \brief Template class Matrix
 
-    This class permits the creation of matrix objects. A Matrix object owns two 
-    parameters, nrows and mcolumns, that store the dimension of the matrix 
-    container. The data is stored in an atribute (*type_matrix) that points to 
+    This class permits the creation of matrix objects. A Matrix object owns two
+    parameters, nrows and mcolumns, that store the dimension of the matrix
+    container. The data is stored in an atribute (*type_matrix) that points to
     some class which derives from the Data_mat class.
 
     @param mrows The number of rows of the Data Container (Data_mat).
@@ -85,7 +88,7 @@ template <typename C>
 template <typename T> class Matrix{
 protected:
 
-  size_type mrows,    /**< Number of rows in matrix object. */ 
+  size_type mrows,    /**< Number of rows in matrix object. */
         ncolumns; /**< Number of colums in matrix object. */
   Elem_ref<T>* reference; /**< Reference pointer to an element in type_matrix.*/
   Data_mat<T>* type_matrix; /**< Pointer to the container type. */
@@ -129,6 +132,8 @@ public:
   void matrixMarketLoad(char*);
 
   void harwellBoeingLoad(char*);
+
+  void gmm_csc_cast(gmm::csc_matrix<T> &);
 
   void harwellBoeingSave(char*);
 
@@ -367,7 +372,7 @@ public:
       }
       return result;
     }
-  
+
   /** DOCUMENT
    */
   void factorize(){
@@ -379,7 +384,7 @@ public:
   void subsSolve( Vector<T>& rhs ){
     return this->type_matrix->subsSolve( rhs );
   }
-    
+
 /////////////////////////////// Friend functions:
 
   /** Function to get a transposed copy of a matrix.
@@ -468,7 +473,7 @@ template <typename T>
    *  \param columns Number of columns in Matrix. */
 template <typename T>
     Matrix<T>::Matrix(size_type rows, size_type columns) : mrows(rows), ncolumns(columns)
-{ 
+{
   initialize_type_matrix(getMatrixType());
   type_matrix->resize(mrows, ncolumns);
 }
@@ -560,6 +565,18 @@ template <typename T> inline
 #endif
     break;
 
+    /*case 4 :
+#ifdef HAVE_GMM
+      type_matrix = new Type_gmm_csc< T >;
+#else
+      {
+          std::stringstream message;
+          message << "gmm++ not defined.\nYou must set \"#define HAVE_GMM\" in your file in order to use this library." << endl;
+          LMX_THROW(failure_error, message.str() );
+      }
+#endif
+    break;*/
+
   }
 
   reference = new Elem_ref<T>(type_matrix);
@@ -590,6 +607,19 @@ template <typename T>
   this->mrows = this->type_matrix->getRows();
   this->ncolumns = this->type_matrix->getCols();
 }
+///added by vicen april 2017
+/** Method for reading a matrix in Harwell-Boeing format from a file.
+ *  \param input_file Name of the file to read.
+ *  */
+template <typename T>
+  void Matrix<T>::gmm_csc_cast(gmm::csc_matrix<T> &matrix_to_cast)
+{
+/*this->type_matrix->cast_csc_matrix(matrix_to_cast);
+this->mrows = matrix_to_cast.getRows();
+this->ncolumns = matrix_to_cast.getCols();*/
+}
+
+
 
   /** Method for reading a matrix in Harwell-Boeing format from a file.
  *  \param input_file Name of the file to read.
@@ -649,7 +679,7 @@ template <typename T>
  */
 template <typename T>
     void Matrix<T>::sparsePattern( Vector<size_type>& row_index,
-                                   Vector<size_type>& col_index 
+                                   Vector<size_type>& col_index
                                  )
 {
   this->type_matrix->setSparsePattern( row_index, col_index );
@@ -715,7 +745,7 @@ template <typename T>
 template <typename T>
     inline
     Matrix<T>& Matrix<T>::operator = (const Matrix<T>& A)
-{ 
+{
   mrows = A.mrows;
   ncolumns = A.ncolumns;
   type_matrix->equals(A.type_matrix);
@@ -783,7 +813,7 @@ template <typename T>
 template <typename T>
     inline
     Matrix<T>& Matrix<T>::operator += (const Matrix& A)
-{ 
+{
 // Scheme of function: (*this.type_matrix) + A.type_matrix, return *this;
   type_matrix->add(A.type_matrix);
   return *this;
@@ -813,7 +843,7 @@ template <typename T>
 template <typename T>
     inline
     Matrix<T>& Matrix<T>::operator -= (const Matrix& A)
-{ 
+{
 // Scheme of function: (*this.type_matrix) - A.type_matrix, return *this;
   type_matrix->substract(A.type_matrix);
   return *this;

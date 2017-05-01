@@ -21,7 +21,7 @@
  */
 struct p_struct{
   std::atomic<double>* globalMatrix;
-  std::vector<int> *fullMap;
+  std::vector<uint> *fullMap;
   double *local_matrices_array;
   int numCells;
   int supportNodeSize;
@@ -89,7 +89,7 @@ void computeSOAConductivityMatrix(T *local_conductivity_matrices_array,
                                   int tid);
 template <typename T>
 void atomicAssembleGlobalMatrix(std::atomic<T>* globalMatrix,
-                                std::vector<int> &fullMap,
+                                std::vector<uint> &fullMap,
                                 T *local_matrices_array,
                                 int numPoints,
                                 int supportNodeSize,
@@ -118,16 +118,26 @@ float inline atomic_fetch_add(std::atomic<float>* target, float value){
 template <typename T>
 void cast_into_gmm_csc_type(gmm::csc_matrix<T>& gmm_matrix,
                             T *values_array,
-                            std::vector<int> &vec_ind,
-                            std::vector<int> &cvec_ptr,
+                            std::vector<uint> &vec_ind,
+                            std::vector<uint> &cvec_ptr,
                             int number_rows,
                             int number_columns);
+
+//
+template <typename T>
+void cast_into_lmx_csc_type(lmx::Matrix<T> &lmx_ref,
+                            T *values_array,
+                            std::vector<uint> &vec_ind,
+                            std::vector<uint> &cvec_ptr,
+                            int number_rows,
+                            int number_columns);
+//
 
 template <typename T>
 void cast_into_gmm_csr_type(gmm::csr_matrix<T>& gmm_matrix,
                             T *values_array,
-                            std::vector<int> &vec_ind,
-                            std::vector<int> &cvec_ptr,
+                            std::vector<uint> &vec_ind,
+                            std::vector<uint> &cvec_ptr,
                             int number_rows,
                             int number_columns);
 
@@ -149,24 +159,24 @@ void check_host_array_for_limits(T *array,
                                   int support_node_size,
                                   int number_elements);
 
-  bool map_global_matrix(std::vector<int> &full_map,
-                         std::vector<int> &vec_ind,
-                         std::vector<int> &cvec_ptr,
+  bool map_global_matrix(std::vector<uint> &full_map,
+                         std::vector<uint> &vec_ind,
+                         std::vector<uint> &cvec_ptr,
                          int *presence_matrix,
                          int number_rows,
                          int number_columns,
                          bool isCSC = true);//CCS or CSR
 
-  bool build_CSC_sparse_matrix_from_map(std::vector<int> &full_map,
-                                        std::vector<int> &col_ind,
-                                        std::vector<int> &row_ptr,
+  bool build_CSC_sparse_matrix_from_map(std::vector<uint> &full_map,
+                                        std::vector<uint> &col_ind,
+                                        std::vector<uint> &row_ptr,
                                         int *presence_matrix,
                                         int number_rows,
                                         int number_columns);//Compressed Sparse Column Storage
 
-  bool build_CSR_sparse_matrix_from_map(std::vector<int> &full_map,
-                                        std::vector<int> &col_ind,
-                                        std::vector<int> &row_ptr,
+  bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
+                                        std::vector<uint> &col_ind,
+                                        std::vector<uint> &row_ptr,
                                         int *presence_matrix,
                                         int number_rows,
                                         int number_columns);//Compressed Sparse Row Storage

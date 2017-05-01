@@ -69,6 +69,8 @@ public:
 
     virtual void setMaterialTable(MaterialTable* mt_ptr);
 
+    virtual void setTemperatureVector(lmx::Vector<data_type>& q);
+
     virtual void calcFactors();
 
     virtual void calcCapacityMatrix();
@@ -246,9 +248,12 @@ protected:
     LoadThermalBody * loadThermalBody;
 
     //map
-    std::vector<int> _full_map;//also used for cpu new assembly functions
-    std::vector<int> _vec_ind;
-    std::vector<int> _cvec_ptr;
+    std::vector<uint> _full_map_cap;//also used for cpu new assembly functions
+    std::vector<uint> _vec_ind_cap;
+    std::vector<uint> _cvec_ptr_cap;
+    std::vector<uint> _full_map_cond;
+    std::vector<uint> _vec_ind_cond;
+    std::vector<uint> _cvec_ptr_cond;
     std::vector<int> _locaThermalNumbers;
 
     //GPU related
