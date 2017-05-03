@@ -151,13 +151,19 @@ if(OLD_CODE){
     globalExternalHeat.resize(gdlSize);
     globalInternalHeat.resize(gdlSize);
 
-    baseSystem->setMaterialTable(myMaterialTable);//setting soa structture
-    baseSystem->calcFactors();//SOA for speedup
+    //baseSystem->setMaterialTable(myMaterialTable);//setting soa structture
+    //baseSystem->calcFactors();//SOA for speedup
     baseSystem->calcConductivityMatrix();
     baseSystem->assembleConductivityMatrix(globalConductivity);
     baseSystem->calcCapacityMatrix();
     baseSystem->assembleCapacityMatrix(globalCapacity);
 } else {
+  globalConductivity.resize(gdlSize, gdlSize);
+  globalCapacity.resize(gdlSize, gdlSize);
+  globalRHSHeat.resize(gdlSize);
+  globalExternalHeat.resize(gdlSize);
+  globalInternalHeat.resize(gdlSize);
+
   baseSystem->setMaterialTable(myMaterialTable);//setting soa structture
   baseSystem->calcFactors();//SOA for speedup
   baseSystem->calcConductivityMatrix();
@@ -453,6 +459,7 @@ std::cout << "\n\n  --- void Simulation::runMechanicalAnalysis with THERMOMECHAN
 }
 
 void Simulation::writeSystem()
+
 {
     std::stringstream ss;
     ss << title << ".mec";
@@ -615,7 +622,7 @@ void Simulation::dynamicThermalEvaluation(const lmx::Vector<data_type>& qt,
     globalExternalHeat.reset();
     globalInternalHeat.reset();
 
-    baseSystem->calcFactors();
+    //baseSystem->calcFactors();
     baseSystem->calcConductivityMatrix();
     baseSystem->calcCapacityMatrix();
     baseSystem->calcExternalHeat();
@@ -636,24 +643,43 @@ void Simulation::dynamicThermalEvaluation(const lmx::Vector<data_type>& qt,
 //    cout << "initial_flux :" << qtdot << endl;
 }else{
 //reset not necesary now
+std::cout << "0. before resets" << std::endl;
+globalCapacity.reset();
+globalConductivity.reset();
+globalExternalHeat.reset();
+globalInternalHeat.reset();
 
+  std::cout << "1. before calcFactors" << std::endl;
   baseSystem->calcFactors();
+  std::cout << "2. before calcConductivityMatrix" << std::endl;
   baseSystem->calcConductivityMatrix();
+  std::cout << "3. before calcCapacityMatrix" << std::endl;
   baseSystem->calcCapacityMatrix();
+  std::cout << "4. before calcExternalHeat" << std::endl;
   baseSystem->calcExternalHeat();
+  std::cout << "5. before calcInternalHeat" << std::endl;
   baseSystem->calcInternalHeat();
+  std::cout << "6. before assembleCapacityMatrix" << std::endl;
   baseSystem->assembleCapacityMatrix(globalCapacity);
+  std::cout << "7. before assembleConductivityMatrix" << std::endl;
   baseSystem->assembleConductivityMatrix(globalConductivity);
+  std::cout << "8. before assembleExternalHeat" << std::endl;
   baseSystem->assembleExternalHeat(globalExternalHeat);
+  std::cout << "9. before assembleInternalHeat" << std::endl;
   baseSystem->assembleInternalHeat(globalInternalHeat);
+  std::cout << "10. before globalRHSHeat = globalConductivity * qt;" << std::endl;
   globalRHSHeat = globalConductivity * qt;
+  std::cout << "11. before globalRHSHeat += globalInternalHeat;" << std::endl;
   globalRHSHeat += globalInternalHeat;
+  std::cout << "12. before globalRHSHeat -= globalExternalHeat;" << std::endl;
   globalRHSHeat -= globalExternalHeat;
 
 //     cout << "H = " << globalConductivity << endl;
 //     cout << "C = " << globalCapacity << endl;
 //     cout << globalRHSHeat << endl;
+  std::cout << "13. before lmx::LinearSystem<data_type> theLSolver(globalCapacity,qtdot, globalRHSHeat);" << std::endl;
   lmx::LinearSystem<data_type> theLSolver(globalCapacity,qtdot, globalRHSHeat);
+  std::cout << "14. before theLSolver.solveYourself();" << std::endl;
   theLSolver.solveYourself();
 }
     stepTime = time;

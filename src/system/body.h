@@ -260,10 +260,8 @@ protected:
     bool _use_gpu;
     data_type *_d_globalCapacity;
     data_type *_d_globalConductivity;
-    data_type *_h_globalCapacity;
-    data_type *_h_globalCapacity2;
-    data_type *_h_globalConductivity;
-    data_type *_h_globalConductivity2;
+    std::vector<data_type> _h_globalCapacity;
+    std::vector<data_type> _h_globalConductivity;
     data_type *_d_globalCapacityf;
     data_type *_d_globalConductivityf;
     data_type *_d_localCapacityf;

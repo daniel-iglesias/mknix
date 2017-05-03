@@ -83,8 +83,8 @@ Body::~Body()
     free_shape_functions_table(&_h_shapeFunctionTable);
     free(_h_shapeFunctionTable);
     free(_h_presence_matrix);
-    free(_h_globalCapacity);
-    free(_h_globalConductivity);
+    //delete _h_globalCapacity;
+    //delete _h_globalConductivity;
     free(_h_local_jacobian_array);
     free(_h_local_weight_array);
     ////////////////////////////////////
@@ -212,10 +212,8 @@ void Body::initialize()
                       _number_nodes);
     _sparse_matrix_size = _cvec_ptr_cap[_number_nodes];
 
-  _h_globalCapacity      = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
-  _h_globalCapacity2     = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
-  _h_globalConductivity  = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
-  _h_globalConductivity2 = (data_type*)malloc(_sparse_matrix_size * sizeof(data_type));
+  _h_globalCapacity.resize(_sparse_matrix_size);
+  _h_globalConductivity.resize(_sparse_matrix_size);
   _h_localConductivityf  = (data_type*)malloc(_number_points * _support_node_size * _support_node_size * sizeof(data_type));
   _h_localCapacityf      = (data_type*)malloc(_number_points * _support_node_size * _support_node_size * sizeof(data_type));
 
@@ -230,7 +228,7 @@ void Body::initialize()
     _param_array_capacity     = (p_struct*)malloc(MAXTHREADS * sizeof(p_struct));
     _param_array_conductivity = (p_struct*)malloc(MAXTHREADS * sizeof(p_struct));
     for(int i = 0; i < MAXTHREADS; i++){
-        _param_array_capacity[i].globalMatrix = (std::atomic<double>*)_h_globalCapacity2;
+        _param_array_capacity[i].globalMatrix = (std::atomic<double>*)_h_globalCapacity.data();
         _param_array_capacity[i].fullMap = &_full_map_cap;
         _param_array_capacity[i].local_matrices_array = _h_localCapacityf;
         _param_array_capacity[i].numCells = this->cells.size();
@@ -239,7 +237,7 @@ void Body::initialize()
         _param_array_capacity[i].max_threads = MAXTHREADS;
     }
     for(int i = 0; i < MAXTHREADS; i++){
-        _param_array_conductivity[i].globalMatrix = (std::atomic<double>*)_h_globalConductivity2;
+        _param_array_conductivity[i].globalMatrix = (std::atomic<double>*)_h_globalConductivity.data();
         _param_array_conductivity[i].fullMap = &_full_map_cond;
         _param_array_conductivity[i].local_matrices_array = _h_localConductivityf;
         _param_array_conductivity[i].numCells = this->cells.size();
@@ -499,12 +497,15 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
   microCPU1.push_back(cck1.elapsedMicroseconds);
   //new CPU assembly function
 }else if(NEWCPU){
+  std::cout << "inside assembleCapacityMatrix" << std::endl;
     cpuClock cck1b;
     cpuTick(&cck1b);
     auto end_int = this->cells.size();
-    init_host_array_to_value(_h_globalCapacity, 0.0, _sparse_matrix_size);
+    std::cout << "before init_host_array_to_value" << std::endl;
+    init_host_array_to_value(_h_globalCapacity.data(), 0.0, _sparse_matrix_size);
+    std::cout << "before assembleCapacityGaussPointsWithMap" << std::endl;
     for (auto i = 0u; i < end_int; ++i) {
-        this->cells[i]->assembleCapacityGaussPointsWithMap(_h_globalCapacity,
+        this->cells[i]->assembleCapacityGaussPointsWithMap(_h_globalCapacity.data(),
                                                            _full_map_cap.data(),
                                                            _support_node_size);
     }
@@ -516,7 +517,7 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
                            _cvec_ptr_cap,
                            _number_nodes,
                            _number_nodes);
-    std::cout << " after the cast" << std::endl;
+    std::cout << " after the cast, leaving assembleCapacityMatrix" << std::endl;
 }
 if(MULTICPU){
   ///////multi-cpu part
@@ -569,12 +570,15 @@ if(OLD_CODE) {
     microCPU2.push_back(cck2.elapsedMicroseconds);
     //new CPU assembly function
 } else if(NEWCPU){
+  std::cout << "inside assembleConductivityMatrix" << std::endl;
     cpuClock cck2b;
     cpuTick(&cck2b);
+    std::cout << "before init_host_array_to_value" << std::endl;
     auto end_int = this->cells.size();
-      init_host_array_to_value(_h_globalConductivity, 0.0, _sparse_matrix_size);
-      for (auto i = 0u; i < end_int; ++i) {
-          this->cells[i]->assembleConductivityGaussPointsWithMap(_h_globalConductivity,
+    init_host_array_to_value(_h_globalConductivity, 0.0, _sparse_matrix_size);
+    std::cout << "before assembleConductivityGaussPointsWithMap" << std::endl;
+    for (auto i = 0u; i < end_int; ++i) {
+          this->cells[i]->assembleConductivityGaussPointsWithMap(_h_globalConductivity.data(),
                                                                  _full_map_cond.data(),
                                                                  _support_node_size);
       }
@@ -588,7 +592,9 @@ if(OLD_CODE) {
                            _cvec_ptr_cond,
                            _number_nodes,
                            _number_nodes);
+
     //cpuTock(&cck2b1, "CPU cast_into_lmx_csc_type");
+    std::cout << " after the cast, leaving assembleConductivityMatrix " << std::endl;
   } else if(MULTICPU){
 /*int max_threads = 4;
 pthread_t threads[max_threads];
@@ -642,17 +648,34 @@ pthread_t threads[max_threads];
  **/
 void Body::assembleExternalHeat(lmx::Vector<data_type>& globalExternalHeat)
 {
-    auto end_int = this->cells.size();
-//     #pragma omp parallel for
-    for (auto i = 0u; i < end_int; ++i) {
-        this->cells[i]->assembleQextGaussPoints(globalExternalHeat);
-    }
-    for (auto group : boundaryGroups) {
-        group.second->assembleExternalHeat(globalExternalHeat);
-    }
+  if(OLD_CODE){
+      auto end_int = this->cells.size();
+      for (auto i = 0u; i < end_int; ++i) {
+          this->cells[i]->assembleQextGaussPoints(globalExternalHeat);
+      }
+      for (auto group : boundaryGroups) {
+          group.second->assembleExternalHeat(globalExternalHeat);
+      }
+  } else if(NEWCPU) {
+  //  std::cout <<"Inside Body::assembleExternalHeat" <<std::endl;
+      auto end_int = this->cells.size();
+      //std::cout <<"Body::assembleExternalHeat Initializing global vector" <<std::endl;
+      //globalExternalHeat.fillIdentity(0.0f);
+    //  std::cout <<"Body::assembleExternalHeat from Cells" <<std::endl;
+      for (auto i = 0u; i < end_int; ++i) {
+          this->cells[i]->assembleQextGaussPoints(globalExternalHeat);
+
+      }
+    //  std::cout <<"Body::assembleExternalHeat from Boundary Groups" <<std::endl;
+      for (auto group : boundaryGroups) {
+          group.second->assembleExternalHeat(globalExternalHeat);
+      }
+  } else if(MULTICPU){
+  }else if(GPU){
   #ifdef HAVE_CUDA
     if(_use_gpu){
-      init_array_to_value(_d_globalExternalHeat, 0.0f, _sparse_matrix_size,128);
+      //init_array_to_value(_d_globalExternalHeat, 0.0f, _sparse_matrix_size,128);
+      init_array_to_value(_d_globalExternalHeat, 0.0f, _number_nodes, 128);
       gpu_assemble_global_vector(_d_globalExternalHeat,
                                 _d_locaThermalNumbers,
                                 _d_localHeatf,
@@ -667,6 +690,7 @@ void Body::assembleExternalHeat(lmx::Vector<data_type>& globalExternalHeat)
                                 128);
     }
   #endif
+ }
 }
 
 void Body::setTemperature(double temp_in)

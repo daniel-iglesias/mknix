@@ -29,13 +29,13 @@
 //////////////////////////////////////////// Doxygen file documentation entry:
     /*!
       \file lmx_mat_data.h
-      
+
       \brief This file contains the declaration of the data class' pure virtual functions.
-      
+
       For classes derived from Data pure virtual class, all these methods must be implemented. Thus, for comprobation and checking, the methods here declared are as well documented.
-      
+
       \author Daniel Iglesias
-      
+
     */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
@@ -49,9 +49,9 @@ namespace lmx {
     \class Data
     \brief Template class Data.
     Mother class for Data_mat & Data_vec.
-    
+
     This class represents the skeleton for the data container used by the Vector and Matrix classes. No parameter nor function implementation here, just pure virtual class. See derived classes for details in implementation. Also maybe useful to see how this class is used in the Vector class.
-    
+
     @author Daniel Iglesias.
     */
 template <typename T> class Data{
@@ -61,7 +61,7 @@ public:
    */
   Data(){}
 
-  /** Destructor. 
+  /** Destructor.
    */
   virtual ~Data(){}
 
@@ -82,12 +82,12 @@ public:
    */
   virtual void addElement(T, const size_type&, const size_type&) = 0;
 
-  /** Method for knowing the number of data rows. 
+  /** Method for knowing the number of data rows.
    * \returns Number of rows.
    */
   virtual size_type getRows() const = 0;
 
-  /** Method for knowing the number of data columns. 
+  /** Method for knowing the number of data columns.
    * \returns Number of columns.
    */
   virtual size_type getCols() const = 0;
@@ -111,12 +111,12 @@ public:
    * Necessary for implementing the "*" overloaded operator method with scalars in Vector class type.
    */
   virtual void multiplyScalar(const T&) = 0;
-  
+
   /** Method multiplying element-by-element of two arrays. One would be the object's contents and the other the parameter's contents.
    * Necessary for implementing  Vector to Vector multElements.
    */
   virtual void multiplyElements(const Data*) = 0;
-  
+
   /**
    * Method for cleaning all elements below a given factor.
    */
@@ -126,6 +126,13 @@ public:
    * Method for clearing all elements.
    */
   virtual void clear() = 0;
+
+  /**
+   * Method added fro library compatibility vicen 2017.
+   */
+  virtual void cast_csc_matrix(gmm::csc_matrix<T> &){
+    std::cout << "BAAAAAAD CAST :-( lmx_mat_data" << std::endl;
+  }
 
 	//begin JCGO 18/03/09
   /**

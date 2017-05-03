@@ -192,7 +192,9 @@ public:
    * \param reference to the matrix to cast.
    *  */
 void cast_csc_matrix(gmm::csc_matrix<T> &matrix_to_cast)
-{  gmm::resize(contents, gmm::mat_nrows(matrix_to_cast), gmm::mat_ncols(matrix_to_cast));
+{
+  std::cout << "GOOD CAST :-) type_gmm_sparse1" << std::endl;
+   gmm::resize(contents, gmm::mat_nrows(matrix_to_cast), gmm::mat_ncols(matrix_to_cast));
    gmm::copy(matrix_to_cast, contents);
 }
 /*void cast_csc_matrix(gmm::csc_matrix<float> &matrix_to_cast)

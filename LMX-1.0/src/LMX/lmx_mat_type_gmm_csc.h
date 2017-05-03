@@ -189,6 +189,18 @@ public:
        gmm::Harwell_Boeing_save(input_file, cscmat);
      }
 
+     ///added by vicen april 2017
+       /** Cast a csc matrix format method.,
+        * suposing it's compressed Sparse Column.
+        * \param reference to the matrix to cast.
+        *  */
+     void cast_csc_matrix(gmm::csc_matrix<T> &matrix_to_cast)
+     {
+       std::cout << "GOOD CAST :-) type_gmm_csc" << std::endl;
+        gmm::resize(this->gmm_csc_matrix, gmm::mat_nrows(matrix_to_cast), gmm::mat_ncols(matrix_to_cast));
+        gmm::copy(matrix_to_cast, gmm_csc_matrix);
+     }
+
        /** Traspose method.
          * Swaps elements with respect to the diagonal: A(i,j) = A(j,i) */
       void trn()

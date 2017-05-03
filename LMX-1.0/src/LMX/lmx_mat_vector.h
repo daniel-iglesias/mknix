@@ -476,7 +476,6 @@ template <typename T>
       this->type_vector->writeElement( factor * static_cast<T>( std::rand() ) / static_cast<T>(RAND_MAX),i,1);
 }
 
-
 /**
  * Overload of element extraction method.
  * \param row Position in Vector for the element to extract.

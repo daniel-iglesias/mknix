@@ -614,14 +614,13 @@ template <typename T>
 template <typename T>
   void Matrix<T>::gmm_csc_cast(gmm::csc_matrix<T> &matrix_to_cast)
 {
-/*this->type_matrix->cast_csc_matrix(matrix_to_cast);
-this->mrows = matrix_to_cast.getRows();
-this->ncolumns = matrix_to_cast.getCols();*/
+  std::cout << "GOOD CAST :-) passing from mat_matrix" << std::endl;
+    this->type_matrix->cast_csc_matrix(matrix_to_cast);
+    this->mrows = matrix_to_cast.nrows();
+    this->ncolumns = matrix_to_cast.ncols();
 }
 
-
-
-  /** Method for reading a matrix in Harwell-Boeing format from a file.
+/** Method for reading a matrix in Harwell-Boeing format from a file.
  *  \param input_file Name of the file to read.
    *  */
 template <typename T>

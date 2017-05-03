@@ -117,7 +117,7 @@ float inline atomic_fetch_add(std::atomic<float>* target, float value){
 
 template <typename T>
 void cast_into_gmm_csc_type(gmm::csc_matrix<T>& gmm_matrix,
-                            T *values_array,
+                            std::vector<T> &values_array,
                             std::vector<uint> &vec_ind,
                             std::vector<uint> &cvec_ptr,
                             int number_rows,
@@ -126,7 +126,7 @@ void cast_into_gmm_csc_type(gmm::csc_matrix<T>& gmm_matrix,
 //
 template <typename T>
 void cast_into_lmx_csc_type(lmx::Matrix<T> &lmx_ref,
-                            T *values_array,
+                            std::vector<T> &values_array,
                             std::vector<uint> &vec_ind,
                             std::vector<uint> &cvec_ptr,
                             int number_rows,
@@ -135,7 +135,7 @@ void cast_into_lmx_csc_type(lmx::Matrix<T> &lmx_ref,
 
 template <typename T>
 void cast_into_gmm_csr_type(gmm::csr_matrix<T>& gmm_matrix,
-                            T *values_array,
+                            std::vector<T> &values_array,
                             std::vector<uint> &vec_ind,
                             std::vector<uint> &cvec_ptr,
                             int number_rows,
@@ -145,6 +145,18 @@ template <typename T>
 void init_host_array_to_value(T *array,
                               T value,
                               int size);
+
+/**
+* initializes and array to a value in single thread
+* @param  {[type]} std::vector<T> array        array
+* @param  {[type]} T  value        initialization value
+* @param  {[type]} int size        number of elements in the array
+*/
+template <typename T>
+void init_host_array_to_value(std::vector<T> &array,
+                              T value,
+                              int size);
+//
 template <typename T>
 void check_host_array_for_limits(T *array,
                                  T upper_limit,

@@ -148,17 +148,17 @@ void* threadWrapper(void* ptr){
  */
 template <typename T>
 void cast_into_gmm_csc_type(gmm::csc_matrix<T>& gmm_matrix,
-                            T *values_array,
+                            std::vector<T> &values_array,
                             std::vector<uint> &vec_ind,
                             std::vector<uint> &cvec_ptr,
                             int number_rows,
                             int number_columns)
 {
-  gmm_matrix.pr = values_array;
+  gmm_matrix.pr = values_array.data();
   gmm_matrix.ir = vec_ind.data();
   gmm_matrix.jc = cvec_ptr.data();
   gmm_matrix.nr = number_rows;
-  gmm_matrix.nr = number_columns;
+  gmm_matrix.nc = number_columns;
 }
 
 /**
@@ -169,23 +169,27 @@ void cast_into_gmm_csc_type(gmm::csc_matrix<T>& gmm_matrix,
  */
 template <typename T>
 void cast_into_lmx_csc_type(lmx::Matrix<T> &lmx_ref,
-                            T *values_array,
+                            std::vector<T> &values_array,
                             std::vector<uint> &vec_ind,
                             std::vector<uint> &cvec_ptr,
                             int number_rows,
                             int number_columns)
 {
-  //std::cout << "inside cast_into_lmx_csc_type" << std::endl;
+  std::cout << "inside cast_into_lmx_csc_type" << std::endl;
   gmm::csc_matrix<T> gmm_matrix;
-  gmm_matrix.pr = values_array;
+  gmm_matrix.pr = values_array.data();
   //std::cout << "(uint*)vec_ind.data()" << std::endl;
   gmm_matrix.ir = vec_ind.data();
   //std::cout << "(uint*)cvec_ptr.data()" << std::endl;
   gmm_matrix.jc = cvec_ptr.data();
   gmm_matrix.nr = number_rows;
-  gmm_matrix.nr = number_columns;
-  //std::cout << "about to use gmm_csc_cast" << std::endl;
+  gmm_matrix.nc = number_columns;
+  std::cout << "about to use gmm_csc_cast" << std::endl;
   lmx_ref.gmm_csc_cast(gmm_matrix);
+  std::cout << "after gmm_csc_cast" << std::endl;
+  gmm_matrix.pr  = NULL;
+  gmm_matrix.ir = NULL;
+  gmm_matrix.jc = NULL;
 }
 /**
  * Cast a directly assembled matrix into GMM compatible sparse matrix
@@ -195,17 +199,17 @@ void cast_into_lmx_csc_type(lmx::Matrix<T> &lmx_ref,
  */
 template <typename T>
 void cast_into_gmm_csr_type(gmm::csr_matrix<T>& gmm_matrix,
-                            T *values_array,
+                            std::vector<T> &values_array,
                             std::vector<uint> &vec_ind,
                             std::vector<uint> &cvec_ptr,
                             int number_rows,
                             int number_columns)
 {
-  gmm_matrix.pr = values_array;
+  gmm_matrix.pr = values_array.data();
   gmm_matrix.ir = vec_ind.data();
   gmm_matrix.jc = cvec_ptr.data();
   gmm_matrix.nr = number_rows;
-  gmm_matrix.nr = number_columns;
+  gmm_matrix.nc = number_columns;
 
 }
 
@@ -220,8 +224,25 @@ void init_host_array_to_value(T *array,
                               T value,
                               int size)
 {
- for(int i = 0; i < size; i++) array[i] = value;
- }
+  std::cout<< "inside init_host_array_to_value" << std::cout;
+  for(int i = 0; i < size; i++) array[i] = value;
+}
+
+/**
+ * initializes and array to a value in single thread
+ * @param  {[type]} std::vector<T> array        array
+ * @param  {[type]} T  value        initialization value
+ * @param  {[type]} int size        number of elements in the array
+ */
+template <typename T>
+void init_host_array_to_value(std::vector<T> &array,
+                              T value,
+                              int size)
+{
+  std::cout<< "inside init_host_array_to_value" << std::cout;
+  array.assign(size,value);
+  //for(int i = 0; i < size; i++) array[i] = value;
+}
 
  /**
   * Checks that all values in are between given limits
@@ -460,42 +481,42 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
                                                      int max_threads);
     //
     template void cast_into_gmm_csc_type<float>(gmm::csc_matrix<float>& gmm_matrix,
-                                                float *values_array,
+                                                std::vector<float> &values_array,
                                                 std::vector<uint> &vec_ind,
                                                 std::vector<uint> &cvec_ptr,
                                                 int number_rows,
                                                 int number_columns);
     //
     template void cast_into_gmm_csc_type<double>(gmm::csc_matrix<double>& gmm_matrix,
-                                                 double *values_array,
+                                                 std::vector<double> &values_array,
                                                  std::vector<uint> &vec_ind,
                                                  std::vector<uint> &cvec_ptr,
                                                  int number_rows,
                                                  int number_columns);
     //
     template void cast_into_lmx_csc_type<float>(lmx::Matrix<float> &lmx_ref,
-                                                float *values_array,
+                                                std::vector<float> &values_array,
                                                 std::vector<uint> &vec_ind,
                                                 std::vector<uint> &cvec_ptr,
                                                 int number_rows,
                                                 int number_columns);
     //
     template void cast_into_lmx_csc_type<double>(lmx::Matrix<double> &lmx_ref,
-                                                double *values_array,
+                                                std::vector<double> &values_array,
                                                 std::vector<uint> &vec_ind,
                                                 std::vector<uint> &cvec_ptr,
                                                 int number_rows,
                                                 int number_columns);
     //
     template void cast_into_gmm_csr_type<float>(gmm::csr_matrix<float>& gmm_matrix,
-                                                float *values_array,
+                                                std::vector<float> &values_array,
                                                 std::vector<uint> &vec_ind,
                                                 std::vector<uint> &cvec_ptr,
                                                 int number_rows,
                                                 int number_columns);
     //
     template void cast_into_gmm_csr_type<double>(gmm::csr_matrix<double>& gmm_matrix,
-                                                double *values_array,
+                                                std::vector<double> &values_array,
                                                 std::vector<uint> &vec_ind,
                                                 std::vector<uint> &cvec_ptr,
                                                 int number_rows,
@@ -510,12 +531,22 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
     template void init_host_array_to_value<int>(int *array,
                                                 int value,
                                                 int size);
-
-    template void check_host_array_for_limits<double>(double *array,
-                                                      double upper_limit,
-                                                      double lower_limit,
-                                                      int size,
-                                                      std::string array_name);
+ //
+ template void init_host_array_to_value<double>(std::vector<double> &array,
+                                                double value,
+                                                int size);
+ template void init_host_array_to_value<float>(std::vector<float> &array,
+                                               float value,
+                                               int size);
+ template void init_host_array_to_value<int>(std::vector<int> &array,
+                                             int value,
+                                             int size);
+//
+ template void check_host_array_for_limits<double>(double *array,
+                                                   double upper_limit,
+                                                   double lower_limit,
+                                                   int size,
+                                                   std::string array_name);
   //
   template void check_host_array_for_limits<float>(float *array,
                                                    float upper_limit,
