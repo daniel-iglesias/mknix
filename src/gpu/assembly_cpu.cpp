@@ -125,6 +125,32 @@ void atomicAssembleGlobalMatrix(std::atomic<T>* globalMatrix,
    }
 }
 /**
+ * Assembles a Global Matrix in single threaded CPU
+ * @param  {[type]} T* array       the global matrix
+ * @param  {[type]} int vector     The map for direct assembly
+ * @param  {[type]} T* array       array of values to be assermbled
+ * @param  {[type]} int size       Total number of Gauss points
+ * @param  {[type]} int size       number of support nodes per gausspoint
+ */
+template <typename T>
+void AssembleGlobalMatrix(std::vector<T> &globalMatrix,
+                          std::vector<uint> &fullMap,
+                          T *local_matrices_array,
+                          int numPoints,
+                          int supportNodeSize)
+{
+  for(uint eachPoint = 0; eachPoint < numPoints; eachPoint++){
+    for(uint i = 0; i < supportNodeSize; i++){//equivalent to obtaining thermalNumber
+       for(uint j = 0; j < supportNodeSize; j++){
+          int pos_id = eachPoint * supportNodeSize * supportNodeSize + i * supportNodeSize + j;
+          T value = local_matrices_array[pos_id];
+          int globalPos = fullMap[pos_id];
+          globalMatrix[globalPos] += value;
+       }
+     }
+   }
+}
+/**
  * Thread Wrapper to launch assembly in multi threaded version.
  * @param  {[type]} void* pointer   pointer to options structure
  */
@@ -479,6 +505,18 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
                                                      int supportNodeSize,
                                                      int tid,
                                                      int max_threads);
+    //
+    template void AssembleGlobalMatrix<float>(std::vector<float> &globalMatrix,
+                                              std::vector<uint> &fullMap,
+                                              float *local_matrices_array,
+                                              int numPoints,
+                                              int supportNodeSize);
+    //
+    template void AssembleGlobalMatrix<double>(std::vector<double> &globalMatrix,
+                                               std::vector<uint> &fullMap,
+                                               double *local_matrices_array,
+                                               int numPoints,
+                                               int supportNodeSize);
     //
     template void cast_into_gmm_csc_type<float>(gmm::csc_matrix<float>& gmm_matrix,
                                                 std::vector<float> &values_array,

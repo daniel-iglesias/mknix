@@ -504,13 +504,17 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
     std::cout << "before init_host_array_to_value" << std::endl;
     init_host_array_to_value(_h_globalCapacity.data(), 0.0, _sparse_matrix_size);
     std::cout << "before assembleCapacityGaussPointsWithMap" << std::endl;
-    for (auto i = 0u; i < end_int; ++i) {
-        this->cells[i]->assembleCapacityGaussPointsWithMap(_h_globalCapacity.data(),
-                                                           _full_map_cap.data(),
-                                                           _support_node_size);
-    }
+    AssembleGlobalMatrix(_h_globalCapacity,
+                         _full_map_cap,
+                         _h_localCapacityf,
+                         _number_points,
+                         _support_node_size);
     cpuTock(&cck1b, "CPU assembleCapacityMatrixWithMap");
     microCPU1b.push_back(cck1b.elapsedMicroseconds);
+    double debugio =0.0;
+    for (auto& el : _h_globalCapacity){
+        debugio += el;}
+    std::cout << "_h_globalConductivity sumsum = " << debugio << std::endl;
     cast_into_lmx_csc_type(globalCapacity,
                            _h_globalCapacity,
                            _vec_ind_cap,
@@ -577,15 +581,20 @@ if(OLD_CODE) {
     auto end_int = this->cells.size();
     init_host_array_to_value(_h_globalConductivity, 0.0, _sparse_matrix_size);
     std::cout << "before assembleConductivityGaussPointsWithMap" << std::endl;
-    for (auto i = 0u; i < end_int; ++i) {
-          this->cells[i]->assembleConductivityGaussPointsWithMap(_h_globalConductivity.data(),
-                                                                 _full_map_cond.data(),
-                                                                 _support_node_size);
-      }
+    AssembleGlobalMatrix(_h_globalConductivity,
+                         _full_map_cond,
+                         _h_localConductivityf,
+                         _number_points,
+                         _support_node_size);
     cpuTock(&cck2b, "CPU assembleConductivityGaussPointsWithMap");
+    double debugio =0.0;
+    for (auto& el : _h_globalConductivity)
+        debugio += el;
+  std::cout << "_h_globalConductivity sumsum = " << debugio << std::endl;
+
     microCPU2b.push_back(cck2b.elapsedMicroseconds);
-    //cpuClock cck2b1;
-    //cpuTick(&cck2b1);
+    cpuClock cck2b1;
+    cpuTick(&cck2b1);
     cast_into_lmx_csc_type(globalConductivity,
                            _h_globalConductivity,
                            _vec_ind_cond,
@@ -593,7 +602,7 @@ if(OLD_CODE) {
                            _number_nodes,
                            _number_nodes);
 
-    //cpuTock(&cck2b1, "CPU cast_into_lmx_csc_type");
+    cpuTock(&cck2b1, "CPU cast_into_lmx_csc_type");
     std::cout << " after the cast, leaving assembleConductivityMatrix " << std::endl;
   } else if(MULTICPU){
 /*int max_threads = 4;

@@ -95,6 +95,22 @@ void atomicAssembleGlobalMatrix(std::atomic<T>* globalMatrix,
                                 int supportNodeSize,
                                 int tid,
                                 int max_threads);
+//
+/**
+ * Assembles a Global Matrix in single threaded CPU
+ * @param  {[type]} T* array       the global matrix
+ * @param  {[type]} int vector     The map for direct assembly
+ * @param  {[type]} T* array       array of values to be assermbled
+ * @param  {[type]} int size       Total number of Gauss points
+ * @param  {[type]} int size       number of support nodes per gausspoint
+ */
+template <typename T>
+void AssembleGlobalMatrix(std::vector<T> &globalMatrix,
+                          std::vector<uint> &fullMap,
+                          T *local_matrices_array,
+                          int numPoints,
+                          int supportNodeSize);
+//
 
 void* threadWrapper(void* ptr);
 
