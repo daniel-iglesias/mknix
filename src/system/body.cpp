@@ -302,7 +302,7 @@ void Body::calcFactors()
                                   _h_local_weight_array,
                                   _h_materials_ids,
                                   _h_materials,
-                                  num_points,
+                                   num_points,
                                   _support_node_size);
     cpuTock(&cck, " New Single CPU calcfactors ");
     microCPU_single_factors.push_back(cck.elapsedMicroseconds);

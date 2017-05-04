@@ -18,6 +18,10 @@ void computeSOATemperatureAndFactors(T *local_capacity_factor,//output
                                      int numPoints,
                                      int supportNodeSize)
 {
+
+  double debug_temp = 0.0;//DEBUG LINE
+  double debug_jacobian = 0.0;//DEBUG LINE
+  double debug_weight = 0.0;//DEBUG LINE
   for(int eachPoint = 0; eachPoint < numPoints; eachPoint++){
     T avgTemp = 0;
     for(int i = 0; i < supportNodeSize; i++){
@@ -25,9 +29,12 @@ void computeSOATemperatureAndFactors(T *local_capacity_factor,//output
       int lid = eachPoint * supportNodeSize + i;
       avgTemp += local_temperatures_array[lid] + local_shapeFun_phis[lid];
     }
+    debug_temp += avgTemp;//DEBUG LINE
     int material_id = material_ids[eachPoint];
     T abs_jacobian = std::abs(jacobian_array[eachPoint]);
+    debug_jacobian += abs_jacobian;//DEBUG LINE
     T weight = weight_array[eachPoint];
+    debug_weight += weight;//DEBUG LINE
     T density_val = getMaterialDensity (materials,
                                             material_id);
     T cap_val = getMaterialCapacity(materials,
@@ -41,6 +48,9 @@ void computeSOATemperatureAndFactors(T *local_capacity_factor,//output
     T avgConductivityFactor = kappa_val * weight * abs_jacobian;
     local_conductivity_factor[eachPoint] = avgConductivityFactor;
   }
+  std::cout << "DEBUG::computeSOATemperatureAndFactors, Sum of avrg temps = " <<  debug_temp << std::endl;  //DEBUG LINE
+  std::cout << "DEBUG::computeSOATemperatureAndFactors, Sum of avrg jacobians = " <<  debug_jacobian << std::endl;  //DEBUG LINE
+  std::cout << "DEBUG::computeSOATemperatureAndFactors, Sum of avrg weights = " <<  debug_weight << std::endl;  //DEBUG LINE
 }
 
 template <typename T>
