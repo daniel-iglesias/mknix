@@ -614,7 +614,7 @@ template <typename T>
 template <typename T>
   void Matrix<T>::gmm_csc_cast(gmm::csc_matrix<T> &matrix_to_cast)
 {
-  std::cout << "GOOD CAST :-) passing from mat_matrix" << std::endl;
+  //std::cout << "GOOD CAST :-) passing from mat_matrix" << std::endl;
     this->type_matrix->cast_csc_matrix(matrix_to_cast);
     this->mrows = matrix_to_cast.nrows();
     this->ncolumns = matrix_to_cast.ncols();

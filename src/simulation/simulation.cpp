@@ -151,8 +151,6 @@ if(OLD_CODE){
     globalExternalHeat.resize(gdlSize);
     globalInternalHeat.resize(gdlSize);
 
-    //baseSystem->setMaterialTable(myMaterialTable);//setting soa structture
-    //baseSystem->calcFactors();//SOA for speedup
     baseSystem->calcConductivityMatrix();
     baseSystem->assembleConductivityMatrix(globalConductivity);
     baseSystem->calcCapacityMatrix();

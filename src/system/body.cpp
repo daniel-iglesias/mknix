@@ -181,12 +181,7 @@ void Body::initialize()
           _h_shapeFunctionTable->phis[eachpoint * _support_node_size + lnode] = this->cells[eachpoint]->getNodePhi(0,0,lnode);
       }
     }
-    _h_local_jacobian_array = (data_type*)malloc(this->cells.size() * sizeof(data_type));
-    _h_local_weight_array = (data_type*)malloc(this->cells.size() * sizeof(data_type));
-    for(int eachpoint = 0; eachpoint < this->cells.size(); eachpoint++){
-      _h_local_jacobian_array[eachpoint] = this->cells[eachpoint]->getJacobian();
-      _h_local_weight_array[eachpoint] = this->cells[eachpoint]->getWeight(0);
-    }
+
 
     std::map<std::string, BoundaryGroup *>::iterator it_boundaryGroups;
     for (auto& group : boundaryGroups) {
@@ -223,6 +218,12 @@ void Body::initialize()
   _h_local_jacobian_array       = (data_type*)malloc(_number_points * sizeof(data_type));
   _h_local_weight_array         = (data_type*)malloc(_number_points * sizeof(data_type));
 
+  //_h_local_jacobian_array = (data_type*)malloc(this->cells.size() * sizeof(data_type));
+  //_h_local_weight_array = (data_type*)malloc(this->cells.size() * sizeof(data_type));
+  for(int eachpoint = 0; eachpoint < this->cells.size(); eachpoint++){
+    _h_local_jacobian_array[eachpoint] = this->cells[eachpoint]->getJacobian();
+    _h_local_weight_array[eachpoint] = this->cells[eachpoint]->getWeight(0);
+  }
 
   if(MULTICPU){
     _param_array_capacity     = (p_struct*)malloc(MAXTHREADS * sizeof(p_struct));

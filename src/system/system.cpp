@@ -166,6 +166,7 @@ void System::writeJoints(std::ofstream * outFile)
 
 void mknix::System::setMaterialTable(MaterialTable* mt_ptr)
 {
+  //std::cout << "Setting Material Table SOA" << std::cout;
   for (auto& body : thermalBodies) {
       body.second->setMaterialTable(mt_ptr);
   }

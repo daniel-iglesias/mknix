@@ -196,7 +196,7 @@ public:
         *  */
      void cast_csc_matrix(gmm::csc_matrix<T> &matrix_to_cast)
      {
-       std::cout << "GOOD CAST :-) type_gmm_csc" << std::endl;
+       //std::cout << "GOOD CAST :-) type_gmm_csc" << std::endl;
         gmm::resize(this->gmm_csc_matrix, gmm::mat_nrows(matrix_to_cast), gmm::mat_ncols(matrix_to_cast));
         gmm::copy(matrix_to_cast, gmm_csc_matrix);
      }
