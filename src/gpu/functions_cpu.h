@@ -86,6 +86,8 @@ struct MaterialTable{
   int *_kappa_inits;
 };
 
+void debug_printMaterialTable(MaterialTable *materials);
+
 //Material functions
 /**
  * returns kappa for a material at a given temperature

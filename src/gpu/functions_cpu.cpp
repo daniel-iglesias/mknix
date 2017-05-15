@@ -3,6 +3,95 @@
 #include <stdlib.h>
 #include <map>
 
+double interpolate1D(double query_value,
+                    double *reference_values,
+                    double *sought_values,
+                    int init_position,
+                    int counter)
+{
+  bool upper_bounded = false;
+  int upper_index = 0;
+  for(int i = 0; i < counter; i++){
+    //first find the upper_bound
+    double this_val = reference_values[init_position + i];
+    if(query_value <= this_val){//bounded here
+      upper_index = i;
+      break;
+    }
+  }
+  if(upper_index == 0) return sought_values[init_position];
+  upper_bounded = true;
+  if(!upper_bounded) return sought_values[init_position + counter];//not bound found so return last
+  //so we have a bound
+  int lower_index = upper_index - 1;
+  double delta = (query_value - reference_values[init_position + lower_index]) / (reference_values[init_position + upper_index] - reference_values[init_position + lower_index]);
+  return delta * sought_values[init_position + upper_index] + (1.0 - delta) * sought_values[init_position + lower_index];
+}
+
+/*
+struct MaterialTable{
+  int number_materials;
+  double *capacity;
+  double *kappa;
+  double *beta;
+  double *density;
+  double *_capacity_temps;
+  double *_capacity_values;
+  int *_capacity_counters;
+  int *_capacity_inits;
+  double *_kappa_temps;
+  double *_kappa_values;
+  int *_kappa_counters;
+  int *_kappa_inits;
+};
+
+*/
+
+void debug_printMaterialTable(MaterialTable *materials)
+{
+  std::cout<< std::endl << "--------------- DEBUG PRINTING MATERIAL TABLES ---------------" << std::endl;
+  int nmat = materials->number_materials;
+  std::cout << "Total Number of Materials = " << nmat << std::endl;
+  for(int imat = 0; imat < nmat; imat++)
+  {
+    std::cout << "--------- Material " << imat <<"---------" <<  std::endl;
+    std::cout << "capacity = " << materials->capacity[imat] << std::endl;
+    std::cout << "kappa = " << materials->kappa[imat] << std::endl;
+    std::cout << "beta = " << materials->beta[imat] << std::endl;
+    std::cout << "density = " << materials->density[imat] << std::endl;
+    int cap_pairs = materials->_capacity_counters[imat];
+    int cap_init = materials->_capacity_inits[imat];
+    std::cout << "capacity temps and vals pairs: "<< std::endl;
+    for (int icap = 0; icap < cap_pairs; icap++){
+      std::cout << materials->_capacity_temps[cap_init + icap] << "/" << materials->_capacity_values[cap_init + icap]<< "; ";
+    }
+    double check_cap = interpolate1D(375,
+                                     materials->_capacity_temps,
+                                     materials->_capacity_values,
+                                     cap_init,
+                                     cap_pairs);
+    std::cout << "Checking interpolation with " << 375 << " results in " << check_cap << std::endl;
+    int kap_pairs = materials->_kappa_counters[imat];
+    int kap_init = materials->_kappa_inits[imat];
+    std::cout << std::endl << "kappa temps and vals pairs: "<< std::endl;
+    for (int ikap = 0; ikap < kap_pairs; ikap++){
+      std::cout << materials->_kappa_temps[kap_init + ikap] << "/" << materials->_kappa_values[kap_init + ikap]<< "; ";
+    }
+    double check_kap = interpolate1D(355,
+                                     materials->_kappa_temps,
+                                     materials->_kappa_values,
+                                     kap_init,
+                                     kap_pairs);
+    std::cout << "Checking interpolation with " << 355 << " results in " << check_kap << std::endl;
+
+    std::cout << std::endl << "--------- End of Material " << imat <<"---------" <<  std::endl;
+  }
+
+
+  std::cout<< std::endl << "------------ END OF DEBUG PRINTING MATERIAL TABLES ------------" << std::endl;
+
+}
+
 double getPhi_from_table(ShapeFunctionTable *shapeFunctionTable,
                          int point_id,
                          int local_node_id)
@@ -34,30 +123,6 @@ void free_shape_functions_table(ShapeFunctionTable **shapeFunctionTable)
   free((*shapeFunctionTable)->phis);
 }
 
-double interpolate1D(double query_value,
-                    double *reference_values,
-                    double *sought_values,
-                    int init_position,
-                    int counter)
-{
-  bool upper_bounded = false;
-  int upper_index = 0;
-  for(int i = 0; i < counter; i++){
-    //first find the upper_bound
-    double this_val = reference_values[init_position + counter];
-    if(query_value <= this_val){//bounded here
-      upper_index = i;
-      if(upper_index == 0) return sought_values[init_position];
-      upper_bounded = true;
-    }
-  }
-  if(!upper_bounded) return sought_values[init_position + counter];//not bound found so return last
-  //so we have a bound
-  int lower_index = upper_index - 1;
-  double delta = (query_value - reference_values[init_position + lower_index]) / (reference_values[init_position + upper_index] - reference_values[init_position + lower_index]);
-  return delta * sought_values[init_position + upper_index] + (1.0 - delta) * sought_values[init_position + lower_index];
-}
-
 double getMaterialKappa (MaterialTable *materials,
                         int material_id,
                         double average_temperature)
@@ -72,7 +137,7 @@ double getMaterialKappa (MaterialTable *materials,
 }
 
 double getMaterialDensity (MaterialTable *materials,
-                      int material_id)
+                          int material_id)
 {
   return materials->density[material_id];
 }

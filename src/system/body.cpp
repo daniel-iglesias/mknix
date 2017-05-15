@@ -277,6 +277,7 @@ void Body::initialize()
 void Body::setMaterialTable(MaterialTable* mt_ptr)
 {
   _h_materials = mt_ptr;
+  debug_printMaterialTable(_h_materials);
 }
 
 void Body::setTemperatureVector(lmx::Vector<data_type>& q)
