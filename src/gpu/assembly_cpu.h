@@ -130,7 +130,21 @@ float inline atomic_fetch_add(std::atomic<float>* target, float value){
 
 //namespace AssemblyCPU
 //{
-
+/**
+ * Cast a directly assembled matrix into GMM compatible sparse matrix
+ * @param  {[type]} T* array        array
+ * @param  {[type]} T  value        initialization value
+ * @param  {[type]} int size        number of elements in the array
+ */
+template <typename T>
+void cast_into_lmx_type(lmx::Matrix<T> &lmx_ref,
+                        std::vector<T> &values_array,
+                        std::vector<uint> &vec_ind,
+                        std::vector<uint> &cvec_ptr,
+                        int number_rows,
+                        int number_columns,
+                        bool use_csc);
+//
 template <typename T>
 void cast_into_gmm_csc_type(gmm::csc_matrix<T>& gmm_matrix,
                             std::vector<T> &values_array,
@@ -150,7 +164,7 @@ void cast_into_lmx_csc_type(lmx::Matrix<T> &lmx_ref,
 //
 
 template <typename T>
-void cast_into_gmm_csr_type(gmm::csr_matrix<T>& gmm_matrix,
+void cast_into_lmx_csr_type(lmx::Matrix<T> &lmx_ref,
                             std::vector<T> &values_array,
                             std::vector<uint> &vec_ind,
                             std::vector<uint> &cvec_ptr,
@@ -193,7 +207,7 @@ void check_host_array_for_limits(T *array,
                          int *presence_matrix,
                          int number_rows,
                          int number_columns,
-                         bool isCSC = true);//CCS or CSR
+                         bool isCSC = false);//CCS or CSR
 
   bool build_CSC_sparse_matrix_from_map(std::vector<uint> &full_map,
                                         std::vector<uint> &col_ind,

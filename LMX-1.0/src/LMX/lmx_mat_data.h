@@ -134,6 +134,13 @@ public:
     std::cout << "BAAAAAAD CAST :-( lmx_mat_data" << std::endl;
   }
 
+  /**
+   * Method added fro library compatibility vicen 2017.
+   */
+  virtual void cast_csr_matrix(gmm::csr_matrix<T> &){
+    std::cout << "BAAAAAAD CAST :-( lmx_mat_data" << std::endl;
+  }
+
 	//begin JCGO 18/03/09
   /**
    * Method for all elements to 0

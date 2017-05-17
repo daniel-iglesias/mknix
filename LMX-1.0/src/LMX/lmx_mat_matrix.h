@@ -26,12 +26,14 @@
 #include"lmx_except.h"
 #include"lmx_mat_type_stdmatrix.h"
 #include"lmx_mat_type_csc.h"
+//#include"lmx_mat_type_csr.h"
 
 //#include"lmx_mat_type_gmm.h"
 
 #ifdef HAVE_GMM
 #include"lmx_mat_type_gmm_sparse1.h"
 #include"lmx_mat_type_gmm_csc.h"
+#include"lmx_mat_type_gmm_csr.h"
 #endif
 
 //////////////////////////////////////////// Doxygen file documentation entry:
@@ -135,9 +137,17 @@ public:
 
   void gmm_csc_cast(gmm::csc_matrix<T> &);
 
+  void gmm_csr_cast(gmm::csr_matrix<T> &);
+
   void harwellBoeingSave(char*);
 
   void fillIdentity( T factor = static_cast<T>(1) );
+//used for debugging
+  T sumSum();
+  T stddev();
+  T max();
+  T min();
+  //int numNonZeros();
 
   void fillRandom(  T factor = static_cast<T>(1) );
 
@@ -265,6 +275,19 @@ public:
       type_matrix->resize(mrows, ncolumns);
     }
 
+    /**
+     * Function to get the trace of a matrix.
+     */
+      T trace()
+      {
+       T myTrace = 0.0;
+        size_type nelem  = std::min( this->type_matrix->getRows(),this->type_matrix->getCols());
+        for(size_type i = 0; i < nelem; ++i){
+          myTrace += this->type_matrix->readElement(i,i);
+        }
+        return myTrace;
+      }
+
   /**
    * Function to transpose a matrix.
    */
@@ -348,9 +371,12 @@ public:
       return res;
     }
 
+
+
   /** Retuns 1 if the element exists inside the storing structure
    * and 0 if it does not.
    *  */
+   //TODO: not working for several matrices types
     inline bool exists( size_type row, size_type col )
     { return this->type_matrix->exists(row, col); }
 
@@ -608,14 +634,27 @@ template <typename T>
   this->ncolumns = this->type_matrix->getCols();
 }
 ///added by vicen april 2017
-/** Method for reading a matrix in Harwell-Boeing format from a file.
- *  \param input_file Name of the file to read.
+/** Method for casting a sparse matrix as gmm_csc.
+ *  \param matrix to cast.
  *  */
 template <typename T>
   void Matrix<T>::gmm_csc_cast(gmm::csc_matrix<T> &matrix_to_cast)
 {
   //std::cout << "GOOD CAST :-) passing from mat_matrix" << std::endl;
     this->type_matrix->cast_csc_matrix(matrix_to_cast);
+    this->mrows = matrix_to_cast.nrows();
+    this->ncolumns = matrix_to_cast.ncols();
+}
+
+///added by vicen april 2017
+/**  Method for casting a sparse matrix as gmm_csr.
+ *  \param matrix to cast.
+ *  */
+template <typename T>
+  void Matrix<T>::gmm_csr_cast(gmm::csr_matrix<T> &matrix_to_cast)
+{
+  //std::cout << "GOOD CAST :-) passing from mat_matrix" << std::endl;
+    this->type_matrix->cast_csr_matrix(matrix_to_cast);
     this->mrows = matrix_to_cast.nrows();
     this->ncolumns = matrix_to_cast.ncols();
 }
@@ -653,6 +692,96 @@ template <typename T>
     this->type_matrix->writeElement(static_cast<T>( factor ),i,i);
   }
 
+}
+
+/**
+ * Function for returning the sum of all elemnts in the matrix
+ * @param factor Scales the random numbers (default value is unity).
+ */
+template <typename T>
+    T Matrix<T>::sumSum()
+{
+  T sumsum = 0.0;
+  for (size_type i=0; i<this->mrows; ++i){
+    for (size_type j=0; j<this->ncolumns; ++j){
+      sumsum += this->type_matrix->readElement(i,j);
+    }
+  }
+  return sumsum;
+}
+
+/**
+ * Function for returning the stddev of all elemnts in the matrix
+ * @param factor Scales the random numbers (default value is unity).
+ */
+template <typename T>
+    T Matrix<T>::stddev()
+{
+  T sumsum = this->sumSum();
+  T stddev = 0.0;
+  T avg = sumsum / (this->mrows * this->ncolumns);
+
+  for (size_type i=0; i<this->mrows; ++i){
+    for (size_type j=0; j<this->ncolumns; ++j){
+      stddev += pow(this->type_matrix->readElement(i,j) - avg,2);
+    }
+  }
+
+  return sqrt(stddev/(this->mrows * this->ncolumns - 1));
+}
+
+/**
+ * Function for returning the Maximum of all elemnts in the matrix
+ */
+template <typename T>
+    T Matrix<T>::max()
+{
+
+  T myMax = this->type_matrix->readElement(0,0);
+
+  for (size_type i=0; i<this->mrows; ++i){
+    for (size_type j=0; j<this->ncolumns; ++j){
+      T val = this->type_matrix->readElement(i,j);
+      if(val > myMax)myMax = val;
+    }
+  }
+
+  return myMax;
+}
+
+/**
+ * Function for returning the number of all nonzero elemnts in the matrix
+ */
+/*template <typename T>
+    int Matrix<T>::numNonZeros()
+{
+  int myCount = 0;
+
+  for (size_type i=0; i<this->mrows; ++i){
+    for (size_type j=0; j<this->ncolumns; ++j){
+      if(this->type_matrix->exists(i,j)) myCount++;
+    }
+  }
+  return myCount;
+}*/
+
+/**
+ * Function for returning the Minimum of all elemnts in the matrix
+ */
+template <typename T>
+    T Matrix<T>::min()
+{
+
+  T myMin = this->type_matrix->readElement(0,0);
+
+  for (size_type i=0; i<this->mrows; ++i){
+    for (size_type j=0; j<this->ncolumns; ++j){
+      T val = this->type_matrix->readElement(i,j);
+      if(val < myMin) myMin = val;
+    }
+  }
+
+  return myMin;
 }
 
 /**

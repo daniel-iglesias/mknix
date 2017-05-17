@@ -198,13 +198,15 @@ void Body::initialize()
                       _cvec_ptr_cap,
                       _h_presence_matrix,
                       _number_nodes,
-                      _number_nodes);
+                      _number_nodes,
+                      USECSC);
     map_global_matrix(_full_map_cond,
                       _vec_ind_cond,
                       _cvec_ptr_cond,
                       _h_presence_matrix,
                       _number_nodes,
-                      _number_nodes);
+                      _number_nodes,
+                      USECSC);
     _sparse_matrix_size = _cvec_ptr_cap[_number_nodes];
 
   _h_globalCapacity.resize(_sparse_matrix_size);
@@ -497,6 +499,12 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
     }
   cpuTock(&cck1, "CPU assembleCapacityMatrix");
   microCPU1.push_back(cck1.elapsedMicroseconds);
+  std::cout << " SumSum of globalCapacity = " <<  globalCapacity.sumSum() << std::endl;
+  std::cout << " Trace of globalCapacity = " << globalCapacity.trace() << std::endl;
+  std::cout << " StdDev of globalCapacity = " << globalCapacity.stddev() << std::endl;
+  std::cout << " Max of globalCapacity = " << globalCapacity.max() << std::endl;
+  std::cout << " Min of globalCapacity = " << globalCapacity.min() << std::endl;
+//  std::cout << " NonZeroes of globalCapacity = " << globalCapacity.numNonZeros() << std::endl;
   //new CPU assembly function
 }else if(NEWCPU){
   std::cout << "inside assembleCapacityMatrix" << std::endl;
@@ -516,14 +524,22 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
     double debugio =0.0;
     for (auto& el : _h_globalCapacity){
         debugio += el;}
-    std::cout << "_h_globalConductivity sumsum = " << debugio << std::endl;
-    cast_into_lmx_csc_type(globalCapacity,
-                           _h_globalCapacity,
-                           _vec_ind_cap,
-                           _cvec_ptr_cap,
-                           _number_nodes,
-                           _number_nodes);
+    std::cout << "_h_globalCapacity sumsum = " << debugio << std::endl;
+
+    cast_into_lmx_type(globalCapacity,
+                       _h_globalCapacity,
+                       _vec_ind_cap,
+                      _cvec_ptr_cap,
+                      _number_nodes,
+                      _number_nodes,
+                      USECSC);
     std::cout << " after the cast, leaving assembleCapacityMatrix" << std::endl;
+    std::cout << " SumSum of globalCapacity = " <<  globalCapacity.sumSum() << std::endl;
+    std::cout << " Trace of globalCapacity = " << globalCapacity.trace() << std::endl;
+    std::cout << " StdDev of globalCapacity = " << globalCapacity.stddev() << std::endl;
+    std::cout << " Max of globalCapacity = " << globalCapacity.max() << std::endl;
+    std::cout << " Min of globalCapacity = " << globalCapacity.min() << std::endl;
+    //std::cout << " NonZeroes of globalCapacity = " << globalCapacity.numNonZeros() << std::endl;
 }
 if(MULTICPU){
   ///////multi-cpu part
@@ -574,6 +590,12 @@ if(OLD_CODE) {
     }
     cpuTock(&cck2, "CPU assembleConductivityMatrix");
     microCPU2.push_back(cck2.elapsedMicroseconds);
+    std::cout << " SumSum of globalConductivity = " << globalConductivity.sumSum() << std::endl;
+    std::cout << " Trace of globalConductivity = " << globalConductivity.trace() << std::endl;
+    std::cout << " StdDev of globalConductivity = " << globalConductivity.stddev() << std::endl;
+    std::cout << " Max of globalConductivity = " << globalConductivity.max() << std::endl;
+    std::cout << " Min of globalConductivity = " << globalConductivity.min() << std::endl;
+    //std::cout << " NonZeroes of globalConductivity = " << globalConductivity.numNonZeros() << std::endl;
     //new CPU assembly function
 } else if(NEWCPU){
   std::cout << "inside assembleConductivityMatrix" << std::endl;
@@ -590,22 +612,29 @@ if(OLD_CODE) {
                          _support_node_size);
     cpuTock(&cck2b, "CPU assembleConductivityGaussPointsWithMap");
     double debugio =0.0;
-    for (auto& el : _h_globalConductivity)
-        debugio += el;
+    for (auto& el : _h_globalConductivity){
+        debugio += el;}
   std::cout << "_h_globalConductivity sumsum = " << debugio << std::endl;
 
     microCPU2b.push_back(cck2b.elapsedMicroseconds);
     cpuClock cck2b1;
     cpuTick(&cck2b1);
-    cast_into_lmx_csc_type(globalConductivity,
-                           _h_globalConductivity,
-                           _vec_ind_cond,
-                           _cvec_ptr_cond,
-                           _number_nodes,
-                           _number_nodes);
+    cast_into_lmx_type(globalConductivity,
+                       _h_globalConductivity,
+                       _vec_ind_cond,
+                       _cvec_ptr_cond,
+                       _number_nodes,
+                       _number_nodes,
+                       USECSC);
 
     cpuTock(&cck2b1, "CPU cast_into_lmx_csc_type");
     std::cout << " after the cast, leaving assembleConductivityMatrix " << std::endl;
+    std::cout << " SumSum of globalConductivity = " << globalConductivity.sumSum() << std::endl;
+    std::cout << " Trace of globalConductivity = " << globalConductivity.trace() << std::endl;
+    std::cout << " StdDev of globalConductivity = " << globalConductivity.stddev() << std::endl;
+    std::cout << " Max of globalConductivity = " << globalConductivity.max() << std::endl;
+    std::cout << " Min of globalConductivity = " << globalConductivity.min() << std::endl;
+    //std::cout << " NonZeroes of globalConductivity = " << globalConductivity.numNonZeros() << std::endl;
   } else if(MULTICPU){
 /*int max_threads = 4;
 pthread_t threads[max_threads];

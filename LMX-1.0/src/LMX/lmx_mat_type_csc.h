@@ -66,7 +66,7 @@ public:
 #ifdef HAVE_SUPERLU
   Superlu<T>* S;
 #endif
-  
+
 
 private:
   T zero;
@@ -109,9 +109,9 @@ public:
   void cleanBelow(const double factor);
 
   void clear();
-  
+
   //begin JCGO 18/03/09
-  void reset();  
+  void reset();
   //end JCGO
 
   void read_mm_file(const char* input_file);
@@ -142,17 +142,17 @@ public:
 
 #ifdef HAVE_SUPERLU
   void initSLU();
-  
+
   void factorize();
-  
-  void subsSolve(Vector<T>& rhs);  
+
+  void subsSolve(Vector<T>& rhs);
 #else
   void initSLU(){}
-  
+
   void factorize(){}
-  
-  void subsSolve(Vector<T>& rhs){}  
-  
+
+  void subsSolve(Vector<T>& rhs){}
+
 #endif
 
   friend void mat_vec_mult<>( const Type_csc<T>*,
@@ -162,7 +162,7 @@ public:
 
 
 /// Empty constructor.
-template <typename T> 
+template <typename T>
     Type_csc<T>::Type_csc()
 #ifdef HAVE_SUPERLU
   : S(0)
@@ -381,7 +381,7 @@ template <typename T>
   }
   else{
     if(mrows+1>=ia[ja[ncolumns+1]-2]){//caso 2
-      aa.insert(aa.begin()+ja[ncolumns+1]-1,0); 
+      aa.insert(aa.begin()+ja[ncolumns+1]-1,0);
       ia.insert(ia.begin()+ja[ncolumns+1]-1,mrows+1);
       for(size_type i=ncolumns+1;i<ja.size();++i){
         ++ja[i];
@@ -467,7 +467,7 @@ template <typename T>
  * Necessary for overloading the "-=" operator.
  * \param matrix_in_1 pointer to an object that belongs to a class derived from Data_mat.
  */
-template <typename T> 
+template <typename T>
     void Type_csc<T>::substract(const Data<T>* matrix_in_1)
 {
 // this -= matrix_in_1
@@ -485,7 +485,7 @@ template <typename T>
  * \param matrix_in_1 pointer to an object that belongs to a class derived from Data_mat.
  * \param matrix_in_2 pointer to an object that belongs to a class derived from Data_mat.
  */
-template <typename T>  
+template <typename T>
     void Type_csc<T>::multiply(const Data<T>* matrix_in_1, const Data<T>* matrix_in_2)
 {
 // this = matrix_in_1 * matrix_in_2
@@ -644,7 +644,7 @@ template <typename T>
 template <typename T>
     void Type_csc<T>::reset()
 {
-	for (size_type i=0; i<this->Nnze; ++i)	this->aa[i] = static_cast<T>(0); 
+	for (size_type i=0; i<this->Nnze; ++i)	this->aa[i] = static_cast<T>(0);
 }
 //end JCGO
 
@@ -655,7 +655,7 @@ template <typename T>
  *
  * \param input_file Name of the file to be read.
  */
-template <typename T> 
+template <typename T>
 void Type_csc<T>::read_mm_file(const char* input_file)
 {
 #ifndef HAVE_GMM
@@ -675,7 +675,7 @@ void Type_csc<T>::read_mm_file(const char* input_file)
   gmm::MatrixMarket_load(input_file, matrix_loaded);
 //   gmm::resize(contents, gmm::mat_nrows(matrix_loaded), gmm::mat_ncols(matrix_loaded));
   gmm::copy(matrix_loaded, cscmat);
-  
+
   aa.clear();
   ja.clear();
   ia.clear();
@@ -690,7 +690,7 @@ void Type_csc<T>::read_mm_file(const char* input_file)
   for (size_type i = 0; i<Nnze; ++i){
     ia.push_back( cscmat.ir[i]+1 );
     aa.push_back( cscmat.pr[i] );
-  }  
+  }
 #endif
 }
 
@@ -701,7 +701,7 @@ void Type_csc<T>::read_mm_file(const char* input_file)
  *
  * \param input_file Name of the file to be read.
  */
-template <typename T> 
+template <typename T>
     void Type_csc<T>::read_hb_file(const char* input_file)
 {
   int M;
@@ -722,7 +722,7 @@ template <typename T>
   aa.clear();
   ja.clear();
   ia.clear();
-  
+
   for(int i = 0 ; i < nonzeros ; ++i){
     aa.push_back(val[i]);
     ia.push_back(rowind[i]);
@@ -739,7 +739,7 @@ template <typename T>
  *
  * \param input_file Name of the file to be read.
  */
-template <typename T> 
+template <typename T>
     void Type_csc<T>::write_hb_file(const char* input_file)
 {
 #ifndef HAVE_GMM
@@ -756,18 +756,18 @@ template <typename T>
 #else
   typedef unsigned int IND_TYPE;
   gmm::csc_matrix<T> cscmat;
-  
+
   if (cscmat.pr) { delete[] cscmat.pr; delete[] cscmat.ir; delete[] cscmat.jc; }
 
   cscmat.nr = this->Nrow;
   cscmat.nc = this->Ncol;
-  
+
   cscmat.jc = new IND_TYPE[cscmat.nc+1];
 
   for (size_type j = 0; j<Ncol+1; ++j){
     cscmat.jc[j] = ja[j]-1;
   }
-  
+
   cscmat.pr = new T[cscmat.jc[cscmat.nc]];
   cscmat.ir = new IND_TYPE[cscmat.jc[cscmat.nc]];
   for (size_type i = 0; i<Nnze; ++i){
@@ -782,12 +782,12 @@ template <typename T>
 
 /**
  * Returns TRUE or FALSE depending of element existance.
- * 
+ *
  * \param mrows Row index.
  * \param ncolumns Column index.
  * @return TRUE if the element exists in internal storage structure.
  */
-template <typename T> 
+template <typename T>
     bool Type_csc<T>::exists( size_type mrows, size_type ncolumns )
 {
   if(ja[ncolumns]==ja[ncolumns+1]){
@@ -813,10 +813,9 @@ template <typename T>
  * @param row_index CSC row indices.
  * @param col_index CSC columns indices.
  */
-template <typename T> 
+template <typename T>
     void Type_csc<T>::setSparsePattern( Vector<size_type>& row_index,
-                                        Vector<size_type>& col_index 
-                                      )
+                                        Vector<size_type>& col_index)
 {
   int i;
   ia.clear();
@@ -835,9 +834,9 @@ template <typename T>
  * @param row_index CSC row indices.
  * @param col_index CSC columns indices.
  */
-template <typename T> 
-    void Type_csc<T>::setSparsePattern( std::vector<size_type>& row_index, 
-                                        std::vector<size_type>& col_index 
+template <typename T>
+    void Type_csc<T>::setSparsePattern( std::vector<size_type>& row_index,
+                                        std::vector<size_type>& col_index
                                       )
 {
   int i;
@@ -852,7 +851,7 @@ template <typename T>
   Nnze = aa.size();
 }
 
-  
+
 #ifdef HAVE_SUPERLU
   template <class T>
   void Type_csc<T>::initSLU()
@@ -865,7 +864,7 @@ template <typename T>
                         aa );
     S->initMatrix();
   }
-  
+
   template <class T>
   void Type_csc<T>::factorize()
   {
@@ -878,7 +877,7 @@ template <typename T>
     S->setVectors( rhs_in ); // hace x, b.
     S->initVectors();
     S->subsSolve();
-    
+
     S->get_solution(rhs_in);
   }
 #endif

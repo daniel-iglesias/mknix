@@ -208,6 +208,18 @@ public:
      gmm::copy(matrix_to_cast, contents);
   }
 
+  ///added by vicen april 2017
+    /** Cast a csr matrix format method.,
+     * suposing it's compressed Sparse Column.
+     * \param reference to the matrix to cast.
+     *  */
+  void cast_csr_matrix(gmm::csr_matrix<T> &matrix_to_cast)
+  {
+    std::cout << "GOOD CAST :-) " << std::endl;
+     gmm::resize(contents, gmm::mat_nrows(matrix_to_cast), gmm::mat_ncols(matrix_to_cast));
+     gmm::copy(matrix_to_cast, contents);
+  }
+
     /** Traspose method.
       * Swaps elements with respect to the diagonal: A(i,j) = A(j,i) */
    void trn()

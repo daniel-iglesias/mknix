@@ -222,6 +222,38 @@ void cast_into_gmm_csc_type(gmm::csc_matrix<T>& gmm_matrix,
  * @param  {[type]} int size        number of elements in the array
  */
 template <typename T>
+void cast_into_lmx_type(lmx::Matrix<T> &lmx_ref,
+                        std::vector<T> &values_array,
+                        std::vector<uint> &vec_ind,
+                        std::vector<uint> &cvec_ptr,
+                        int number_rows,
+                        int number_columns,
+                        bool use_csc)//if false will use csr instead
+{
+ if(use_csc){
+   cast_into_lmx_csc_type(lmx_ref,
+                          values_array,
+                          vec_ind,
+                          cvec_ptr,
+                          number_rows,
+                          number_columns);
+ }else{
+   cast_into_lmx_csr_type(lmx_ref,
+                          values_array,
+                          vec_ind,
+                          cvec_ptr,
+                          number_rows,
+                          number_columns);
+ }
+}
+
+/**
+ * Cast a directly assembled matrix into GMM compatible sparse matrix
+ * @param  {[type]} T* array        array
+ * @param  {[type]} T  value        initialization value
+ * @param  {[type]} int size        number of elements in the array
+ */
+template <typename T>
 void cast_into_lmx_csc_type(lmx::Matrix<T> &lmx_ref,
                             std::vector<T> &values_array,
                             std::vector<uint> &vec_ind,
@@ -232,9 +264,7 @@ void cast_into_lmx_csc_type(lmx::Matrix<T> &lmx_ref,
   std::cout << "inside cast_into_lmx_csc_type" << std::endl;
   gmm::csc_matrix<T> gmm_matrix;
   gmm_matrix.pr = values_array.data();
-  //std::cout << "(uint*)vec_ind.data()" << std::endl;
   gmm_matrix.ir = vec_ind.data();
-  //std::cout << "(uint*)cvec_ptr.data()" << std::endl;
   gmm_matrix.jc = cvec_ptr.data();
   gmm_matrix.nr = number_rows;
   gmm_matrix.nc = number_columns;
@@ -252,18 +282,26 @@ void cast_into_lmx_csc_type(lmx::Matrix<T> &lmx_ref,
  * @param  {[type]} int size        number of elements in the array
  */
 template <typename T>
-void cast_into_gmm_csr_type(gmm::csr_matrix<T>& gmm_matrix,
+void cast_into_lmx_csr_type(lmx::Matrix<T> &lmx_ref,
                             std::vector<T> &values_array,
                             std::vector<uint> &vec_ind,
                             std::vector<uint> &cvec_ptr,
                             int number_rows,
                             int number_columns)
 {
+  std::cout << "inside cast_into_lmx_csr_type" << std::endl;
+  gmm::csr_matrix<T> gmm_matrix;
   gmm_matrix.pr = values_array.data();
   gmm_matrix.ir = vec_ind.data();
   gmm_matrix.jc = cvec_ptr.data();
   gmm_matrix.nr = number_rows;
   gmm_matrix.nc = number_columns;
+  std::cout << "about to use gmm_csr_cast" << std::endl;
+  lmx_ref.gmm_csr_cast(gmm_matrix);
+  std::cout << "after gmm_csr_cast" << std::endl;
+  gmm_matrix.pr  = NULL;
+  gmm_matrix.ir = NULL;
+  gmm_matrix.jc = NULL;
 
 }
 
@@ -278,7 +316,7 @@ void init_host_array_to_value(T *array,
                               T value,
                               int size)
 {
-  std::cout<< "inside init_host_array_to_value" << std::cout;
+  std::cout<< "inside init_host_array_to_value" << std::endl;
   for(int i = 0; i < size; i++) array[i] = value;
 }
 
@@ -293,7 +331,7 @@ void init_host_array_to_value(std::vector<T> &array,
                               T value,
                               int size)
 {
-  std::cout<< "inside init_host_array_to_value" << std::cout;
+  std::cout<< "inside init_host_array_to_value" << std::endl;
   array.assign(size,value);
   //for(int i = 0; i < size; i++) array[i] = value;
 }
@@ -397,23 +435,29 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
 
   //prefix sum scan will give us the full map
   full_map[0] = 0;
-  for(uint i = 1; i < number_rows * number_columns; i++)
-          full_map[i] = full_map[i-1] + presence_matrix[i-1];
+  for(uint row = 0; row < number_rows; row++){
+     for(uint col = 0; col < number_columns; col++){
+       if(col + row != 0){
+         int index = row * number_columns + col;
+         full_map[index] = full_map[index-1] + presence_matrix[index-1];//we need to avoid the first element
+       }
+      }
+ }
 
-  for(uint i = 1; i < number_rows; i++){
-    for(uint j = 1; j < number_columns; j++){
-      if(presence_matrix[i*number_columns + j] > 0){
-        col_ind[full_map[i*number_columns + j]] = j;//col id of every element
+  for(uint row = 0; row < number_rows; row++){
+    for(uint col = 0; col < number_columns; col++){
+      if(presence_matrix[row*number_columns + col] > 0){
+        col_ind[full_map[row*number_columns + col]] = col;//col id of every element
       }
 
     }
-    row_ptr[i] = full_map[i*number_columns];//pointers to start of every row
+    row_ptr[row] = full_map[row*number_columns];//pointers to start of every row
   }
 
-  row_ptr[number_rows] = total_elements;//convention
+  row_ptr[number_rows] = total_elements+1;//convention
+  std::cout << "Total Non Zero Elements = " << total_elements << std::endl;
   return true;
 }
-
 
   /**
   * @brief Allocates and Creates a Map for a global sparse matrix in the Compressed
@@ -444,22 +488,37 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
         full_map.resize(number_rows * number_columns);
         col_ptr.resize(number_rows + 1);
 
-        //prefix sum scan will give us the full map
-        full_map[0] = 0;
-        for(uint i = 1; i < number_rows * number_columns; i++)
-                full_map[i] = full_map[i-1] + presence_matrix[i-1];
-
-        for(uint j = 1; j < number_rows; j++){
-          for(uint i = 1; i < number_columns; i++){
-            if(presence_matrix[j * number_rows + i] > 0){
-              row_ind[full_map[j * number_rows + i]] = i;//row id of every element
-            }
-
+       std::vector<int> byCols_presence(number_rows * number_columns);
+       for(uint row = 0; row < number_rows; row++){
+          for(uint col = 0; col < number_columns; col++){
+             byCols_presence[col*number_rows + row] = presence_matrix[row * number_columns + col];
           }
-          col_ptr[j] = full_map[j * number_rows];//pointers to start of every col
         }
 
-        col_ptr[number_columns] = total_elements;//convention
+
+        //prefix sum scan will give us the full map
+        full_map[0] = 0;
+        for(uint row = 0; row < number_rows; row++){
+           for(uint col = 0; col < number_columns; col++){
+             if(col + row != 0){
+               int index = col * number_rows + row;
+               full_map[index] = full_map[index-1] + byCols_presence[index-1];//we need to avoid the first element
+               //full_map[index] = full_map[index-1] + presence_matrix[index_presence-1];//we need to avoid the first element
+             }
+            }
+       }
+
+          for(uint col = 0; col < number_columns; col++){
+            for(uint row = 0; row < number_rows; row++){
+                if(byCols_presence[col * number_rows + row] != 0){
+                  row_ind[full_map[col * number_rows + row]] = row;//row id of every element
+                }
+
+          }
+          col_ptr[col] = full_map[col * number_rows];//pointers to start of every col
+        }
+        col_ptr[number_columns] = total_elements+1;//convention
+        std::cout << "Total Non Zero Elements = " << total_elements << std::endl;
 
         return true;
     }
@@ -546,6 +605,22 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
                                                int numPoints,
                                                int supportNodeSize);
     //
+    template void cast_into_lmx_type<float>(lmx::Matrix<float> &lmx_ref,
+                                            std::vector<float> &values_array,
+                                            std::vector<uint> &vec_ind,
+                                            std::vector<uint> &cvec_ptr,
+                                            int number_rows,
+                                            int number_columns,
+                                            bool use_csc);
+    //
+    template void cast_into_lmx_type<double>(lmx::Matrix<double> &lmx_ref,
+                                            std::vector<double> &values_array,
+                                            std::vector<uint> &vec_ind,
+                                            std::vector<uint> &cvec_ptr,
+                                            int number_rows,
+                                            int number_columns,
+                                            bool use_csc);
+    //
     template void cast_into_gmm_csc_type<float>(gmm::csc_matrix<float>& gmm_matrix,
                                                 std::vector<float> &values_array,
                                                 std::vector<uint> &vec_ind,
@@ -574,14 +649,14 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
                                                 int number_rows,
                                                 int number_columns);
     //
-    template void cast_into_gmm_csr_type<float>(gmm::csr_matrix<float>& gmm_matrix,
+    template void cast_into_lmx_csr_type<float>(lmx::Matrix<float> &lmx_ref,
                                                 std::vector<float> &values_array,
                                                 std::vector<uint> &vec_ind,
                                                 std::vector<uint> &cvec_ptr,
                                                 int number_rows,
                                                 int number_columns);
     //
-    template void cast_into_gmm_csr_type<double>(gmm::csr_matrix<double>& gmm_matrix,
+    template void cast_into_lmx_csr_type<double>(lmx::Matrix<double> &lmx_ref,
                                                 std::vector<double> &values_array,
                                                 std::vector<uint> &vec_ind,
                                                 std::vector<uint> &cvec_ptr,

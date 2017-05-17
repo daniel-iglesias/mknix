@@ -630,12 +630,22 @@ void Simulation::dynamicThermalEvaluation(const lmx::Vector<data_type>& qt,
     baseSystem->assembleExternalHeat(globalExternalHeat);
     baseSystem->assembleInternalHeat(globalInternalHeat);
     globalRHSHeat = globalConductivity * qt;
+    double debugio0 = globalRHSHeat.sumSum();
+    std::cout << std::endl << " globalRHSHeat.sumSum() = "<< debugio0 << std::endl;
     globalRHSHeat += globalInternalHeat;
     globalRHSHeat -= globalExternalHeat;
 
-//     cout << "H = " << globalConductivity << endl;
-//     cout << "C = " << globalCapacity << endl;
-//     cout << globalRHSHeat << endl;
+    double debugio = globalRHSHeat.sumSum();
+    std::cout << std::endl << " globalRHSHeat.sumSum() = "<< debugio << std::endl;
+
+    double debugio2 = globalCapacity.sumSum();
+    std::cout << std::endl << " globalCapacity.sumSum() = "<< debugio2 << std::endl;
+    std::cout << std::endl << " globalCapacity.trace() = "<< globalCapacity.trace() << std::endl;
+    std::cout << std::endl << " globalConductivity.trace() = "<< globalConductivity.trace() << std::endl;
+
+    // cout << "H = " << globalConductivity << endl;
+    // cout << "C = " << globalCapacity << endl;
+    // cout << globalRHSHeat << endl;
     lmx::LinearSystem<data_type> theLSolver(globalCapacity, qtdot, globalRHSHeat);
     theLSolver.solveYourself();
 //    cout << "initial_flux :" << qtdot << endl;
@@ -667,14 +677,26 @@ globalInternalHeat.reset();
   baseSystem->assembleInternalHeat(globalInternalHeat);
   std::cout << "10. before globalRHSHeat = globalConductivity * qt;" << std::endl;
   globalRHSHeat = globalConductivity * qt;
+
+  //double debugio0 = globalRHSHeat.sumSum();
+  //std::cout << std::endl << " globalRHSHeat.sumSum() = "<< debugio0 << std::endl;
+
   std::cout << "11. before globalRHSHeat += globalInternalHeat;" << std::endl;
   globalRHSHeat += globalInternalHeat;
   std::cout << "12. before globalRHSHeat -= globalExternalHeat;" << std::endl;
   globalRHSHeat -= globalExternalHeat;
 
+  double debugio = globalRHSHeat.sumSum();
+  std::cout << std::endl << " globalRHSHeat.sumSum() = "<< debugio << std::endl;
+
 //     cout << "H = " << globalConductivity << endl;
 //     cout << "C = " << globalCapacity << endl;
 //     cout << globalRHSHeat << endl;
+double debugio2 = globalCapacity.sumSum();
+std::cout << std::endl << " globalCapacity.sumSum() = "<< debugio2 << std::endl;
+std::cout << std::endl << " globalCapacity.trace() = "<< globalCapacity.trace() << std::endl;
+std::cout << std::endl << " globalConductivity.trace() = "<< globalConductivity.trace() << std::endl;
+
   std::cout << "13. before lmx::LinearSystem<data_type> theLSolver(globalCapacity,qtdot, globalRHSHeat);" << std::endl;
   lmx::LinearSystem<data_type> theLSolver(globalCapacity,qtdot, globalRHSHeat);
   std::cout << "14. before theLSolver.solveYourself();" << std::endl;

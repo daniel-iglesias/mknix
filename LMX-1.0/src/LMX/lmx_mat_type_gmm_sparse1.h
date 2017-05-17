@@ -197,6 +197,17 @@ void cast_csc_matrix(gmm::csc_matrix<T> &matrix_to_cast)
    gmm::resize(contents, gmm::mat_nrows(matrix_to_cast), gmm::mat_ncols(matrix_to_cast));
    gmm::copy(matrix_to_cast, contents);
 }
+///added by vicen april 2017
+  /** Cast a csr matrix format method.,
+   * suposing it's compressed Sparse Column.
+   * \param reference to the matrix to cast.
+   *  */
+void cast_csr_matrix(gmm::csr_matrix<T> &matrix_to_cast)
+{
+  //std::cout << "GOOD CAST :-) type_gmm_sparse1" << std::endl;
+   gmm::resize(contents, gmm::mat_nrows(matrix_to_cast), gmm::mat_ncols(matrix_to_cast));
+   gmm::copy(matrix_to_cast, contents);
+}
 /*void cast_csc_matrix(gmm::csc_matrix<float> &matrix_to_cast)
 {  gmm::resize(contents, gmm::mat_nrows(matrix_to_cast), gmm::mat_ncols(matrix_to_cast));
    gmm::copy(matrix_to_cast, contents);

@@ -118,6 +118,8 @@ public:
 
   void fillIdentity( T factor = static_cast<T>(1) );
 
+  T sumSum();
+
   void fillRandom( T factor = static_cast<T>(1) );
 
   inline Elem_ref<T>& operator () (size_type);
@@ -463,6 +465,19 @@ template <typename T>
 {
   for (size_type i=0; i<this->elements; ++i)
     this->type_vector->writeElement(static_cast<T>(factor),i,zero);
+}
+
+/**
+ * Adds all elements in the vector.
+ */
+template <typename T>
+    T Vector<T>::sumSum()
+{
+  T sumsum = 0.0;
+  for (size_type i=0; i<this->elements; ++i){
+    sumsum += this->type_vector->readElement(i, zero);
+  }
+  return sumsum;
 }
 
 /**
@@ -1019,7 +1034,8 @@ template <typename T>
   if ( !vec.size() ) os << "void";
   for (size_type i=0; i<vec.size(); ++i)
   {
-    os << endl;
+    //os << endl;
+    os << " ";
     os << vec.readElement(i) << " ";
   }
   os << endl;
