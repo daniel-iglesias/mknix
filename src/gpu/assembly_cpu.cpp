@@ -135,7 +135,8 @@ void atomicAssembleGlobalMatrix(std::atomic<T>* globalMatrix,
                                 int numPoints,
                                 int supportNodeSize,
                                 int tid,
-                                int max_threads)
+                                int max_threads,
+                                bool isCSC)
 {
   //many ways to divide this,
   int points_thread = (numPoints + max_threads - 1)/max_threads;//points per CPU thread
@@ -165,18 +166,33 @@ void AssembleGlobalMatrix(std::vector<T> &globalMatrix,
                           std::vector<uint> &fullMap,
                           T *local_matrices_array,
                           int numPoints,
-                          int supportNodeSize)
+                          int supportNodeSize,
+                          bool isCSC)
 {
-  for(uint eachPoint = 0; eachPoint < numPoints; eachPoint++){
-    for(uint i = 0; i < supportNodeSize; i++){//equivalent to obtaining thermalNumber
-       for(uint j = 0; j < supportNodeSize; j++){
-          int pos_id = eachPoint * supportNodeSize * supportNodeSize + i * supportNodeSize + j;
-          T value = local_matrices_array[pos_id];
-          int globalPos = fullMap[pos_id];
-          globalMatrix[globalPos] += value;
+  if(isCSC){//CSC format TODO:retest and test again
+    for(uint eachPoint = 0; eachPoint < numPoints; eachPoint++){
+      for(uint i = 0; i < supportNodeSize; i++){//equivalent to obtaining thermalNumber
+         for(uint j = 0; j < supportNodeSize; j++){
+            int pos_id = eachPoint * supportNodeSize * supportNodeSize + i * supportNodeSize + j;
+            T value = local_matrices_array[pos_id];
+            int globalPos = fullMap[pos_id];
+            globalMatrix[globalPos] += value;
+         }
        }
      }
-   }
+  }else{//CSR format
+    for(uint eachPoint = 0; eachPoint < numPoints; eachPoint++){
+      for(uint i = 0; i < supportNodeSize; i++){//equivalent to obtaining thermalNumber
+         for(uint j = 0; j < supportNodeSize; j++){
+            int pos_id = eachPoint * supportNodeSize * supportNodeSize + i * supportNodeSize + j;
+            T value = local_matrices_array[pos_id];
+            int globalPos = fullMap[pos_id];
+            globalMatrix[globalPos] += value;
+         }
+       }
+     }
+  }
+
 }
 /**
  * Thread Wrapper to launch assembly in multi threaded version.
@@ -191,7 +207,8 @@ void* threadWrapper(void* ptr){
 			                       parameters->numCells,
                              parameters->supportNodeSize,
                              parameters->thread_id,
-                             parameters->max_threads);
+                             parameters->max_threads,
+                             parameters->use_csc);
 }
 
 /**
@@ -426,7 +443,7 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
 {
 //calculates total memory needed to allocate memory
   uint total_elements = 0;
-  for(uint i = 1; i < number_rows * number_columns; i++)
+  for(uint i = 0; i < number_rows * number_columns; i++)
       if(presence_matrix[i] > 0) total_elements++;
 
   col_ind.resize(total_elements);
@@ -437,7 +454,7 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
   full_map[0] = 0;
   for(uint row = 0; row < number_rows; row++){
      for(uint col = 0; col < number_columns; col++){
-       if(col + row != 0){
+       if(col!=0 || row != 0){
          int index = row * number_columns + col;
          full_map[index] = full_map[index-1] + presence_matrix[index-1];//we need to avoid the first element
        }
@@ -455,7 +472,7 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
   }
 
   row_ptr[number_rows] = total_elements+1;//convention
-  std::cout << "Total Non Zero Elements = " << total_elements << std::endl;
+//  std::cout << "Total Non Zero Elements = " << total_elements << std::endl;
   return true;
 }
 
@@ -481,12 +498,12 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
     {
       //calculates total memory needed to allocate memory
         uint total_elements = 0;
-        for(uint i = 1; i < number_rows * number_columns; i++)
+        for(uint i = 0; i < number_rows * number_columns; i++)
             if(presence_matrix[i] > 0) total_elements++;
 
         row_ind.resize(total_elements);
         full_map.resize(number_rows * number_columns);
-        col_ptr.resize(number_rows + 1);
+        col_ptr.resize(number_columns + 1);
 
        std::vector<int> byCols_presence(number_rows * number_columns);
        for(uint row = 0; row < number_rows; row++){
@@ -501,7 +518,7 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
         for(uint row = 0; row < number_rows; row++){
            for(uint col = 0; col < number_columns; col++){
              if(col + row != 0){
-               int index = col * number_rows + row;
+               int index = row * number_columns + col;
                full_map[index] = full_map[index-1] + byCols_presence[index-1];//we need to avoid the first element
                //full_map[index] = full_map[index-1] + presence_matrix[index_presence-1];//we need to avoid the first element
              }
@@ -518,7 +535,7 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
           col_ptr[col] = full_map[col * number_rows];//pointers to start of every col
         }
         col_ptr[number_columns] = total_elements+1;//convention
-        std::cout << "Total Non Zero Elements = " << total_elements << std::endl;
+        //std::cout << "Total Non Zero Elements = " << total_elements << std::endl;
 
         return true;
     }
@@ -583,7 +600,8 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
                                                      int numPoints,
                                                      int supportNodeSize,
                                                      int tid,
-                                                     int max_threads);
+                                                     int max_threads,
+                                                     bool isCSC);
     //
     template void atomicAssembleGlobalMatrix<double>(std::atomic<double>* globalMatrix,
                                                      std::vector<uint> &fullMap,
@@ -591,19 +609,22 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
                                                      int numPoints,
                                                      int supportNodeSize,
                                                      int tid,
-                                                     int max_threads);
+                                                     int max_threads,
+                                                     bool isCSC);
     //
     template void AssembleGlobalMatrix<float>(std::vector<float> &globalMatrix,
                                               std::vector<uint> &fullMap,
                                               float *local_matrices_array,
                                               int numPoints,
-                                              int supportNodeSize);
+                                              int supportNodeSize,
+                                              bool isCSC);
     //
     template void AssembleGlobalMatrix<double>(std::vector<double> &globalMatrix,
                                                std::vector<uint> &fullMap,
                                                double *local_matrices_array,
                                                int numPoints,
-                                               int supportNodeSize);
+                                               int supportNodeSize,
+                                               bool isCSC);
     //
     template void cast_into_lmx_type<float>(lmx::Matrix<float> &lmx_ref,
                                             std::vector<float> &values_array,

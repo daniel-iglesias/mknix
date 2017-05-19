@@ -27,6 +27,7 @@ struct p_struct{
   int supportNodeSize;
   int thread_id;
   int max_threads;
+  bool use_csc;
 };
 //
 /**
@@ -94,7 +95,8 @@ void atomicAssembleGlobalMatrix(std::atomic<T>* globalMatrix,
                                 int numPoints,
                                 int supportNodeSize,
                                 int tid,
-                                int max_threads);
+                                int max_threads,
+                                bool isCSC);
 //
 /**
  * Assembles a Global Matrix in single threaded CPU
@@ -109,7 +111,8 @@ void AssembleGlobalMatrix(std::vector<T> &globalMatrix,
                           std::vector<uint> &fullMap,
                           T *local_matrices_array,
                           int numPoints,
-                          int supportNodeSize);
+                          int supportNodeSize,
+                          bool isCSC);
 //
 
 void* threadWrapper(void* ptr);

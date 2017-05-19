@@ -518,7 +518,8 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
                          _full_map_cap,
                          _h_localCapacityf,
                          _number_points,
-                         _support_node_size);
+                         _support_node_size,
+                         USECSC);
     cpuTock(&cck1b, "CPU assembleCapacityMatrixWithMap");
     microCPU1b.push_back(cck1b.elapsedMicroseconds);
     double debugio =0.0;
@@ -609,7 +610,8 @@ if(OLD_CODE) {
                          _full_map_cond,
                          _h_localConductivityf,
                          _number_points,
-                         _support_node_size);
+                         _support_node_size,
+                         USECSC);
     cpuTock(&cck2b, "CPU assembleConductivityGaussPointsWithMap");
     double debugio =0.0;
     for (auto& el : _h_globalConductivity){
@@ -649,6 +651,7 @@ pthread_t threads[max_threads];
    param_array[i].supportNodeSize = _support_node_size;
    param_array[i].thread_id = i;
    param_array[i].max_threads = max_threads;
+   param_array[i].use_csc = USECSC;
  }
 
   cpuClock cck2c;
