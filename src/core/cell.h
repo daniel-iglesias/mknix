@@ -64,9 +64,20 @@ public:
 
     double getNodePhi(int gp, int deriv, int node);
 
+    double getCellPhi(int gp, int deriv, int node);
+
     double getWeight(int gp);
 
+    double getWeightMC(int gp);
+
     double getJacobian();
+
+    double getJacobianP(int gp);
+
+    double getJacobianMC(int gp);
+
+    int getSupportSizeMC();
+    int getSupportSize();
 
     bool setMaterialIfLayer( Material&, double );
 
@@ -75,6 +86,14 @@ public:
     virtual void computeShapeFunctions(  );
 
     void computeCapacityGaussPoints(  );
+
+    std::vector<double> getShapeCij();
+    std::vector<double> getCij();
+    std::vector<double> getTempsCij();//FOR DEBUG ONLY
+    double getCFactor();
+
+    int getNumPoints_MC();
+    int getNumPoints();
 
     void assembleCapacityGaussPoints( lmx::Matrix<data_type> & );
 
@@ -86,11 +105,17 @@ public:
 
     void computeConductivityGaussPoints(  );
 
+    std::vector<double> getShapeHij();
+    std::vector<double> getHij();
+    std::vector<double> getTempsHij();//FOR DEBUG ONLY
+
     void assembleConductivityGaussPoints( lmx::Matrix<data_type> & );
 
     void assembleConductivityGaussPointsWithMap(data_type *globalConductivity,
                                                 uint *matrixMap,
                                                 int number_nodes);
+
+    void presenceConductivityGaussPoints(int* presence_matrix, int number_nodes);
 
     void computeQextGaussPoints( LoadThermalBody* );
 
@@ -131,6 +156,25 @@ public:
     virtual void gnuplotOut( std::ofstream&, std::ofstream& ) = 0;
 
     void gnuplotOutStress( std::ofstream& );
+
+    void mapThermalNodesMC(int* thermalMap,
+                           int supportNodeSize,
+                           int cell_index);
+
+    void mapThermalNodes(int* thermalMap,
+                         int supportNodeSize,
+                         int cell_index);
+    //
+    void mapNodesMC(uint* Map,
+                    int supportNodeSize,
+                    int cell_index,
+                    int total_nodes);
+    //
+    void mapNodes(uint* Map,
+                  int supportNodeSize,
+                  int cell_index,
+                  int total_nodes);
+    //
 
 protected:
     Material* mat;

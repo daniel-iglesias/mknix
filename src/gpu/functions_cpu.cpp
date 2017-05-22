@@ -94,28 +94,33 @@ void debug_printMaterialTable(MaterialTable *materials)
 
 double getPhi_from_table(ShapeFunctionTable *shapeFunctionTable,
                          int point_id,
+                         int dim,
                          int local_node_id)
 {
   int support_node_size = shapeFunctionTable->support_node_size;
-  return shapeFunctionTable->phis[point_id * support_node_size + local_node_id];
+  int max_deriv =  shapeFunctionTable->number_derivatives;
+  return shapeFunctionTable->phis[point_id * support_node_size * max_deriv + dim * support_node_size + local_node_id];
 }
 
 void setPhi_into_table(double phiValue,
                        ShapeFunctionTable *shapeFunctionTable,
                        int point_id,
+                       int dim,
                        int local_node_id)
 {
   int support_node_size = shapeFunctionTable->support_node_size;
-  shapeFunctionTable->phis[point_id * support_node_size + local_node_id] = phiValue;
+  int max_deriv =  shapeFunctionTable->number_derivatives;
+  shapeFunctionTable->phis[point_id * support_node_size * max_deriv + dim * support_node_size + local_node_id] = phiValue;
 }
 
 void init_shape_functions_table(ShapeFunctionTable **shapeFunctionTable,
                                 int support_node_size,
+                                int number_derivatives,
                                 int number_points)
 {
   (*shapeFunctionTable)->support_node_size = support_node_size;
   (*shapeFunctionTable)->number_points = number_points;
-  (*shapeFunctionTable)->phis = (double*) malloc(number_points * support_node_size *  sizeof(double));
+  (*shapeFunctionTable)->phis = (double*) malloc(number_points * number_derivatives * support_node_size *  sizeof(double));
 }
 
 void free_shape_functions_table(ShapeFunctionTable **shapeFunctionTable)

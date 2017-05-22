@@ -137,6 +137,40 @@ void GaussPoint::computeCij()
 
 }
 
+std::vector<double> GaussPoint::getShapeCij(){
+  std::vector<double> myShapeCij(supportNodesSize *supportNodesSize);
+  for (auto i = 0; i < supportNodesSize; ++i)
+      for (auto j = 0; j<supportNodesSize; ++j)
+        myShapeCij[i*supportNodesSize+j] =  shapeFun->getPhi(0,i) * shapeFun->getPhi(0,j);
+   return myShapeCij;
+}
+
+std::vector<double> GaussPoint::getCij(){
+  std::vector<double> myCij(supportNodesSize *supportNodesSize);
+  for (auto i = 0; i < supportNodesSize; ++i)
+      for (auto j = 0; j<supportNodesSize; ++j)
+        myCij[i*supportNodesSize+j] =  C.readElement(i, j);
+   return myCij;
+}
+std::vector<double> GaussPoint::getTemps(){
+  std::vector<double> myTemps(supportNodesSize);
+  for (auto i = 0; i < supportNodesSize; ++i)
+        myTemps[i] =  supportNodes[i]->getTemp();
+   return myTemps;
+}
+
+double GaussPoint::getCFactor(){
+  avgTemp = 0;
+  for (auto i = 0u; i < supportNodesSize; ++i) {
+      avgTemp += supportNodes[i]->getTemp() * shapeFun->getPhi(0, i);
+  }
+  double avgFactor = mat->getDensity() * mat->getCapacity(avgTemp) * weight * std::abs(jacobian);
+  //double avgFactor =  mat->getCapacity(avgTemp);OK!
+  //double avgFactor =  weight ;OK!
+  //double avgFactor =  std::abs(jacobian);
+  return avgFactor;
+}
+
 void GaussPoint::computeHij()
 {
     int max_deriv_index = dim + 1;
@@ -195,6 +229,25 @@ void GaussPoint::computeHij()
 //     cout << "H = " << H << endl;
 }
 
+std::vector<double> GaussPoint::getShapeHij(){
+  int max_deriv_index = dim + 1;
+  std::vector<double> myShapeHij(supportNodesSize *supportNodesSize);
+  for (auto i = 0; i < supportNodesSize; ++i){
+      for (auto j = 0; j<supportNodesSize; ++j){
+         for (auto m = 1; m < max_deriv_index; ++m){ myShapeHij[i*supportNodesSize+j] +=  shapeFun->getPhi(m, i)*shapeFun->getPhi(m, j);}
+      }
+  }
+  return myShapeHij;
+}
+
+std::vector<double> GaussPoint::getHij(){
+  std::vector<double> myHij(supportNodesSize *supportNodesSize);
+  for (auto i = 0; i < supportNodesSize; ++i)
+      for (auto j = 0; j<supportNodesSize; ++j)
+        myHij[i*supportNodesSize+j] =  H.readElement(i,j);
+   return myHij;
+}
+
 void GaussPoint::computeQext(LoadThermalBody * loadThermalBody_in)
 {
     for (auto i = 0u; i < supportNodesSize; ++i) {
@@ -235,6 +288,7 @@ void GaussPoint::assembleCijWithMap(data_type *globalCapacity,
         }
     }
 }
+
 
 void GaussPoint::presenceCij(int* presenceMatrix, int num_nodes)
 {
@@ -277,6 +331,18 @@ void GaussPoint::assembleHijWithMap(data_type *globalConductivity,
     }
 }
 
+void GaussPoint::presenceHij(int* presenceMatrix, int num_nodes)
+{
+    for (auto i = 0u; i < supportNodesSize; ++i) {
+        for (auto j = 0u; j < supportNodesSize; ++j) {
+            int rowNode = supportNodes[i]->getThermalNumber();
+            int colNode = supportNodes[j]->getThermalNumber();
+            int positionGlobal = rowNode + colNode * num_nodes;//col storage format
+            presenceMatrix[positionGlobal] = 1;
+        }
+    }
+}
+
 void GaussPoint::assembleQext(lmx::Vector<data_type>& globalHeat)
 {
     for (auto i = 0u; i < supportNodesSize; ++i) {
@@ -296,6 +362,33 @@ double  GaussPoint::getWeight()
   return weight;
 }
 
+double  GaussPoint::getJacobian()
+{//for SOA purpouses
+  return jacobian;
+}
+
+int  GaussPoint::getSupportSize()
+{//for SOA purpouses
+  return supportNodesSize;
+}
+
+void GaussPoint::mapThermalNumbers(int* thermalMap, int my_position)
+{
+    for (auto i = 0u; i < supportNodesSize; ++i) {
+        thermalMap[my_position + i] = supportNodes[i]->getThermalNumber();
+    }
+}
+void GaussPoint::mapNodeNumbers(uint* thermalMap,
+                                int my_position,
+                                int total_nodes)
+{
+    for (auto i = 0u; i < supportNodesSize; ++i) {
+       for (auto j = 0u; j < supportNodesSize; ++j) {
+        thermalMap[my_position + i * supportNodesSize + j] = (supportNodes[i]->getThermalNumber() * total_nodes) + supportNodes[j]->getThermalNumber();
+      }
+    }
+}
+
 /*void GaussPoint::mapThermalNumber(std::vector<int> &_locaThermalNumbers m)
 {
     for (auto i = 0u; i < supportNodesSize; ++i) {
@@ -311,5 +404,12 @@ void GaussPoint::gnuplotOutStress(std::ofstream& gptension)
     gptension << X << " " << Y << " " << tension(0) << endl;
 }
 
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// templating part /////////////////////////////////
+
+/*template std::vector<double> GaussPoint::getpCij<double>();
+template std::vector<float> GaussPoint::getpCij<float>();
+template std::vector<double> GaussPoint::getHij<double>();
+template std::vector<float> GaussPoint::getHij<float>();*/
 
 } //Namespace mknix

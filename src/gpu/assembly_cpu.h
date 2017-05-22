@@ -22,6 +22,7 @@
 struct p_struct{
   std::atomic<double>* globalMatrix;
   std::vector<uint> *fullMap;
+  std::vector<uint> *nodesMap;
   double *local_matrices_array;
   int numCells;
   int supportNodeSize;
@@ -55,6 +56,17 @@ void computeSOATemperatureAndFactors(T *local_capacity_factor,//output
                                      int numPoints,
                                      int supportNodeSize);
 //
+void computeSOACapacityFactor(double *local_capacity_factor_array,
+                              double *local_temperatures_array,
+                              double *local_weight_array,
+                              double *local_jacobian_array,
+                              double *local_shapeFun_phis,
+                              int *material_ids,
+                              MaterialTable *materials,
+                              int numPoints,
+                              int supportNodeSize,
+                              int tid);
+//
 /**
  * Computes the local SoA array for the Capacity Matrix
  * @param  {[type]} T* array       Array of the local capacity matrices
@@ -64,13 +76,17 @@ void computeSOATemperatureAndFactors(T *local_capacity_factor,//output
  * @param  {[type]} int size       number of support nodes per gausspoint
  * @param  {[type]} int id         the thread ID
  */
-template <typename T>
-void computeSOACapacityMatrix(T *local_capacity_matrices_array,
-                              T *local_capacity_factor,
-                              T *local_shapeFun_phis,
-                              int numPoints,
-                              int supportNodeSize,
-                              int tid);
+ template <typename T>
+ void computeSOACapacityMatrix(T *local_capacity_matrices_array,
+                               T *local_temperatures_array,
+                               T *local_weight_array,
+                               T *local_jacobian_array,
+                               T *local_shapeFun_phis,
+                               int *material_ids,
+                               MaterialTable *materials,
+                               int numPoints,
+                               int supportNodeSize,
+                               int tid);
 //
 /**
  * Computes the local SoA array for the Conductivity Matrix
@@ -81,16 +97,23 @@ void computeSOACapacityMatrix(T *local_capacity_matrices_array,
  * @param  {[type]} int size       number of support nodes per gausspoint
  * @param  {[type]} int id         the thread ID
  */
-template <typename T>
-void computeSOAConductivityMatrix(T *local_conductivity_matrices_array,
-                                  T *local_conductivity_factor,
-                                  T *local_shapeFun_phis,
-                                  int numPoints,
-                                  int supportNodeSize,
-                                  int tid);
+ template <typename T>
+ void computeSOAConductivityMatrix(T *local_conductivity_matrices_array,
+                                   T *local_temperatures_array,
+                                   T *local_weight_array,
+                                   T *local_jacobian_array,
+                                   T *local_shapeFun_phis,
+                                   T *local_shapeFun_phis_dim,
+                                   int *material_ids,
+                                   MaterialTable *materials,
+                                   int numPoints,
+                                   int supportNodeSize,
+                                   int tid);
+//
 template <typename T>
 void atomicAssembleGlobalMatrix(std::atomic<T>* globalMatrix,
                                 std::vector<uint> &fullMap,
+                                std::vector<uint> &node_map,
                                 T *local_matrices_array,
                                 int numPoints,
                                 int supportNodeSize,
@@ -109,6 +132,7 @@ void atomicAssembleGlobalMatrix(std::atomic<T>* globalMatrix,
 template <typename T>
 void AssembleGlobalMatrix(std::vector<T> &globalMatrix,
                           std::vector<uint> &fullMap,
+                          std::vector<uint> &node_map,
                           T *local_matrices_array,
                           int numPoints,
                           int supportNodeSize,

@@ -1,11 +1,11 @@
 #ifndef CPU_RUN_TYPE_H
 #define CPU_RUN_TYPE_H
 //temporary switches
-#define OLD_CODE false
-#define NEWCPU true
+#define OLD_CODE true
+#define NEWCPU false
 #define MULTICPU false
 #define GPU false
 //
-#define USECSC false
+#define USECSC true
 
 #endif //CPU_RUN_TYPE_H

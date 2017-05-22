@@ -45,6 +45,16 @@ double Cell::getNodePhi(int gp, int deriv, int node)
   return gPoints[gp]->getNodePhi(deriv, node);
 }
 
+double Cell::getCellPhi(int gp, int deriv, int node)
+{
+  return gPoints_MC[gp]->getNodePhi(deriv, node);
+}
+
+double Cell::getWeightMC(int gp)
+{
+  return gPoints_MC[gp]->getWeight();
+}
+
 double Cell::getWeight(int gp)
 {
   return gPoints[gp]->getWeight();
@@ -54,6 +64,18 @@ double Cell::getJacobian()
 {
   return jacobian;
 }
+
+double Cell::getJacobianMC(int gp)
+{
+  return gPoints_MC[gp]->getJacobian();
+}
+double Cell::getJacobianP(int gp)
+{
+  return gPoints[gp]->getJacobian();
+}
+
+int Cell::getSupportSizeMC(){gPoints_MC[0]->getSupportSize();}
+int Cell::getSupportSize(){gPoints[0]->getSupportSize();}
 
 bool Cell::setMaterialIfLayer(Material& newMat, double thickness)
 {
@@ -127,6 +149,15 @@ void Cell::computeCapacityGaussPoints()
         point->computeCij();
     }
 }
+std::vector<double> Cell::getShapeCij(){
+  std::cout << "Cell::getShapeCij has " << gPoints_MC.size()<< " gausspoints"<<std::endl;
+  return gPoints_MC[0]->getShapeCij();}
+  std::vector<double> Cell::getCij(){return gPoints_MC[0]->getCij();}//FOR DEBUG ONLY
+  std::vector<double> Cell::getTempsCij(){return gPoints_MC[0]->getTemps();}//FOR DEBUG ONLY
+  double Cell::getCFactor(){return gPoints_MC[0]->getCFactor();}//FOR DEBUG ONLY
+
+int Cell::getNumPoints_MC(){return gPoints_MC.size();}
+int Cell::getNumPoints(){return gPoints.size();}
 
 void Cell::presenceCapacityGaussPoints(int* presence_matrix, int number_nodes)
 {
@@ -159,6 +190,16 @@ void Cell::computeConductivityGaussPoints()
     for (auto& point : gPoints) {
         point->computeHij();
     }
+}
+std::vector<double> Cell::getShapeHij(){return gPoints[0]->getShapeHij();}
+std::vector<double> Cell::getHij(){return gPoints[0]->getHij();}
+std::vector<double> Cell::getTempsHij(){return gPoints[0]->getTemps();}//FOR DEBUG ONLY
+
+void Cell::presenceConductivityGaussPoints(int* presence_matrix, int number_nodes)
+{
+  for (auto& point : gPoints) {
+      point->presenceHij(presence_matrix, number_nodes);
+  }
 }
 
 void Cell::assembleConductivityGaussPoints(lmx::Matrix<data_type>& globalConductivity)
@@ -349,5 +390,63 @@ void Cell::gnuplotOutStress(std::ofstream& gptension)
         if (counter % 4 == 0) gptension << endl;
     }
 }
+
+void Cell::mapThermalNodesMC(int* thermalMap,
+                            int supportNodeSize,
+                            int cell_index )
+{
+  int np = gPoints_MC.size();
+  for (auto& point : gPoints_MC) {
+    int position = cell_index * np * supportNodeSize;
+    point->mapThermalNumbers(thermalMap, position);
+  }
+}
+
+void Cell::mapThermalNodes(int* thermalMap,
+                           int supportNodeSize,
+                           int cell_index)
+{
+  int np = gPoints.size();
+  for (auto& point : gPoints) {
+    int position = cell_index * np * supportNodeSize;
+    point->mapThermalNumbers(thermalMap,position);
+  }
+}
+
+void Cell::mapNodesMC(uint* Map,
+                      int supportNodeSize,
+                      int cell_index,
+                      int total_nodes)
+{
+  int np = gPoints_MC.size();
+  for (auto& point : gPoints_MC) {
+    int position = cell_index * np * supportNodeSize * supportNodeSize;
+    point->mapNodeNumbers(Map,
+                          position,
+                          total_nodes);
+  }
+}
+
+void Cell::mapNodes(uint* Map,
+                    int supportNodeSize,
+                    int cell_index,
+                    int total_nodes)
+{
+  int np = gPoints.size();
+  for (auto& point : gPoints) {
+    int position = cell_index * np * supportNodeSize * supportNodeSize;
+    point->mapNodeNumbers(Map,
+                          position,
+                          total_nodes);
+  }
+}
+
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// templating part /////////////////////////////////
+
+/*template std::vector<double> Cell::getCij<double>();
+template std::vector<float> Cell::getCij<float>();
+template std::vector<double> Cell::getHij<double>();
+template std::vector<float> Cell::getHij<float>();*/
 
 } //Namespace mknix

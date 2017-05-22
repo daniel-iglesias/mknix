@@ -83,6 +83,7 @@ double Node::getTemp() const
     double conf_value(0);
 //   cout << this->num << endl;
     if (shapeFunType == "MLS") {
+      //std::cout << "FUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUCKKK" << std::endl;
         for (auto i = 0u; i < supportNodesSize; ++i) {
             conf_value += shapeFun->getPhi(0, i) * (supportNodes[i]->getqt());
 //       cout << endl << "conf += (" << shapeFun->getPhi(0, i) <<" * "
@@ -188,4 +189,3 @@ void Node::setqt(const lmx::Vector<data_type>& globalTemp)
 //   }
 
 }
-

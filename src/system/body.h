@@ -67,6 +67,8 @@ public:
 
     virtual void initialize();
 
+    virtual void setupShapeTables();
+
     virtual void setMaterialTable(MaterialTable* mt_ptr);
 
     virtual void setTemperatureVector(lmx::Vector<data_type>& q);
@@ -83,6 +85,7 @@ public:
     virtual void mapConectivityCapacityMatrix();
 
     virtual void assembleConductivityMatrix(lmx::Matrix<data_type>&);
+    virtual void mapConectivityConductivityMatrix();
 
     virtual void assembleExternalHeat(lmx::Vector<data_type>&);
 
@@ -269,28 +272,45 @@ protected:
     data_type *_d_localConductivityf;
     data_type *_h_localConductivityf;
 
-    data_type *_h_local_capacity_factor;
-    data_type *_h_local_conductivity_factor;
-    data_type *_h_local_temperatures_array;
-    data_type *_h_local_jacobian_array;
-    data_type *_h_local_weight_array;
+    data_type *_h_local_temperatures_cap_array;
+    data_type *_h_local_weight_cap_array;
+    data_type *_h_local_jacobian_cap_array;
 
-    data_type *_d_local_capacity_factor;
-    data_type *_d_local_conductivity_factor;
+    data_type *_h_local_temperatures_cond_array;
+    data_type *_h_local_weight_cond_array;
+    data_type *_h_local_jacobian_cond_array;
+
     data_type *_d_local_temperatures_array;
     data_type *_d_local_shapeFun_phis;
     data_type *_d_local_jacobian_array;
     data_type *_d_local_weight_array;
 
     MaterialTable *_h_materials;
-    int *_h_materials_ids;
+    int *_h_materials_cap_ids;
+    int *_h_materials_cond_ids;
     ShapeFunctionTable *_h_shapeFunctionTable;
 
-    int       *_d_capacity_map;
-    int       *_h_presence_matrix;
+    std::vector<data_type> _h_local_shapes_cap_0;
+    std::vector<data_type> _h_local_shapes_cond_0;   //npoints * supportNodeSize
+    std::vector<data_type> _h_local_shapes_cond_dim; //npoints * supportNodeSize * supportNodeSize
+
+    std::vector<int> _h_thermal_map_MC; //capacity
+    std::vector<int> _h_thermal_map; //conductivity
+    std::vector<uint> _h_node_map_MC; //capacity
+    std::vector<uint> _h_node_map; //conductivity
+
+    int       *_h_capacity_map_cap;
+    int       *_h_capacity_map_cond;
+    int       *_h_presence_matrix_cap;
+    int       *_h_presence_matrix_cond;
+    int       _dim;
     int       _number_nodes;
-    int       _number_points;
     int       _support_node_size;
+    int       _number_points;
+    int       _number_points_MC;
+    int       _points_per_cell;
+    int       _MC_points_per_cell;
+    int       _number_cells;
     int       _sparse_matrix_size;
     //MULTI CPU part
     pthread_t _threads[MAXTHREADS];

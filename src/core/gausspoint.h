@@ -65,8 +65,14 @@ public:
     {this->mat = &mat_in; }
 
     void computeCij( );
+    std::vector<double> getShapeCij();
+    std::vector<double> getCij();
+    std::vector<double> getTemps();
+    double getCFactor();
 
     void computeHij( );
+    std::vector<double> getShapeHij();
+    std::vector<double> getHij();
 
     void computeQext( LoadThermalBody* );
 
@@ -92,6 +98,7 @@ public:
                             int num_nodes);
 
     void presenceCij(int* presenceMatrix, int num_nodes);
+    void presenceHij(int* presenceMatrix, int num_nodes);
 
     void assembleHij( lmx::Matrix<data_type> & );
     void assembleHijWithMap(data_type *globalConductivity,
@@ -103,6 +110,9 @@ public:
     double  getNodePhi(int deriv, int node);
 
     double  getWeight();
+
+    double  getJacobian();
+    int  getSupportSize();
 
     virtual void assembleMij( lmx::Matrix<data_type> & )=0;
 
@@ -119,6 +129,12 @@ public:
     virtual double calcKineticE( const lmx::Vector<data_type> & )=0;
 
     virtual double calcElasticE( )=0;
+
+    void mapThermalNumbers(int* thermalMap, int my_position);
+
+    void mapNodeNumbers(uint* thermalMap,
+                        int my_position,
+                        int total_nodes);
 
     void gnuplotOutStress( std::ofstream& );
 

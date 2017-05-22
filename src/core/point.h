@@ -164,6 +164,11 @@ public:
         jacobian = jac_in;
     }
 
+    /*double getJacobian()
+    {
+        return jacobian;
+    }*/
+
     void gnuplotOut(std::ofstream&);
 
     const std::vector<Node *>& getSupportNodes() const

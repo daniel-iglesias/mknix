@@ -13,6 +13,7 @@ struct ShapeFunctionTable{
   double *phis; // i derivative order, j node
   int support_node_size;
   int number_points;
+  int number_derivatives; // dim + 1
 };
 /**
  * returns the shape function phi value for a given gausspoint and node
@@ -22,6 +23,7 @@ struct ShapeFunctionTable{
  */
 double getPhi_from_table(ShapeFunctionTable *shapeFunctionTable,
                          int point_id,
+                         int dim,
                          int local_node_id);
 //
 /**
@@ -34,6 +36,7 @@ double getPhi_from_table(ShapeFunctionTable *shapeFunctionTable,
 void setPhi_into_table(double phiValue,
                        ShapeFunctionTable *shapeFunctionTable,
                        int point_id,
+                       int deriv,
                        int local_node_id);
 
 /**
@@ -44,6 +47,7 @@ void setPhi_into_table(double phiValue,
  */
 void init_shape_functions_table(ShapeFunctionTable **shapeFunctionTable,
                                 int support_node_size,
+                                int number_derivatives,
                                 int number_points);
 //
 /**
