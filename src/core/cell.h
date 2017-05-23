@@ -62,9 +62,9 @@ public:
 
     int getMaterialId();
 
-    double getNodePhi(int gp, int deriv, int node);
+    double getCondPhi(int gp, int deriv, int node);
 
-    double getCellPhi(int gp, int deriv, int node);
+    double getCapPhi(int gp, int deriv, int node);
 
     double getWeight(int gp);
 

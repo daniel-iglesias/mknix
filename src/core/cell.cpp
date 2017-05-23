@@ -40,12 +40,12 @@ Cell::~Cell()
 
 int Cell::getMaterialId(){return mat->getMaterialId();}
 
-double Cell::getNodePhi(int gp, int deriv, int node)
+double Cell::getCondPhi(int gp, int deriv, int node)
 {
   return gPoints[gp]->getNodePhi(deriv, node);
 }
 
-double Cell::getCellPhi(int gp, int deriv, int node)
+double Cell::getCapPhi(int gp, int deriv, int node)
 {
   return gPoints_MC[gp]->getNodePhi(deriv, node);
 }
@@ -188,13 +188,16 @@ void Cell::assembleCapacityGaussPointsWithMap(data_type *globalCapacity,
 void Cell::computeConductivityGaussPoints()
 {
     for (auto& point : gPoints) {
+      //std::cout << "WTH";
         point->computeHij();
     }
 }
 std::vector<double> Cell::getShapeHij(){return gPoints[0]->getShapeHij();}
 std::vector<double> Cell::getHij(){return gPoints[0]->getHij();}
 std::vector<double> Cell::getTempsHij(){return gPoints[0]->getTemps();}//FOR DEBUG ONLY
-double Cell::getHFactor(){return gPoints[0]->getHFactor();}//FOR DEBUG ONLY
+double Cell::getHFactor(){
+  return gPoints[0]->getHFactor();
+}//FOR DEBUG ONLY
 
 void Cell::presenceConductivityGaussPoints(int* presence_matrix, int number_nodes)
 {

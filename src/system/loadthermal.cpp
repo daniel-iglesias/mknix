@@ -32,6 +32,7 @@ LoadThermal::LoadThermal(Node * node_in, double fluence_in)
 {
     nodes.push_back(node_in);
     externalHeat = fluence_in;
+    std::cout << "LoadThermal::LoadThermal with some node addition";
 }
 
 LoadThermal::~LoadThermal()

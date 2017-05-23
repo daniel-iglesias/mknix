@@ -194,8 +194,8 @@ void computeSOAConductivityMatrix(T *local_conductivity_matrices_array,
     }
     int material_id = material_ids[eachPoint] - 1;
     T myKappa = getMaterialKappa(materials,
-                                    material_id,
-                                    avgTemp);
+                                 material_id,
+                                 avgTemp);
     T avgFactor = myKappa * local_weight_array[eachPoint] * local_jacobian_array[eachPoint];
     int index_p =  eachPoint * supportNodeSize * supportNodeSize;
     for(int i = 0; i < supportNodeSize; i++){//equivalent to obtaining thermalNumber

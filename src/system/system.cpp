@@ -103,6 +103,7 @@ void System::getOutputSignalThermal(double * vector_in)
 
 void System::updateThermalLoads(double * vector_in)
 {
+  //std::cout << "UPDATE?" << std::endl;
     int counter = 0;
     for (auto& load : subSystems["tiles"]->loadsThermal) {
         load->updateLoad(vector_in[counter]);
@@ -174,6 +175,14 @@ void mknix::System::setMaterialTable(MaterialTable* mt_ptr)
   for (auto& system : subSystems) {
       system.second->setMaterialTable(mt_ptr);
   }
+}
+
+void mknix::System::setQVector(const lmx::Vector<data_type>& q)
+{
+  for (auto& body : thermalBodies) {
+      body.second->setQVector(q);
+  }
+
 }
 
 void mknix::System::setTemperatureVector(lmx::Vector<data_type>& q)

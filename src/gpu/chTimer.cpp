@@ -55,8 +55,8 @@ void clockFullStats(std::vector<double> &clockResultsVector,
         clockAvg += clockResultsVector.at(i);
   clockAvg /= clockMeasures;
 
-  std::cout << "==  Clock measures for " << function_name << std::endl;
-  std::cout << "==  Number of measures " << clockMeasures << std::endl;
-  std::cout << "==  Average time " << clockAvg << " microseconds" << std::endl;
+  std::cout << ">>  Clock measures for " << function_name << std::endl;
+  std::cout << ">>  Number of measures " << clockMeasures << std::endl;
+  std::cout << ">>  Average time " << clockAvg << " microseconds" << std::endl;
   std::cout << std::endl;
 }

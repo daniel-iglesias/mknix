@@ -71,6 +71,8 @@ public:
 
     virtual void setMaterialTable(MaterialTable* mt_ptr);
 
+    virtual void setQVector(const lmx::Vector<data_type>& q);
+
     virtual void setTemperatureVector(lmx::Vector<data_type>& q);
 
     virtual void calcFactors();

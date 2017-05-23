@@ -33,7 +33,7 @@
 #include <cuda_runtime_api.h>
 #endif
 
-#define DEBUG_CELL 42
+#define DEBUG_CELL 1121
 
 namespace mknix {
 
@@ -167,7 +167,7 @@ void Body::initialize()
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->computeShapeFunctions();
     }
-
+  //setupShapeTables();
 ////std::cout << "Setting Material Ids" << std::endl;
    _h_materials_cap_ids = (int*) malloc( _number_points_MC * sizeof(int));
     for (int i = 0; i < _number_cells; ++i) {
@@ -348,6 +348,7 @@ for(int i = 0; i < _number_points_MC * _support_node_size; i++)
     }
  #endif
 
+  //setupShapeTables();
 }
 
 void Body::setupShapeTables()
@@ -355,26 +356,26 @@ void Body::setupShapeTables()
   /////////////////////////////////////////////////////////////////////////////
 //  std::cout << "Resizing ShapeTables" << std::endl;
   _h_local_shapes_cap_0.resize(_number_points_MC * _support_node_size);
-  _h_local_shapes_cond_0.resize(_number_points * _support_node_size);
-  _h_local_shapes_cond_dim.resize(_number_points * _support_node_size * _support_node_size);
   ///////////CAPACITY PART ////////////////
 //  std::cout << "Copying ShapeTable 0: " << std::endl;
       for(int eachcell = 0; eachcell < _number_cells; eachcell++){
           for (int lp = 0; lp < _MC_points_per_cell; lp++){
              for(int lNode = 0; lNode < _support_node_size ; lNode++){
                int shapeIndex = (eachcell * _MC_points_per_cell * _support_node_size) + (lp * _support_node_size) + lNode;
-               _h_local_shapes_cap_0[shapeIndex] = this->cells[eachcell]->getCellPhi(lp,0,lNode);
+               _h_local_shapes_cap_0[shapeIndex] = this->cells[eachcell]->getCapPhi(lp,0,lNode);
           }
         }
       }
 
+  _h_local_shapes_cond_0.resize(_number_points * _support_node_size);
+  _h_local_shapes_cond_dim.resize(_number_points * _support_node_size * _support_node_size);
     ///////////CONDUCTIVITY PART ////////////////
       //std::cout << "Copying ShapeTable 0: " << std::endl;
           for(int eachcell = 0; eachcell < _number_cells; eachcell++){
               for (int eachpoint = 0; eachpoint < _points_per_cell; eachpoint++){
                  for(int lNode = 0; lNode < _support_node_size ; lNode++){
                    int shapeIndex = eachcell * _points_per_cell * _support_node_size + eachpoint * _support_node_size + lNode;
-                   _h_local_shapes_cond_0[shapeIndex] = this->cells[eachcell]->getNodePhi(eachpoint,0,lNode);
+                   _h_local_shapes_cond_0[shapeIndex] = this->cells[eachcell]->getCondPhi(eachpoint,0,lNode);
               }
             }
           }
@@ -385,8 +386,8 @@ void Body::setupShapeTables()
             for(int rowNode = 0; rowNode < _support_node_size ; rowNode++){
               for(int colNode = 0; colNode < _support_node_size ; colNode++){
                   int shapeIndex = (eachcell * _points_per_cell * spns2) + (eachpoint * spns2) + rowNode * _support_node_size + colNode;
-                  for(int idim = 1; idim < _dim + 1 ; idim++){
-                    _h_local_shapes_cond_dim[shapeIndex] += this->cells[eachcell]->getNodePhi(eachpoint,idim,rowNode) * this->cells[eachcell]->getNodePhi(eachpoint,idim,colNode);
+                  for(int idim = 1; idim < 3 ; idim++){
+                    _h_local_shapes_cond_dim[shapeIndex] += this->cells[eachcell]->getCondPhi(eachpoint,idim,rowNode) * this->cells[eachcell]->getCondPhi(eachpoint,idim,colNode);
                   }
               }
             }
@@ -414,8 +415,8 @@ void Body::setupShapeTables()
         std::cout<< endl;
       }*/
 
-      //debug block//
-  /*  std::vector<double> debug_sd_cell = this->cells[DEBUG_CELL]->getShapeHij();
+   //debug block//
+   /*std::vector<double> debug_sd_cell = this->cells[DEBUG_CELL]->getShapeHij();
     std::cout << "ShapesDim of Cell " <<  DEBUG_CELL<< ":" <<std::endl;
     for(int i= 0; i < _support_node_size; i++){
        for(int j= 0; j < _support_node_size; j++){
@@ -424,9 +425,8 @@ void Body::setupShapeTables()
        std::cout<< endl;
      }
 
-             //debug block//
-      //std::vector<double> debug_cap_cell = this->cells[DEBUG_POINT]->getCij();
-      std::cout << "ShapesTable of Cell " <<  DEBUG_CELL<< ":" <<std::endl;
+      //debug block//
+      std::cout << "ShapesTableDim of Cell " <<  DEBUG_CELL<< ":" <<std::endl;
       for(int i= 0; i < _support_node_size; i++){
             for(int j= 0; j < _support_node_size; j++){
               int pindex = DEBUG_CELL * _points_per_cell * _support_node_size * _support_node_size;
@@ -447,6 +447,24 @@ void Body::setMaterialTable(MaterialTable* mt_ptr)
 }
 
 void Body::setTemperatureVector(lmx::Vector<data_type>& q)
+{
+  for(int ip = 0 ; ip < _number_points_MC ; ip++){
+    for(int lnode = 0 ; lnode < _support_node_size; lnode++){
+      int myIndex = ip *_support_node_size + lnode;
+      int myNode = _h_thermal_map_MC[myIndex];
+      _h_local_temperatures_cap_array[myIndex] = q.readElement(myNode);
+    }
+  }
+  for(int ip = 0 ; ip < _number_points ; ip++){
+    for(int lnode = 0 ; lnode < _support_node_size; lnode++){
+      int myIndex = ip *_support_node_size + lnode;
+      int myNode = _h_thermal_map[myIndex];
+      _h_local_temperatures_cond_array[myIndex] = q.readElement(myNode);
+    }
+  }
+}
+
+void Body::setQVector(const lmx::Vector<data_type>& q)
 {
   for(int ip = 0 ; ip < _number_points_MC ; ip++){
     for(int lnode = 0 ; lnode < _support_node_size; lnode++){
@@ -634,9 +652,10 @@ void Body::calcConductivityMatrix()
       cpuTock(&cck1, "Existing CPU calcConductivityMatrix ");
       microCPU_old_conductivity.push_back(cck1.elapsedMicroseconds);
       //debug block
-    /*  std::cout << "OLD HFactor at Cell " <<  DEBUG_CELL<< " = " << this->cells[DEBUG_CELL]->getHFactor()<<std::endl;
-      std::vector<double> debug_con_cell = this->cells[DEBUG_CELL]->getHij();
-      std::cout << "Conductivity of Cell " <<  DEBUG_CELL<< ":" <<std::endl;
+      //std::cout << "Body::calcConductivityMatrix() with " << end_int << " cells" << std::endl;
+      //std::cout << "OLD HFactor at Cell " <<  DEBUG_CELL<< " = " << this->cells[DEBUG_CELL]->getHFactor()<<std::endl;
+      /*std::vector<double> debug_con_cell = this->cells[DEBUG_CELL]->getHij();
+      std::cout << "OLD Conductivity of Cell " <<  DEBUG_CELL<< ":" <<std::endl;
        for(int i= 0; i < _support_node_size; i++){
          for(int j= 0; j < _support_node_size; j++){
            std::cout <<" "<<  debug_con_cell[i * _support_node_size + j];
@@ -646,7 +665,7 @@ void Body::calcConductivityMatrix()
   }
   if(NEWCPU)
   {
-  /*  std::vector<double>_h_conductivityFactors(_number_points);
+   std::vector<double>_h_conductivityFactors(_number_points);
     computeSOAConductivityFactor(_h_conductivityFactors.data(),
                                  _h_local_temperatures_cond_array,
                                  _h_local_weight_cond_array,
@@ -657,7 +676,7 @@ void Body::calcConductivityMatrix()
                                  _h_materials,
                                  _number_points,
                                  _support_node_size,
-                                 0);*/
+                                 0);
     //std::cout << " Body::calcConductivityMatrix() " << std::endl;
     int number_points = this->cells.size();
     cpuClock cck;

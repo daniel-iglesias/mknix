@@ -59,6 +59,7 @@ GaussPoint::~GaussPoint()
 
 void GaussPoint::shapeFunSolve(std::string type_in, double q_in)
 {
+  //std::cout << "REALLY?";
     q_in = 0.5; // Original RBF
     if (!shapeFun) {
         if (type_in == "RBF") {
@@ -173,6 +174,7 @@ double GaussPoint::getCFactor(){
 
 void GaussPoint::computeHij()
 {
+  //std::cout << "WTF ";
     int max_deriv_index = dim + 1;
     H.reset();
     avgTemp = 0;
@@ -180,59 +182,20 @@ void GaussPoint::computeHij()
         avgTemp += supportNodes[i]->getTemp() * shapeFun->getPhi(0, i);
     }
     double avgFactor = mat->getKappa(avgTemp) * weight * std::abs(jacobian);
-      // BUG:
-      // This is a test for adding lower conductivity layer for y > -1E-5 (MAST-U CFC tiles)
-      // if (this->Y > -142E-6) {avgFactor*=0.08;}
-      // if (this->Y > -0.7E-5) {avgFactor*=0.005;}
-      // This is a test for adding W higher conductivity layer for y > -1E-5 (Tile 6)
-      //
-    // Hij = wg * grad(N_j) * kappa * grad(N_I) * |Jc|
+
     for (auto i = 0u; i < supportNodesSize; ++i) {
         for (auto j = 0u; j < supportNodesSize; ++j) {
-// 	  if(supportNodes[i]->getThermalNumber() == 39){
-// 	    cout << "KAPPA in " << i << "," << j << " = " ;
-// 	    cout << 0.5*( mat->getKappa(supportNodes[i]->getTemp()) + mat->getKappa(supportNodes[j]->getTemp()) );
-// 	    cout << " with nodes temperatures:  ";
-// 	    cout << supportNodes[i]->getTemp() << " and ";
-// 	    cout << supportNodes[j]->getTemp() << endl;
-// 	  }
             for (auto m = 1; m < max_deriv_index; ++m) {
-//         for ( n=1; n<max_deriv_index; ++n ){
-                //           K(2*i + m, 2*j + n) = Kij(m,n);
-                H.addElement( (shapeFun->getPhi(m, i)
-                                       // 					 * mat->getKappa(supportNodes[i]->getTemp())
-                                       // 					 + .5*mat->getKappa(supportNodes[j]->getTemp())/*.readElement(m,n)*/
-//                                        * mat->getKappa(avgTemp) /*.readElement(m,n)*/
-                                       // 					 * 0.5*( mat->getKappa(supportNodes[i]->getTemp()) + mat->getKappa(supportNodes[j]->getTemp()) )/*.readElement(m,n)*/
-                                * shapeFun->getPhi(m, j)) * avgFactor,
-                             i,
-                             j);
-// 	  cout << i << "," << j << " = "
-// 	       << mat->getDensity() << "*"
-// 	       << mat->getKappa() << "*"
-// 	       << weight  << "*"
-// 	       << shapeFun->getPhi(m,i) << "*"
-// 	       << shapeFun->getPhi(m,j)  << "*"
-// 	       << jacobian  << " = "
-// 	       << H.readElement(i,j) << endl;
-//         }
+                H.addElement( (shapeFun->getPhi(m, i) * shapeFun->getPhi(m, j)) * avgFactor,i,j);
             }
-//         H.writeElement( weight * mat->getKappa() * jacobian *
-//                         (  shapeFun->getPhi(1,i) * shapeFun->getPhi(1,j) +
-//                          + shapeFun->getPhi(2,i) * shapeFun->getPhi(2,j)
-// 			),
-//                                   i,
-//                                   j);
         }
     }
-//     cout << "GP (" << this->getX() << ", " << this->getY() << ")" << endl;
-//     cout << "H = " << H << endl;
+
 }
 
 double GaussPoint::getHFactor()
 {
     int max_deriv_index = dim + 1;
-    H.reset();
     avgTemp = 0;
     for (auto i = 0u; i < supportNodesSize; ++i) {
         avgTemp += supportNodes[i]->getTemp() * shapeFun->getPhi(0, i);
@@ -254,9 +217,25 @@ std::vector<double> GaussPoint::getShapeHij(){
 
 std::vector<double> GaussPoint::getHij(){
   std::vector<double> myHij(supportNodesSize *supportNodesSize);
-  for (auto i = 0; i < supportNodesSize; ++i)
-      for (auto j = 0; j<supportNodesSize; ++j)
+  /*int max_deriv_index = dim + 1;
+  avgTemp = 0;
+  for (auto i = 0u; i < supportNodesSize; ++i) {
+      avgTemp += supportNodes[i]->getTemp() * shapeFun->getPhi(0, i);
+  }
+  double avgFactor = mat->getKappa(avgTemp) * weight * std::abs(jacobian);
+
+  for (auto i = 0u; i < supportNodesSize; ++i) {
+      for (auto j = 0u; j < supportNodesSize; ++j) {
+          for (auto m = 1; m < max_deriv_index; ++m) {
+              myHij[i *supportNodesSize + j] = shapeFun->getPhi(m, i)* shapeFun->getPhi(m, j) * avgFactor;
+          }
+      }
+  }*/
+  for (auto i = 0; i < supportNodesSize; ++i){
+      for (auto j = 0; j<supportNodesSize; ++j){
         myHij[i*supportNodesSize+j] =  H.readElement(i,j);
+      }
+    }
    return myHij;
 }
 
