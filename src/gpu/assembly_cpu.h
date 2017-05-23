@@ -88,6 +88,18 @@ void computeSOACapacityFactor(double *local_capacity_factor_array,
                                int supportNodeSize,
                                int tid);
 //
+void computeSOAConductivityFactor(double *local_conductivity_factor_array,
+                                  double *local_temperatures_array,
+                                  double *local_weight_array,
+                                  double *local_jacobian_array,
+                                  double *local_shapeFun_phis,
+                                  double *local_shapeFun_phis_dim,
+                                  int *material_ids,
+                                  MaterialTable *materials,
+                                  int numPoints,
+                                  int supportNodeSize,
+                                  int tid);
+//
 /**
  * Computes the local SoA array for the Conductivity Matrix
  * @param  {[type]} T* array       Array of the local conductivity matrices

@@ -229,6 +229,18 @@ void GaussPoint::computeHij()
 //     cout << "H = " << H << endl;
 }
 
+double GaussPoint::getHFactor()
+{
+    int max_deriv_index = dim + 1;
+    H.reset();
+    avgTemp = 0;
+    for (auto i = 0u; i < supportNodesSize; ++i) {
+        avgTemp += supportNodes[i]->getTemp() * shapeFun->getPhi(0, i);
+    }
+    double avgFactor = mat->getKappa(avgTemp) * weight * std::abs(jacobian);
+    return avgFactor;
+}
+
 std::vector<double> GaussPoint::getShapeHij(){
   int max_deriv_index = dim + 1;
   std::vector<double> myShapeHij(supportNodesSize *supportNodesSize);

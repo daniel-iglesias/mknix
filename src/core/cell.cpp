@@ -194,6 +194,7 @@ void Cell::computeConductivityGaussPoints()
 std::vector<double> Cell::getShapeHij(){return gPoints[0]->getShapeHij();}
 std::vector<double> Cell::getHij(){return gPoints[0]->getHij();}
 std::vector<double> Cell::getTempsHij(){return gPoints[0]->getTemps();}//FOR DEBUG ONLY
+double Cell::getHFactor(){return gPoints[0]->getHFactor();}//FOR DEBUG ONLY
 
 void Cell::presenceConductivityGaussPoints(int* presence_matrix, int number_nodes)
 {

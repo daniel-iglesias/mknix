@@ -203,7 +203,7 @@ public:
      *  */
   void cast_csc_matrix(gmm::csc_matrix<T> &matrix_to_cast)
   {
-    std::cout << "GOOD CAST :-) " << std::endl;
+    //std::cout << "GOOD CAST :-) " << std::endl;
      gmm::resize(contents, gmm::mat_nrows(matrix_to_cast), gmm::mat_ncols(matrix_to_cast));
      gmm::copy(matrix_to_cast, contents);
   }
@@ -215,7 +215,7 @@ public:
      *  */
   void cast_csr_matrix(gmm::csr_matrix<T> &matrix_to_cast)
   {
-    std::cout << "GOOD CAST :-) " << std::endl;
+    //std::cout << "GOOD CAST :-) " << std::endl;
      gmm::resize(contents, gmm::mat_nrows(matrix_to_cast), gmm::mat_ncols(matrix_to_cast));
      gmm::copy(matrix_to_cast, contents);
   }

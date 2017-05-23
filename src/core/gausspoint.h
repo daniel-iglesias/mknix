@@ -73,6 +73,7 @@ public:
     void computeHij( );
     std::vector<double> getShapeHij();
     std::vector<double> getHij();
+    double getHFactor();
 
     void computeQext( LoadThermalBody* );
 

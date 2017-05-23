@@ -136,6 +136,34 @@ void computeSOACapacityMatrix(T *local_capacity_matrices_array,
      }
    }
 }
+void computeSOAConductivityFactor(double *local_conductivity_factor_array,
+                                  double *local_temperatures_array,
+                                  double *local_weight_array,
+                                  double *local_jacobian_array,
+                                  double *local_shapeFun_phis,
+                                  double *local_shapeFun_phis_dim,
+                                  int *material_ids,
+                                  MaterialTable *materials,
+                                  int numPoints,
+                                  int supportNodeSize,
+                                  int tid)
+{
+  for(int eachPoint = 0; eachPoint < numPoints; eachPoint++){
+    double avgTemp  = 0.0;
+    for(int lnode = 0; lnode < supportNodeSize; lnode++){
+        int nindex = eachPoint * supportNodeSize + lnode;
+         avgTemp += local_temperatures_array[nindex] * local_shapeFun_phis[nindex];
+    }
+    int material_id = material_ids[eachPoint] - 1;
+    double myKappa = getMaterialKappa(materials,
+                                    material_id,
+                                    avgTemp);
+    double avgFactor = myKappa * local_weight_array[eachPoint] * local_jacobian_array[eachPoint];
+    int index_p =  eachPoint * supportNodeSize * supportNodeSize;
+
+    local_conductivity_factor_array[eachPoint] =  avgFactor;
+   }
+}
 /**
  * Computes the local SoA array for the Conductivity Matrix
  * @param  {[type]} T* array       Array of the local conductivity matrices
@@ -345,16 +373,16 @@ void cast_into_lmx_csc_type(lmx::Matrix<T> &lmx_ref,
                             int number_rows,
                             int number_columns)
 {
-  std::cout << "inside cast_into_lmx_csc_type" << std::endl;
+  //std::cout << "inside cast_into_lmx_csc_type" << std::endl;
   gmm::csc_matrix<T> gmm_matrix;
   gmm_matrix.pr = values_array.data();
   gmm_matrix.ir = vec_ind.data();
   gmm_matrix.jc = cvec_ptr.data();
   gmm_matrix.nr = number_rows;
   gmm_matrix.nc = number_columns;
-  std::cout << "about to use gmm_csc_cast" << std::endl;
+  //std::cout << "about to use gmm_csc_cast" << std::endl;
   lmx_ref.gmm_csc_cast(gmm_matrix);
-  std::cout << "after gmm_csc_cast" << std::endl;
+  //std::cout << "after gmm_csc_cast" << std::endl;
   gmm_matrix.pr  = NULL;
   gmm_matrix.ir = NULL;
   gmm_matrix.jc = NULL;
@@ -373,16 +401,16 @@ void cast_into_lmx_csr_type(lmx::Matrix<T> &lmx_ref,
                             int number_rows,
                             int number_columns)
 {
-  std::cout << "inside cast_into_lmx_csr_type" << std::endl;
+  //std::cout << "inside cast_into_lmx_csr_type" << std::endl;
   gmm::csr_matrix<T> gmm_matrix;
   gmm_matrix.pr = values_array.data();
   gmm_matrix.ir = vec_ind.data();
   gmm_matrix.jc = cvec_ptr.data();
   gmm_matrix.nr = number_rows;
   gmm_matrix.nc = number_columns;
-  std::cout << "about to use gmm_csr_cast" << std::endl;
+  //std::cout << "about to use gmm_csr_cast" << std::endl;
   lmx_ref.gmm_csr_cast(gmm_matrix);
-  std::cout << "after gmm_csr_cast" << std::endl;
+  //std::cout << "after gmm_csr_cast" << std::endl;
   gmm_matrix.pr  = NULL;
   gmm_matrix.ir = NULL;
   gmm_matrix.jc = NULL;
@@ -400,7 +428,7 @@ void init_host_array_to_value(T *array,
                               T value,
                               int size)
 {
-  std::cout<< "inside init_host_array_to_value" << std::endl;
+  //std::cout<< "inside init_host_array_to_value" << std::endl;
   for(int i = 0; i < size; i++) array[i] = value;
 }
 
@@ -415,7 +443,7 @@ void init_host_array_to_value(std::vector<T> &array,
                               T value,
                               int size)
 {
-  std::cout<< "inside init_host_array_to_value" << std::endl;
+  //std::cout<< "inside init_host_array_to_value" << std::endl;
   array.assign(size,value);
   //for(int i = 0; i < size; i++) array[i] = value;
 }

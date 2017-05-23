@@ -108,6 +108,7 @@ public:
     std::vector<double> getShapeHij();
     std::vector<double> getHij();
     std::vector<double> getTempsHij();//FOR DEBUG ONLY
+    double getHFactor();
 
     void assembleConductivityGaussPoints( lmx::Matrix<data_type> & );
 
