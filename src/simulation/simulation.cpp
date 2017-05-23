@@ -707,7 +707,7 @@ void Simulation::dynamicThermalResidue(lmx::Vector<data_type>& residue,
   std::cout << "\n\n  --- void Simulation::dynamicThermalResidue --- \n" << std::endl;
   if(OLD_CODE){
     for (auto& node : thermalNodes) {//TODO:THIS ONE!
-        node.second->setqt(q);
+      node.second->setqt(q);
     }
   }else{
     baseSystem->setQVector(q);
