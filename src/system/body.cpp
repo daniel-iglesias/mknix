@@ -563,18 +563,7 @@ for(int i= 0; i < _support_node_size; i++){
   }
   if(NEWCPU)
   {
-    /*std::vector<double>_h_capacityFactors(_number_points_MC);
-    computeSOACapacityFactor(_h_capacityFactors.data(),//DEBUUUUUUUUUUUUUUUUUG
-                             _h_local_temperatures_cap_array,
-                             _h_local_weight_cap_array,
-                             _h_local_jacobian_cap_array,
-                             _h_local_shapes_cap_0.data(),
-                             _h_materials_cap_ids,
-                             _h_materials,
-                             _number_points_MC,
-                             _support_node_size,
-                            0);*/
-    //int number_points = this->cells.size();
+
     cpuClock cck;
     cpuTick(&cck);
     computeSOACapacityMatrix(_h_localCapacityf,
@@ -664,18 +653,6 @@ void Body::calcConductivityMatrix()
   }
   if(NEWCPU)
   {
-   std::vector<double>_h_conductivityFactors(_number_points);
-    computeSOAConductivityFactor(_h_conductivityFactors.data(),
-                                 _h_local_temperatures_cond_array,
-                                 _h_local_weight_cond_array,
-                                 _h_local_jacobian_cond_array,
-                                 _h_local_shapes_cond_0.data(),
-                                 _h_local_shapes_cond_dim.data(),
-                                 _h_materials_cond_ids,
-                                 _h_materials,
-                                 _number_points,
-                                 _support_node_size,
-                                 0);
     //std::cout << " Body::calcConductivityMatrix() " << std::endl;
     int number_points = this->cells.size();
     cpuClock cck;

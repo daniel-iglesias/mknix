@@ -96,6 +96,7 @@ void GaussPoint::shapeFunSolve(std::string type_in, double q_in)
 
 void GaussPoint::computeCij()
 {
+   //C.reset();//aparently this doesnt matter
     // TODO: not sure why it's needed to be done here too, but for the moment is required for positive validation
     avgTemp = 0;
     for (auto i = 0u; i < supportNodesSize; ++i) {
