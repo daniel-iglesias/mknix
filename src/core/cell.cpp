@@ -400,9 +400,11 @@ void Cell::mapThermalNodesMC(int* thermalMap,
                             int cell_index )
 {
   int np = gPoints_MC.size();
+  int ip = 0;
   for (auto& point : gPoints_MC) {
-    int position = cell_index * np * supportNodeSize;
+    int position = cell_index * np * supportNodeSize + ip * supportNodeSize;
     point->mapThermalNumbers(thermalMap, position);
+    ip++;
   }
 }
 
@@ -411,9 +413,11 @@ void Cell::mapThermalNodes(int* thermalMap,
                            int cell_index)
 {
   int np = gPoints.size();
+  int ip = 0;
   for (auto& point : gPoints) {
-    int position = cell_index * np * supportNodeSize;
+    int position = cell_index * np * supportNodeSize + ip * supportNodeSize;;
     point->mapThermalNumbers(thermalMap,position);
+    ip++;
   }
 }
 
@@ -422,12 +426,15 @@ void Cell::mapNodesMC(uint* Map,
                       int cell_index,
                       int total_nodes)
 {
-  int np = gPoints_MC.size();
+  int ppc = gPoints_MC.size();
+  int spns2 = supportNodeSize * supportNodeSize;
+  int ip = 0;
   for (auto& point : gPoints_MC) {
-    int position = cell_index * np * supportNodeSize * supportNodeSize;
+    int position = cell_index * ppc * spns2 +  ip * spns2;
     point->mapNodeNumbers(Map,
                           position,
                           total_nodes);
+    ip++;
   }
 }
 
@@ -436,12 +443,15 @@ void Cell::mapNodes(uint* Map,
                     int cell_index,
                     int total_nodes)
 {
-  int np = gPoints.size();
+  int ppc = gPoints.size();
+  int spns2 = supportNodeSize * supportNodeSize;
+  int ip = 0;
   for (auto& point : gPoints) {
-    int position = cell_index * np * supportNodeSize * supportNodeSize;
+    int position = cell_index * ppc * spns2 +  ip * spns2;
     point->mapNodeNumbers(Map,
                           position,
                           total_nodes);
+    ip++;
   }
 }
 

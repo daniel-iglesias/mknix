@@ -183,7 +183,6 @@ void Body::initialize()
            _h_materials_cond_ids[i * _points_per_cell + p] = cellMaterial;
      }
 
-
 //  // Checking the output of a shapefunction:
 //   int mid_int = this->cells.size()/2;
 //   // Initialize individual output files

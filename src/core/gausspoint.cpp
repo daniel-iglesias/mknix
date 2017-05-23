@@ -374,8 +374,11 @@ void GaussPoint::mapNodeNumbers(uint* thermalMap,
                                 int total_nodes)
 {
     for (auto i = 0u; i < supportNodesSize; ++i) {
+       int row = supportNodes[i]->getThermalNumber();
        for (auto j = 0u; j < supportNodesSize; ++j) {
-        thermalMap[my_position + i * supportNodesSize + j] = (supportNodes[i]->getThermalNumber() * total_nodes) + supportNodes[j]->getThermalNumber();
+         int col = supportNodes[j]->getThermalNumber();
+         int out_id = my_position + i * supportNodesSize + j;
+         thermalMap[out_id] = row * total_nodes + col;
       }
     }
 }
