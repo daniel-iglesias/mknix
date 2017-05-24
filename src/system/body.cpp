@@ -125,50 +125,50 @@ Body::~Body()
  **/
 void Body::initialize()
 {
-  //std::cout << "Initializing body "<< std::endl;
+    std::cout << "Initializing body "<< std::endl;
    _h_materials = (MaterialTable*) malloc(1*sizeof(MaterialTable));
    _h_shapeFunctionTable = (ShapeFunctionTable*) malloc(1*sizeof(ShapeFunctionTable));
     lastNode = nodes.back();
     auto end_int = this->cells.size();
     _number_cells = end_int;//
-    //std::cout<< std::endl << "Number of Cells " << _number_cells << std::endl ;
+    std::cout<< std::endl << "Number of Cells " << _number_cells << std::endl ;
     _MC_points_per_cell = 3;//TODO MAGIC NUMBER HERE!!!!!!!
     _points_per_cell = 1;//TODO MAGIC NUMBER HERE!!!!!!!
     _number_points_MC = _number_cells * _MC_points_per_cell;
     _number_points = _number_cells * _points_per_cell;
 
-    //std::cout << "last node " << lastNode << std::endl;
+    std::cout << "last node " << lastNode << std::endl;
     nodes.insert(nodes.end(), bondedBodyNodes.begin(), bondedBodyNodes.end());
 
-    //std::cout << "Initializing nodes " << std::endl;
+    std::cout << "Initializing nodes " << std::endl;
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->initialize(this->nodes);
     }
-   //std::cout << std::endl<< "SUPPORT SIZE MC = " << this->cells[0]->getSupportSizeMC() << std::endl;
-   //std::cout << std::endl<< "SUPPORT SIZE = " << this->cells[0]->getSupportSize() << std::endl;
+   std::cout << std::endl<< "SUPPORT SIZE MC = " << this->cells[0]->getSupportSizeMC() << std::endl;
+   std::cout << std::endl<< "SUPPORT SIZE = " << this->cells[0]->getSupportSize() << std::endl;
    _support_node_size = this->cells[0]->getSupportSize();//TODO MAGIC NUMBER HERE!!!!!!!
    _dim = 2; //TODO MAGIC NUMBER HERE!!!!!!!
 
-    //std::cout << "Counting MC Gausspoints" << std::endl;
-    /*    int nump_mc = 0;
+  std::cout << "Counting MC Gausspoints" << std::endl;
+        int nump_mc = 0;
         for (auto i = 0u; i < _number_cells; ++i) {
           nump_mc +=  this->cells[i]->getNumPoints_MC();
-        }*/
+        }
 
-    //std::cout << "Counting Gausspoints" << std::endl;
-    /*    int nump = 0;
+    std::cout << "Counting Gausspoints" << std::endl;
+        int nump = 0;
         for (auto i = 0u; i < _number_cells; ++i) {
             nump +=  this->cells[i]->getNumPoints();
-        }*/
-    //std::cout<< std::endl << "assumed MC points " << _number_points_MC << " vs counted " << nump_mc <<std::endl;
-  //  std::cout<< std::endl << "assumed points " << _number_points << " vs counted " << nump <<std::endl;
+        }
+    std::cout<< std::endl << "assumed MC points " << _number_points_MC << " vs counted " << nump_mc <<std::endl;
+   std::cout<< std::endl << "assumed points " << _number_points << " vs counted " << nump <<std::endl;
 
-//std::cout << "Computing shape shape functions" << std::endl;
+std::cout << "Computing shape shape functions" << std::endl;
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->computeShapeFunctions();
     }
   //setupShapeTables();
-////std::cout << "Setting Material Ids" << std::endl;
+   std::cout << "Setting Material Ids" << std::endl;
    _h_materials_cap_ids = (int*) malloc( _number_points_MC * sizeof(int));
     for (int i = 0; i < _number_cells; ++i) {
         int cellMaterial = this->cells[i]->getMaterialId();
@@ -190,7 +190,7 @@ void Body::initialize()
 //   std::ofstream gpoint_data(std::string("cell_gpoint_data_"+title+".dat").c_str());
 //   this->cells[mid_int]->gnuplotOut(cell_data, gpoint_data); // Bus error
 
-//std::cout << "Iteration in nodes" << std::endl;
+std::cout << "Iteration in nodes" << std::endl;
 //The iteration on nodes MUST be done AFTER the cells.
     end_int = this->nodes.size();
     _number_nodes = end_int;
@@ -201,7 +201,7 @@ void Body::initialize()
                 this->nodes[i]->findSupportNodes(this->nodes);
         }
     }
-//std::cout << "Solving shape funcs" << std::endl;
+std::cout << "Solving shape funcs" << std::endl;
 //     #pragma omp parallel for
     for (auto i = 0u; i < _number_nodes; ++i) {
         if (this->nodes[i]->getShapeFunType() == "RBF") {
@@ -353,10 +353,10 @@ for(int i = 0; i < _number_points_MC * _support_node_size; i++)
 void Body::setupShapeTables()
 {
   /////////////////////////////////////////////////////////////////////////////
-//  std::cout << "Resizing ShapeTables" << std::endl;
+  std::cout << "Resizing ShapeTables" << std::endl;
   _h_local_shapes_cap_0.resize(_number_points_MC * _support_node_size);
   ///////////CAPACITY PART ////////////////
-//  std::cout << "Copying ShapeTable 0: " << std::endl;
+  std::cout << "Copying ShapeTable 0: " << std::endl;
       for(int eachcell = 0; eachcell < _number_cells; eachcell++){
           for (int lp = 0; lp < _MC_points_per_cell; lp++){
              for(int lNode = 0; lNode < _support_node_size ; lNode++){
@@ -369,7 +369,7 @@ void Body::setupShapeTables()
   _h_local_shapes_cond_0.resize(_number_points * _support_node_size);
   _h_local_shapes_cond_dim.resize(_number_points * _support_node_size * _support_node_size);
     ///////////CONDUCTIVITY PART ////////////////
-      //std::cout << "Copying ShapeTable 0: " << std::endl;
+      std::cout << "Copying ShapeTable 0: " << std::endl;
           for(int eachcell = 0; eachcell < _number_cells; eachcell++){
               for (int eachpoint = 0; eachpoint < _points_per_cell; eachpoint++){
                  for(int lNode = 0; lNode < _support_node_size ; lNode++){
@@ -378,7 +378,7 @@ void Body::setupShapeTables()
               }
             }
           }
-  //std::cout << "Copying ShapeTable Dim" << std::endl;
+  std::cout << "Copying ShapeTable Dim" << std::endl;
      int spns2 = _support_node_size * _support_node_size;
       for(int eachcell = 0; eachcell < _number_cells; eachcell++){
         for (int eachpoint = 0; eachpoint < _points_per_cell; eachpoint++){
@@ -446,7 +446,7 @@ void Body::setThermalBoundaryTable(ThermalBoundaryTable *tb_ptr)
 void Body::setMaterialTable(MaterialTable* mt_ptr)
 {
   _h_materials = mt_ptr;
-//  debug_printMaterialTable(_h_materials);
+ debug_printMaterialTable(_h_materials);
 }
 
 void Body::setTemperatureVector(lmx::Vector<data_type>& q)
