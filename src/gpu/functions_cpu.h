@@ -2,6 +2,7 @@
 #define FUNCTIONS_CPU_H
 
 #include "core/material.h"
+#include "system/loadthermalboundary1D.h"
 
 /**
  * SoA Structure containing shapefunction phi values
@@ -135,5 +136,71 @@ void setupMaterialTables(MaterialTable **mt,
  */
 void freeMaterialTableMemory(MaterialTable **mt);
 //
+
+/**
+ * SoA Structure containing all 1D Thermal Boundaries for coalescent access
+ * @param  {[type]} int size                  Number of different thermal boundaries in the structc
+ * @param  {[type]} double* array             Sparse matrix of coord map for load
+ * @param  {[type]} double* array             Sparse matrix of values for load
+ * @param  {[type]} int* array                Array of indices in sparse matrix load
+ * @param  {[type]} int* array                Array of row counters in sparse matrix load
+ * @param  {[type]} double* array             Sparse matrix of time map for time
+ * @param  {[type]} double* array             Sparse matrix of values for time
+ * @param  {[type]} int* array                Array of indices in sparse matrix time
+ * @param  {[type]} int* array                Array of row counters in sparse matrix time
+ */
+//class MaterialTable
+struct ThermalBoundaryTable{
+  int number_thermal_boundaries;
+  double *_load_coord;
+  double *_load_values;
+  int *_load_counters;
+  int *_load_inits;
+  double *_time_elapsed;
+  double *_time_values;
+  int *_time_counters;
+  int *_time_inits;
+};
+
+void debug_printThermalBoundaryTable(ThermalBoundaryTable *thermalBoundaries);
+
+//Material functions
+/**
+ * returns load for a 1D boundary at a given coord
+ * @param  {[type]} ThermalBoundaryTable* struct  Structure containing materials data
+ * @param  {[type]} int id                 Material id
+ * @param  {[type]} double value           Temperature
+ */
+ double getThermalBoundaryLoad (ThermalBoundaryTable *thermalBoundaries,
+                                int thermal_boundary_id,
+                                double coord_x);
+
+//
+/**
+* returns time factor for a 1D ThermalBoundary at a given time
+* @param  {[type]} ThermalBoundaryTable* struct  Structure containing materials data
+* @param  {[type]} int id                 Material id
+* @param  {[type]} double value           Temperature
+ */
+ double getThermalBoundaryTime (ThermalBoundaryTable *thermalBoundaries,
+                                int material_id,
+                                double simulation_time);
+//
+/**
+ * Allocates memory for the ThermalBoundary SoA struct
+ * @param  {[type]} ThermalBoundaryTable** struct  structure containing boundaries data
+ * @param  {[type]} std::map<int, mknix::LoadThermalBoundary1D> map 1D boundary Objects map
+ */
+void setupThermalBoundaryTable(ThermalBoundaryTable **thermalBoundaries,
+                              std::map<int, mknix::LoadThermalBoundary1D> &boundaries);
+//
+/**
+ * Frees memory for the ThermalBoundary SoA struct
+ * @param  {[type]} ThermalBoundaryTable** struct  structure containing materials data
+ */
+void freeThermalBoundaryTableMemory(ThermalBoundaryTable **thermalBoundaries);
+//
+
+
 
 #endif //FUNCTIONS_CPU_H

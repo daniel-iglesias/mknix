@@ -558,8 +558,7 @@ void Simulation::staticThermalTangent(lmx::Matrix<data_type>& tangent_in,
 }
 
 bool Simulation::staticThermalConvergence(lmx::Vector<data_type>& res,
-                                          lmx::Vector<data_type>& q
-)
+                                          lmx::Vector<data_type>& q)
 {
     std::cout << "\n\n  --- void Simulation::staticThermalConvergence --- \n\n" << std::endl;
 //   lmx::Vector<data_type> res( qddot.size() );
@@ -579,9 +578,8 @@ bool Simulation::staticThermalConvergence(lmx::Vector<data_type>& res,
 }
 
 
-void Simulation::explicitThermalEvaluation
-        (const lmx::Vector<data_type>& qt, lmx::Vector<data_type>& qtdot, double time
-        )
+void Simulation::explicitThermalEvaluation(const lmx::Vector<data_type>& qt,
+                                          lmx::Vector<data_type>& qtdot, double time )
 {
     for (auto& node : thermalNodes) {
         node.second->setqt(qt);
@@ -653,6 +651,7 @@ void Simulation::dynamicThermalEvaluation(const lmx::Vector<data_type>& qt,
     lmx::LinearSystem<data_type> theLSolver(globalCapacity, qtdot, globalRHSHeat);
     theLSolver.solveYourself();
     std::cout << std::endl << " qdot.sumSum() = "<< qtdot.sumSum() << std::endl;
+    //std::cout << qtdot << std::endl;
 }else{
 //reset not necesary now
 //std::cout << "0. before resets" << std::endl;
@@ -693,6 +692,7 @@ std::cout << std::endl << " globalConductivity.trace() = "<< globalConductivity.
   //std::cout << "14. before theLSolver.solveYourself();" << std::endl;
   theLSolver.solveYourself();
   std::cout << std::endl << " qdot.sumSum() = "<< qtdot.sumSum() << std::endl;
+  //std::cout << qtdot << std::endl;
 }
     stepTime = time;
     cpuTock(&evalck, "\nSimulation::dynamicThermalEvaluation");
@@ -712,6 +712,8 @@ void Simulation::dynamicThermalResidue(lmx::Vector<data_type>& residue,
   }else{
     baseSystem->setQVector(q);
   }
+
+  //std::cout << q << std::endl;
 
 if(OLD_CODE){
     globalCapacity.reset();
@@ -802,8 +804,16 @@ bool Simulation::dynamicThermalConvergence(const lmx::Vector<data_type>& q,
 //       << globalInternalForces.norm2() << "\t"
 //       << globalExternalForces.norm2() << "\n";
 
+
     res = globalCapacity * qdot + globalConductivity * q + globalInternalHeat - globalExternalHeat;
 
+//debug block
+/*lmx::Vector<data_type> res_cap(qdot.size());
+res_cap = globalCapacity * qdot;
+lmx::Vector<data_type> res_cond(qdot.size());
+res_cond = globalConductivity * q;
+
+std::cout<< " " << globalExternalHeat << std::endl;*/
 //  energy_max = std::max( std::fabs(globalMass*qddot*q)
 //                       , std::fabs(globalInternalForces*q) );
 //  energy_max = std::max( energy_max, std::fabs(globalExternalForces*q) );
@@ -820,14 +830,14 @@ bool Simulation::dynamicThermalConvergence(const lmx::Vector<data_type>& q,
             stepTime = time;
             systemOuputStep(q);
 //             baseSystem->clearAugmented();
-            cpuTock(&tanck, "Simulation::dynamicThermalConvergence");
+            cpuTock(&tanck, "Simulation::dynamicThermalConvergence : res.norm2() <= epsilon is true && baseSystem->checkAugmented() = true");
             return 1;
         }
-        else { cpuTock(&tanck, "Simulation::dynamicThermalConvergence");
+        else { cpuTock(&tanck, "Simulation::dynamicThermalConvergence: res.norm2() <= epsilon is true && baseSystem->checkAugmented() = false");
           return 0; }
     }
     else {
-      cpuTock(&tanck, "Simulation::dynamicThermalConvergence");
+      cpuTock(&tanck, "Simulation::dynamicThermalConvergence res.norm2() <= epsilon is false");
       return 0; }
 }
 

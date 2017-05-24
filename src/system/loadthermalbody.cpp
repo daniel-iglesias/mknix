@@ -51,6 +51,7 @@ LoadThermalBody::~LoadThermalBody( /*double , double, double*/ )
 
 double LoadThermalBody::getLoadThermalBody( Point* thePoint )
 {
+  std::cout << "--------------------------THIS GETLOADTHERMALBODY!!!------------------------------" << std::endl;
 //  cout << Simulation::getTime() << endl;
     /////////////////////////////////////////////////////////////////////////////////////////////
 //     For thermal slits:
@@ -58,7 +59,7 @@ double LoadThermalBody::getLoadThermalBody( Point* thePoint )
 //   if (Simulation::getTime() <= 1.E-4){
 // //    if ( thePoint->getX() < 10.E-3 )
 //     typedef std::map<double, double>::const_iterator i_t;
-// 
+//
 //     i_t i=srim.upper_bound(thePoint->getX()/4.);
 //     if(i==srim.end())
 //     {
@@ -69,7 +70,7 @@ double LoadThermalBody::getLoadThermalBody( Point* thePoint )
 //       return i->second;
 //     }
 //     i_t l=i; --l;
-// 
+//
 //     const double delta=(thePoint->getX()/4.- l->first)/(i->first - l->first);
 //     return (delta*i->second +(1-delta)*l->second)/4.;//    else return 0.;
 //   }

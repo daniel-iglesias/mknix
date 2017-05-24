@@ -40,13 +40,21 @@ public:
     /*virtual */~LoadThermalBoundary1D();
 
     void loadFile(std::string);
-    
+
     void loadTimeFile(std::string);
-    
+
     void scaleLoad(double);
 
     double getLoadThermalBoundary1D( Point* );
-    
+
+    int getLoadMapSize();
+
+    int getTimeMapSize();
+
+    std::map<double, double>* getLoadMap();
+
+    std::map<double, double>* getTimeMap();
+
 protected:
     std::map<double, double> loadmap;
     std::map<double, double> timemap;

@@ -744,13 +744,15 @@ void Body::mapConectivityConductivityMatrix()
 void Body::calcExternalHeat()
 {
     auto end_int = this->cells.size();
-//     #pragma omp parallel for
+   std::cout << " Inside  Body::calcExternalHeat()"<< std::endl;
     if (loadThermalBody) {
+       std::cout << "loadThermalBody!!!"<< std::endl;
         for (auto i = 0u; i < end_int; ++i) {
             this->cells[i]->computeQextGaussPoints(this->loadThermalBody);
         }
     }
     for (auto group : boundaryGroups) {
+      //std::cout << "AHA!!! for (auto group : boundaryGroups)"<< std::endl;
         group.second->calcExternalHeat();
     }
 }

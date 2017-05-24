@@ -50,8 +50,7 @@ void LoadThermal::insertNodesXCoordinates(std::vector<double>& x_coordinates)
 
 }
 
-void LoadThermal::assembleExternalHeat
-        (lmx::Vector<data_type>& globalExternalHeat)
+void LoadThermal::assembleExternalHeat(lmx::Vector<data_type>& globalExternalHeat)
 {
     auto nodesSize = nodes.size();
     for (auto i = 0u; i < nodesSize; ++i) {

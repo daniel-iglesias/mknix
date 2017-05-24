@@ -78,7 +78,7 @@ void LoadThermalBoundary1D::scaleLoad(double loadFactor_in)
 double LoadThermalBoundary1D::getLoadThermalBoundary1D(Point * thePoint)
 {
 //  cout << Simulation::getTime() << endl;
-
+   //std::cout << "FOUND YOU!!!!!!!!!!!!!!!!!!" << std::endl;
     if (loadmap.size() == 0) cerr << "ERROR: LOAD FILE NOT FOUND!!!" << endl;
     if (timemap.size() == 0) {
         return mknix::interpolate1D(thePoint->getX(), loadmap);
@@ -87,6 +87,28 @@ double LoadThermalBoundary1D::getLoadThermalBoundary1D(Point * thePoint)
         return mknix::interpolate1D(thePoint->getX(), loadmap)
                * mknix::interpolate1D(Simulation::getTime(), timemap);
     }
+}
+
+
+
+//////////////SOA //////////////////
+int LoadThermalBoundary1D::getLoadMapSize()
+{
+  return loadmap.size();
+}
+
+int LoadThermalBoundary1D::getTimeMapSize()
+{
+  return timemap.size();
+}
+
+std::map<double, double>* LoadThermalBoundary1D::getLoadMap()
+{
+  return &loadmap;
+}
+
+std::map<double, double>* LoadThermalBoundary1D::getTimeMap(){
+  return &timemap;
 }
 
 }

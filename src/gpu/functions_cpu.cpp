@@ -191,21 +191,21 @@ void setupMaterialTables(MaterialTable **mt,
       (*mt)->_kappa_counters[i]= imat.second.retKappaMapSize();
       i++;
     }
-    i = 0;
+    /*i = 0;
     for(auto const &imat : materials){
       (*mt)->capacity[i] = imat.second.retCapacity();
       (*mt)->_capacity_counters[i]= imat.second.retCapacityMapSize();
       (*mt)->kappa[i] = imat.second.retKappa();
       (*mt)->_kappa_counters[i]= imat.second.retKappaMapSize();
       i++;
-    }
+    }*/
     (*mt)->_capacity_inits[0] = 0;
     (*mt)->_kappa_inits[0] = 0;
     int capacity_tot_vals = (*mt)->_capacity_counters[0];
     int kappa_tot_vals = (*mt)->_kappa_counters[0];
     for(int imat = 1; imat < nMat; imat++){//prefix sum scan
-      capacity_tot_vals = (*mt)->_capacity_counters[imat];
-      kappa_tot_vals = (*mt)->_kappa_counters[imat];
+      capacity_tot_vals += (*mt)->_capacity_counters[imat];
+      kappa_tot_vals += (*mt)->_kappa_counters[imat];
       (*mt)->_capacity_inits[imat] = (*mt)->_capacity_inits[imat - 1] + (*mt)->_capacity_counters[imat-1];
       (*mt)->_kappa_inits[imat] = (*mt)->_kappa_inits[imat - 1] + (*mt)->_kappa_counters[imat-1];
     }
@@ -251,4 +251,117 @@ void freeMaterialTableMemory(MaterialTable **mt)
   free((*mt)->_capacity_values);
   free((*mt)->_kappa_temps);
   free((*mt)->_kappa_values);
+}
+
+//class MaterialTable
+/*struct ThermalBoundaryTable{
+  int number_thermal_boundaries;
+  double *_load_coord;
+  double *_load_values;
+  int *_load_counters;
+  int *_load_inits;
+  double *_time_elapsed;
+  double *_time_values;
+  int *_time_counters;
+  int *_time_inits;
+};*/
+
+void debug_printThermalBoundaryTable(ThermalBoundaryTable *thermalBoundaries)
+{
+
+}
+
+double getThermalBoundaryLoad (ThermalBoundaryTable *thermalBoundaries,
+                               int thermal_boundary_id,
+                               double coord_x)
+{
+  int n_vals =  thermalBoundaries->_load_counters[thermal_boundary_id];
+  int init_vals =  thermalBoundaries->_load_inits[thermal_boundary_id];
+  return interpolate1D(coord_x,
+                       thermalBoundaries->_load_coord,
+                       thermalBoundaries->_load_values,
+                       init_vals,
+                       n_vals);
+}
+
+double getThermalBoundaryTime (ThermalBoundaryTable *thermalBoundaries,
+                               int thermal_boundary_id,
+                               double simulation_time)
+{
+  int n_vals =  thermalBoundaries->_time_counters[thermal_boundary_id];
+  int init_vals =  thermalBoundaries->_time_inits[thermal_boundary_id];
+  return interpolate1D(simulation_time,
+                       thermalBoundaries->_time_elapsed,
+                       thermalBoundaries->_time_values,
+                       init_vals,
+                       n_vals);
+}
+
+void setupThermalBoundaryTable(ThermalBoundaryTable **tbs,
+                               std::map<int, mknix::LoadThermalBoundary1D> &boundaries)
+{
+  std::cout << "setting up SOA thermalBoundaries tables" << std::endl;
+  int nBound = boundaries.size();
+  std::cout << "Allocating memory for "<< nBound << " boundaries" << std::endl;
+  (*tbs)->number_thermal_boundaries = nBound;
+  (*tbs)->_load_counters = (int*) malloc(nBound * sizeof(int));
+  (*tbs)->_load_inits = (int*) malloc(nBound * sizeof(int));
+  (*tbs)->_time_counters = (int*) malloc(nBound * sizeof(int));
+  (*tbs)->_time_inits = (int*) malloc(nBound * sizeof(int));
+  int i = 0;
+  std::cout << "Copy variables for materials" << std::endl;
+  for(auto  &ibound : boundaries){
+    (*tbs)->_load_counters[i]= ibound.second.getLoadMapSize();
+    (*tbs)->_time_counters[i]= ibound.second.getTimeMapSize();
+    i++;
+  }
+  (*tbs)->_load_inits[0] = 0;
+  (*tbs)->_time_inits[0] = 0;
+  int load_tot_vals = (*tbs)->_load_counters[0];
+  int time_tot_vals = (*tbs)->_time_counters[0];
+  for(int ib = 1; ib < nBound; ib++){//prefix sum scan
+    load_tot_vals += (*tbs)->_load_counters[ib];
+    time_tot_vals += (*tbs)->_time_counters[ib];
+    (*tbs)->_load_inits[ib] = (*tbs)->_load_inits[ib - 1] + (*tbs)->_load_counters[ib - 1];
+    (*tbs)->_time_inits[ib] = (*tbs)->_time_inits[ib - 1] + (*tbs)->_time_counters[ib - 1];
+  }
+  (*tbs)->_load_coord = (double*) malloc(load_tot_vals * sizeof(double));
+  (*tbs)->_load_values = (double*) malloc(load_tot_vals * sizeof(double));
+  (*tbs)->_time_elapsed = (double*) malloc(time_tot_vals * sizeof(double));
+  (*tbs)->_time_values = (double*) malloc(time_tot_vals* sizeof(double));
+  //now we copy all values
+  i = 0;
+  for(auto  &ibound : boundaries){
+    const std::map<double, double> *load_map = ibound.second.getLoadMap();
+    int initl = (*tbs)->_load_inits[i];
+    //for(int icap = 0;  icap < cap_map->size(); icap++){
+    int j =0;
+    //for (auto const& icap:cap_map){
+    for(std::map<double,double>::const_iterator ilo = load_map->begin(); ilo != load_map->end(); ++ilo){
+      (*tbs)->_load_coord[initl + j] = ilo->first;
+      (*tbs)->_load_values[initl + j]  = ilo->second;
+      j++;
+    }
+    j = 0;
+    const std::map<double, double> *time_map = ibound.second.getTimeMap();
+    int initt = (*tbs)->_time_inits[i];
+    for(std::map<double,double>::const_iterator iti = time_map->begin(); iti != time_map->end(); ++iti){
+      (*tbs)->_time_elapsed[initt + j] = iti->first;
+      (*tbs)->_time_values[initt + j]  = iti->second;
+      j++;
+    }
+    i++;
+  }
+
+}
+void freeThermalBoundaryTableMemory(ThermalBoundaryTable **tbs)
+{
+  free((*tbs)->_load_coord);
+  free((*tbs)->_load_values);
+  free((*tbs)->_load_counters);
+  free((*tbs)->_load_inits);
+  free((*tbs)->_time_elapsed);
+  free((*tbs)->_time_values);
+  free((*tbs)->_time_counters);
+  free((*tbs)->_time_inits);
 }
