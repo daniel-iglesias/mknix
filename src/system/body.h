@@ -69,6 +69,8 @@ public:
 
     virtual void setupShapeTables();
 
+    virtual void setThermalBoundaryTable(ThermalBoundaryTable *tb_ptr);
+
     virtual void setMaterialTable(MaterialTable* mt_ptr);
 
     virtual void setQVector(const lmx::Vector<data_type>& q);
@@ -286,6 +288,9 @@ protected:
     data_type *_d_local_shapeFun_phis;
     data_type *_d_local_jacobian_array;
     data_type *_d_local_weight_array;
+
+    ThermalBoundaryTable *_h_thermal_boundaries;
+    int *_h_thermal_boundaries_ids;
 
     MaterialTable *_h_materials;
     int *_h_materials_cap_ids;

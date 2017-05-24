@@ -165,6 +165,18 @@ void System::writeJoints(std::ofstream * outFile)
 
 } // Namespace mknix
 
+void mknix::System::setThermalBoundaryTable(ThermalBoundaryTable *tb_ptr)
+{
+  //std::cout << "Setting Material Table SOA" << std::cout;
+  for (auto& body : thermalBodies) {
+      body.second->setThermalBoundaryTable(tb_ptr);
+  }
+
+  for (auto& system : subSystems) {
+      system.second->setThermalBoundaryTable(tb_ptr);
+  }
+}
+
 void mknix::System::setMaterialTable(MaterialTable* mt_ptr)
 {
   //std::cout << "Setting Material Table SOA" << std::cout;

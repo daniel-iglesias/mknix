@@ -172,7 +172,7 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
 
                     theSimulation->materials.at(num_mat).setThermalProps(capacity, kappa, beta, density);
                     theSimulation->materials.at(num_mat).setMaterialId(num_mat);
-                    //std::cout << "Material " << num_mat << " set" << std::endl; 
+                    //std::cout << "Material " << num_mat << " set" << std::endl;
 
                     output << "MATERIAL: " << keyword
                     << ", number = " << num_mat << ",\n\t Cp = " << capacity
@@ -232,7 +232,7 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
                 }
             }
             //
-          theSimulation->myMaterialTable= (MaterialTable*)malloc(1*sizeof(MaterialTable));
+          theSimulation->myMaterialTable = (MaterialTable*)malloc(1*sizeof(MaterialTable));
           setupMaterialTables(&theSimulation->myMaterialTable,theSimulation->materials);
             //
         }

@@ -93,6 +93,8 @@ public:
 
     void writeJoints( std::ofstream* );
 
+    void setThermalBoundaryTable(ThermalBoundaryTable *tb_ptr);
+
     void setMaterialTable(MaterialTable* mt_ptr);
 
     void setQVector(const lmx::Vector<data_type>& q);
@@ -156,6 +158,8 @@ public:
     void writeBoundaryConnectivity( std::vector< std::vector<Point*> >& );
 
     void setupMaterialTables(std::map<int, Material> &materials);
+
+    //void setupThermalBoundaryTables(std::map<int, LoadThermalBoundary1D> &boundaries);
 
 protected:
     std::string title;

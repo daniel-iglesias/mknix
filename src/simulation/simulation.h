@@ -252,6 +252,9 @@ private:
     std::map<int, Material> materials;
     MaterialTable *myMaterialTable;//SOA implementation
 
+    std::map<int, LoadThermalBoundary1D> thermalBoundaries;
+    ThermalBoundaryTable *myThermalBoundary;//SOA implementation
+
     lmx::ExactStopwatch * globalTimer;
     std::ofstream * timerFile;
     std::ofstream * configurationFile;

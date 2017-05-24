@@ -438,6 +438,10 @@ void Body::setupShapeTables()
 
 }
 
+void Body::setThermalBoundaryTable(ThermalBoundaryTable *tb_ptr)
+{
+  _h_thermal_boundaries = tb_ptr;
+}
 
 void Body::setMaterialTable(MaterialTable* mt_ptr)
 {

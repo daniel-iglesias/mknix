@@ -156,7 +156,8 @@ if(OLD_CODE){
     baseSystem->calcCapacityMatrix();
     baseSystem->assembleCapacityMatrix(globalCapacity);
 } else {
-  baseSystem->setMaterialTable(myMaterialTable);//setting soa structture
+  baseSystem->setThermalBoundaryTable(myThermalBoundary);//setting soa structture
+  baseSystem->setMaterialTable(myMaterialTable);
 
   globalConductivity.resize(gdlSize, gdlSize);
   globalCapacity.resize(gdlSize, gdlSize);
