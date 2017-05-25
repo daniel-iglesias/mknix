@@ -79,15 +79,30 @@ Body::~Body()
         delete group.second;
     }
     ///////////////////////////////////
-    freeMaterialTableMemory(&_h_materials);
+    //freeMaterialTableMemory(&_h_materials);
     free(_h_materials);
+  //  free_shape_functions_table(&_h_shapeFunctionTable);
     free(_h_shapeFunctionTable);
+  //  freeThermalBoundaryTableMemory(&_h_thermal_boundaries);
     free(_h_thermal_boundaries);
-    /*free_shape_functions_table(&_h_shapeFunctionTable);
-    free(_h_shapeFunctionTable);
-    free(_h_presence_matrix);*/
-    //free(_h_local_jacobian_array);
-    //free(_h_local_weight_array);
+
+    free(_h_materials_cap_ids);
+    free(_h_materials_cond_ids);
+    free(_h_presence_matrix_cap);
+    free(_h_presence_matrix_cond);
+    free(_h_localCapacityf);
+    //free(_h_globalConductivity);
+    free(_h_localConductivityf);
+    free(_h_local_temperatures_cap_array);
+    free(_h_local_jacobian_cap_array);
+    free(_h_local_weight_cap_array);
+    free(_h_local_temperatures_cond_array);
+    free(_h_local_jacobian_cond_array);
+    free(_h_local_weight_cond_array);
+    if(MULTICPU){
+    free(_param_array_capacity);
+    free(_param_array_conductivity);
+  }
     ////////////////////////////////////
   if(OLD_CODE){
     clockFullStats(microCPU_old_conductivity, "Existing CPU calcConductivityMatrix");
