@@ -57,13 +57,14 @@ void CellBoundary::computeShapeFunctions()
 
 void CellBoundary::computeQextGaussPoints(LoadThermalBoundary1D * loadThermalBoundary1D_in)
 {
+  //std::cout << "void CellBoundary::computeQextGaussPoints(LoadThermalBoundary1D * loadThermalBoundary1D_in)" << std::endl;
     for (auto& point : gPoints) {
         point->computeQext(loadThermalBoundary1D_in);
     }
 }
 
 void CellBoundary::assembleQextGaussPoints(lmx::Vector<data_type>& globalQext)
-{
+{//this is in use
     for (auto& point : gPoints) {
         point->assembleQext(globalQext);
     }
@@ -80,8 +81,8 @@ void CellBoundary::assembleQextGaussPoints(lmx::Vector<data_type>& globalQext)
 //   }
 //   *outfile << std::endl;
 // }
-// 
-// 
+//
+//
 // void CellBoundary::gnuplotOutStress( std::ofstream & gptension )
 // {
 //     int counter;

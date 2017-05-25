@@ -142,14 +142,14 @@ Body::~Body()
  **/
 void Body::initialize()
 {
-    std::cout << "1. Body::initialize() :Initializing body tables "<< std::endl;
+    //std::cout << "1. Body::initialize() :Initializing body tables "<< std::endl;
    _h_materials = (MaterialTable*) malloc(1*sizeof(MaterialTable));
    _h_shapeFunctionTable = (ShapeFunctionTable*) malloc(1*sizeof(ShapeFunctionTable));
-   _h_thermal_boundaries = (ThermalBoundaryTable*)malloc(1*sizeof(ThermalBoundaryTable));
+   //_h_thermal_boundaries = (ThermalBoundaryTable*)malloc(1*sizeof(ThermalBoundaryTable));
     lastNode = nodes.back();
     auto end_int = this->cells.size();
     _number_cells = end_int;//
-    std::cout<< std::endl << "2. Body::initialize() Number of Cells " << _number_cells << std::endl ;
+    //std::cout<< std::endl << "2. Body::initialize() Number of Cells " << _number_cells << std::endl ;
     _MC_points_per_cell = 3;//TODO MAGIC NUMBER HERE!!!!!!!
     _points_per_cell = 1;//TODO MAGIC NUMBER HERE!!!!!!!
     _number_points_MC = _number_cells * _MC_points_per_cell;
@@ -158,35 +158,35 @@ void Body::initialize()
     std::cout << "last node " << lastNode << std::endl;
     nodes.insert(nodes.end(), bondedBodyNodes.begin(), bondedBodyNodes.end());
 
-    std::cout << "3. Body::initialize() Initializing nodes " << std::endl;
+    //std::cout << "3. Body::initialize() Initializing nodes " << std::endl;
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->initialize(this->nodes);
     }
-   std::cout << std::endl<< "SUPPORT SIZE MC = " << this->cells[0]->getSupportSizeMC() << std::endl;
-   std::cout << std::endl<< "SUPPORT SIZE = " << this->cells[0]->getSupportSize() << std::endl;
+   //std::cout << std::endl<< "SUPPORT SIZE MC = " << this->cells[0]->getSupportSizeMC() << std::endl;
+   //std::cout << std::endl<< "SUPPORT SIZE = " << this->cells[0]->getSupportSize() << std::endl;
    _support_node_size = this->cells[0]->getSupportSize();//TODO MAGIC NUMBER HERE!!!!!!!
    _dim = 2; //TODO MAGIC NUMBER HERE!!!!!!!
 
-  std::cout << "4. Body::initialize() Counting MC Gausspoints" << std::endl;
+  //std::cout << "4. Body::initialize() Counting MC Gausspoints" << std::endl;
         int nump_mc = 0;
         for (auto i = 0u; i < _number_cells; ++i) {
           nump_mc +=  this->cells[i]->getNumPoints_MC();
         }
 
-    std::cout << "5. Body::initialize() Counting Gausspoints" << std::endl;
+    //std::cout << "5. Body::initialize() Counting Gausspoints" << std::endl;
         int nump = 0;
         for (auto i = 0u; i < _number_cells; ++i) {
             nump +=  this->cells[i]->getNumPoints();
         }
-    std::cout<< std::endl << "assumed MC points " << _number_points_MC << " vs counted " << nump_mc <<std::endl;
-   std::cout<< std::endl << "assumed points " << _number_points << " vs counted " << nump <<std::endl;
+  //std::cout<< std::endl << "assumed MC points " << _number_points_MC << " vs counted " << nump_mc <<std::endl;
+  //std::cout<< std::endl << "assumed points " << _number_points << " vs counted " << nump <<std::endl;
 
-std::cout << "6. Body::initialize() Computing shape shape functions" << std::endl;
+//std::cout << "6. Body::initialize() Computing shape shape functions" << std::endl;
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->computeShapeFunctions();
     }
   //setupShapeTables();
-   std::cout << "7. Body::initialize() Setting Material Ids" << std::endl;
+   //std::cout << "7. Body::initialize() Setting Material Ids" << std::endl;
    _h_materials_cap_ids = (int*) malloc( _number_points_MC * sizeof(int));
     for (int i = 0; i < _number_cells; ++i) {
         int cellMaterial = this->cells[i]->getMaterialId();
@@ -208,7 +208,7 @@ std::cout << "6. Body::initialize() Computing shape shape functions" << std::end
 //   std::ofstream gpoint_data(std::string("cell_gpoint_data_"+title+".dat").c_str());
 //   this->cells[mid_int]->gnuplotOut(cell_data, gpoint_data); // Bus error
 
-std::cout << "8. Body::initialize() Iteration in nodes" << std::endl;
+//std::cout << "8. Body::initialize() Iteration in nodes" << std::endl;
 //The iteration on nodes MUST be done AFTER the cells.
     end_int = this->nodes.size();
     _number_nodes = end_int;
@@ -219,7 +219,7 @@ std::cout << "8. Body::initialize() Iteration in nodes" << std::endl;
                 this->nodes[i]->findSupportNodes(this->nodes);
         }
     }
-std::cout << "9. Body::initialize() Solving shape funcs" << std::endl;
+//std::cout << "9. Body::initialize() Solving shape funcs" << std::endl;
 //     #pragma omp parallel for
     for (auto i = 0u; i < _number_nodes; ++i) {
         if (this->nodes[i]->getShapeFunType() == "RBF") {
@@ -229,20 +229,16 @@ std::cout << "9. Body::initialize() Solving shape funcs" << std::endl;
             this->nodes[i]->shapeFunSolve("MLS", 1.03);
         }
     }
-//add boundary table setup here
+//std::cout << "9b. Body::initialize() LoadThermalBoundary1D" << std::endl;
     std::map<std::string, BoundaryGroup *>::iterator it_boundaryGroups;
     std::map<int,LoadThermalBoundary1D*> thermal_boundaries_map;
     int ib = 0;
     for (auto& group : boundaryGroups) {
         group.second->initialize();
-        thermal_boundaries_map.insert( {ib, group.second->getLoadThermal()});
+        //std::cout << "load map size " << group.second->getLoadThermal()<< std::endl;
+        //thermal_boundaries_map.insert( {ib, group.second->getLoadThermal()});
         ib++;
     }
-
-    //std::cout<< " body::initialize() calling setupThermalBoundaryTable"<< std::endl;
-
-
-   std::cout<< " 10. Body::initialize() calling setupShapeTables"<< std::endl;
 
     setupShapeTables();
 
@@ -251,7 +247,7 @@ std::cout << "9. Body::initialize() Solving shape funcs" << std::endl;
     _h_node_map_MC.resize(_number_points_MC * _support_node_size * _support_node_size);
     _h_node_map.resize(_number_points * _support_node_size * _support_node_size);
 
-std::cout<< " 11. Body::initialize() Mapping all nodes"<< std::endl;
+//std::cout<< " 11. Body::initialize() Mapping all nodes"<< std::endl;
     for (int i = 0; i < _number_cells; ++i) {
       //1D MAP
       this->cells[i]->mapThermalNodesMC(_h_thermal_map_MC.data(),
@@ -271,10 +267,10 @@ std::cout<< " 11. Body::initialize() Mapping all nodes"<< std::endl;
                                i,
                                _number_nodes);
     }
-std::cout<< " 12. Body::initialize() Allocating presence matrices"<< std::endl;
+//std::cout<< " 12. Body::initialize() Allocating presence matrices"<< std::endl;
     _h_presence_matrix_cap = (int*) malloc(_number_nodes * _number_nodes * sizeof(int));
     _h_presence_matrix_cond = (int*) malloc(_number_nodes * _number_nodes * sizeof(int));
-std::cout<< " 13. Body::initialize() Mapping Sparse Matrices for direct assembly"<< std::endl;
+//std::cout<< " 13. Body::initialize() Mapping Sparse Matrices for direct assembly"<< std::endl;
     mapConectivityCapacityMatrix();
     map_global_matrix(_full_map_cap,
                       _vec_ind_cap,
@@ -294,13 +290,13 @@ std::cout<< " 13. Body::initialize() Mapping Sparse Matrices for direct assembly
                       USECSC);
     _sparse_matrix_size = _cvec_ptr_cap[_number_nodes];
 
-std::cout<< " 14. Body::initialize() Allocating local matrices arrays"<< std::endl;
+//std::cout<< " 14. Body::initialize() Allocating local matrices arrays"<< std::endl;
   _h_globalCapacity.resize(_sparse_matrix_size);
   _h_localCapacityf      = (data_type*)malloc(_number_points_MC * _support_node_size * _support_node_size * sizeof(data_type));
   _h_globalConductivity.resize(_sparse_matrix_size);
   _h_localConductivityf  = (data_type*)malloc(_number_points * _support_node_size * _support_node_size * sizeof(data_type));
 
-std::cout<< " 14. Body::initialize() Allocating local nodes arrays"<< std::endl;
+//std::cout<< " 14. Body::initialize() Allocating local nodes arrays"<< std::endl;
   _h_local_temperatures_cap_array   = (data_type*)malloc(_number_points_MC * _support_node_size * sizeof(data_type));
   _h_local_jacobian_cap_array       = (data_type*)malloc(_number_points_MC * sizeof(data_type));
   _h_local_weight_cap_array         = (data_type*)malloc(_number_points_MC * sizeof(data_type));
@@ -313,7 +309,7 @@ for(int i = 0; i < _number_points * _support_node_size; i++)
 for(int i = 0; i < _number_points_MC * _support_node_size; i++)
       _h_local_temperatures_cap_array[i] = 1.0;
 
-std::cout<< " 14. Body::initialize() populating local nodes arrays"<< std::endl;
+//std::cout<< " 14. Body::initialize() populating local nodes arrays"<< std::endl;
   for(int eachcell = 0; eachcell < this->cells.size(); eachcell++){
     for (int eachpoint = 0; eachpoint < _MC_points_per_cell; eachpoint++){
       int pindex = eachcell * _MC_points_per_cell + eachpoint;
@@ -376,18 +372,18 @@ std::cout<< " 14. Body::initialize() populating local nodes arrays"<< std::endl;
        CudaCheckError();*/
     }
  #endif
-std::cout<< " 15. Body::initialize() Setting Up SOA boundary tables"<< std::endl;
- /*setupThermalBoundaryTable(&_h_thermal_boundaries,
-                           thermal_boundaries_map);*/
+//std::cout<< " 15. Body::initialize() Setting Up SOA boundary tables"<< std::endl;
+ //setupThermalBoundaryTable(&_h_thermal_boundaries,
+//                           thermal_boundaries_map);
 }
 
 void Body::setupShapeTables()
 {
   /////////////////////////////////////////////////////////////////////////////
-  std::cout << "Resizing ShapeTables" << std::endl;
+  //std::cout << "Resizing ShapeTables" << std::endl;
   _h_local_shapes_cap_0.resize(_number_points_MC * _support_node_size);
   ///////////CAPACITY PART ////////////////
-  std::cout << "Copying ShapeTable 0: " << std::endl;
+//  std::cout << "Copying ShapeTable 0: " << std::endl;
       for(int eachcell = 0; eachcell < _number_cells; eachcell++){
           for (int lp = 0; lp < _MC_points_per_cell; lp++){
              for(int lNode = 0; lNode < _support_node_size ; lNode++){
@@ -400,7 +396,7 @@ void Body::setupShapeTables()
   _h_local_shapes_cond_0.resize(_number_points * _support_node_size);
   _h_local_shapes_cond_dim.resize(_number_points * _support_node_size * _support_node_size);
     ///////////CONDUCTIVITY PART ////////////////
-      std::cout << "Copying ShapeTable 0: " << std::endl;
+      //std::cout << "Copying ShapeTable 0: " << std::endl;
           for(int eachcell = 0; eachcell < _number_cells; eachcell++){
               for (int eachpoint = 0; eachpoint < _points_per_cell; eachpoint++){
                  for(int lNode = 0; lNode < _support_node_size ; lNode++){
@@ -409,7 +405,7 @@ void Body::setupShapeTables()
               }
             }
           }
-  std::cout << "Copying ShapeTable Dim" << std::endl;
+  //std::cout << "Copying ShapeTable Dim" << std::endl;
      int spns2 = _support_node_size * _support_node_size;
       for(int eachcell = 0; eachcell < _number_cells; eachcell++){
         for (int eachpoint = 0; eachpoint < _points_per_cell; eachpoint++){
@@ -477,7 +473,7 @@ void Body::setThermalBoundaryTable(ThermalBoundaryTable *tb_ptr)
 void Body::setMaterialTable(MaterialTable* mt_ptr)
 {
   _h_materials = mt_ptr;
- debug_printMaterialTable(_h_materials);
+ //debug_printMaterialTable(_h_materials);
 }
 
 void Body::setTemperatureVector(lmx::Vector<data_type>& q)
@@ -779,15 +775,15 @@ void Body::mapConectivityConductivityMatrix()
 void Body::calcExternalHeat()
 {
     auto end_int = this->cells.size();
-   std::cout << " Inside  Body::calcExternalHeat()"<< std::endl;
+   //std::cout << " Inside  Body::calcExternalHeat()"<< std::endl;
     if (loadThermalBody) {
-       std::cout << "loadThermalBody!!!"<< std::endl;
+       //std::cout << "loadThermalBody!!!"<< std::endl;//not used
         for (auto i = 0u; i < end_int; ++i) {
             this->cells[i]->computeQextGaussPoints(this->loadThermalBody);
         }
     }
     for (auto group : boundaryGroups) {
-      //std::cout << "AHA!!! for (auto group : boundaryGroups)"<< std::endl;
+      //std::cout << "AHA!!! for (auto group : boundaryGroups)"<< std::endl;//this is the one
         group.second->calcExternalHeat();
     }
 }
@@ -822,7 +818,7 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
     cpuTick(&cck1b);
     //auto end_int = this->cells.size();
     //std::cout << "before init_host_array_to_value" << std::endl;
-    init_host_array_to_value(_h_globalCapacity.data(), 0.0, _sparse_matrix_size);
+    init_host_array_to_value(_h_globalCapacity.data(), 0.0, _sparse_matrix_size);//now reset in simulat
   //  std::cout << "before assembleCapacityGaussPointsWithMap" << std::endl;
     AssembleGlobalMatrix(_h_globalCapacity,
                          _full_map_cap,
@@ -1004,19 +1000,24 @@ pthread_t threads[max_threads];
 void Body::assembleExternalHeat(lmx::Vector<data_type>& globalExternalHeat)
 {
   if(OLD_CODE){
+
       auto end_int = this->cells.size();
-      for (auto i = 0u; i < end_int; ++i) {
+     for (auto i = 0u; i < end_int; ++i) {
+        //std::cout <<"Inside Body::assembleExternalHeat  for (auto i = 0u; i < end_int; ++i)" <<std::endl;
           this->cells[i]->assembleQextGaussPoints(globalExternalHeat);
       }
+      //std::cout << globalExternalHeat << std::endl;
       for (auto group : boundaryGroups) {
+        //std::cout <<"Inside Body::assembleExternalHeat for (auto group : boundaryGroups)" <<std::endl;
           group.second->assembleExternalHeat(globalExternalHeat);
       }
+      //std::cout << globalExternalHeat << std::endl;
   } else if(NEWCPU) {
-  //  std::cout <<"Inside Body::assembleExternalHeat" <<std::endl;
+    //std::cout <<"Inside Body::assembleExternalHeat" <<std::endl;
       auto end_int = this->cells.size();
       //std::cout <<"Body::assembleExternalHeat Initializing global vector" <<std::endl;
       //globalExternalHeat.fillIdentity(0.0f);
-    //  std::cout <<"Body::assembleExternalHeat from Cells" <<std::endl;
+      //std::cout <<"Body::assembleExternalHeat from Cells" <<std::endl;
       for (auto i = 0u; i < end_int; ++i) {
           this->cells[i]->assembleQextGaussPoints(globalExternalHeat);
 

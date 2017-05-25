@@ -168,9 +168,9 @@ void setupMaterialTables(MaterialTable **mt,
     /*for (auto& system : subSystems) {
         mt = system.second->getMaterialTablePointer();
     }*/
-    std::cout << "setting up SOA material tables" << std::endl;
+    //std::cout << "setting up SOA material tables" << std::endl;
     int nMat = materials.size();
-    std::cout << "Allocating memory for "<< nMat << " materials" << std::endl;
+    //std::cout << "Allocating memory for "<< nMat << " materials" << std::endl;
     (*mt)->number_materials = nMat;
     (*mt)->capacity = (double*) malloc(nMat * sizeof(double));
     (*mt)->kappa = (double*) malloc(nMat * sizeof(double));
@@ -181,7 +181,7 @@ void setupMaterialTables(MaterialTable **mt,
     (*mt)->_kappa_counters = (int*) malloc(nMat * sizeof(int));
     (*mt)->_kappa_inits = (int*) malloc(nMat * sizeof(int));
     int i = 0;
-    std::cout << "Copy variables for materials" << std::endl;
+    //std::cout << "Copy variables for materials" << std::endl;
     for(auto const &imat : materials){
       (*mt)->density[i] = imat.second.retDensity();
       (*mt)->beta[i] = imat.second.retBeta();
@@ -300,24 +300,24 @@ double getThermalBoundaryTime (ThermalBoundaryTable *thermalBoundaries,
 void setupThermalBoundaryTable(ThermalBoundaryTable **tbs,
                                std::map<int, mknix::LoadThermalBoundary1D*> boundaries)
 {
-  std::cout << "setting up SOA thermalBoundaries tables" << std::endl;
+  //std::cout << "setting up SOA thermalBoundaries tables" << std::endl;
   int nBound = boundaries.size();
-  std::cout << "Allocating memory for "<< nBound << " boundaries" << std::endl;
+//  std::cout << "Allocating memory for "<< nBound << " boundaries" << std::endl;
   (*tbs)->number_thermal_boundaries = nBound;
-  std::cout << "(*tbs)->_load_counters = (int*) malloc(nBound * sizeof(int));"<<std::endl;
+  //std::cout << "(*tbs)->_load_counters = (int*) malloc(nBound * sizeof(int));"<<std::endl;
   (*tbs)->_load_counters = (int*) malloc(nBound * sizeof(int));
-    std::cout << "(*tbs)->_load_inits = (int*) malloc(nBound * sizeof(int));"<<std::endl;
+  //  std::cout << "(*tbs)->_load_inits = (int*) malloc(nBound * sizeof(int));"<<std::endl;
   (*tbs)->_load_inits = (int*) malloc(nBound * sizeof(int));
   (*tbs)->_time_counters = (int*) malloc(nBound * sizeof(int));
   (*tbs)->_time_inits = (int*) malloc(nBound * sizeof(int));
   int i = 0;
-  std::cout << "Copy variables for materials" << std::endl;
+  //std::cout << "Copy variables for materials" << std::endl;
   for(auto  &ibound : boundaries){
     (*tbs)->_load_counters[i]= ibound.second->getLoadMapSize();
     (*tbs)->_time_counters[i]= ibound.second->getTimeMapSize();
     i++;
   }
-  std::cout << "set up inits" << std::endl;
+//  std::cout << "set up inits" << std::endl;
   (*tbs)->_load_inits[0] = 0;
   (*tbs)->_time_inits[0] = 0;
   int load_tot_vals = (*tbs)->_load_counters[0];
@@ -328,7 +328,7 @@ void setupThermalBoundaryTable(ThermalBoundaryTable **tbs,
     (*tbs)->_load_inits[ib] = (*tbs)->_load_inits[ib - 1] + (*tbs)->_load_counters[ib - 1];
     (*tbs)->_time_inits[ib] = (*tbs)->_time_inits[ib - 1] + (*tbs)->_time_counters[ib - 1];
   }
-  std::cout << "allocate full sparse arrays" << std::endl;
+//  std::cout << "allocate full sparse arrays" << std::endl;
   (*tbs)->_load_coord = (double*) malloc(load_tot_vals * sizeof(double));
   (*tbs)->_load_values = (double*) malloc(load_tot_vals * sizeof(double));
   (*tbs)->_time_elapsed = (double*) malloc(time_tot_vals * sizeof(double));

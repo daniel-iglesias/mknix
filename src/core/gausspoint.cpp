@@ -242,6 +242,7 @@ std::vector<double> GaussPoint::getHij(){
 
 void GaussPoint::computeQext(LoadThermalBody * loadThermalBody_in)
 {
+  //std::cout << "void GaussPoint::computeQext" <<std::endl;
     for (auto i = 0u; i < supportNodesSize; ++i) {
         // Qi = wg * r * N_I * |Jc|
         Qext.writeElement(weight * shapeFun->getPhi(0, i) * loadThermalBody_in->getLoadThermalBody(this)
@@ -337,6 +338,7 @@ void GaussPoint::presenceHij(int* presenceMatrix, int num_nodes)
 
 void GaussPoint::assembleQext(lmx::Vector<data_type>& globalHeat)
 {
+  //std::cout << " GaussPoint::assembleQext" <<std::endl; This is used!
     for (auto i = 0u; i < supportNodesSize; ++i) {
         globalHeat.addElement(Qext.readElement(i),
                               supportNodes[i]->getThermalNumber()

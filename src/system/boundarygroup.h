@@ -75,6 +75,7 @@ public:
     // Temporary, should be a pointer to a load class
     virtual LoadThermalBoundary1D* getLoadThermal()
     {
+      std::cout<< "  virtual LoadThermalBoundary1D* getLoadThermal()" << std::endl;
         return loadThermalBoundaryGroup;
     }
 

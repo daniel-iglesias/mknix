@@ -52,6 +52,7 @@ BoundaryGroup::~BoundaryGroup()
  **/
 void BoundaryGroup::initialize()
 {
+  std::cout << "void BoundaryGroup::initialize()" << std::endl;
     auto end_int = this->cells.size();
 
 //     #pragma omp parallel for
@@ -80,7 +81,7 @@ void BoundaryGroup::initialize()
 void BoundaryGroup::calcExternalHeat()
 {
     int end_int = this->cells.size();
-//     #pragma omp parallel for
+ std::cout << "  BoundaryGroup::calcExternalHeat() "<<std::endl;
     for (int i = 0;
          i < end_int;
          ++i) {

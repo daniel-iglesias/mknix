@@ -6,6 +6,6 @@
 #define MULTICPU false
 #define GPU false
 //
-#define USECSC false
+#define USECSC true
 
 #endif //CPU_RUN_TYPE_H

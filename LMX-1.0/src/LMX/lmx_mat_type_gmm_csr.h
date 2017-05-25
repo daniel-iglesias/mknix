@@ -196,7 +196,7 @@ public:
         *  */
      void cast_csr_matrix(gmm::csr_matrix<T> &matrix_to_cast)
      {
-       //std::cout << "GOOD CAST :-) type_gmm_csc" << std::endl;
+       //std::cout << "GOOD CAST :-) type_gmm_csr" << std::endl;
         gmm::resize(this->gmm_csr_matrix, gmm::mat_nrows(matrix_to_cast), gmm::mat_ncols(matrix_to_cast));
         gmm::copy(matrix_to_cast, gmm_csr_matrix);
      }

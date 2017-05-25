@@ -227,6 +227,7 @@ void Cell::assembleConductivityGaussPointsWithMap(data_type *globalConductivity,
 
 void Cell::computeQextGaussPoints(LoadThermalBody * loadThermalBody_in)
 {
+  std::cout << "Cell::computeQextGaussPoints with gPoints" << std::endl;//not in use??
     for (auto& point : gPoints) {
         point->computeQext(loadThermalBody_in);
     }
@@ -234,6 +235,7 @@ void Cell::computeQextGaussPoints(LoadThermalBody * loadThermalBody_in)
 
 void Cell::assembleQextGaussPoints(lmx::Vector<data_type>& globalQext)
 {
+  //  std::cout << "Cell::assembleQextGaussPoints with gPoints" << std::endl;//this one is
     for (auto& point : gPoints) {
         point->assembleQext(globalQext);
     }
