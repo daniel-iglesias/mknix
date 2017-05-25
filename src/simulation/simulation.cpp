@@ -695,7 +695,7 @@ globalInternalHeat.reset();
   //std::cout << qtdot << std::endl;
 }
     stepTime = time;
-    cpuTock(&evalck, "\nSimulation::dynamicThermalEvaluation");
+    cpuTock(&evalck, "\n>>>>>>>>>>.Simulation::dynamicThermalEvaluation");
 }
 
 void Simulation::dynamicThermalResidue(lmx::Vector<data_type>& residue,

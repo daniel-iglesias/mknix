@@ -668,7 +668,7 @@ void Body::calcConductivityMatrix()
       for (auto i = 0u; i < end_int; ++i) {
           this->cells[i]->computeConductivityGaussPoints();
       }
-      cpuTock(&cck1, "Existing CPU calcConductivityMatrix ");
+      cpuTock(&cck1, "\nExisting CPU calcConductivityMatrix ");
       microCPU_old_conductivity.push_back(cck1.elapsedMicroseconds);
       //debug block
       //std::cout << "Body::calcConductivityMatrix() with " << end_int << " cells" << std::endl;
@@ -699,7 +699,7 @@ void Body::calcConductivityMatrix()
                                  _number_points,
                                  _support_node_size,
                                  0);
-    cpuTock(&cck, " New Single CPU calcConductivityMatrix ");
+    cpuTock(&cck, "\nNew Single CPU calcConductivityMatrix ");
     microCPU_single_conductivity.push_back(cck.elapsedMicroseconds);
     //debug block//
   /*  std::cout << "New HFactor at Cell " <<  DEBUG_CELL<< " = " << _h_conductivityFactors[DEBUG_CELL * _points_per_cell]<< std::endl;
