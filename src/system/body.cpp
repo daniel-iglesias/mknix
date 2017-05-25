@@ -127,14 +127,14 @@ Body::~Body()
  **/
 void Body::initialize()
 {
-    std::cout << "Initializing body "<< std::endl;
+    std::cout << "1. Body::initialize() :Initializing body tables "<< std::endl;
    _h_materials = (MaterialTable*) malloc(1*sizeof(MaterialTable));
    _h_shapeFunctionTable = (ShapeFunctionTable*) malloc(1*sizeof(ShapeFunctionTable));
    _h_thermal_boundaries = (ThermalBoundaryTable*)malloc(1*sizeof(ThermalBoundaryTable));
     lastNode = nodes.back();
     auto end_int = this->cells.size();
     _number_cells = end_int;//
-    std::cout<< std::endl << "Number of Cells " << _number_cells << std::endl ;
+    std::cout<< std::endl << "2. Body::initialize() Number of Cells " << _number_cells << std::endl ;
     _MC_points_per_cell = 3;//TODO MAGIC NUMBER HERE!!!!!!!
     _points_per_cell = 1;//TODO MAGIC NUMBER HERE!!!!!!!
     _number_points_MC = _number_cells * _MC_points_per_cell;
@@ -143,7 +143,7 @@ void Body::initialize()
     std::cout << "last node " << lastNode << std::endl;
     nodes.insert(nodes.end(), bondedBodyNodes.begin(), bondedBodyNodes.end());
 
-    std::cout << "Initializing nodes " << std::endl;
+    std::cout << "3. Body::initialize() Initializing nodes " << std::endl;
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->initialize(this->nodes);
     }
@@ -152,13 +152,13 @@ void Body::initialize()
    _support_node_size = this->cells[0]->getSupportSize();//TODO MAGIC NUMBER HERE!!!!!!!
    _dim = 2; //TODO MAGIC NUMBER HERE!!!!!!!
 
-  std::cout << "Counting MC Gausspoints" << std::endl;
+  std::cout << "4. Body::initialize() Counting MC Gausspoints" << std::endl;
         int nump_mc = 0;
         for (auto i = 0u; i < _number_cells; ++i) {
           nump_mc +=  this->cells[i]->getNumPoints_MC();
         }
 
-    std::cout << "Counting Gausspoints" << std::endl;
+    std::cout << "5. Body::initialize() Counting Gausspoints" << std::endl;
         int nump = 0;
         for (auto i = 0u; i < _number_cells; ++i) {
             nump +=  this->cells[i]->getNumPoints();
@@ -166,12 +166,12 @@ void Body::initialize()
     std::cout<< std::endl << "assumed MC points " << _number_points_MC << " vs counted " << nump_mc <<std::endl;
    std::cout<< std::endl << "assumed points " << _number_points << " vs counted " << nump <<std::endl;
 
-std::cout << "Computing shape shape functions" << std::endl;
+std::cout << "6. Body::initialize() Computing shape shape functions" << std::endl;
     for (auto i = 0u; i < end_int; ++i) {
         this->cells[i]->computeShapeFunctions();
     }
   //setupShapeTables();
-   std::cout << "Setting Material Ids" << std::endl;
+   std::cout << "7. Body::initialize() Setting Material Ids" << std::endl;
    _h_materials_cap_ids = (int*) malloc( _number_points_MC * sizeof(int));
     for (int i = 0; i < _number_cells; ++i) {
         int cellMaterial = this->cells[i]->getMaterialId();
@@ -193,7 +193,7 @@ std::cout << "Computing shape shape functions" << std::endl;
 //   std::ofstream gpoint_data(std::string("cell_gpoint_data_"+title+".dat").c_str());
 //   this->cells[mid_int]->gnuplotOut(cell_data, gpoint_data); // Bus error
 
-std::cout << "Iteration in nodes" << std::endl;
+std::cout << "8. Body::initialize() Iteration in nodes" << std::endl;
 //The iteration on nodes MUST be done AFTER the cells.
     end_int = this->nodes.size();
     _number_nodes = end_int;
@@ -204,7 +204,7 @@ std::cout << "Iteration in nodes" << std::endl;
                 this->nodes[i]->findSupportNodes(this->nodes);
         }
     }
-std::cout << "Solving shape funcs" << std::endl;
+std::cout << "9. Body::initialize() Solving shape funcs" << std::endl;
 //     #pragma omp parallel for
     for (auto i = 0u; i < _number_nodes; ++i) {
         if (this->nodes[i]->getShapeFunType() == "RBF") {
@@ -225,10 +225,9 @@ std::cout << "Solving shape funcs" << std::endl;
     }
 
     //std::cout<< " body::initialize() calling setupThermalBoundaryTable"<< std::endl;
-    //;
-    /*setupThermalBoundaryTable(&_h_thermal_boundaries,
-                              thermal_boundaries_map);*/
-  //  std::cout<< " body::initialize() calling setupShapeTables"<< std::endl;
+
+
+   std::cout<< " 10. Body::initialize() calling setupShapeTables"<< std::endl;
 
     setupShapeTables();
 
@@ -237,6 +236,7 @@ std::cout << "Solving shape funcs" << std::endl;
     _h_node_map_MC.resize(_number_points_MC * _support_node_size * _support_node_size);
     _h_node_map.resize(_number_points * _support_node_size * _support_node_size);
 
+std::cout<< " 11. Body::initialize() Mapping all nodes"<< std::endl;
     for (int i = 0; i < _number_cells; ++i) {
       //1D MAP
       this->cells[i]->mapThermalNodesMC(_h_thermal_map_MC.data(),
@@ -256,10 +256,10 @@ std::cout << "Solving shape funcs" << std::endl;
                                i,
                                _number_nodes);
     }
-
+std::cout<< " 12. Body::initialize() Allocating presence matrices"<< std::endl;
     _h_presence_matrix_cap = (int*) malloc(_number_nodes * _number_nodes * sizeof(int));
     _h_presence_matrix_cond = (int*) malloc(_number_nodes * _number_nodes * sizeof(int));
-
+std::cout<< " 13. Body::initialize() Mapping Sparse Matrices for direct assembly"<< std::endl;
     mapConectivityCapacityMatrix();
     map_global_matrix(_full_map_cap,
                       _vec_ind_cap,
@@ -279,13 +279,13 @@ std::cout << "Solving shape funcs" << std::endl;
                       USECSC);
     _sparse_matrix_size = _cvec_ptr_cap[_number_nodes];
 
+std::cout<< " 14. Body::initialize() Allocating local matrices arrays"<< std::endl;
   _h_globalCapacity.resize(_sparse_matrix_size);
   _h_localCapacityf      = (data_type*)malloc(_number_points_MC * _support_node_size * _support_node_size * sizeof(data_type));
   _h_globalConductivity.resize(_sparse_matrix_size);
   _h_localConductivityf  = (data_type*)malloc(_number_points * _support_node_size * _support_node_size * sizeof(data_type));
 
-  //_h_local_capacity_factor      = (data_type*)malloc(_number_points_MC * _support_node_size * _support_node_size * sizeof(data_type));
-//  _h_local_conductivity_factor  = (data_type*)malloc(_number_points * _support_node_size * _support_node_size * sizeof(data_type));
+std::cout<< " 14. Body::initialize() Allocating local nodes arrays"<< std::endl;
   _h_local_temperatures_cap_array   = (data_type*)malloc(_number_points_MC * _support_node_size * sizeof(data_type));
   _h_local_jacobian_cap_array       = (data_type*)malloc(_number_points_MC * sizeof(data_type));
   _h_local_weight_cap_array         = (data_type*)malloc(_number_points_MC * sizeof(data_type));
@@ -298,6 +298,7 @@ for(int i = 0; i < _number_points * _support_node_size; i++)
 for(int i = 0; i < _number_points_MC * _support_node_size; i++)
       _h_local_temperatures_cap_array[i] = 1.0;
 
+std::cout<< " 14. Body::initialize() populating local nodes arrays"<< std::endl;
   for(int eachcell = 0; eachcell < this->cells.size(); eachcell++){
     for (int eachpoint = 0; eachpoint < _MC_points_per_cell; eachpoint++){
       int pindex = eachcell * _MC_points_per_cell + eachpoint;
@@ -315,6 +316,7 @@ for(int i = 0; i < _number_points_MC * _support_node_size; i++)
   }
 
   if(MULTICPU){
+    std::cout<< " MCPU. Body::initialize() Creating pthreads structures"<< std::endl;
     _param_array_capacity     = (p_struct*)malloc(MAXTHREADS * sizeof(p_struct));
     _param_array_conductivity = (p_struct*)malloc(MAXTHREADS * sizeof(p_struct));
     for(int i = 0; i < MAXTHREADS; i++){
@@ -359,8 +361,9 @@ for(int i = 0; i < _number_points_MC * _support_node_size; i++)
        CudaCheckError();*/
     }
  #endif
-
-  //setupShapeTables();
+std::cout<< " 15. Body::initialize() Setting Up SOA boundary tables"<< std::endl;
+ /*setupThermalBoundaryTable(&_h_thermal_boundaries,
+                           thermal_boundaries_map);*/
 }
 
 void Body::setupShapeTables()

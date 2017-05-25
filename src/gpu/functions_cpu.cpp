@@ -317,6 +317,7 @@ void setupThermalBoundaryTable(ThermalBoundaryTable **tbs,
     (*tbs)->_time_counters[i]= ibound.second->getTimeMapSize();
     i++;
   }
+  std::cout << "set up inits" << std::endl;
   (*tbs)->_load_inits[0] = 0;
   (*tbs)->_time_inits[0] = 0;
   int load_tot_vals = (*tbs)->_load_counters[0];
@@ -327,6 +328,7 @@ void setupThermalBoundaryTable(ThermalBoundaryTable **tbs,
     (*tbs)->_load_inits[ib] = (*tbs)->_load_inits[ib - 1] + (*tbs)->_load_counters[ib - 1];
     (*tbs)->_time_inits[ib] = (*tbs)->_time_inits[ib - 1] + (*tbs)->_time_counters[ib - 1];
   }
+  std::cout << "allocate full sparse arrays" << std::endl;
   (*tbs)->_load_coord = (double*) malloc(load_tot_vals * sizeof(double));
   (*tbs)->_load_values = (double*) malloc(load_tot_vals * sizeof(double));
   (*tbs)->_time_elapsed = (double*) malloc(time_tot_vals * sizeof(double));
