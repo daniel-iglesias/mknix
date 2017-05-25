@@ -72,6 +72,12 @@ public:
         loadThermalBoundaryGroup = theLoad;
     }
 
+    // Temporary, should be a pointer to a load class
+    virtual LoadThermalBoundary1D* getLoadThermal()
+    {
+        return loadThermalBoundaryGroup;
+    }
+
 
 protected:
     std::vector<Node *> nodes;

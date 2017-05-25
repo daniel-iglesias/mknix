@@ -298,21 +298,23 @@ double getThermalBoundaryTime (ThermalBoundaryTable *thermalBoundaries,
 }
 
 void setupThermalBoundaryTable(ThermalBoundaryTable **tbs,
-                               std::map<int, mknix::LoadThermalBoundary1D> &boundaries)
+                               std::map<int, mknix::LoadThermalBoundary1D*> boundaries)
 {
   std::cout << "setting up SOA thermalBoundaries tables" << std::endl;
   int nBound = boundaries.size();
   std::cout << "Allocating memory for "<< nBound << " boundaries" << std::endl;
   (*tbs)->number_thermal_boundaries = nBound;
+  std::cout << "(*tbs)->_load_counters = (int*) malloc(nBound * sizeof(int));"<<std::endl;
   (*tbs)->_load_counters = (int*) malloc(nBound * sizeof(int));
+    std::cout << "(*tbs)->_load_inits = (int*) malloc(nBound * sizeof(int));"<<std::endl;
   (*tbs)->_load_inits = (int*) malloc(nBound * sizeof(int));
   (*tbs)->_time_counters = (int*) malloc(nBound * sizeof(int));
   (*tbs)->_time_inits = (int*) malloc(nBound * sizeof(int));
   int i = 0;
   std::cout << "Copy variables for materials" << std::endl;
   for(auto  &ibound : boundaries){
-    (*tbs)->_load_counters[i]= ibound.second.getLoadMapSize();
-    (*tbs)->_time_counters[i]= ibound.second.getTimeMapSize();
+    (*tbs)->_load_counters[i]= ibound.second->getLoadMapSize();
+    (*tbs)->_time_counters[i]= ibound.second->getTimeMapSize();
     i++;
   }
   (*tbs)->_load_inits[0] = 0;
@@ -332,7 +334,7 @@ void setupThermalBoundaryTable(ThermalBoundaryTable **tbs,
   //now we copy all values
   i = 0;
   for(auto  &ibound : boundaries){
-    const std::map<double, double> *load_map = ibound.second.getLoadMap();
+    const std::map<double, double> *load_map = ibound.second->getLoadMap();
     int initl = (*tbs)->_load_inits[i];
     //for(int icap = 0;  icap < cap_map->size(); icap++){
     int j =0;
@@ -343,7 +345,7 @@ void setupThermalBoundaryTable(ThermalBoundaryTable **tbs,
       j++;
     }
     j = 0;
-    const std::map<double, double> *time_map = ibound.second.getTimeMap();
+    const std::map<double, double> *time_map = ibound.second->getTimeMap();
     int initt = (*tbs)->_time_inits[i];
     for(std::map<double,double>::const_iterator iti = time_map->begin(); iti != time_map->end(); ++iti){
       (*tbs)->_time_elapsed[initt + j] = iti->first;

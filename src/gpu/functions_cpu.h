@@ -192,7 +192,7 @@ void debug_printThermalBoundaryTable(ThermalBoundaryTable *thermalBoundaries);
  * @param  {[type]} std::map<int, mknix::LoadThermalBoundary1D> map 1D boundary Objects map
  */
 void setupThermalBoundaryTable(ThermalBoundaryTable **thermalBoundaries,
-                              std::map<int, mknix::LoadThermalBoundary1D> &boundaries);
+                              std::map<int, mknix::LoadThermalBoundary1D*> boundaries);
 //
 /**
  * Frees memory for the ThermalBoundary SoA struct

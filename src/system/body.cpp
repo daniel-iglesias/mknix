@@ -81,6 +81,8 @@ Body::~Body()
     ///////////////////////////////////
     freeMaterialTableMemory(&_h_materials);
     free(_h_materials);
+    free(_h_shapeFunctionTable);
+    free(_h_thermal_boundaries);
     /*free_shape_functions_table(&_h_shapeFunctionTable);
     free(_h_shapeFunctionTable);
     free(_h_presence_matrix);*/
@@ -128,6 +130,7 @@ void Body::initialize()
     std::cout << "Initializing body "<< std::endl;
    _h_materials = (MaterialTable*) malloc(1*sizeof(MaterialTable));
    _h_shapeFunctionTable = (ShapeFunctionTable*) malloc(1*sizeof(ShapeFunctionTable));
+   _h_thermal_boundaries = (ThermalBoundaryTable*)malloc(1*sizeof(ThermalBoundaryTable));
     lastNode = nodes.back();
     auto end_int = this->cells.size();
     _number_cells = end_int;//
@@ -211,11 +214,21 @@ std::cout << "Solving shape funcs" << std::endl;
             this->nodes[i]->shapeFunSolve("MLS", 1.03);
         }
     }
-
+//add boundary table setup here
     std::map<std::string, BoundaryGroup *>::iterator it_boundaryGroups;
+    std::map<int,LoadThermalBoundary1D*> thermal_boundaries_map;
+    int ib = 0;
     for (auto& group : boundaryGroups) {
         group.second->initialize();
+        thermal_boundaries_map.insert( {ib, group.second->getLoadThermal()});
+        ib++;
     }
+
+    //std::cout<< " body::initialize() calling setupThermalBoundaryTable"<< std::endl;
+    //;
+    /*setupThermalBoundaryTable(&_h_thermal_boundaries,
+                              thermal_boundaries_map);*/
+  //  std::cout<< " body::initialize() calling setupShapeTables"<< std::endl;
 
     setupShapeTables();
 
