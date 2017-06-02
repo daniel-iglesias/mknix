@@ -937,7 +937,7 @@ if(OLD_CODE) {
                        _number_nodes,
                        USECSC);
 
-    cpuTock(&cck2b1, "CPU cast_into_lmx_csc_type");
+    cpuTock(&cck2b1, "CPU cast_into_lmx_type");
     /*std::cout << " after the cast, leaving assembleConductivityMatrix " << std::endl;
     std::cout << " SumSum of globalConductivity = " << globalConductivity.sumSum() << std::endl;
     std::cout << " Trace of globalConductivity = " << globalConductivity.trace() << std::endl;

@@ -289,7 +289,7 @@ void AssembleGlobalMatrix(std::vector<T> &globalMatrix,
 
 }
 /**
- * Thread Wrapper to launch assembly in multi threaded version.
+ * Thread Wrapper to launch compute in multi threaded version.
  * @param  {[type]} void* pointer   pointer to options structure
  */
 void* threadWrapper(void* ptr){
@@ -305,6 +305,24 @@ void* threadWrapper(void* ptr){
                              parameters->max_threads,
                              parameters->use_csc);
 }
+
+/**
+ * Thread Wrapper to launch assembly in multi threaded version.
+ * @param  {[type]} void* pointer   pointer to options structure
+ */
+/*void* computedWrapper(void* ptr){
+  p_struct *parameters;
+  parameters = (p_struct*) ptr;
+  computeSOAGlobalMatrix(parameters->globalMatrix,
+                             *parameters->fullMap,
+                             *parameters->nodesMap,
+                             parameters->local_matrices_array,
+			                       parameters->numCells,
+                             parameters->supportNodeSize,
+                             parameters->thread_id,
+                             parameters->max_threads,
+                             parameters->use_csc);
+}*/
 
 /**
  * Cast a directly assembled matrix into GMM compatible sparse matrix
