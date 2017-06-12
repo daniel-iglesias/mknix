@@ -6,72 +6,7 @@
 #include "LMX/lmx_mat_type_csc.h"
 #include "LMX/lmx_mat_type_gmm_sparse1.h"
 
-template <typename T>//TODO: Out of commission. Erase and all
-void computeSOATemperatureAndFactors(T *local_capacity_factor,//output
-                                     T *local_conductivity_factor,//output
-                                     T *local_temperatures_array,
-                                     T *local_shapeFun_phis,
-                                     T *jacobian_array,
-                                     T *weight_array,
-                                     int *material_ids,
-                                     MaterialTable *materials,
-                                     int numPoints,
-                                     int supportNodeSize)
-{
-  /*double debug_temp = 0.0;//DEBUG LINE
-  double debug_jacobian = 0.0;//DEBUG LINE
-  double debug_weight = 0.0;//DEBUG LINE
-  double debug_avgCapacityFactor = 0.0;//DEBUG LINE
-  double debug_avgConductivityFactor= 0.0;//DEBUG LINE
-  double debug_density = 0.0;//DEBUG LINE
-  double debug_capacity = 0.0;//DEBUG LINE
-  double debug_kappa = 0.0;//DEBUG LINE
-  double debug_material_ids = 0.0;//DEBUG LINE*/
-  /*for(int eachPoint = 0; eachPoint < numPoints; eachPoint++){
-    T avgTemp = 0;
-    for(int i = 0; i < supportNodeSize; i++){
-      int lid = eachPoint * supportNodeSize + i;
-      avgTemp += local_temperatures_array[lid] * local_shapeFun_phis[lid];
-    }
-    debug_temp += avgTemp;//DEBUG LINE
-    int material_id = material_ids[eachPoint] - 1; //to make it zero based!!!!
-    debug_material_ids += material_id;//debug
-    T abs_jacobian = jacobian_array[eachPoint];//std::abs(jacobian_array[eachPoint]);
-    debug_jacobian += abs_jacobian;//DEBUG LINE
-    T weight = weight_array[eachPoint];
-    debug_weight += weight;//DEBUG LINE
-    T density_val = getMaterialDensity (materials,
-                                        material_id);
-    debug_density += density_val;//DEBUG LINE
-    T cap_val = getMaterialCapacity(materials,
-                                    material_id,
-                                    avgTemp);
-    debug_capacity += cap_val;//DEBUG LINE
-    T avgCapacityFactor = density_val * cap_val * weight * abs_jacobian;
-    debug_avgCapacityFactor += avgCapacityFactor;//DEBUG LINE
-    local_capacity_factor[eachPoint] = avgCapacityFactor;
-    T kappa_val = getMaterialKappa (materials,
-                                    material_id,
-                                    avgTemp);
-    debug_kappa += kappa_val;//DEBUG LINE
-    T avgConductivityFactor = kappa_val * weight * abs_jacobian;
-    debug_avgConductivityFactor += avgConductivityFactor;//DEBUG LINE
-    local_conductivity_factor[eachPoint] = avgConductivityFactor;
-  }*/
-  /*std::cout << "DEBUG::computeSOATemperatureAndFactors, Number of Points = " <<  numPoints << std::endl;  //DEBUG LINE
-  std::cout << "DEBUG::computeSOATemperatureAndFactors, Sum of avrg temps = " <<  debug_temp << std::endl;  //DEBUG LINE
-  std::cout << "DEBUG::computeSOATemperatureAndFactors, Sum of avrg jacobians = " <<  debug_jacobian << std::endl;  //DEBUG LINE
-  std::cout << "DEBUG::computeSOATemperatureAndFactors, Sum of avrg weights = " <<  debug_weight << std::endl;  //DEBUG LINE
-  std::cout << "DEBUG::computeSOATemperatureAndFactors, Sum of avgCapacityFactor = " <<  debug_avgCapacityFactor << std::endl;  //DEBUG LINE
-  std::cout << "DEBUG::computeSOATemperatureAndFactors, Sum of avgConductivityFactor = " <<  debug_avgConductivityFactor << std::endl;  //DEBUG LINE
-  std::cout << "DEBUG::computeSOATemperatureAndFactors, Sum of density = " <<  debug_density << std::endl;  //DEBUG LINE
-  std::cout << "DEBUG::computeSOATemperatureAndFactors, Sum of capacity = " <<  debug_capacity << std::endl;  //DEBUG LINE
-  std::cout << "DEBUG::computeSOATemperatureAndFactors, Sum of kappa = " <<  debug_kappa << std::endl;  //DEBUG LINE*/
-  //std::cout << "DEBUG::computeSOATemperatureAndFactors, Number of materials = " <<  materials->number_materials << std::endl;  //DEBUG LINE
-  //std::cout << "DEBUG::computeSOATemperatureAndFactors, Sum of materials IDs = " << debug_material_ids << std::endl;  //DEBUG LINE
-}
-
-void computeSOACapacityFactor(double *local_capacity_factor_array,
+/*void computeSOACapacityFactor(double *local_capacity_factor_array,
                               double *local_temperatures_array,
                               double *local_weight_array,
                               double *local_jacobian_array,
@@ -98,7 +33,7 @@ void computeSOACapacityFactor(double *local_capacity_factor_array,
       double avgFactor =  local_jacobian_array[eachPoint];
       local_capacity_factor_array[eachPoint] = avgFactor;
   }
-}
+}*/
 
 template <typename T>
 void computeSOACapacityMatrix(T *local_capacity_matrices_array,
@@ -110,9 +45,13 @@ void computeSOACapacityMatrix(T *local_capacity_matrices_array,
                               MaterialTable *materials,
                               int numPoints,
                               int supportNodeSize,
-                              int tid)
+                              int tid,
+                              int max_threads)//allows multithreaded
 {
-  for(int eachPoint = 0; eachPoint < numPoints; eachPoint++){
+  int points_thread = (numPoints + max_threads - 1)/max_threads;//points per CPU thread
+  int start_Point = tid * points_thread;
+  int end_Point = ((tid+1)*points_thread < numPoints)? (tid+1)*points_thread:numPoints;
+  for(int eachPoint = start_Point; eachPoint < end_Point; eachPoint++){
     T avgTemp  = 0.0;
     for(int lnode = 0; lnode < supportNodeSize; lnode++){
         int nindex = eachPoint * supportNodeSize + lnode;
@@ -136,7 +75,7 @@ void computeSOACapacityMatrix(T *local_capacity_matrices_array,
      }
    }
 }
-void computeSOAConductivityFactor(double *local_conductivity_factor_array,
+/*void computeSOAConductivityFactor(double *local_conductivity_factor_array,
                                   double *local_temperatures_array,
                                   double *local_weight_array,
                                   double *local_jacobian_array,
@@ -163,7 +102,7 @@ void computeSOAConductivityFactor(double *local_conductivity_factor_array,
 
     local_conductivity_factor_array[eachPoint] =  avgFactor;
    }
-}
+}*/
 /**
  * Computes the local SoA array for the Conductivity Matrix
  * @param  {[type]} T* array       Array of the local conductivity matrices
@@ -184,9 +123,15 @@ void computeSOAConductivityMatrix(T *local_conductivity_matrices_array,
                                   MaterialTable *materials,
                                   int numPoints,
                                   int supportNodeSize,
-                                  int tid)
+                                  int tid,
+                                  int max_threads)//allows multithreaded
 {
-  for(int eachPoint = 0; eachPoint < numPoints; eachPoint++){
+  std::cout << "Inside computeSOAConductivityMatrix" << std::endl;
+  //many ways to divide this,
+  int points_thread = (numPoints + max_threads - 1)/max_threads;//points per CPU thread
+  int start_Point = tid * points_thread;
+  int end_Point = ((tid+1)*points_thread < numPoints)? (tid+1)*points_thread:numPoints;
+  for(int eachPoint = start_Point; eachPoint < end_Point; eachPoint++){
     T avgTemp  = 0.0;
     for(int lnode = 0; lnode < supportNodeSize; lnode++){
         int nindex = eachPoint * supportNodeSize + lnode;
@@ -307,22 +252,48 @@ void* threadWrapper(void* ptr){
 }
 
 /**
- * Thread Wrapper to launch assembly in multi threaded version.
+ * Thread Wrapper to launch compute in multi threaded version.
  * @param  {[type]} void* pointer   pointer to options structure
  */
-/*void* computedWrapper(void* ptr){
-  p_struct *parameters;
-  parameters = (p_struct*) ptr;
-  computeSOAGlobalMatrix(parameters->globalMatrix,
-                             *parameters->fullMap,
-                             *parameters->nodesMap,
-                             parameters->local_matrices_array,
-			                       parameters->numCells,
-                             parameters->supportNodeSize,
-                             parameters->thread_id,
-                             parameters->max_threads,
-                             parameters->use_csc);
-}*/
+void* computeCapacityThreadWrapper(void* ptr)
+{
+  p_calc_SOA_cap_struct *parameters;
+  parameters = (p_calc_SOA_cap_struct*) ptr;
+  computeSOACapacityMatrix(parameters->local_capacity_array,
+                           parameters->local_temperatures_cap_array,
+                           parameters->local_weight_cap_array,
+                           parameters->local_jacobian_cap_array,
+                           parameters->local_shapes_phis_array,
+                           parameters->material_ids,
+                           parameters->materials,
+                           parameters->number_points,
+                           parameters->supportNodeSize,
+                           parameters->thread_id,
+                           parameters->max_threads);
+}
+
+/**
+ * Thread Wrapper to launch compute in multi threaded version.
+ * @param  {[type]} void* pointer   pointer to options structure
+ */
+void* computeConductivityThreadWrapper(void* ptr)
+{
+  std::cout << "Inside computeConductivityThreadWrapper" << std::endl;
+  p_calc_SOA_cond_struct *parameters;
+  parameters = (p_calc_SOA_cond_struct*) ptr;
+  computeSOAConductivityMatrix(parameters->local_conductivity_array,
+                               parameters->local_temperatures_cond_array,
+                               parameters->local_weight_cond_array,
+                               parameters->local_jacobian_cond_array,
+                               parameters->local_shapes_phis_array,
+                               parameters->local_shapes_phis_dim_array,
+                               parameters->material_ids,
+                               parameters->materials,
+                               parameters->number_points,
+                               parameters->supportNodeSize,
+                               parameters->thread_id,
+                               parameters->max_threads);
+}
 
 /**
  * Cast a directly assembled matrix into GMM compatible sparse matrix
@@ -657,7 +628,7 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
     ///////////////////////////////////////////////////////////////////////////
     //////////////// templates parts ///////////////////////////////////////////
     //
-    template void computeSOATemperatureAndFactors<float>(float *local_capacity_factor,//output
+  /*  template void computeSOATemperatureAndFactors<float>(float *local_capacity_factor,//output
                                                          float *local_conductivity_factor,//output
                                                          float *local_temperatures_array,
                                                          float *local_shapeFun_phis,
@@ -677,7 +648,7 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
                                                           int *material_ids,
                                                           MaterialTable *materials,
                                                           int numPoints,
-                                                          int supportNodeSize);
+                                                          int supportNodeSize);*/
     //
     template
     void computeSOACapacityMatrix<float>(float *local_capacity_matrices_array,
@@ -689,7 +660,8 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
                                         MaterialTable *materials,
                                         int numPoints,
                                         int supportNodeSize,
-                                        int tid);
+                                        int tid,
+                                        int max_threads);
     //
     template
     void computeSOACapacityMatrix<double>(double *local_capacity_matrices_array,
@@ -701,7 +673,8 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
                                           MaterialTable *materials,
                                           int numPoints,
                                           int supportNodeSize,
-                                          int tid);
+                                          int tid,
+                                          int max_threads);
     //
     template
     void computeSOAConductivityMatrix<float>(float *local_conductivity_matrices_array,
@@ -714,7 +687,8 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
                                               MaterialTable *materials,
                                               int numPoints,
                                               int supportNodeSize,
-                                              int tid);
+                                              int tid,
+                                              int max_threads);
     //
     template
     void computeSOAConductivityMatrix<double>(double *local_conductivity_matrices_array,
@@ -727,7 +701,8 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
                                               MaterialTable *materials,
                                               int numPoints,
                                               int supportNodeSize,
-                                              int tid);
+                                              int tid,
+                                              int max_threads);
     //
     template void atomicAssembleGlobalMatrix<float>(std::atomic<float>* globalMatrix,
                                                      std::vector<uint> &fullMap,

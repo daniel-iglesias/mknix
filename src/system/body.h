@@ -30,13 +30,13 @@
 #include <core/node.h>
 #include <gpu/assembly_cpu.h>
 #include "gpu/functions_cpu.h"
+#include <gpu/cpu_run_type.h>
 #ifdef HAVE_CUDA
 //#include <gpu/cuda_helper.h>
 #include <gpu/assembly_kernels.h>
 
 #endif
 //MULTICPU
-#define MAXTHREADS 4
 
 namespace mknix {
 
@@ -76,8 +76,6 @@ public:
     virtual void setQVector(const lmx::Vector<data_type>& q);
 
     virtual void setTemperatureVector(lmx::Vector<data_type>& q);
-
-    virtual void calcFactors();
 
     virtual void calcCapacityMatrix();
 
@@ -320,9 +318,11 @@ protected:
     int       _number_cells;
     int       _sparse_matrix_size;
     //MULTI CPU part
-    pthread_t _threads[MAXTHREADS];
+    pthread_t _threads[MAX_THREADS];
     p_struct* _param_array_capacity;
     p_struct* _param_array_conductivity;
+    p_calc_SOA_cap_struct* _param_calc_capacity;
+    p_calc_SOA_cond_struct* _param_calc_conductivity;
     //measurement related
     std::vector<double> microCPU1, microCPU1b, microCPU1c,
                         microCPU2, microCPU2b, microCPU2c, microCPU3;

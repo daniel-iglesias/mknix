@@ -9,6 +9,45 @@
 
 #include <atomic>
 #include <pthread.h>
+
+/**
+ * Structure containing all parameters for multithreaded launch of Capacity with SOA structures assembly
+
+ */
+struct p_calc_SOA_cap_struct{
+  double *local_capacity_array;
+  double *local_temperatures_cap_array;
+  double *local_weight_cap_array;
+  double *local_jacobian_cap_array;
+  double *local_shapes_phis_array;
+  int *material_ids;
+  MaterialTable *materials;
+  int number_points;
+  int supportNodeSize;
+  int thread_id;
+  int max_threads;
+};
+
+
+/**
+ * Structure containing all parameters for multithreaded launch of Conductivity with SOA structures assembly
+
+ */
+struct p_calc_SOA_cond_struct{
+  double *local_conductivity_array;
+  double *local_temperatures_cond_array;
+  double *local_weight_cond_array;
+  double *local_jacobian_cond_array;
+  double *local_shapes_phis_array;
+  double *local_shapes_phis_dim_array;
+  int *material_ids;
+  MaterialTable *materials;
+  int number_points;
+  int supportNodeSize;
+  int thread_id;
+  int max_threads;
+};
+
 /**
  * Structure containing all parameters for multithreaded launch of global matrix assembly
  * @param  {[type]} double* atomic array      Array of the local capacity factors
@@ -30,33 +69,9 @@ struct p_struct{
   int max_threads;
   bool use_csc;
 };
+
 //
-/**
- * Computes average temperatures and factors for conductivity and capacity matrices
- * @param  {[type]} T* array                  Array of the local capacity factors
- * @param  {[type]} T* array                  Array of local conductivity factors
- * @param  {[type]} T* array                  Array of average temperature per gausspoint
- * @param  {[type]} T* array                  Array of the shape functions phis
- * @param  {[type]} T* array                  Array of jacobians
- * @param  {[type]} T* array                  Array of weights
- * @param  {[type]} int* array                Array of Material ids
- * @param  {[type]} MaterialTable* pointer    Pointer to SoA structure for materialst
- * @param  {[type]} int size                  Total number of Gausspoints
- * @param  {[type]} int size                  Number of nodes per gausspoint
- */
-template <typename T>
-void computeSOATemperatureAndFactors(T *local_capacity_factor,//output
-                                     T *local_conductivity_factor,//output
-                                     T *local_temperatures_array,
-                                     T *local_shapeFun_phis,
-                                     T *jacobian_array,
-                                     T *weight_array,
-                                     int *material_ids,
-                                     MaterialTable *materials,
-                                     int numPoints,
-                                     int supportNodeSize);
-//
-void computeSOACapacityFactor(double *local_capacity_factor_array,
+/*void computeSOACapacityFactor(double *local_capacity_factor_array,
                               double *local_temperatures_array,
                               double *local_weight_array,
                               double *local_jacobian_array,
@@ -65,7 +80,7 @@ void computeSOACapacityFactor(double *local_capacity_factor_array,
                               MaterialTable *materials,
                               int numPoints,
                               int supportNodeSize,
-                              int tid);
+                              int tid);*/
 //
 /**
  * Computes the local SoA array for the Capacity Matrix
@@ -86,9 +101,10 @@ void computeSOACapacityFactor(double *local_capacity_factor_array,
                                MaterialTable *materials,
                                int numPoints,
                                int supportNodeSize,
-                               int tid);
+                               int tid,
+                               int max_threads);
 //
-void computeSOAConductivityFactor(double *local_conductivity_factor_array,
+/*void computeSOAConductivityFactor(double *local_conductivity_factor_array,
                                   double *local_temperatures_array,
                                   double *local_weight_array,
                                   double *local_jacobian_array,
@@ -98,7 +114,7 @@ void computeSOAConductivityFactor(double *local_conductivity_factor_array,
                                   MaterialTable *materials,
                                   int numPoints,
                                   int supportNodeSize,
-                                  int tid);
+                                  int tid);*/
 //
 /**
  * Computes the local SoA array for the Conductivity Matrix
@@ -120,7 +136,8 @@ void computeSOAConductivityFactor(double *local_conductivity_factor_array,
                                    MaterialTable *materials,
                                    int numPoints,
                                    int supportNodeSize,
-                                   int tid);
+                                   int tid,
+                                   int max_threads);
 //
 template <typename T>
 void atomicAssembleGlobalMatrix(std::atomic<T>* globalMatrix,
@@ -150,8 +167,10 @@ void AssembleGlobalMatrix(std::vector<T> &globalMatrix,
                           int supportNodeSize,
                           bool isCSC);
 //
-
+//pthreads wrappers for several functions
 void* threadWrapper(void* ptr);
+void* computeCapacityThreadWrapper(void* ptr);
+void* computeConductivityThreadWrapper(void* ptr);
 
 double inline atomic_fetch_add(std::atomic<double>* target, double value){
   double expected = target->load();

@@ -210,13 +210,13 @@ void mknix::System::setTemperatureVector(lmx::Vector<data_type>& q)
 
 void mknix::System::calcFactors()
 {
-  for (auto& body : thermalBodies) {
+  /*for (auto& body : thermalBodies) {
       body.second->calcFactors();
   }
 
   for (auto& system : subSystems) {
       system.second->calcFactors();
-  }
+  }*/
 }
 
 void mknix::System::calcCapacityMatrix()
