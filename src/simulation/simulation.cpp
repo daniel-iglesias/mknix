@@ -144,6 +144,8 @@ lmx::Vector<data_type> Simulation::initThermalSimulation(Analysis * theAnalysis_
     lmx::Vector<data_type> q(gdlSize);
     q.fillIdentity(initialTemperature);
 
+
+
 if(OLD_CODE){
     globalConductivity.resize(gdlSize, gdlSize);
     globalCapacity.resize(gdlSize, gdlSize);
@@ -158,6 +160,8 @@ if(OLD_CODE){
 } else {
   //baseSystem->setThermalBoundaryTable(myThermalBoundary);//setting soa structture
   baseSystem->setMaterialTable(myMaterialTable);
+
+  baseSystem->setupPthreadsParameters();
 
   globalConductivity.resize(gdlSize, gdlSize);
   globalCapacity.resize(gdlSize, gdlSize);

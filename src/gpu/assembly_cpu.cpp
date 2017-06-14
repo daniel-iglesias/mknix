@@ -126,21 +126,29 @@ void computeSOAConductivityMatrix(T *local_conductivity_matrices_array,
                                   int tid,
                                   int max_threads)//allows multithreaded
 {
-  std::cout << "Inside computeSOAConductivityMatrix" << std::endl;
+//  std::cout << "Inside computeSOAConductivityMatrix" << std::endl;
+//  std::cout << "Materials pointer = " << materials << std::endl;
   //many ways to divide this,
+//  std::cout << "thread "<< tid << std::endl;
   int points_thread = (numPoints + max_threads - 1)/max_threads;//points per CPU thread
+//  std::cout << "points_thread "<< points_thread << std::endl;
   int start_Point = tid * points_thread;
+//  std::cout << "start_Point "<< start_Point << std::endl;
   int end_Point = ((tid+1)*points_thread < numPoints)? (tid+1)*points_thread:numPoints;
+//  std::cout << "end_Point "<< end_Point << std::endl;
   for(int eachPoint = start_Point; eachPoint < end_Point; eachPoint++){
+    //std::cout <<"point " << eachPoint << "; ";
     T avgTemp  = 0.0;
     for(int lnode = 0; lnode < supportNodeSize; lnode++){
         int nindex = eachPoint * supportNodeSize + lnode;
          avgTemp += local_temperatures_array[nindex] * local_shapeFun_phis[nindex];
     }
     int material_id = material_ids[eachPoint] - 1;
+    //std::cout << "material_id = " << material_id;
     T myKappa = getMaterialKappa(materials,
                                  material_id,
                                  avgTemp);
+    //std::cout << "myKappa = " << myKappa << "; ";
     T avgFactor = myKappa * local_weight_array[eachPoint] * local_jacobian_array[eachPoint];
     int index_p =  eachPoint * supportNodeSize * supportNodeSize;
     for(int i = 0; i < supportNodeSize; i++){//equivalent to obtaining thermalNumber
@@ -278,9 +286,10 @@ void* computeCapacityThreadWrapper(void* ptr)
  */
 void* computeConductivityThreadWrapper(void* ptr)
 {
-  std::cout << "Inside computeConductivityThreadWrapper" << std::endl;
+  //std::cout << "Inside computeConductivityThreadWrapper" << std::endl;
   p_calc_SOA_cond_struct *parameters;
   parameters = (p_calc_SOA_cond_struct*) ptr;
+  //std::cout << "Materials pointer = " << (uint)(parameters->materials) << std::endl;
   computeSOAConductivityMatrix(parameters->local_conductivity_array,
                                parameters->local_temperatures_cond_array,
                                parameters->local_weight_cond_array,

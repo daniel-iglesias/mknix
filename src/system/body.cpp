@@ -327,62 +327,6 @@ for(int i = 0; i < _number_points_MC * _support_node_size; i++)
       _h_local_weight_cond_array[pindex] = this->cells[eachcell]->getWeight(eachpoint);
     }
   }
-
-  if(MULTICPU){
-    std::cout<< " MCPU. Body::initialize() Creating pthreads structures"<< std::endl;
-    _param_array_capacity     = (p_struct*)malloc(MAX_THREADS * sizeof(p_struct));
-    _param_array_conductivity = (p_struct*)malloc(MAX_THREADS * sizeof(p_struct));
-    for(int i = 0; i < MAX_THREADS; i++){
-        _param_array_capacity[i].globalMatrix = (std::atomic<double>*)_h_globalCapacity.data();
-        _param_array_capacity[i].fullMap = &_full_map_cap;
-        _param_array_capacity[i].local_matrices_array = _h_localCapacityf;
-        _param_array_capacity[i].numCells = this->cells.size();
-        _param_array_capacity[i].supportNodeSize = _support_node_size;
-        _param_array_capacity[i].thread_id = i;
-        _param_array_capacity[i].max_threads = MAX_THREADS;
-    }
-    for(int i = 0; i < MAX_THREADS; i++){
-        _param_array_conductivity[i].globalMatrix = (std::atomic<double>*)_h_globalConductivity.data();
-        _param_array_conductivity[i].fullMap = &_full_map_cond;
-        _param_array_conductivity[i].local_matrices_array = _h_localConductivityf;
-        _param_array_conductivity[i].numCells = this->cells.size();
-        _param_array_conductivity[i].supportNodeSize = _support_node_size;
-        _param_array_conductivity[i].thread_id = i;
-        _param_array_conductivity[i].max_threads = MAX_THREADS;
-    }
-    //struct p_calc_SOA_cap_struct
-    _param_calc_capacity = (p_calc_SOA_cap_struct*)malloc(MAX_THREADS * sizeof(p_calc_SOA_cap_struct));
-    for(int i = 0; i < MAX_THREADS; i++){
-        _param_calc_capacity[i].local_capacity_array = _h_localCapacityf;
-        _param_calc_capacity[i].local_temperatures_cap_array =_h_local_temperatures_cap_array ;
-        _param_calc_capacity[i].local_weight_cap_array = _h_local_weight_cap_array;
-        _param_calc_capacity[i].local_jacobian_cap_array = _h_local_jacobian_cap_array;
-        _param_calc_capacity[i].local_shapes_phis_array = _h_local_shapes_cap_0.data();
-        _param_calc_capacity[i].material_ids = _h_materials_cap_ids;
-        _param_calc_capacity[i].materials = _h_materials;
-        _param_calc_capacity[i].number_points = _number_points_MC;
-        _param_calc_capacity[i].supportNodeSize = _support_node_size;
-        _param_calc_capacity[i].thread_id = i;
-        _param_calc_capacity[i].max_threads = MAX_THREADS;
-      }
-      //struct p_calc_SOA_cond_struct{
-      _param_calc_conductivity = (p_calc_SOA_cond_struct*)malloc(MAX_THREADS * sizeof(p_calc_SOA_cond_struct));
-      for(int i = 0; i < MAX_THREADS; i++){
-          _param_calc_conductivity[i].local_conductivity_array = _h_localConductivityf;
-          _param_calc_conductivity[i].local_temperatures_cond_array = _h_local_temperatures_cond_array;
-          _param_calc_conductivity[i].local_weight_cond_array = _h_local_weight_cond_array;
-          _param_calc_conductivity[i].local_jacobian_cond_array = _h_local_jacobian_cond_array;
-          _param_calc_conductivity[i].local_shapes_phis_array = _h_local_shapes_cond_0.data();
-          _param_calc_conductivity[i].local_shapes_phis_dim_array = _h_local_shapes_cond_dim.data();
-          _param_calc_conductivity[i].material_ids = _h_materials_cond_ids;
-          _param_calc_conductivity[i].materials = _h_materials;
-          _param_calc_conductivity[i].number_points = _number_points;
-          _param_calc_conductivity[i].supportNodeSize = _support_node_size;
-          _param_calc_conductivity[i].thread_id = i;
-          _param_calc_conductivity[i].max_threads = MAX_THREADS;
-      }
-
-  }
     //map_vector_thermal_numbers(_locaThermalNumbers);
     //GPU part
   #ifdef HAVE_CUDA
@@ -410,6 +354,67 @@ for(int i = 0; i < _number_points_MC * _support_node_size; i++)
  //setupThermalBoundaryTable(&_h_thermal_boundaries,
 //                           thermal_boundaries_map);
 }
+
+void Body::setupPthreadsParameters()
+{
+  std::cout<< " MCPU. Body::initialize() Creating pthreads structures"<< std::endl;
+  _param_array_capacity     = (p_struct*)malloc(MAX_THREADS * sizeof(p_struct));
+  _param_array_conductivity = (p_struct*)malloc(MAX_THREADS * sizeof(p_struct));
+  for(int i = 0; i < MAX_THREADS; i++){
+      _param_array_capacity[i].globalMatrix = (std::atomic<double>*)_h_globalCapacity.data();
+      _param_array_capacity[i].fullMap = &_full_map_cap;
+      _param_array_capacity[i].local_matrices_array = _h_localCapacityf;
+      _param_array_capacity[i].numCells = _number_points_MC;//this->cells.size();
+      _param_array_capacity[i].supportNodeSize = _support_node_size;
+      _param_array_capacity[i].thread_id = i;
+      _param_array_capacity[i].max_threads = MAX_THREADS;
+  }
+  for(int i = 0; i < MAX_THREADS; i++){
+      _param_array_conductivity[i].globalMatrix = (std::atomic<double>*)_h_globalConductivity.data();
+      _param_array_conductivity[i].fullMap = &_full_map_cond;
+      _param_array_conductivity[i].local_matrices_array = _h_localConductivityf;
+      _param_array_conductivity[i].numCells = _number_points;//this->cells.size();
+      _param_array_conductivity[i].supportNodeSize = _support_node_size;
+      _param_array_conductivity[i].thread_id = i;
+      _param_array_conductivity[i].max_threads = MAX_THREADS;
+  }
+  //struct p_calc_SOA_cap_struct
+  _param_calc_capacity = (p_calc_SOA_cap_struct*)malloc(MAX_THREADS * sizeof(p_calc_SOA_cap_struct));
+  for(int i = 0; i < MAX_THREADS; i++){
+      _param_calc_capacity[i].local_capacity_array = _h_localCapacityf;
+      _param_calc_capacity[i].local_temperatures_cap_array =_h_local_temperatures_cap_array ;
+      _param_calc_capacity[i].local_weight_cap_array = _h_local_weight_cap_array;
+      _param_calc_capacity[i].local_jacobian_cap_array = _h_local_jacobian_cap_array;
+      _param_calc_capacity[i].local_shapes_phis_array = _h_local_shapes_cap_0.data();
+      _param_calc_capacity[i].material_ids = _h_materials_cap_ids;
+      _param_calc_capacity[i].materials = _h_materials;
+      _param_calc_capacity[i].number_points = _number_points_MC;
+      _param_calc_capacity[i].supportNodeSize = _support_node_size;
+      _param_calc_capacity[i].thread_id = i;
+      _param_calc_capacity[i].max_threads = MAX_THREADS;
+    }
+    //struct p_calc_SOA_cond_struct{
+    _param_calc_conductivity = (p_calc_SOA_cond_struct*)malloc(MAX_THREADS * sizeof(p_calc_SOA_cond_struct));
+    for(int i = 0; i < MAX_THREADS; i++){
+        _param_calc_conductivity[i].local_conductivity_array = _h_localConductivityf;
+        _param_calc_conductivity[i].local_temperatures_cond_array = _h_local_temperatures_cond_array;
+        _param_calc_conductivity[i].local_weight_cond_array = _h_local_weight_cond_array;
+        _param_calc_conductivity[i].local_jacobian_cond_array = _h_local_jacobian_cond_array;
+        _param_calc_conductivity[i].local_shapes_phis_array = _h_local_shapes_cond_0.data();
+        _param_calc_conductivity[i].local_shapes_phis_dim_array = _h_local_shapes_cond_dim.data();
+        _param_calc_conductivity[i].material_ids = _h_materials_cond_ids;
+        _param_calc_conductivity[i].materials = _h_materials;
+        /*std::cout << "Materials pointer = " << _h_materials << std::endl;
+        std::cout << "Materials pointer = " << _param_calc_conductivity[i].materials << std::endl;
+        std::cout << "Materials counter = " << _h_materials->number_materials << std::endl;
+        std::cout << "Materials counter = " << _param_calc_conductivity[i].materials->number_materials << std::endl;*/
+        _param_calc_conductivity[i].number_points = _number_points;
+        _param_calc_conductivity[i].supportNodeSize = _support_node_size;
+        _param_calc_conductivity[i].thread_id = i;
+        _param_calc_conductivity[i].max_threads = MAX_THREADS;
+    }
+}
+
 
 void Body::setupShapeTables()
 {
@@ -589,14 +594,18 @@ void Body::calcCapacityMatrix()
   //
   else if(MULTICPU)
   {
+    pthread_t _threads[MAX_THREADS];
+    std::cout << "About to run New Multi CPU calcConductivityMatrix " << std::endl;
     cpuClock cck;
     cpuTick(&cck);
     for(int i = 0; i < MAX_THREADS; i++)
         pthread_create(&_threads[i],NULL,computeCapacityThreadWrapper,(void*)&(_param_calc_capacity[i]));
     for(int i = 0; i < MAX_THREADS; i++)
         pthread_join(_threads[i],NULL);
+
     cpuTock(&cck, " New Multi CPU calcCapacityMatrix ");
     microCPU_multi_capacity.push_back(cck.elapsedMicroseconds);
+
   }
   //
   else if(_use_gpu)
@@ -650,13 +659,15 @@ void Body::calcConductivityMatrix()
   //
   else if(MULTICPU)
   {
-    std:;cout << "About to run New Multi CPU calcConductivityMatrix " << std::endl;
+    pthread_t _threads[MAX_THREADS];
+    std::cout << "About to run New Multi CPU calcConductivityMatrix " << std::endl;
     cpuClock cck;
     cpuTick(&cck);
-   for(int i = 0; i < MAX_THREADS; i++)
-       pthread_create(&_threads[i],NULL,computeConductivityThreadWrapper,(void*)&(_param_calc_conductivity[i]));
+    for(int i = 0; i < MAX_THREADS; i++)
+        pthread_create(&_threads[i],NULL,computeConductivityThreadWrapper,(void*)&(_param_calc_conductivity[i]));
    for(int i = 0; i < MAX_THREADS; i++)
        pthread_join(_threads[i],NULL);
+
     cpuTock(&cck, " New Multi CPU calcConductivityMatrix ");
     microCPU_multi_conductivity.push_back(cck.elapsedMicroseconds);
   }
@@ -764,6 +775,7 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
 }
 else if(MULTICPU){
   ///////multi-cpu part
+  pthread_t _threads[MAX_THREADS];
     cpuClock cck1c;
     cpuTick(&cck1c);
    init_host_array_to_value(_h_globalCapacity, 0.0, _sparse_matrix_size);
@@ -869,6 +881,7 @@ if(OLD_CODE) {
     std::cout << " Min of globalConductivity = " << globalConductivity.min() << std::endl;*/
     //std::cout << " NonZeroes of globalConductivity = " << globalConductivity.numNonZeros() << std::endl;
   } else if(MULTICPU){
+    pthread_t _threads[MAX_THREADS];
       cpuClock cck2c;
       cpuTick(&cck2c);
       init_host_array_to_value(_h_globalConductivity, 0.0, _sparse_matrix_size);

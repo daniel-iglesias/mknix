@@ -132,8 +132,11 @@ double getMaterialKappa (MaterialTable *materials,
                         int material_id,
                         double average_temperature)
 {
+  //std::cout << "Inside getMaterialKappa" << std::endl;
   int n_vals =  materials->_kappa_counters[material_id];
+  //std::cout << "n_vals" << n_vals;
   int init_vals =  materials->_kappa_inits[material_id];
+  //std::cout  << "init_vals" << init_vals << std::endl;
   return interpolate1D(average_temperature,
                        materials->_kappa_temps,
                        materials->_kappa_values,

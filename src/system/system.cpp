@@ -189,6 +189,19 @@ void mknix::System::setMaterialTable(MaterialTable* mt_ptr)
   }
 }
 
+void mknix::System::setupPthreadsParameters()
+{
+  //std::cout << "Setting Material Table SOA" << std::cout;
+  for (auto& body : thermalBodies) {
+      body.second->setupPthreadsParameters();
+  }
+
+  for (auto& system : subSystems) {
+      system.second->setupPthreadsParameters();
+  }
+
+}
+
 void mknix::System::setQVector(const lmx::Vector<data_type>& q)
 {
   for (auto& body : thermalBodies) {

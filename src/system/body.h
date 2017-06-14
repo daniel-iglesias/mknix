@@ -67,6 +67,8 @@ public:
 
     virtual void initialize();
 
+    virtual void setupPthreadsParameters();
+
     virtual void setupShapeTables();
 
     virtual void setThermalBoundaryTable(ThermalBoundaryTable *tb_ptr);
@@ -318,7 +320,7 @@ protected:
     int       _number_cells;
     int       _sparse_matrix_size;
     //MULTI CPU part
-    pthread_t _threads[MAX_THREADS];
+    //pthread_t _threads[MAX_THREADS];
     p_struct* _param_array_capacity;
     p_struct* _param_array_conductivity;
     p_calc_SOA_cap_struct* _param_calc_capacity;
