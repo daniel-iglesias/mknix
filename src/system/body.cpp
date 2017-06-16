@@ -24,6 +24,8 @@
 #include <gpu/cpu_run_type.h>
 #include <gpu/assembly_cpu.h>
 
+
+
 //#include <gpu/calc_cpu.h>
 #ifdef HAVE_CUDA
 #include <gpu/assembly_kernels.h>

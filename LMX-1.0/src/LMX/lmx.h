@@ -30,13 +30,13 @@
      * This basic facilities include all the linear algebra operations over Vectors and Matrices, Tensor algebra and linear systems solvers.
      *
      * \author Daniel Iglesias
-     * 
+     *
      */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
 #include "lmx_linsolvers.h"
 #include "cofe_fmc.h"
-#include "lmx_except.h"
+//#include "lmx_except.h"
 #include "lmx_base_stopwatch.h"
 #include "lmx_base_selector.h"
 
@@ -48,8 +48,24 @@
  *
  */
 
-namespace lmx{
+/* #include<../Eigen/Sparse> //eigen
+//template <typename T>
 
+typedef Eigen::SparseMatrix<double> lmx::Matrix<double>;
+typedef Eigen::SparseMatrix<float> lmx::Matrix<float>;
+ //typedef Matrix<data_type, 1, Dynamic> lmx::Vector;//row vector
+//template <typename T>
+typedef Eigen::Matrix<double, Eigen::Dynamic, 1> lmx::Vector<double>;//column vector
+typedef Eigen::Matrix<float, Eigen::Dynamic, 1> lmx::Vector<float>;//column vector
+*/
+//#include<../Eigen/Sparse> //eigen
+namespace lmx{
+/*  template <typename T>
+  using Matrix = Eigen::SparseMatrix<T>;
+
+  template <typename T>
+  using  Vector = Eigen::Matrix<T, Eigen::Dynamic, 1>;//column vector
+*/
 }
 
 #endif

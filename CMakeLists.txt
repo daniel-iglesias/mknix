@@ -2,6 +2,7 @@ project (MkniX)
 
 cmake_minimum_required(VERSION 3.0)
 add_definitions(-DHAVE_GMM)
+add_definitions(-DHAVE_EIGEN)
 include(CPack)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -w -fopenmp --std=c++11 -gdwarf-3")

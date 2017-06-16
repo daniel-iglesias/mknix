@@ -22,9 +22,10 @@
 
 // #include <string>
 #include "common.h"
-#include "LMX/lmx.h"
+//#include "LMX/lmx.h"
 #include "gmm/gmm_matrix.h"
 #include "boundarygroup.h"
+#include <Sparse>//Eigen
 
 #include <core/cellboundary.h>
 #include <core/node.h>

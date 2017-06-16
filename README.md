@@ -15,7 +15,7 @@ cmake -B<build directory> -H. -DCMAKE_BUILD_TYPE=<Debug|Release>
 i.e.
 
 ```
-cmake -Bbuild -H. -DCMAKE_BUILD_TYPE=Debug
+cmake -Bbuild -H. -DCMAKE_BUILD_TYPE=Release
 ```
 
 ## Tests

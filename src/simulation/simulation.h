@@ -23,6 +23,8 @@
 #include "LMX/lmx.h"
 #include "common.h"
 
+//#include <Sparse> //eigen
+
 #include "core/material.h"
 #include "gpu/functions_cpu.h"
 #include "gmm/gmm_matrix.h"
