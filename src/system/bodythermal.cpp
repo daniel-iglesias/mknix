@@ -138,7 +138,7 @@ void ThermalBody::calcExternalHeat()
  * @param globalCapacity Reference to the global matrix of the thermal simulation.
  * @return void
  **/
-void ThermalBody::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
+void ThermalBody::assembleCapacityMatrix(SparseMatrix<data_type>& globalCapacity)
 {
     int end_int = this->cells.size();
 //     #pragma omp parallel for
@@ -155,7 +155,7 @@ void ThermalBody::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
  * @param globalConductivity Reference to the global matrix of the thermal simulation.
  * @return void
  **/
-void ThermalBody::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity)
+void ThermalBody::assembleConductivityMatrix(SparseMatrix<data_type>& globalConductivity)
 {
     int end_int = this->cells.size();
 //     #pragma omp parallel for
@@ -171,7 +171,7 @@ void ThermalBody::assembleConductivityMatrix(lmx::Matrix<data_type>& globalCondu
  *
  * @return void
  **/
-void ThermalBody::assembleExternalHeat(lmx::Vector<data_type>& globalExternalHeat)
+void ThermalBody::assembleExternalHeat(VectorX<data_type>& globalExternalHeat)
 {
     int end_int = this->cells.size();
 //     #pragma omp parallel for
@@ -211,7 +211,7 @@ void ThermalBody::setOutput(std::string outputType_in)
 void ThermalBody::outputToFile(std::ofstream * outFile)
 {
 //   if( computeEnergy ){
-//     std::vector< lmx::Vector<data_type>* >::iterator itEnergy;
+//     std::vector< VectorX<data_type>* >::iterator itEnergy;
 //     int i, vectorSize;
 //
 //     *outFile << "ENERGY.THERMAL " << title << endl;
@@ -247,10 +247,10 @@ void ThermalBody::outputToFile(std::ofstream * outFile)
  * @param qdot Global configuration first derivative vector
  * @return void
  **/
-void ThermalBody::outputStep(const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot)
+void ThermalBody::outputStep(const VectorX<data_type>& q, const VectorX<data_type>& qdot)
 {
     if (computeEnergy) { // TODO: store thermal energy
-//     energy.push_back( new lmx::Vector<data_type>( 4 ) ); //potential, kinetic, elastic, total
+//     energy.push_back( new VectorX<data_type>( 4 ) ); //potential, kinetic, elastic, total
 //
 //     energy.back()->fillIdentity( 0. );
 //
@@ -275,7 +275,7 @@ void ThermalBody::outputStep(const lmx::Vector<data_type>& q, const lmx::Vector<
  * @param q Global configuration vector
  * @return void
  **/
-void ThermalBody::outputStep(const lmx::Vector<data_type>& q)
+void ThermalBody::outputStep(const VectorX<data_type>& q)
 {
 
     if (computeEnergy) { // TODO: see above

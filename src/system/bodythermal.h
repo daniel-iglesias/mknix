@@ -60,18 +60,18 @@ public:
 
     virtual void calcExternalHeat( );
 
-    virtual void assembleCapacityMatrix( lmx::Matrix<data_type> & );
+    virtual void assembleCapacityMatrix( SparseMatrix<data_type> & );
 
-    virtual void assembleConductivityMatrix( lmx::Matrix<data_type> & );
+    virtual void assembleConductivityMatrix( SparseMatrix<data_type> & );
 
-    virtual void assembleExternalHeat( lmx::Vector<data_type> & );
+    virtual void assembleExternalHeat( VectorX<data_type> & );
 
     virtual void setOutput( std::string );
 
     virtual void outputStep
-    ( const lmx::Vector<data_type>&, const lmx::Vector<data_type>& );
+    ( const VectorX<data_type>&, const VectorX<data_type>& );
 
-    virtual void outputStep( const lmx::Vector<data_type>& );
+    virtual void outputStep( const VectorX<data_type>& );
 
     virtual void outputToFile( std::ofstream* );
 
@@ -107,7 +107,7 @@ protected:
     bool computeEnergy;
     std::vector<Node*> nodes;
     std::map<int,Cell*> cells; /**< Map of integration cells. */
-    std::vector< lmx::Vector<data_type>* > temperature;
+    std::vector< VectorX<data_type>* > temperature;
     LoadThermalBody* loadThermalBody;
 
 };

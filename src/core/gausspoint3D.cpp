@@ -270,7 +270,7 @@ void GaussPoint3D::computeFint()
 {
     fint.reset();
     computeKij();
-    lmx::Vector<data_type> disp(3 * supportNodesSize);
+    VectorX<data_type> disp(3 * supportNodesSize);
     for (auto a = 0u; a < supportNodesSize; ++a) {
         for (auto j = 0u; j < 3; ++j) {
             disp.writeElement(supportNodes[a]->getU(j), 3 * a + j);
@@ -286,7 +286,7 @@ void GaussPoint3D::computeFext()
 {
     // Mass matrix must be computed previously
     fext.reset();
-    lmx::Vector<data_type> gravity(3 * supportNodesSize);
+    VectorX<data_type> gravity(3 * supportNodesSize);
     for (auto a = 0u; a < supportNodesSize; ++a) {
         for (auto j = 0u; j < 3; ++j) {
             gravity.writeElement(-Simulation::getGravity(j), 3 * a + j);
@@ -406,7 +406,7 @@ void GaussPoint3D::computeNLKij()
 //   cofe::TensorRank2<2,double> F_back, F_forw;
 //   cofe::TensorRank2Sym<2,double> S_back, S_forw;
 //   cofe::TensorRank2<2,double> P_back, P_forw;
-//   lmx::Vector<double> fint_back, fint_forw;
+//   VectorX<double> fint_back, fint_forw;
 //   fint_back.resize( 2*supportNodesSize );
 //   fint_forw.resize( 2*supportNodesSize );
 //
@@ -494,7 +494,7 @@ void GaussPoint3D::computeNLKij()
 }
 
 
-void GaussPoint3D::assembleMij(lmx::Matrix<data_type>& globalMass)
+void GaussPoint3D::assembleMij(SparseMatrix<data_type>& globalMass)
 {
 // 	cout << "MATRIX M in assembly:" << M << endl;
     for (auto i = 0u; i < supportNodesSize; ++i) {
@@ -516,7 +516,7 @@ void GaussPoint3D::assembleMij(lmx::Matrix<data_type>& globalMass)
 }
 
 
-void GaussPoint3D::assembleKij(lmx::Matrix<data_type>& globalTangent)
+void GaussPoint3D::assembleKij(SparseMatrix<data_type>& globalTangent)
 {
     for (auto i = 0u; i < supportNodesSize; ++i) {
 //     cout<<"node: "<< supportNodes[i]->nodeNumber() << " "
@@ -536,7 +536,7 @@ void GaussPoint3D::assembleKij(lmx::Matrix<data_type>& globalTangent)
 //   cout << globalTangent << endl;
 }
 
-void GaussPoint3D::assembleRi(lmx::Vector<data_type>& bodyR, int firstNode)
+void GaussPoint3D::assembleRi(VectorX<data_type>& bodyR, int firstNode)
 {
 //   cout << "Size = " << bodyR.size() << "solving tensions..." << endl;
 //   cout << "Size = " << r.size() << "solving tensions..." << endl;
@@ -551,7 +551,7 @@ void GaussPoint3D::assembleRi(lmx::Vector<data_type>& bodyR, int firstNode)
 }
 
 
-void GaussPoint3D::assembleFint(lmx::Vector<data_type>& globalFint)
+void GaussPoint3D::assembleFint(VectorX<data_type>& globalFint)
 {
     for (auto i = 0u; i < supportNodesSize; ++i) {
         for (auto m = 0u; m < 3; ++m) {
@@ -563,7 +563,7 @@ void GaussPoint3D::assembleFint(lmx::Vector<data_type>& globalFint)
 }
 
 
-void GaussPoint3D::assembleFext(lmx::Vector<data_type>& globalFext)
+void GaussPoint3D::assembleFext(VectorX<data_type>& globalFext)
 {
     for (auto i = 0u; i < supportNodesSize; ++i) {
         for (auto m = 0u; m < 3; ++m) {
@@ -575,7 +575,7 @@ void GaussPoint3D::assembleFext(lmx::Vector<data_type>& globalFext)
 }
 
 
-double GaussPoint3D::calcPotentialE(const lmx::Vector<data_type>& q)
+double GaussPoint3D::calcPotentialE(const VectorX<data_type>& q)
 {
     double potential = 0;
     for (auto i = 0u; i < supportNodesSize; ++i) {
@@ -588,7 +588,7 @@ double GaussPoint3D::calcPotentialE(const lmx::Vector<data_type>& q)
 }
 
 
-double GaussPoint3D::calcKineticE(const lmx::Vector<data_type>& qdot)
+double GaussPoint3D::calcKineticE(const VectorX<data_type>& qdot)
 {
     double kinetic = 0;
     for (auto i = 0u; i < supportNodesSize; ++i) {

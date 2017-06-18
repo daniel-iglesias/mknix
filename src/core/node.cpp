@@ -166,7 +166,7 @@ double Node::getShapeFunValue(int deriv, int s_node)
 }
 
 
-void Node::setqx(const lmx::Vector<data_type>& globalConf, int dim)
+void Node::setqx(const VectorX<data_type>& globalConf, int dim)
 {
     qx = globalConf.readElement(dim * num);
     qy = globalConf.readElement(dim * num + 1);
@@ -175,7 +175,7 @@ void Node::setqx(const lmx::Vector<data_type>& globalConf, int dim)
     }
 }
 
-void Node::setqt(const lmx::Vector<data_type>& globalTemp)
+void Node::setqt(const VectorX<data_type>& globalTemp)
 {
     qt = globalTemp.readElement(thermalNum);
 }

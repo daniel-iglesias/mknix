@@ -28,6 +28,7 @@
 #include "core/material.h"
 #include "gpu/functions_cpu.h"
 #include "gmm/gmm_matrix.h"
+#include "gpu/cpu_run_type.h"
 
 namespace mknix {
 
@@ -102,93 +103,93 @@ public:
 
     void writeSystem();
 
-    void staticThermalResidue(lmx::Vector<data_type>& residue,
-                              lmx::Vector<data_type>& q
+    void staticThermalResidue(VectorX<data_type>& residue,
+                              VectorX<data_type>& q
     );
 
-    void staticThermalTangent(lmx::Matrix<data_type>& tangent_in,
-                              lmx::Vector<data_type>& q
+    void staticThermalTangent(SparseMatrix<data_type>& tangent_in,
+                              VectorX<data_type>& q
     );
 
-    bool staticThermalConvergence(lmx::Vector<data_type>& res,
-                                  lmx::Vector<data_type>& q
+    bool staticThermalConvergence(VectorX<data_type>& res,
+                                  VectorX<data_type>& q
     );
 
     void explicitThermalEvaluation
-            (const lmx::Vector<data_type>& qt, lmx::Vector<data_type>& qtdot, double time
+            (const VectorX<data_type>& qt, VectorX<data_type>& qtdot, double time
             );
 
-    void dynamicThermalEvaluation(const lmx::Vector<data_type>& q,
-                                  lmx::Vector<data_type>& qdot,
+    void dynamicThermalEvaluation(const VectorX<data_type>& q,
+                                  VectorX<data_type>& qdot,
                                   double time
     );
 
-    void dynamicThermalResidue(lmx::Vector<data_type>& residue,
-                               const lmx::Vector<data_type>& q,
-                               const lmx::Vector<data_type>& qdot,
+    void dynamicThermalResidue(VectorX<data_type>& residue,
+                               const VectorX<data_type>& q,
+                               const VectorX<data_type>& qdot,
                                double time
     );
 
-    void dynamicThermalTangent(lmx::Matrix<data_type>& tangent_in,
-                               const lmx::Vector<data_type>& q,
+    void dynamicThermalTangent(SparseMatrix<data_type>& tangent_in,
+                               const VectorX<data_type>& q,
                                double partial_qdot,
                                double time
     );
 
-    bool dynamicThermalConvergence(const lmx::Vector<data_type>& q,
-                                   const lmx::Vector<data_type>& qdot,
+    bool dynamicThermalConvergence(const VectorX<data_type>& q,
+                                   const VectorX<data_type>& qdot,
                                    double time
     );
 
     bool dynamicThermalConvergenceInThermomechanical
-            (const lmx::Vector<data_type>& q,
-             const lmx::Vector<data_type>& qdot,
+            (const VectorX<data_type>& q,
+             const VectorX<data_type>& qdot,
              double time
             );
 
-    void explicitAcceleration(const lmx::Vector<data_type>& q,
-                              const lmx::Vector<data_type>& qdot,
-                              lmx::Vector<data_type>& qddot,
+    void explicitAcceleration(const VectorX<data_type>& q,
+                              const VectorX<data_type>& qdot,
+                              VectorX<data_type>& qddot,
                               double time
     );
 
-    void dynamicAcceleration(const lmx::Vector<data_type>& q,
-                             const lmx::Vector<data_type>& qdot,
-                             lmx::Vector<data_type>& qddot,
+    void dynamicAcceleration(const VectorX<data_type>& q,
+                             const VectorX<data_type>& qdot,
+                             VectorX<data_type>& qddot,
                              double time
     );
 
-    void dynamicResidue(lmx::Vector<data_type>& residue,
-                        const lmx::Vector<data_type>& q,
-                        const lmx::Vector<data_type>& qdot,
-                        const lmx::Vector<data_type>& qddot,
+    void dynamicResidue(VectorX<data_type>& residue,
+                        const VectorX<data_type>& q,
+                        const VectorX<data_type>& qdot,
+                        const VectorX<data_type>& qddot,
                         double time
     );
 
-    void dynamicTangent(lmx::Matrix<data_type>& tangent_in,
-                        const lmx::Vector<data_type>& q,
-                        const lmx::Vector<data_type>& qdot,
+    void dynamicTangent(SparseMatrix<data_type>& tangent_in,
+                        const VectorX<data_type>& q,
+                        const VectorX<data_type>& qdot,
                         double partial_qdot,
                         double partial_qddot,
                         double time
     );
 
-    bool dynamicConvergence(const lmx::Vector<data_type>& q,
-                            const lmx::Vector<data_type>& qdot,
-                            const lmx::Vector<data_type>& qddot,
+    bool dynamicConvergence(const VectorX<data_type>& q,
+                            const VectorX<data_type>& qdot,
+                            const VectorX<data_type>& qddot,
                             double time
     );
 
-    void staticResidue(lmx::Vector<data_type>& residue,
-                       lmx::Vector<data_type>& q
+    void staticResidue(VectorX<data_type>& residue,
+                       VectorX<data_type>& q
     );
 
-    void staticTangent(lmx::Matrix<data_type>& tangent_in,
-                       lmx::Vector<data_type>& q
+    void staticTangent(SparseMatrix<data_type>& tangent_in,
+                       VectorX<data_type>& q
     );
 
-    bool staticConvergence(lmx::Vector<data_type>& res,
-                           lmx::Vector<data_type>& q
+    bool staticConvergence(VectorX<data_type>& res,
+                           VectorX<data_type>& q
     );
 
     void stepTriggered();
@@ -231,12 +232,12 @@ public:
     }
 
 private:
-    void storeTimeConfiguration(lmx::Vector<data_type>& q);
+    void storeTimeConfiguration(VectorX<data_type>& q);
 
 private:
-    void systemOuputStep(const lmx::Vector<data_type>&, const lmx::Vector<data_type>&);
+    void systemOuputStep(const VectorX<data_type>&, const VectorX<data_type>&);
 
-    void systemOuputStep(const lmx::Vector<data_type>&);
+    void systemOuputStep(const VectorX<data_type>&);
 
     std::string title;
 
@@ -265,12 +266,12 @@ private:
     int outputFilesDetail;
 
     double initialTemperature;
-    lmx::Matrix<data_type> globalCapacity;
-    lmx::Matrix<data_type> globalConductivity;
+    SparseMatrix<data_type> globalCapacity;
+    SparseMatrix<data_type> globalConductivity;
 
-    lmx::Vector<data_type> globalRHSHeat;
-    lmx::Vector<data_type> globalExternalHeat;
-    lmx::Vector<data_type> globalInternalHeat;
+    VectorX<data_type> globalRHSHeat;
+    VectorX<data_type> globalExternalHeat;
+    VectorX<data_type> globalInternalHeat;
 
 //////////////////// - - - SOA - - - ////////////////////////
     /*gmm::csc_matrix<data_type> h_globalCapacity;
@@ -279,15 +280,15 @@ private:
     std::vector<data_type> h_globalExternalHeat;
     std::vector<data_type> h_globalInternalHeat;*/
 
-    lmx::Matrix<data_type> globalMass;
-    lmx::Vector<data_type> globalRHSForces;
-    lmx::Vector<data_type> globalInternalForces;
-    lmx::Vector<data_type> globalExternalForces;
+    SparseMatrix<data_type> globalMass;
+    VectorX<data_type> globalRHSForces;
+    VectorX<data_type> globalInternalForces;
+    VectorX<data_type> globalExternalForces;
     lmx::DenseMatrix<data_type> globalSparsePattern;
 
     std::ofstream outFile;
 
-    static lmx::Vector<double> gravity;
+    static VectorX<double> gravity;
     static double alpha;
     static int dimension;
     static std::string contact;
@@ -297,8 +298,8 @@ private:
     static double epsilon;
     static std::string smoothingType;
 
-    lmx::Vector<data_type> initThermalSimulation(Analysis * analysis, int, bool init = true);
-    lmx::Vector<data_type> initMechanicalSimulation(Analysis * analysis, bool init = true);
+    VectorX<data_type> initThermalSimulation(Analysis * analysis, int, bool init = true);
+    VectorX<data_type> initMechanicalSimulation(Analysis * analysis, bool init = true);
 };
 
 }

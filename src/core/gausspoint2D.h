@@ -77,19 +77,19 @@ public:
 
     void computeNLKij( ) override;
 
-    void assembleMij( lmx::Matrix<data_type> & ) override;
+    void assembleMij( SparseMatrix<data_type> & ) override;
 
-    void assembleKij( lmx::Matrix<data_type> & ) override;
+    void assembleKij( SparseMatrix<data_type> & ) override;
 
-    void assembleRi( lmx::Vector<data_type> &, int ) override;
+    void assembleRi( VectorX<data_type> &, int ) override;
 
-    void assembleFint( lmx::Vector<data_type> & ) override;
+    void assembleFint( VectorX<data_type> & ) override;
 
-    void assembleFext( lmx::Vector<data_type> & ) override;
+    void assembleFext( VectorX<data_type> & ) override;
 
-    double calcPotentialE( const lmx::Vector<data_type> & ) override;
+    double calcPotentialE( const VectorX<data_type> & ) override;
 
-    double calcKineticE( const lmx::Vector<data_type> & ) override;
+    double calcKineticE( const VectorX<data_type> & ) override;
 
     double calcElasticE( ) override;
 

@@ -76,9 +76,9 @@ AnalysisDynamic::~AnalysisDynamic()
 }
 
 
-void AnalysisDynamic::solve( lmx::Vector< data_type > * q_in,
-                             lmx::Vector< data_type > * qdot_in,
-                             lmx::Vector< data_type >* not_used = 0
+void AnalysisDynamic::solve( VectorX< data_type > * q_in,
+                             VectorX< data_type > * qdot_in,
+                             VectorX< data_type >* not_used = 0
                            )
 {
     if( lmx::getMatrixType() == 1 )

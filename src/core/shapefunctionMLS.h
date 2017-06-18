@@ -52,10 +52,10 @@ private:
                       *        == 2 Quartic spline              */
     double s_max; /**< function's parameters. */
     lmx::DenseMatrix<double> w; /**< Weights and derivatives */
-    lmx::Vector<double> p; /**< Shifted polynomials of interest point */
+    VectorX<double> p; /**< Shifted polynomials of interest point */
     lmx::DenseMatrix<double> P; /**< Shifted Polynomials of support points */
     std::vector< lmx::DenseMatrix<double> > A; /**< vector of moment matrices*/
-    std::vector< std::vector< lmx::Vector<double> > > B; /** Container of B_I */
+    std::vector< std::vector< VectorX<double> > > B; /** Container of B_I */
 
 public:
     ShapeFunctionMLS();

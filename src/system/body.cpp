@@ -517,7 +517,7 @@ void Body::setMaterialTable(MaterialTable* mt_ptr)
  //debug_printMaterialTable(_h_materials);
 }
 
-void Body::setTemperatureVector(lmx::Vector<data_type>& q)
+void Body::setTemperatureVector(VectorX<data_type>& q)
 {
   for(int ip = 0 ; ip < _number_points_MC ; ip++){
     for(int lnode = 0 ; lnode < _support_node_size; lnode++){
@@ -535,7 +535,7 @@ void Body::setTemperatureVector(lmx::Vector<data_type>& q)
   }
 }
 
-void Body::setQVector(const lmx::Vector<data_type>& q)
+void Body::setQVector(const VectorX<data_type>& q)
 {
   for(int ip = 0 ; ip < _number_points_MC ; ip++){
     for(int lnode = 0 ; lnode < _support_node_size; lnode++){
@@ -737,7 +737,7 @@ void Body::calcExternalHeat()
  * @param globalCapacity Reference to the global matrix of the thermal simulation.
  * @return void
  **/
-void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
+void Body::assembleCapacityMatrix(SparseMatrix<data_type>& globalCapacity)
 {
   if(OLD_CODE){
     cpuClock cck1;
@@ -823,7 +823,7 @@ else if(MULTICPU){
  * @param globalConductivity Reference to the global matrix of the thermal simulation.
  * @return void
  **/
-void Body::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity)
+void Body::assembleConductivityMatrix(SparseMatrix<data_type>& globalConductivity)
 {
 if(OLD_CODE) {
     cpuClock cck2;
@@ -927,7 +927,7 @@ if(OLD_CODE) {
  *
  * @return void
  **/
-void Body::assembleExternalHeat(lmx::Vector<data_type>& globalExternalHeat)
+void Body::assembleExternalHeat(VectorX<data_type>& globalExternalHeat)
 {
   if(OLD_CODE){
 
@@ -997,14 +997,14 @@ void Body::outputStep()
 {
     if (isThermal && nodes.size() != 0) {
       //std::cout << "\n\nOUTPUT STEP \n\n"<< std::endl;
-        temperature.push_back(new lmx::Vector<data_type>(nodes.size())); //temperature
+        temperature.push_back(new VectorX<data_type>(nodes.size())); //temperature
         for (auto i = 0u; i < nodes.size(); ++i) {
             temperature.back()->writeElement(nodes[i]->getqt(), i);
         }
     }
 
     if (computeEnergy) { // TODO: store thermal energy
-//     energy.push_back( new lmx::Vector<data_type>( 4 ) ); //potential, kinetic, elastic, total
+//     energy.push_back( new VectorX<data_type>( 4 ) ); //potential, kinetic, elastic, total
 //
 //     energy.back()->fillIdentity( 0. );
 //
@@ -1034,7 +1034,7 @@ void Body::outputToFile(std::ofstream * outFile)
     std::vector<std::vector<int> >::iterator itBoundary;
     std::vector<int>::iterator itOneBoundarySegment;
 //   if( computeEnergy ){
-//     std::vector< lmx::Vector<data_type>* >::iterator itEnergy;
+//     std::vector< VectorX<data_type>* >::iterator itEnergy;
 //     int i, vectorSize;
 //
 //     *outFile << "ENERGY.THERMAL " << title << endl;

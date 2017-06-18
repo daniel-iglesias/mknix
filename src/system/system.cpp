@@ -202,7 +202,7 @@ void mknix::System::setupPthreadsParameters()
 
 }
 
-void mknix::System::setQVector(const lmx::Vector<data_type>& q)
+void mknix::System::setQVector(const VectorX<data_type>& q)
 {
   for (auto& body : thermalBodies) {
       body.second->setQVector(q);
@@ -210,7 +210,7 @@ void mknix::System::setQVector(const lmx::Vector<data_type>& q)
 
 }
 
-void mknix::System::setTemperatureVector(lmx::Vector<data_type>& q)
+void mknix::System::setTemperatureVector(VectorX<data_type>& q)
 {
   for (auto& body : thermalBodies) {
       body.second->setTemperatureVector(q);
@@ -297,7 +297,7 @@ void mknix::System::calcThermalTangentMatrix()
 
 }
 
-void mknix::System::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity_in)
+void mknix::System::assembleCapacityMatrix(SparseMatrix<data_type>& globalCapacity_in)
 {
     for (auto& body : thermalBodies) {
         body.second->assembleCapacityMatrix(globalCapacity_in);
@@ -309,7 +309,7 @@ void mknix::System::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacit
 
 }
 
-void mknix::System::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity_in)
+void mknix::System::assembleConductivityMatrix(SparseMatrix<data_type>& globalConductivity_in)
 {
     for (auto& body : thermalBodies) {
         body.second->assembleConductivityMatrix(globalConductivity_in);
@@ -329,7 +329,7 @@ void mknix::System::assembleConductivityMatrix(lmx::Matrix<data_type>& globalCon
 
 }
 
-void mknix::System::assembleExternalHeat(lmx::Vector<data_type>& externalHeat_in)
+void mknix::System::assembleExternalHeat(VectorX<data_type>& externalHeat_in)
 {
     for (auto& body : thermalBodies) {
         body.second->assembleExternalHeat(externalHeat_in);
@@ -346,7 +346,7 @@ void mknix::System::assembleExternalHeat(lmx::Vector<data_type>& externalHeat_in
 }
 
 
-void mknix::System::assembleInternalHeat(lmx::Vector<data_type>& internalHeat_in)
+void mknix::System::assembleInternalHeat(VectorX<data_type>& internalHeat_in)
 {
     for (auto& system : subSystems) {
         system.second->assembleInternalHeat(internalHeat_in);
@@ -358,7 +358,7 @@ void mknix::System::assembleInternalHeat(lmx::Vector<data_type>& internalHeat_in
 }
 
 
-void mknix::System::assembleThermalTangentMatrix(lmx::Matrix<data_type>& globalTangent_in)
+void mknix::System::assembleThermalTangentMatrix(SparseMatrix<data_type>& globalTangent_in)
 {
     for (auto& constraint : constraintsThermal) {
         constraint.second->assembleTangentMatrix(globalTangent_in);
@@ -434,7 +434,7 @@ void mknix::System::calcTangentMatrix()
 
 }
 
-void mknix::System::assembleMassMatrix(lmx::Matrix<data_type>& globalMass_in)
+void mknix::System::assembleMassMatrix(SparseMatrix<data_type>& globalMass_in)
 {
     for (auto& body : flexBodies) {
         body.second->assembleMassMatrix(globalMass_in);
@@ -450,7 +450,7 @@ void mknix::System::assembleMassMatrix(lmx::Matrix<data_type>& globalMass_in)
 
 }
 
-void mknix::System::assembleInternalForces(lmx::Vector<data_type>& internalForces_in)
+void mknix::System::assembleInternalForces(VectorX<data_type>& internalForces_in)
 {
     for (auto& body : flexBodies) {
         body.second->assembleInternalForces(internalForces_in);
@@ -466,7 +466,7 @@ void mknix::System::assembleInternalForces(lmx::Vector<data_type>& internalForce
 
 }
 
-void mknix::System::assembleExternalForces(lmx::Vector<data_type>& externalForces_in)
+void mknix::System::assembleExternalForces(VectorX<data_type>& externalForces_in)
 {
 
     for (auto& body : flexBodies) {
@@ -489,7 +489,7 @@ void mknix::System::assembleExternalForces(lmx::Vector<data_type>& externalForce
 //  cout << "External in System (2) = " << externalForces_in;
 }
 
-void mknix::System::assembleTangentMatrix(lmx::Matrix<data_type>& globalTangent_in)
+void mknix::System::assembleTangentMatrix(SparseMatrix<data_type>& globalTangent_in)
 {
     for (auto& body : flexBodies) {
         body.second->assembleTangentMatrix(globalTangent_in);
@@ -505,7 +505,7 @@ void mknix::System::assembleTangentMatrix(lmx::Matrix<data_type>& globalTangent_
 }
 
 
-void mknix::System::assembleConstraintForces(lmx::Vector<data_type>& internalForces_in)
+void mknix::System::assembleConstraintForces(VectorX<data_type>& internalForces_in)
 {
     for (auto& constraint : constraints) {
         constraint.second->calcInternalForces();
@@ -542,7 +542,7 @@ void mknix::System::setMechanical()
     }
 }
 
-void mknix::System::outputStep(const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot)
+void mknix::System::outputStep(const VectorX<data_type>& q, const VectorX<data_type>& qdot)
 {
     for (auto& body : rigidBodies) {
         body.second->outputStep(q, qdot);
@@ -562,7 +562,7 @@ void mknix::System::outputStep(const lmx::Vector<data_type>& q, const lmx::Vecto
 }
 
 
-void mknix::System::outputStep(const lmx::Vector<data_type>& q)
+void mknix::System::outputStep(const VectorX<data_type>& q)
 {
     for (auto& body : rigidBodies) {
         body.second->outputStep(q);

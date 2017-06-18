@@ -95,7 +95,7 @@ public:
     int getNumPoints_MC();
     int getNumPoints();
 
-    void assembleCapacityGaussPoints( lmx::Matrix<data_type> & );
+    void assembleCapacityGaussPoints( SparseMatrix<data_type> & );
 
     void assembleCapacityGaussPointsWithMap(data_type *globalCapacity,
                                             uint *matrixMap,
@@ -110,7 +110,7 @@ public:
     std::vector<double> getTempsHij();//FOR DEBUG ONLY
     double getHFactor();
 
-    void assembleConductivityGaussPoints( lmx::Matrix<data_type> & );
+    void assembleConductivityGaussPoints( SparseMatrix<data_type> & );
 
     void assembleConductivityGaussPointsWithMap(data_type *globalConductivity,
                                                 uint *matrixMap,
@@ -120,35 +120,35 @@ public:
 
     void computeQextGaussPoints( LoadThermalBody* );
 
-    void assembleQextGaussPoints( lmx::Vector<data_type> & );
+    void assembleQextGaussPoints( VectorX<data_type> & );
 
     void computeMGaussPoints(  );
 
-    void assembleMGaussPoints( lmx::Matrix<data_type> & );
+    void assembleMGaussPoints( SparseMatrix<data_type> & );
 
     void computeFintGaussPoints(  );
 
     void computeNLFintGaussPoints(  );
 
-    void assembleFintGaussPoints( lmx::Vector<data_type> & );
+    void assembleFintGaussPoints( VectorX<data_type> & );
 
     void computeFextGaussPoints(  );
 
-    void assembleFextGaussPoints( lmx::Vector<data_type> & );
+    void assembleFextGaussPoints( VectorX<data_type> & );
 
     void computeKGaussPoints(  );
 
     void computeNLKGaussPoints(  );
 
-    void assembleKGaussPoints( lmx::Matrix<data_type> & );
+    void assembleKGaussPoints( SparseMatrix<data_type> & );
 
-    void assembleRGaussPoints( lmx::Vector<data_type> &, int );
+    void assembleRGaussPoints( VectorX<data_type> &, int );
 
-    void assembleNLRGaussPoints( lmx::Vector<data_type> &, int );
+    void assembleNLRGaussPoints( VectorX<data_type> &, int );
 
-    double calcPotentialEGaussPoints( const lmx::Vector<data_type> & );
+    double calcPotentialEGaussPoints( const VectorX<data_type> & );
 
-    double calcKineticEGaussPoints( const lmx::Vector<data_type> & );
+    double calcKineticEGaussPoints( const VectorX<data_type> & );
 
     double calcElasticEGaussPoints(  );
 

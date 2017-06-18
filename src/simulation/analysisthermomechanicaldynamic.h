@@ -42,7 +42,7 @@ public:
         return std::string("THERMOMECHANICALDYNAMIC");
     }
 
-    void solve( lmx::Vector<data_type> *, lmx::Vector<data_type> *, lmx::Vector< data_type >* );
+    void solve( VectorX<data_type> *, VectorX<data_type> *, VectorX< data_type >* );
 
 private:
     char* integratorType;

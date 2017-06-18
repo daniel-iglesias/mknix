@@ -35,7 +35,7 @@ Load::~Load()
 
 
 void Load::assembleExternalForces
-(lmx::Vector< data_type > & globalExternalForces)
+(VectorX< data_type > & globalExternalForces)
 {
     int nodesSize = nodes.size();
     int i, m;

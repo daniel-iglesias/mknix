@@ -63,7 +63,7 @@ void CellBoundary::computeQextGaussPoints(LoadThermalBoundary1D * loadThermalBou
     }
 }
 
-void CellBoundary::assembleQextGaussPoints(lmx::Vector<data_type>& globalQext)
+void CellBoundary::assembleQextGaussPoints(VectorX<data_type>& globalQext)
 {//this is in use
     for (auto& point : gPoints) {
         point->assembleQext(globalQext);

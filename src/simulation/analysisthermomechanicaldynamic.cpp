@@ -87,9 +87,9 @@ AnalysisThermoMechanicalDynamic::~AnalysisThermoMechanicalDynamic()
 
 
 void AnalysisThermoMechanicalDynamic::solve
-( lmx::Vector< data_type > * qt_in,
-  lmx::Vector< data_type > * q_in,
-  lmx::Vector< data_type >* qdot_in = 0
+( VectorX< data_type > * qt_in,
+  VectorX< data_type > * q_in,
+  VectorX< data_type >* qdot_in = 0
 )
 {
     if( lmx::getMatrixType() == 1 ) {

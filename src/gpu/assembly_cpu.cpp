@@ -332,7 +332,7 @@ void cast_into_gmm_csc_type(gmm::csc_matrix<T>& gmm_matrix,
  * @param  {[type]} int size        number of elements in the array
  */
 template <typename T>
-void cast_into_lmx_type(lmx::Matrix<T> &lmx_ref,
+void cast_into_lmx_type(SparseMatrix<T> &lmx_ref,
                         std::vector<T> &values_array,
                         std::vector<uint> &vec_ind,
                         std::vector<uint> &cvec_ptr,
@@ -364,7 +364,7 @@ void cast_into_lmx_type(lmx::Matrix<T> &lmx_ref,
  * @param  {[type]} int size        number of elements in the array
  */
 template <typename T>
-void cast_into_lmx_csc_type(lmx::Matrix<T> &lmx_ref,
+void cast_into_lmx_csc_type(SparseMatrix<T> &lmx_ref,
                             std::vector<T> &values_array,
                             std::vector<uint> &vec_ind,
                             std::vector<uint> &cvec_ptr,
@@ -392,7 +392,7 @@ void cast_into_lmx_csc_type(lmx::Matrix<T> &lmx_ref,
  * @param  {[type]} int size        number of elements in the array
  */
 template <typename T>
-void cast_into_lmx_csr_type(lmx::Matrix<T> &lmx_ref,
+void cast_into_lmx_csr_type(SparseMatrix<T> &lmx_ref,
                             std::vector<T> &values_array,
                             std::vector<uint> &vec_ind,
                             std::vector<uint> &cvec_ptr,
@@ -749,7 +749,7 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
                                                int supportNodeSize,
                                                bool isCSC);
     //
-    template void cast_into_lmx_type<float>(lmx::Matrix<float> &lmx_ref,
+    template void cast_into_lmx_type<float>(SparseMatrix<float> &lmx_ref,
                                             std::vector<float> &values_array,
                                             std::vector<uint> &vec_ind,
                                             std::vector<uint> &cvec_ptr,
@@ -757,7 +757,7 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
                                             int number_columns,
                                             bool use_csc);
     //
-    template void cast_into_lmx_type<double>(lmx::Matrix<double> &lmx_ref,
+    template void cast_into_lmx_type<double>(SparseMatrix<double> &lmx_ref,
                                             std::vector<double> &values_array,
                                             std::vector<uint> &vec_ind,
                                             std::vector<uint> &cvec_ptr,
@@ -779,28 +779,28 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
                                                  int number_rows,
                                                  int number_columns);
     //
-    template void cast_into_lmx_csc_type<float>(lmx::Matrix<float> &lmx_ref,
+    template void cast_into_lmx_csc_type<float>(SparseMatrix<float> &lmx_ref,
                                                 std::vector<float> &values_array,
                                                 std::vector<uint> &vec_ind,
                                                 std::vector<uint> &cvec_ptr,
                                                 int number_rows,
                                                 int number_columns);
     //
-    template void cast_into_lmx_csc_type<double>(lmx::Matrix<double> &lmx_ref,
+    template void cast_into_lmx_csc_type<double>(SparseMatrix<double> &lmx_ref,
                                                 std::vector<double> &values_array,
                                                 std::vector<uint> &vec_ind,
                                                 std::vector<uint> &cvec_ptr,
                                                 int number_rows,
                                                 int number_columns);
     //
-    template void cast_into_lmx_csr_type<float>(lmx::Matrix<float> &lmx_ref,
+    template void cast_into_lmx_csr_type<float>(SparseMatrix<float> &lmx_ref,
                                                 std::vector<float> &values_array,
                                                 std::vector<uint> &vec_ind,
                                                 std::vector<uint> &cvec_ptr,
                                                 int number_rows,
                                                 int number_columns);
     //
-    template void cast_into_lmx_csr_type<double>(lmx::Matrix<double> &lmx_ref,
+    template void cast_into_lmx_csr_type<double>(SparseMatrix<double> &lmx_ref,
                                                 std::vector<double> &values_array,
                                                 std::vector<uint> &vec_ind,
                                                 std::vector<uint> &cvec_ptr,

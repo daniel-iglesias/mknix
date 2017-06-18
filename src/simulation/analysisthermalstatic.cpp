@@ -45,9 +45,9 @@ AnalysisThermalStatic::~AnalysisThermalStatic()
 }
 
 
-void AnalysisThermalStatic::solve( lmx::Vector< data_type >* q_in,
-                                   lmx::Vector< data_type >* qdot_in = 0,
-                                   lmx::Vector< data_type >* not_used = 0
+void AnalysisThermalStatic::solve( VectorX< data_type >* q_in,
+                                   VectorX< data_type >* qdot_in = 0,
+                                   VectorX< data_type >* not_used = 0
                                  )
 {
     theProblem.setInitialConfiguration( *q_in );

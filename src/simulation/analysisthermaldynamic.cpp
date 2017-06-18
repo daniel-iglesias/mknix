@@ -65,7 +65,7 @@ AnalysisThermalDynamic::~AnalysisThermalDynamic()
 {
 }
 
-void AnalysisThermalDynamic::init(lmx::Vector< data_type > * qt_in, int vervosity)
+void AnalysisThermalDynamic::init(VectorX< data_type > * qt_in, int vervosity)
 {
 //     if( lmx::getMatrixType() == 1 )
 //    theProblem.setSparsePatternJacobian( theSimulation->getSparsePattern() ); // TBD for 1-DOF
@@ -77,13 +77,13 @@ void AnalysisThermalDynamic::init(lmx::Vector< data_type > * qt_in, int vervosit
 
 void AnalysisThermalDynamic::nextStep()
 {
-    theProblem.stepSolve();  
+    theProblem.stepSolve();
 }
 
 
-void AnalysisThermalDynamic::solve( lmx::Vector< data_type > * qt_in,
-                                    lmx::Vector< data_type >* qdot_in = 0,
-                                    lmx::Vector< data_type >* not_used = 0
+void AnalysisThermalDynamic::solve( VectorX< data_type > * qt_in,
+                                    VectorX< data_type >* qdot_in = 0,
+                                    VectorX< data_type >* not_used = 0
                                   )
 {
     if( lmx::getMatrixType() == 1 )

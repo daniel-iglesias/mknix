@@ -101,7 +101,7 @@ void Constraint::calcTangentMatrix()
 
 
 void Constraint::assembleInternalForces
-        (lmx::Vector<data_type>& globalInternalForces)
+        (VectorX<data_type>& globalInternalForces)
 {
     int nodesSize = nodes.size();
     int i, m;
@@ -128,7 +128,7 @@ void Constraint::assembleInternalForces
 }
 
 void Constraint::assembleTangentMatrix
-        (lmx::Matrix<data_type>& globalTangent)
+        (SparseMatrix<data_type>& globalTangent)
 {
     int nodesSize = nodes.size();
     size_t supportNodesSize_i, supportNodesSize_j;
@@ -221,18 +221,18 @@ void mknix::Constraint::clearAugmented()
     }
 }
 
-void mknix::Constraint::outputStep(const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot)
+void mknix::Constraint::outputStep(const VectorX<data_type>& q, const VectorX<data_type>& qdot)
 {
     if (!title.empty()) { // do not store internal constraints of rigid bodies
-        internalForcesOutput.push_back(lmx::Vector<data_type>(internalForces.size()));
+        internalForcesOutput.push_back(VectorX<data_type>(internalForces.size()));
         internalForcesOutput.back() = internalForces;
     }
 }
 
-void mknix::Constraint::outputStep(const lmx::Vector<data_type>& q)
+void mknix::Constraint::outputStep(const VectorX<data_type>& q)
 {
     if (!title.empty()) { // do not store internal constraints of rigid bodies
-        internalForcesOutput.push_back(lmx::Vector<data_type>(internalForces.size()));
+        internalForcesOutput.push_back(VectorX<data_type>(internalForces.size()));
         internalForcesOutput.back() = internalForces;
     }
 }

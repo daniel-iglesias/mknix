@@ -22,6 +22,7 @@
 
 #include "point.h"
 #include "LMX/lmx.h"
+#include "gpu/cpu_run_type.h"
 
 namespace mknix {
 
@@ -63,11 +64,11 @@ public:
 //     inline const double& getx() const {
 //         return this->x;
 //     }
-// 
+//
 //     inline const double& gety() const {
 //         return this->y;
 //     }
-// 
+//
 //     inline const double& getz() const {
 //         return this->z;
 //     }
@@ -127,9 +128,9 @@ public:
         qz = Z + uz_in;
     }
 
-    void setqx(const lmx::Vector<data_type>& globalConf, int dim);
+    void setqx(const VectorX<data_type>& globalConf, int dim);
 
-    void setqt( const lmx::Vector<data_type>& globalConf );
+    void setqt( const VectorX<data_type>& globalConf );
 
     void setqt( double temp_in ){
       qt = temp_in;
@@ -137,15 +138,15 @@ public:
 //     inline void setx(double x_in) {
 //         qx = x_in;
 //     }
-// 
+//
 //     inline void sety(double y_in) {
 //         y = y_in;
 //     }
-// 
+//
 //     inline void setz(double z_in) {
 //         z = z_in;
 //     }
-// 
+//
     inline void setX(double X_in) {
         X = X_in;
         qx = X_in;

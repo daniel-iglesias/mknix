@@ -35,14 +35,14 @@ public:
 
     virtual ~Load();
 
-    virtual void assembleExternalForces( lmx::Vector<data_type> & );
+    virtual void assembleExternalForces( VectorX<data_type> & );
 
     virtual void outputToFile( std::ofstream* )=0;
 
 protected:
     std::vector<Node*> nodes;
-    lmx::Vector<data_type> externalForces;
-    lmx::Vector<data_type> externalHeat;
+    VectorX<data_type> externalForces;
+    VectorX<data_type> externalHeat;
 };
 
 }

@@ -40,9 +40,9 @@ public:
 
     ~ConstraintThermal();
 
-    virtual void assembleInternalForces( lmx::Vector<data_type> & );
+    virtual void assembleInternalForces( VectorX<data_type> & );
 
-    virtual void assembleTangentMatrix( lmx::Matrix<data_type> & );
+    virtual void assembleTangentMatrix( SparseMatrix<data_type> & );
 
 
 protected:

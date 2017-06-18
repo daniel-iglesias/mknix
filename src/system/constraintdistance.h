@@ -49,7 +49,7 @@ public:
         ro = new_ro;
     }
 
-    lmx::Vector<data_type>& getInternalForces( ) {
+    VectorX<data_type>& getInternalForces( ) {
         return this->internalForces;
     }
 

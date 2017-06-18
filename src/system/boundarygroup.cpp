@@ -95,7 +95,7 @@ void BoundaryGroup::calcExternalHeat()
  *
  * @return void
  **/
-void BoundaryGroup::assembleExternalHeat(lmx::Vector<data_type>& globalExternalHeat)
+void BoundaryGroup::assembleExternalHeat(VectorX<data_type>& globalExternalHeat)
 {
     int end_int = this->cells.size();
 //     #pragma omp parallel for

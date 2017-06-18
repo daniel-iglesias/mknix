@@ -72,16 +72,16 @@ public:
 
     virtual void calcTangentMatrix( ) = 0;
 
-    virtual void assembleInternalForces( lmx::Vector<data_type> & ) = 0;
+    virtual void assembleInternalForces( VectorX<data_type> & ) = 0;
 
-    virtual void assembleTangentMatrix( lmx::Matrix<data_type> & ) = 0;
+    virtual void assembleTangentMatrix( SparseMatrix<data_type> & ) = 0;
 
     void addBodyPoint( Point*, std::string );
-    
+
     void addPoint( /*const*/ Node* );
-    
+
     void addPoint( int, double, double, double, double, double );
-    
+
     virtual int getNumberOfPoints( )
     { return points.size();  }
 
@@ -107,10 +107,10 @@ protected:
     std::vector<Point*> bodyPoints; /**< Points to define integration domain */
     bool computeStress;
     bool computeEnergy;
-//     std::vector<Node*> points; 
-    lmx::Matrix< data_type > smoothingMassMatrix;
-    std::vector< lmx::Vector<data_type> > stresses;
-    std::vector< lmx::Vector<data_type>* > energies;
+//     std::vector<Node*> points;
+    SparseMatrix< data_type > smoothingMassMatrix;
+    std::vector< VectorX<data_type> > stresses;
+    std::vector< VectorX<data_type>* > energies;
 };
 
 }

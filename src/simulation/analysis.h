@@ -26,6 +26,8 @@
 #include "LMX/lmx_diff_problem_first.h"
 #include "LMX/lmx_diff_problem_second.h"
 
+#include "gpu/cpu_run_type.h"
+
 namespace mknix {
 
 class Simulation;
@@ -46,12 +48,12 @@ public:
         epsilon = epsilon_in;
     }
 
-    virtual void solve( lmx::Vector<data_type> *,
-                        lmx::Vector<data_type> * = 0,
-                        lmx::Vector<data_type> * = 0
+    virtual void solve( VectorX<data_type> *,
+                        VectorX<data_type> * = 0,
+                        VectorX<data_type> * = 0
                       ) = 0;
-    
-    virtual void init(lmx::Vector< data_type > *, int){} // specialised in AnalysisThermalDynamic
+
+    virtual void init(VectorX< data_type > *, int){} // specialised in AnalysisThermalDynamic
     virtual void nextStep(){} // specialised in AnalysisThermalDynamic
 
 protected:

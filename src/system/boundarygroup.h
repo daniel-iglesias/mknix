@@ -51,9 +51,9 @@ public:
 
     virtual void calcExternalHeat();
 
-    virtual void assembleExternalHeat(lmx::Vector<data_type>&);
+    virtual void assembleExternalHeat(VectorX<data_type>&);
 
-//     virtual void assembleExternalForces( lmx::Vector<data_type> & ) = 0;
+//     virtual void assembleExternalForces( VectorX<data_type> & ) = 0;
 
     virtual void addNode(Node * node_in)
     {

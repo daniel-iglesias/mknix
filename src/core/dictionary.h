@@ -22,7 +22,7 @@
 
 namespace mknix {
 
-static lmx::Vector<double> gravity(3);
+static VectorX<double> gravity(3);
 
 }
 

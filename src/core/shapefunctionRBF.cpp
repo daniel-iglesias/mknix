@@ -151,8 +151,8 @@ void ShapeFunctionRBF::computeMomentMatrix()
 
 void ShapeFunctionRBF::computePhi(double xp, double yp, double zp)
 {
-    lmx::Vector<double> rhs(nn);
-    lmx::Vector<double> phii(nn);
+    VectorX<double> rhs(nn);
+    VectorX<double> phii(nn);
     lmx::DenseMatrix<double> rk;
     if(dim==2)
         rk.resize(6, nn); /**< Radial basis and derivatives. */

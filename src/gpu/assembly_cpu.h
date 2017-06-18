@@ -9,6 +9,9 @@
 
 #include <atomic>
 #include <pthread.h>
+#include "cpu_run_type.h"
+
+//#include <Sparse> //eigen
 
 /**
  * Structure containing all parameters for multithreaded launch of Capacity with SOA structures assembly
@@ -195,7 +198,7 @@ float inline atomic_fetch_add(std::atomic<float>* target, float value){
  * @param  {[type]} int size        number of elements in the array
  */
 template <typename T>
-void cast_into_lmx_type(lmx::Matrix<T> &lmx_ref,
+void cast_into_lmx_type(SparseMatrix<T> &lmx_ref,
                         std::vector<T> &values_array,
                         std::vector<uint> &vec_ind,
                         std::vector<uint> &cvec_ptr,
@@ -213,7 +216,7 @@ void cast_into_gmm_csc_type(gmm::csc_matrix<T>& gmm_matrix,
 
 //
 template <typename T>
-void cast_into_lmx_csc_type(lmx::Matrix<T> &lmx_ref,
+void cast_into_lmx_csc_type(SparseMatrix<T> &lmx_ref,
                             std::vector<T> &values_array,
                             std::vector<uint> &vec_ind,
                             std::vector<uint> &cvec_ptr,
@@ -222,7 +225,7 @@ void cast_into_lmx_csc_type(lmx::Matrix<T> &lmx_ref,
 //
 
 template <typename T>
-void cast_into_lmx_csr_type(lmx::Matrix<T> &lmx_ref,
+void cast_into_lmx_csr_type(SparseMatrix<T> &lmx_ref,
                             std::vector<T> &values_array,
                             std::vector<uint> &vec_ind,
                             std::vector<uint> &cvec_ptr,

@@ -38,14 +38,14 @@ public:
     Constraint(double&, std::string&, int);
 
     virtual ~Constraint();
-    
+
     void setTitle( std::string& title_in )
     { title = title_in; }
-  
-    lmx::Vector<data_type>& getInternalForces( ) {
+
+    VectorX<data_type>& getInternalForces( ) {
         return this->internalForces;
     }
-    
+
     lmx::DenseMatrix<data_type>& getStiffnessMatrix( ) {
         return this->stiffnessMatrix;
     }
@@ -62,9 +62,9 @@ public:
 
     virtual void calcTangentMatrix( );
 
-    virtual void assembleInternalForces( lmx::Vector<data_type> & );
+    virtual void assembleInternalForces( VectorX<data_type> & );
 
-    virtual void assembleTangentMatrix( lmx::Matrix<data_type> & );
+    virtual void assembleTangentMatrix( SparseMatrix<data_type> & );
 
     virtual bool checkAugmented();
 
@@ -75,9 +75,9 @@ public:
         return nodes[nodeNumber];
     }
 
-    void outputStep( const lmx::Vector<data_type>&, const lmx::Vector<data_type>& );
+    void outputStep( const VectorX<data_type>&, const VectorX<data_type>& );
 
-    void outputStep( const lmx::Vector<data_type>& );
+    void outputStep( const VectorX<data_type>& );
 
     void outputToFile( std::ofstream* );
 
@@ -87,12 +87,12 @@ protected:
     std::string method;
     std::string title;
     std::vector<Node*> nodes;
-    lmx::Vector<data_type> internalForces;
-    std::vector< lmx::Vector<data_type> > internalForcesOutput;
+    VectorX<data_type> internalForces;
+    std::vector< VectorX<data_type> > internalForcesOutput;
     lmx::DenseMatrix<data_type> stiffnessMatrix;
     std::vector< double > lambda;
     std::vector< double > phi;
-    std::vector< lmx::Vector<data_type> > phi_q;
+    std::vector< VectorX<data_type> > phi_q;
     std::vector< lmx::DenseMatrix<data_type> > phi_qq;
 
 };

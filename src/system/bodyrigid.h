@@ -38,9 +38,9 @@ public:
 
     virtual ~RigidBody();
 
-    void assembleMassMatrix( lmx::Matrix<data_type> & );
+    void assembleMassMatrix( SparseMatrix<data_type> & );
 
-    void assembleExternalForces( lmx::Vector<data_type> & );
+    void assembleExternalForces( VectorX<data_type> & );
 
 //     virtual Node* getDomainNode( std::string ); // Redefined by RigidBar
 
@@ -57,9 +57,9 @@ public:
 
     Node* getNode( int );
 
-    void outputStep( const lmx::Vector<data_type>&, const lmx::Vector<data_type>& );
+    void outputStep( const VectorX<data_type>&, const VectorX<data_type>& );
 
-    void outputStep( const lmx::Vector<data_type>& );
+    void outputStep( const VectorX<data_type>& );
 
     void outputToFile( std::ofstream* );
 
@@ -75,10 +75,10 @@ protected:
     int dim;
     double mass, densityFactor;
     std::vector<Node*> frameNodes;
-    std::vector< lmx::Vector<data_type>* > domainConf;
-    lmx::Vector<data_type> externalForces;
+    std::vector< VectorX<data_type>* > domainConf;
+    VectorX<data_type> externalForces;
     lmx::DenseMatrix< data_type > localMassMatrix;
-    std::vector< lmx::Vector<data_type>* > energy;
+    std::vector< VectorX<data_type>* > energy;
 };
 
 }

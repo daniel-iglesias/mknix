@@ -42,7 +42,7 @@ public:
 
     void calcPhiqq( ) ;
 
-    lmx::Vector<data_type>& getInternalForces( ) {
+    VectorX<data_type>& getInternalForces( ) {
         return this->internalForces;
     }
 

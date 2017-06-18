@@ -109,7 +109,7 @@ void FlexFrameGalerkin::calcTangentMatrix()
 }
 
 void FlexFrameGalerkin::assembleMassMatrix
-        (lmx::Matrix<data_type>& globalMass)
+        (SparseMatrix<data_type>& globalMass)
 {
     int end_int = this->cells.size();
     for (int i = 0;
@@ -136,7 +136,7 @@ void FlexFrameGalerkin::assembleMassMatrix
 }
 
 void FlexFrameGalerkin::assembleInternalForces
-        (lmx::Vector<data_type>& globalInternalForces)
+        (VectorX<data_type>& globalInternalForces)
 {
     int end_int = this->cells.size();
     for (int i = 0;
@@ -148,7 +148,7 @@ void FlexFrameGalerkin::assembleInternalForces
 }
 
 void FlexFrameGalerkin::assembleExternalForces
-        (lmx::Vector<data_type>& globalExternalForces)
+        (VectorX<data_type>& globalExternalForces)
 {
     int end_int = this->cells.size();
     for (int i = 0;
@@ -159,7 +159,7 @@ void FlexFrameGalerkin::assembleExternalForces
 
 }
 
-void FlexFrameGalerkin::assembleTangentMatrix(lmx::Matrix<data_type>& globalTangent)
+void FlexFrameGalerkin::assembleTangentMatrix(SparseMatrix<data_type>& globalTangent)
 {
     int end_int = this->cells.size();
     for (int i = 0;
@@ -177,7 +177,7 @@ void FlexFrameGalerkin::assembleTangentMatrix(lmx::Matrix<data_type>& globalTang
  * @param qdot Global configuration first derivative vector
  * @return void
  **/
-void FlexFrameGalerkin::outputStep(const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot)
+void FlexFrameGalerkin::outputStep(const VectorX<data_type>& q, const VectorX<data_type>& qdot)
 {
     Body::outputStep();
     int stressVectorSize = (Simulation::getDim() == 2) ? 3 : 6;
@@ -185,7 +185,7 @@ void FlexFrameGalerkin::outputStep(const lmx::Vector<data_type>& q, const lmx::V
     if (computeStress) {
         if (formulation == "LINEAR") {
 
-            stress.push_back(new lmx::Vector<data_type>(stressVectorSize * nodes.size()));
+            stress.push_back(new VectorX<data_type>(stressVectorSize * nodes.size()));
 
             int end_int = this->cells.size();
             for (int i = 0;
@@ -196,7 +196,7 @@ void FlexFrameGalerkin::outputStep(const lmx::Vector<data_type>& q, const lmx::V
         }
         else if (formulation == "NONLINEAR") {
 
-            stress.push_back(new lmx::Vector<data_type>(stressVectorSize * nodes.size()));
+            stress.push_back(new VectorX<data_type>(stressVectorSize * nodes.size()));
 
             int end_int = this->cells.size();
             for (int i = 0;
@@ -209,7 +209,7 @@ void FlexFrameGalerkin::outputStep(const lmx::Vector<data_type>& q, const lmx::V
     }
 
     if (computeEnergy) {
-        energy.push_back(new lmx::Vector<data_type>(4)); //potential, kinetic, elastic, total
+        energy.push_back(new VectorX<data_type>(4)); //potential, kinetic, elastic, total
 
         energy.back()->fillIdentity(0.);
 
@@ -234,7 +234,7 @@ void FlexFrameGalerkin::outputStep(const lmx::Vector<data_type>& q, const lmx::V
  * @param q Global configuration vector
  * @return void
  **/
-void FlexFrameGalerkin::outputStep(const lmx::Vector<data_type>& q)
+void FlexFrameGalerkin::outputStep(const VectorX<data_type>& q)
 {
     Body::outputStep();
     int stressVectorSize = (Simulation::getDim() == 2) ? 3 : 6;
@@ -242,7 +242,7 @@ void FlexFrameGalerkin::outputStep(const lmx::Vector<data_type>& q)
     if (computeStress) {
         if (formulation == "LINEAR") {
 
-            stress.push_back(new lmx::Vector<data_type>(stressVectorSize * nodes.size()));
+            stress.push_back(new VectorX<data_type>(stressVectorSize * nodes.size()));
 
             int end_int = this->cells.size();
 #pragma omp parallel for
@@ -254,7 +254,7 @@ void FlexFrameGalerkin::outputStep(const lmx::Vector<data_type>& q)
         }
         else if (formulation == "NONLINEAR") {
 
-            stress.push_back(new lmx::Vector<data_type>(stressVectorSize * nodes.size()));
+            stress.push_back(new VectorX<data_type>(stressVectorSize * nodes.size()));
 
             int end_int = this->cells.size();
 #pragma omp parallel for
@@ -268,7 +268,7 @@ void FlexFrameGalerkin::outputStep(const lmx::Vector<data_type>& q)
     }
 
     if (computeEnergy) {
-        energy.push_back(new lmx::Vector<data_type>(4)); //potential, kinetic, elastic, total
+        energy.push_back(new VectorX<data_type>(4)); //potential, kinetic, elastic, total
 
         energy.back()->fillIdentity(0.);
 
@@ -290,8 +290,8 @@ void FlexFrameGalerkin::recoverStressField(int stressVectorSize)
 {
     if (Simulation::getSmoothingType() == "GLOBAL") {
         // Solve linear systems for stress smoothing:
-        lmx::Vector<data_type> rhs(nodes.size());
-        lmx::Vector<data_type> smooth(nodes.size());
+        VectorX<data_type> rhs(nodes.size());
+        VectorX<data_type> smooth(nodes.size());
         auto j = 0u;
 //         for(j=0; j<stressVectorSize; ++j){
         for (auto i = 0u; i < nodes.size(); ++i) {
@@ -309,4 +309,3 @@ void FlexFrameGalerkin::recoverStressField(int stressVectorSize)
 }
 
 }
-

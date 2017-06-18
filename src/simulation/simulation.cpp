@@ -35,7 +35,7 @@ namespace mknix {
 // Static variables:
 double Simulation::stepTime = 0;
 double Simulation::oldClockTime = 0;
-lmx::Vector<double> Simulation::gravity = lmx::Vector<double>(3);
+VectorX<double> Simulation::gravity = VectorX<double>(3);
 double Simulation::alpha = 1E4;
 int Simulation::dimension = 2;
 std::string Simulation::contact = "NONE";
@@ -134,14 +134,14 @@ void Simulation::init(int vervosity)
     }
 }
 
-lmx::Vector<data_type> Simulation::initThermalSimulation(Analysis * theAnalysis_in, int vervosity, bool init)
+VectorX<data_type> Simulation::initThermalSimulation(Analysis * theAnalysis_in, int vervosity, bool init)
 {
 
 //std::cout << "\n\n  --- void Simulation::initThermalSimulation --- \n" << std::endl;
 
     theAnalysis = theAnalysis_in;
     auto gdlSize = nodes.size();
-    lmx::Vector<data_type> q(gdlSize);
+    VectorX<data_type> q(gdlSize);
     q.fillIdentity(initialTemperature);
 
 
@@ -189,13 +189,13 @@ if(OLD_CODE){
     return q;
 }
 
-lmx::Vector<data_type> Simulation::initMechanicalSimulation(Analysis * analysis, bool init)
+VectorX<data_type> Simulation::initMechanicalSimulation(Analysis * analysis, bool init)
 {
 
   std::cout << "\n\n  --- void Simulation::initMechanicalSimulation --- \n" << std::endl;
     theAnalysis = analysis;
     auto gdlSize = nodes.size() * Simulation::dimension;
-    lmx::Vector<data_type> q(gdlSize);
+    VectorX<data_type> q(gdlSize);
 
     globalMass.resize(gdlSize, gdlSize);
     globalRHSForces.resize(gdlSize);
@@ -224,7 +224,7 @@ lmx::Vector<data_type> Simulation::initMechanicalSimulation(Analysis * analysis,
 
     // Output matrices in initial configuration:
     if (outputMatrices) {
-        lmx::Matrix<data_type> K_temp(gdlSize, gdlSize);
+        SparseMatrix<data_type> K_temp(gdlSize, gdlSize);
         baseSystem->calcTangentMatrix();
         baseSystem->assembleTangentMatrix(K_temp);
         K_temp.harwellBoeingSave((char *) "K.mat");
@@ -306,7 +306,7 @@ void Simulation::endSimulation()
 //       cout << "q(" << q.size()-1 << ") = " << q(q.size()-1) << endl;
 
     // output f_int of constraints...
-//     lmx::Vector<double> constr_forces(nodes.size()*dimension);
+//     VectorX<double> constr_forces(nodes.size()*dimension);
 //     baseSystem->assembleConstraintForces( constr_forces );
 //     for(size_type i=0; i< constr_forces.size(); ++i ) {
 //         if(constr_forces(i) != 0. )
@@ -390,7 +390,7 @@ void Simulation::runThermalAnalysis(Analysis * theAnalysis_in)
     }
 
     // output f_int of constraints...
-    lmx::Vector<double> constr_forces(nodes.size() * dimension);
+    VectorX<double> constr_forces(nodes.size() * dimension);
     baseSystem->assembleConstraintForces(constr_forces);
     for (size_type i = 0; i < constr_forces.size(); ++i) {
 //         if(constr_forces(i) != 0. )
@@ -405,7 +405,7 @@ void Simulation::runMechanicalAnalysis(Analysis * theAnalysis_in)
     auto gdlSize = nodes.size() * Simulation::dimension;
 
     if (theAnalysis->type() == "DYNAMIC") {
-        lmx::Vector<data_type> qdot(gdlSize);
+        VectorX<data_type> qdot(gdlSize);
         // output first step data
         theAnalysis->setEpsilon(epsilon);
         theAnalysis->solve(&q, &qdot);
@@ -416,8 +416,8 @@ void Simulation::runMechanicalAnalysis(Analysis * theAnalysis_in)
     else if (theAnalysis->type() == "THERMOMECHANICALDYNAMIC") {
         // Init thermal conf vector and a zero velocity vector
         auto thermalSize = thermalNodes.size();
-        lmx::Vector<data_type> qdot(gdlSize);
-        lmx::Vector<data_type> qt(thermalSize);
+        VectorX<data_type> qdot(gdlSize);
+        VectorX<data_type> qt(thermalSize);
         auto i = 0u;
         for (auto& node : thermalNodes) {
             qt(i) = node.second->getqt();
@@ -461,7 +461,7 @@ std::cout << "\n\n  --- void Simulation::runMechanicalAnalysis with THERMOMECHAN
 //       cout << "q(" << q.size()-1 << ") = " << q(q.size()-1) << endl;
 
     // output f_int of constraints...
-//       lmx::Vector<double> constr_forces(nodes.size()*dimension);
+//       VectorX<double> constr_forces(nodes.size()*dimension);
 //       baseSystem->assembleConstraintForces( constr_forces );
 //       for(size_type i=0; i< constr_forces.size(); ++i ){
 //         if(constr_forces(i) != 0. )
@@ -518,8 +518,8 @@ void Simulation::writeSystem()
 
 }
 
-void Simulation::staticThermalResidue(lmx::Vector<data_type>& residue,
-                                      lmx::Vector<data_type>& q
+void Simulation::staticThermalResidue(VectorX<data_type>& residue,
+                                      VectorX<data_type>& q
 )
 {
     for (auto& node : thermalNodes) {
@@ -549,8 +549,8 @@ std::cout << "\n\n  --- void Simulation::staticThermalResidue --- \n" << std::en
 
 }
 
-void Simulation::staticThermalTangent(lmx::Matrix<data_type>& tangent_in,
-                                      lmx::Vector<data_type>& q
+void Simulation::staticThermalTangent(SparseMatrix<data_type>& tangent_in,
+                                      VectorX<data_type>& q
 )
 {
       std::cout << "\n\n  --- void Simulation::staticThermalTangent --- \n\n" << std::endl;
@@ -562,11 +562,11 @@ void Simulation::staticThermalTangent(lmx::Matrix<data_type>& tangent_in,
 //     cout << tangent_in << endl;
 }
 
-bool Simulation::staticThermalConvergence(lmx::Vector<data_type>& res,
-                                          lmx::Vector<data_type>& q)
+bool Simulation::staticThermalConvergence(VectorX<data_type>& res,
+                                          VectorX<data_type>& q)
 {
     std::cout << "\n\n  --- void Simulation::staticThermalConvergence --- \n\n" << std::endl;
-//   lmx::Vector<data_type> res( qddot.size() );
+//   VectorX<data_type> res( qddot.size() );
 //   res =  globalInternalForces - globalExternalForces;
     if (res.norm2() <= epsilon) {
         if (baseSystem->checkAugmented()) { // if convergence...
@@ -583,8 +583,8 @@ bool Simulation::staticThermalConvergence(lmx::Vector<data_type>& res,
 }
 
 
-void Simulation::explicitThermalEvaluation(const lmx::Vector<data_type>& qt,
-                                          lmx::Vector<data_type>& qtdot, double time )
+void Simulation::explicitThermalEvaluation(const VectorX<data_type>& qt,
+                                          VectorX<data_type>& qtdot, double time )
 {
     for (auto& node : thermalNodes) {
         node.second->setqt(qt);
@@ -619,8 +619,8 @@ std::cout << "\n\n  --- void Simulation::explicitThermalEvaluation --- \n" << st
 
 }
 
-void Simulation::dynamicThermalEvaluation(const lmx::Vector<data_type>& qt,
-                                          lmx::Vector<data_type>& qtdot,
+void Simulation::dynamicThermalEvaluation(const VectorX<data_type>& qt,
+                                          VectorX<data_type>& qtdot,
                                           double time)
 {
  //std::cout << "\n\n  --- void Simulation::dynamicThermalEvaluation --- \n" << std::endl;
@@ -702,9 +702,9 @@ globalInternalHeat.reset();
     cpuTock(&evalck, "\n>>>>>>>>>>.Simulation::dynamicThermalEvaluation");
 }
 
-void Simulation::dynamicThermalResidue(lmx::Vector<data_type>& residue,
-                                       const lmx::Vector<data_type>& q,
-                                       const lmx::Vector<data_type>& qdot,
+void Simulation::dynamicThermalResidue(VectorX<data_type>& residue,
+                                       const VectorX<data_type>& q,
+                                       const VectorX<data_type>& qdot,
                                        double /*time*/
 )
 {
@@ -778,8 +778,8 @@ cpuTock(&resck, "Simulation::dynamicThermalResidue");
 
 }
 
-void Simulation::dynamicThermalTangent(lmx::Matrix<data_type>& tangent_in,
-                                       const lmx::Vector<data_type>& q,
+void Simulation::dynamicThermalTangent(SparseMatrix<data_type>& tangent_in,
+                                       const VectorX<data_type>& q,
                                        double partial_qdot,
                                        double /*time*/
 )
@@ -799,8 +799,8 @@ void Simulation::dynamicThermalTangent(lmx::Matrix<data_type>& tangent_in,
 
 }
 
-bool Simulation::dynamicThermalConvergence(const lmx::Vector<data_type>& q,
-                                           const lmx::Vector<data_type>& qdot,
+bool Simulation::dynamicThermalConvergence(const VectorX<data_type>& q,
+                                           const VectorX<data_type>& qdot,
                                            double time
 )
 {
@@ -808,7 +808,7 @@ bool Simulation::dynamicThermalConvergence(const lmx::Vector<data_type>& q,
   cpuClock conck;
   cpuTick(&conck);
     ++iterationsNLSolver;
-    lmx::Vector<data_type> res(qdot.size());
+    VectorX<data_type> res(qdot.size());
 //  double energy_max, energy_sum;
 //  cout << "\n"
 //       << (globalMass*qddot).norm2() << "\t"
@@ -819,9 +819,9 @@ bool Simulation::dynamicThermalConvergence(const lmx::Vector<data_type>& q,
     res = globalCapacity * qdot + globalConductivity * q + globalInternalHeat - globalExternalHeat;
 
 //debug block
-/*lmx::Vector<data_type> res_cap(qdot.size());
+/*VectorX<data_type> res_cap(qdot.size());
 res_cap = globalCapacity * qdot;
-lmx::Vector<data_type> res_cond(qdot.size());
+VectorX<data_type> res_cond(qdot.size());
 res_cond = globalConductivity * q;
 
 std::cout<< " " << globalExternalHeat << std::endl;*/
@@ -852,13 +852,13 @@ std::cout<< " " << globalExternalHeat << std::endl;*/
       return 0; }
 }
 
-bool Simulation::dynamicThermalConvergenceInThermomechanical(const lmx::Vector<data_type>& q,
-                                                             const lmx::Vector<data_type>& qdot,
+bool Simulation::dynamicThermalConvergenceInThermomechanical(const VectorX<data_type>& q,
+                                                             const VectorX<data_type>& qdot,
                                                              double time
 )
 {
   std::cout << "\n\n  --- void Simulation::dynamicThermalConvergenceInThermomechanical --- \n" << std::endl;
-    lmx::Vector<data_type> res(qdot.size());
+    VectorX<data_type> res(qdot.size());
     res = globalCapacity * qdot + globalConductivity * q + globalInternalHeat - globalExternalHeat;
     if (res.norm2() <= epsilon) {
         if (baseSystem->checkAugmented()) {
@@ -872,9 +872,9 @@ bool Simulation::dynamicThermalConvergenceInThermomechanical(const lmx::Vector<d
 }
 
 
-void Simulation::explicitAcceleration(const lmx::Vector<data_type>& q,
-                                      const lmx::Vector<data_type>& qdot,
-                                      lmx::Vector<data_type>& qddot,
+void Simulation::explicitAcceleration(const VectorX<data_type>& q,
+                                      const VectorX<data_type>& qdot,
+                                      VectorX<data_type>& qddot,
                                       double time
 )
 {
@@ -905,9 +905,9 @@ void Simulation::explicitAcceleration(const lmx::Vector<data_type>& q,
 
 }
 
-void Simulation::dynamicAcceleration(const lmx::Vector<data_type>& q,
-                                     const lmx::Vector<data_type>& qdot,
-                                     lmx::Vector<data_type>& qddot,
+void Simulation::dynamicAcceleration(const VectorX<data_type>& q,
+                                     const VectorX<data_type>& qdot,
+                                     VectorX<data_type>& qddot,
                                      double /*time*/
 )
 {
@@ -933,10 +933,10 @@ void Simulation::dynamicAcceleration(const lmx::Vector<data_type>& q,
 //    cout << "initial_acceleration :" << qddot << endl;
 }
 
-void Simulation::dynamicResidue(lmx::Vector<data_type>& residue,
-                                const lmx::Vector<data_type>& q,
-                                const lmx::Vector<data_type>& qdot,
-                                const lmx::Vector<data_type>& qddot,
+void Simulation::dynamicResidue(VectorX<data_type>& residue,
+                                const VectorX<data_type>& q,
+                                const VectorX<data_type>& qdot,
+                                const VectorX<data_type>& qddot,
                                 double time
 )
 {
@@ -969,9 +969,9 @@ void Simulation::dynamicResidue(lmx::Vector<data_type>& residue,
 //     cout << "globalExternalForces : " << globalExternalForces;
 }
 
-void Simulation::dynamicTangent(lmx::Matrix<data_type>& tangent_in,
-                                const lmx::Vector<data_type>& q,
-                                const lmx::Vector<data_type>& qdot,
+void Simulation::dynamicTangent(SparseMatrix<data_type>& tangent_in,
+                                const VectorX<data_type>& q,
+                                const VectorX<data_type>& qdot,
                                 double /*partial_qdot*/,
                                 double partial_qddot,
                                 double /*time*/
@@ -984,14 +984,14 @@ void Simulation::dynamicTangent(lmx::Matrix<data_type>& tangent_in,
     tangent_in += (data_type) partial_qddot * globalMass;
 }
 
-bool Simulation::dynamicConvergence(const lmx::Vector<data_type>& q,
-                                    const lmx::Vector<data_type>& qdot,
-                                    const lmx::Vector<data_type>& qddot,
+bool Simulation::dynamicConvergence(const VectorX<data_type>& q,
+                                    const VectorX<data_type>& qdot,
+                                    const VectorX<data_type>& qddot,
                                     double time
 )
 {
     ++iterationsNLSolver;
-    lmx::Vector<data_type> res(qddot.size());
+    VectorX<data_type> res(qddot.size());
 //  double energy_max, energy_sum;
 //  cout << "\n"
 //       << "(globalMass*qddot).norm2() = " << "\t"
@@ -1026,8 +1026,8 @@ bool Simulation::dynamicConvergence(const lmx::Vector<data_type>& q,
 }
 
 
-void Simulation::staticResidue(lmx::Vector<data_type>& residue,
-                               lmx::Vector<data_type>& q
+void Simulation::staticResidue(VectorX<data_type>& residue,
+                               VectorX<data_type>& q
 )
 {
     for (auto& node : nodes) {
@@ -1052,8 +1052,8 @@ void Simulation::staticResidue(lmx::Vector<data_type>& residue,
 //   cout << "globalExternalForces : " << globalExternalForces;
 }
 
-void Simulation::staticTangent(lmx::Matrix<data_type>& tangent_in,
-                               lmx::Vector<data_type>& q
+void Simulation::staticTangent(SparseMatrix<data_type>& tangent_in,
+                               VectorX<data_type>& q
 )
 {
     tangent_in.reset();
@@ -1062,11 +1062,11 @@ void Simulation::staticTangent(lmx::Matrix<data_type>& tangent_in,
 //  cout << "TANGENT:\n" << tangent_in;
 }
 
-bool Simulation::staticConvergence(lmx::Vector<data_type>& res,
-                                   lmx::Vector<data_type>& q
+bool Simulation::staticConvergence(VectorX<data_type>& res,
+                                   VectorX<data_type>& q
 )
 {
-//   lmx::Vector<data_type> res( qddot.size() );
+//   VectorX<data_type> res( qddot.size() );
 //   res =  globalInternalForces - globalExternalForces;
     if (res.norm2() <= epsilon) {
         if (baseSystem->checkAugmented()) { // if convergence...
@@ -1135,7 +1135,7 @@ void Simulation::writeConfStep()
 
 }
 
-void Simulation::systemOuputStep(const lmx::Vector<data_type>& q)
+void Simulation::systemOuputStep(const VectorX<data_type>& q)
 {
     if (outputFilesDetail > 1) {
         baseSystem->outputStep(q);
@@ -1143,7 +1143,7 @@ void Simulation::systemOuputStep(const lmx::Vector<data_type>& q)
 
 }
 
-void Simulation::systemOuputStep(const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot)
+void Simulation::systemOuputStep(const VectorX<data_type>& q, const VectorX<data_type>& qdot)
 {
     if (outputFilesDetail > 1) {
         baseSystem->outputStep(q, qdot);

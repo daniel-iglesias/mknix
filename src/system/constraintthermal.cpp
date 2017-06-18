@@ -41,7 +41,7 @@ ConstraintThermal::~ConstraintThermal()
 }
 
 void ConstraintThermal::assembleInternalForces
-(lmx::Vector< data_type > & globalInternalForces)
+(VectorX< data_type > & globalInternalForces)
 {
     int nodesSize = nodes.size();
     int i, m;
@@ -67,7 +67,7 @@ void ConstraintThermal::assembleInternalForces
     }
 }
 
-void ConstraintThermal::assembleTangentMatrix(lmx::Matrix< data_type > & globalTangent)
+void ConstraintThermal::assembleTangentMatrix(SparseMatrix< data_type > & globalTangent)
 {
     int nodesSize = nodes.size();
     size_t supportNodesSize_i, supportNodesSize_j;

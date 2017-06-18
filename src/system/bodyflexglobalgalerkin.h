@@ -54,17 +54,17 @@ public:
 
     void calcTangentMatrix( );
 
-    void assembleMassMatrix( lmx::Matrix<data_type> & );
+    void assembleMassMatrix( SparseMatrix<data_type> & );
 
-    void assembleInternalForces( lmx::Vector<data_type> & );
+    void assembleInternalForces( VectorX<data_type> & );
 
-    void assembleExternalForces( lmx::Vector<data_type> & );
+    void assembleExternalForces( VectorX<data_type> & );
 
-    void assembleTangentMatrix( lmx::Matrix<data_type> & );
+    void assembleTangentMatrix( SparseMatrix<data_type> & );
 
-    void outputStep( const lmx::Vector<data_type>&, const lmx::Vector<data_type>& );
+    void outputStep( const VectorX<data_type>&, const VectorX<data_type>& );
 
-    void outputStep( const lmx::Vector<data_type>& );
+    void outputStep( const VectorX<data_type>& );
 
 private:
     void recoverStressField( int );

@@ -46,7 +46,7 @@ RigidBody::~RigidBody()
 }
 
 
-void RigidBody::assembleMassMatrix(lmx::Matrix<data_type>& globalMass)
+void RigidBody::assembleMassMatrix(SparseMatrix<data_type>& globalMass)
 {
     class Body;
 
@@ -68,7 +68,7 @@ void RigidBody::assembleMassMatrix(lmx::Matrix<data_type>& globalMass)
 }
 
 void RigidBody::assembleExternalForces
-        (lmx::Vector<data_type>& globalExternalForces)
+        (VectorX<data_type>& globalExternalForces)
 {
     int frameNodesSize = frameNodes.size();
     int i, m;
@@ -119,13 +119,13 @@ Node * RigidBody::getNode(int node_number)
 
 
 void RigidBody::outputStep
-        (const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot)
+        (const VectorX<data_type>& q, const VectorX<data_type>& qdot)
 {
     Body::outputStep();
 
     auto nodesSize = nodes.size();
     if (nodesSize > 0) {
-        domainConf.push_back(new lmx::Vector<data_type>(dim * nodesSize));
+        domainConf.push_back(new VectorX<data_type>(dim * nodesSize));
         for (auto i = 0u; i < nodesSize; ++i) {
             for (auto j = 0u; j < (size_t)dim; ++j) {
                 domainConf.back()->writeElement(nodes[i]->getConf(j), dim * i + j);
@@ -135,7 +135,7 @@ void RigidBody::outputStep
     if (computeEnergy) {
         // TODO: compute energy for each kind of rigid body
         /*potential, kinetic, elastic, total*/
-//     energy.push_back( new lmx::Vector<data_type>( 4 ) );
+//     energy.push_back( new VectorX<data_type>( 4 ) );
 //     energy.back()->fillIdentity( 0. );
 //
 //     frameNodesSize = frameNodes.size();
@@ -171,14 +171,14 @@ void RigidBody::outputStep
     }
 }
 
-void RigidBody::outputStep(const lmx::Vector<data_type>& q)
+void RigidBody::outputStep(const VectorX<data_type>& q)
 {
     Body::outputStep();
 
     int nodesSize = nodes.size();
     int i, j;
     if (nodesSize > 0) {
-        domainConf.push_back(new lmx::Vector<data_type>(dim * nodesSize));
+        domainConf.push_back(new VectorX<data_type>(dim * nodesSize));
         for (i = 0; i < nodesSize; ++i) {
             for (j = 0; j < dim; ++j) {
                 domainConf.back()->writeElement(nodes[i]->getConf(j), dim * i + j);
@@ -187,7 +187,7 @@ void RigidBody::outputStep(const lmx::Vector<data_type>& q)
     }
     if (computeEnergy) {
         // TODO: compute energy for each kind of rigid body
-//     energy.push_back( new lmx::Vector<data_type>( 4 ) ); //potential, kinetic, elastic
+//     energy.push_back( new VectorX<data_type>( 4 ) ); //potential, kinetic, elastic
 //
 //     energy.back()->fillIdentity( 0. );
 //
@@ -211,7 +211,7 @@ void RigidBody::outputToFile(std::ofstream * outFile)
 {
     Body::outputToFile(outFile);
 
-    std::vector<lmx::Vector<data_type> *>::iterator itDomainNodes;
+    std::vector<VectorX<data_type> *>::iterator itDomainNodes;
 
     if (domainConf.size() > 0) {
         *outFile << "DOMAIN " << title << " " << nodes.size() << endl;

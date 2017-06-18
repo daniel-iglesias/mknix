@@ -25,7 +25,6 @@
 //#include "LMX/lmx.h"
 #include "gmm/gmm_matrix.h"
 #include "boundarygroup.h"
-#include <Sparse>//Eigen
 
 #include <core/cellboundary.h>
 #include <core/node.h>
@@ -76,9 +75,9 @@ public:
 
     virtual void setMaterialTable(MaterialTable* mt_ptr);
 
-    virtual void setQVector(const lmx::Vector<data_type>& q);
+    virtual void setQVector(const VectorX<data_type>& q);
 
-    virtual void setTemperatureVector(lmx::Vector<data_type>& q);
+    virtual void setTemperatureVector(VectorX<data_type>& q);
 
     virtual void calcCapacityMatrix();
 
@@ -86,21 +85,21 @@ public:
 
     virtual void calcExternalHeat();
 
-    virtual void assembleCapacityMatrix(lmx::Matrix<data_type>&);
+    virtual void assembleCapacityMatrix(SparseMatrix<data_type>&);
     virtual void mapConectivityCapacityMatrix();
 
-    virtual void assembleConductivityMatrix(lmx::Matrix<data_type>&);
+    virtual void assembleConductivityMatrix(SparseMatrix<data_type>&);
     virtual void mapConectivityConductivityMatrix();
 
-    virtual void assembleExternalHeat(lmx::Vector<data_type>&);
+    virtual void assembleExternalHeat(VectorX<data_type>&);
 
     virtual void calcMassMatrix() = 0;
 
     virtual void calcExternalForces() = 0;
 
-    virtual void assembleMassMatrix(lmx::Matrix<data_type>&) = 0;
+    virtual void assembleMassMatrix(SparseMatrix<data_type>&) = 0;
 
-    virtual void assembleExternalForces(lmx::Vector<data_type>&) = 0;
+    virtual void assembleExternalForces(VectorX<data_type>&) = 0;
 
     void setTemperature(double);
 
@@ -112,9 +111,9 @@ public:
     virtual void setOutput(std::string) = 0;
 
     virtual void outputStep
-            (const lmx::Vector<data_type>&, const lmx::Vector<data_type>&) = 0;
+            (const VectorX<data_type>&, const VectorX<data_type>&) = 0;
 
-    virtual void outputStep(const lmx::Vector<data_type>&) = 0;
+    virtual void outputStep(const VectorX<data_type>&) = 0;
 
     virtual void outputStep();
 
@@ -252,7 +251,7 @@ protected:
     /**< Map of integration cells. */
     bool computeEnergy;
     bool isThermal;
-    std::vector<lmx::Vector<data_type> *> temperature;
+    std::vector<VectorX<data_type> *> temperature;
     LoadThermalBody * loadThermalBody;
 
     //map

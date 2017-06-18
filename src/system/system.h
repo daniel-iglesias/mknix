@@ -26,6 +26,7 @@
 #include "common.h"
 #include "core/material.h"
 #include "gpu/functions_cpu.h"
+#include "gpu/cpu_run_type.h"
 
 namespace mknix {
 
@@ -99,9 +100,9 @@ public:
 
     void setupPthreadsParameters();
 
-    void setQVector(const lmx::Vector<data_type>& q);
+    void setQVector(const VectorX<data_type>& q);
 
-    void setTemperatureVector(lmx::Vector<data_type>& q);
+    void setTemperatureVector(VectorX<data_type>& q);
 
     void calcFactors();
 
@@ -115,15 +116,15 @@ public:
 
     void calcThermalTangentMatrix( );
 
-    void assembleCapacityMatrix( lmx::Matrix<data_type>& );
+    void assembleCapacityMatrix( SparseMatrix<data_type>& );
 
-    void assembleConductivityMatrix( lmx::Matrix<data_type>& );
+    void assembleConductivityMatrix( SparseMatrix<data_type>& );
 
-    void assembleExternalHeat( lmx::Vector<data_type>& );
+    void assembleExternalHeat( VectorX<data_type>& );
 
-    void assembleInternalHeat( lmx::Vector<data_type>& );
+    void assembleInternalHeat( VectorX<data_type>& );
 
-    void assembleThermalTangentMatrix( lmx::Matrix<data_type>& );
+    void assembleThermalTangentMatrix( SparseMatrix<data_type>& );
 
     void calcMassMatrix( );
 
@@ -133,21 +134,21 @@ public:
 
     void calcTangentMatrix( );
 
-    void assembleMassMatrix( lmx::Matrix<data_type>& );
+    void assembleMassMatrix( SparseMatrix<data_type>& );
 
-    void assembleInternalForces( lmx::Vector<data_type>& );
+    void assembleInternalForces( VectorX<data_type>& );
 
-    void assembleExternalForces( lmx::Vector<data_type>& );
+    void assembleExternalForces( VectorX<data_type>& );
 
-    void assembleTangentMatrix( lmx::Matrix<data_type>& );
+    void assembleTangentMatrix( SparseMatrix<data_type>& );
 
-    void assembleConstraintForces( lmx::Vector<data_type>& );
+    void assembleConstraintForces( VectorX<data_type>& );
 
     void setMechanical( );
 
-    void outputStep( const lmx::Vector<data_type>&, const lmx::Vector<data_type>& );
+    void outputStep( const VectorX<data_type>&, const VectorX<data_type>& );
 
-    void outputStep( const lmx::Vector<data_type>& );
+    void outputStep( const VectorX<data_type>& );
 
     void outputToFile( std::ofstream* );
 

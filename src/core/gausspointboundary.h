@@ -68,7 +68,7 @@ public:
     virtual void shapeFunSolve( std::string, double ) override;
 
     void computeQext( LoadThermalBoundary1D* );
-    void assembleQext( lmx::Vector<data_type> & );
+    void assembleQext( VectorX<data_type> & );
 
 //     void gnuplotOutStress( std::ofstream& );
 
@@ -79,7 +79,7 @@ protected:
     int num;
     double weight;
 
-    lmx::Vector<data_type> Qext;
+    VectorX<data_type> Qext;
 };
 
 } //Namespace mknix

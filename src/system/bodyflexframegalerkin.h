@@ -54,25 +54,25 @@ public:
 
     void calcTangentMatrix( );
 
-    void assembleMassMatrix( lmx::Matrix<data_type> & );
+    void assembleMassMatrix( SparseMatrix<data_type> & );
 
-    void assembleInternalForces( lmx::Vector<data_type> & );
+    void assembleInternalForces( VectorX<data_type> & );
 
-    void assembleExternalForces( lmx::Vector<data_type> & );
+    void assembleExternalForces( VectorX<data_type> & );
 
-    void assembleTangentMatrix( lmx::Matrix<data_type> & );
+    void assembleTangentMatrix( SparseMatrix<data_type> & );
 
-    void outputStep( const lmx::Vector<data_type>&, const lmx::Vector<data_type>& );
+    void outputStep( const VectorX<data_type>&, const VectorX<data_type>& );
 
-    void outputStep( const lmx::Vector<data_type>& );
+    void outputStep( const VectorX<data_type>& );
 
 private:
     void recoverStressField( int );
 
 private:
     std::string bodyType;
-    std::vector<lmx::Vector<data_type> *> stress;
-    std::vector<lmx::Vector<data_type> *> energy;
+    std::vector<VectorX<data_type> *> stress;
+    std::vector<VectorX<data_type> *> energy;
 };
 
 }

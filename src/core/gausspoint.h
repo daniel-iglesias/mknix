@@ -93,7 +93,7 @@ public:
 
     virtual void computeNLKij( )=0;
 
-    void assembleCij( lmx::Matrix<data_type> & );
+    void assembleCij( SparseMatrix<data_type> & );
     void assembleCijWithMap(data_type *globalCapacity,
                             uint *matrixMap,
                             int num_nodes);
@@ -101,12 +101,12 @@ public:
     void presenceCij(int* presenceMatrix, int num_nodes);
     void presenceHij(int* presenceMatrix, int num_nodes);
 
-    void assembleHij( lmx::Matrix<data_type> & );
+    void assembleHij( SparseMatrix<data_type> & );
     void assembleHijWithMap(data_type *globalConductivity,
                             uint *matrixMap,
                             int num_nodes);
 
-    void assembleQext( lmx::Vector<data_type> & );
+    void assembleQext( VectorX<data_type> & );
 
     double  getNodePhi(int deriv, int node);
 
@@ -115,19 +115,19 @@ public:
     double  getJacobian();
     int  getSupportSize();
 
-    virtual void assembleMij( lmx::Matrix<data_type> & )=0;
+    virtual void assembleMij( SparseMatrix<data_type> & )=0;
 
-    virtual void assembleKij( lmx::Matrix<data_type> & )=0;
+    virtual void assembleKij( SparseMatrix<data_type> & )=0;
 
-    virtual void assembleRi( lmx::Vector<data_type> &, int )=0;
+    virtual void assembleRi( VectorX<data_type> &, int )=0;
 
-    virtual void assembleFint( lmx::Vector<data_type> & )=0;
+    virtual void assembleFint( VectorX<data_type> & )=0;
 
-    virtual void assembleFext( lmx::Vector<data_type> & )=0;
+    virtual void assembleFext( VectorX<data_type> & )=0;
 
-    virtual double calcPotentialE( const lmx::Vector<data_type> & )=0;
+    virtual double calcPotentialE( const VectorX<data_type> & )=0;
 
-    virtual double calcKineticE( const lmx::Vector<data_type> & )=0;
+    virtual double calcKineticE( const VectorX<data_type> & )=0;
 
     virtual double calcElasticE( )=0;
 
@@ -152,12 +152,12 @@ protected:
     lmx::DenseMatrix<data_type> M;
     lmx::DenseMatrix<data_type> K;
 
-    lmx::Vector<data_type> tension;
-    lmx::Vector<data_type> r; // = integral( Phi^T * tension )dA
+    VectorX<data_type> tension;
+    VectorX<data_type> r; // = integral( Phi^T * tension )dA
 
-    lmx::Vector<data_type> Qext;
-    lmx::Vector<data_type> fint;
-    lmx::Vector<data_type> fext;
+    VectorX<data_type> Qext;
+    VectorX<data_type> fint;
+    VectorX<data_type> fext;
 };
 
 } //Namespace mknix

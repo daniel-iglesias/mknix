@@ -166,7 +166,7 @@ void Cell::presenceCapacityGaussPoints(int* presence_matrix, int number_nodes)
   }
 }
 
-void Cell::assembleCapacityGaussPoints(lmx::Matrix<data_type>& globalCapacity)
+void Cell::assembleCapacityGaussPoints(SparseMatrix<data_type>& globalCapacity)
 {
     for (auto& point : gPoints_MC) {
         point->assembleCij(globalCapacity);
@@ -206,7 +206,7 @@ void Cell::presenceConductivityGaussPoints(int* presence_matrix, int number_node
   }
 }
 
-void Cell::assembleConductivityGaussPoints(lmx::Matrix<data_type>& globalConductivity)
+void Cell::assembleConductivityGaussPoints(SparseMatrix<data_type>& globalConductivity)
 {
     for (auto& point : gPoints) {
         point->assembleHij(globalConductivity);
@@ -233,7 +233,7 @@ void Cell::computeQextGaussPoints(LoadThermalBody * loadThermalBody_in)
     }
 }
 
-void Cell::assembleQextGaussPoints(lmx::Vector<data_type>& globalQext)
+void Cell::assembleQextGaussPoints(VectorX<data_type>& globalQext)
 {
   //  std::cout << "Cell::assembleQextGaussPoints with gPoints" << std::endl;//this one is
     for (auto& point : gPoints) {
@@ -250,7 +250,7 @@ void Cell::computeMGaussPoints()
 }
 
 
-void Cell::assembleMGaussPoints(lmx::Matrix<data_type>& globalMass)
+void Cell::assembleMGaussPoints(SparseMatrix<data_type>& globalMass)
 {
     for (auto& point : gPoints_MC) {
         point->assembleMij(globalMass);
@@ -274,7 +274,7 @@ void Cell::computeNLFintGaussPoints()
 }
 
 
-void Cell::assembleFintGaussPoints(lmx::Vector<data_type>& globalFint)
+void Cell::assembleFintGaussPoints(VectorX<data_type>& globalFint)
 {
     for (auto& point : gPoints) {
         point->assembleFint(globalFint);
@@ -290,7 +290,7 @@ void Cell::computeFextGaussPoints()
 }
 
 
-void Cell::assembleFextGaussPoints(lmx::Vector<data_type>& globalFext)
+void Cell::assembleFextGaussPoints(VectorX<data_type>& globalFext)
 {
     for (auto& point : gPoints_MC) {
         point->assembleFext(globalFext);
@@ -314,7 +314,7 @@ void Cell::computeNLKGaussPoints()
 }
 
 
-void Cell::assembleKGaussPoints(lmx::Matrix<data_type>& globalTangent)
+void Cell::assembleKGaussPoints(SparseMatrix<data_type>& globalTangent)
 {
     for (auto& point : gPoints) {
         point->assembleKij(globalTangent);
@@ -322,7 +322,7 @@ void Cell::assembleKGaussPoints(lmx::Matrix<data_type>& globalTangent)
 }
 
 
-void Cell::assembleRGaussPoints(lmx::Vector<data_type>& globalStress,
+void Cell::assembleRGaussPoints(VectorX<data_type>& globalStress,
                                 int firstNode
 )
 {
@@ -333,7 +333,7 @@ void Cell::assembleRGaussPoints(lmx::Vector<data_type>& globalStress,
 }
 
 
-void Cell::assembleNLRGaussPoints(lmx::Vector<data_type>& globalStress,
+void Cell::assembleNLRGaussPoints(VectorX<data_type>& globalStress,
                                   int firstNode
 )
 {
@@ -344,7 +344,7 @@ void Cell::assembleNLRGaussPoints(lmx::Vector<data_type>& globalStress,
 }
 
 
-double Cell::calcPotentialEGaussPoints(const lmx::Vector<data_type>& q)
+double Cell::calcPotentialEGaussPoints(const VectorX<data_type>& q)
 {
     double potentialEnergy = 0;
 
@@ -355,7 +355,7 @@ double Cell::calcPotentialEGaussPoints(const lmx::Vector<data_type>& q)
 }
 
 
-double Cell::calcKineticEGaussPoints(const lmx::Vector<data_type>& qdot)
+double Cell::calcKineticEGaussPoints(const VectorX<data_type>& qdot)
 {
     double kineticEnergy = 0;
 

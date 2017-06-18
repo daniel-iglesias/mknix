@@ -46,8 +46,8 @@ ShapeFunctionMLS::ShapeFunctionMLS( int nn_in,
     else std::cout << "WARNING: order not implemented." << std::endl;
     for(int i=0; i<m; ++i) {
         A.push_back( lmx::DenseMatrix<double>(m, m) );
-        B.push_back( std::vector< lmx::Vector<double> >() );
-        for (int j=0; j<nn; ++j) B[i].push_back( lmx::Vector<double>(m) );
+        B.push_back( std::vector< VectorX<double> >() );
+        for (int j=0; j<nn; ++j) B[i].push_back( VectorX<double>(m) );
     }
 
     P.resize(nn,m);
@@ -274,9 +274,9 @@ void ShapeFunctionMLS::computeMomentMatrix()
 
 void ShapeFunctionMLS::computePhi(double xp, double yp, double zp)
 {
-    std::vector< lmx::Vector<double> > alpha; /**< auxiliary variables */
-//  lmx::Vector<double> alpha_1(m); /**< auxiliary variables, x derivative */
-//  lmx::Vector<double> alpha_2(m); /**< auxiliary variables, y derivative */
+    std::vector< VectorX<double> > alpha; /**< auxiliary variables */
+//  VectorX<double> alpha_1(m); /**< auxiliary variables, x derivative */
+//  VectorX<double> alpha_2(m); /**< auxiliary variables, y derivative */
 
 
     // Solving linear system A * alpha_0 = p(gp) = rhs;
@@ -287,14 +287,14 @@ void ShapeFunctionMLS::computePhi(double xp, double yp, double zp)
     //////////////////////////////////////
     // PHI:
     {
-        alpha.push_back(lmx::Vector<double>(m));
-        lmx::Vector<double> rhs(m);
+        alpha.push_back(VectorX<double>(m));
+        VectorX<double> rhs(m);
         rhs(0) = 1.0; // base is shifted to GP, so rest of elements are zero.
         rhs(1) = gp->X; // base is shifted to GP, so rest of elements are zero.
-        if( dim >= 2 ) 
+        if( dim >= 2 )
 	  rhs(2) = gp->Y; // base is shifted to GP, so rest of elements are zero.
         if(dim == 3)
-	  rhs(3) = gp->Z; 
+	  rhs(3) = gp->Z;
         lmx::LinearSystem<double> lsys(A[0], alpha[0], rhs);
         lsys.solveYourself();
         for (int j = 0; j < nn; ++j) {
@@ -304,14 +304,14 @@ void ShapeFunctionMLS::computePhi(double xp, double yp, double zp)
     }
 
     if(mm == 1) {
-        alpha.push_back(lmx::Vector<double>(m)); //x derivative
-        alpha.push_back(lmx::Vector<double>(m)); //y derivative
+        alpha.push_back(VectorX<double>(m)); //x derivative
+        alpha.push_back(VectorX<double>(m)); //y derivative
         if(dim == 3)
-	  alpha.push_back(lmx::Vector<double>(m)); //z derivative
+	  alpha.push_back(VectorX<double>(m)); //z derivative
         // first the x derivative:
         {
             // A*alpha,x = p,x  - A,x*alpha
-            lmx::Vector<double> rhs(m);
+            VectorX<double> rhs(m);
             rhs -= A[1] * alpha[0]; // = -A,x*alpha
             rhs.addElement( 1. , 1 ); // += p,x = [0 1 0]
             lmx::LinearSystem<double> lsys(A[0], alpha[1], rhs);
@@ -329,7 +329,7 @@ void ShapeFunctionMLS::computePhi(double xp, double yp, double zp)
 		      += (alpha[0](2)*P(j,2))*w(1,j)
 		       + (alpha[1](2)*P(j,2))*w(0,j);
 		}
-		if(dim == 3) 
+		if(dim == 3)
 		  this->phi(1,j)
 		      += (alpha[0](3)*P(j,3))*w(1,j)
 		       + (alpha[1](3)*P(j,3))*w(0,j);
@@ -344,7 +344,7 @@ void ShapeFunctionMLS::computePhi(double xp, double yp, double zp)
         // the y derivative:
         if(dim >= 2){
             // A*alpha,y = p,y  - A,y*alpha
-            lmx::Vector<double> rhs(m);
+            VectorX<double> rhs(m);
             rhs -= A[2] * alpha[0]; // = -A,y*alpha
             rhs.addElement( 1. , 2 ); // += p,y = [0 0 1]
             lmx::LinearSystem<double> lsys(A[0], alpha[2], rhs);
@@ -363,7 +363,7 @@ void ShapeFunctionMLS::computePhi(double xp, double yp, double zp)
 		      += (alpha[0](2)*P(j,2))*w(2,j)
 		       + (alpha[2](2)*P(j,2))*w(0,j);
 		}
-		if(dim == 3) 
+		if(dim == 3)
 		  this->phi(2,j)
 		      += (alpha[0](3)*P(j,3))*w(2,j)
 		       + (alpha[2](3)*P(j,3))*w(0,j);
@@ -372,7 +372,7 @@ void ShapeFunctionMLS::computePhi(double xp, double yp, double zp)
         // the z derivative:
         if(dim == 3){
             // A*alpha,z = p,z  - A,z*alpha
-            lmx::Vector<double> rhs(m);
+            VectorX<double> rhs(m);
             rhs -= A[3] * alpha[0]; // = -A,z*alpha
             rhs.addElement( 1. , 3 ); // += p,z = [0 0 0 1]
             lmx::LinearSystem<double> lsys(A[0], alpha[3], rhs);

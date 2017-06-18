@@ -100,7 +100,7 @@ void GaussPointBoundary::computeQext(LoadThermalBoundary1D * loadThermalBoundary
 }
 
 
-void GaussPointBoundary::assembleQext(lmx::Vector<data_type>& globalHeat)
+void GaussPointBoundary::assembleQext(VectorX<data_type>& globalHeat)
 {
     for (auto i = 0u; i < supportNodesSize; ++i) {
         globalHeat.addElement(Qext.readElement(i),

@@ -252,7 +252,7 @@ void GaussPoint::computeQext(LoadThermalBody * loadThermalBody_in)
 }
 
 
-void GaussPoint::assembleCij(lmx::Matrix<data_type>& globalCapacity)
+void GaussPoint::assembleCij(SparseMatrix<data_type>& globalCapacity)
 {
     for (auto i = 0u; i < supportNodesSize; ++i) {
         for (auto j = 0u; j < supportNodesSize; ++j) {
@@ -295,7 +295,7 @@ void GaussPoint::presenceCij(int* presenceMatrix, int num_nodes)
     }
 }
 
-void GaussPoint::assembleHij(lmx::Matrix<data_type>& globalConductivity)
+void GaussPoint::assembleHij(SparseMatrix<data_type>& globalConductivity)
 {
     for (auto i = 0u; i < supportNodesSize; ++i) {
         for (auto j = 0u; j < supportNodesSize; ++j) {
@@ -336,7 +336,7 @@ void GaussPoint::presenceHij(int* presenceMatrix, int num_nodes)
     }
 }
 
-void GaussPoint::assembleQext(lmx::Vector<data_type>& globalHeat)
+void GaussPoint::assembleQext(VectorX<data_type>& globalHeat)
 {
   //std::cout << " GaussPoint::assembleQext" <<std::endl; This is used!
     for (auto i = 0u; i < supportNodesSize; ++i) {
