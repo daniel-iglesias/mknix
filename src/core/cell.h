@@ -23,6 +23,7 @@
 #include <vector>
 #include <string>
 #include <common.h>
+#include <gpu/cpu_run_type.h>
 
 //////////////////////////////////////////// Doxygen file documentation entry:
 /*!
@@ -121,6 +122,7 @@ public:
     void computeQextGaussPoints( LoadThermalBody* );
 
     void assembleQextGaussPoints( lmx::Vector<data_type> & );
+    void assembleQextGaussPoints( VectorX<data_type> & );
 
     void computeMGaussPoints(  );
 

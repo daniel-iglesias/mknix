@@ -26,6 +26,7 @@
 #include "common.h"
 #include "core/material.h"
 #include "gpu/functions_cpu.h"
+#include <gpu/cpu_run_type.h>
 
 namespace mknix {
 
@@ -116,8 +117,12 @@ public:
     void calcThermalTangentMatrix( );
 
     void assembleCapacityMatrix( lmx::Matrix<data_type>& );
+    void assembleCapacityMatrix( SparseMatrix<data_type>& );
+    void reserve_eigen_capacity(SparseMatrix<data_type>&);
 
     void assembleConductivityMatrix( lmx::Matrix<data_type>& );
+    void assembleConductivityMatrix( SparseMatrix<data_type>& );
+    void reserve_eigen_conductivity(SparseMatrix<data_type>&);
 
     void assembleExternalHeat( lmx::Vector<data_type>& );
 

@@ -241,6 +241,14 @@ void Cell::assembleQextGaussPoints(lmx::Vector<data_type>& globalQext)
     }
 }
 
+void Cell::assembleQextGaussPoints(VectorX<data_type>& globalQext)
+{
+  //  std::cout << "Cell::assembleQextGaussPoints with gPoints" << std::endl;//this one is
+    for (auto& point : gPoints) {
+        point->assembleQext(globalQext);
+    }
+}
+
 
 void Cell::computeMGaussPoints()
 {

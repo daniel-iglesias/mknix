@@ -291,6 +291,7 @@ void Body::initialize()
                       _number_nodes,
                       USECSC);
     _sparse_matrix_size = _cvec_ptr_cap[_number_nodes];
+    _sparse_matrix_size_cond = _cvec_ptr_cond[_number_nodes];
 
 //std::cout<< " 14. Body::initialize() Allocating local matrices arrays"<< std::endl;
   _h_globalCapacity.resize(_sparse_matrix_size);
@@ -729,6 +730,18 @@ void Body::calcExternalHeat()
     }
 }
 
+void Body::reserve_eigen_capacity(SparseMatrix<data_type> &globalCapacity)
+{
+  reserve_eigen_type(globalCapacity,
+                     _sparse_matrix_size);
+}
+
+void Body::reserve_eigen_conductivity(SparseMatrix<data_type> &globalConductivity)
+{
+  reserve_eigen_type(globalConductivity,
+                     _sparse_matrix_size_cond);
+}
+
 /**
  * @brief Assembles the local conductivity into the global matrix by calling each cell's cascade function.
  *
@@ -812,6 +825,42 @@ else if(MULTICPU){
      microGPU1.push_back(gck1.elapsedMicroseconds);*/
    #endif
    }
+
+}
+
+/**
+ * @brief Assembles the local conductivity into the global matrix by calling each cell's cascade function.
+ *
+ * @param globalCapacity Reference to the global matrix of the thermal simulation.
+ * @return void
+ **/
+void Body::assembleCapacityMatrix(SparseMatrix<data_type>& globalCapacity)
+{
+  if(NEWCPU){
+    cpuClock cck1b;
+    cpuTick(&cck1b);
+
+    //init_host_array_to_value(_h_globalCapacity.data(), 0.0, _sparse_matrix_size);//now reset in simulat
+    globalCapacity.setZero();
+    AssembleGlobalMatrix((double*)globalCapacity.valuePtr(),
+                         _full_map_cap,
+                         _h_node_map_MC,
+                         _h_localCapacityf,
+                         _number_points_MC,
+                         _support_node_size,
+                         USECSC);
+    cpuTock(&cck1b, "CPU assembleCapacityMatrixWithMap");
+    microCPU1b.push_back(cck1b.elapsedMicroseconds);
+
+    cast_into_eigen_type(globalCapacity,
+                         _h_globalCapacity,//not used
+                         _vec_ind_cap,
+                         _cvec_ptr_cap,
+                         _number_nodes,
+                         _number_nodes,
+                         USECSC);
+
+  }
 
 }
 
@@ -920,12 +969,107 @@ if(OLD_CODE) {
 
 }
 
+void Body::assembleConductivityMatrix(SparseMatrix<data_type>& globalConductivity)
+{
+/*
+Low-level API
+sm1.valuePtr();      // Pointer to the values
+sm1.innerIndextr();  // Pointer to the indices.
+sm1.outerIndexPtr(); // Pointer to the beginning of each inner vector
+*/
+
+ if(NEWCPU){
+  std::cout << "inside assembleConductivityMatrix" << std::endl;
+    cpuClock cck2b;
+    cpuTick(&cck2b);
+    //std::cout << "before init_host_array_to_value" << std::endl;
+    //auto end_int = this->cells.size();
+    globalConductivity.setZero();
+    //init_host_array_to_value(_h_globalConductivity, 0.0, _sparse_matrix_size);
+    //std::cout << "before assembleConductivityGaussPointsWithMap" << std::endl;
+    AssembleGlobalMatrix(globalConductivity.valuePtr(),
+                         _full_map_cond,
+                         _h_node_map,
+                         _h_localConductivityf,
+                         _number_points,
+                         _support_node_size,
+                         USECSC);
+    cpuTock(&cck2b, "CPU assembleConductivityGaussPointsWithMap");
+    //std::cout << "inside assembleConductivityMatrix cast_into_eigen_type" << std::endl;
+    microCPU2b.push_back(cck2b.elapsedMicroseconds);
+    cpuClock cck2b1;
+    cpuTick(&cck2b1);
+    cast_into_eigen_type(globalConductivity,
+                       _h_globalConductivity,
+                       _vec_ind_cond,
+                       _cvec_ptr_cond,
+                       _number_nodes,
+                       _number_nodes,
+                       USECSC);
+
+    cpuTock(&cck2b1, "CPU cast_into_eigen_type");
+
+  }
+}
+
 /**
  * @brief Assembles the local volumetric heat into the global heat load vector by calling each cell's cascade function.
  *
  * @return void
  **/
 void Body::assembleExternalHeat(lmx::Vector<data_type>& globalExternalHeat)
+{
+  if(OLD_CODE){
+
+      auto end_int = this->cells.size();
+     for (auto i = 0u; i < end_int; ++i) {
+        //std::cout <<"Inside Body::assembleExternalHeat  for (auto i = 0u; i < end_int; ++i)" <<std::endl;
+          this->cells[i]->assembleQextGaussPoints(globalExternalHeat);
+      }
+      //std::cout << globalExternalHeat << std::endl;
+      for (auto group : boundaryGroups) {
+        //std::cout <<"Inside Body::assembleExternalHeat for (auto group : boundaryGroups)" <<std::endl;
+          group.second->assembleExternalHeat(globalExternalHeat);
+      }
+      //std::cout << globalExternalHeat << std::endl;
+  } else if(NEWCPU) {
+    //std::cout <<"Inside Body::assembleExternalHeat" <<std::endl;
+      auto end_int = this->cells.size();
+      //std::cout <<"Body::assembleExternalHeat Initializing global vector" <<std::endl;
+      //globalExternalHeat.fillIdentity(0.0f);
+      //std::cout <<"Body::assembleExternalHeat from Cells" <<std::endl;
+      for (auto i = 0u; i < end_int; ++i) {
+          this->cells[i]->assembleQextGaussPoints(globalExternalHeat);
+
+      }
+    //  std::cout <<"Body::assembleExternalHeat from Boundary Groups" <<std::endl;
+      for (auto group : boundaryGroups) {
+          group.second->assembleExternalHeat(globalExternalHeat);
+      }
+  } else if(MULTICPU){
+  }else if(GPU){
+  #ifdef HAVE_CUDA
+    if(_use_gpu){
+      //init_array_to_value(_d_globalExternalHeat, 0.0f, _sparse_matrix_size,128);
+      init_array_to_value(_d_globalExternalHeat, 0.0f, _number_nodes, 128);
+      gpu_assemble_global_vector(_d_globalExternalHeat,
+                                _d_locaThermalNumbers,
+                                _d_localHeatf,
+                                _support_node_size,
+                                _number_points,
+                                128);
+      gpu_assemble_global_vector(_d_globalExternalHeat,
+                                _d_locaThermalNumbers,
+                                _d_localHeatf,
+                                _support_node_size,
+                                _number_points,
+                                128);
+    }
+  #endif
+ }
+}
+
+void Body::assembleExternalHeat(VectorX<data_type>& globalExternalHeat)
 {
   if(OLD_CODE){
 

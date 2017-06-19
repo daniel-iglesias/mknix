@@ -85,13 +85,20 @@ public:
 
     virtual void calcExternalHeat();
 
+
+
     virtual void assembleCapacityMatrix(lmx::Matrix<data_type>&);
+    virtual void assembleCapacityMatrix(SparseMatrix<data_type>&);
+    virtual void reserve_eigen_capacity(SparseMatrix<data_type> &);
     virtual void mapConectivityCapacityMatrix();
 
     virtual void assembleConductivityMatrix(lmx::Matrix<data_type>&);
+    virtual void assembleConductivityMatrix(SparseMatrix<data_type>&);
+    virtual void reserve_eigen_conductivity(SparseMatrix<data_type> &);
     virtual void mapConectivityConductivityMatrix();
 
     virtual void assembleExternalHeat(lmx::Vector<data_type>&);
+    virtual void assembleExternalHeat(VectorX<data_type>&);
 
     virtual void calcMassMatrix() = 0;
 
@@ -319,6 +326,7 @@ protected:
     int       _MC_points_per_cell;
     int       _number_cells;
     int       _sparse_matrix_size;
+    int       _sparse_matrix_size_cond;
     //MULTI CPU part
     //pthread_t _threads[MAX_THREADS];
     p_struct* _param_array_capacity;

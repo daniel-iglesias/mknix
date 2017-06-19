@@ -110,6 +110,14 @@ void GaussPointBoundary::assembleQext(lmx::Vector<data_type>& globalHeat)
 //     cout << Qext << endl;
 }
 
+void GaussPointBoundary::assembleQext(VectorX<data_type>& globalHeat)
+{
+    for (auto i = 0u; i < supportNodesSize; ++i) {
+        globalHeat[supportNodes[i]->getThermalNumber()] += Qext.readElement(i);
+    }
+//     cout << Qext << endl;
+}
+
 /*
 void GaussPointBoundary::gnuplotOutStress( std::ofstream & gptension )
 {

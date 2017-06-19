@@ -22,6 +22,7 @@
 
 #include "common.h"
 #include "LMX/lmx.h"
+#include <gpu/cpu_run_type.h>
 
 
 namespace mknix {
@@ -52,6 +53,7 @@ public:
     virtual void calcExternalHeat();
 
     virtual void assembleExternalHeat(lmx::Vector<data_type>&);
+    virtual void assembleExternalHeat(VectorX<data_type>&);
 
 //     virtual void assembleExternalForces( lmx::Vector<data_type> & ) = 0;
 

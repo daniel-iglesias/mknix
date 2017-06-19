@@ -309,7 +309,53 @@ void mknix::System::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacit
 
 }
 
+void mknix::System::reserve_eigen_capacity(SparseMatrix<data_type>& globalCapacity_in)
+{
+    for (auto& body : thermalBodies) {
+        body.second->reserve_eigen_capacity(globalCapacity_in);
+    }
+}
+
+void mknix::System::assembleCapacityMatrix(SparseMatrix<data_type>& globalCapacity_in)
+{
+    for (auto& body : thermalBodies) {
+        body.second->assembleCapacityMatrix(globalCapacity_in);
+    }
+
+    for (auto& system : subSystems) {
+        system.second->assembleCapacityMatrix(globalCapacity_in);
+    }
+
+}
+
 void mknix::System::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity_in)
+{
+    for (auto& body : thermalBodies) {
+        body.second->assembleConductivityMatrix(globalConductivity_in);
+    }
+
+//   for ( itConstraints = constraints.begin();
+//         itConstraints!= constraints.end();
+//         ++itConstraints
+//       )
+//   {
+//     constraint.second->assembleConductivityMatrix(globalConductivity_in);
+//   }
+
+    for (auto& system : subSystems) {
+        system.second->assembleConductivityMatrix(globalConductivity_in);
+    }
+
+}
+
+void mknix::System::reserve_eigen_conductivity(SparseMatrix<data_type>& globalConductivity_in)
+{
+    for (auto& body : thermalBodies) {
+        body.second->reserve_eigen_conductivity(globalConductivity_in);
+    }
+}
+
+void mknix::System::assembleConductivityMatrix(SparseMatrix<data_type>& globalConductivity_in)
 {
     for (auto& body : thermalBodies) {
         body.second->assembleConductivityMatrix(globalConductivity_in);

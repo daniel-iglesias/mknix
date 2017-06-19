@@ -22,6 +22,7 @@
 
 #include <LMX/lmx.h>
 #include <core/point.h>
+#include <gpu/cpu_run_type.h>
 
 //////////////////////////////////////////// Doxygen file documentation entry:
 /*!
@@ -69,6 +70,7 @@ public:
 
     void computeQext( LoadThermalBoundary1D* );
     void assembleQext( lmx::Vector<data_type> & );
+    void assembleQext( VectorX<data_type> & );
 
 //     void gnuplotOutStress( std::ofstream& );
 

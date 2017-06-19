@@ -345,6 +345,13 @@ void GaussPoint::assembleQext(lmx::Vector<data_type>& globalHeat)
         );
     }
 }
+void GaussPoint::assembleQext(VectorX<data_type>& globalHeat)
+{
+  //std::cout << " GaussPoint::assembleQext" <<std::endl; This is used!
+    for (auto i = 0u; i < supportNodesSize; ++i) {
+        globalHeat[supportNodes[i]->getThermalNumber()] += Qext.readElement(i);
+    }
+}
 
 double  GaussPoint::getNodePhi(int deriv, int node)
 {//for SOA purpouses

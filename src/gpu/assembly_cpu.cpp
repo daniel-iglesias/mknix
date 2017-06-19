@@ -241,6 +241,44 @@ void AssembleGlobalMatrix(std::vector<T> &globalMatrix,
   }
 
 }
+
+
+template <typename T>
+void AssembleGlobalMatrix(T* globalMatrix,
+                          std::vector<uint> &fullMap,
+                          std::vector<uint> &node_map,
+                          T *local_matrices_array,
+                          int numPoints,
+                          int supportNodeSize,
+                          bool isCSC)
+{
+  if(isCSC){//CSC format TODO:retest and test again
+    for(uint eachPoint = 0; eachPoint < numPoints; eachPoint++){
+      for(uint i = 0; i < supportNodeSize; i++){//equivalent to obtaining thermalNumber
+         for(uint j = 0; j < supportNodeSize; j++){
+            int pos_id = (eachPoint * supportNodeSize * supportNodeSize) + (i * supportNodeSize) + j;
+            T value = local_matrices_array[pos_id];
+            int node_pos = node_map[pos_id];
+            int globalPos = fullMap[node_pos];
+            globalMatrix[globalPos] += value;
+         }
+       }
+     }
+  }else{//CSR format
+    for(uint eachPoint = 0; eachPoint < numPoints; eachPoint++){
+      for(uint i = 0; i < supportNodeSize; i++){//equivalent to obtaining thermalNumber
+         for(uint j = 0; j < supportNodeSize; j++){
+            int pos_id = eachPoint * supportNodeSize * supportNodeSize + i * supportNodeSize + j;
+            T value = local_matrices_array[pos_id];
+            int node_pos = node_map[pos_id];
+            int globalPos = fullMap[node_pos];
+            globalMatrix[globalPos] += value;
+         }
+       }
+     }
+  }
+
+}
 /**
  * Thread Wrapper to launch compute in multi threaded version.
  * @param  {[type]} void* pointer   pointer to options structure
@@ -324,6 +362,38 @@ void cast_into_gmm_csc_type(gmm::csc_matrix<T>& gmm_matrix,
   gmm_matrix.nr = number_rows;
   gmm_matrix.nc = number_columns;
 }
+
+template <typename T>
+void cast_into_eigen_type(SparseMatrix<T> &eigen_ref,
+                        std::vector<T> &values_array,
+                        std::vector<uint> &vec_ind,
+                        std::vector<uint> &cvec_ptr,
+                        int number_rows,
+                        int number_columns,
+                        bool use_csc)
+  {
+    T* values = eigen_ref.valuePtr();
+    for(int i = 0; i < values_array.size(); i++){
+      values[i] = values_array[i];
+    }
+    int* indices = eigen_ref.innerIndexPtr();
+    for(int i = 0; i < vec_ind.size(); i++){
+      indices[i] = vec_ind[i];
+    }
+    int* vec_ptr = eigen_ref.outerIndexPtr();
+    for(int i = 0; i < cvec_ptr.size(); i++){
+      vec_ptr[i] = cvec_ptr[i];
+    }
+  }
+//
+template <typename T>
+void reserve_eigen_type(SparseMatrix<T> &eigen_ref,
+                        int number_elements)
+{
+  eigen_ref.reserve(number_elements);
+  //eigen_ref.
+}
+//
 
 /**
  * Cast a directly assembled matrix into GMM compatible sparse matrix
@@ -733,6 +803,24 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
                                                      int max_threads,
                                                      bool isCSC);
     //
+    //
+    template void AssembleGlobalMatrix<float>(float *globalMatrix,
+                                              std::vector<uint> &fullMap,
+                                              std::vector<uint> &node_map,
+                                              float *local_matrices_array,
+                                              int numPoints,
+                                              int supportNodeSize,
+                                              bool isCSC);
+    //
+    template void AssembleGlobalMatrix<double>(double* globalMatrix,
+                                               std::vector<uint> &fullMap,
+                                               std::vector<uint> &node_map,
+                                               double *local_matrices_array,
+                                               int numPoints,
+                                               int supportNodeSize,
+                                               bool isCSC);
+
+    //
     template void AssembleGlobalMatrix<float>(std::vector<float> &globalMatrix,
                                               std::vector<uint> &fullMap,
                                               std::vector<uint> &node_map,
@@ -748,6 +836,31 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
                                                int numPoints,
                                                int supportNodeSize,
                                                bool isCSC);
+
+    //
+    //
+    template void cast_into_eigen_type<float>(SparseMatrix<float> &eigen_ref,
+                                              std::vector<float> &values_array,
+                                              std::vector<uint> &vec_ind,
+                                              std::vector<uint> &cvec_ptr,
+                                              int number_rows,
+                                              int number_columns,
+                                              bool use_csc);
+    //
+    template void cast_into_eigen_type<double>(SparseMatrix<double> &eigen_ref,
+                                               std::vector<double> &values_array,
+                                               std::vector<uint> &vec_ind,
+                                               std::vector<uint> &cvec_ptr,
+                                               int number_rows,
+                                               int number_columns,
+                                               bool use_csc);
+    //
+    template void reserve_eigen_type<double>(SparseMatrix<double> &eigen_ref,
+                                             int number_elements);
+    //
+    template void reserve_eigen_type<float>(SparseMatrix<float> &eigen_ref,
+                                            int number_elements);
+
     //
     template void cast_into_lmx_type<float>(lmx::Matrix<float> &lmx_ref,
                                             std::vector<float> &values_array,

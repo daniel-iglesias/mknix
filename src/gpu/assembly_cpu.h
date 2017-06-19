@@ -6,6 +6,7 @@
 #include "LMX/lmx.h"
 #include "gmm/gmm_matrix.h"
 #include "functions_cpu.h"
+#include <cpu_run_type.h>
 
 #include <atomic>
 #include <pthread.h>
@@ -167,6 +168,23 @@ void AssembleGlobalMatrix(std::vector<T> &globalMatrix,
                           int supportNodeSize,
                           bool isCSC);
 //
+//
+/**
+ * Assembles a Global Matrix in single threaded CPU
+ * @param  {[type]} T* array       the global matrix
+ * @param  {[type]} int vector     The map for direct assembly
+ * @param  {[type]} T* array       array of values to be assermbled
+ * @param  {[type]} int size       Total number of Gauss points
+ * @param  {[type]} int size       number of support nodes per gausspoint
+ */
+template <typename T>
+void AssembleGlobalMatrix(T* globalMatrix,
+                          std::vector<uint> &fullMap,
+                          std::vector<uint> &node_map,
+                          T *local_matrices_array,
+                          int numPoints,
+                          int supportNodeSize,
+                          bool isCSC);
 //pthreads wrappers for several functions
 void* threadWrapper(void* ptr);
 void* computeCapacityThreadWrapper(void* ptr);
@@ -194,6 +212,20 @@ float inline atomic_fetch_add(std::atomic<float>* target, float value){
  * @param  {[type]} T  value        initialization value
  * @param  {[type]} int size        number of elements in the array
  */
+ template <typename T>
+ void cast_into_eigen_type(SparseMatrix<T> &eigen_ref,
+                         std::vector<T> &values_array,
+                         std::vector<uint> &vec_ind,
+                         std::vector<uint> &cvec_ptr,
+                         int number_rows,
+                         int number_columns,
+                         bool use_csc);
+//
+template <typename T>
+void reserve_eigen_type(SparseMatrix<T> &eigen_ref,
+                        int number_elements);
+//
+
 template <typename T>
 void cast_into_lmx_type(lmx::Matrix<T> &lmx_ref,
                         std::vector<T> &values_array,

@@ -22,6 +22,7 @@
 
 #include "LMX/lmx.h"
 #include "point.h"
+#include <gpu/cpu_run_type.h>
 
 //////////////////////////////////////////// Doxygen file documentation entry:
 /*!
@@ -107,6 +108,7 @@ public:
                             int num_nodes);
 
     void assembleQext( lmx::Vector<data_type> & );
+    void assembleQext( VectorX<data_type> & );
 
     double  getNodePhi(int deriv, int node);
 

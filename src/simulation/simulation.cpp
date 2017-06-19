@@ -163,18 +163,23 @@ if(OLD_CODE){
 
   baseSystem->setupPthreadsParameters();
 
-  globalConductivity.resize(gdlSize, gdlSize);
-  globalCapacity.resize(gdlSize, gdlSize);
-  globalRHSHeat.resize(gdlSize);
-  globalExternalHeat.resize(gdlSize);
-  globalInternalHeat.resize(gdlSize);
+  _eGlobalConductivity.resize(gdlSize, gdlSize);
+  _eGlobalCapacity.resize(gdlSize, gdlSize);
+  baseSystem->reserve_eigen_conductivity(_eGlobalConductivity);
+  baseSystem->reserve_eigen_capacity(_eGlobalCapacity);
+  
+
+  _eGlobalRHSHeat.resize(gdlSize);
+  _eGlobalExternalHeat.resize(gdlSize);
+  _eGlobalInternalHeat.resize(gdlSize);
+
 
   //baseSystem->setTemperatureVector(q);
 
   baseSystem->calcConductivityMatrix();
-  baseSystem->assembleConductivityMatrix(globalConductivity);
+  baseSystem->assembleConductivityMatrix(_eGlobalConductivity);
   baseSystem->calcCapacityMatrix();
-  baseSystem->assembleCapacityMatrix(globalCapacity);
+  baseSystem->assembleCapacityMatrix(_eGlobalCapacity);
 }
     writeConfStep();
 
@@ -834,6 +839,7 @@ std::cout<< " " << globalExternalHeat << std::endl;*/
 //      cout << "            : MAX_ENERGY = " << energy_max << endl
 //           << "              SUM_ENERGY = " << energy_sum << endl;
     if (res.norm2() <= epsilon) {
+      //squaredNorm for Eigen vector
 //  if( (energy_max / energy_sum) <= epsilon ){
         if (baseSystem->checkAugmented()) {
 //      cout << " CONVERGENCE: MAX_ENERGY = " << energy_max << endl

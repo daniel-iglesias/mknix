@@ -70,6 +70,13 @@ void CellBoundary::assembleQextGaussPoints(lmx::Vector<data_type>& globalQext)
     }
 }
 
+void CellBoundary::assembleQextGaussPoints(VectorX<data_type>& globalQext)
+{//this is in use
+    for (auto& point : gPoints) {
+        point->assembleQext(globalQext);
+    }
+}
+
 // void CellBoundary::outputConnectivityToFile(std::ofstream* outfile)
 // {
 //   std::vector< Point* >::iterator it_points;

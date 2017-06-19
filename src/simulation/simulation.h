@@ -25,6 +25,7 @@
 
 #include "core/material.h"
 #include "gpu/functions_cpu.h"
+#include <gpu/cpu_run_type.h>
 #include "gmm/gmm_matrix.h"
 
 namespace mknix {
@@ -266,9 +267,16 @@ private:
     lmx::Matrix<data_type> globalCapacity;
     lmx::Matrix<data_type> globalConductivity;
 
+    SparseMatrix<data_type> _eGlobalCapacity;//eigen version
+    SparseMatrix<data_type> _eGlobalConductivity;//eigen version
+
     lmx::Vector<data_type> globalRHSHeat;
     lmx::Vector<data_type> globalExternalHeat;
     lmx::Vector<data_type> globalInternalHeat;
+
+    Matrix<data_type, Dynamic, 1> _eGlobalRHSHeat;//column vector in eigen
+    Matrix<data_type, Dynamic, 1> _eGlobalExternalHeat;//column vector in eigen
+    Matrix<data_type, Dynamic, 1> _eGlobalInternalHeat;//column vector in eigen
 
 //////////////////// - - - SOA - - - ////////////////////////
     /*gmm::csc_matrix<data_type> h_globalCapacity;
