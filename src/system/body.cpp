@@ -24,6 +24,8 @@
 #include <gpu/cpu_run_type.h>
 #include <gpu/assembly_cpu.h>
 
+#include <omp.h>
+
 //#include <gpu/calc_cpu.h>
 #ifdef HAVE_CUDA
 #include <gpu/assembly_kernels.h>
@@ -119,6 +121,8 @@ Body::~Body()
     clockFullStats(microCPU2b,                   "New AssembleConductivityMatrixWithMap");
   }
  if(MULTICPU){
+   clockFullStats(microCPU_multi_conductivity, "Multi-CPU calcConductivityMatrix");
+   clockFullStats(microCPU_multi_capacity,     "Multi-CPU calcCapacityMatrix");
    clockFullStats(microCPU1c, "Multi-CPU AssembleCapacityMatrixWithMap");
    clockFullStats(microCPU2c, "Multi-CPU AssembleConductivityMatrixWithMap");
  }
@@ -357,7 +361,7 @@ for(int i = 0; i < _number_points_MC * _support_node_size; i++)
 
 void Body::setupPthreadsParameters()
 {
-  std::cout<< " MCPU. Body::initialize() Creating pthreads structures"<< std::endl;
+/*  std::cout<< " MCPU. Body::initialize() Creating pthreads structures"<< std::endl;
   _param_array_capacity     = (p_struct*)malloc(MAX_THREADS * sizeof(p_struct));
   _param_array_conductivity = (p_struct*)malloc(MAX_THREADS * sizeof(p_struct));
   for(int i = 0; i < MAX_THREADS; i++){
@@ -404,15 +408,15 @@ void Body::setupPthreadsParameters()
         _param_calc_conductivity[i].local_shapes_phis_dim_array = _h_local_shapes_cond_dim.data();
         _param_calc_conductivity[i].material_ids = _h_materials_cond_ids;
         _param_calc_conductivity[i].materials = _h_materials;
-        /*std::cout << "Materials pointer = " << _h_materials << std::endl;
-        std::cout << "Materials pointer = " << _param_calc_conductivity[i].materials << std::endl;
-        std::cout << "Materials counter = " << _h_materials->number_materials << std::endl;
-        std::cout << "Materials counter = " << _param_calc_conductivity[i].materials->number_materials << std::endl;*/
+        //std::cout << "Materials pointer = " << _h_materials << std::endl;
+        //std::cout << "Materials pointer = " << _param_calc_conductivity[i].materials << std::endl;
+        //std::cout << "Materials counter = " << _h_materials->number_materials << std::endl;
+        //std::cout << "Materials counter = " << _param_calc_conductivity[i].materials->number_materials << std::endl;
         _param_calc_conductivity[i].number_points = _number_points;
         _param_calc_conductivity[i].supportNodeSize = _support_node_size;
         _param_calc_conductivity[i].thread_id = i;
         _param_calc_conductivity[i].max_threads = MAX_THREADS;
-    }
+    }*/
 }
 
 
@@ -594,14 +598,32 @@ void Body::calcCapacityMatrix()
   //
   else if(MULTICPU)
   {
-    pthread_t _threads[MAX_THREADS];
+    //pthread_t _threads[MAX_THREADS];
+      omp_set_num_threads(MAX_THREADS);
     std::cout << "About to run New Multi CPU calcConductivityMatrix " << std::endl;
     cpuClock cck;
     cpuTick(&cck);
-    for(int i = 0; i < MAX_THREADS; i++)
+
+    #pragma omp parallel
+    {
+      int tid = omp_get_thread_num();
+      computeSOACapacityMatrix(_h_localCapacityf,
+                               _h_local_temperatures_cap_array,
+                               _h_local_weight_cap_array,
+                               _h_local_jacobian_cap_array,
+                               _h_local_shapes_cap_0.data(),
+                               _h_materials_cap_ids,
+                               _h_materials,
+                               _number_points_MC,
+                               _support_node_size,
+                               tid,
+                               MAX_THREADS);
+    }
+
+    /*for(int i = 0; i < MAX_THREADS; i++)
         pthread_create(&_threads[i],NULL,computeCapacityThreadWrapper,(void*)&(_param_calc_capacity[i]));
     for(int i = 0; i < MAX_THREADS; i++)
-        pthread_join(_threads[i],NULL);
+        pthread_join(_threads[i],NULL);*/
 
     cpuTock(&cck, " New Multi CPU calcCapacityMatrix ");
     microCPU_multi_capacity.push_back(cck.elapsedMicroseconds);
@@ -640,6 +662,7 @@ void Body::calcConductivityMatrix()
     int number_points = this->cells.size();
     cpuClock cck;
     cpuTick(&cck);
+
     computeSOAConductivityMatrix(_h_localConductivityf,
                                  _h_local_temperatures_cond_array,
                                  _h_local_weight_cond_array,
@@ -652,6 +675,7 @@ void Body::calcConductivityMatrix()
                                  _support_node_size,
                                  0,
                                  1);
+
     cpuTock(&cck, "\nNew Single CPU calcConductivityMatrix ");
     microCPU_single_conductivity.push_back(cck.elapsedMicroseconds);
 
@@ -659,15 +683,32 @@ void Body::calcConductivityMatrix()
   //
   else if(MULTICPU)
   {
-    pthread_t _threads[MAX_THREADS];
+    //pthread_t _threads[MAX_THREADS];
     std::cout << "About to run New Multi CPU calcConductivityMatrix " << std::endl;
+      omp_set_num_threads(MAX_THREADS);
     cpuClock cck;
     cpuTick(&cck);
-    for(int i = 0; i < MAX_THREADS; i++)
+    /*for(int i = 0; i < MAX_THREADS; i++)
         pthread_create(&_threads[i],NULL,computeConductivityThreadWrapper,(void*)&(_param_calc_conductivity[i]));
    for(int i = 0; i < MAX_THREADS; i++)
-       pthread_join(_threads[i],NULL);
-
+       pthread_join(_threads[i],NULL);*/
+  #pragma omp parallel
+  {
+       int tid = omp_get_thread_num();
+       //std::cout << "tid = " << tid << std::endl;
+       computeSOAConductivityMatrix(_h_localConductivityf,
+                                    _h_local_temperatures_cond_array,
+                                    _h_local_weight_cond_array,
+                                    _h_local_jacobian_cond_array,
+                                    _h_local_shapes_cond_0.data(),
+                                    _h_local_shapes_cond_dim.data(),
+                                    _h_materials_cond_ids,
+                                    _h_materials,
+                                    _number_points,
+                                    _support_node_size,
+                                    tid,
+                                    MAX_THREADS);
+    }
     cpuTock(&cck, " New Multi CPU calcConductivityMatrix ");
     microCPU_multi_conductivity.push_back(cck.elapsedMicroseconds);
   }
@@ -775,14 +816,30 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
 }
 else if(MULTICPU){
   ///////multi-cpu part
-  pthread_t _threads[MAX_THREADS];
+  //pthread_t _threads[MAX_THREADS];
+    omp_set_num_threads(MAX_THREADS);
     cpuClock cck1c;
     cpuTick(&cck1c);
    init_host_array_to_value(_h_globalCapacity, 0.0, _sparse_matrix_size);
-   for(int i = 0; i < MAX_THREADS; i++)
+  /* for(int i = 0; i < MAX_THREADS; i++)
        pthread_create(&_threads[i],NULL,threadWrapper,(void*)&(_param_array_capacity[i]));
    for(int i = 0; i < MAX_THREADS; i++)
-       pthread_join(_threads[i],NULL);
+       pthread_join(_threads[i],NULL);*/
+     #pragma omp parallel
+      {
+        int tid = omp_get_thread_num();
+        atomicAssembleGlobalMatrix((std::atomic<double>*)_h_globalCapacity.data(),
+                             _full_map_cap,
+                             _h_node_map_MC,
+                             _h_localCapacityf,
+                             _number_points_MC,
+                             _support_node_size,
+                             tid,
+                             MAX_THREADS,
+                             USECSC);
+
+      }
+
    cpuTock(&cck1c, "MULTI CPU assembleCapacityGaussPointsWithMap");
    microCPU1c.push_back(cck1c.elapsedMicroseconds);
 
@@ -881,14 +938,30 @@ if(OLD_CODE) {
     std::cout << " Min of globalConductivity = " << globalConductivity.min() << std::endl;*/
     //std::cout << " NonZeroes of globalConductivity = " << globalConductivity.numNonZeros() << std::endl;
   } else if(MULTICPU){
-    pthread_t _threads[MAX_THREADS];
+    //pthread_t _threads[MAX_THREADS];
+      omp_set_num_threads(MAX_THREADS);
       cpuClock cck2c;
       cpuTick(&cck2c);
       init_host_array_to_value(_h_globalConductivity, 0.0, _sparse_matrix_size);
-     for(int i = 0; i < MAX_THREADS; i++)
+      #pragma omp parallel
+       {
+         int tid = omp_get_thread_num();
+         atomicAssembleGlobalMatrix((std::atomic<double>*)_h_globalConductivity.data(),
+                                    _full_map_cond,
+                                    _h_node_map,
+                                    _h_localConductivityf,
+                                    _number_points,
+                                    _support_node_size,
+                                    tid,
+                                    MAX_THREADS,
+                                    USECSC);
+       }
+
+
+     /*for(int i = 0; i < MAX_THREADS; i++)
          pthread_create(&_threads[i],NULL,threadWrapper,(void*)&(_param_array_conductivity[i]));
      for(int i = 0; i < MAX_THREADS; i++)
-         pthread_join(_threads[i],NULL);
+         pthread_join(_threads[i],NULL);*/
      cpuTock(&cck2c, "MULTI CPU assembleConductivityGaussPointsWithMap");
      microCPU2c.push_back(cck2c.elapsedMicroseconds);
 
