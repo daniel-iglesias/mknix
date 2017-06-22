@@ -23,7 +23,9 @@
 
 #include "lmx_mat_vector.h"
 #include "lmx_mat_matrix.h"
-//#define TRACE true
+//performancxe measure and report
+#include "gpu/chTimer.h"
+#define TRACE_THIS false
 
 
 
@@ -130,7 +132,8 @@ template <typename T>
  * @return
  */
 Vector<T> Cg<T>::solve(int info){
-if(TRACE){
+	cpuClock ck;
+if(TRACE_THIS){
 	_trace_iter++;
 	std::string A_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_A_" + _trace_iter;
 	std::cout << "Iter "<< _trace_iter << ":saving A in " << A_path <<std::endl;
@@ -139,7 +142,7 @@ if(TRACE){
 	std::cout << "Iter "<< _trace_iter << ":saving b in " << b_path <<std::endl;
 	b.save((char*)b_path.c_str());
 }
-
+cpuTick(&ck);
 ///////// If vector b=0 -> x=0 and end
   int i;
   for( i=0; i<b.size(); ++i ){
@@ -229,12 +232,12 @@ if(TRACE){
     {
 		cout<<":::System solved after " << k << " iterations:::"<<endl;
 	}
-	if(TRACE){
+	if(TRACE_THIS){
 		std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + _trace_iter;
 		std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
 		x.save((char*)x_path.c_str());
 	}
-
+cpuTock(&ck, "\n Vector<T> Cg<T>::solve(int info)");
 return x;
 
 }

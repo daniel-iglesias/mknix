@@ -623,7 +623,7 @@ void Simulation::dynamicThermalEvaluation(const lmx::Vector<data_type>& qt,
                                           lmx::Vector<data_type>& qtdot,
                                           double time)
 {
- //std::cout << "\n\n  --- void Simulation::dynamicThermalEvaluation --- \n" << std::endl;
+ std::cout << "\n\n  --- void Simulation::dynamicThermalEvaluation --- \n" << std::endl;
  cpuClock evalck;
  cpuTick(&evalck);
   if(OLD_CODE){
@@ -842,6 +842,7 @@ std::cout<< " " << globalExternalHeat << std::endl;*/
             systemOuputStep(q);
 //             baseSystem->clearAugmented();
             cpuTock(&conck, "\nSimulation::dynamicThermalConvergence : res.norm2() <= epsilon is true && baseSystem->checkAugmented() = true");
+            //std::cout << "res.norm2() = " << res.norm2() << std::endl;
             return 1;
         }
         else { cpuTock(&conck, "\nSimulation::dynamicThermalConvergence: res.norm2() <= epsilon is true && baseSystem->checkAugmented() = false");
@@ -911,6 +912,7 @@ void Simulation::dynamicAcceleration(const lmx::Vector<data_type>& q,
                                      double /*time*/
 )
 {
+    std::cout << "\n\n  --- void Simulation::dynamicAcceleration --- \n" << std::endl;
     globalMass.reset();
     globalInternalForces.reset();
     globalExternalForces.reset();

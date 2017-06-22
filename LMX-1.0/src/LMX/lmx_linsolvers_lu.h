@@ -98,7 +98,7 @@ LU<T>::LU( Matrix<T>* mat_in, Vector<T>* vec_in )
   }
   vec.resize( *vec_in );
   vec = *vec_in;
-  
+
   pivotFlag = 0;	// ********************* 0 means no pivoting
   if(pivotFlag!=0) p.resize(dim);
 
@@ -121,9 +121,9 @@ LU<T>::LU( Matrix<T>* mat_in, Matrix<T>* mat_rhs_in )
   }
   if( mat_in->rows() != mat_rhs_in->rows() ){
     std::stringstream message;
-    message << "Trying to build a nrhs LU object with different matrix sizes.\nSize of matrices: A(" 
-            << mat_in->rows() << ", " << mat_in->cols() << "); B(" 
-            << mat_rhs_in->rows() << ", " << mat_rhs_in->cols() << ")." 
+    message << "Trying to build a nrhs LU object with different matrix sizes.\nSize of matrices: A("
+            << mat_in->rows() << ", " << mat_in->cols() << "); B("
+            << mat_rhs_in->rows() << ", " << mat_rhs_in->cols() << ")."
             << endl;
     LMX_THROW(dimension_error, message.str() );
   }
@@ -141,7 +141,7 @@ LU<T>::LU( Matrix<T>* mat_in, Matrix<T>* mat_rhs_in )
     }
   }
   b.resize( dim );
-  
+
   pivotFlag = 0;	// ********************* 0 means no pivoting
   if(pivotFlag!=0) p.resize(dim);
 
@@ -165,12 +165,12 @@ template <typename T>
 	int numRaux;
 	Vector<T> vAux;
 	vAux.resize(dim);
-	
+
 	if (pivotFlag!=0)
 	{
 		for (j = 0; j<dim; j++)	p(j) = j;	// Initialize permutation vector
 	}
-	
+
 	for (k = 0; k<dim-1; k++)
 	{
 		if (pivotFlag!=0)	// Pivoting
@@ -184,7 +184,7 @@ template <typename T>
 //				aux2 = abs(mat.readElement(i,k));
         aux2 = mat.readElement(i,k);
         if(aux2 < T(0)) aux2 = -aux2; // templatized abs();
-				if ( aux2 > aux1 ) 
+				if ( aux2 > aux1 )
 				{
 					numR = i;
 					aux1 = aux2;
@@ -231,7 +231,7 @@ template <typename T>
  * vector y replaces c
 	*/
 	void LU<T>::forSub( Vector<T>& c)
-{	
+{
 	int i;
 	int j;
 
@@ -275,16 +275,17 @@ template <typename T>
      */
     Vector<T>& LU<T>::solve()
 {
-
+cpuClock ck;
+cpuTick(&ck);
 //	cout << "Matriz antes de permutar " << mat << "\n";
 	lu();
 
 //	cout << "permutation vector is " << p << "\n";
-	
+
 //	cout << "Matriz antes de permutar " << mat << "\n";
 	forSub (vec);
 	backSub(vec);
-	
+	cpuTock(&ck, "Vector<T>& LU<T>::solve()");
 	return vec;
 }
 
@@ -295,11 +296,13 @@ template <typename T>
  */
 Matrix<T>& LU<T>::solve_nrhs()
 {
+  cpuClock ck;
+  cpuTick(&ck);
 	int i;
 	int j;
-	
+
 	lu();
-	
+
 	// Loop on columns of rhs matrix
 	for(j=0; j<nrhs; ++j)
 	{
@@ -308,6 +311,7 @@ Matrix<T>& LU<T>::solve_nrhs()
 		backSub(b);
 		for (i=0; i<dim; ++i)	mat_rhs.writeElement( b(i), i, j );
 	}
+  cpuTock(&ck, "Matrix<T>& LU<T>::solve_nrhs()");
 	return mat_rhs;
 }
 

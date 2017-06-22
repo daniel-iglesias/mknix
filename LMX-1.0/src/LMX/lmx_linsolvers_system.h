@@ -245,8 +245,6 @@ public:
     initSLU();
 #endif
   }
-
-
   /**
    * Standard constructor for nrhs system (Matrix).
    * @param dA_in LHS DenseMatrix.
@@ -417,8 +415,8 @@ void LinearSystem<T>::setA(Matrix<T>& A_in)
        				static_cast<Type_csc<T>*>(A->type_matrix)-> Ncol,
        				static_cast<Type_csc<T>*>(A->type_matrix)-> Nnze,
        				static_cast<Type_csc<T>*>(A->type_matrix)-> ia,
-                    static_cast<Type_csc<T>*>(A->type_matrix)-> ja,
-                    static_cast<Type_csc<T>*>(A->type_matrix)-> aa );
+              static_cast<Type_csc<T>*>(A->type_matrix)-> ja,
+              static_cast<Type_csc<T>*>(A->type_matrix)-> aa );
  		#endif
 		break;
 	}
@@ -538,7 +536,7 @@ void LinearSystem<T>::subsSolve()
       void LinearSystem<T>::solveYourselfMatrix(int recalc)
 //end JCGO
   {
-    //cpuClock ck;
+    cpuClock ck;
       if ( ( A->cols() != A->cols() ) || (A->rows() != B->rows() ) ){
         std::stringstream message;
         message << "Error in LinearSystem \"A*X = B\": Dimensions mismatch. \n"
@@ -552,8 +550,10 @@ void LinearSystem<T>::subsSolve()
 //        Gesv<T> solver( A, X, B );
 //        solver.solve();
 //#else
+    cpuTick(&ck);//------------------------------------<
       LU<T> solver( A, B );
       *X = solver.solve_nrhs();
+      cpuTock(&ck, "\n solveYourselfMatrix(" + recalc);
 //#endif
 //              return *X;
 
@@ -569,7 +569,7 @@ void LinearSystem<T>::subsSolve()
     if(FINDER){std::cout<< std::endl << "\nline 566: Vector<T>& LinearSystem<T>::solveYourself(int recalc="<<recalc<<")\n" << std::endl;}
     cpuClock ck;
     std::string solver_type;
-    if(TRACE){
+    /*if(TRACE){
       _trace_iter++;
       std::string A_path = "/home/vicen/Develop/temp_folder/mknix_cg/iter_A_" + std::to_string(_trace_iter)+ ".mat";
       std::cout << "Iter "<< _trace_iter << ":saving A in " << A_path <<std::endl;
@@ -577,7 +577,7 @@ void LinearSystem<T>::subsSolve()
       std::string b_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_b_" + std::to_string(_trace_iter)+ ".vec";
       std::cout << "Iter "<< _trace_iter << ":saving b in " << b_path <<std::endl;
       b->save((char*)b_path.c_str());
-    }
+    }*/
     cpuTick(&ck);//------------------------------------<
     // Routine for DenseMatrix:
     if (A==0 && dA!=0){
@@ -599,14 +599,14 @@ void LinearSystem<T>::subsSolve()
       LU<T> solver( dA, b );
       *x = solver.solve();
 #endif
-   cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
-if(TRACE){
-  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
-  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
-  x->save((char*)x_path.c_str());
-  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
-  saveClock(&ck, clock_path, solver_type);
-}
+    /*  if(TRACE){
+        std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+        std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+        x->save((char*)x_path.c_str());
+        std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
+        saveClock(&ck, clock_path, solver_type);
+      }*/
+      cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
       return *x;
     }
     else{
@@ -632,14 +632,15 @@ if(TRACE){
               LU<T> solver( A, b );
               *x = solver.solve();
 #endif
-cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
-if(TRACE){
-  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
-  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
-  x->save((char*)x_path.c_str());
-  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
-  saveClock(&ck, clock_path, solver_type);
-}
+
+            /*  if(TRACE){
+                std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+                std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+                x->save((char*)x_path.c_str());
+                std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
+                saveClock(&ck, clock_path, solver_type);
+              }*/
+              cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
               return *x;
             }
             break;
@@ -692,14 +693,14 @@ if(TRACE){
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
-cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
-if(TRACE){
-  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
-  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
-  x->save((char*)x_path.c_str());
-  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
-  saveClock(&ck, clock_path, solver_type);
-}
+              /*if(TRACE){
+                std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+                std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+                x->save((char*)x_path.c_str());
+                std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
+                saveClock(&ck, clock_path, solver_type);
+              }*/
+              cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
               return *x;
             break;
 
@@ -732,14 +733,15 @@ if(TRACE){
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
-cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
-if(TRACE){
-  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
-  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
-  x->save((char*)x_path.c_str());
-  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
-  saveClock(&ck, clock_path, solver_type);
-}
+
+                /*if(TRACE){
+                  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+                  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+                  x->save((char*)x_path.c_str());
+                  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
+                  saveClock(&ck, clock_path, solver_type);
+                }*/
+                cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
               return *x;
               break;
 
@@ -765,14 +767,15 @@ if(TRACE){
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
-cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
-if(TRACE){
-  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
-  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
-  x->save((char*)x_path.c_str());
-  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
-  saveClock(&ck, clock_path, solver_type);
-}
+
+            /*  if(TRACE){
+                std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+                std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+                x->save((char*)x_path.c_str());
+                std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
+                saveClock(&ck, clock_path, solver_type);
+              }*/
+              cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
               return *x;
               break;
 
@@ -787,6 +790,7 @@ if(TRACE){
             {  // Using built-in gauss elimination procedure:
               LU<T> solver( A, b );
               *x = solver.solve();
+              cpuTock(&ck, "\n solveYourself::" + solver_type);
               return *x;
             }
             break;
@@ -838,14 +842,15 @@ if(TRACE){
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
-cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
-if(TRACE){
-  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
-  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
-  x->save((char*)x_path.c_str());
-  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
-  saveClock(&ck, clock_path, solver_type);
-}
+
+              /*if(TRACE){
+                std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+                std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+                x->save((char*)x_path.c_str());
+                std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
+                saveClock(&ck, clock_path, solver_type);
+              }*/
+              cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
               return *x;
             break;
 
@@ -873,14 +878,15 @@ if(TRACE){
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
-cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
-if(TRACE){
-  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
-  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
-  x->save((char*)x_path.c_str());
-  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
-  saveClock(&ck, clock_path, solver_type);
-}
+
+              /*if(TRACE){
+                std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+                std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+                x->save((char*)x_path.c_str());
+                std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
+                saveClock(&ck, clock_path, solver_type);
+              }*/
+              cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
               return *x;
             break;
 
@@ -906,14 +912,15 @@ if(TRACE){
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
-cpuTock(&ck); //------------------------------------<
-if(TRACE){
-  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
-  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
-  x->save((char*)x_path.c_str());
-  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
-  saveClock(&ck, clock_path, solver_type);
-}
+
+              /*if(TRACE){
+                std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+                std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+                x->save((char*)x_path.c_str());
+                std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
+                saveClock(&ck, clock_path, solver_type);
+              }*/
+              cpuTock(&ck,"\n solveYourself::" + solver_type); //------------------------------------<
               return *x;
               break;
             }
@@ -927,13 +934,14 @@ if(TRACE){
               Cg<T> cg_solver(A, b);
               cg_solver.precond();
               *x = cg_solver.solve(info);
-              if(TRACE){
+              /*if(TRACE){
                 std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
                 std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
                 x->save((char*)x_path.c_str());
                 std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
                 saveClock(&ck, clock_path, solver_type);
-              }
+              }*/
+              cpuTock(&ck,"\n solveYourself::" + solver_type);
               return *x;
             }
             break;
@@ -944,13 +952,14 @@ if(TRACE){
               Cg<T> cg_solver(A, b);
               cg_solver.precond();
               *x = cg_solver.solve(info);
-              if(TRACE){
+              /*if(TRACE){
                 std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
                 std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
                 x->save((char*)x_path.c_str());
                 std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
                 saveClock(&ck, clock_path, solver_type);
-              }
+              }*/
+              cpuTock(&ck,"\n solveYourself::" + solver_type);
               return *x;
             }
             break;
@@ -976,6 +985,7 @@ if(TRACE){
   //             gmm::cg(*(static_cast<Type_gmm_sparse<T>*>(A->type_matrix)->data_pointer()),
   //                     *(static_cast<Type_stdVector<T>*>(x->type_vector)->data_pointer()), *(static_cast<Type_stdVector<T>*>(b->type_vector)->data_pointer()), PS, PR, iter);
   // #endif
+              cpuTock(&ck,"\n solveYourself::" + solver_type);
               return *x;
             }
   //////////////////////////////////////// Just another form of calling gmm's CG, BEGIN:
@@ -1018,14 +1028,15 @@ if(TRACE){
               gmm::cg(*(static_cast<Type_gmm_sparse<T>*>(A->type_matrix)->data_pointer()),
                       *(static_cast<Type_stdVector<T>*>(x->type_vector)->data_pointer()), *(static_cast<Type_stdVector<T>*>(b->type_vector)->data_pointer()), PS, PR, iter);
   #endif
-  cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
-  if(TRACE){
-    std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
-    std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
-    x->save((char*)x_path.c_str());
-    std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
-    saveClock(&ck, clock_path, solver_type);
-  }
+
+            /*if(TRACE){
+              std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+              std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+              x->save((char*)x_path.c_str());
+              std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
+              saveClock(&ck, clock_path, solver_type);
+            }*/
+              cpuTock(&ck, "\n solveYourself::" + solver_type); //------------------------------------<
             return *x;
           }
   //////////////////////////////////////// Just another form of calling gmm's CG, BEGIN:
@@ -1101,14 +1112,15 @@ if(TRACE){
                   LMX_THROW(failure_error, message.str() );
               }
 #endif
-cpuTock(&ck); //------------------------------------<
-if(TRACE){
-  std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
-  std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
-  x->save((char*)x_path.c_str());
-  std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
-  saveClock(&ck, clock_path, solver_type);
-}
+
+            /*if(TRACE){
+              std::string x_path= "/home/vicen/Develop/temp_folder/mknix_cg/iter_x_" + std::to_string(_trace_iter) + ".vec";
+              std::cout << "Iter "<< _trace_iter << ":saving b in " << x_path <<std::endl;
+              x->save((char*)x_path.c_str());
+              std::string clock_path= "/home/vicen/Develop/temp_folder/mknix_cg/clockSave_" + std::to_string(_trace_iter) + ".tim";
+              saveClock(&ck, clock_path, solver_type);
+            }*/
+            cpuTock(&ck,"\n solveYourself::" + solver_type);
             return *x;
 
             break;
@@ -1117,6 +1129,7 @@ if(TRACE){
           break;
       }
     }
+    cpuTock(&ck,"\n solveYourself::" + solver_type);
     return *x;
   }
 

@@ -591,7 +591,7 @@ void Body::calcCapacityMatrix()
                              _support_node_size,
                              0,
                              1);
-    cpuTock(&cck, " New Single CPU calcCapacityMatrix ");
+    cpuTock(&cck, "New Single CPU calcCapacityMatrix ");
     microCPU_single_capacity.push_back(cck.elapsedMicroseconds);
 
   }
@@ -600,7 +600,7 @@ void Body::calcCapacityMatrix()
   {
     //pthread_t _threads[MAX_THREADS];
       omp_set_num_threads(MAX_THREADS);
-    std::cout << "About to run New Multi CPU calcConductivityMatrix " << std::endl;
+    //std::cout << "About to run New Multi CPU calcConductivityMatrix " << std::endl;
     cpuClock cck;
     cpuTick(&cck);
 
@@ -625,7 +625,7 @@ void Body::calcCapacityMatrix()
     for(int i = 0; i < MAX_THREADS; i++)
         pthread_join(_threads[i],NULL);*/
 
-    cpuTock(&cck, " New Multi CPU calcCapacityMatrix ");
+    cpuTock(&cck, "New Multi CPU calcCapacityMatrix ");
     microCPU_multi_capacity.push_back(cck.elapsedMicroseconds);
 
   }
@@ -684,7 +684,7 @@ void Body::calcConductivityMatrix()
   else if(MULTICPU)
   {
     //pthread_t _threads[MAX_THREADS];
-    std::cout << "About to run New Multi CPU calcConductivityMatrix " << std::endl;
+    //std::cout << "About to run New Multi CPU calcConductivityMatrix " << std::endl;
       omp_set_num_threads(MAX_THREADS);
     cpuClock cck;
     cpuTick(&cck);
@@ -709,7 +709,7 @@ void Body::calcConductivityMatrix()
                                     tid,
                                     MAX_THREADS);
     }
-    cpuTock(&cck, " New Multi CPU calcConductivityMatrix ");
+    cpuTock(&cck, "\nNew Multi CPU calcConductivityMatrix ");
     microCPU_multi_conductivity.push_back(cck.elapsedMicroseconds);
   }
   //
@@ -1028,6 +1028,19 @@ void Body::assembleExternalHeat(lmx::Vector<data_type>& globalExternalHeat)
           group.second->assembleExternalHeat(globalExternalHeat);
       }
   } else if(MULTICPU){
+    //std::cout <<"Inside Body::assembleExternalHeat" <<std::endl;
+      auto end_int = this->cells.size();
+      //std::cout <<"Body::assembleExternalHeat Initializing global vector" <<std::endl;
+      //globalExternalHeat.fillIdentity(0.0f);
+      //std::cout <<"Body::assembleExternalHeat from Cells" <<std::endl;
+      for (auto i = 0u; i < end_int; ++i) {
+          this->cells[i]->assembleQextGaussPoints(globalExternalHeat);
+
+      }
+    //  std::cout <<"Body::assembleExternalHeat from Boundary Groups" <<std::endl;
+      for (auto group : boundaryGroups) {
+          group.second->assembleExternalHeat(globalExternalHeat);
+      }
   }else if(GPU){
   #ifdef HAVE_CUDA
     if(_use_gpu){

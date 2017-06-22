@@ -22,6 +22,8 @@
 #define LMXNL_SOLVERS_DOUBLE_H
 
 #include<iostream>
+//performancxe measure and report
+#include "gpu/chTimer.h"
 
 
 //////////////////////////////////////////// Doxygen file documentation entry:
@@ -261,13 +263,15 @@ void NLSolver<Sys, T>::solve(int max_iter)
  * @param max_iter Defines the maximun number of iterations for each iteration.
  */
 {
+  //cpuClock ck;
+
     if (res_vector.size() == 0) {
         std::stringstream message;
         message << "Error in NLSolver \"R(x) = 0\": dimension of problem not defined. \n"
         << "Use NLSystem::setInitialConfiguration( x_o ) function before the solve() function call." << endl;
         LMX_THROW(dimension_error, message.str());
     }
-
+//cpuTick(&ck);
     switch (nl_solver_type) {
 
     case 0 : // select_nl_solver == 0 -> Newton's method
@@ -334,6 +338,7 @@ void NLSolver<Sys, T>::solve(int max_iter)
     if (info > 0) {
         cout.unsetf(std::ios::floatfield);
     }
+    //cpuTock(&ck, "void NLSolver<Sys, T>::solve(int max_iter)");
 }
 
 }; // namespace lmx

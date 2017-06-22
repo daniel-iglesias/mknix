@@ -26,13 +26,13 @@
 //////////////////////////////////////////// Doxygen file documentation entry:
     /*!
       \file lmx_linsolvers.h
-      
+
       \brief Linear_solvers collection
 
       Implements linear methods for a typical "A*x = b" system
 
       \author Daniel Iglesias
-      
+
     */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
@@ -50,6 +50,7 @@ template <typename T>
    */
   void solveLinear(Matrix<T>& A, Vector<T>& x, Vector<T>& b)
 {
+  cpuClock ck;
   int old_solver_type = getLinSolverType(); //< used to restore the setting at the end of function.
 
   if (getMatrixType() == 2 || getMatrixType() == 3){
@@ -85,7 +86,9 @@ template <typename T>
   LinearSystem<T> system(A,x,b);
   cout << "Matrix type: " << getMatrixType() << endl;
   cout << "Solver selected: " << getLinSolverType() << endl;
+  cpuTick(&ck);
   system.solveYourself();
+  cpuTock(&ck, "void solveLinear(Matrix<T>& A, Vector<T>& x, Vector<T>& b)");
 
   setLinSolverType(old_solver_type);
 }
