@@ -32,7 +32,7 @@
 #include "gpu/functions_cpu.h"
 #include <gpu/cpu_run_type.h>
 #ifdef HAVE_CUDA
-//#include <gpu/cuda_helper.h>
+#include <gpu/cuda_helper.h>
 #include <gpu/assembly_kernels.h>
 
 #endif
@@ -280,9 +280,17 @@ protected:
     data_type *_h_local_weight_cap_array;
     data_type *_h_local_jacobian_cap_array;
 
+    data_type *_d_local_temperatures_cap_array;
+    data_type *_d_local_weight_cap_array;
+    data_type *_d_local_jacobian_cap_array;
+
     data_type *_h_local_temperatures_cond_array;
     data_type *_h_local_weight_cond_array;
     data_type *_h_local_jacobian_cond_array;
+
+    data_type *_d_local_temperatures_cond_array;
+    data_type *_d_local_weight_cond_array;
+    data_type *_d_local_jacobian_cond_array;
 
     data_type *_d_local_temperatures_array;
     data_type *_d_local_shapeFun_phis;
@@ -290,24 +298,42 @@ protected:
     data_type *_d_local_weight_array;
 
     ThermalBoundaryTable *_h_thermal_boundaries;
+    ThermalBoundaryTable *_d_thermal_boundaries;
     int *_h_thermal_boundaries_ids;
+    int *_d_thermal_boundaries_ids;
 
     MaterialTable *_h_materials;
     int *_h_materials_cap_ids;
     int *_h_materials_cond_ids;
     ShapeFunctionTable *_h_shapeFunctionTable;
 
+    MaterialTable *_d_materials;
+    int *_d_materials_cap_ids;
+    int *_d_materials_cond_ids;
+    ShapeFunctionTable *_d_shapeFunctionTable;
+
     std::vector<data_type> _h_local_shapes_cap_0;
     std::vector<data_type> _h_local_shapes_cond_0;   //npoints * supportNodeSize
     std::vector<data_type> _h_local_shapes_cond_dim; //npoints * supportNodeSize * supportNodeSize
+
+    data_type* _d_local_shapes_cap_0;
+    data_type* _d_local_shapes_cond_0;   //npoints * supportNodeSize
+    data_type* _d_local_shapes_cond_dim; //npoints * supportNodeSize * supportNodeSize
 
     std::vector<int> _h_thermal_map_MC; //capacity
     std::vector<int> _h_thermal_map; //conductivity
     std::vector<uint> _h_node_map_MC; //capacity
     std::vector<uint> _h_node_map; //conductivity
 
+    int* _d_thermal_map_MC; //capacity
+    int* _d_thermal_map; //conductivity
+    uint* _d_node_map_MC; //capacity
+    uint* _d_node_map; //conductivity
+
     int       *_h_capacity_map_cap;
     int       *_h_capacity_map_cond;
+    int       *_d_capacity_map_cap;
+    int       *_d_capacity_map_cond;
     int       *_h_presence_matrix_cap;
     int       *_h_presence_matrix_cond;
     int       _dim;
@@ -330,9 +356,8 @@ protected:
                         microCPU2, microCPU2b, microCPU2c, microCPU3;
     std::vector<double> microGPU1, microGPU2, microGPU3;
     std::vector<double> microCPU_old_capacity, microCPU_single_capacity, microCPU_multi_capacity;
-    std::vector<double> microCPU_old_conductivity, microCPU_single_conductivity, microCPU_multi_conductivity;
-    std::vector<double> microCPU_single_factors, microCPU_multi_factors;
-    std::vector<double> microGPU_capacity, microGPU_conductivity, microGPU_factors;
+    std::vector<double> microCPU_old_conductivity, microCPU_single_conductivity, microCPU_multi_conductivity;;
+    std::vector<double> microGPU_capacity, microGPU_conductivity;
     //testing gmm casting
     gmm::csr_matrix<data_type> gmm_sp_globalCapacity;
 

@@ -8,7 +8,68 @@
 #include <stdlib.h>
 #include <vector>
 #include "cuda_helper.h"
+//
+template <typename T>
+__device__ T getMaterialKappa (MaterialTable *materials,
+                              int material_id,
+                              T average_temperature)
+{
+  int n_vals =  materials->_kappa_counters[material_id];
+  int init_vals =  materials->_kappa_inits[material_id];
+  return interpolate1D(average_temperature,
+                       materials->_kappa_temps,
+                       materials->_kappa_values,
+                       init_vals,
+                       n_vals);
+}
+template <typename T>
+__device__ T getMaterialDensity (MaterialTable *materials,
+                                int material_id)
+{
+  return materials->density[material_id];
+}
+template <typename T>
+__device__ T getMaterialCapacity (MaterialTable *materials,
+                                  int material_id,
+                                  T average_temperature)
+{
+  int n_vals =  materials->_capacity_counters[material_id];
+  int init_vals =  materials->_capacity_inits[material_id];
+  return interpolate1D(average_temperature,
+                       materials->_capacity_temps,
+                       materials->_capacity_values,
+                       init_vals,
+                       n_vals);
 
+}
+//
+template <typename T>
+__device__ T interpolate1D(T query_value,
+                           T *reference_values,
+                           T *sought_values,
+                           int init_position,
+                           int counter)
+{
+  bool upper_bounded = false;
+  int upper_index = 0;
+  for(int i = 0; i < counter; i++){
+    //first find the upper_bound
+    T this_val = reference_values[init_position + i];
+    if(query_value <= this_val){//bounded here
+      upper_index = i;
+      break;
+    }
+  }
+  if(upper_index == 0) return sought_values[init_position];
+  upper_bounded = true;
+  if(!upper_bounded) return sought_values[init_position + counter];//not bound found so return last
+  //so we have a bound
+  int lower_index = upper_index - 1;
+  T delta = (query_value - reference_values[init_position + lower_index]) / (reference_values[init_position + upper_index] - reference_values[init_position + lower_index]);
+  return delta * sought_values[init_position + upper_index] + (1.0 - delta) * sought_values[init_position + lower_index];
+}
+
+//////////////////////////////////////////////////////////////////////////////
 template <typename T>
 __global__ void k_assemble_global_vector(T* global_vector,
                                         int* full_map,
@@ -134,9 +195,121 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
       }
       return true;
     }
+//
+template <typename T>
+__global__  void k_computeSOACapacityMatrix(T *local_capacity_matrices_array,
+                                            T *local_temperatures_array,
+                                            T *local_weight_array,
+                                            T *local_jacobian_array,
+                                            T *local_shapeFun_phis,
+                                            int *material_ids,
+                                            MaterialTable *materials,
+                                            int numPoints,
+                                            int supportNodeSize)
+  {
+  int eachPoint = threadIdx.x + blockIdx.x * blockDim.x;
+  if(eachPoint >= numPoints) return;
 
+  T avgTemp  = 0.0;
+  for(int lnode = 0; lnode < supportNodeSize; lnode++){
+        int nindex = eachPoint * supportNodeSize + lnode;
+        avgTemp += local_temperatures_array[nindex] * local_shapeFun_phis[nindex];
+  }
+  int material_id = material_ids[eachPoint] - 1;
+  T myDensity = getMaterialDensity (materials,
+                                    material_id);;
+  T myCapacity = getMaterialCapacity(materials,
+                                     material_id,
+                                     avgTemp);
+  T myJacobian = local_jacobian_array[eachPoint];
 
+  T avgFactor = myDensity * myCapacity * local_weight_array[eachPoint] * myJacobian;
+  for(int i = 0; i < supportNodeSize; i++){//equivalent to obtaining thermalNumber
+     for(int j = 0; j < supportNodeSize; j++){
+        int out_id = (eachPoint * supportNodeSize * supportNodeSize) + (i * supportNodeSize) + j;
+        T value = avgFactor * local_shapeFun_phis[eachPoint * supportNodeSize + i] * local_shapeFun_phis[eachPoint * supportNodeSize + j];
+        local_capacity_matrices_array[out_id] = value;
+     }
+  }
 
+}
+//
+template <typename T>
+__global__ void k_computeSOAConductivityMatrix(T *local_conductivity_matrices_array,
+                                              T *local_temperatures_array,
+                                              T *local_weight_array,
+                                              T *local_jacobian_array,
+                                              T *local_shapeFun_phis,
+                                              T *local_shapeFun_phis_dim,
+                                              int *material_ids,
+                                              MaterialTable *materials,
+                                              int numPoints,
+                                              int supportNodeSize)
+{
+  int eachpoint = threadIdx.x + blockIdx.x * blockDim.x;
+  T avgTemp  = 0.0;
+  for(int lnode = 0; lnode < supportNodeSize; lnode++){
+      int nindex = eachPoint * supportNodeSize + lnode;
+       avgTemp += local_temperatures_array[nindex] * local_shapeFun_phis[nindex];
+  }
+  int material_id = material_ids[eachPoint] - 1;
+
+  T myKappa = getMaterialKappa(materials,
+                               material_id,
+                               avgTemp);
+
+  T avgFactor = myKappa * local_weight_array[eachPoint] * local_jacobian_array[eachPoint];
+  int index_p =  eachPoint * supportNodeSize * supportNodeSize;
+  for(int i = 0; i < supportNodeSize; i++){//equivalent to obtaining thermalNumber
+    int index_row = index_p + i * supportNodeSize;
+    for(int j = 0; j < supportNodeSize; j++){
+        int out_id = index_row + j;
+        local_conductivity_matrices_array[out_id] = local_shapeFun_phis_dim[out_id] * avgFactor;
+     }
+  }
+
+}
+
+//
+
+///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
+//
+template __device__ float getMaterialKappa <float>(MaterialTable *materials,
+                                                  int material_id,
+                                                  float average_temperature);
+//
+template __device__ double getMaterialKappa <double>(MaterialTable *materials,
+                                                    int material_id,
+                                                    double average_temperature);
+//
+template __device__ float getMaterialDensity<float>(MaterialTable *materials,
+                                                    int material_id);
+//
+template __device__ double getMaterialDensity<double>(MaterialTable *materials,
+                                                      int material_id);
+//
+template __device__ float getMaterialCapacity<float>(MaterialTable *materials,
+                                                    int material_id,
+                                                    float average_temperature);
+//
+template __device__ double getMaterialCapacity<double>(MaterialTable *materials,
+                                                      int material_id,
+                                                      double average_temperature);
+//
+template __device__ float interpolate1D <float>(float query_value,
+                                                float *reference_values,
+                                                float *sought_values,
+                                                int init_position,
+                                                int counter);
+//
+//
+template __device__ double interpolate1D <double>(double query_value,
+                                                  double *reference_values,
+                                                  double *sought_values,
+                                                  int init_position,
+                                                  int counter);
+//
 template bool gpu_assemble_global_matrix <float>(float *,
                                                 int*,
                                                 float *,

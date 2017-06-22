@@ -131,9 +131,27 @@ Body::~Body()
     if(_use_gpu){
       cudaFree(_d_globalCapacityf);
       cudaFree(_d_globalConductivityf);
-      cudaFree(_d_capacity_map);
-      clockFullStats(microGPU1, "GPUAssembleCapacityMatrix");
-      clockFullStats(microGPU2, "GPUAssembleConductivityMatrix");
+      cudaFree(_d_capacity_map_cap);
+      cudaFree(_d_capacity_map_cond);
+      cudaFree(_d_materials);
+      cudaFree(_d_shapeFunctionTable);
+      cudaFree(_d_thermal_boundaries);
+
+      cudaFree(_d_materials_cap_ids);
+      cudaFree(_d_materials_cond_ids);
+      cudaFree(_d_localCapacityf);
+      //free(_h_globalConductivity);
+      cudaFree(_d_localConductivityf);
+      cudaFree(_d_local_temperatures_cap_array);
+      cudaFree(_d_local_jacobian_cap_array);
+      cudaFree(_d_local_weight_cap_array);
+      cudaFree(_d_local_temperatures_cond_array);
+      cudaFree(_d_local_jacobian_cond_array);
+      cudaFree(_d_local_weight_cond_array);
+      clockFullStats(microGPU_conductivity, "GPU calcConductivityMatrix");
+      clockFullStats(microGPU_capacity, "GPU calcCapacityMatrix");
+      clockFullStats(microGPU1, "GPU AssembleCapacityMatrix");
+      clockFullStats(microGPU2, "GPU AssembleConductivityMatrix");
     }
 
 #endif
