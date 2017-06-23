@@ -61,10 +61,12 @@ void cudaTick(cudaClock *ck);
 
 void cudaTock(cudaClock *ck, std::string function_name);
 //namespace CudaHelper{
+template <typename T>
+bool freeGPU(T* device_ref);
 
-   bool allocate_gpu_array(double *array,int size);
-    bool allocate_gpu_array(float *array,int size);
-     bool allocate_gpu_array(int *array,int size);
+bool allocate_gpu_array(double *array,int size);
+bool allocate_gpu_array(float *array,int size);
+bool allocate_gpu_array(int *array,int size);
 
    template <typename T>
    bool copy_to_gpu(T *gpu_array, T* cpu_array, int size);

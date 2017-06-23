@@ -27,13 +27,13 @@
 #include <omp.h>
 
 //#include <gpu/calc_cpu.h>
-#ifdef HAVE_CUDA
+//#ifdef HAVE_CUDA
 #include <gpu/assembly_kernels.h>
 #include <gpu/cuda_helper.h>
 #include <cuda.h>
 #include <cuda_runtime.h>
 #include <cuda_runtime_api.h>
-#endif
+//#endif
 
 #define DEBUG_CELL 1121
 
@@ -129,11 +129,11 @@ Body::~Body()
 
 #ifdef HAVE_CUDA
     if(_use_gpu){
-      cudaFree(_d_globalCapacityf);
-      cudaFree(_d_globalConductivityf);
-      cudaFree(_d_capacity_map_cap);
-      cudaFree(_d_capacity_map_cond);
-      cudaFree(_d_materials);
+      freeGPU(_d_globalCapacityf);
+      freeGPU(_d_globalConductivityf);
+      freeGPU(_d_capacity_map_cap);
+      freeGPU(_d_capacity_map_cond);
+      //cudaFree(_d_materials);
       cudaFree(_d_shapeFunctionTable);
       cudaFree(_d_thermal_boundaries);
 
@@ -872,19 +872,19 @@ else if(MULTICPU){
   }
   if(_use_gpu){
   #ifdef HAVE_CUDA
-  /* cudaClock gck1;
+  cudaClock gck1;
 
     cudaTick(&gck1);
-     init_array_to_value(_d_globalCapacityf, 0.0f, _sparse_matrix_size,128);
+     init_array_to_value(_d_globalCapacityf, 0.0, _sparse_matrix_size,128);
      gpu_assemble_global_matrix(_d_globalCapacityf,
-                                  _d_capacity_map,
+                                  _d_capacity_map_cap,
                                   _d_localCapacityf,
                                   this->cells.size(),
                                   _support_node_size,
                                   _number_points,
                                   128);
      cudaTock(&gck1, "GPU assembleCapacityMatrix");
-     microGPU1.push_back(gck1.elapsedMicroseconds);*/
+     microGPU1.push_back(gck1.elapsedMicroseconds);
    #endif
    }
 
@@ -995,10 +995,10 @@ if(OLD_CODE) {
   #ifdef HAVE_CUDA
     cudaClock gck2;
     if(_use_gpu){
-      init_array_to_value(_d_globalConductivityf, 0.0f, _sparse_matrix_size,128);
+      init_array_to_value(_d_globalConductivityf, 0.0, _sparse_matrix_size,128);
       cudaTick(&gck2);
       gpu_assemble_global_matrix(_d_globalConductivityf,
-                                _d_capacity_map,
+                                _d_capacity_map_cond,
                                 _d_localConductivityf,
                                 this->cells.size(),
                                 _support_node_size,
@@ -1062,20 +1062,14 @@ void Body::assembleExternalHeat(lmx::Vector<data_type>& globalExternalHeat)
   }else if(GPU){
   #ifdef HAVE_CUDA
     if(_use_gpu){
-      //init_array_to_value(_d_globalExternalHeat, 0.0f, _sparse_matrix_size,128);
-      init_array_to_value(_d_globalExternalHeat, 0.0f, _number_nodes, 128);
-      gpu_assemble_global_vector(_d_globalExternalHeat,
+      //init_array_to_value(_d_globalExternalHeat, 0.0, _number_nodes, 128);
+      /*gpu_assemble_global_vector(_d_globalExternalHeat,
                                 _d_locaThermalNumbers,
                                 _d_localHeatf,
                                 _support_node_size,
                                 _number_points,
-                                128);
-      gpu_assemble_global_vector(_d_globalExternalHeat,
-                                _d_locaThermalNumbers,
-                                _d_localHeatf,
-                                _support_node_size,
-                                _number_points,
-                                128);
+                                128);*/
+
     }
   #endif
  }

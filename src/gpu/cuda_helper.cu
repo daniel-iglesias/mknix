@@ -13,8 +13,12 @@
 #include "cuda_helper.h"
 //#include "device_helper.h"
 
-
-
+template <typename T>
+bool freeGPU(T* device_ref)
+{
+  CudaSafeCall(cudaFree(device_ref));
+  return true;
+}
 /**
  * allocate GPU memory
  * @param  {[type]} T*                    array         array of values
@@ -409,6 +413,11 @@ __global__ void k_init_array_to_value(int *array,
 /* template bool allocate_gpu_array<double>(double *array,int size);
  template bool allocate_gpu_array<float>(float *array,int size);
  template bool allocate_gpu_array<int>(int *array,int size);*/
+
+ template  bool freeGPU<double>(double* device_ref);
+ template  bool freeGPU<float>(float* device_ref);
+ template  bool freeGPU<int>(int* device_ref);
+ template  bool freeGPU<uint>(uint* device_ref);
 
  template bool init_array_to_value<double>(double *array,double value,int size,int threads_per_block,cudaStream_t stream);
  template bool init_array_to_value<float>(float *array,float value,int size,int threads_per_block,cudaStream_t stream);
