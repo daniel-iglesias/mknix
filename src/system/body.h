@@ -35,6 +35,7 @@
 //#ifdef HAVE_CUDA
 #include <gpu/cuda_helper.h>
 #include <gpu/assembly_kernels.h>
+#include <gpu/structures_gpu.h>
 
 //#endif
 //MULTICPU

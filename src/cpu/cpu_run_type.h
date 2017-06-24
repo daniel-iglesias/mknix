@@ -4,7 +4,7 @@
 #define OLD_CODE false
 #define NEWCPU true
 #define MULTICPU false
-#define GPU false
+#define GPU true
 //
 #define MAX_THREADS 4
 //

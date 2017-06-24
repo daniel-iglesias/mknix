@@ -481,48 +481,7 @@ void Body::setupShapeTables()
       }
       }
 
-      //debug block//
-  /*  std::vector<double> debug_s0_cell = this->cells[DEBUG_CELL]->getShapeCij();
-    std::cout << "Shapes0 of Cell " <<  DEBUG_CELL<< ":" <<std::endl;
-    for(int i= 0; i < _support_node_size; i++){
-       for(int j= 0; j < _support_node_size; j++){
-           std::cout <<" "<<  debug_s0_cell[i * _support_node_size + j];
-       }
-       std::cout<< endl;
-     }
-
-             //debug block//
-      //std::vector<double> debug_cap_cell = this->cells[DEBUG_POINT]->getCij();
-      std::cout << "ShapesTable 0 Cap of Cell " <<  DEBUG_CELL << ":" <<std::endl;
-      for(int i= 0; i < _support_node_size; i++){
-            for(int j= 0; j < _support_node_size; j++){
-              int pindex = DEBUG_CELL * _MC_points_per_cell * _support_node_size;
-                std::cout <<" "<<  _h_local_shapes_cap_0[pindex + i] *_h_local_shapes_cap_0[pindex + j];
-          }
-        std::cout<< endl;
-      }*/
-
-   //debug block//
-   /*std::vector<double> debug_sd_cell = this->cells[DEBUG_CELL]->getShapeHij();
-    std::cout << "ShapesDim of Cell " <<  DEBUG_CELL<< ":" <<std::endl;
-    for(int i= 0; i < _support_node_size; i++){
-       for(int j= 0; j < _support_node_size; j++){
-           std::cout <<" "<<  debug_sd_cell[i * _support_node_size + j];
-       }
-       std::cout<< endl;
-     }
-
-      //debug block//
-      std::cout << "ShapesTableDim of Cell " <<  DEBUG_CELL<< ":" <<std::endl;
-      for(int i= 0; i < _support_node_size; i++){
-            for(int j= 0; j < _support_node_size; j++){
-              int pindex = DEBUG_CELL * _points_per_cell * _support_node_size * _support_node_size;
-                std::cout <<" "<<  _h_local_shapes_cond_dim[pindex + i * _support_node_size + j];
-          }
-        std::cout<< endl;
-      }*/
-
-   //std::cout << "End of Initializing ShapeFunction Tables" << std::endl;
+  if(USE_GPU)
 
 }
 
@@ -534,6 +493,10 @@ void Body::setThermalBoundaryTable(ThermalBoundaryTable *tb_ptr)
 void Body::setMaterialTable(MaterialTable* mt_ptr)
 {
   _h_materials = mt_ptr;
+  _d_materials = (MaterialTable*)malloc(sizeof(MaterialTable));
+  if(GPU){
+    allocateTransferMaterialTable( &_d_materials, _h_materials);
+  }
  //debug_printMaterialTable(_h_materials);
 }
 

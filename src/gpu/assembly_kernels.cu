@@ -13,10 +13,10 @@
 //
 template <typename T>
 __device__ T d_interpolate1D(T query_value,
-                           T *reference_values,
-                           T *sought_values,
-                           int init_position,
-                           int counter)
+                             T *reference_values,
+                             T *sought_values,
+                             int init_position,
+                             int counter)
 {
   bool upper_bounded = false;
   int upper_index = 0;
