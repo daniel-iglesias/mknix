@@ -3,22 +3,22 @@
 
 //#include <cuda.h>
 #include <cuda_runtime_api.h>
+#include "cpu/structures.h"
 
 //#include "cuda_helper.h"
-template <typename T>
-__device__ T getMaterialKappa (MaterialTable *materials,
-                              int material_id,
-                              T average_temperature);
-template <typename T>
-__device__ T getMaterialDensity (MaterialTable *materials,
-                                int material_id);
-template <typename T>
-__device__ T getMaterialCapacity (MaterialTable *materials,
-                                  int material_id,
-                                  T average_temperature);
+__device__ double d_getMaterialKappa (MaterialTable *materials,
+                                    int material_id,
+                                    double average_temperature);
+
+__device__ double d_getMaterialDensity (MaterialTable *materials,
+                                      int material_id);
+
+__device__ double d_getMaterialCapacity (MaterialTable *materials,
+                                      int material_id,
+                                      double average_temperature);
 //
 template <typename T>
-__device__ T interpolate1D(T query_value,
+__device__ T d_interpolate1D(T query_value,
                            T *reference_values,
                            T *sought_values,
                            int init_position,

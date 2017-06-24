@@ -24,7 +24,7 @@
 #include "lmx_mat_vector.h"
 #include "lmx_mat_matrix.h"
 //performancxe measure and report
-#include "gpu/chTimer.h"
+#include "cpu/chTimer.h"
 #define TRACE_THIS false
 
 

@@ -28,14 +28,15 @@
 
 #include <core/cellboundary.h>
 #include <core/node.h>
-#include <gpu/assembly_cpu.h>
-#include "gpu/functions_cpu.h"
-#include <gpu/cpu_run_type.h>
-#ifdef HAVE_CUDA
+#include <cpu/assembly_cpu.h>
+#include "cpu/functions_cpu.h"
+#include "cpu/structures.h"
+#include "cpu/cpu_run_type.h"
+//#ifdef HAVE_CUDA
 #include <gpu/cuda_helper.h>
 #include <gpu/assembly_kernels.h>
 
-#endif
+//#endif
 //MULTICPU
 
 namespace mknix {

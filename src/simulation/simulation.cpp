@@ -26,8 +26,8 @@
 #include <reader/reader.h>
 #include <system/generalcontact.h>
 
-#include "gpu/cpu_run_type.h"
-#include "gpu/cpu_solvers.h"
+#include "cpu/cpu_run_type.h"
+//#include "cpu/cpu_solvers.h"
 
 namespace mknix {
 

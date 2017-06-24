@@ -5,6 +5,4 @@ file(GLOB SOURCES *.cpp)
 
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
-add_library(system OBJECT ${SOURCES} ${HEADERS})
-
-link_directories(${PROJECT_SOURCE_DIR}/src/gpu)
+add_library(cpu OBJECT ${SOURCES} ${HEADERS})

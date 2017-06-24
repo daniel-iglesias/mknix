@@ -20,16 +20,16 @@
 #include "body.h"
 
 #include <core/cell.h>
-#include <gpu/chTimer.h>
-#include <gpu/cpu_run_type.h>
-#include <gpu/assembly_cpu.h>
+#include <cpu/chTimer.h>
+#include <cpu/cpu_run_type.h>
+#include <cpu/assembly_cpu.h>
 
 #include <omp.h>
 
-//#include <gpu/calc_cpu.h>
 //#ifdef HAVE_CUDA
-#include <gpu/assembly_kernels.h>
-#include <gpu/cuda_helper.h>
+#include "gpu/assembly_kernels.h"
+#include "gpu/cuda_helper.h"
+//#include <gpu/device_helper.h>
 #include <cuda.h>
 #include <cuda_runtime.h>
 #include <cuda_runtime_api.h>
@@ -129,10 +129,10 @@ Body::~Body()
 
 #ifdef HAVE_CUDA
     if(_use_gpu){
-      freeGPU(_d_globalCapacityf);
+      /*freeGPU(_d_globalCapacityf);
       freeGPU(_d_globalConductivityf);
       freeGPU(_d_capacity_map_cap);
-      freeGPU(_d_capacity_map_cond);
+      freeGPU(_d_capacity_map_cond);*/
       //cudaFree(_d_materials);
       cudaFree(_d_shapeFunctionTable);
       cudaFree(_d_thermal_boundaries);

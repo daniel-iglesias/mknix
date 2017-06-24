@@ -4,7 +4,7 @@
 #include <iomanip>
 #include <stdio.h>
 #include <cuda.h>
-//#include <cuda_runtime.h>
+#include <cuda_runtime.h>
 #include <cuda_runtime_api.h>
 
 #define CUDA_ERROR_CHECK

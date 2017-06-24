@@ -23,7 +23,7 @@
 
 #include<iostream>
 //performancxe measure and report
-#include "gpu/chTimer.h"
+#include "cpu/chTimer.h"
 
 
 //////////////////////////////////////////// Doxygen file documentation entry:

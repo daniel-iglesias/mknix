@@ -24,7 +24,8 @@
 #include "common.h"
 
 #include "core/material.h"
-#include "gpu/functions_cpu.h"
+#include "cpu/functions_cpu.h"
+#include "cpu/structures.h"
 #include "gmm/gmm_matrix.h"
 
 namespace mknix {

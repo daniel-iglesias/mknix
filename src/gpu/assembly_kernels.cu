@@ -8,43 +8,11 @@
 #include <stdlib.h>
 #include <vector>
 #include "cuda_helper.h"
+#include "cpu/structures.h"
+//
 //
 template <typename T>
-__device__ T getMaterialKappa (MaterialTable *materials,
-                              int material_id,
-                              T average_temperature)
-{
-  int n_vals =  materials->_kappa_counters[material_id];
-  int init_vals =  materials->_kappa_inits[material_id];
-  return interpolate1D(average_temperature,
-                       materials->_kappa_temps,
-                       materials->_kappa_values,
-                       init_vals,
-                       n_vals);
-}
-template <typename T>
-__device__ T getMaterialDensity (MaterialTable *materials,
-                                int material_id)
-{
-  return materials->density[material_id];
-}
-template <typename T>
-__device__ T getMaterialCapacity (MaterialTable *materials,
-                                  int material_id,
-                                  T average_temperature)
-{
-  int n_vals =  materials->_capacity_counters[material_id];
-  int init_vals =  materials->_capacity_inits[material_id];
-  return interpolate1D(average_temperature,
-                       materials->_capacity_temps,
-                       materials->_capacity_values,
-                       init_vals,
-                       n_vals);
-
-}
-//
-template <typename T>
-__device__ T interpolate1D(T query_value,
+__device__ T d_interpolate1D(T query_value,
                            T *reference_values,
                            T *sought_values,
                            int init_position,
@@ -67,6 +35,39 @@ __device__ T interpolate1D(T query_value,
   int lower_index = upper_index - 1;
   T delta = (query_value - reference_values[init_position + lower_index]) / (reference_values[init_position + upper_index] - reference_values[init_position + lower_index]);
   return delta * sought_values[init_position + upper_index] + (1.0 - delta) * sought_values[init_position + lower_index];
+}
+//
+__device__ double d_getMaterialKappa (MaterialTable *materials,
+                                    int material_id,
+                                    double average_temperature)
+{
+  int n_vals =  materials->_kappa_counters[material_id];
+  int init_vals =  materials->_kappa_inits[material_id];
+  return d_interpolate1D(average_temperature,
+                       materials->_kappa_temps,
+                       materials->_kappa_values,
+                       init_vals,
+                       n_vals);
+}
+
+__device__ double d_getMaterialDensity (MaterialTable *materials,
+                                      int material_id)
+{
+  return materials->density[material_id];
+}
+
+__device__ double d_getMaterialCapacity (MaterialTable *materials,
+                                      int material_id,
+                                      double average_temperature)
+{
+  int n_vals =  materials->_capacity_counters[material_id];
+  int init_vals =  materials->_capacity_inits[material_id];
+  return d_interpolate1D(average_temperature,
+                       materials->_capacity_temps,
+                       materials->_capacity_values,
+                       init_vals,
+                       n_vals);
+
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -174,8 +175,8 @@ __global__ void k_assemble_global_matrix(T* global_matrix,
       dim3 blockDim = dim3(threads_per_block,1,1);
 
       k_assemble_global_vector<<<gridDim, blockDim, 0, stream>>>(global_matrix,
-                                                                vector_map,
-                                                                local_vector_array,
+                                                                vector_positions,
+                                                                local_vector,
                                                                 num_points,
                                                                 support_node_size,
                                                                 number_points);
@@ -216,9 +217,9 @@ __global__  void k_computeSOACapacityMatrix(T *local_capacity_matrices_array,
         avgTemp += local_temperatures_array[nindex] * local_shapeFun_phis[nindex];
   }
   int material_id = material_ids[eachPoint] - 1;
-  T myDensity = getMaterialDensity (materials,
+  T myDensity = d_getMaterialDensity (materials,
                                     material_id);;
-  T myCapacity = getMaterialCapacity(materials,
+  T myCapacity = d_getMaterialCapacity(materials,
                                      material_id,
                                      avgTemp);
   T myJacobian = local_jacobian_array[eachPoint];
@@ -246,7 +247,7 @@ __global__ void k_computeSOAConductivityMatrix(T *local_conductivity_matrices_ar
                                               int numPoints,
                                               int supportNodeSize)
 {
-  int eachpoint = threadIdx.x + blockIdx.x * blockDim.x;
+  int eachPoint = threadIdx.x + blockIdx.x * blockDim.x;
   T avgTemp  = 0.0;
   for(int lnode = 0; lnode < supportNodeSize; lnode++){
       int nindex = eachPoint * supportNodeSize + lnode;
@@ -254,7 +255,7 @@ __global__ void k_computeSOAConductivityMatrix(T *local_conductivity_matrices_ar
   }
   int material_id = material_ids[eachPoint] - 1;
 
-  T myKappa = getMaterialKappa(materials,
+  T myKappa = d_getMaterialKappa(materials,
                                material_id,
                                avgTemp);
 
@@ -275,7 +276,7 @@ __global__ void k_computeSOAConductivityMatrix(T *local_conductivity_matrices_ar
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 //
-template __device__ float getMaterialKappa <float>(MaterialTable *materials,
+/*template __device__ float getMaterialKappa <float>(MaterialTable *materials,
                                                   int material_id,
                                                   float average_temperature);
 //
@@ -295,16 +296,16 @@ template __device__ float getMaterialCapacity<float>(MaterialTable *materials,
 //
 template __device__ double getMaterialCapacity<double>(MaterialTable *materials,
                                                       int material_id,
-                                                      double average_temperature);
+                                                      double average_temperature);*/
 //
-template __device__ float interpolate1D <float>(float query_value,
+template __device__ float d_interpolate1D <float>(float query_value,
                                                 float *reference_values,
                                                 float *sought_values,
                                                 int init_position,
                                                 int counter);
 //
 //
-template __device__ double interpolate1D <double>(double query_value,
+template __device__ double d_interpolate1D <double>(double query_value,
                                                   double *reference_values,
                                                   double *sought_values,
                                                   int init_position,

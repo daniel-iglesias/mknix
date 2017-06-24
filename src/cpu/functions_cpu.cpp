@@ -1,5 +1,6 @@
 //some helper functions, arrangeds to fulfill Structure Of Arrays (SOA) philoshophy
 #include "functions_cpu.h"
+#include "structures.h"
 #include <stdlib.h>
 #include <map>
 

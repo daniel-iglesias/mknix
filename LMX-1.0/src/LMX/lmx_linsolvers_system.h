@@ -36,7 +36,7 @@
 #endif
 
 //performancxe measure and report
-#include "gpu/chTimer.h"
+#include "cpu/chTimer.h"
 #include <fstream>
 
 

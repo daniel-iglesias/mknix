@@ -1,8 +1,10 @@
+
 #ifndef FUNCTIONS_CPU_H
 #define FUNCTIONS_CPU_H
 
 #include "core/material.h"
 #include "system/loadthermalboundary1D.h"
+#include "structures.h"
 
 /**
  * SoA Structure containing shapefunction phi values
@@ -10,12 +12,12 @@
  * @param  {[type]} int size                  Number of nodes per gausspoints
  * @param  {[type]} int size                  Number of gausspoints
  */
-struct ShapeFunctionTable{
+/*struct ShapeFunctionTable{
   double *phis; // i derivative order, j node
   int support_node_size;
   int number_points;
   int number_derivatives; // dim + 1
-};
+};*/
 /**
  * returns the shape function phi value for a given gausspoint and node
  * @param  {[type]} ShapeFunctionTable* struct  structure containing shapefunction phis
@@ -75,7 +77,7 @@ void free_shape_functions_table(ShapeFunctionTable **shapeFunctionTable);
  * @param  {[type]} int* array                Sparse matrix of values for capacity
  */
 //class MaterialTable
-struct MaterialTable{
+/*struct MaterialTable{
   int number_materials;
   double *capacity;
   double *kappa;
@@ -89,7 +91,7 @@ struct MaterialTable{
   double *_kappa_values;
   int *_kappa_counters;
   int *_kappa_inits;
-};
+};*/
 
 void debug_printMaterialTable(MaterialTable *materials);
 
@@ -150,7 +152,7 @@ void freeMaterialTableMemory(MaterialTable **mt);
  * @param  {[type]} int* array                Array of row counters in sparse matrix time
  */
 //class MaterialTable
-struct ThermalBoundaryTable{
+/*struct ThermalBoundaryTable{
   int number_thermal_boundaries;
   double *_load_coord;
   double *_load_values;
@@ -160,7 +162,7 @@ struct ThermalBoundaryTable{
   double *_time_values;
   int *_time_counters;
   int *_time_inits;
-};
+};*/
 
 void debug_printThermalBoundaryTable(ThermalBoundaryTable *thermalBoundaries);
 

@@ -30,7 +30,7 @@
      * This basic facilities include all the linear algebra operations over Vectors and Matrices, Tensor algebra and linear systems solvers.
      *
      * \author Daniel Iglesias
-     * 
+     *
      */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
