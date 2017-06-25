@@ -893,7 +893,6 @@ else if(MULTICPU){
   if(GPU){
   #ifdef HAVE_CUDA
   cudaClock gck1;
-
     cudaTick(&gck1);
      init_array_to_value(_d_globalCapacityf, 0.0, _sparse_matrix_size,128);
      gpu_assemble_global_matrix(_d_globalCapacityf,
@@ -999,8 +998,8 @@ if(OLD_CODE) {
   #ifdef HAVE_CUDA
     cudaClock gck2;
     if(GPU){
-      init_array_to_value(_d_globalConductivityf, 0.0, _sparse_matrix_size,128);
       cudaTick(&gck2);
+      init_array_to_value(_d_globalConductivityf, 0.0, _sparse_matrix_size,128);
       gpu_assemble_global_matrix(_d_globalConductivityf,
                                  _d_full_map_cond,
                                  _d_node_map,
