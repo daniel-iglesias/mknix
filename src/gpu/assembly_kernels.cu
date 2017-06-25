@@ -236,6 +236,50 @@ __global__  void k_computeSOACapacityMatrix(T *local_capacity_matrices_array,
 }
 //
 template <typename T>
+bool gpu_computeSOACapacityMatrix(T *local_capacity_matrices_array,
+                                  T *local_temperatures_array,
+                                  T *local_weight_array,
+                                  T *local_jacobian_array,
+                                  T *local_shapeFun_phis,
+                                  int *material_ids,
+                                  MaterialTable *materials,
+                                  int numPoints,
+                                  int supportNodeSize,
+                                  int threads_per_block,
+                                  cudaStream_t stream)
+{
+
+  int size = numPoints;
+  dim3 gridDim = dim3((size+threads_per_block-1) / threads_per_block, 1, 1);
+  dim3 blockDim = dim3(threads_per_block,1,1);
+
+  k_computeSOACapacityMatrix<<<gridDim, blockDim, 0, stream>>>(local_capacity_matrices_array,
+                                                               local_temperatures_array,
+                                                               local_weight_array,
+                                                               local_jacobian_array,
+                                                               local_shapeFun_phis,
+                                                               material_ids,
+                                                               materials,
+                                                               numPoints,
+                                                               supportNodeSize);
+
+  cudaError_t cudaError = cudaGetLastError();
+  if (cudaError != cudaSuccess)
+  {
+    std::cout << "GPU.CudaError k_computeSOACapacityMatrix"
+    "{\"cuda_error:\"" << cudaError <<
+    ",\"cuda_error_message\":" << "\"" << cudaGetErrorString(cudaError) << "\"" <<
+    ",\"array_size:\"" << size <<
+    ",\"gridDim.x:\"" << gridDim.x <<
+    ",\"threads_per_block:\"" << threads_per_block <<
+    ",\"stream:\"" << stream << "}" << std::endl;
+
+    return false;
+  }
+  return true;
+}
+//
+template <typename T>
 __global__ void k_computeSOAConductivityMatrix(T *local_conductivity_matrices_array,
                                               T *local_temperatures_array,
                                               T *local_weight_array,
@@ -270,7 +314,51 @@ __global__ void k_computeSOAConductivityMatrix(T *local_conductivity_matrices_ar
   }
 
 }
+//
+template <typename T>
+bool gpu_computeSOAConductivityMatrix(T *local_conductivity_matrices_array,
+                                      T *local_temperatures_array,
+                                      T *local_weight_array,
+                                      T *local_jacobian_array,
+                                      T *local_shapeFun_phis,
+                                      T *local_shapeFun_phis_dim,
+                                      int *material_ids,
+                                      MaterialTable *materials,
+                                      int numPoints,
+                                      int supportNodeSize,
+                                      int threads_per_block,
+                                      cudaStream_t stream)
+{
+  int size = numPoints;
+  dim3 gridDim = dim3((size+threads_per_block-1) / threads_per_block, 1, 1);
+  dim3 blockDim = dim3(threads_per_block,1,1);
 
+  k_computeSOAConductivityMatrix<<<gridDim, blockDim, 0, stream>>>(local_conductivity_matrices_array,
+                                                                   local_temperatures_array,
+                                                                   local_weight_array,
+                                                                   local_jacobian_array,
+                                                                   local_shapeFun_phis,
+                                                                   local_shapeFun_phis_dim,
+                                                                   material_ids,
+                                                                   materials,
+                                                                   numPoints,
+                                                                   supportNodeSize);
+
+  cudaError_t cudaError = cudaGetLastError();
+  if (cudaError != cudaSuccess)
+  {
+    std::cout << "GPU.CudaError k_computeSOAConductivityMatrix"
+    "{\"cuda_error:\"" << cudaError <<
+    ",\"cuda_error_message\":" << "\"" << cudaGetErrorString(cudaError) << "\"" <<
+    ",\"array_size:\"" << size <<
+    ",\"gridDim.x:\"" << gridDim.x <<
+    ",\"threads_per_block:\"" << threads_per_block <<
+    ",\"stream:\"" << stream << "}" << std::endl;
+
+    return false;
+  }
+  return true;
+}
 //
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -327,5 +415,55 @@ template bool gpu_assemble_global_matrix <double> (double *,
                                                   int,
                                                   int,
                                                   cudaStream_t stream);
-
+//
+template bool gpu_computeSOACapacityMatrix<float>(float *local_capacity_matrices_array,
+                                                  float *local_temperatures_array,
+                                                  float *local_weight_array,
+                                                  float *local_jacobian_array,
+                                                  float *local_shapeFun_phis,
+                                                  int *material_ids,
+                                                  MaterialTable *materials,
+                                                  int numPoints,
+                                                  int supportNodeSize,
+                                                  int threads_per_block,
+                                                  cudaStream_t stream);
+//
+template bool gpu_computeSOACapacityMatrix<double>(double *local_capacity_matrices_array,
+                                                  double *local_temperatures_array,
+                                                  double *local_weight_array,
+                                                  double *local_jacobian_array,
+                                                  double *local_shapeFun_phis,
+                                                  int *material_ids,
+                                                  MaterialTable *materials,
+                                                  int numPoints,
+                                                  int supportNodeSize,
+                                                  int threads_per_block,
+                                                  cudaStream_t stream);
+//
+template bool gpu_computeSOAConductivityMatrix<float>(float *local_conductivity_matrices_array,
+                                                      float *local_temperatures_array,
+                                                      float *local_weight_array,
+                                                      float *local_jacobian_array,
+                                                      float *local_shapeFun_phis,
+                                                      float *local_shapeFun_phis_dim,
+                                                      int *material_ids,
+                                                      MaterialTable *materials,
+                                                      int numPoints,
+                                                      int supportNodeSize,
+                                                      int threads_per_block,
+                                                      cudaStream_t stream);
+//
+template bool gpu_computeSOAConductivityMatrix<double>(double *local_conductivity_matrices_array,
+                                                       double *local_temperatures_array,
+                                                       double *local_weight_array,
+                                                       double *local_jacobian_array,
+                                                       double *local_shapeFun_phis,
+                                                       double *local_shapeFun_phis_dim,
+                                                       int *material_ids,
+                                                       MaterialTable *materials,
+                                                       int numPoints,
+                                                       int supportNodeSize,
+                                                       int threads_per_block,
+                                                       cudaStream_t stream);
+//
 #endif //ASSEMBLY_KERNELS_H

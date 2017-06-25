@@ -53,6 +53,31 @@ bool gpu_assemble_global_vector(T *global_matrix,
                                 int threads_per_block,
                                 cudaStream_t stream);
 //
-
+template <typename T>
+bool gpu_computeSOACapacityMatrix(T *local_capacity_matrices_array,
+                                  T *local_temperatures_array,
+                                  T *local_weight_array,
+                                  T *local_jacobian_array,
+                                  T *local_shapeFun_phis,
+                                  int *material_ids,
+                                  MaterialTable *materials,
+                                  int numPoints,
+                                  int supportNodeSize,
+                                  int threads_per_block,
+                                  cudaStream_t stream);
+//
+template <typename T>
+bool gpu_computeSOAConductivityMatrix(T *local_conductivity_matrices_array,
+                                      T *local_temperatures_array,
+                                      T *local_weight_array,
+                                      T *local_jacobian_array,
+                                      T *local_shapeFun_phis,
+                                      T *local_shapeFun_phis_dim,
+                                      int *material_ids,
+                                      MaterialTable *materials,
+                                      int numPoints,
+                                      int supportNodeSize,
+                                      int threads_per_block,
+                                      cudaStream_t stream);
 //}
 #endif //ASSEMBLY_KERNELS_H

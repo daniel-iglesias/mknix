@@ -264,9 +264,16 @@ protected:
     std::vector<uint> _vec_ind_cond;
     std::vector<uint> _cvec_ptr_cond;
     std::vector<int> _locaThermalNumbers;
+    //gpu maps
+    uint* _d_full_map_cap;//also used for cpu new assembly functions
+    uint* _d_vec_ind_cap;
+    uint* _d_cvec_ptr_cap;
+    uint* _d_full_map_cond;
+    uint* _d_vec_ind_cond;
+    uint* _d_cvec_ptr_cond;
+    int* _d_locaThermalNumbers;
 
     //GPU related
-    bool _use_gpu;
     data_type *_d_globalCapacity;
     data_type *_d_globalConductivity;
     std::vector<data_type> _h_globalCapacity;
@@ -349,6 +356,7 @@ protected:
     int       _sparse_matrix_size;
     //MULTI CPU part
     //pthread_t _threads[MAX_THREADS];
+    //TODO refvise if neccesary
     p_struct* _param_array_capacity;
     p_struct* _param_array_conductivity;
     p_calc_SOA_cap_struct* _param_calc_capacity;

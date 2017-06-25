@@ -43,7 +43,7 @@ Body::Body()
         : computeEnergy(0)
         , isThermal(1)
 {
-  _use_gpu = false;
+
 }
 
 /**
@@ -57,7 +57,7 @@ Body::Body(std::string title_in)
         , computeEnergy(0)
         , isThermal(1)
 {
-  _use_gpu = false;
+
 }
 
 
@@ -121,14 +121,14 @@ Body::~Body()
     clockFullStats(microCPU2b,                   "New AssembleConductivityMatrixWithMap");
   }
  if(MULTICPU){
-   clockFullStats(microCPU_multi_conductivity, "Multi-CPU calcConductivityMatrix");
-   clockFullStats(microCPU_multi_capacity,     "Multi-CPU calcCapacityMatrix");
-   clockFullStats(microCPU1c, "Multi-CPU AssembleCapacityMatrixWithMap");
-   clockFullStats(microCPU2c, "Multi-CPU AssembleConductivityMatrixWithMap");
+   clockFullStats(microCPU_multi_conductivity,  "Multi-CPU calcConductivityMatrix");
+   clockFullStats(microCPU_multi_capacity,      "Multi-CPU calcCapacityMatrix");
+   clockFullStats(microCPU1c,                   "Multi-CPU AssembleCapacityMatrixWithMap");
+   clockFullStats(microCPU2c,                   "Multi-CPU AssembleConductivityMatrixWithMap");
  }
 
 #ifdef HAVE_CUDA
-    if(_use_gpu){
+    if(GPU){
       /*freeGPU(_d_globalCapacityf);
       freeGPU(_d_globalConductivityf);
       freeGPU(_d_capacity_map_cap);
@@ -148,10 +148,10 @@ Body::~Body()
       cudaFree(_d_local_temperatures_cond_array);
       cudaFree(_d_local_jacobian_cond_array);
       cudaFree(_d_local_weight_cond_array);
-      clockFullStats(microGPU_conductivity, "GPU calcConductivityMatrix");
-      clockFullStats(microGPU_capacity, "GPU calcCapacityMatrix");
-      clockFullStats(microGPU1, "GPU AssembleCapacityMatrix");
-      clockFullStats(microGPU2, "GPU AssembleConductivityMatrix");
+      clockFullStats(microGPU_conductivity, "GPU SOA calcConductivityMatrix");
+      clockFullStats(microGPU_capacity,     "GPU SOA calcCapacityMatrix");
+      clockFullStats(microGPU1,             "GPU AssembleCapacityMatrix");
+      clockFullStats(microGPU2,             "GPU AssembleConductivityMatrix");
     }
 
 #endif
@@ -225,12 +225,13 @@ void Body::initialize()
            _h_materials_cond_ids[i * _points_per_cell + p] = cellMaterial;
      }
 
-//  // Checking the output of a shapefunction:
-//   int mid_int = this->cells.size()/2;
-//   // Initialize individual output files
-//   std::ofstream cell_data(std::string("cell_data_"+title+".dat").c_str());
-//   std::ofstream gpoint_data(std::string("cell_gpoint_data_"+title+".dat").c_str());
-//   this->cells[mid_int]->gnuplotOut(cell_data, gpoint_data); // Bus error
+  if(GPU){
+    CudaSafeCall(cudaMalloc((void**)&_d_materials_cap_ids,  _number_points_MC * sizeof(int)));
+    CudaSafeCall(cudaMalloc((void**)&_d_materials_cond_ids, _number_points * sizeof(int)));
+
+    CudaSafeCall(cudaMemcpy(_d_materials_cap_ids,  _h_materials_cap_ids,  _number_points_MC * sizeof(int), cudaMemcpyHostToDevice));
+    CudaSafeCall(cudaMemcpy(_d_materials_cond_ids, _h_materials_cond_ids, _number_points * sizeof(int),    cudaMemcpyHostToDevice));
+  }
 
 //std::cout << "8. Body::initialize() Iteration in nodes" << std::endl;
 //The iteration on nodes MUST be done AFTER the cells.
@@ -352,24 +353,34 @@ for(int i = 0; i < _number_points_MC * _support_node_size; i++)
     //map_vector_thermal_numbers(_locaThermalNumbers);
     //GPU part
   #ifdef HAVE_CUDA
-    if(_use_gpu){
+    if(GPU){
        //_sparse_matrix_size = _cvec_ptr[_number_nodes];//convention
-    /*   std::cout << "sparse matrix has " << _sparse_matrix_size << " elements" << std::endl;
-       CudaSafeCall(cudaMalloc((void**)&_d_globalCapacityf, _sparse_matrix_size * sizeof(data_type)));
+       std::cout << "sparse matrix has " << _sparse_matrix_size << " elements" << std::endl;
+       CudaSafeCall(cudaMalloc((void**)&_d_globalCapacityf,     _sparse_matrix_size * sizeof(data_type)));
        CudaSafeCall(cudaMalloc((void**)&_d_globalConductivityf, _sparse_matrix_size * sizeof(data_type)));
-       CudaSafeCall(cudaMalloc((void**)&_d_localCapacityf, _number_points * _support_node_size * _support_node_size * sizeof(data_type)));
-       CudaSafeCall(cudaMalloc((void**)&_d_localConductivityf, _number_points * _support_node_size * _support_node_size * sizeof(data_type)));
-       CudaSafeCall(cudaMalloc((void**)&_d_capacity_map, _number_nodes * _number_nodes * sizeof(int)));
-       CudaSafeCall(cudaMemcpy(_d_capacity_map, _full_map.data(),_number_nodes * _number_nodes * sizeof(int), cudaMemcpyHostToDevice));
+       CudaSafeCall(cudaMalloc((void**)&_d_localCapacityf,      _number_points_MC * _support_node_size * _support_node_size * sizeof(data_type)));
+       CudaSafeCall(cudaMalloc((void**)&_d_localConductivityf,  _number_points * _support_node_size * _support_node_size * sizeof(data_type)));
+       CudaSafeCall(cudaMalloc((void**)&_d_full_map_cap,        _number_nodes * _number_nodes * sizeof(uint)));
+       CudaSafeCall(cudaMalloc((void**)&_d_full_map_cond,       _number_nodes * _number_nodes * sizeof(uint)));
+       CudaSafeCall(cudaMalloc((void**)&_d_vec_ind_cap,         _vec_ind_cap.size() * sizeof(uint)));
+       CudaSafeCall(cudaMalloc((void**)&_d_vec_ind_cond,        _vec_ind_cond.size() * sizeof(uint)));
+       CudaSafeCall(cudaMalloc((void**)&_d_cvec_ptr_cap,        _cvec_ptr_cap.size() * sizeof(uint)));
+       CudaSafeCall(cudaMalloc((void**)&_d_cvec_ptr_cond,       _cvec_ptr_cond.size() * sizeof(uint)));
+       CudaSafeCall(cudaMemcpy(_d_full_map_cap,   _full_map_cap.data(),   _number_nodes * _number_nodes * sizeof(uint), cudaMemcpyHostToDevice));
+       CudaSafeCall(cudaMemcpy(_d_full_map_cond,  _full_map_cond.data(),  _number_nodes * _number_nodes * sizeof(uint), cudaMemcpyHostToDevice));
+       CudaSafeCall(cudaMemcpy(_d_vec_ind_cap,    _vec_ind_cap.data(),    _vec_ind_cap.size() * sizeof(uint), cudaMemcpyHostToDevice));
+       CudaSafeCall(cudaMemcpy(_d_vec_ind_cond,   _vec_ind_cond.data(),   _vec_ind_cond.size() * sizeof(uint), cudaMemcpyHostToDevice));
+       CudaSafeCall(cudaMemcpy(_d_cvec_ptr_cap,   _cvec_ptr_cap.data(),   _cvec_ptr_cap.size() * sizeof(uint), cudaMemcpyHostToDevice));
+       CudaSafeCall(cudaMemcpy(_d_cvec_ptr_cond,  _cvec_ptr_cond.data(),  _cvec_ptr_cond.size() * sizeof(uint), cudaMemcpyHostToDevice));
 
-       CudaSafeCall(cudaMalloc((void**)&_d_local_capacity_factor, _number_points * _support_node_size * _support_node_size * sizeof(data_type)));
-       CudaSafeCall(cudaMalloc((void**)&_d_local_conductivity_factor, _number_points * _support_node_size * _support_node_size * sizeof(data_type)));
-       CudaSafeCall(cudaMalloc((void**)&_d_local_temperatures_array, _number_points * _support_node_size * sizeof(data_type)));
-       CudaSafeCall(cudaMalloc((void**)&_d_local_shapeFun_phis, _number_points * _support_node_size * sizeof(data_type)));
-       CudaSafeCall(cudaMalloc((void**)&_d_jacobian_array, _number_points * _support_node_size * sizeof(data_type)));
-       CudaSafeCall(cudaMalloc((void**)&_d_weight_array, _number_points * sizeof(data_type)));
+       CudaSafeCall(cudaMalloc((void**)&_d_local_temperatures_cap_array, _number_points_MC * _support_node_size * sizeof(data_type)));
+       CudaSafeCall(cudaMalloc((void**)&_d_local_temperatures_cond_array, _number_points * _support_node_size * sizeof(data_type)));
+       CudaSafeCall(cudaMalloc((void**)&_d_local_jacobian_cap_array, _number_points_MC * _support_node_size * sizeof(data_type)));
+       CudaSafeCall(cudaMalloc((void**)&_d_local_jacobian_cond_array, _number_points * _support_node_size * sizeof(data_type)));
+       CudaSafeCall(cudaMalloc((void**)&_d_local_weight_cap_array, _number_points_MC * sizeof(data_type)));
+       CudaSafeCall(cudaMalloc((void**)&_d_local_weight_cond_array, _number_points * sizeof(data_type)));
 
-       CudaCheckError();*/
+       CudaCheckError();
     }
  #endif
 //std::cout<< " 15. Body::initialize() Setting Up SOA boundary tables"<< std::endl;
@@ -481,8 +492,15 @@ void Body::setupShapeTables()
       }
       }
 
-  if(USE_GPU)
+  if(GPU){
+    CudaSafeCall(cudaMalloc((void**) &_d_local_shapes_cap_0,    _number_points_MC * _support_node_size * sizeof(double)));
+    CudaSafeCall(cudaMalloc((void**) &_d_local_shapes_cond_0,   _number_points * _support_node_size * sizeof(double)));
+    CudaSafeCall(cudaMalloc((void**) &_d_local_shapes_cond_dim, _number_points * _support_node_size * _support_node_size * sizeof(double)));
 
+    CudaSafeCall(cudaMemcpy(_d_local_shapes_cap_0,    _h_local_shapes_cap_0.data(),    _number_points_MC * _support_node_size * sizeof(double), cudaMemcpyHostToDevice));
+    CudaSafeCall(cudaMemcpy(_d_local_shapes_cond_0,   _h_local_shapes_cond_0.data(),   _number_points * _support_node_size * sizeof(double), cudaMemcpyHostToDevice));
+    CudaSafeCall(cudaMemcpy(_d_local_shapes_cond_dim, _h_local_shapes_cond_dim.data(), _number_points * _support_node_size * _support_node_size * sizeof(double), cudaMemcpyHostToDevice));
+  }
 }
 
 void Body::setThermalBoundaryTable(ThermalBoundaryTable *tb_ptr)
@@ -611,9 +629,24 @@ void Body::calcCapacityMatrix()
 
   }
   //
-  else if(_use_gpu)
+  if(GPU)
   {
-
+    cudaClock gck1;
+    cudaTick(&gck1);
+    gpu_computeSOACapacityMatrix(_d_localCapacityf,
+                                 _d_local_temperatures_cap_array,
+                                 _d_local_weight_cap_array,
+                                 _d_local_jacobian_cap_array,
+                                 _d_local_shapes_cap_0,
+                                 _d_materials_cap_ids,
+                                 _d_materials,
+                                 _number_points_MC,
+                                 _support_node_size,
+                                 128,
+                                 0);
+    cudaTock(&gck1, "GPU calcCapacityMatrix");
+    microGPU_capacity.push_back(gck1.elapsedMicroseconds);
+    CudaCheckError();
   }
 
 }
@@ -694,9 +727,26 @@ void Body::calcConductivityMatrix()
     microCPU_multi_conductivity.push_back(cck.elapsedMicroseconds);
   }
   //
-  else if(_use_gpu)
+  if(GPU)
   {
-
+    CudaCheckError();
+    cudaClock gck1;
+    cudaTick(&gck1);
+    gpu_computeSOAConductivityMatrix(_d_localConductivityf,
+                                     _d_local_temperatures_cond_array,
+                                     _d_local_weight_cond_array,
+                                     _d_local_jacobian_cond_array,
+                                     _d_local_shapes_cond_0,
+                                     _d_local_shapes_cond_dim,
+                                     _d_materials_cond_ids,
+                                     _d_materials,
+                                     _number_points,
+                                     _support_node_size,
+                                     128,
+                                     0);
+    cudaTock(&gck1, "GPU SOA calcConductivityMatrix");
+    microGPU_conductivity.push_back(gck1.elapsedMicroseconds);
+    CudaCheckError();
   }
 }
 
@@ -833,7 +883,7 @@ else if(MULTICPU){
                       USECSC);
 
   }
-  if(_use_gpu){
+  if(GPU){
   #ifdef HAVE_CUDA
   cudaClock gck1;
 
@@ -848,6 +898,7 @@ else if(MULTICPU){
                                   128);
      cudaTock(&gck1, "GPU assembleCapacityMatrix");
      microGPU1.push_back(gck1.elapsedMicroseconds);
+     CudaCheckError();
    #endif
    }
 
@@ -957,7 +1008,7 @@ if(OLD_CODE) {
 ////////
   #ifdef HAVE_CUDA
     cudaClock gck2;
-    if(_use_gpu){
+    if(GPU){
       init_array_to_value(_d_globalConductivityf, 0.0, _sparse_matrix_size,128);
       cudaTick(&gck2);
       gpu_assemble_global_matrix(_d_globalConductivityf,
@@ -969,6 +1020,7 @@ if(OLD_CODE) {
                                 128);
     cudaTock(&gck2, "GPU assembleConductivityMatrix");
     microGPU2.push_back(gck2.elapsedMicroseconds);
+    CudaCheckError();
     }
   #endif
 
@@ -1024,7 +1076,7 @@ void Body::assembleExternalHeat(lmx::Vector<data_type>& globalExternalHeat)
       }
   }else if(GPU){
   #ifdef HAVE_CUDA
-    if(_use_gpu){
+    if(GPU){
       //init_array_to_value(_d_globalExternalHeat, 0.0, _number_nodes, 128);
       /*gpu_assemble_global_vector(_d_globalExternalHeat,
                                 _d_locaThermalNumbers,
