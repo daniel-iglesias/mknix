@@ -74,6 +74,7 @@ bool allocateTransferMaterialTable(MaterialTable** device_material_table,
       capacity_tot_vals += host_material_table->_capacity_counters[imat];
       kappa_tot_vals += host_material_table->_kappa_counters[imat];
   }
+  std::cout << "kappa_tot_vals " << kappa_tot_vals << std::endl;
   std::cout << "Allocate device Material Table values and temps arrays" << std::endl;
   CudaSafeCall(cudaMalloc((void**) &((*device_material_table)->_capacity_temps),  capacity_tot_vals * sizeof(double)));
   CudaSafeCall(cudaMalloc((void**) &((*device_material_table)->_capacity_values), capacity_tot_vals * sizeof(double)));

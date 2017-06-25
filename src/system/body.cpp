@@ -292,6 +292,13 @@ void Body::initialize()
                                i,
                                _number_nodes);
     }
+    if(GPU){
+      CudaSafeCall(cudaMalloc((void**)&_d_node_map_MC, _number_points_MC * _support_node_size * _support_node_size * sizeof(uint)));
+      CudaSafeCall(cudaMalloc((void**)&_d_node_map,    _number_points * _support_node_size * _support_node_size * sizeof(uint)));
+
+      CudaSafeCall(cudaMemcpy(_d_node_map_MC, _h_node_map_MC.data(), _number_points_MC * _support_node_size * _support_node_size * sizeof(uint), cudaMemcpyHostToDevice));
+      CudaSafeCall(cudaMemcpy(_d_node_map,    _h_node_map.data(),    _number_points * _support_node_size * _support_node_size * sizeof(uint),    cudaMemcpyHostToDevice));
+    }
 //std::cout<< " 12. Body::initialize() Allocating presence matrices"<< std::endl;
     _h_presence_matrix_cap = (int*) malloc(_number_nodes * _number_nodes * sizeof(int));
     _h_presence_matrix_cond = (int*) malloc(_number_nodes * _number_nodes * sizeof(int));
@@ -639,12 +646,12 @@ void Body::calcCapacityMatrix()
                                  _d_local_jacobian_cap_array,
                                  _d_local_shapes_cap_0,
                                  _d_materials_cap_ids,
-                                 _d_materials,
+                                 *_d_materials,
                                  _number_points_MC,
                                  _support_node_size,
                                  128,
                                  0);
-    cudaTock(&gck1, "GPU calcCapacityMatrix");
+    cudaTock(&gck1, "GPU SOA calcCapacityMatrix");
     microGPU_capacity.push_back(gck1.elapsedMicroseconds);
     CudaCheckError();
   }
@@ -739,7 +746,7 @@ void Body::calcConductivityMatrix()
                                      _d_local_shapes_cond_0,
                                      _d_local_shapes_cond_dim,
                                      _d_materials_cond_ids,
-                                     _d_materials,
+                                     *_d_materials,
                                      _number_points,
                                      _support_node_size,
                                      128,
@@ -890,12 +897,13 @@ else if(MULTICPU){
     cudaTick(&gck1);
      init_array_to_value(_d_globalCapacityf, 0.0, _sparse_matrix_size,128);
      gpu_assemble_global_matrix(_d_globalCapacityf,
-                                  _d_capacity_map_cap,
-                                  _d_localCapacityf,
-                                  this->cells.size(),
-                                  _support_node_size,
-                                  _number_points,
-                                  128);
+                                _d_full_map_cap,
+                                _d_node_map_MC,
+                                _d_localCapacityf,
+                                _number_points_MC,
+                                _support_node_size,
+                                _number_points,
+                                128);
      cudaTock(&gck1, "GPU assembleCapacityMatrix");
      microGPU1.push_back(gck1.elapsedMicroseconds);
      CudaCheckError();
@@ -922,19 +930,11 @@ if(OLD_CODE) {
     }
     cpuTock(&cck2, "CPU assembleConductivityMatrix");
     microCPU2.push_back(cck2.elapsedMicroseconds);
-    /*std::cout << " SumSum of globalConductivity = " << globalConductivity.sumSum() << std::endl;
-    std::cout << " Trace of globalConductivity = " << globalConductivity.trace() << std::endl;
-    std::cout << " StdDev of globalConductivity = " << globalConductivity.stddev() << std::endl;
-    std::cout << " Max of globalConductivity = " << globalConductivity.max() << std::endl;
-    std::cout << " Min of globalConductivity = " << globalConductivity.min() << std::endl;*/
-    //std::cout << " NonZeroes of globalConductivity = " << globalConductivity.numNonZeros() << std::endl;
     //new CPU assembly function
 } else if(NEWCPU){
   //std::cout << "inside assembleConductivityMatrix" << std::endl;
     cpuClock cck2b;
     cpuTick(&cck2b);
-    //std::cout << "before init_host_array_to_value" << std::endl;
-    //auto end_int = this->cells.size();
     init_host_array_to_value(_h_globalConductivity, 0.0, _sparse_matrix_size);
     //std::cout << "before assembleConductivityGaussPointsWithMap" << std::endl;
     AssembleGlobalMatrix(_h_globalConductivity,
@@ -945,10 +945,6 @@ if(OLD_CODE) {
                          _support_node_size,
                          USECSC);
     cpuTock(&cck2b, "CPU assembleConductivityGaussPointsWithMap");
-    /*double debugio =0.0;
-    for (auto& el : _h_globalConductivity){
-        debugio += el;}
-  std::cout << "_h_globalConductivity sumsum = " << debugio << std::endl;*/
 
     microCPU2b.push_back(cck2b.elapsedMicroseconds);
     cpuClock cck2b1;
@@ -962,13 +958,7 @@ if(OLD_CODE) {
                        USECSC);
 
     cpuTock(&cck2b1, "CPU cast_into_lmx_type");
-    /*std::cout << " after the cast, leaving assembleConductivityMatrix " << std::endl;
-    std::cout << " SumSum of globalConductivity = " << globalConductivity.sumSum() << std::endl;
-    std::cout << " Trace of globalConductivity = " << globalConductivity.trace() << std::endl;
-    std::cout << " StdDev of globalConductivity = " << globalConductivity.stddev() << std::endl;
-    std::cout << " Max of globalConductivity = " << globalConductivity.max() << std::endl;
-    std::cout << " Min of globalConductivity = " << globalConductivity.min() << std::endl;*/
-    //std::cout << " NonZeroes of globalConductivity = " << globalConductivity.numNonZeros() << std::endl;
+
   } else if(MULTICPU){
     //pthread_t _threads[MAX_THREADS];
       omp_set_num_threads(MAX_THREADS);
@@ -1012,12 +1002,13 @@ if(OLD_CODE) {
       init_array_to_value(_d_globalConductivityf, 0.0, _sparse_matrix_size,128);
       cudaTick(&gck2);
       gpu_assemble_global_matrix(_d_globalConductivityf,
-                                _d_capacity_map_cond,
-                                _d_localConductivityf,
-                                this->cells.size(),
-                                _support_node_size,
-                                _number_points,
-                                128);
+                                 _d_full_map_cond,
+                                 _d_node_map,
+                                 _d_localConductivityf,
+                                 _number_points,
+                                 _support_node_size,
+                                 _number_points,
+                                 128);
     cudaTock(&gck2, "GPU assembleConductivityMatrix");
     microGPU2.push_back(gck2.elapsedMicroseconds);
     CudaCheckError();
