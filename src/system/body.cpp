@@ -552,6 +552,23 @@ void Body::setQVector(const lmx::Vector<data_type>& q)
   }
 }
 
+void Body::setQVector(const VectorX<data_type>& q)
+{
+  for(int ip = 0 ; ip < _number_points_MC ; ip++){
+    for(int lnode = 0 ; lnode < _support_node_size; lnode++){
+      int myIndex = ip *_support_node_size + lnode;
+      int myNode = _h_thermal_map_MC[myIndex];
+      _h_local_temperatures_cap_array[myIndex] = q[myNode];
+    }
+  }
+  for(int ip = 0 ; ip < _number_points ; ip++){
+    for(int lnode = 0 ; lnode < _support_node_size; lnode++){
+      int myIndex = ip *_support_node_size + lnode;
+      int myNode = _h_thermal_map[myIndex];
+      _h_local_temperatures_cond_array[myIndex] = q[myNode];
+    }
+  }
+}
 /**
  * @brief Computes the local Capacity of the material body by calling each cell's cascade function.
  *
@@ -837,12 +854,14 @@ else if(MULTICPU){
 void Body::assembleCapacityMatrix(SparseMatrix<data_type>& globalCapacity)
 {
   if(NEWCPU){
+    globalCapacity.reserve(_sparse_matrix_size);
+
     cpuClock cck1b;
     cpuTick(&cck1b);
 
     //init_host_array_to_value(_h_globalCapacity.data(), 0.0, _sparse_matrix_size);//now reset in simulat
     globalCapacity.setZero();
-    AssembleGlobalMatrix((double*)globalCapacity.valuePtr(),
+    AssembleGlobalMatrix(_h_globalCapacity,
                          _full_map_cap,
                          _h_node_map_MC,
                          _h_localCapacityf,
@@ -852,13 +871,15 @@ void Body::assembleCapacityMatrix(SparseMatrix<data_type>& globalCapacity)
     cpuTock(&cck1b, "CPU assembleCapacityMatrixWithMap");
     microCPU1b.push_back(cck1b.elapsedMicroseconds);
 
+    cpuClock ceig;
+    cpuTick(&ceig);
     cast_into_eigen_type(globalCapacity,
                          _h_globalCapacity,//not used
                          _vec_ind_cap,
                          _cvec_ptr_cap,
                          _number_nodes,
-                         _number_nodes,
-                         USECSC);
+                         _number_nodes);
+    cpuTock(&ceig, "cast_into_eigen_type");
 
   }
 
@@ -882,12 +903,6 @@ if(OLD_CODE) {
     }
     cpuTock(&cck2, "CPU assembleConductivityMatrix");
     microCPU2.push_back(cck2.elapsedMicroseconds);
-    /*std::cout << " SumSum of globalConductivity = " << globalConductivity.sumSum() << std::endl;
-    std::cout << " Trace of globalConductivity = " << globalConductivity.trace() << std::endl;
-    std::cout << " StdDev of globalConductivity = " << globalConductivity.stddev() << std::endl;
-    std::cout << " Max of globalConductivity = " << globalConductivity.max() << std::endl;
-    std::cout << " Min of globalConductivity = " << globalConductivity.min() << std::endl;*/
-    //std::cout << " NonZeroes of globalConductivity = " << globalConductivity.numNonZeros() << std::endl;
     //new CPU assembly function
 } else if(NEWCPU){
   //std::cout << "inside assembleConductivityMatrix" << std::endl;
@@ -980,14 +995,13 @@ sm1.outerIndexPtr(); // Pointer to the beginning of each inner vector
 
  if(NEWCPU){
   std::cout << "inside assembleConductivityMatrix" << std::endl;
+    globalConductivity.reserve(_sparse_matrix_size);
     cpuClock cck2b;
     cpuTick(&cck2b);
-    //std::cout << "before init_host_array_to_value" << std::endl;
-    //auto end_int = this->cells.size();
-    globalConductivity.setZero();
-    //init_host_array_to_value(_h_globalConductivity, 0.0, _sparse_matrix_size);
-    //std::cout << "before assembleConductivityGaussPointsWithMap" << std::endl;
-    AssembleGlobalMatrix(globalConductivity.valuePtr(),
+
+
+
+    AssembleGlobalMatrix(_h_globalConductivity,
                          _full_map_cond,
                          _h_node_map,
                          _h_localConductivityf,
@@ -1004,8 +1018,7 @@ sm1.outerIndexPtr(); // Pointer to the beginning of each inner vector
                        _vec_ind_cond,
                        _cvec_ptr_cond,
                        _number_nodes,
-                       _number_nodes,
-                       USECSC);
+                       _number_nodes);
 
     cpuTock(&cck2b1, "CPU cast_into_eigen_type");
 
@@ -1137,6 +1150,8 @@ void Body::setTemperature(double temp_in)
  **/
 void Body::outputStep()
 {
+  if(OLD_CODE){
+
     if (isThermal && nodes.size() != 0) {
       //std::cout << "\n\nOUTPUT STEP \n\n"<< std::endl;
         temperature.push_back(new lmx::Vector<data_type>(nodes.size())); //temperature
@@ -1144,6 +1159,16 @@ void Body::outputStep()
             temperature.back()->writeElement(nodes[i]->getqt(), i);
         }
     }
+  }else{
+    if (isThermal && nodes.size() != 0) {
+      //std::cout << "\n\nOUTPUT STEP \n\n"<< std::endl;
+        _eTemperature.push_back(new VectorX<data_type>(nodes.size())); //temperature
+        for (auto i = 0u; i < nodes.size(); ++i) {
+            (*(_eTemperature.back()))[i] = nodes[i]->getqt();
+        }
+    }
+
+  }
 
     if (computeEnergy) { // TODO: store thermal energy
 //     energy.push_back( new lmx::Vector<data_type>( 4 ) ); //potential, kinetic, elastic, total
@@ -1163,6 +1188,12 @@ void Body::outputStep()
 //     }
 //     energy.back()->operator()(3) += energy.back()->readElement(0) + energy.back()->readElement(1) + energy.back()->readElement(2);
     }
+}
+
+//not sure is needed
+void Body::outputStep(const VectorX<double> &)
+{
+  //should it?
 }
 
 /**

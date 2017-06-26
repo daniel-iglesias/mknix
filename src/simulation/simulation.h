@@ -119,26 +119,41 @@ public:
 
     void dynamicThermalEvaluation(const lmx::Vector<data_type>& q,
                                   lmx::Vector<data_type>& qdot,
-                                  double time
-    );
-
+                                  double time);
+ //
+ void dynamicThermalEvaluation(const VectorX<data_type>& q,
+                               VectorX<data_type>& qdot,
+                               double time);
+ //
     void dynamicThermalResidue(lmx::Vector<data_type>& residue,
                                const lmx::Vector<data_type>& q,
                                const lmx::Vector<data_type>& qdot,
                                double time
     );
-
+//
+void dynamicThermalResidue(VectorX<data_type>& residue,
+                           const VectorX<data_type>& q,
+                           const VectorX<data_type>& qdot,
+                           double time);
+//
     void dynamicThermalTangent(lmx::Matrix<data_type>& tangent_in,
                                const lmx::Vector<data_type>& q,
                                double partial_qdot,
-                               double time
-    );
-
-    bool dynamicThermalConvergence(const lmx::Vector<data_type>& q,
-                                   const lmx::Vector<data_type>& qdot,
-                                   double time
-    );
-
+                               double time);
+//
+void dynamicThermalTangent(SparseMatrix<data_type>& tangent_in,
+                           const VectorX<data_type>& q,
+                           double partial_qdot,
+                           double time);
+//
+bool dynamicThermalConvergence(const lmx::Vector<data_type>& q,
+                               const lmx::Vector<data_type>& qdot,
+                               double time);
+//
+bool dynamicThermalConvergence(const VectorX<data_type>& q,
+                               const VectorX<data_type>& qdot,
+                               double time);
+//
     bool dynamicThermalConvergenceInThermomechanical
             (const lmx::Vector<data_type>& q,
              const lmx::Vector<data_type>& qdot,
@@ -236,6 +251,8 @@ private:
     void systemOuputStep(const lmx::Vector<data_type>&, const lmx::Vector<data_type>&);
 
     void systemOuputStep(const lmx::Vector<data_type>&);
+
+    void systemOuputStep(const VectorX<data_type>&);
 
     std::string title;
 

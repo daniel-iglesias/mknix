@@ -282,4 +282,11 @@ void ThermalBody::outputStep(const lmx::Vector<data_type>& q)
     }
 }
 
+void ThermalBody::outputStep(const VectorX<data_type>& q)
+{
+
+    if (computeEnergy) { // TODO: see above
+    }
+}
+
 }

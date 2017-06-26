@@ -96,8 +96,7 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
             << system_in->getTitle()
             << "."
             << flexTitle << std::endl;
-            system_in->flexBodies[flexTitle]
-                    = new FlexGlobalGalerkin(flexTitle);
+            system_in->flexBodies[flexTitle] = new FlexGlobalGalerkin(flexTitle);
             system_in->flexBodies[flexTitle]->setType(bodyType);
             system_in->thermalBodies[flexTitle] = system_in->flexBodies[flexTitle];
 
@@ -146,7 +145,7 @@ void mknix::ReaderFlex::readFlexBodies(System * system_in)
                     for(auto& p_cell : system_in->flexBodies[flexTitle]->getCells() ){
                         counter += p_cell.second->setMaterialIfLayer(theSimulation->materials[newMaterial], thickness);
                     }
-                    *output << '\t' << "Number of cells changed: " << counter << endl;                        
+                    *output << '\t' << "Number of cells changed: " << counter << endl;
                 }
                 else if (keyword == "BOUNDARYGROUP") {
                     std::string boundaryFormulation;

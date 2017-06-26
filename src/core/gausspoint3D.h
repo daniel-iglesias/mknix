@@ -84,6 +84,7 @@ public:
     void assembleFext( lmx::Vector<data_type> & ) override;
 
     double calcPotentialE( const lmx::Vector<data_type> & ) override;
+    double calcPotentialE( const VectorX<data_type> & ) override;
 
     double calcKineticE( const lmx::Vector<data_type> & ) override;
 

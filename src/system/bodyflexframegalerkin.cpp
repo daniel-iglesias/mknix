@@ -286,6 +286,60 @@ void FlexFrameGalerkin::outputStep(const lmx::Vector<data_type>& q)
     }
 }
 
+void FlexFrameGalerkin::outputStep(const VectorX<data_type>& q)
+{
+    Body::outputStep();
+    int stressVectorSize = (Simulation::getDim() == 2) ? 3 : 6;
+
+    if (computeStress) {
+        if (formulation == "LINEAR") {
+
+            _eStress.push_back(new VectorX<data_type>(stressVectorSize * nodes.size()));
+
+            int end_int = this->cells.size();
+#pragma omp parallel for
+            for (int i = 0;
+                 i < end_int;
+                 ++i) {
+                this->cells[i]->assembleRGaussPoints(*stress.back(), nodes[0]->getNumber());
+            }
+        }
+        else if (formulation == "NONLINEAR") {
+
+            _eStress.push_back(new VectorX<data_type>(stressVectorSize * nodes.size()));
+
+            int end_int = this->cells.size();
+#pragma omp parallel for
+            for (int i = 0;
+                 i < end_int;
+                 ++i) {
+                this->cells[i]->assembleNLRGaussPoints(*stress.back(), nodes[0]->getNumber());
+            }
+        }
+        recoverStressField(stressVectorSize);
+    }
+
+    if (computeEnergy) {
+        _eEnergy.push_back(new VectorX<data_type>(4)); //potential, kinetic, elastic, total
+
+        _eEnergy.back()->fillIdentity(0.);
+
+        int end_int = this->cells.size();
+#pragma omp parallel for
+        for (int i = 0;
+             i < end_int;
+             ++i) {
+            _eEnergy.back()->operator()(0) += this->cells[i]->calcPotentialEGaussPoints(q); //potential
+            // no kinetic
+            _eEnergy.back()->operator()(2) += this->cells[i]->calcElasticEGaussPoints(); //elastic
+        }
+        _eEnergy.back()->operator()(3) +=
+                _eEnergy.back()->readElement(0) + _eEnergy.back()->readElement(1) + _eEnergy.back()->readElement(2); //total
+    }
+}
+
+
+
 void FlexFrameGalerkin::recoverStressField(int stressVectorSize)
 {
     if (Simulation::getSmoothingType() == "GLOBAL") {
@@ -309,4 +363,3 @@ void FlexFrameGalerkin::recoverStressField(int stressVectorSize)
 }
 
 }
-

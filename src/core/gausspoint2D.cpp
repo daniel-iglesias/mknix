@@ -573,6 +573,18 @@ double GaussPoint2D::calcPotentialE(const lmx::Vector<data_type>& q)
     return potential;
 }
 
+double GaussPoint2D::calcPotentialE(const VectorX<data_type>& q)
+{
+    double potential = 0;
+    for (auto i = 0u; i < supportNodesSize; ++i) {
+        for (auto m = 0u; m < 2; ++m) {
+            potential += q[2 * supportNodes[i]->getNumber() + m]
+                         * fext.readElement(2 * i + m);
+        }
+    }
+    return potential;
+}
+
 
 double GaussPoint2D::calcKineticE(const lmx::Vector<data_type>& qdot)
 {

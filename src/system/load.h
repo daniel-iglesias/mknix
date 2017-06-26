@@ -36,6 +36,7 @@ public:
     virtual ~Load();
 
     virtual void assembleExternalForces( lmx::Vector<data_type> & );
+    //virtual void assembleExternalForces( VectorX<data_type> & );
 
     virtual void outputToFile( std::ofstream* )=0;
 

@@ -102,6 +102,8 @@ public:
 
     void setQVector(const lmx::Vector<data_type>& q);
 
+    void setQVector(const VectorX<data_type>& q);
+
     void setTemperatureVector(lmx::Vector<data_type>& q);
 
     void calcFactors();
@@ -125,8 +127,10 @@ public:
     void reserve_eigen_conductivity(SparseMatrix<data_type>&);
 
     void assembleExternalHeat( lmx::Vector<data_type>& );
+    void assembleExternalHeat( VectorX<data_type>& );
 
     void assembleInternalHeat( lmx::Vector<data_type>& );
+    void assembleInternalHeat( VectorX<data_type>& );
 
     void assembleThermalTangentMatrix( lmx::Matrix<data_type>& );
 
@@ -153,6 +157,8 @@ public:
     void outputStep( const lmx::Vector<data_type>&, const lmx::Vector<data_type>& );
 
     void outputStep( const lmx::Vector<data_type>& );
+
+    void outputStep( const VectorX<data_type>& );
 
     void outputToFile( std::ofstream* );
 

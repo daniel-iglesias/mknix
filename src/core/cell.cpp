@@ -362,6 +362,16 @@ double Cell::calcPotentialEGaussPoints(const lmx::Vector<data_type>& q)
     return potentialEnergy;
 }
 
+double Cell::calcPotentialEGaussPoints(const VectorX<data_type>& q)
+{
+    double potentialEnergy = 0;
+
+    for (auto& point : gPoints) {
+        potentialEnergy += point->calcPotentialE(q);
+    }
+    return potentialEnergy;
+}
+
 
 double Cell::calcKineticEGaussPoints(const lmx::Vector<data_type>& qdot)
 {

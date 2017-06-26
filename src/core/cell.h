@@ -150,6 +150,8 @@ public:
 
     double calcPotentialEGaussPoints( const lmx::Vector<data_type> & );
 
+    double calcPotentialEGaussPoints( const VectorX<data_type> & );
+
     double calcKineticEGaussPoints( const lmx::Vector<data_type> & );
 
     double calcElasticEGaussPoints(  );

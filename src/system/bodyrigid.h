@@ -59,7 +59,11 @@ public:
 
     void outputStep( const lmx::Vector<data_type>&, const lmx::Vector<data_type>& );
 
+    void outputStep( const VectorX<data_type>&, const VectorX<data_type>& );
+
     void outputStep( const lmx::Vector<data_type>& );
+
+    void outputStep( const VectorX<data_type>& );
 
     void outputToFile( std::ofstream* );
 

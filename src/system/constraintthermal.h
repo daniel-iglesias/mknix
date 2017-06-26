@@ -25,6 +25,7 @@
 
 
 #include "constraint.h"
+#include <gpu/cpu_run_type.h>
 
 namespace mknix {
 
@@ -41,6 +42,8 @@ public:
     ~ConstraintThermal();
 
     virtual void assembleInternalForces( lmx::Vector<data_type> & );
+
+    virtual void assembleInternalForces( VectorX<data_type> & );
 
     virtual void assembleTangentMatrix( lmx::Matrix<data_type> & );
 

@@ -7,6 +7,7 @@
 #include "gmm/gmm_matrix.h"
 #include "functions_cpu.h"
 #include <cpu_run_type.h>
+#include "../Eigen/Sparse"
 
 #include <atomic>
 #include <pthread.h>
@@ -212,14 +213,14 @@ float inline atomic_fetch_add(std::atomic<float>* target, float value){
  * @param  {[type]} T  value        initialization value
  * @param  {[type]} int size        number of elements in the array
  */
- template <typename T>
+ /*template <typename T>
  void cast_into_eigen_type(SparseMatrix<T> &eigen_ref,
                          std::vector<T> &values_array,
                          std::vector<uint> &vec_ind,
                          std::vector<uint> &cvec_ptr,
                          int number_rows,
                          int number_columns,
-                         bool use_csc);
+                         bool use_csc);*/
 //
 template <typename T>
 void reserve_eigen_type(SparseMatrix<T> &eigen_ref,
@@ -243,6 +244,14 @@ void cast_into_gmm_csc_type(gmm::csc_matrix<T>& gmm_matrix,
                             int number_rows,
                             int number_columns);
 
+//
+template <typename T>
+void cast_into_eigen_type(SparseMatrix<T> &eigen_ref,
+                        std::vector<T> &values_array,
+                        std::vector<uint> &vec_ind,
+                        std::vector<uint> &cvec_ptr,
+                        int number_rows,
+                        int number_columns);
 //
 template <typename T>
 void cast_into_lmx_csc_type(lmx::Matrix<T> &lmx_ref,

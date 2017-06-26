@@ -77,6 +77,8 @@ public:
 
     virtual void setQVector(const lmx::Vector<data_type>& q);
 
+    virtual void setQVector(const VectorX<data_type>& q);
+
     virtual void setTemperatureVector(lmx::Vector<data_type>& q);
 
     virtual void calcCapacityMatrix();
@@ -84,8 +86,6 @@ public:
     virtual void calcConductivityMatrix();
 
     virtual void calcExternalHeat();
-
-
 
     virtual void assembleCapacityMatrix(lmx::Matrix<data_type>&);
     virtual void assembleCapacityMatrix(SparseMatrix<data_type>&);
@@ -117,10 +117,13 @@ public:
 
     virtual void setOutput(std::string) = 0;
 
-    virtual void outputStep
-            (const lmx::Vector<data_type>&, const lmx::Vector<data_type>&) = 0;
+    virtual void outputStep (const lmx::Vector<data_type>&, const lmx::Vector<data_type>&) = 0;
+
+    virtual void outputStep (const VectorX<data_type>&, const VectorX<data_type>&) = 0;
 
     virtual void outputStep(const lmx::Vector<data_type>&) = 0;
+
+    virtual void outputStep(const VectorX<data_type>&) = 0;
 
     virtual void outputStep();
 
@@ -259,6 +262,7 @@ protected:
     bool computeEnergy;
     bool isThermal;
     std::vector<lmx::Vector<data_type> *> temperature;
+    std::vector< VectorX<data_type> *> _eTemperature;
     LoadThermalBody * loadThermalBody;
 
     //map

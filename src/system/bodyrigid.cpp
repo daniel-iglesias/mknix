@@ -207,6 +207,26 @@ void RigidBody::outputStep(const lmx::Vector<data_type>& q)
     }
 }
 
+void RigidBody::outputStep(const Vectorx<data_type>& q)
+{
+    Body::outputStep();
+
+    int nodesSize = nodes.size();
+    int i, j;
+    if (nodesSize > 0) {
+        domainConf.push_back(new VectorX<data_type>(dim * nodesSize));
+        for (i = 0; i < nodesSize; ++i) {
+            for (j = 0; j < dim; ++j) {
+                domainConf.back()[ dim * i + j] = nodes[i]->getConf(j);
+            }
+        }
+    }
+    if (computeEnergy) {
+        // TODO: compute energy for each kind of rigid body
+//
+    }
+}
+
 void RigidBody::outputToFile(std::ofstream * outFile)
 {
     Body::outputToFile(outFile);

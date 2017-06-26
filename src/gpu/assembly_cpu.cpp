@@ -363,7 +363,7 @@ void cast_into_gmm_csc_type(gmm::csc_matrix<T>& gmm_matrix,
   gmm_matrix.nc = number_columns;
 }
 
-template <typename T>
+/*template <typename T>
 void cast_into_eigen_type(SparseMatrix<T> &eigen_ref,
                         std::vector<T> &values_array,
                         std::vector<uint> &vec_ind,
@@ -384,7 +384,7 @@ void cast_into_eigen_type(SparseMatrix<T> &eigen_ref,
     for(int i = 0; i < cvec_ptr.size(); i++){
       vec_ptr[i] = cvec_ptr[i];
     }
-  }
+  }*/
 //
 template <typename T>
 void reserve_eigen_type(SparseMatrix<T> &eigen_ref,
@@ -425,6 +425,34 @@ void cast_into_lmx_type(lmx::Matrix<T> &lmx_ref,
                           number_rows,
                           number_columns);
  }
+}
+
+/**
+ * Cast a directly assembled matrix into GMM compatible sparse matrix
+ * @param  {[type]} T* array        array
+ * @param  {[type]} T  value        initialization value
+ * @param  {[type]} int size        number of elements in the array
+ */
+template <typename T>
+void cast_into_eigen_type(SparseMatrix<T> &eigen_ref,
+                        std::vector<T> &values_array,
+                        std::vector<uint> &vec_ind,
+                        std::vector<uint> &cvec_ptr,
+                        int number_rows,
+                        int number_columns)//if false will use csr instead
+{
+  T* vals = eigen_ref.valuePtr();
+  int* inner = eigen_ref.innerIndexPtr();
+  int* outer = eigen_ref.outerIndexPtr();
+
+  for(int i = 0; i < values_array.size(); i++){ vals[i] = values_array[i];}
+  for(int i = 0; i < vec_ind.size(); i++){ vals[i] = vec_ind[i];}
+  for(int i = 0; i < cvec_ptr.size(); i++){ vals[i] = cvec_ptr[i];}
+
+  /*memcpy( vals, values_array.data(),  values_array.size() * sizeof(T));
+  memcpy( inner, vec_ind.data(),  vec_ind.size() * sizeof(uint));
+  memcpy( outer, cvec_ptr.data(),  cvec_ptr.size() * sizeof(uint));*/
+
 }
 
 /**
@@ -844,16 +872,14 @@ bool build_CSR_sparse_matrix_from_map(std::vector<uint> &full_map,
                                               std::vector<uint> &vec_ind,
                                               std::vector<uint> &cvec_ptr,
                                               int number_rows,
-                                              int number_columns,
-                                              bool use_csc);
+                                              int number_columns);
     //
     template void cast_into_eigen_type<double>(SparseMatrix<double> &eigen_ref,
                                                std::vector<double> &values_array,
                                                std::vector<uint> &vec_ind,
                                                std::vector<uint> &cvec_ptr,
                                                int number_rows,
-                                               int number_columns,
-                                               bool use_csc);
+                                               int number_columns);
     //
     template void reserve_eigen_type<double>(SparseMatrix<double> &eigen_ref,
                                              int number_elements);

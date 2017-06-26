@@ -21,6 +21,7 @@
 
 #include <core/node.h>
 #include <simulation/simulation.h>
+#include <gpu/cpu_run_type.h>
 
 namespace mknix {
 
@@ -57,6 +58,32 @@ void ConstraintThermal::assembleInternalForces
 //                   dim*counter + m << endl;
                     globalInternalForces( dim*nodes[i]->getSupportNodeNumber(0,k) + m)
                     += internalForces.readElement(dim*counter + m);
+                }
+            }
+            ++counter;
+        }
+//        for (m=0; m<dim; ++m){
+//          globalInternalForces( dim*nodes[i]->getThermalNumber() + m)
+//            += internalForces.readElement(dim*i + m);
+    }
+}
+
+void ConstraintThermal::assembleInternalForces
+(VectorX< data_type > & globalInternalForces)
+{
+    int nodesSize = nodes.size();
+    int i, m;
+    size_t k, counter(0);
+    for (i=0; i<nodesSize; ++i) {
+        for (k=0; k < nodes[i]->getSupportSize(0); ++k) {
+            if (nodes[i]->getThermalNumber() >= 0 ) {
+                for (m=0; m<dim; ++m) {
+//           cout << endl <<
+//                   "dim*nodes[i]->getSupportNodeNumber(0,k) + m = " <<
+//                   dim*nodes[i]->getSupportNodeNumber(0,k) + m << endl <<
+//                   "dim*counter + m = " <<
+//                   dim*counter + m << endl;
+                    globalInternalForces[dim*nodes[i]->getSupportNodeNumber(0,k) + m] += internalForces.readElement(dim*counter + m);
                 }
             }
             ++counter;

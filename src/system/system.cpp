@@ -210,6 +210,14 @@ void mknix::System::setQVector(const lmx::Vector<data_type>& q)
 
 }
 
+void mknix::System::setQVector(const VectorX<data_type>& q)
+{
+  for (auto& body : thermalBodies) {
+      body.second->setQVector(q);
+  }
+
+}
+
 void mknix::System::setTemperatureVector(lmx::Vector<data_type>& q)
 {
   for (auto& body : thermalBodies) {
@@ -391,8 +399,34 @@ void mknix::System::assembleExternalHeat(lmx::Vector<data_type>& externalHeat_in
     }
 }
 
+void mknix::System::assembleExternalHeat(VectorX<data_type>& externalHeat_in)
+{
+    for (auto& body : thermalBodies) {
+        body.second->assembleExternalHeat(externalHeat_in);
+    }
+
+    for (auto& load : loadsThermal) {
+        load->assembleExternalHeat(externalHeat_in);
+    }
+
+//  cout << "External heat in System (1) = " << externalHeat_in;
+    for (auto& system : subSystems) {
+        system.second->assembleExternalHeat(externalHeat_in);
+    }
+}
 
 void mknix::System::assembleInternalHeat(lmx::Vector<data_type>& internalHeat_in)
+{
+    for (auto& system : subSystems) {
+        system.second->assembleInternalHeat(internalHeat_in);
+    }
+    for (auto& constraint : constraintsThermal) {
+        constraint.second->assembleInternalForces(internalHeat_in);
+    }
+
+}
+
+void mknix::System::assembleInternalHeat(VectorX<data_type>& internalHeat_in)
 {
     for (auto& system : subSystems) {
         system.second->assembleInternalHeat(internalHeat_in);
@@ -609,6 +643,25 @@ void mknix::System::outputStep(const lmx::Vector<data_type>& q, const lmx::Vecto
 
 
 void mknix::System::outputStep(const lmx::Vector<data_type>& q)
+{
+    for (auto& body : rigidBodies) {
+        body.second->outputStep(q);
+    }
+
+    for (auto& body : flexBodies) {
+        body.second->outputStep(q);
+    }
+
+    for (auto& constraint : constraints) {
+        constraint.second->outputStep(q);
+    }
+
+    for (auto& system : subSystems) {
+        system.second->outputStep(q);
+    }
+}
+
+void mknix::System::outputStep(const VectorX<data_type>& q)
 {
     for (auto& body : rigidBodies) {
         body.second->outputStep(q);

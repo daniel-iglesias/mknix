@@ -21,6 +21,7 @@
 #define MKNIXFLEXFRAMEGALERKIN_H
 
 #include "bodyflex.h"
+#include <gpu/cpu_run_type.h>
 
 namespace mknix {
 
@@ -63,8 +64,10 @@ public:
     void assembleTangentMatrix( lmx::Matrix<data_type> & );
 
     void outputStep( const lmx::Vector<data_type>&, const lmx::Vector<data_type>& );
+    void outputStep( const VectorX<data_type>&, const VectorX<data_type>& );
 
     void outputStep( const lmx::Vector<data_type>& );
+    void outputStep( const VectorX<data_type>& );
 
 private:
     void recoverStressField( int );
@@ -73,6 +76,8 @@ private:
     std::string bodyType;
     std::vector<lmx::Vector<data_type> *> stress;
     std::vector<lmx::Vector<data_type> *> energy;
+    std::vector<VectorX<data_type> *> _eStress;
+    std::vector<VectorX<data_type> *> _eEnergy;
 };
 
 }

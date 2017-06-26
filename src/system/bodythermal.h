@@ -22,6 +22,7 @@
 
 #include "LMX/lmx.h"
 #include "common.h"
+#include <gpu/cpu_run_type.h>
 
 namespace mknix {
 
@@ -72,6 +73,8 @@ public:
     ( const lmx::Vector<data_type>&, const lmx::Vector<data_type>& );
 
     virtual void outputStep( const lmx::Vector<data_type>& );
+
+    virtual void outputStep( const VectorX<data_type>& );
 
     virtual void outputToFile( std::ofstream* );
 

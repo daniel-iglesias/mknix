@@ -22,6 +22,7 @@
 
 #include "common.h"
 #include "LMX/lmx.h"
+#include <gpu/cpu_run_type.h>
 
 namespace mknix {
 class Node;
@@ -36,17 +37,18 @@ public:
     LoadThermal( Node*, double );
 
     virtual ~LoadThermal();
-    
+
     virtual void insertNodesXCoordinates( std::vector<double>& );
 
     virtual void updateLoad(double load_in)
     { externalHeat = load_in; }
 
     virtual void assembleExternalHeat( lmx::Vector<data_type> & );
+    virtual void assembleExternalHeat( VectorX<data_type> & );
 
     virtual void outputToFile( std::ofstream* )
     {}
-    
+
     void getMaxTemp(double&);
 
 protected:

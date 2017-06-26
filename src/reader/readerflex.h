@@ -22,6 +22,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <gpu/cpu_run_type.h>
 
 namespace mknix {
 

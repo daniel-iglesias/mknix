@@ -22,6 +22,7 @@
 
 #include "common.h"
 #include "LMX/lmx.h"
+#include <gpu/cpu_run_type.h>
 
 
 namespace mknix {
@@ -38,14 +39,14 @@ public:
     Constraint(double&, std::string&, int);
 
     virtual ~Constraint();
-    
+
     void setTitle( std::string& title_in )
     { title = title_in; }
-  
+
     lmx::Vector<data_type>& getInternalForces( ) {
         return this->internalForces;
     }
-    
+
     lmx::DenseMatrix<data_type>& getStiffnessMatrix( ) {
         return this->stiffnessMatrix;
     }
@@ -79,6 +80,8 @@ public:
 
     void outputStep( const lmx::Vector<data_type>& );
 
+    void outputStep( const VectorX<data_type>& );
+
     void outputToFile( std::ofstream* );
 
 protected:
@@ -88,7 +91,9 @@ protected:
     std::string title;
     std::vector<Node*> nodes;
     lmx::Vector<data_type> internalForces;
+    VectorX<data_type> _eInternalForces;
     std::vector< lmx::Vector<data_type> > internalForcesOutput;
+    std::vector<VectorX<data_type> > _eInternalForcesOutput;
     lmx::DenseMatrix<data_type> stiffnessMatrix;
     std::vector< double > lambda;
     std::vector< double > phi;

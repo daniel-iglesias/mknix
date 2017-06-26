@@ -128,6 +128,7 @@ public:
     virtual void assembleFext( lmx::Vector<data_type> & )=0;
 
     virtual double calcPotentialE( const lmx::Vector<data_type> & )=0;
+    virtual double calcPotentialE( const VectorX<data_type> & )=0;
 
     virtual double calcKineticE( const lmx::Vector<data_type> & )=0;
 
