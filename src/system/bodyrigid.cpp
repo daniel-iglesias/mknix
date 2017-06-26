@@ -171,6 +171,26 @@ void RigidBody::outputStep
     }
 }
 
+void RigidBody::outputStep (const VectorX<data_type>& q, const VectorX<data_type>& qdot)
+{//TODO
+  /*  Body::outputStep();
+
+    auto nodesSize = nodes.size();
+    if (nodesSize > 0) {
+        domainConf.push_back(new lmx::Vector<data_type>(dim * nodesSize));
+        for (auto i = 0u; i < nodesSize; ++i) {
+            for (auto j = 0u; j < (size_t)dim; ++j) {
+                domainConf.back()->writeElement(nodes[i]->getConf(j), dim * i + j);
+            }
+        }
+    }
+    if (computeEnergy) {
+        // TODO: compute energy for each kind of rigid body
+
+    }*/
+}
+
+
 void RigidBody::outputStep(const lmx::Vector<data_type>& q)
 {
     Body::outputStep();
@@ -207,24 +227,24 @@ void RigidBody::outputStep(const lmx::Vector<data_type>& q)
     }
 }
 
-void RigidBody::outputStep(const Vectorx<data_type>& q)
-{
+void RigidBody::outputStep(const VectorX<data_type>& q)
+{//TODO complete
     Body::outputStep();
-
+/*
     int nodesSize = nodes.size();
     int i, j;
     if (nodesSize > 0) {
         domainConf.push_back(new VectorX<data_type>(dim * nodesSize));
         for (i = 0; i < nodesSize; ++i) {
             for (j = 0; j < dim; ++j) {
-                domainConf.back()[ dim * i + j] = nodes[i]->getConf(j);
+                *(domainConf.back())[ dim * i + j] = nodes[i]->getConf(j);
             }
         }
     }
     if (computeEnergy) {
         // TODO: compute energy for each kind of rigid body
 //
-    }
+    }*/
 }
 
 void RigidBody::outputToFile(std::ofstream * outFile)

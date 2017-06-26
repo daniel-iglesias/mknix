@@ -203,6 +203,51 @@ void FlexGlobalGalerkin::outputStep(const lmx::Vector<data_type>& q, const lmx::
     }
 }
 
+void FlexGlobalGalerkin::outputStep(const VectorX<data_type>& q, const VectorX<data_type>& qdot)
+{//TODO 
+  /*  Body::outputStep();
+    int stressVectorSize = (Simulation::getDim() == 2) ? 3 : 6;
+
+    if (computeStress) {
+        if (formulation == "LINEAR") {
+
+            stresses.push_back(lmx::Vector<data_type>(stressVectorSize * nodes.size()));
+
+            auto end_int = this->cells.size();
+            for (auto i = 0u; i < end_int; ++i) {
+                this->cells[i]->assembleRGaussPoints(stresses.back(), nodes[0]->getNumber());
+            }
+        }
+        else if (formulation == "NONLINEAR") {
+
+            stresses.push_back(lmx::Vector<data_type>(stressVectorSize * nodes.size()));
+
+            auto end_int = this->cells.size();
+            for (auto i = 0u; i < end_int; ++i) {
+                this->cells[i]->assembleNLRGaussPoints(stresses.back(), nodes[0]->getNumber());
+            }
+        }
+        recoverStressField(stressVectorSize);
+    }
+
+    if (computeEnergy) {
+        energies.push_back(new lmx::Vector<data_type>(4)); //potential, kinetic, elastic, total
+
+        energies.back()->fillIdentity(0.);
+
+        auto end_int = this->cells.size();
+
+        for (auto i = 0u; i < end_int; ++i) {
+            energies.back()->operator()(0) += this->cells[i]->calcPotentialEGaussPoints(q); //potential
+            energies.back()->operator()(1) += this->cells[i]->calcKineticEGaussPoints(qdot); //kinetic
+            energies.back()->operator()(2) += this->cells[i]->calcElasticEGaussPoints(); //elastic
+//total
+        }
+        energies.back()->operator()(3) +=
+                energies.back()->readElement(0) + energies.back()->readElement(1) + energies.back()->readElement(2);
+    }*/
+}
+
 /**
  * @brief Postprocess and store step results for static analysis
  *
@@ -255,6 +300,52 @@ void FlexGlobalGalerkin::outputStep(const lmx::Vector<data_type>& q)
     }
 }
 
+void FlexGlobalGalerkin::outputStep(const VectorX<data_type>& q)
+{
+  /*  Body::outputStep();
+    int stressVectorSize = (Simulation::getDim() == 2) ? 3 : 6;
+
+    if (computeStress) {
+        if (formulation == "LINEAR") {
+
+            stresses.push_back(lmx::Vector<data_type>(stressVectorSize * nodes.size()));
+
+            auto end_int = this->cells.size();
+//             #pragma omp parallel for
+            for (auto i = 0u; i < end_int; ++i) {
+                this->cells[i]->assembleRGaussPoints(stresses.back(), nodes[0]->getNumber());
+            }
+        }
+        else if (formulation == "NONLINEAR") {
+
+            stresses.push_back(lmx::Vector<data_type>(stressVectorSize * nodes.size()));
+
+            auto end_int = this->cells.size();
+//             #pragma omp parallel for
+            for (auto i = 0u; i < end_int; ++i) {
+                this->cells[i]->assembleNLRGaussPoints(stresses.back(), nodes[0]->getNumber());
+            }
+        }
+        recoverStressField(stressVectorSize);
+    }
+
+    if (computeEnergy) {
+        energies.push_back(new lmx::Vector<data_type>(4)); //potential, kinetic, elastic, total
+
+        energies.back()->fillIdentity(0.);
+
+        auto end_int = this->cells.size();
+#pragma omp parallel for
+        for (auto i = 0u; i < end_int; ++i) {
+            energies.back()->operator()(0) += this->cells[i]->calcPotentialEGaussPoints(q); //potential
+            // no kinetic
+            energies.back()->operator()(2) += this->cells[i]->calcElasticEGaussPoints(); //elastic
+        }
+        energies.back()->operator()(3) +=
+                energies.back()->readElement(0) + energies.back()->readElement(1) + energies.back()->readElement(2); //total
+    }*/
+}
+
 void FlexGlobalGalerkin::recoverStressField(int stressVectorSize)
 {
     if (Simulation::getSmoothingType() == "GLOBAL") {
@@ -278,4 +369,3 @@ void FlexGlobalGalerkin::recoverStressField(int stressVectorSize)
 }
 
 }
-

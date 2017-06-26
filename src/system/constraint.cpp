@@ -238,11 +238,11 @@ void mknix::Constraint::outputStep(const lmx::Vector<data_type>& q)
 }
 
 void mknix::Constraint::outputStep(const VectorX<data_type>& q)
-{
-    if (!title.empty()) { // do not store internal constraints of rigid bodies
-        _eInternalForcesOutput.push_back(new VectorX<data_type>(_eInternalForces.size()));
+{//todo complete
+  /*  if (!title.empty()) { // do not store internal constraints of rigid bodies
+        _eInternalForcesOutput.push_back(new VectorX<data_type>(internalForces.size()));
         _eInternalForcesOutput.back() = _eInternalForces;
-    }
+    }*/
 }
 
 void mknix::Constraint::outputToFile(std::ofstream * outFile)

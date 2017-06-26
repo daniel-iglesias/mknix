@@ -177,6 +177,57 @@ void FlexFrameGalerkin::assembleTangentMatrix(lmx::Matrix<data_type>& globalTang
  * @param qdot Global configuration first derivative vector
  * @return void
  **/
+void FlexFrameGalerkin::outputStep(const VectorX<data_type>& q, const VectorX<data_type>& qdot)
+{//TODO complete
+  /*  Body::outputStep();
+    int stressVectorSize = (Simulation::getDim() == 2) ? 3 : 6;
+
+    if (computeStress) {
+        if (formulation == "LINEAR") {
+
+            _eStress.push_back(new VectorX<data_type>(stressVectorSize * nodes.size()));
+
+            int end_int = this->cells.size();
+            for (int i = 0;
+                 i < end_int;
+                 ++i) {
+                this->cells[i]->assembleRGaussPoints(*_eStress.back(), nodes[0]->getNumber());
+            }
+        }
+        else if (formulation == "NONLINEAR") {
+
+            stress.push_back(new lmx::Vector<data_type>(stressVectorSize * nodes.size()));
+
+            int end_int = this->cells.size();
+            for (int i = 0;
+                 i < end_int;
+                 ++i) {
+                this->cells[i]->assembleNLRGaussPoints(*stress.back(), nodes[0]->getNumber());
+            }
+        }
+        recoverStressField(stressVectorSize);
+    }
+
+    if (computeEnergy) {
+        energy.push_back(new lmx::Vector<data_type>(4)); //potential, kinetic, elastic, total
+
+        energy.back()->fillIdentity(0.);
+
+        int end_int = this->cells.size();
+
+        for (int i = 0;
+             i < end_int;
+             ++i) {
+            energy.back()->operator()(0) += this->cells[i]->calcPotentialEGaussPoints(q); //potential
+            energy.back()->operator()(1) += this->cells[i]->calcKineticEGaussPoints(qdot); //kinetic
+            energy.back()->operator()(2) += this->cells[i]->calcElasticEGaussPoints(); //elastic
+//total
+        }
+        energy.back()->operator()(3) +=
+                energy.back()->readElement(0) + energy.back()->readElement(1) + energy.back()->readElement(2);
+    }*/
+}
+
 void FlexFrameGalerkin::outputStep(const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot)
 {
     Body::outputStep();
@@ -287,8 +338,8 @@ void FlexFrameGalerkin::outputStep(const lmx::Vector<data_type>& q)
 }
 
 void FlexFrameGalerkin::outputStep(const VectorX<data_type>& q)
-{
-    Body::outputStep();
+{//todo complete
+  /*  Body::outputStep();
     int stressVectorSize = (Simulation::getDim() == 2) ? 3 : 6;
 
     if (computeStress) {
@@ -335,7 +386,7 @@ void FlexFrameGalerkin::outputStep(const VectorX<data_type>& q)
         }
         _eEnergy.back()->operator()(3) +=
                 _eEnergy.back()->readElement(0) + _eEnergy.back()->readElement(1) + _eEnergy.back()->readElement(2); //total
-    }
+    }*/
 }
 
 
