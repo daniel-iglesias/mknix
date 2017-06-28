@@ -36,7 +36,8 @@ AnalysisThermalStatic::AnalysisThermalStatic( Simulation * simulation_in, double
 //   theProblem.setOutputFile("dis.dat", 0);
     theProblem.setResidue( &Simulation::staticThermalResidue );
     theProblem.setJacobian( &Simulation::staticThermalTangent );
-    theProblem.setConvergence( &Simulation::staticThermalConvergence );
+    if(OLD_CODE)theProblem.setConvergence( static_cast<void (*)(lmx::Vector<data_type>, lmx::Vector<data_type>)>(&Simulation::staticThermalConvergence) );
+    else theProblem.setConvergence( static_cast<void (*)(VectorX<data_type>, VectorX<data_type>)>(&Simulation::staticThermalConvergence) );
 }
 
 

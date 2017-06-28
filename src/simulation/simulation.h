@@ -104,19 +104,32 @@ public:
     void staticThermalResidue(lmx::Vector<data_type>& residue,
                               lmx::Vector<data_type>& q
     );
-
+//
+    void staticThermalResidue(VectorX<data_type>& residue,
+                              VectorX<data_type>& q
+    );
+//
     void staticThermalTangent(lmx::Matrix<data_type>& tangent_in,
                               lmx::Vector<data_type>& q
     );
-
+//
+void staticThermalTangent(SparseMatrix<data_type>& tangent_in,
+                          VectorX<data_type>& q);
+//
     bool staticThermalConvergence(lmx::Vector<data_type>& res,
-                                  lmx::Vector<data_type>& q
-    );
-
-    void explicitThermalEvaluation
-            (const lmx::Vector<data_type>& qt, lmx::Vector<data_type>& qtdot, double time
-            );
-
+                                  lmx::Vector<data_type>& q);
+//
+bool staticThermalConvergence(VectorX<data_type>& res,
+                              VectorX<data_type>& q);
+//
+    void explicitThermalEvaluation(const lmx::Vector<data_type>& qt,
+                                  lmx::Vector<data_type>& qtdot,
+                                  double time);
+//
+void explicitThermalEvaluation(const VectorX<data_type>& qt,
+                              VectorX<data_type>& qtdot,
+                              double time);
+//
     void dynamicThermalEvaluation(const lmx::Vector<data_type>& q,
                                   lmx::Vector<data_type>& qdot,
                                   double time);
@@ -154,31 +167,52 @@ bool dynamicThermalConvergence(const VectorX<data_type>& q,
                                const VectorX<data_type>& qdot,
                                double time);
 //
-    bool dynamicThermalConvergenceInThermomechanical
-            (const lmx::Vector<data_type>& q,
-             const lmx::Vector<data_type>& qdot,
-             double time
-            );
-
+bool dynamicThermalConvergenceInThermomechanical(const lmx::Vector<data_type>& q,
+                                                 const lmx::Vector<data_type>& qdot,
+                                                 double time);
+//
+bool dynamicThermalConvergenceInThermomechanical(const VectorX<data_type>& q,
+                                                 const VectorX<data_type>& qdot,
+                                                 double time);
+//
     void explicitAcceleration(const lmx::Vector<data_type>& q,
                               const lmx::Vector<data_type>& qdot,
                               lmx::Vector<data_type>& qddot,
                               double time
     );
-
+//
+void explicitAcceleration(const VectorX<data_type>& q,
+                          const VectorX<data_type>& qdot,
+                          VectorX<data_type>& qddot,
+                          double time
+);
+//
     void dynamicAcceleration(const lmx::Vector<data_type>& q,
                              const lmx::Vector<data_type>& qdot,
                              lmx::Vector<data_type>& qddot,
                              double time
     );
-
+//
+void dynamicAcceleration(const VectorX<data_type>& q,
+                         const VectorX<data_type>& qdot,
+                         VectorX<data_type>& qddot,
+                         double time
+);
+//
     void dynamicResidue(lmx::Vector<data_type>& residue,
                         const lmx::Vector<data_type>& q,
                         const lmx::Vector<data_type>& qdot,
                         const lmx::Vector<data_type>& qddot,
                         double time
     );
-
+//
+void dynamicResidue(VectorX<data_type>& residue,
+                    const VectorX<data_type>& q,
+                    const VectorX<data_type>& qdot,
+                    const VectorX<data_type>& qddot,
+                    double time
+);
+//
     void dynamicTangent(lmx::Matrix<data_type>& tangent_in,
                         const lmx::Vector<data_type>& q,
                         const lmx::Vector<data_type>& qdot,
@@ -186,25 +220,52 @@ bool dynamicThermalConvergence(const VectorX<data_type>& q,
                         double partial_qddot,
                         double time
     );
-
+//
+void dynamicTangent(SparseMatrix<data_type>& tangent_in,
+                    const VectorX<data_type>& q,
+                    const VectorX<data_type>& qdot,
+                    double partial_qdot,
+                    double partial_qddot,
+                    double time
+);
+//
     bool dynamicConvergence(const lmx::Vector<data_type>& q,
                             const lmx::Vector<data_type>& qdot,
                             const lmx::Vector<data_type>& qddot,
                             double time
     );
-
+    //
+    bool dynamicConvergence(const VectorX<data_type>& q,
+                            const VectorX<data_type>& qdot,
+                            const VectorX<data_type>& qddot,
+                            double time
+    );
+   //
     void staticResidue(lmx::Vector<data_type>& residue,
                        lmx::Vector<data_type>& q
     );
+    //
+    void staticResidue(VectorX<data_type>& residue,
+                       VectorX<data_type>& q
+    );
+    //
 
     void staticTangent(lmx::Matrix<data_type>& tangent_in,
                        lmx::Vector<data_type>& q
     );
-
+    //
+    void staticTangent(SparseMatrix<data_type>& tangent_in,
+                       VectorX<data_type>& q
+    );
+    //
     bool staticConvergence(lmx::Vector<data_type>& res,
                            lmx::Vector<data_type>& q
     );
-
+   //
+   bool staticConvergence(VectorX<data_type>& res,
+                          VectorX<data_type>& q
+   );
+   //
     void stepTriggered();
 
     void writeConfStep();
@@ -246,9 +307,11 @@ bool dynamicThermalConvergence(const VectorX<data_type>& q,
 
 private:
     void storeTimeConfiguration(lmx::Vector<data_type>& q);
+    void storeTimeConfiguration(VectorX<data_type>& q);
 
 private:
     void systemOuputStep(const lmx::Vector<data_type>&, const lmx::Vector<data_type>&);
+    void systemOuputStep(const VectorX<data_type>&, const VectorX<data_type>&);
 
     void systemOuputStep(const lmx::Vector<data_type>&);
 
@@ -311,6 +374,7 @@ private:
     std::ofstream outFile;
 
     static lmx::Vector<double> gravity;
+    static VectorX<double> _eGravity;
     static double alpha;
     static int dimension;
     static std::string contact;
@@ -323,6 +387,7 @@ private:
     lmx::Vector<data_type> initThermalSimulation(Analysis * analysis, int, bool init = true);
     VectorX<data_type> initThermalSimulationEigen(Analysis * analysis, int, bool init = true);
     lmx::Vector<data_type> initMechanicalSimulation(Analysis * analysis, bool init = true);
+    VectorX<data_type> initMechanicalSimulationEigen(Analysis * analysis, bool init = true);
 };
 
 }

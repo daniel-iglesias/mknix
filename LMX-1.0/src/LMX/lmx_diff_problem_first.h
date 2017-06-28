@@ -71,20 +71,41 @@ class DiffProblemFirst
     void setResidue( void (Sys::* residue_in)( lmx::Vector<T>& residue,
                                                const lmx::Vector<T>& q,
                                                const lmx::Vector<T>& qdot,
-                                               double time
-                                             )
+                                               double time)
                    );
+    //
+    void setResidue( void (Sys::* residue_in)( VectorX<T>& residue,
+                                               const VectorX<T>& q,
+                                               const VectorX<T>& qdot,
+                                               double time)
+                   );
+    //
     void setJacobian( void (Sys::* jacobian_in)( lmx::Matrix<T>& tangent,
                                                  const lmx::Vector<T>& q,
                                                  double partial_qdot,
                                                  double time
                                                )
                     );
+    //
+    void setJacobian( void (Sys::* jacobian_in)( SparseMatrix<T>& tangent,
+                                                 const VectorX<T>& q,
+                                                 double partial_qdot,
+                                                 double time
+                                               )
+                    );
+    //
     void setEvaluation( void (Sys::* eval_in)( const lmx::Vector<T>& q,
                                                lmx::Vector<T>& qdot,
                                                double time
                                              )
                       );
+    //
+    void setEvaluation( void (Sys::* eval_in)( const VectorX<T>& q,
+                                               VectorX<T>& qdot,
+                                               double time
+                                             )
+                      );
+    //
     /**
      * Backward resolution of mother function.
      * @param L2 norm maximum residual.
@@ -100,13 +121,24 @@ class DiffProblemFirst
 
         );
 
+        void setConvergence
+            ( bool (Sys::* convergence)( const VectorX<T>& q,
+                                         const VectorX<T>& qdot,
+                                         double time
+                                       )
+
+            );
+
     void setStepTriggered( void (Sys::* stepTriggered_in)() );
 
     void iterationResidue( lmx::Vector<T>& residue, lmx::Vector<T>& q_current );
+    void iterationResidue( VectorX<T>& residue, VectorX<T>& q_current );
 
     void iterationJacobian( lmx::Matrix<T>& jacobian, lmx::Vector<T>& q_current );
+    void iterationJacobian( SparseMatrix<T>& jacobian, VectorX<T>& q_current );
 
     bool iterationConvergence( lmx::Vector<T>& q_current );
+    bool iterationConvergence( VectorX<T>& q_current );
 
     void initialize( );
 
@@ -128,19 +160,45 @@ class DiffProblemFirst
                        const lmx::Vector<T>& qdot,
                        double time
                      );
+    //
+    void (Sys::* _e_res)( VectorX<T>& residue,
+                       const VectorX<T>& q,
+                       const VectorX<T>& qdot,
+                       double time
+                     );
+    //
     void (Sys::* jac)( lmx::Matrix<T>& tangent,
                        const lmx::Vector<T>& q,
                        double partial_qdot,
                        double time
                      );
+    //
+    void (Sys::* _e_jac)( SparseMatrix<T>& tangent,
+                       const VectorX<T>& q,
+                       double partial_qdot,
+                       double time
+                     );
+    //
     void (Sys::* eval)( const lmx::Vector<T>& q,
                         lmx::Vector<T>& qdot,
                         double time
                       );
+    //
+    void (Sys::* _e_eval)( const VectorX<T>& q,
+                        VectorX<T>& qdot,
+                        double time
+                      );
+    //
     bool (Sys::* conv)( const lmx::Vector<T>& q,
                         const lmx::Vector<T>& qdot,
                         double time
                       );
+    //
+    bool (Sys::* _e_conv)( const VectorX<T>& q,
+                        const VectorX<T>& qdot,
+                        double time
+                      );
+    //
 
 };
 
@@ -164,6 +222,18 @@ template <typename Sys, typename T>
   this->res = residue_in;
 }
 
+template <typename Sys, typename T>
+    void DiffProblemFirst<Sys,T>::
+        setResidue( void (Sys::* residue_in)( VectorX<T>& residue,
+                                             const VectorX<T>& q,
+                                             const VectorX<T>& qdot,
+                                             double time
+                                           )
+                  )
+{
+  this->_e_res = residue_in;
+}
+
 /**
  * Sets the external function for tangent to q. Must be a Sys member function.
  * :::change documentation:::
@@ -181,6 +251,18 @@ template <typename Sys, typename T>
   this->jac = jacobian_in;
 }
 
+template <typename Sys, typename T>
+    void DiffProblemFirst<Sys,T>::
+        setJacobian( void (Sys::* jacobian_in)(  SparseMatrix<T>& tangent,
+                                                 const VectorX<T>& q,
+                                                 double partial_qdot,
+                                                 double time
+                                              )
+                   )
+{
+  this->_e_jac = jacobian_in;
+}
+
 /**
  * Sets the external (first order configuration) evaluation function. Must be a Sys member function.
  * @param eval_in The acceleration function.
@@ -194,6 +276,16 @@ template <typename Sys, typename T>
                      )
 {
   this->eval = eval_in;
+}
+template <typename Sys, typename T>
+    void DiffProblemFirst<Sys,T>::
+        setEvaluation( void (Sys::* eval_in)( const VectorX<T>& q,
+                                              VectorX<T>& qdot,
+                                              double time
+                                            )
+                     )
+{
+  this->_e_eval = eval_in;
 }
 
 /**
@@ -212,6 +304,19 @@ template <typename Sys, typename T>
         )
 {
   this->conv = conv_in;
+  b_convergence = 1;
+}
+
+template <typename Sys, typename T>
+    void DiffProblemFirst<Sys,T>::setConvergence
+        ( bool (Sys::* conv_in)( const VectorX<T>& q,
+                                 const VectorX<T>& qdot,
+                                 double time
+                               )
+
+        )
+{
+  this->_e_conv = conv_in;
   b_convergence = 1;
 }
 
@@ -246,6 +351,19 @@ template <typename Sys, typename T>
 
 }
 
+template <typename Sys, typename T>
+    void DiffProblemFirst<Sys,T>::iterationResidue( VectorX<T>& residue, VectorX<T>& q_current )
+{
+  static_cast< IntegratorBaseImplicit<T>* >(this->theIntegrator)->integratorUpdate( q_current );
+
+  (this->theSystem->*res)( residue,
+              this->theConfiguration->getConf(0),
+              this->theConfiguration->getConf(1),
+              this->theConfiguration->getTime( )
+            );
+
+}
+
 /**
  * Function for NLSolver jacobian computation.
  * @param jacobian Tangent matrix.
@@ -261,12 +379,31 @@ template <typename Sys, typename T>
             );
 }
 
+template <typename Sys, typename T>
+    void DiffProblemFirst<Sys,T>::iterationJacobian( SparseMatrix<T>& jacobian, VectorX<T>& q_current )
+{
+  (this->theSystem->*jac)( jacobian,
+              this->theConfiguration->getConf(0),
+              static_cast< IntegratorBaseImplicit<T>* >(this->theIntegrator)->getPartialQdot( ),
+              this->theConfiguration->getTime( )
+            );
+}
+
 /**
  * Function for NLSolver convergence evaluation.
  * @param q_current Configuration computed by the NLSolver.
  */
 template <typename Sys, typename T>
     bool DiffProblemFirst<Sys,T>::iterationConvergence( lmx::Vector<T>& q_current )
+{
+  return (this->theSystem->*conv)( this->theConfiguration->getConf(0),
+                                   this->theConfiguration->getConf(1),
+                                   this->theConfiguration->getTime( )
+                                 );
+}
+
+template <typename Sys, typename T>
+    bool DiffProblemFirst<Sys,T>::iterationConvergence( VectorX<T>& q_current )
 {
   return (this->theSystem->*conv)( this->theConfiguration->getConf(0),
                                    this->theConfiguration->getConf(1),

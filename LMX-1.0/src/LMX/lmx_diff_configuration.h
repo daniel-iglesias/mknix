@@ -136,12 +136,16 @@ public:
      * @param step Indicates the (actual - step) time step
      * @return The configuration of the diff-order and step specified.
      */
+     //TODO check where are we using these functions
     const lmx::Vector<T>& getConf(int order, int step = 0) { return *(this->q[order][step]); }
+    const VectorX<T>& getConfEigen(int order, int step = 0) { return *(this->_eq[order][step]); }
 
     /**
      * @return Maximum differential order of stored configuration.
      */
+     //TODO check where are we using these functions
     int getDiffOrder() { return this->q.size() - 1; }
+    int getDiffOrderEigen() { return this->_eq.size() - 1; }
 
 
     /**

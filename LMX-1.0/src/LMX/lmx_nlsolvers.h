@@ -102,6 +102,20 @@ public:
         q = q_in;
     }
 
+    template<class C>
+    void setInitialConfiguration(const VectorX<C>& q_in)
+    /**
+     * Takes a lmx::Vector for initial value guess and dimensioning the problem.
+     * @param q_in Initial guess values.
+     */
+    {
+        _e_q.resize(q_in.size());
+        _e_delta_q.resize(q_in.size());
+        _e_res_vector.resize(q_in.size());
+        _e_jac_matrix.resize(q_in.size(), q_in.size());
+        _e_q = q_in;
+    }
+
     void setSystem(Sys& system_in)
     /**
      * Sets witch Sys object is going to be used for member function calls.
@@ -148,9 +162,18 @@ public:
         conv1 = convergence_in;
         externalConvergence1 = 1;
     }
-
-    void setConvergence
-            (bool (Sys::*convergence_in)(lmx::Vector<T>&, lmx::Vector<T>&))
+//
+void setConvergence(bool (Sys::*convergence_in)(VectorX<T>&))
+/**
+* Defines the optional member function for convergence evaluation with residue parameter.
+* @param convergence_in Convergence evaluation member function.
+ */
+{
+    _e_conv1 = convergence_in;
+    externalConvergence1 = 1;
+}
+//
+    void setConvergence(bool (Sys::*convergence_in)(lmx::Vector<T>&, lmx::Vector<T>&))
     /**
       * Defines the optional member function for convergence evaluation with residue and configuration parameters.
       * @param convergence_in Convergence evaluation member function.
@@ -159,6 +182,17 @@ public:
         conv2 = convergence_in;
         externalConvergence2 = 1;
     }
+    //
+    void setConvergence(bool (Sys::*convergence_in)(VectorX<T>&, VectorX<T>&))
+    /**
+      * Defines the optional member function for convergence evaluation with residue and configuration parameters.
+      * @param convergence_in Convergence evaluation member function.
+      */
+    {
+        _e_conv2 = convergence_in;
+        externalConvergence2 = 1;
+    }
+    //
 
     void setConvergence(bool (Sys::*convergence_in)(lmx::Vector<T>&, lmx::Vector<T>&, lmx::Vector<T>&))
     /**
@@ -170,10 +204,25 @@ public:
         conv3 = convergence_in;
         externalConvergence3 = 1;
     }
+//
+void setConvergence(bool (Sys::*convergence_in)(VectorX<T>&, VectorX<T>&, VectorX<T>&))
+/**
+  * Defines the optional member function for convergence evaluation with residue, configuration and
+    * increment vector parameters.
+  * @param convergence_in Convergence evaluation member function.
+  */
+{
+    _e_conv3 = convergence_in;
+    externalConvergence3 = 1;
+}
+//
+
 
     bool convergence();
+    bool convergenceEigen();
 
     void solve(int max_iter = 100);
+    void solveEigen(int max_iter = 100);
 
     lmx::Vector<T>& getSolution()
     /**
@@ -182,32 +231,48 @@ public:
       */
     { return this->q; }
 
+    VectorX<T>& getSolutionEigen()
+    /**
+      * Solution vector read-write access.
+      * @return Reference to the solution vector.
+      */
+    { return this->_e_q; }
+
     void setSparse(std::vector<size_type>& rows, std::vector<size_type> columns)
     // Needs documentation
     { jac_matrix.sparsePattern(rows, columns); }
 
 private:
     lmx::Vector<T> q;
+    VectorX<T> _e_q;
     /**< Coordinates values for nl iterations. */
     lmx::Vector<T> delta_q;
+    VectorX<T> _e_delta_q;
     /**< Coordinates values for nl iterations. */
     lmx::Matrix<T> jac_matrix;
+    SparseMatrix<T> _e_jac_matrix;
     /**< Jacobian -tangent- matrix (only used in Newton's method). */
     lmx::Vector<T> res_vector;
+    VectorX<T> _e_res_vector;
     /**< Residual vector. */
     lmx::LinearSystem<T> * increment; // jac_matrix*\delta q + f = 0
     // A*x = b
     Sys * theSystem;
 
     void (Sys::*res)(lmx::Vector<T>&, lmx::Vector<T>&);
+    void (Sys::*_e_res)(VectorX<T>&, VectorX<T>&);
 
     void (Sys::*jac)(lmx::Matrix<T>&, lmx::Vector<T>&);
+    void (Sys::*_e_jac)(SparseMatrix<T>&, VectorX<T>&);
 
     bool (Sys::*conv1)(lmx::Vector<T>&);
+    bool (Sys::*_e_conv1)(VectorX<T>&);
 
     bool (Sys::*conv2)(lmx::Vector<T>&, lmx::Vector<T>&);
+    bool (Sys::*_e_conv2)(VectorX<T>&, VectorX<T>&);
 
     bool (Sys::*conv3)(lmx::Vector<T>&, lmx::Vector<T>&, lmx::Vector<T>&);
+    bool (Sys::*_e_conv3)(VectorX<T>&, VectorX<T>&, VectorX<T>&);
 
     double epsilon, energy_i, energy_0;
     bool externalConvergence1;
@@ -246,6 +311,35 @@ bool NLSolver<Sys, T>::convergence()
         }
         else { // rest of iterations
             energy_i = fabs(res_vector * q);
+            energy_i /= energy_0; // dimensionless residual energy rate
+            if (energy_i < epsilon) {
+                return 1; // convergence!!
+            } else { return 0; } // not converged
+        }
+    }
+}
+
+template<typename Sys, class T>
+bool NLSolver<Sys, T>::convergenceEigen()
+/**
+ * Internal convergence criteria.
+ * Is used if no external convergence function is set.
+ */
+{
+    if (deltaInResidue == 0) { // use norm2 criteria
+        if (this->_e_res_vector.normSquared() < epsilon) { return 1; }
+        else { return 0; }
+    }
+    else { // use energetic criteria
+        if (iteration == 0) {
+            energy_0 = fabs(_e_res_vector * _e_q); // store first residual energy
+//        cout << "iteration, energy = "<< iteration << " "<< energy_0 << endl;
+            if (energy_0 < 1E-50) {
+                return 1; // too small energy, rare
+            } else { return 0; } // common return value
+        }
+        else { // rest of iterations
+            energy_i = fabs(_e_res_vector * _e_q);
             energy_i /= energy_0; // dimensionless residual energy rate
             if (energy_i < epsilon) {
                 return 1; // convergence!!
@@ -326,6 +420,88 @@ void NLSolver<Sys, T>::solve(int max_iter)
             q += increment->solveYourself(); // = delta_q
             if (info > 0) {
                 std::cout << increment->getSolution().norm2() << endl;
+            }
+        }
+
+        break;
+    }
+    if (info > 0) {
+        cout.unsetf(std::ios::floatfield);
+    }
+}
+
+template<typename Sys, class T>
+void NLSolver<Sys, T>::solveEigen(int max_iter)
+/**
+ * Solve function. Initiates the nl-solver loop.
+ * @param max_iter Defines the maximun number of iterations for each iteration.
+ */
+{
+    if (_e_res_vector.size() == 0) {
+        std::stringstream message;
+        message << "Error in NLSolver \"R(x) = 0\": dimension of problem not defined. \n"
+        << "Use NLSystem::setInitialConfiguration( x_o ) function before the solve() function call." << endl;
+        LMX_THROW(dimension_error, message.str());
+    }
+
+    switch (nl_solver_type) {
+
+    case 0 : // select_nl_solver == 0 -> Newton's method
+        if (!increment) {
+            increment = new lmx::LinearSystem<T>(_e_jac_matrix, _e_delta_q, _e_res_vector);
+        }
+        if (info > 0) {
+            cout << "     iter-NL\t  | RES |\t|| RES ||\t|| Dq ||" << endl;
+            cout.setf(std::ios::scientific, std::ios::floatfield);
+            cout.precision(3);
+        }
+
+        for (iteration = 0; iteration < max_iter; iteration++) {
+            if (info > 0) {
+                cout << "\t" << iteration << "\t";
+            }
+            if (deltaInResidue) {
+                (theSystem->*_e_res)(_e_res_vector, _e_delta_q);
+            } else { (theSystem->*_e_res)(_e_res_vector, _e_q); }
+            _e_res_vector *= -1.;
+            if (info > 0) {
+                cout << _e_res_vector.norm() << "\t" << _e_res_vector.normSquared() << "\t";
+            }
+
+            if (externalConvergence1) {
+                if ((theSystem->*_e_conv1)(_e_res_vector)) {
+                    if (info > 0) {
+                        std::cout << endl << endl;
+                    }
+                    break;
+                }
+            }
+            else if (externalConvergence2) {
+                if ((theSystem->*_e_conv2)(_e_res_vector, _e_q)) {
+                    if (info > 0) {
+                        std::cout << endl << endl;
+                    }
+                    break;
+                }
+            }
+            else if (externalConvergence3) {
+                if ((theSystem->*_e_conv3)(_e_res_vector, _e_q, increment->getSolutionEigen())) {
+                    if (info > 0) {
+                        std::cout << endl << endl;
+                    }
+                    break;
+                }
+            }
+            else if (this->convergenceEigen()) {
+                if (info > 0) {
+                    std::cout << endl << endl;
+                }
+                break;
+            }
+            (theSystem->*_e_jac)(_e_jac_matrix, _e_q);
+            _e_q += increment->solveYourself(); // = delta_q
+            if (info > 0) {
+                std::cout << increment->getSolutionEigen().normSquared() << endl;
             }
         }
 

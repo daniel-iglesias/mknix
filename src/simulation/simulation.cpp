@@ -665,6 +665,26 @@ bool Simulation::staticThermalConvergence(lmx::Vector<data_type>& res,
 
 }
 
+bool Simulation::staticThermalConvergence(VectorX<data_type>& res,
+                                          VectorX<data_type>& q)
+{
+    std::cout << "\n\n  --- void Simulation::staticThermalConvergence Eigen Version --- \n\n" << std::endl;
+//   lmx::Vector<data_type> res( qddot.size() );
+//   res =  globalInternalForces - globalExternalForces;
+    if (res.norm2() <= epsilon) {
+        if (baseSystem->checkAugmented()) { // if convergence...
+            stepTime = 1.;
+            systemOuputStep(q);
+            baseSystem->clearAugmented();
+            stepTriggered();
+            return 1;
+        }
+        else { return 0; }
+    }
+    else { return 0; }
+
+}
+
 
 void Simulation::explicitThermalEvaluation(const lmx::Vector<data_type>& qt,
                                           lmx::Vector<data_type>& qtdot, double time )
@@ -692,6 +712,40 @@ std::cout << "\n\n  --- void Simulation::explicitThermalEvaluation --- \n" << st
 
 //   cout << globalMass << endl;
     lmx::LinearSystem<data_type> theLSolver(globalCapacity, qtdot, globalRHSHeat);
+    theLSolver.solveYourself();
+//  cout << "initial_flux :" << qtdot << endl;
+    if (theAnalysis->type() != "THERMOMECHANICALDYNAMIC") { // for regular THERMAL dynamic problems
+        stepTime = time;
+        systemOuputStep(qt);
+    }
+
+
+}
+
+void Simulation::explicitThermalEvaluation(const VectorX<data_type>& qt,
+                                          VectorX<data_type>& qtdot, double time )
+{
+    for (auto& node : thermalNodes) {
+        node.second->setqt(qt);
+    }
+std::cout << "\n\n  --- void Simulation::explicitThermalEvaluation Eigen Version--- \n" << std::endl;
+//     globalConductivity.reset();
+//     globalCapacity.reset();
+    _eGlobalExternalHeat.setZero();
+    _eGlobalInternalHeat.setZero();
+
+    baseSystem->calcExternalHeat();
+    baseSystem->calcInternalHeat();
+//     baseSystem->assembleConductivityMatrix(globalConductivity);
+//     baseSystem->assembleCapacityMatrix(globalCapacity);
+    baseSystem->assembleExternalHeat(_eGglobalExternalHeat);
+    baseSystem->assembleInternalHeat(_eGlobalInternalHeat);
+    _eGlobalRHSHeat = _eGlobalConductivity * qt;
+    _eGlobalRHSHeat += _eGlobalInternalHeat;
+    _eGlobalRHSHeat -= _eGlobalExternalHeat;
+
+//   cout << globalMass << endl;
+    lmx::LinearSystem<data_type> theLSolver(_eGlobalCapacity, qtdot, _eGlobalRHSHeat);
     theLSolver.solveYourself();
 //  cout << "initial_flux :" << qtdot << endl;
     if (theAnalysis->type() != "THERMOMECHANICALDYNAMIC") { // for regular THERMAL dynamic problems
@@ -1223,8 +1277,38 @@ void Simulation::staticResidue(lmx::Vector<data_type>& residue,
 //   cout << "globalExternalForces : " << globalExternalForces;
 }
 
+void Simulation::staticResidue(VectorX<data_type>& residue,
+                               VectorX<data_type>& q
+)
+{
+    for (auto& node : nodes) {
+        node.second->setqx(q, getDim());
+    }
+
+    globalInternalForces.reset();
+    globalExternalForces.reset();
+
+    baseSystem->calcInternalForces();
+    baseSystem->calcExternalForces();
+    baseSystem->assembleInternalForces(_eGlobalInternalForces);
+    baseSystem->assembleExternalForces(_eGlobalExternalForces);
+
+    residue = _eGlobalInternalForces;
+    residue -= _eGlobalExternalForces;
+
+}
+
 void Simulation::staticTangent(lmx::Matrix<data_type>& tangent_in,
                                lmx::Vector<data_type>& q
+)
+{
+    tangent_in.reset();
+    baseSystem->calcTangentMatrix();
+    baseSystem->assembleTangentMatrix(tangent_in);
+//  cout << "TANGENT:\n" << tangent_in;
+}
+void Simulation::staticTangent(SparseMatrix<data_type>& tangent_in,
+                               VectorX<data_type>& q
 )
 {
     tangent_in.reset();
@@ -1240,6 +1324,27 @@ bool Simulation::staticConvergence(lmx::Vector<data_type>& res,
 //   lmx::Vector<data_type> res( qddot.size() );
 //   res =  globalInternalForces - globalExternalForces;
     if (res.norm2() <= epsilon) {
+        if (baseSystem->checkAugmented()) { // if convergence...
+            stepTime = 1.;
+            systemOuputStep(q);
+// 	    this->storeTimeConfiguration(q);
+            baseSystem->clearAugmented();
+            stepTriggered();
+            return 1;
+        }
+        else { return 0; }
+    }
+    else { return 0; }
+
+}
+
+bool Simulation::staticConvergence(VectorX<data_type>& res,
+                                   VectorX<data_type>& q
+)
+{
+//   lmx::Vector<data_type> res( qddot.size() );
+//   res =  globalInternalForces - globalExternalForces;
+    if (res.normSquared() <= epsilon) {
         if (baseSystem->checkAugmented()) { // if convergence...
             stepTime = 1.;
             systemOuputStep(q);

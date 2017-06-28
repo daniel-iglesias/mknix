@@ -52,7 +52,10 @@ AnalysisThermoMechanicalDynamic::AnalysisThermoMechanicalDynamic
     }
     else {
         theProblem.setOutputFile1("flux.dat", 1);
-        theProblem.setEvaluation1( &Simulation::dynamicThermalEvaluation );
+
+        if(OLD_CODE)theProblem.setEvaluation1( static_cast<void (*)(lmx::Vector<data_type>, lmx::Vector<data_type>, double)>(&Simulation::dynamicThermalEvaluation) );
+        else theProblem.setEvaluation1( static_cast<void (*)(VectorX<data_type>, VectorX<data_type>, double)>(&Simulation::dynamicThermalEvaluation) );
+
         theProblem.setResidue1( &Simulation::dynamicThermalResidue );
         theProblem.setJacobian1( &Simulation::dynamicThermalTangent );
         if (epsilon == 0.0)

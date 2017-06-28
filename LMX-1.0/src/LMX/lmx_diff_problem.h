@@ -70,6 +70,7 @@ public:
             , theNLSolver(0)
             , theSystem(0)
             , p_delta_q(0)
+            , _ep_delta_q(0)
             , b_steptriggered(0)
             , vervosity(2)
             { }

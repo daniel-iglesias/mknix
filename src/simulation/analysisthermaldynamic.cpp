@@ -49,7 +49,10 @@ AnalysisThermalDynamic::AnalysisThermalDynamic( Simulation* simulation_in,
       theProblem.setEvaluation( &Simulation::explicitThermalEvaluation );
     }
     else {
-      theProblem.setEvaluation( &Simulation::dynamicThermalEvaluation );
+
+    if(OLD_CODE)theProblem.setEvaluation( static_cast<void (*)(lmx::Vector<data_type>, lmx::Vector<data_type>, double)>(&Simulation::dynamicThermalEvaluation) );
+    else theProblem.setEvaluation( static_cast<void (*)(VectorX<data_type>, VectorX<data_type>, double)>(&Simulation::dynamicThermalEvaluation) );
+
       theProblem.setResidue( &Simulation::dynamicThermalResidue );
       theProblem.setJacobian( &Simulation::dynamicThermalTangent );
       if (epsilon == 0.0)

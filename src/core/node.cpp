@@ -179,6 +179,10 @@ void Node::setqt(const lmx::Vector<data_type>& globalTemp)
 {
     qt = globalTemp.readElement(thermalNum);
 }
+void Node::setqt(const VectorX<data_type>& globalTemp)
+{
+    qt = globalTemp[thermalNum];
+}
 
 /* Function needed to initialize self-supported nodes that are part of
  * the formulation, but need to be defined at the reference configuration

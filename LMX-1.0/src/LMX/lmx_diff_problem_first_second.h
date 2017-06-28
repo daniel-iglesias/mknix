@@ -28,7 +28,7 @@
 
       \brief DiffProblemFirstSecond class implementation
 
-      Describes an initial value for a partitioned dynamic system with an ODE or DAE 
+      Describes an initial value for a partitioned dynamic system with an ODE or DAE
       description. The system is composed by two subsystem of orders 1 and 2, respectively.
 
       This is the base file of lmx_diff systems' manipulation and solution.
@@ -44,17 +44,17 @@
 namespace lmx {
 
     /**
-    \class DiffProblemFirstSecond 
+    \class DiffProblemFirstSecond
     \brief Template class DiffProblemFirstSecond.
     Implementation for weakly coupled First-Second Order ODE system solvers.
 
-    This class implements methods for defining and solving initial value 
-    problems described by a TotalDiff class' derivided object, and initial 
+    This class implements methods for defining and solving initial value
+    problems described by a TotalDiff class' derivided object, and initial
     conditions in the form \f$ q(t_o) = q_o \f$.
 
     @author Daniel Iglesias.
     */
-template <typename Sys, typename T=double> 
+template <typename Sys, typename T=double>
 class DiffProblemFirstSecond
  : public DiffProblemDouble<Sys, T>{
 
@@ -195,11 +195,11 @@ class DiffProblemFirstSecond
     bool iterationConvergence2( lmx::Vector<T>& delta_q );
 
     void initialize( );
-    
+
     void solve( );
 
     void stepSolve( );
-    
+
   private:
     void stepSolveExplicit( );
     void stepSolveImplicit( );
@@ -413,7 +413,7 @@ template <typename Sys, typename T>
 /**
  * Sets the external function that implements a different convergence criteria from those available in LMX.
  * Must be a Sys member function.
- * 
+ *
  * @param conv_in The convergence evaluation function.
  */
 template <typename Sys, typename T>
@@ -519,6 +519,17 @@ template <typename Sys, typename T>
               this->theConfiguration2->getTime( )
             );
 }
+template <typename Sys, typename T>
+    void DiffProblemFirstSecond<Sys,T>::iterationJacobian2( SparseMatrix<T>& jacobian, VectorX<T>& delta_q )
+{
+  (this->theSystem->*_e_jac2)( jacobian,
+              this->theConfiguration2->getConf(0),
+              this->theConfiguration2->getConf(1),
+              static_cast< IntegratorBaseImplicit<T>* >(this->theIntegrator2)->getPartialQdot( ),
+              static_cast< IntegratorBaseImplicit<T>* >(this->theIntegrator2)->getPartialQddot( ),
+              this->theConfiguration2->getTime( )
+            );
+}
 
 
 /**
@@ -533,6 +544,14 @@ template <typename Sys, typename T>
                                     this->theConfiguration1->getTime( )
                                   );
 }
+template <typename Sys, typename T>
+    bool DiffProblemFirstSecond<Sys,T>::iterationConvergence1( VectorX<T>& q_current )
+{
+  return (this->theSystem->*_e_conv1)( this->theConfiguration1->getConf(0),
+                                    this->theConfiguration1->getConf(1),
+                                    this->theConfiguration1->getTime( )
+                                  );
+}
 
 /**
  * Function for NLSolver convergence evaluation of 2nd order system.
@@ -542,6 +561,15 @@ template <typename Sys, typename T>
     bool DiffProblemFirstSecond<Sys,T>::iterationConvergence2( lmx::Vector<T>& delta_q )
 {
   return (this->theSystem->*conv2)( this->theConfiguration2->getConf(0),
+                                    this->theConfiguration2->getConf(1),
+                                    this->theConfiguration2->getConf(2),
+                                    this->theConfiguration2->getTime( )
+                                  );
+}
+template <typename Sys, typename T>
+    bool DiffProblemFirstSecond<Sys,T>::iterationConvergence2( VectorX<T>& delta_q )
+{
+  return (this->theSystem->*_e_conv2)( this->theConfiguration2->getConf(0),
                                     this->theConfiguration2->getConf(1),
                                     this->theConfiguration2->getConf(2),
                                     this->theConfiguration2->getTime( )
@@ -584,7 +612,7 @@ template <typename Sys, typename T>
 	theNLSolver.setConvergence1( &DiffProblemFirstSecond<Sys,T>::iterationConvergence1 );
       if( b_convergence2 )
 	theNLSolver.setConvergence2( &DiffProblemFirstSecond<Sys,T>::iterationConvergence2 );
-      
+
       theNLSolver.setResidue1( &DiffProblemFirstSecond<Sys,T>::iterationResidue1 ); // Also advances the integrator
       theNLSolver.setResidue2( &DiffProblemFirstSecond<Sys,T>::iterationResidue2 ); // Also advances the integrator
       theNLSolver.setJacobian1( &DiffProblemFirstSecond<Sys,T>::iterationJacobian1 );
@@ -615,7 +643,7 @@ template <typename Sys, typename T>
 }
 
 /**
- * Solve only one step 
+ * Solve only one step
  */
 template <typename Sys, typename T>
     void DiffProblemFirstSecond<Sys,T>::stepSolve( )
@@ -626,7 +654,7 @@ template <typename Sys, typename T>
     if ( this->theIntegrator2->isExplicit() ){
       this->stepSolveExplicit();
     }
-    else 
+    else
       LMX_THROW(lmx::failure_error, message.str() );
   }
   else if( this->theIntegrator2->isExplicit() ){
