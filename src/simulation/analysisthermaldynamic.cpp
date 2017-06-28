@@ -80,10 +80,10 @@ AnalysisThermalDynamic::AnalysisThermalDynamic( Simulation* simulation_in,
                                                        double,
                                                        double)>(&Simulation::dynamicThermalTangent) );
       if (epsilon == 0.0)
-          if(OLD_CODE)theProblem.setConvergence( static_cast<void (*)(const lmx::Vector<data_type>&,
+          if(OLD_CODE)theProblem.setConvergence( static_cast<bool (*)(const lmx::Vector<data_type>&,
                                                                       const lmx::Vector<data_type>&,
                                                                       double)>(&Simulation::dynamicThermalConvergence) );
-          else theProblem.setConvergence( static_cast<void (*)(const VectorX<data_type>&,
+          else theProblem.setConvergence( static_cast<bool (*)(const VectorX<data_type>&,
                                                                 const VectorX<data_type>&,
                                                                 double)>(&Simulation::dynamicThermalConvergence) );
       else

@@ -331,7 +331,7 @@ template <typename Sys, typename T>
 {
   static_cast< IntegratorBaseImplicit<T>* >(this->theIntegrator)->integratorUpdate( q_current );
 
-  (this->theSystem->*res)( residue,
+  (this->theSystem->*_e_res)( residue,
               this->theConfiguration->getConfEigen(0),
               this->theConfiguration->getConfEigen(1),
               this->theConfiguration->getTime( )
@@ -357,7 +357,7 @@ template <typename Sys, typename T>
 template <typename Sys, typename T>
     void DiffProblemFirst<Sys,T>::iterationJacobian( SparseMatrix<T>& jacobian, VectorX<T>& q_current )
 {
-  (this->theSystem->*jac)( jacobian,
+  (this->theSystem->*_e_jac)( jacobian,
               this->theConfiguration->getConfEigen(0),
               static_cast< IntegratorBaseImplicit<T>* >(this->theIntegrator)->getPartialQdot( ),
               this->theConfiguration->getTime( )
@@ -380,7 +380,7 @@ template <typename Sys, typename T>
 template <typename Sys, typename T>
     bool DiffProblemFirst<Sys,T>::iterationConvergence( VectorX<T>& q_current )
 {
-  return (this->theSystem->*conv)( this->theConfiguration->getConfEigen(0),
+  return (this->theSystem->*_e_conv)( this->theConfiguration->getConfEigen(0),
                                    this->theConfiguration->getConfEigen(1),
                                    this->theConfiguration->getTime( )
                                  );
@@ -401,16 +401,16 @@ template <typename Sys, typename T>
                                 this->theConfiguration->setConf(1),
                                 this->theConfiguration->getTime( ));
         else (this->theSystem->*_e_eval)( this->theConfiguration->getConfEigen(0),
-                                  this->theConfiguration->setConfEigen(1),
-                                  this->theConfiguration->getTime( ));
+                                          this->theConfiguration->setConfEigen(1),
+                                          this->theConfiguration->getTime( ));
     if(this->vervosity<2) theNLSolver.setInfo(0);
     if(OLD_CODE)theNLSolver.setInitialConfiguration( this->theConfiguration->getConf(0) );
     else theNLSolver.setInitialConfiguration( this->theConfiguration->getConfEigen(0) );
     theNLSolver.setDeltaInResidue(  );
     theNLSolver.setSystem( *this );
     if( b_convergence ){
-      if(OLD_CODE)theNLSolver.setConvergence( static_cast<void (*)(lmx::Vector<data_type>&)>(&DiffProblemFirst<Sys,T>::iterationConvergence) );
-      else theNLSolver.setConvergence(  static_cast<void (*)(VectorX<data_type>&)>(&DiffProblemFirst<Sys,T>::iterationConvergence) );
+      if(OLD_CODE)theNLSolver.setConvergence( static_cast<bool (*)(lmx::Vector<data_type>&)>(&DiffProblemFirst<Sys,T>::iterationConvergence) );
+      else theNLSolver.setConvergence(  static_cast<bool (*)(VectorX<data_type>&)>(&DiffProblemFirst<Sys,T>::iterationConvergence) );
     }
     if(OLD_CODE)theNLSolver.setResidue(static_cast<void (*)(lmx::Vector<data_type>&,
                                                             lmx::Vector<data_type>&)>( &DiffProblemFirst<Sys,T>::iterationResidue) ); // Also advances the integrator
@@ -460,7 +460,7 @@ template <typename Sys, typename T>
     			    this->theConfiguration->getTime( )+this->stepSize
     		    );
   else (this->theSystem->*_e_eval)( this->theConfiguration->getConfEigen(0),
-    			    this->theConfiguration->setConf(1),
+    			    this->theConfiguration->setConfEigen(1),
     			    this->theConfiguration->getTime( )+this->stepSize
     		    );
   this->theConfiguration->nextStep( this->stepSize );

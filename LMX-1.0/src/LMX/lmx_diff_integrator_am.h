@@ -25,19 +25,20 @@
 //////////////////////////////////////////// Doxygen file documentation entry:
     /*!
       \file lmx_diff_integrator_am.h
-      
+
       \brief IntegratorAM class implementation
 
       Implements ADAMS-MOULTON integrator class for solving dynamic systems.
 
       \author Daniel Iglesias
-      
+
     */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
 #include<cmath>
 
 #include"lmx_diff_integrator_base_implicit.h"
+#include <gpu/cpu_run_type.h>
 
 namespace lmx {
 
@@ -45,7 +46,7 @@ namespace lmx {
     \class IntegratorAM
     \brief Template class IntegratorAM.
     Adams-Moulton integrator implementation for ODE systems.
-    
+
     @author Daniel Iglesias.
     */
 template <class T> class IntegratorAM : public IntegratorBaseImplicit<T>
@@ -74,6 +75,7 @@ public:
 
   /** Actualize with delta in actual time-step. */
   void integratorUpdate( lmx::Vector<T> delta );
+  void integratorUpdate( VectorX<T> delta );
 
   /** Calculates the factor \f$ \frac{\partial qdot_n}{\partial q_n} \f$. */
   double getPartialQdot( )
@@ -98,22 +100,22 @@ namespace lmx {
   {
         // order == 1 -> Euler Implicit
           b[0][0] = (1.); // b[0] = 1
-        
+
         // order == 2 -> Trapezoidal rule
           b[1][0] = (0.5); // b[0] = 1
           b[1][1] = (0.5); // b[1] = 1
-        
+
         // order == 3
           b[2][0] = (5./12.); // b[0]
           b[2][1] = (8./12.); // b[1]
           b[2][2] = (-1./12.); // b[2]
-        
+
         // order == 4
           b[3][0] = (9./24.); // b[0]
           b[3][1] = (19./24.); // b[1]
           b[3][2] = (-5./24.); // b[2]
           b[3][3] = (1./24.); // b[3]
-        
+
         // order == 5
           b[4][0] = (251./720.); // b[0]
           b[4][1] = (646./720.); // b[1]
@@ -179,6 +181,27 @@ namespace lmx {
       }
     }
     q->setConf( 0, q->getConf(0, 0) + delta );
+  }
+
+  template <class T>
+      void IntegratorAM<T>::integratorUpdate( VectorX<T> delta )
+  {
+    int i;
+    if (q->getTimeSize() < order/*+1*/){ //orden de integrador-1 > steps
+      for ( i = 0; i < q->getDiffOrder(); ++i ){
+        q->setConfEigen( i+1 ) += delta
+          * ( 1. /
+             std::pow(q->getLastStepSize() * b[q->getTimeSize()-2][0], i+1) );
+      }
+    }
+    else{
+      for ( i = 0; i < q->getDiffOrder(); ++i ){
+        q->setConfEigen( i+1 ) += delta
+          * ( 1. /
+            std::pow(q->getLastStepSize() * b[order-1][0], i+1) );
+      }
+    }
+    q->setConfEigen( 0, q->getConfEigen(0, 0) + delta );
   }
 
 }; // namespace lmx

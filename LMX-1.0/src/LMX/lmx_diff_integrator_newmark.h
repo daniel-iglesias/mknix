@@ -25,13 +25,13 @@
 //////////////////////////////////////////// Doxygen file documentation entry:
     /*!
       \file lmx_diff_integrator_newmark.h
-      
+
       \brief IntegratorNEWMARK class implementation
 
       Implements Beta-Newmark family integrators for solving dynamic systems.
 
       \author Daniel Iglesias
-      
+
     */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
@@ -45,30 +45,31 @@ namespace lmx {
   \class IntegratorNEWMARK
   \brief Template class IntegratorNEWMARK.
   Gear's BDF integrator implementation for ODE systems.
-    
+
   @author Daniel Iglesias.
      */
   template <class T> class IntegratorNEWMARK : public IntegratorBaseImplicit<T>
   {
     public:
-  
+
       /** Empty constructor. */
       IntegratorNEWMARK(){}
-  
+
       /** Standard constructor. */
       IntegratorNEWMARK(double beta, double gamma);
-  
+
       /** Destructor. */
       ~IntegratorNEWMARK(){}
-  
+
       /** Initialize integration function. */
       void initialize( Configuration<T>* );
-  
+
       /** Advance to next time-step function. */
       void advance();
-  
+
       /** Actualize with delta in actual time-step. */
       void integratorUpdate( lmx::Vector<T> delta );
+      void integratorUpdate( VectorX<T> delta );
 
       /** Calculates the factor \f$ \frac{\partial qdot_n}{\partial q_n} \f$. */
       double getPartialQdot( )
@@ -81,7 +82,7 @@ namespace lmx {
       {
         return 1./ ( std::pow( q->getLastStepSize(), 2. )*beta );
       }
-  
+
     private:
       double beta, gamma;
       Configuration<T>* q;
@@ -130,6 +131,14 @@ namespace lmx {
     q->setConf( 0 ) += delta;
     q->setConf( 1 ) += delta * ( gamma/(beta*q->getLastStepSize() ) );
     q->setConf( 2 ) += delta * ( 1. / ( beta * std::pow(q->getLastStepSize(), 2 ) ) );
+  }
+
+  template <class T>
+      void IntegratorNEWMARK<T>::integratorUpdate( VectorX<T> delta )
+  {
+    q->setConfEigen( 0 ) += delta;
+    q->setConfEigen( 1 ) += delta * ( gamma/(beta*q->getLastStepSize() ) );
+    q->setConfEigen( 2 ) += delta * ( 1. / ( beta * std::pow(q->getLastStepSize(), 2 ) ) );
   }
 
 }; // namespace lmx

@@ -11,6 +11,7 @@
 #define USECSC false
 
 #include <common.h>
+#include <gpu/cpu_run_type.h>
 
 #include <../Eigen/Sparse>
 using namespace Eigen;

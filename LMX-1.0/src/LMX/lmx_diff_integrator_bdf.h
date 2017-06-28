@@ -25,19 +25,20 @@
 //////////////////////////////////////////// Doxygen file documentation entry:
     /*!
       \file lmx_diff_integrator_bdf.h
-      
+
       \brief IntegratorBDF class implementation
 
       Implements BDF integrator class for solving dynamic systems.
 
       \author Daniel Iglesias
-      
+
     */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
 #include<cmath>
 
 #include"lmx_diff_integrator_base_implicit.h"
+#include <gpu/cpu_run_type.h>
 
 namespace lmx {
 
@@ -45,30 +46,31 @@ namespace lmx {
     \class IntegratorBDF
     \brief Template class IntegratorBDF.
     Gear's BDF integrator implementation for ODE systems.
-    
+
     @author Daniel Iglesias.
     */
 template <class T> class IntegratorBDF : public IntegratorBaseImplicit<T>
 {
   public:
-  
+
     /** Empty constructor. */
     IntegratorBDF(){}
-  
+
     /** Standard constructor. */
     IntegratorBDF(int ord);
-  
+
     /** Destructor. */
     ~IntegratorBDF(){}
-  
+
     /** Initialize integration function. */
     void initialize( Configuration<T>* );
-  
+
     /** Advance to next time-step function. */
     void advance();
-  
+
     /** Actualize with delta in actual time-step. */
     void integratorUpdate( lmx::Vector<T> delta );
+    void integratorUpdate( VectorX<T> delta );
 
     /** Calculates the factor \f$ \frac{\partial qdot_n}{\partial q_n} \f$. */
     double getPartialQdot( )
@@ -85,7 +87,7 @@ template <class T> class IntegratorBDF : public IntegratorBaseImplicit<T>
           1./ ( std::pow( q->getLastStepSize()*b[order-1],2 ) ) :
           1./ ( std::pow( q->getLastStepSize()*b[q->getTimeSize()-2],2 ) );
     }
-  
+
   private:
     int order;
     T b[5];  /**< Array of method's RHS coefficients.*/
@@ -105,25 +107,25 @@ namespace lmx {
         // order == 1 -> Euler Implicit
           b[0] = (1.); // b = 1
           a[0][0] = (1.); // a[0] = 1
-        
+
         // order == 2
           b[1] = (2./3.); // b
           a[1][0] = (4./3.); // a[0]
           a[1][1] = (-1./3.); // a[1]
-        
+
         // order == 3
           b[2] = (6./11.); // b
           a[2][0] = (18./11.); // a[0]
           a[2][1] = (-9./11.); // a[1]
           a[2][2] = (2./11.); // a[2]
-        
+
         // order == 4
           b[3] = (12./25.); // b
           a[3][0] = (48./25.); // a[0]
           a[3][1] = (-36./25.); // a[1]
           a[3][2] = (16./25.); // a[2]
           a[3][3] = (-3./25.); // a[3]
-        
+
         // order == 5
           b[4] = (60./137.); // b
           a[4][0] = (300./137.); // a[0]
@@ -143,7 +145,7 @@ namespace lmx {
 
   template <class T>
       void IntegratorBDF<T>::advance( )
-  { 
+  {
     int i, j;
     if (q->getTimeSize() < order+1){ //orden de integrador > steps
       for ( i = 0; i < q->getDiffOrder(); ++i ){
@@ -165,7 +167,7 @@ namespace lmx {
                * ( 1. / (q->getLastStepSize() * b[order-1])) );
          }
        }
-     } 
+     }
   }
 
   template <class T>
@@ -183,13 +185,32 @@ namespace lmx {
         q->setConf( i+1) += delta
             * std::pow( 1. / (q->getLastStepSize() * b[order-1]), i+1);
       }
-    }    
-    
+    }
+
     q->setConf( 0, q->getConf(0, 0) + delta );
+  }
+
+  template <class T>
+      void IntegratorBDF<T>::integratorUpdate( VectorX<T> delta )
+  {
+    int i;
+    if (q->getTimeSize() < order+1){ //orden de integrador > steps
+      for ( i = 0; i < q->getDiffOrder(); ++i ){
+        q->setConfEigen( i+1) +=  delta
+            * std::pow( 1. / (q->getLastStepSize() * b[q->getTimeSize()-2]), i+1);
+      }
+    }
+    else{//se aplica el orden real de integrador
+      for ( i = 0; i < q->getDiffOrder(); ++i ){
+        q->setConfEigen( i+1) += delta
+            * std::pow( 1. / (q->getLastStepSize() * b[order-1]), i+1);
+      }
+    }
+
+    q->setConfEigen( 0, q->getConfEigen(0, 0) + delta );
   }
 
 }; // namespace lmx
 
 
 #endif
-

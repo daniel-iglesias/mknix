@@ -24,7 +24,7 @@
 //////////////////////////////////////////// Doxygen file documentation entry:
     /*!
       \file lmx_diff_integrator_base_implicit.h
-      
+
       \brief IntegratorBaseImplicit abstract class implementation
 
       Implements the basic structure that will have the implicit integrators.
@@ -35,15 +35,16 @@
 //////////////////////////////////////////// Doxygen file documentation (end)
 
 #include "lmx_diff_integrator_base.h"
+#include <gpu/cpu_run_type.h>
 
 namespace lmx {
 
     /**
     \class IntegratorBaseImplicit
     \brief Template abstract class IntegratorBaseImplicit.
-    
+
     Implicit integrator basic structure.
-    
+
     @author Daniel Iglesias .
     */
 template <class T> class IntegratorBaseImplicit : public IntegratorBase<T>{
@@ -68,6 +69,7 @@ public:
 
   /** Actualizes variables applying an increment. */
   virtual void integratorUpdate( lmx::Vector<T> delta ) = 0;
+  virtual void integratorUpdate( VectorX<T> delta ) = 0;
 };
 
 }; // namespace lmx

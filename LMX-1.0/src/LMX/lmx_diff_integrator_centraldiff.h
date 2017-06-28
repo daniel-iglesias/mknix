@@ -25,17 +25,18 @@
 //////////////////////////////////////////// Doxygen file documentation entry:
     /*!
       \file lmx_diff_integrator_centraldiff.h
-      
+
       \brief IntegratorCentralDiff class implementation
 
       Implements central differences explicit integrator class for solving dynamic systems.
 
       \author Daniel Iglesias
-      
+
     */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
 #include"lmx_diff_integrator_base.h"
+#include <gpu/cpu_run_type.h>
 
 namespace lmx {
 
@@ -43,7 +44,7 @@ namespace lmx {
     \class IntegratorCentralDifference
     \brief Template class IntegratorCentralDifference.
     Central difference integrator implementation for ODE systems.
-    
+
     @author Daniel Iglesias.
     */
 template <class T> class IntegratorCentralDifference : public IntegratorBase<T>
