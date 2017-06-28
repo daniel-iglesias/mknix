@@ -10,6 +10,8 @@
 //
 #define USECSC false
 
+#include <common.h>
+
 #include <../Eigen/Sparse>
 using namespace Eigen;
 

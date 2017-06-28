@@ -46,17 +46,46 @@ AnalysisThermalDynamic::AnalysisThermalDynamic( Simulation* simulation_in,
 //  theProblem.setOutputFile("dis.dat", 0);
 //     theProblem.setOutputFile("flux.dat", 1);
     if (theProblem.isIntegratorExplicit() ) {
-      theProblem.setEvaluation( &Simulation::explicitThermalEvaluation );
+      if(OLD_CODE) theProblem.setEvaluation( static_cast<void (*)(const lmx::Vector<data_type>&,
+                                                                  lmx::Vector<data_type>&,
+                                                                  double)>(&Simulation::explicitThermalEvaluation) );
+      else theProblem.setEvaluation( static_cast<void (*)(const VectorX<data_type>&,
+                                                          VectorX<data_type>&,
+                                                          double)>(&Simulation::explicitThermalEvaluation) );
     }
     else {
 
-    if(OLD_CODE)theProblem.setEvaluation( static_cast<void (*)(lmx::Vector<data_type>, lmx::Vector<data_type>, double)>(&Simulation::dynamicThermalEvaluation) );
-    else theProblem.setEvaluation( static_cast<void (*)(VectorX<data_type>, VectorX<data_type>, double)>(&Simulation::dynamicThermalEvaluation) );
+    if(OLD_CODE)theProblem.setEvaluation( static_cast<void (*)(lmx::Vector<data_type>&,
+                                                              lmx::Vector<data_type>&,
+                                                              double)>(&Simulation::dynamicThermalEvaluation) );
+    else theProblem.setEvaluation( static_cast<void (*)(VectorX<data_type>&,
+                                                        VectorX<data_type>&,
+                                                        double)>(&Simulation::dynamicThermalEvaluation) );
 
-      theProblem.setResidue( &Simulation::dynamicThermalResidue );
-      theProblem.setJacobian( &Simulation::dynamicThermalTangent );
+      if(OLD_CODE)theProblem.setResidue( static_cast<void (*)(lmx::Vector<data_type>&,
+                                                              const lmx::Vector<data_type>&,
+                                                              const lmx::Vector<data_type>&,
+                                                              double)>(&Simulation::dynamicThermalResidue) );
+      else theProblem.setResidue( static_cast<void (*)(VectorX<data_type>&,
+                                                       const VectorX<data_type>&,
+                                                       const VectorX<data_type>&,
+                                                       double)>(&Simulation::dynamicThermalResidue) );
+
+      if(OLD_CODE)theProblem.setJacobian( static_cast<void (*)(lmx::Matrix<data_type>&,
+                                                              const lmx::Vector<data_type>&,
+                                                              double,
+                                                              double)>(&Simulation::dynamicThermalTangent) );
+      else theProblem.setJacobian( static_cast<void (*)(SparseMatrix<data_type>&,
+                                                       const VectorX<data_type>&,
+                                                       double,
+                                                       double)>(&Simulation::dynamicThermalTangent) );
       if (epsilon == 0.0)
-          theProblem.setConvergence( &Simulation::dynamicThermalConvergence );
+          if(OLD_CODE)theProblem.setConvergence( static_cast<void (*)(const lmx::Vector<data_type>&,
+                                                                      const lmx::Vector<data_type>&,
+                                                                      double)>(&Simulation::dynamicThermalConvergence) );
+          else theProblem.setConvergence( static_cast<void (*)(const VectorX<data_type>&,
+                                                                const VectorX<data_type>&,
+                                                                double)>(&Simulation::dynamicThermalConvergence) );
       else
           theProblem.setConvergence( epsilon );
     }
@@ -96,8 +125,7 @@ void AnalysisThermalDynamic::nextStep()
 
 void AnalysisThermalDynamic::solve( lmx::Vector< data_type > * qt_in,
                                     lmx::Vector< data_type >* qdot_in = 0,
-                                    lmx::Vector< data_type >* not_used = 0
-                                  )
+                                    lmx::Vector< data_type >* not_used = 0)
 {
     if( lmx::getMatrixType() == 1 )
 //    theProblem.setSparsePatternJacobian( theSimulation->getSparsePattern() ); // TBD for 1-DOF
@@ -108,8 +136,7 @@ void AnalysisThermalDynamic::solve( lmx::Vector< data_type > * qt_in,
 
 void AnalysisThermalDynamic::solve( VectorX< data_type > * qt_in,
                                     VectorX< data_type >* qdot_in = 0,
-                                    VectorX< data_type >* not_used = 0
-                                  )
+                                    VectorX< data_type >* not_used = 0)
 {
     if( lmx::getMatrixType() == 1 )
 //    theProblem.setSparsePatternJacobian( theSimulation->getSparsePattern() ); // TBD for 1-DOF

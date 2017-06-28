@@ -40,6 +40,7 @@
 
 #include "lmx_diff_problem_double.h"
 #include "lmx_diff_integrator_newmark.h"
+#include <gpu/cpu_run_type.h>
 
 namespace lmx {
 
@@ -71,44 +72,44 @@ class DiffProblemFirstSecond
     {}
 
     /** Destructor. */
-    ~DiffProblemFirstSecond()
-    {
+    ~DiffProblemFirstSecond(){
       this->p_delta_q1 = 0;
       this->p_delta_q2 = 0;
     }
-
+//
+//
     void setResidue1( void (Sys::* residue_in)( lmx::Vector<T>& residue1,
                                                const lmx::Vector<T>& q1,
                                                const lmx::Vector<T>& qdot1,
-                                               double time
-                                             )
-                    );
-    void setResidue2
-        ( void (Sys::* residue_in)( lmx::Vector<T>& residue2,
+                                               double time ));
+
+    void setResidue2( void (Sys::* residue_in)( lmx::Vector<T>& residue2,
                                     const lmx::Vector<T>& q22,
                                     const lmx::Vector<T>& qdot2,
                                     const lmx::Vector<T>& qddot2,
-                                    double time
-                                  )
-        );
+                                    double time));
 
     void setJacobian1( void (Sys::* jacobian_in)( lmx::Matrix<T>& tangent,
                                                  const lmx::Vector<T>& q,
                                                  double partial_qdot,
-                                                 double time
-                                               )
-                     );
+                                                 double time));
 
-    void setJacobian2
-        ( void (Sys::* jacobian_in)(
+    void setJacobian2( void (Sys::* jacobian_in)(
                                      lmx::Matrix<T>& jacobian,
                                      const lmx::Vector<T>& q2,
                                      const lmx::Vector<T>& qdot2,
                                      double partial_qdot2,
                                      double partial_qddot2,
-                                     double time
-                                   )
-        );
+                                     double time));
+    //
+    void setJacobian2( void (Sys::* jacobian_in)(
+                                     SparseMatrix<T>& jacobian,
+                                     const VectorX<T>& q2,
+                                     const VectorX<T>& qdot2,
+                                     double partial_qdot2,
+                                     double partial_qddot2,
+                                     double time));
+    //
 
     void setEvaluation1( void (Sys::* eval_in)( const lmx::Vector<T>& q1,
                                                lmx::Vector<T>& qdot1,
@@ -183,16 +184,22 @@ class DiffProblemFirstSecond
     }
 
     void iterationResidue1( lmx::Vector<T>& residue, lmx::Vector<T>& q_current );
+    void iterationResidue1( VectorX<T>& residue, VectorX<T>& q_current );
 
     void iterationJacobian1( lmx::Matrix<T>& jacobian, lmx::Vector<T>& q_current );
+    void iterationJacobian1( SparseMatrix<T>& jacobian, VectorX<T>& q_current );
 
     bool iterationConvergence1( lmx::Vector<T>& q_current );
+    bool iterationConvergence1( VectorX<T>& q_current );
 
     void iterationResidue2( lmx::Vector<T>& residue, lmx::Vector<T>& delta_q );
+    void iterationResidue2( VectorX<T>& residue, VectorX<T>& delta_q );
 
     void iterationJacobian2( lmx::Matrix<T>& jacobian, lmx::Vector<T>& delta_q );
+    void iterationJacobian2( SparseMatrix<T>& jacobian, VectorX<T>& delta_q );
 
     bool iterationConvergence2( lmx::Vector<T>& delta_q );
+    bool iterationConvergence2( VectorX<T>& delta_q );
 
     void initialize( );
 
@@ -220,43 +227,84 @@ class DiffProblemFirstSecond
                        const lmx::Vector<T>& qdot,
                        double time
                       );
+//
+//
     void (Sys::* res2)( lmx::Vector<T>& residue,
                        const lmx::Vector<T>& q,
                        const lmx::Vector<T>& qdot,
                        const lmx::Vector<T>& qddot,
-                       double time
-                      );
+                       double time);
+//
+void (Sys::* _e_res2)( VectorX<T>& residue,
+                   const VectorX<T>& q,
+                   const VectorX<T>& qdot,
+                   const VectorX<T>& qddot,
+                   double time);
+//
     void (Sys::* jac1)( lmx::Matrix<T>& jacobian,
                        const lmx::Vector<T>& q,
                        double partial_qdot,
-		       double time
-                      );
+		                   double time);
+//
+void (Sys::* _e_jac1)( SparseMatrix<T>& jacobian,
+                      const VectorX<T>& q,
+                      double partial_qdot,
+                      double time);
+//
+
     void (Sys::* jac2)( lmx::Matrix<T>& jacobian,
                        const lmx::Vector<T>& q,
                        const lmx::Vector<T>& qdot,
                        double partial_qdot,
                        double partial_qddot,
-		       double time
-                      );
+		                   double time);
+//
+void (Sys::* _e_jac2)( SparseMatrix<T>& jacobian,
+                   const VectorX<T>& q,
+                   const VectorX<T>& qdot,
+                   double partial_qdot,
+                   double partial_qddot,
+                   double time);
+//
     void (Sys::* eval1)( const lmx::Vector<T>& q,
                          lmx::Vector<T>& qdot,
-                         double time
-                        );
+                         double time);
+//
+void (Sys::* _e_eval1)( const VectorX<T>& q,
+                     VectorX<T>& qdot,
+                     double time);
+//
     void (Sys::* eval2)( const lmx::Vector<T>& q,
                          const lmx::Vector<T>& qdot,
                          lmx::Vector<T>& qddot,
                          double time
                        );
+//
+void (Sys::* _e_eval2)( const VectorX<T>& q,
+                     const VectorX<T>& qdot,
+                     VectorX<T>& qddot,
+                     double time);
+//
     bool (Sys::* conv1)( const lmx::Vector<T>& q,
                         const lmx::Vector<T>& qdot,
-                        double time
-                       );
+                        double time);
+//
+bool (Sys::* _e_conv1)( const VectorX<T>& q,
+                        const VectorX<T>& qdot,
+                        double time);
+//
     bool (Sys::* conv2)( const lmx::Vector<T>& q,
                         const lmx::Vector<T>& qdot,
                         const lmx::Vector<T>& qddot,
                         double time
                        );
-
+//
+bool (Sys::* _e_conv2)( const VectorX<T>& q,
+                    const VectorX<T>& qdot,
+                    const VectorX<T>& qddot,
+                    double time
+                   );
+//
 };
 
 
@@ -333,6 +381,19 @@ template <typename Sys, typename T>
         )
 {
   this->jac2 = jacobian_in;
+}
+
+template <typename Sys, typename T>
+    void DiffProblemFirstSecond<Sys,T>::setJacobian2
+        ( void (Sys::* jacobian_in)(SparseMatrix<T>& jacobian,
+                                     const VectorX<T>& q,
+                                     const VectorX<T>& qdot,
+                                     double partial_qdot,
+                                     double partial_qddot,
+                                     double time )
+        )
+{
+  this->_e_jac2 = jacobian_in;
 }
 
 /**
@@ -523,8 +584,8 @@ template <typename Sys, typename T>
     void DiffProblemFirstSecond<Sys,T>::iterationJacobian2( SparseMatrix<T>& jacobian, VectorX<T>& delta_q )
 {
   (this->theSystem->*_e_jac2)( jacobian,
-              this->theConfiguration2->getConf(0),
-              this->theConfiguration2->getConf(1),
+              this->theConfiguration2->getConfEigen(0),
+              this->theConfiguration2->getConfEigen(1),
               static_cast< IntegratorBaseImplicit<T>* >(this->theIntegrator2)->getPartialQdot( ),
               static_cast< IntegratorBaseImplicit<T>* >(this->theIntegrator2)->getPartialQddot( ),
               this->theConfiguration2->getTime( )
@@ -547,8 +608,8 @@ template <typename Sys, typename T>
 template <typename Sys, typename T>
     bool DiffProblemFirstSecond<Sys,T>::iterationConvergence1( VectorX<T>& q_current )
 {
-  return (this->theSystem->*_e_conv1)( this->theConfiguration1->getConf(0),
-                                    this->theConfiguration1->getConf(1),
+  return (this->theSystem->*_e_conv1)( this->theConfiguration1->getConfEigen(0),
+                                    this->theConfiguration1->getConfEigen(1),
                                     this->theConfiguration1->getTime( )
                                   );
 }
@@ -569,9 +630,9 @@ template <typename Sys, typename T>
 template <typename Sys, typename T>
     bool DiffProblemFirstSecond<Sys,T>::iterationConvergence2( VectorX<T>& delta_q )
 {
-  return (this->theSystem->*_e_conv2)( this->theConfiguration2->getConf(0),
-                                    this->theConfiguration2->getConf(1),
-                                    this->theConfiguration2->getConf(2),
+  return (this->theSystem->*_e_conv2)( this->theConfiguration2->getConfEigen(0),
+                                    this->theConfiguration2->getConfEigen(1),
+                                    this->theConfiguration2->getConfEigen(2),
                                     this->theConfiguration2->getTime( )
                                   );
 }

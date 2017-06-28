@@ -31,10 +31,10 @@
 #include <algorithm>
 
 using namespace std;
-
+typedef double data_type;
 namespace mknix {
 
-typedef double data_type;
+//typedef double data_type;
 
 double interpolate1D( double, const std::map<double,double>& );
 
@@ -52,7 +52,7 @@ class boxFIR
     int numCoeffs; //MUST be > 0
     vector<double> b; //Filter coefficients
     vector<double> m; //Filter memories
-    
+
 public:
     boxFIR(int);
     void filter(vector<double> &);

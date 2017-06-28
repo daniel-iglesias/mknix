@@ -34,10 +34,16 @@ AnalysisThermalStatic::AnalysisThermalStatic( Simulation * simulation_in, double
 {
     theProblem.setSystem( *theSimulation );
 //   theProblem.setOutputFile("dis.dat", 0);
-    theProblem.setResidue( &Simulation::staticThermalResidue );
-    theProblem.setJacobian( &Simulation::staticThermalTangent );
-    if(OLD_CODE)theProblem.setConvergence( static_cast<void (*)(lmx::Vector<data_type>, lmx::Vector<data_type>)>(&Simulation::staticThermalConvergence) );
-    else theProblem.setConvergence( static_cast<void (*)(VectorX<data_type>, VectorX<data_type>)>(&Simulation::staticThermalConvergence) );
+    if(OLD_CODE)theProblem.setResidue( static_cast<void (*)(lmx::Vector<data_type>&,
+                                                            lmx::Vector<data_type>&)>(&Simulation::staticThermalResidue) );
+    else theProblem.setResidue( static_cast<void (*)(VectorX<data_type>&,
+                                                    VectorX<data_type>&)>(&Simulation::staticThermalResidue) );
+
+    if(OLD_CODE)theProblem.setJacobian( static_cast<void (*)(lmx::Matrix<data_type>&, lmx::Vector<data_type>&)>(&Simulation::staticThermalTangent) );
+    else theProblem.setJacobian( static_cast<void (*)(SparseMatrix<data_type>&, VectorX<data_type>&)>(&Simulation::staticThermalTangent) );
+
+    if(OLD_CODE)theProblem.setConvergence( static_cast<void (*)(lmx::Vector<data_type>&, lmx::Vector<data_type>&)>(&Simulation::staticThermalConvergence) );
+    else theProblem.setConvergence( static_cast<void (*)(VectorX<data_type>&, VectorX<data_type>&)>(&Simulation::staticThermalConvergence) );
 }
 
 

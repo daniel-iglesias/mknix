@@ -102,16 +102,13 @@ public:
     void writeSystem();
 
     void staticThermalResidue(lmx::Vector<data_type>& residue,
-                              lmx::Vector<data_type>& q
-    );
+                              lmx::Vector<data_type>& q);
 //
     void staticThermalResidue(VectorX<data_type>& residue,
-                              VectorX<data_type>& q
-    );
+                              VectorX<data_type>& q);
 //
     void staticThermalTangent(lmx::Matrix<data_type>& tangent_in,
-                              lmx::Vector<data_type>& q
-    );
+                              lmx::Vector<data_type>& q);
 //
 void staticThermalTangent(SparseMatrix<data_type>& tangent_in,
                           VectorX<data_type>& q);
@@ -210,16 +207,14 @@ void dynamicResidue(VectorX<data_type>& residue,
                     const VectorX<data_type>& q,
                     const VectorX<data_type>& qdot,
                     const VectorX<data_type>& qddot,
-                    double time
-);
+                    double time);
 //
     void dynamicTangent(lmx::Matrix<data_type>& tangent_in,
                         const lmx::Vector<data_type>& q,
                         const lmx::Vector<data_type>& qdot,
                         double partial_qdot,
                         double partial_qddot,
-                        double time
-    );
+                        double time );
 //
 void dynamicTangent(SparseMatrix<data_type>& tangent_in,
                     const VectorX<data_type>& q,
@@ -366,9 +361,17 @@ private:
     std::vector<data_type> h_globalInternalHeat;*/
 
     lmx::Matrix<data_type> globalMass;
+    SparseMatrix<data_type> _eGlobalMass;
+
     lmx::Vector<data_type> globalRHSForces;
+    VectorX<data_type> _eGlobalRHSForces;
+
     lmx::Vector<data_type> globalInternalForces;
+    VectorX<data_type> _eGlobalInternalForces;
+
     lmx::Vector<data_type> globalExternalForces;
+    VectorX<data_type> _eGlobalExternalForces;
+
     lmx::DenseMatrix<data_type> globalSparsePattern;
 
     std::ofstream outFile;
