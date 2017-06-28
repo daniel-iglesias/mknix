@@ -63,5 +63,22 @@ void AnalysisThermalStatic::solve( lmx::Vector< data_type >* q_in,
 //  disp.close();
 }
 
+void AnalysisThermalStatic::solve( VectorX< data_type >* q_in,
+                                   VectorX< data_type >* qdot_in = 0,
+                                   VectorX< data_type >* not_used = 0)
+{
+    theProblem.setInitialConfiguration( *q_in );
+    theProblem.solve( 100 );
+    *q_in = theProblem.getSolution();
+
+//  std::ofstream disp("dis.dat");
+//  disp << time << " ";
+//  for(int i=0; i<q_in->size(); ++i){
+//    disp << q_in->readElement(i) << " ";
+//  }
+//  disp << endl;
+//  disp.close();
+}
+
 
 }

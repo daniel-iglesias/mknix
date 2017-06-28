@@ -101,5 +101,19 @@ void AnalysisThermoMechanicalDynamic::solve
     theProblem.solve();
 }
 
+void AnalysisThermoMechanicalDynamic::solve
+( VectorX< data_type > * qt_in,
+  VectorX< data_type > * q_in,
+  VectorX< data_type >* qdot_in = 0)
+{
+    if( lmx::getMatrixType() == 1 ) {
+//    theProblem.setSparsePatternJacobian( theSimulation->getSparsePattern() ); // TBD for 1-DOF
+        theProblem.setSparsePatternJacobian2( theSimulation->getSparsePattern() );
+    }
+    theProblem.setInitialConfiguration1( *qt_in );
+    theProblem.setInitialConfiguration2( *q_in, *qdot_in );
+    theProblem.solve();
+}
+
 
 }

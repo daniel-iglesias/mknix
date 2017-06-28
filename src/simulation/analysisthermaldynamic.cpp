@@ -67,6 +67,7 @@ AnalysisThermalDynamic::~AnalysisThermalDynamic()
 
 void AnalysisThermalDynamic::init(lmx::Vector< data_type > * qt_in, int vervosity)
 {
+  std::cout << "AnalysisThermalDynamic::init with LMX" <<std::cout;
 //     if( lmx::getMatrixType() == 1 )
 //    theProblem.setSparsePatternJacobian( theSimulation->getSparsePattern() ); // TBD for 1-DOF
 //         cout << *qt_in << endl;
@@ -75,15 +76,36 @@ void AnalysisThermalDynamic::init(lmx::Vector< data_type > * qt_in, int vervosit
     theProblem.initialize();
 }
 
+void AnalysisThermalDynamic::init(VectorX< data_type > * qt_in, int vervosity)
+{
+  std::cout << "AnalysisThermalDynamic::init with Eigen" <<std::endl;
+
+    theProblem.setVervosity(vervosity);
+    theProblem.setInitialConfiguration( *qt_in );
+    theProblem.initialize();
+}
+
 void AnalysisThermalDynamic::nextStep()
 {
-    theProblem.stepSolve();  
+    theProblem.stepSolve();
 }
 
 
 void AnalysisThermalDynamic::solve( lmx::Vector< data_type > * qt_in,
                                     lmx::Vector< data_type >* qdot_in = 0,
                                     lmx::Vector< data_type >* not_used = 0
+                                  )
+{
+    if( lmx::getMatrixType() == 1 )
+//    theProblem.setSparsePatternJacobian( theSimulation->getSparsePattern() ); // TBD for 1-DOF
+        cout << *qt_in << endl;
+    theProblem.setInitialConfiguration( *qt_in );
+    theProblem.solve();
+}
+
+void AnalysisThermalDynamic::solve( VectorX< data_type > * qt_in,
+                                    VectorX< data_type >* qdot_in = 0,
+                                    VectorX< data_type >* not_used = 0
                                   )
 {
     if( lmx::getMatrixType() == 1 )

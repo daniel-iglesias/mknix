@@ -129,7 +129,10 @@ void Simulation::init(int vervosity)
 
     for (auto& analysis : analyses) {
         if (analysis->type() == "THERMAL" || analysis->type() == "THERMALSTATIC") {
+          if(OLD_CODE)
             initThermalSimulation(analysis.get(), vervosity);
+          else
+            initThermalSimulationEigen(analysis.get(), vervosity);
         }
         else {
             initMechanicalSimulation(analysis.get());
@@ -140,16 +143,14 @@ void Simulation::init(int vervosity)
 lmx::Vector<data_type> Simulation::initThermalSimulation(Analysis * theAnalysis_in, int vervosity, bool init)
 {
 
-//std::cout << "\n\n  --- void Simulation::initThermalSimulation --- \n" << std::endl;
+    std::cout << "\n\n  --- void Simulation::initThermalSimulation GMM version--- \n" << std::endl;
 
     theAnalysis = theAnalysis_in;
     auto gdlSize = nodes.size();
+
     lmx::Vector<data_type> q(gdlSize);
     q.fillIdentity(initialTemperature);
 
-
-
-if(OLD_CODE){
     globalConductivity.resize(gdlSize, gdlSize);
     globalCapacity.resize(gdlSize, gdlSize);
     globalRHSHeat.resize(gdlSize);
@@ -160,7 +161,32 @@ if(OLD_CODE){
     baseSystem->assembleConductivityMatrix(globalConductivity);
     baseSystem->calcCapacityMatrix();
     baseSystem->assembleCapacityMatrix(globalCapacity);
-} else {
+
+    writeConfStep();
+
+    if (outputFilesDetail > 1 && theAnalysis->type() == "THERMAL") {
+        systemOuputStep(q);
+    }
+
+    if (init) {
+        theAnalysis->init(&q, vervosity);
+    }
+
+    return q;
+
+}
+
+VectorX<data_type> Simulation::initThermalSimulationEigen(Analysis * theAnalysis_in, int vervosity, bool init)
+{
+
+std::cout << "\n\n  --- void Simulation::initThermalSimulation Eigen version--- \n" << std::endl;
+
+    theAnalysis = theAnalysis_in;
+    auto gdlSize = nodes.size();
+    VectorX<data_type> q(gdlSize);
+    //q.fill(initialTemperature);
+   q.setIdentity();
+   q *= initialTemperature;
   //baseSystem->setThermalBoundaryTable(myThermalBoundary);//setting soa structture
   baseSystem->setMaterialTable(myMaterialTable);
 
@@ -181,18 +207,19 @@ if(OLD_CODE){
   baseSystem->assembleConductivityMatrix(_eGlobalConductivity);
   baseSystem->calcCapacityMatrix();
   baseSystem->assembleCapacityMatrix(_eGlobalCapacity);
-}
+
     writeConfStep();
 
     if (outputFilesDetail > 1 && theAnalysis->type() == "THERMAL") {
         systemOuputStep(q);
     }
 
-    if (init) {
-        theAnalysis->init(&q, vervosity);
+    if (init) {//TODO fix this
+        //theAnalysis->init(&q, vervosity);
     }
 
     return q;
+
 }
 
 lmx::Vector<data_type> Simulation::initMechanicalSimulation(Analysis * analysis, bool init)
@@ -358,50 +385,100 @@ void Simulation::run()
 
 void Simulation::runThermalAnalysis(Analysis * theAnalysis_in)
 {
-    auto q = initThermalSimulation(theAnalysis_in, 2, false);
+  if(OLD_CODE){
+      auto q = initThermalSimulation(theAnalysis_in, 2, false);
 
-    if (theAnalysis->type() == "THERMAL") {
-        theAnalysis->solve(&q);
-    }
 
-    else if (theAnalysis->type() == "THERMALSTATIC") {
-        // write initial configuration...
-        outFile << "0 "; //time=0
+      if (theAnalysis->type() == "THERMAL") {
+          theAnalysis->solve(&q);
+      }
+
+      else if (theAnalysis->type() == "THERMALSTATIC") {
+          // write initial configuration...
+          outFile << "0 "; //time=0
+  //           systemOuputStep( q ); // produces output of temperatures, incompatible with mknixpost-static
+          for (auto& point : outputPoints) {
+              outFile << point.second->getConf(0) << " ";
+              outFile << point.second->getConf(1) << " ";
+              if (Simulation::getDim() == 3) {
+                  outFile << point.second->getConf(2) << " ";
+              }
+          }
+          outFile << endl;
+          theAnalysis->solve(&q);
+      }
+
+      if (outputFilesDetail > 1) {
+          std::ifstream disp("dis.dat");
+          char a;
+
+          if (outFile.is_open()) {
+              while (disp.get(a)) {
+                  outFile.put(a);
+                  outFile.flush();
+              }
+              outFile << "ENDCONFIGURATION" << endl;
+
+              // output extra flexible bodies data...
+              baseSystem->outputToFile(&outFile);
+          }
+      }
+
+      // output f_int of constraints...
+      lmx::Vector<double> constr_forces(nodes.size() * dimension);
+      baseSystem->assembleConstraintForces(constr_forces);
+      for (size_type i = 0; i < constr_forces.size(); ++i) {
+  //         if(constr_forces(i) != 0. )
+  //             cout << "R(" << i << ") = " << constr_forces(i) << endl;
+      }
+  }
+  else{
+     auto q = initThermalSimulationEigen(theAnalysis_in, 2, false);
+
+  if (theAnalysis->type() == "THERMAL") {
+      theAnalysis->solve(&q);
+  }
+
+  else if (theAnalysis->type() == "THERMALSTATIC") {
+      // write initial configuration...
+      outFile << "0 "; //time=0
 //           systemOuputStep( q ); // produces output of temperatures, incompatible with mknixpost-static
-        for (auto& point : outputPoints) {
-            outFile << point.second->getConf(0) << " ";
-            outFile << point.second->getConf(1) << " ";
-            if (Simulation::getDim() == 3) {
-                outFile << point.second->getConf(2) << " ";
-            }
-        }
-        outFile << endl;
-        theAnalysis->solve(&q);
-    }
+      for (auto& point : outputPoints) {
+          outFile << point.second->getConf(0) << " ";
+          outFile << point.second->getConf(1) << " ";
+          if (Simulation::getDim() == 3) {
+              outFile << point.second->getConf(2) << " ";
+          }
+      }
+      outFile << endl;
+      theAnalysis->solve(&q);
+  }
 
-    if (outputFilesDetail > 1) {
-        std::ifstream disp("dis.dat");
-        char a;
+  if (outputFilesDetail > 1) {
+      std::ifstream disp("dis.dat");
+      char a;
 
-        if (outFile.is_open()) {
-            while (disp.get(a)) {
-                outFile.put(a);
-                outFile.flush();
-            }
-            outFile << "ENDCONFIGURATION" << endl;
+      if (outFile.is_open()) {
+          while (disp.get(a)) {
+              outFile.put(a);
+              outFile.flush();
+          }
+          outFile << "ENDCONFIGURATION" << endl;
 
-            // output extra flexible bodies data...
-            baseSystem->outputToFile(&outFile);
-        }
-    }
+          // output extra flexible bodies data...
+          baseSystem->outputToFile(&outFile);
+      }
+  }
 
-    // output f_int of constraints...
-    lmx::Vector<double> constr_forces(nodes.size() * dimension);
-    baseSystem->assembleConstraintForces(constr_forces);
-    for (size_type i = 0; i < constr_forces.size(); ++i) {
+  // output f_int of constraints...
+  VectorX<double> constr_forces(nodes.size() * dimension);
+  baseSystem->assembleConstraintForces(constr_forces);
+  for (size_type i = 0; i < constr_forces.size(); ++i) {
 //         if(constr_forces(i) != 0. )
 //             cout << "R(" << i << ") = " << constr_forces(i) << endl;
-    }
+  }
+}
+
 }
 
 void Simulation::runMechanicalAnalysis(Analysis * theAnalysis_in)

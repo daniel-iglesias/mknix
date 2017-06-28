@@ -20,6 +20,7 @@
 
 #ifndef LMXDIFF_PROBLEM_H
 #define LMXDIFF_PROBLEM_H
+#include <gpu/cpu_run_type.h>
 
 
 //////////////////////////////////////////// Doxygen file documentation entry:
@@ -37,6 +38,7 @@
 */
 //////////////////////////////////////////// Doxygen file documentation (end)
 #include <map>
+#include <gpu/cpu_run_type.h>
 #include"lmx_nlsolvers.h"
 #include "lmx_diff_configuration.h"
 #include "lmx_diff_integrator_ab.h"
@@ -89,14 +91,17 @@ public:
     void setIntegrator(const char * type, int opt2 = 0);
 
     void setInitialConfiguration(lmx::Vector<T>& q_o);
+    void setInitialConfiguration(VectorX<T>& q_o);
 
     void setInitialConfiguration(lmx::Vector<T>& q_o, lmx::Vector<T>& qdot_o);
+    void setInitialConfiguration(VectorX<T>& q_o, VectorX<T>& qdot_o);
 
     void setOutputFile(const char * filename, int diffOrder);
 
     void setTimeParameters(double to_in, double tf_in, double step_size_in);
 
     void iterationResidue(lmx::Vector<T>& residue, lmx::Vector<T>& q_actual);
+    void iterationResidue(VectorX<T>& residue, VectorX<T>& q_actual);
 
     void setStepTriggered(void (Sys::* stepTriggered_in)());
 
@@ -110,7 +115,7 @@ public:
         if (theIntegrator) return this->theIntegrator->isExplicit();
         return false;
     }
-    
+
     void setVervosity(int level){
         vervosity = level;
     }
@@ -140,6 +145,7 @@ protected:
     lmx::NLSolver<T> * theNLSolver; ///< Pointer to the NLSolver object, (auto-created).
     Sys * theSystem; ///< Pointer to object where the differential system is defined.
     lmx::Vector<T> * p_delta_q; ///< Stores pointer to NLSolver increment.
+    VectorX<T> * _ep_delta_q; ///< Stores pointer to NLSolver increment.
     bool b_steptriggered; ///< 1 if stepTriggered function is set.
     double to; ///< Value of the start time stored from input.
     double tf; ///< Value of the finish time stored from input.
@@ -240,12 +246,39 @@ void DiffProblem<Sys, T>::setInitialConfiguration(lmx::Vector<T>& q_o)
 }
 
 /**
+ * Defines initial conditions for first order diff. problems.
+ * @param q_o Zero-order initial configuration.
+ */
+template<typename Sys, typename T>
+void DiffProblem<Sys, T>::setInitialConfiguration(VectorX<T>& q_o)
+{
+    if (theConfiguration == 0) {
+        theConfiguration = new Configuration<T>;
+    }
+
+    theConfiguration->setInitialCondition(0, q_o);
+    if (vervosity == 0) theConfiguration->quiet();
+}
+
+/**
  * Defines initial conditions for second order diff. problems.
  * @param q_o Zero-order initial configuration.
  * @param qdot_o First-order initial configuration.
  */
 template<typename Sys, typename T>
 void DiffProblem<Sys, T>::setInitialConfiguration(lmx::Vector<T>& q_o, lmx::Vector<T>& qdot_o)
+{
+    if (theConfiguration == 0) {
+        theConfiguration = new Configuration<T>;
+    }
+
+    theConfiguration->setInitialCondition(0, q_o);
+    theConfiguration->setInitialCondition(1, qdot_o);
+    if (vervosity == 0) theConfiguration->quiet();
+}
+
+template<typename Sys, typename T>
+void DiffProblem<Sys, T>::setInitialConfiguration(VectorX<T>& q_o, VectorX<T>& qdot_o)
 {
     if (theConfiguration == 0) {
         theConfiguration = new Configuration<T>;

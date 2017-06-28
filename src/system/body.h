@@ -21,6 +21,7 @@
 #define MKNIXBODY_H
 
 // #include <string>
+#include <gpu/cpu_run_type.h>
 #include "common.h"
 #include "LMX/lmx.h"
 #include "gmm/gmm_matrix.h"
@@ -30,7 +31,7 @@
 #include <core/node.h>
 #include <gpu/assembly_cpu.h>
 #include "gpu/functions_cpu.h"
-#include <gpu/cpu_run_type.h>
+
 #ifdef HAVE_CUDA
 //#include <gpu/cuda_helper.h>
 #include <gpu/assembly_kernels.h>

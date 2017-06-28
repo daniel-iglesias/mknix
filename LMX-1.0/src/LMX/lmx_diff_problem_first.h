@@ -20,7 +20,7 @@
 
 #ifndef LMXDIFF_PROBLEM_FIRST_H
 #define LMXDIFF_PROBLEM_FIRST_H
-
+#include <gpu/cpu_run_type.h>
 
 //////////////////////////////////////////// Doxygen file documentation entry:
     /*!
@@ -42,7 +42,7 @@
 namespace lmx {
 
     /**
-    \class DiffProblemFirst 
+    \class DiffProblemFirst
     \brief Template class DiffProblemFirst.
     Implementation for First Order ODE system solvers.
 
@@ -52,7 +52,7 @@ namespace lmx {
 
     @author Daniel Iglesias .
     */
-template <typename Sys, typename T=double> 
+template <typename Sys, typename T=double>
 class DiffProblemFirst
  : public DiffProblem<Sys, T>{
 
@@ -113,7 +113,7 @@ class DiffProblemFirst
     void solve( );
 
     void stepSolve( );
-    
+
   private:
     void stepSolveExplicit( );
     void stepSolveImplicit( );
@@ -199,7 +199,7 @@ template <typename Sys, typename T>
 /**
  * Sets the external function that implements a different convergence criteria from those available in LMX.
  * Must be a Sys member function.
- * 
+ *
  * @param conv_in The convergence evaluation function.
  */
 template <typename Sys, typename T>
@@ -298,7 +298,7 @@ template <typename Sys, typename T>
     }
     theNLSolver.setResidue( &DiffProblemFirst<Sys,T>::iterationResidue ); // Also advances the integrator
     theNLSolver.setJacobian( &DiffProblemFirst<Sys,T>::iterationJacobian );
-  } 
+  }
   this->writeStepFiles();
 
 }
@@ -316,7 +316,7 @@ template <typename Sys, typename T>
 }
 
 /**
- * Solve only one step 
+ * Solve only one step
  */
 template <typename Sys, typename T>
     void DiffProblemFirst<Sys,T>::stepSolve( )

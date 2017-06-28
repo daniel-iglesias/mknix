@@ -321,6 +321,7 @@ private:
     static std::string smoothingType;
 
     lmx::Vector<data_type> initThermalSimulation(Analysis * analysis, int, bool init = true);
+    VectorX<data_type> initThermalSimulationEigen(Analysis * analysis, int, bool init = true);
     lmx::Vector<data_type> initMechanicalSimulation(Analysis * analysis, bool init = true);
 };
 

@@ -21,6 +21,7 @@
 #define MKNIXANALYSISTHERMALSTATIC_H
 
 #include "analysis.h"
+#include <gpu/cpu_run_type.h>
 
 namespace mknix {
 
@@ -41,6 +42,7 @@ public:
     }
 
     void solve( lmx::Vector<data_type> *, lmx::Vector<data_type> *, lmx::Vector<data_type> * );
+    void solve( VectorX<data_type> *, VectorX<data_type> *, VectorX<data_type> * );
 
 private:
     double time;

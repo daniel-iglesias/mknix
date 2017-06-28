@@ -23,6 +23,7 @@
 
 #include"lmx_except.h"
 #include <memory>
+#include <gpu/cpu_run_type.h>
 
 //////////////////////////////////////////// Doxygen file documentation entry:
 /*!
@@ -55,8 +56,10 @@ private:
 //   public:
     int vectorSize;
     std::vector<std::vector<std::unique_ptr<lmx::Vector<T> > > > q;
+    std::vector<std::vector<std::unique_ptr<VectorX<T> > > > _eq;
 //     std::vector< std::vector< lmx::Vector< T >* > > q; /**< STL vector of vectors of  coordinates with "n-steps" columns and "m-diff system order" rows. */
     std::unique_ptr<lmx::Vector<T> > temp;
+    std::unique_ptr<VectorX<T> > _etemp;
 //     lmx::Vector< T >* temp; /**< temporary pointer to vector for advance function */
 //     std::vector< double > time; /**< Time vector. Stores all the steps... */
     double lastStepSize;
@@ -153,6 +156,7 @@ public:
     }
 
     void setInitialCondition(int diff_order, lmx::Vector<T>& q_o);
+    void setInitialCondition(int diff_order, VectorX<T>& q_o);
 
     void setStoredSteps(int steps_q_o, int steps_q_i, int steps_q_n);
 
@@ -196,6 +200,40 @@ void Configuration<T>::setInitialCondition(int diff_order, lmx::Vector<T>& q_o)
         }
     }
     *q[diff_order][0] = q_o; // copies values... perhaps should use input values instead.
+
+    cout << "--------------------------------------------------------" << endl;
+    cout << "An initial condition has been set:" << endl;
+    cout << "Derivative order = " << diff_order;
+    cout << ", size of vector = " << q_o.size() << endl;
+//       << ", q_0 = " << *q[diff_order][0] << endl;
+    cout << "--------------------------------------------------------" << endl;
+}
+
+
+template<class T>
+void Configuration<T>::setInitialCondition(int diff_order, VectorX<T>& q_o)
+/**
+ * @param diff_order Order of differential system.
+ * @param q_o Value of initial condition to be set.
+ */
+{
+    if (vectorSize == 0) {
+        vectorSize = q_o.size();
+    }
+    else if (vectorSize != q_o.size()) {
+        std::stringstream message;
+        message << "ERROR : trying to assing an initial condition vector of different size than the exising ones." <<
+        endl;
+        LMX_THROW(lmx::failure_error, message.str());
+    }
+    if (diff_order + 1 >= _eq.size()) {
+        for (int i = _eq.size(); i <= diff_order + 1; ++i) {
+            std::unique_ptr<VectorX<T> > ptr(new VectorX<T>(vectorSize));
+            _eq.push_back(std::vector<std::unique_ptr<VectorX<T> > >());
+            _eq[i].push_back(std::move(ptr));
+        }
+    }
+    *_eq[diff_order][0] = q_o; // copies values... perhaps should use input values instead.
 
     cout << "--------------------------------------------------------" << endl;
     cout << "An initial condition has been set:" << endl;

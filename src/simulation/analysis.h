@@ -20,6 +20,7 @@
 #ifndef MKNIXANALYSIS_H
 #define MKNIXANALYSIS_H
 
+#include <gpu/cpu_run_type.h>
 #include "common.h"
 #include "LMX/lmx.h"
 
@@ -50,8 +51,12 @@ public:
                         lmx::Vector<data_type> * = 0,
                         lmx::Vector<data_type> * = 0
                       ) = 0;
-    
+    virtual void solve( VectorX<data_type> *,
+                        VectorX<data_type> * = 0,
+                        VectorX<data_type> * = 0) = 0;
+
     virtual void init(lmx::Vector< data_type > *, int){} // specialised in AnalysisThermalDynamic
+    virtual void init(VectorX< data_type > *, int){} // specialised in AnalysisThermalDynamic
     virtual void nextStep(){} // specialised in AnalysisThermalDynamic
 
 protected:

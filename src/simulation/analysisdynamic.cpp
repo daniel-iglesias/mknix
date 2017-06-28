@@ -87,5 +87,16 @@ void AnalysisDynamic::solve( lmx::Vector< data_type > * q_in,
     theProblem.solve();
 }
 
+void AnalysisDynamic::solve( VectorX< data_type > * q_in,
+                             VectorX< data_type > * qdot_in,
+                             VectorX< data_type >* not_used = 0
+                           )
+{
+    if( lmx::getMatrixType() == 1 )
+        theProblem.setSparsePatternJacobian( theSimulation->getSparsePattern() );
+    theProblem.setInitialConfiguration( *q_in, *qdot_in );
+    theProblem.solve();
+}
+
 
 }

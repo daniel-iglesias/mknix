@@ -854,6 +854,7 @@ else if(MULTICPU){
 void Body::assembleCapacityMatrix(SparseMatrix<data_type>& globalCapacity)
 {
   if(NEWCPU){
+    std::cout << "Body::assembleCapacityMatrix Eigen version" << std::endl;
     globalCapacity.reserve(_sparse_matrix_size);
 
     cpuClock cck1b;
@@ -994,7 +995,7 @@ sm1.outerIndexPtr(); // Pointer to the beginning of each inner vector
 */
 
  if(NEWCPU){
-  std::cout << "inside assembleConductivityMatrix" << std::endl;
+  std::cout << "inside assembleConductivityMatrix Eigen version" << std::endl;
     globalConductivity.reserve(_sparse_matrix_size);
     cpuClock cck2b;
     cpuTick(&cck2b);
