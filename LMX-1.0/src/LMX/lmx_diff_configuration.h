@@ -170,7 +170,7 @@ public:
      * @param time_step Indicates the (actual - step) time step
      */
     void setConf(int diff_order, Vector <T> values, int time_step = 0) { *q[diff_order][time_step] = values; }
-    void setConf(int diff_order, VectorX <T> values, int time_step = 0) { *_eq[diff_order][time_step] = values; }
+    void setConfEigen(int diff_order, VectorX <T> values, int time_step = 0) { *_eq[diff_order][time_step] = values; }
 
     /**
      * @param diff_order Differential order of configuration.

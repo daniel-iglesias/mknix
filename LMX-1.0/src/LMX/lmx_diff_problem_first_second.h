@@ -82,18 +82,35 @@ class DiffProblemFirstSecond
                                                const lmx::Vector<T>& q1,
                                                const lmx::Vector<T>& qdot1,
                                                double time ));
+   //
+   void setResidue1( void (Sys::* residue_in)( VectorX<T>& residue1,
+                                              const VectorX<T>& q1,
+                                              const VectorX<T>& qdot1,
+                                              double time ));
+   //
 
     void setResidue2( void (Sys::* residue_in)( lmx::Vector<T>& residue2,
                                     const lmx::Vector<T>& q22,
                                     const lmx::Vector<T>& qdot2,
                                     const lmx::Vector<T>& qddot2,
                                     double time));
-
+//
+void setResidue2( void (Sys::* residue_in)( VectorX<T>& residue2,
+                                const VectorX<T>& q22,
+                                const VectorX<T>& qdot2,
+                                const VectorX<T>& qddot2,
+                                double time));
+//
     void setJacobian1( void (Sys::* jacobian_in)( lmx::Matrix<T>& tangent,
                                                  const lmx::Vector<T>& q,
                                                  double partial_qdot,
                                                  double time));
-
+//
+void setJacobian1( void (Sys::* jacobian_in)( SparseMatrix<T>& tangent,
+                                             const VectorX<T>& q,
+                                             double partial_qdot,
+                                             double time));
+//
     void setJacobian2( void (Sys::* jacobian_in)(
                                      lmx::Matrix<T>& jacobian,
                                      const lmx::Vector<T>& q2,
@@ -101,6 +118,7 @@ class DiffProblemFirstSecond
                                      double partial_qdot2,
                                      double partial_qddot2,
                                      double time));
+    //
     //
     void setJacobian2( void (Sys::* jacobian_in)(
                                      SparseMatrix<T>& jacobian,
@@ -110,20 +128,25 @@ class DiffProblemFirstSecond
                                      double partial_qddot2,
                                      double time));
     //
-
+  //
     void setEvaluation1( void (Sys::* eval_in)( const lmx::Vector<T>& q1,
                                                lmx::Vector<T>& qdot1,
-                                               double time
-                                             )
-                       );
-    void setEvaluation2
-     ( void (Sys::* eval_in)( const lmx::Vector<T>& q2,
-                              const lmx::Vector<T>& qdot2,
-                              lmx::Vector<T>& qddot2,
-                              double time
-                            )
-     );
-
+                                               double time) );
+    //
+    void setEvaluation1( void (Sys::* eval_in)( const VectorX<T>& q1,
+                                               VectorX<T>& qdot1,
+                                               double time) );
+    //
+    void setEvaluation2 ( void (Sys::* eval_in)( const lmx::Vector<T>& q2,
+                                                const lmx::Vector<T>& qdot2,
+                                                lmx::Vector<T>& qddot2,
+                                                double time));
+//
+void setEvaluation2 ( void (Sys::* eval_in)( const VectorX<T>& q2,
+                                            const VectorX<T>& qdot2,
+                                            VectorX<T>& qddot2,
+                                            double time));
+//
     /**
      * Defines the integrator that will be used for second order system configuration advance & updating.
      * @param type Key of integrator family to use.
@@ -157,22 +180,24 @@ class DiffProblemFirstSecond
     void setConvergence( double eps_in )
     { DiffProblemDouble<Sys, T>::setConvergence( eps_in ); }
 
-    void setConvergence1
-        ( bool (Sys::* convergence1)( const lmx::Vector<T>& q,
-                                     const lmx::Vector<T>& qdot,
-                                     double time
-                                   )
-
-        );
-    void setConvergence2
-        ( bool (Sys::* convergence2)( const lmx::Vector<T>& q,
-                                     const lmx::Vector<T>& qdot,
-                                     const lmx::Vector<T>& qddot,
-                                     double time
-                                   )
-
-        );
-
+    void setConvergence1( bool (Sys::* convergence1)( const lmx::Vector<T>& q,
+                                                      const lmx::Vector<T>& qdot,
+                                                      double time));
+  //
+  void setConvergence1( bool (Sys::* convergence1)( const VectorX<T>& q,
+                                                    const VectorX<T>& qdot,
+                                                    double time));
+  //
+    void setConvergence2( bool (Sys::* convergence2)( const lmx::Vector<T>& q,
+                                                      const lmx::Vector<T>& qdot,
+                                                      const lmx::Vector<T>& qddot,
+                                                      double time));
+//
+void setConvergence2( bool (Sys::* convergence2)( const VectorX<T>& q,
+                                                  const VectorX<T>& qdot,
+                                                  const VectorX<T>& qddot,
+                                                  double time));
+//
     // Needs documentation
     void setSparsePatternJacobian1( lmx::DenseMatrix<T>& mat_sparse1 )
     { mat_sparse1.writeSparsePattern( v_rows1, v_cols1 );

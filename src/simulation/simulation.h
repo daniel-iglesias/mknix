@@ -127,9 +127,9 @@ void explicitThermalEvaluation(const VectorX<data_type>& qt,
                               VectorX<data_type>& qtdot,
                               double time);
 //
-    void dynamicThermalEvaluation(const lmx::Vector<data_type>& q,
-                                  lmx::Vector<data_type>& qdot,
-                                  double time);
+void dynamicThermalEvaluation(const lmx::Vector<data_type>& q,
+                              lmx::Vector<data_type>& qdot,
+                              double time);
  //
  void dynamicThermalEvaluation(const VectorX<data_type>& q,
                                VectorX<data_type>& qdot,
@@ -227,14 +227,12 @@ void dynamicTangent(SparseMatrix<data_type>& tangent_in,
     bool dynamicConvergence(const lmx::Vector<data_type>& q,
                             const lmx::Vector<data_type>& qdot,
                             const lmx::Vector<data_type>& qddot,
-                            double time
-    );
+                            double time);
     //
     bool dynamicConvergence(const VectorX<data_type>& q,
                             const VectorX<data_type>& qdot,
                             const VectorX<data_type>& qddot,
-                            double time
-    );
+                            double time);
    //
     void staticResidue(lmx::Vector<data_type>& residue,
                        lmx::Vector<data_type>& q

@@ -82,8 +82,7 @@ class DiffProblemFirst
     void setJacobian( void (Sys::* jacobian_in)( lmx::Matrix<T>& tangent,
                                                  const lmx::Vector<T>& q,
                                                  double partial_qdot,
-                                                 double time)
-                    );
+                                                 double time));
     //
     void setJacobian( void (Sys::* jacobian_in)( SparseMatrix<T>& tangent,
                                                  const VectorX<T>& q,
@@ -256,8 +255,7 @@ template <typename Sys, typename T>
     void DiffProblemFirst<Sys,T>::
         setEvaluation( void (Sys::* eval_in)( const VectorX<T>& q,
                                               VectorX<T>& qdot,
-                                              double time
-                                            )
+                                              double time  )
                      )
 {
   this->_e_eval = eval_in;
@@ -273,9 +271,7 @@ template <typename Sys, typename T>
     void DiffProblemFirst<Sys,T>::setConvergence
         ( bool (Sys::* conv_in)( const lmx::Vector<T>& q,
                                  const lmx::Vector<T>& qdot,
-                                 double time
-                               )
-
+                                 double time)
         )
 {
   this->conv = conv_in;
@@ -286,10 +282,8 @@ template <typename Sys, typename T>
     void DiffProblemFirst<Sys,T>::setConvergence
         ( bool (Sys::* conv_in)( const VectorX<T>& q,
                                  const VectorX<T>& qdot,
-                                 double time
-                               )
-
-        )
+                                 double time )
+                                )
 {
   this->_e_conv = conv_in;
   b_convergence = 1;
@@ -319,10 +313,9 @@ template <typename Sys, typename T>
   static_cast< IntegratorBaseImplicit<T>* >(this->theIntegrator)->integratorUpdate( q_current );
 
   (this->theSystem->*res)( residue,
-              this->theConfiguration->getConf(0),
-              this->theConfiguration->getConf(1),
-              this->theConfiguration->getTime( )
-            );
+                          this->theConfiguration->getConf(0),
+                          this->theConfiguration->getConf(1),
+                          this->theConfiguration->getTime( ));
 
 }
 
@@ -332,10 +325,9 @@ template <typename Sys, typename T>
   static_cast< IntegratorBaseImplicit<T>* >(this->theIntegrator)->integratorUpdate( q_current );
 
   (this->theSystem->*_e_res)( residue,
-              this->theConfiguration->getConfEigen(0),
-              this->theConfiguration->getConfEigen(1),
-              this->theConfiguration->getTime( )
-            );
+                              this->theConfiguration->getConfEigen(0),
+                              this->theConfiguration->getConfEigen(1),
+                              this->theConfiguration->getTime( ));
 
 }
 
@@ -348,20 +340,18 @@ template <typename Sys, typename T>
     void DiffProblemFirst<Sys,T>::iterationJacobian( lmx::Matrix<T>& jacobian, lmx::Vector<T>& q_current )
 {
   (this->theSystem->*jac)( jacobian,
-              this->theConfiguration->getConf(0),
-              static_cast< IntegratorBaseImplicit<T>* >(this->theIntegrator)->getPartialQdot( ),
-              this->theConfiguration->getTime( )
-            );
+                            this->theConfiguration->getConf(0),
+                            static_cast< IntegratorBaseImplicit<T>* >(this->theIntegrator)->getPartialQdot( ),
+                            this->theConfiguration->getTime( ));
 }
 
 template <typename Sys, typename T>
     void DiffProblemFirst<Sys,T>::iterationJacobian( SparseMatrix<T>& jacobian, VectorX<T>& q_current )
 {
   (this->theSystem->*_e_jac)( jacobian,
-              this->theConfiguration->getConfEigen(0),
-              static_cast< IntegratorBaseImplicit<T>* >(this->theIntegrator)->getPartialQdot( ),
-              this->theConfiguration->getTime( )
-            );
+                              this->theConfiguration->getConfEigen(0),
+                              static_cast< IntegratorBaseImplicit<T>* >(this->theIntegrator)->getPartialQdot( ),
+                              this->theConfiguration->getTime() );
 }
 
 /**
@@ -373,8 +363,7 @@ template <typename Sys, typename T>
 {
   return (this->theSystem->*conv)( this->theConfiguration->getConf(0),
                                    this->theConfiguration->getConf(1),
-                                   this->theConfiguration->getTime( )
-                                 );
+                                   this->theConfiguration->getTime( ));
 }
 
 template <typename Sys, typename T>
@@ -382,8 +371,7 @@ template <typename Sys, typename T>
 {
   return (this->theSystem->*_e_conv)( this->theConfiguration->getConfEigen(0),
                                    this->theConfiguration->getConfEigen(1),
-                                   this->theConfiguration->getTime( )
-                                 );
+                                   this->theConfiguration->getTime( ) );
 }
 
 
@@ -409,18 +397,18 @@ template <typename Sys, typename T>
     theNLSolver.setDeltaInResidue(  );
     theNLSolver.setSystem( *this );
     if( b_convergence ){
-      if(OLD_CODE)theNLSolver.setConvergence( static_cast<bool (*)(lmx::Vector<data_type>&)>(&DiffProblemFirst<Sys,T>::iterationConvergence) );
-      else theNLSolver.setConvergence(  static_cast<bool (*)(VectorX<data_type>&)>(&DiffProblemFirst<Sys,T>::iterationConvergence) );
+      if(OLD_CODE)theNLSolver.setConvergence( static_cast<bool (DiffProblemFirst::*)(lmx::Vector<data_type>&)>(&DiffProblemFirst<Sys,T>::iterationConvergence) );
+      else theNLSolver.setConvergence(  static_cast<bool (DiffProblemFirst::*)(VectorX<data_type>&)>(&DiffProblemFirst<Sys,T>::iterationConvergence) );
     }
-    if(OLD_CODE)theNLSolver.setResidue(static_cast<void (*)(lmx::Vector<data_type>&,
+    if(OLD_CODE)theNLSolver.setResidue(static_cast<void (DiffProblemFirst::*)(lmx::Vector<data_type>&,
                                                             lmx::Vector<data_type>&)>( &DiffProblemFirst<Sys,T>::iterationResidue) ); // Also advances the integrator
-    else theNLSolver.setResidue( static_cast<void (*)(VectorX<data_type>&,
+    else theNLSolver.setResidue( static_cast<void (DiffProblemFirst::*)(VectorX<data_type>&,
                                                       VectorX<data_type>&)>(&DiffProblemFirst<Sys,T>::iterationResidue) ); // Also advances the integrator
 
-    if(OLD_CODE)theNLSolver.setJacobian( static_cast<void (*)(lmx::Vector<data_type>&,
-                                                            lmx::Vector<data_type>&)>(&DiffProblemFirst<Sys,T>::iterationJacobian) );
-    else theNLSolver.setJacobian( static_cast<void (*)(VectorX<data_type>&,
-                                                      VectorX<data_type>&)>(&DiffProblemFirst<Sys,T>::iterationJacobian) );
+    if(OLD_CODE)theNLSolver.setJacobian( static_cast<void (DiffProblemFirst::*)(lmx::Matrix<data_type>&,
+                                                              lmx::Vector<data_type>&)>(&DiffProblemFirst<Sys,T>::iterationJacobian) );
+    else theNLSolver.setJacobian( static_cast<void (DiffProblemFirst::*)(SparseMatrix<data_type>&,
+                                                       VectorX<data_type>&)>(&DiffProblemFirst<Sys,T>::iterationJacobian) );
   }
   this->writeStepFiles();
 

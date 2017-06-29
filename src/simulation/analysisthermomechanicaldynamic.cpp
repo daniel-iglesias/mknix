@@ -48,72 +48,105 @@ AnalysisThermoMechanicalDynamic::AnalysisThermoMechanicalDynamic
     // Setting up the THERMAL problem
 //  theProblem.setOutputFile("dis.dat", 0);
     if (theProblem.isIntegratorExplicit() ) {
-        theProblem.setEvaluation1( &Simulation::explicitThermalEvaluation );
+        if(OLD_CODE)theProblem.setEvaluation1( static_cast<void (Simulation::*)(const lmx::Vector<data_type>&,
+                                                                                lmx::Vector<data_type>&,
+                                                                                double)>(&Simulation::explicitThermalEvaluation) );
+        else theProblem.setEvaluation1( static_cast<void (Simulation::*)(const VectorX<data_type>&,
+                                                                        VectorX<data_type>&,
+                                                                        double)>(&Simulation::explicitThermalEvaluation) );
     }
     else {
         theProblem.setOutputFile1("flux.dat", 1);
 
-        if(OLD_CODE)theProblem.setEvaluation1( static_cast<void (*)(lmx::Vector<data_type>,
-                                                                    lmx::Vector<data_type>,
-                                                                    double)>(&Simulation::dynamicThermalEvaluation) );
-        else theProblem.setEvaluation1( static_cast<void (*)(VectorX<data_type>,
-                                                            VectorX<data_type>,
-                                                            double)>(&Simulation::dynamicThermalEvaluation) );
+        if(OLD_CODE)theProblem.setEvaluation1( static_cast<void (Simulation::*)(const lmx::Vector<data_type>&,
+                                                                                lmx::Vector<data_type>&,
+                                                                                double)>(&Simulation::dynamicThermalEvaluation) );
+        else theProblem.setEvaluation1( static_cast<void (Simulation::*)(const VectorX<data_type>&,
+                                                                        VectorX<data_type>&,
+                                                                        double)>(&Simulation::dynamicThermalEvaluation) );
 
-        if(OLD_CODE) theProblem.setResidue1( static_cast<void (*)(lmx::Vector<data_type>&,
-                                                                  lmx::Vector<data_type>&,
-                                                                  lmx::Vector<data_type>&,
-                                                                  double)>(&Simulation::dynamicThermalResidue) );
-        else theProblem.setResidue1( static_cast<void (*)(VectorX<data_type>&,
-                                                          VectorX<data_type>&,
-                                                          VectorX<data_type>&, double)>(&Simulation::dynamicThermalResidue) );
+        if(OLD_CODE) theProblem.setResidue1( static_cast<void (Simulation::*)(lmx::Vector<data_type>&,
+                                                                              const lmx::Vector<data_type>&,
+                                                                              const lmx::Vector<data_type>&,
+                                                                              double)>(&Simulation::dynamicThermalResidue) );
+        else theProblem.setResidue1( static_cast<void (Simulation::*)(VectorX<data_type>&,
+                                                                      const VectorX<data_type>&,
+                                                                      const VectorX<data_type>&,
+                                                                      double)>(&Simulation::dynamicThermalResidue) );
 
-        if(OLD_CODE) theProblem.setJacobian1( static_cast<void (*)(lmx::Matrix<data_type>&,
+        if(OLD_CODE) theProblem.setJacobian1( static_cast<void (Simulation::*)(lmx::Matrix<data_type>&,
                                                                    const lmx::Vector<data_type>&,
                                                                    double,
                                                                    double)>(&Simulation::dynamicThermalTangent) );
-        else theProblem.setJacobian1( static_cast<void (*)(SparseMatrix<data_type>&,
+        else theProblem.setJacobian1( static_cast<void (Simulation::*)(SparseMatrix<data_type>&,
                                                            const VectorX<data_type>&,
                                                            double,
                                                            double)>(&Simulation::dynamicThermalTangent) );
 
         if (epsilon == 0.0)
-            if(OLD_CODE) theProblem.setConvergence1( &Simulation::dynamicThermalConvergenceInThermomechanical );
-            else theProblem.setConvergence1( &Simulation::dynamicThermalConvergenceInThermomechanical );
+            if(OLD_CODE) theProblem.setConvergence1(static_cast<void (Simulation::*)(const lmx::Vector<data_type>&,
+                                                                                    const lmx::Vector<data_type>&,
+                                                                                    double)>(&Simulation::dynamicThermalConvergenceInThermomechanical) );
+            else theProblem.setConvergence1( static_cast<void (Simulation::*)(const VectorX<data_type>&,
+                                                                            const VectorX<data_type>&,
+                                                                            double)>(&Simulation::dynamicThermalConvergenceInThermomechanical) );
         else
             theProblem.setConvergence( epsilon );
     }
 
     // Setting up the MECHANICAL problem
     if (theProblem.isIntegratorExplicit() ) {
-        theProblem.setEvaluation2( &Simulation::explicitAcceleration );
+        if(OLD_CODE) theProblem.setEvaluation2( static_cast<void (Simulation::*)(const lmx::Vector<data_type>&,
+                                                                                const lmx::Vector<data_type>&,
+                                                                                 lmx::Vector<data_type>&,
+                                                                                double)>(&Simulation::explicitAcceleration) );
+
+        else  theProblem.setEvaluation2( static_cast<void (Simulation::*)(const VectorX<data_type>&,
+                                                                        const VectorX<data_type>&,
+                                                                        VectorX<data_type>&,
+                                                                        double)>(&Simulation::explicitAcceleration) );
     }
     else {
         theProblem.setOutputFile2("vel.dat", 1);
         theProblem.setOutputFile2("acc.dat", 2);
-        if(OLD_CODE) theProblem.setEvaluation2( &Simulation::dynamicAcceleration );
-        else theProblem.setEvaluation2( &Simulation::dynamicAcceleration );
+        if(OLD_CODE) theProblem.setEvaluation2( static_cast<void (Simulation::*)(const lmx::Vector<data_type>&,
+                                                                                const lmx::Vector<data_type>&,
+                                                                                 lmx::Vector<data_type>&,
+                                                                                double)>(&Simulation::dynamicAcceleration) );
 
-        if(OLD_CODE) theProblem.setResidue2( &Simulation::dynamicResidue );
-        else theProblem.setEvaluation2( &Simulation::dynamicAcceleration );
+        else theProblem.setEvaluation2( static_cast<void (Simulation::*)(const VectorX<data_type>&,
+                                                                        const VectorX<data_type>&,
+                                                                        VectorX<data_type>&,
+                                                                        double)>(&Simulation::dynamicAcceleration) );
 
-        if(OLD_CODE) theProblem.setJacobian2( static_cast<void (*)(lmx::Matrix<data_type>&,
+        if(OLD_CODE) theProblem.setResidue2(  static_cast<void (Simulation::*)( lmx::Vector<data_type>&,
+                                                                                const lmx::Vector<data_type>&,
+                                                                                const lmx::Vector<data_type>&,
+                                                                                const lmx::Vector<data_type>&,
+                                                                                double)>(&Simulation::dynamicResidue) );
+        else theProblem.setResidue2( static_cast<void (Simulation::*)( VectorX<data_type>&,
+                                                                      const VectorX<data_type>&,
+                                                                      const VectorX<data_type>&,
+                                                                      const VectorX<data_type>&,
+                                                                      double)>(&Simulation::dynamicResidue) );
+
+        if(OLD_CODE) theProblem.setJacobian2( static_cast<void (Simulation::*)(lmx::Matrix<data_type>&,
                                                                    const lmx::Vector<data_type>&,
                                                                    const lmx::Vector<data_type>&,
                                                                   double, double, double)>(&Simulation::dynamicTangent) );
-        else theProblem.setJacobian2( static_cast<void (*)(SparseMatrix<data_type>&,
+        else theProblem.setJacobian2( static_cast<void (Simulation::*)(SparseMatrix<data_type>&,
                                                             const VectorX<data_type>&,
                                                             const VectorX<data_type>&,
                                                             double, double, double)>(&Simulation::dynamicTangent) );
         if (epsilon == 0.0)
-            if(OLD_CODE) theProblem.setConvergence2( static_cast<void (*)(const lmx::Vector<data_type>&,
-                                                                          const lmx::Vector<data_type>&,
-                                                                          const lmx::Vector<data_type>&,
-                                                                          double)>(&Simulation::dynamicConvergence));
-            else theProblem.setConvergence2( static_cast<void (*)(const VectorX<data_type>&,
-                                                                const VectorX<data_type>&,
-                                                                const VectorX<data_type>&,
-                                                                double)>(&Simulation::dynamicConvergence));
+            if(OLD_CODE) theProblem.setConvergence2( static_cast<bool (Simulation::*)(const lmx::Vector<data_type>&,
+                                                                                      const lmx::Vector<data_type>&,
+                                                                                      const lmx::Vector<data_type>&,
+                                                                                      double)>(&Simulation::dynamicConvergence));
+            else theProblem.setConvergence2( static_cast<bool (Simulation::*)(const VectorX<data_type>&,
+                                                                              const VectorX<data_type>&,
+                                                                              const VectorX<data_type>&,
+                                                                              double)>(&Simulation::dynamicConvergence));
         else
             theProblem.setConvergence( epsilon );
     }

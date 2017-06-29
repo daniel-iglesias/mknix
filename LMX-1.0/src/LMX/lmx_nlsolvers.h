@@ -139,12 +139,26 @@ public:
      */
     { res = residue_in; }
 
+    void setResidue(void (Sys::*residue_in)(VectorX<T>&, VectorX<T>&))
+    /**
+     * Defines the member function that computes the residue.
+     * @param residue_in Residue member function.
+     */
+    { _e_res = residue_in; }
+
     void setJacobian(void (Sys::*jacobian_in)(lmx::Matrix<T>&, lmx::Vector<T>&))
     /**
      * Defines the member function that computes the tangent to the residue.
      * @param jacobian_in Jacobian member function.
      */
     { jac = jacobian_in; }
+
+    void setJacobian(void (Sys::*jacobian_in)(SparseMatrix<T>&, VectorX<T>&))
+    /**
+     * Defines the member function that computes the tangent to the residue.
+     * @param jacobian_in Jacobian member function.
+     */
+    { _e_jac = jacobian_in; }
 
     void setConvergence(double eps_in)
     /**

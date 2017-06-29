@@ -805,33 +805,14 @@ _eGlobalInternalHeat.setZero();
   baseSystem->assembleInternalHeat(_eGlobalInternalHeat);
   _eGlobalRHSHeat = _eGlobalConductivity * qt;
 
-  //std::cout << std::endl << " globalRHSHeat.sumSum() = "<< globalRHSHeat.sumSum() << std::endl;
-
-  //std::cout << "11. before globalRHSHeat += globalInternalHeat;" << std::endl;
   _eGlobalRHSHeat += _eGlobalInternalHeat;
-  //std::cout << "12. before globalRHSHeat -= globalExternalHeat;" << std::endl;
+
   _eGlobalRHSHeat -= _eGlobalExternalHeat;
 
-  //std::cout << std::endl << " globalRHSHeat.sumSum() = "<< globalRHSHeat.sumSum() << std::endl;
-
-//     cout << "H = " << globalConductivity << endl;
-//     cout << "C = " << globalCapacity << endl;
-//     cout << globalRHSHeat << endl;
-//std::cout << std::endl << " globalCapacity.sumSum() = "<< globalCapacity.sumSum() << std::endl;
-///std::cout << std::endl << " globalCapacity.trace() = "<< globalCapacity.trace() << std::endl;
-//std::cout << std::endl << " globalConductivity.SumSum() = "<< globalConductivity.sumSum() << std::endl;
-//std::cout << std::endl << " globalConductivity.trace() = "<< globalConductivity.trace() << std::endl;
-
-  //std::cout << "13. before lmx::LinearSystem<data_type> theLSolver(globalCapacity,qtdot, globalRHSHeat);" << std::endl;
-  //lmx::LinearSystem<data_type> theLSolver(_eGlobalCapacity,qtdot, _eGlobalRHSHeat);
   Eigen::ConjugateGradient<SparseMatrix<data_type>> solver;
-  //Eigen::BiCGSTAB <Eigen::SparseMatrix<double>> solver;
+
   solver.compute(_eGlobalCapacity);
   qtdot = solver.solve(_eGlobalRHSHeat);
-  //std::cout << "14. before theLSolver.solveYourself();" << std::endl;
-  //theLSolver.solveYourself();
-  //std::cout << std::endl << " qdot.sumSum() = "<< qtdot.sumSum() << std::endl;
-  //std::cout << qtdot << std::endl;
 
     stepTime = time;
     cpuTock(&evalck, "\n>>>>>>>>>>.Simulation::dynamicThermalEvaluation");
@@ -1110,6 +1091,25 @@ bool Simulation::dynamicThermalConvergenceInThermomechanical(const lmx::Vector<d
     else { return 0; }
 }
 
+bool Simulation::dynamicThermalConvergenceInThermomechanical(const VectorX<data_type>& q,
+                                                             const VectorX<data_type>& qdot,
+                                                             double time
+)
+{
+  std::cout << "\n\n  --- void Simulation::dynamicThermalConvergenceInThermomechanical Eigen version--- \n" << std::endl;
+    VectorX<data_type> res(qdot.size());
+    res = _eGlobalCapacity * qdot + _eGlobalConductivity * q + _eGlobalInternalHeat - _eGlobalExternalHeat;
+    if (res.squaredNorm() <= epsilon) {
+        if (baseSystem->checkAugmented()) {
+            stepTime = time;
+            baseSystem->clearAugmented();
+            return 1;
+        }
+        else { return 0; }
+    }
+    else { return 0; }
+}
+
 
 void Simulation::explicitAcceleration(const lmx::Vector<data_type>& q,
                                       const lmx::Vector<data_type>& qdot,
@@ -1121,7 +1121,6 @@ void Simulation::explicitAcceleration(const lmx::Vector<data_type>& q,
     for (auto& node : nodes) {
         node.second->setqx(q, getDim());
     }
-
 //   globalMass.reset();
     globalInternalForces.reset();
     globalExternalForces.reset();
@@ -1141,7 +1140,37 @@ void Simulation::explicitAcceleration(const lmx::Vector<data_type>& q,
 
     stepTime = time;
     systemOuputStep(q, qdot);
+}
 
+void Simulation::explicitAcceleration(const VectorX<data_type>& q,
+                                      const VectorX<data_type>& qdot,
+                                      VectorX<data_type>& qddot,
+                                      double time
+)
+{
+    std::cout << "\n\n  --- void Simulation::explicitAcceleration Eigen version. not fully ready--- \n" << std::endl;
+    for (auto& node : nodes) {
+        node.second->setqx(q, getDim());
+    }
+//   globalMass.reset();
+    _eGlobalInternalForces.setZero();
+    _eGlobalExternalForces.setZero();
+
+//   baseSystem->calcMassMatrix();
+    baseSystem->calcInternalForces();
+    baseSystem->calcExternalForces();
+//   baseSystem->assembleMassMatrix( globalMass );
+    baseSystem->assembleInternalForces(_eGlobalInternalForces);
+    baseSystem->assembleExternalForces(_eGlobalExternalForces);
+    _eGlobalRHSForces = _eGlobalExternalForces;
+    _eGlobalRHSForces -= _eGlobalInternalForces;
+
+//   cout << globalMass << endl;
+  //  lmx::LinearSystem<data_type> theLSolver(_GlobalMass, qddot, _GlobalRHSForces);
+    //theLSolver.solveYourself();
+
+    stepTime = time;
+    systemOuputStep(q, qdot);
 }
 
 void Simulation::dynamicAcceleration(const lmx::Vector<data_type>& q,
@@ -1265,8 +1294,7 @@ bool Simulation::dynamicConvergence(const lmx::Vector<data_type>& q,
 bool Simulation::dynamicConvergence(const VectorX<data_type>& q,
                                     const VectorX<data_type>& qdot,
                                     const VectorX<data_type>& qddot,
-                                    double time
-)
+                                    double time)
 {
     ++iterationsNLSolver;
     VectorX<data_type> res(qddot.size());
