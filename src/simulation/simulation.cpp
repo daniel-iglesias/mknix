@@ -70,7 +70,7 @@ Simulation::~Simulation()
 }
 
 
-void Simulation::inputFromFile(const std::string& FileIn)
+void Simulation::inputFromFile(std::string FileIn)
 {
     auto reader = make_unique<Reader>(this);
     if (!baseSystem) {

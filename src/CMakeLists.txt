@@ -24,3 +24,9 @@ add_library(mknix SHARED ${HEADERS} ${SOURCES}
     $<TARGET_OBJECTS:reader>
     $<TARGET_OBJECTS:simulation>
     $<TARGET_OBJECTS:system>)
+    
+add_library(mknix_static STATIC ${HEADERS} ${SOURCES}
+    $<TARGET_OBJECTS:core>
+    $<TARGET_OBJECTS:reader>
+    $<TARGET_OBJECTS:simulation>
+    $<TARGET_OBJECTS:system>)

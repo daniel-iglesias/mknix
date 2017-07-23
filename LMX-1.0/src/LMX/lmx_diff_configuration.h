@@ -261,13 +261,16 @@ void Configuration<T>::nextStep(double& step_size)
 //   cout << "--------------------------------------------------------" << endl;
 
     for (i = 0; i < q.size(); ++i) {
-        temp = std::move(q[i].back()); // Save direction to last element.
-        for (j = q[i].size() - 1; j > 0; --j) {
-            q[i][j] = std::move(q[i][j - 1]); // Move back elements
+        if (q[i].size() > 1)
+        {
+            temp = std::move(q[i].back()); // Save direction to last element.
+            for (j = q[i].size() - 1; j > 0; --j) {
+                q[i][j] = std::move(q[i][j - 1]); // Move back elements
+            }
+            q[i][0] = std::move(temp);
+            // Optional, may improve convergence but increases step-time
+            *q[i][0] = *q[i][1];
         }
-        q[i][0] = std::move(temp);
-        // Optional, may improve convergence but increases step-time
-        if (q[i].size() > 1) *q[i][0] = *q[i][1];
     }
 
     lastStepSize = step_size;

@@ -26,6 +26,7 @@ namespace mknix {
 Body::Body()
         : computeEnergy(0)
         , isThermal(1)
+        , loadThermalBody(0)
 {
 }
 
@@ -39,6 +40,7 @@ Body::Body(std::string title_in)
         , lastNode(0)
         , computeEnergy(0)
         , isThermal(1)
+        , loadThermalBody(0)
 {
 }
 
@@ -62,6 +64,8 @@ Body::~Body()
     for (auto& group : boundaryGroups) {
         delete group.second;
     }
+    delete loadThermalBody;
+    loadThermalBody = 0;
 }
 
 /**
