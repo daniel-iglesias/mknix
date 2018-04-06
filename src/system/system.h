@@ -104,7 +104,11 @@ public:
 
     Constraint* getConstraint(const std::string& constraintName)
     {
-        return constraints[constraintName];
+       auto it = constraints.find(constraintName);
+
+       return (it != constraints.end())
+           ? it->second
+           : nullptr;
     }
 
     void getThermalNodes(std::vector<double>&);

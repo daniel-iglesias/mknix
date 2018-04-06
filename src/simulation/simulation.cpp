@@ -928,7 +928,7 @@ void Simulation::staticResidue(lmx::Vector<data_type>& residue,
     residue -= globalExternalForces;
 
 //   cout << "residue:" << residue;
-// 
+//
 //   cout << "q : " << q;
 //   cout << "globalInternalForces : " << globalInternalForces;
 //   cout << "globalExternalForces : " << globalExternalForces;

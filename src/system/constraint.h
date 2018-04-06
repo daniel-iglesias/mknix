@@ -43,6 +43,8 @@ public:
 
     void setTitle(std::string& title_in) { title = title_in; }
 
+    std::string getTitle() { return title; }
+
     lmx::Vector<data_type>& getInternalForces()
     {
         return this->internalForces;

@@ -244,6 +244,10 @@ void mknix::ReaderConstraints::readConstraints(System* system_in)
                     = new ConstraintThermalFixed(p_nodeA, p_nodeB, Simulation::alpha, Simulation::constraintMethod);
             system_in->constraintsThermal[consTitle]->setTitle(consTitle);
 
+            *output << "THERMALSPHERICAL: "
+                    << system_in->getTitle()
+                    << "."
+                    << system_in->constraintsThermal[consTitle]->getTitle() << std::endl;
             this->outputConstraintThermalNode(system_in, consTitle, "NODEA", bodyTitleA, nodeA, 0);
             this->outputConstraintThermalNode(system_in, consTitle, "NODEB", bodyTitleB, nodeB, 1);
         }
