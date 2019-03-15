@@ -329,7 +329,9 @@ void mknix::ReaderFlex::readFlexBodies(System* system_in)
                             std::ifstream meshfile(keyword.c_str()); // file to read points from
                             int nodeNumberInFile; // read number but do not use it
 // 			  double x, y, z;
-                            int old_size = theSimulation->nodes.end()->first;
+							int old_size = 0;
+							if (theSimulation->nodes.size()!=0)
+								old_size = theSimulation->nodes.end()->first;
                             int thermal_old_size = theSimulation->thermalNodes.end()->first;
                             meshfile >> totalNodes >> totalCells;
                             *output << '\t' << "Nodes: " << totalNodes << endl;
@@ -730,9 +732,13 @@ void mknix::ReaderFlex::readFlexBodies(System* system_in)
                         std::ifstream meshfile(keyword.c_str()); // file to read points from
                         int nodeNumberInFile; // read number but do not use it
                         double x, y, z;
-                        int old_size = theSimulation->nodes.end()->first;
-                        int thermal_old_size = theSimulation->thermalNodes.end()->first;
-                        std::map<int, int> nodesFile;
+						int old_size = 0;
+						if (theSimulation->nodes.size() != 0)
+							old_size = theSimulation->nodes.end()->first;
+						int thermal_old_size = 0;
+						if (theSimulation->thermalNodes.size() != 0)
+							thermal_old_size = theSimulation->thermalNodes.end()->first;
+						std::map<int, int> nodesFile;
                         meshfile >> totalNodes >> totalCells;
                         *output << '\t' << "Nodes: " << totalNodes << endl;
                         *output << "\tNode\tx\ty\tz \n";

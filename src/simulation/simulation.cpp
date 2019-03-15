@@ -42,6 +42,36 @@ std::string Simulation::constraintMethod = "PENALTY";
 double Simulation::epsilon = 1E-5;
 std::string Simulation::smoothingType = "GLOBAL";
 
+double Simulation::getGravity(int component)
+{
+	return gravity.readElement(component);
+}
+
+double Simulation::getAlpha()
+{
+	return alpha;
+}
+
+double Simulation::getTime()
+{
+	return Simulation::stepTime;
+}
+
+int Simulation::getDim()
+{
+	return dimension;
+}
+
+std::string Simulation::getConstraintMethod()
+{
+	return constraintMethod;
+}
+
+std::string Simulation::getSmoothingType()
+{
+	return smoothingType;
+}
+
 Simulation::Simulation()
         : baseSystem(nullptr)
 //  , stepTime(0.)
@@ -473,6 +503,12 @@ void Simulation::writeSystem()
     ss << title << ".mec";
     auto outFileName = ss.str();
     outFile.open(outFileName.c_str(), std::ofstream::out);
+	if (outFile.fail())
+	{
+		cout << "\n\nCOULD NOT SAVE OUTPUT. Error opening file!\n";
+		system("pause");
+		return;
+	}
     outFile << "DIMENSION " << Simulation::dimension << endl;
 
     outFile << "SYSTEM" << endl;

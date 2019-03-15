@@ -415,7 +415,8 @@ void Type_stdmatrix<T>::resize(size_type mrows, size_type ncolumns)
 
         contents.resize(mrows);
         for (size_type i = rows; i < mrows; ++i) {
-            contents[i] = std::vector<T>(ncolumns);
+//            contents[i] = std::vector<T>(ncolumns);
+			contents[i].resize(ncolumns);
         }
 
         /*

@@ -26,7 +26,7 @@
 #include <core/material.h>
 #include <system/constraint.h>
 
-#if defined(_WIN32) || defined(WIN32)
+#if defined(_WIN32) || defined(WIN32) || _WIN64
 #  ifdef MKNIX_EXPORT
 #    define MKNIX_API __declspec(dllexport)
 #  else
@@ -229,35 +229,17 @@ public:
         return this->globalSparsePattern;
     }
 
-    static double getGravity(int component)
-    {
-        return gravity.readElement(component);
-    }
+	static double getGravity(int component);
 
-    static double getAlpha()
-    {
-        return alpha;
-    }
+	static double getAlpha();
 
-    static double getTime()
-    {
-        return stepTime;
-    }
+	static double getTime();
 
-    static int getDim()
-    {
-        return dimension;
-    }
+	static int getDim();
 
-    static std::string getConstraintMethod()
-    {
-        return constraintMethod;
-    }
+	static std::string getConstraintMethod();
 
-    static std::string getSmoothingType()
-    {
-        return smoothingType;
-    }
+	static std::string getSmoothingType();
 
 private:
     void storeTimeConfiguration(lmx::Vector<data_type>& q);

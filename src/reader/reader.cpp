@@ -39,7 +39,7 @@
 #include <system/loadthermalbody.h>
 #include <system/loadthermalboundary1D.h>
 
-#ifdef __WIN32__
+#if defined __WIN32__ || _WIN64
 #  include <direct.h>
 #endif
 #include <stdio.h>
@@ -72,75 +72,78 @@ Reader::Reader(Simulation * simulation_in)
         , sectionReader("")
 {
     output.open("output.reader");
-
-    sectionReader
-            .addField("TITLE")
-            .addField("GRAVITY")
-            .addField("DIMENSION")
-            .addSubSection(
-                    SectionReader("MATERIALS")
-                           .addField("PLSTRAIN")
-            )
-            .addField("SMOOTHING")
-            .addSubSection(
-                    SectionReader("SYSTEM")
-                            .addSubSection(
-                                    SectionReader("RIGIDBODIES")
-                                            .addField("ALPHA")
-                                            .addSubSection(
-                                                    SectionReader("GENERIC3D")
-                                                            .addField("MASS")
-                                                            .addField("IXX")
-                                                            .addField("IYY")
-                                                            .addField("IZZ")
-                                                            .addField("POSITION")
-                                                            .addField("TETRAHEDRONS")
-                                            )
-                            )
-                            .addSubSection(
-                                    SectionReader("FLEXBODIES")
-                                            .addSubSection(
-                                                    SectionReader("MESHFREE")
-                                                            .addField("FORMULATION")
-                                                            .addField("METHOD")
-                                                            .addField("MESH")
-                                                            .addField("TETRAHEDRONS")
-                                            )
-                            )
-                            .addSubSection(
-                                    SectionReader("JOINTS")
-                                            .addField("PENALTY")
-                                            .addField("ALPHA")
-                                            .addSubSection(
-                                                    SectionReader("SPHERICAL")
-                                                            .addField("NODEA")
-                                                            .addField("NODEB")
-                                            )
-                                            .addSubSection(
-                                                    SectionReader("AXIS")
-                                                            .addField("DIRECTIONS")
-                                                            .addField("NODEA")
-                                                            .addField("NODEB")
-                                            )
-                            )
-                            .addSubSection(
-                                    SectionReader("LOADS")
-                            )
-            )
-            .addSubSection(
-                    SectionReader("ANALYSIS")
-                            .addSubSection(
-                                    SectionReader("DYNAMIC")
-                                            .addField("EPSILON")
-                                            .addField("INTEGRATOR")
-                                            .addField("TIME")
-                            )
-            );
+	// COMMENTED OUT AS IT CRASHES IN WINDOWS WHEN CALLING THE SectionReader DESTRUCTOR
+    //sectionReader
+    //        .addField("TITLE")
+    //        .addField("GRAVITY")
+    //        .addField("DIMENSION")
+    //        .addSubSection(
+    //                SectionReader("MATERIALS")
+    //                       .addField("PLSTRAIN")
+    //        )
+    //        .addField("SMOOTHING")
+    //        .addSubSection(
+    //                SectionReader("SYSTEM")
+    //                        .addSubSection(
+    //                                SectionReader("RIGIDBODIES")
+    //                                        .addField("ALPHA")
+    //                                        .addSubSection(
+    //                                                SectionReader("GENERIC3D")
+    //                                                        .addField("MASS")
+    //                                                        .addField("IXX")
+    //                                                        .addField("IYY")
+    //                                                        .addField("IZZ")
+    //                                                        .addField("POSITION")
+    //                                                        .addField("TETRAHEDRONS")
+    //                                        )
+    //                        )
+    //                        .addSubSection(
+    //                                SectionReader("FLEXBODIES")
+    //                                        .addSubSection(
+    //                                                SectionReader("MESHFREE")
+    //                                                        .addField("FORMULATION")
+    //                                                        .addField("METHOD")
+    //                                                        .addField("MESH")
+    //                                                        .addField("TETRAHEDRONS")
+    //                                        )
+    //                        )
+    //                        .addSubSection(
+    //                                SectionReader("JOINTS")
+    //                                        .addField("PENALTY")
+    //                                        .addField("ALPHA")
+    //                                        .addSubSection(
+    //                                                SectionReader("SPHERICAL")
+    //                                                        .addField("NODEA")
+    //                                                        .addField("NODEB")
+    //                                        )
+    //                                        .addSubSection(
+    //                                                SectionReader("AXIS")
+    //                                                        .addField("DIRECTIONS")
+    //                                                        .addField("NODEA")
+    //                                                        .addField("NODEB")
+    //                                        )
+    //                        )
+    //                        .addSubSection(
+    //                                SectionReader("LOADS")
+    //                        )
+    //        )
+    //        .addSubSection(
+    //                SectionReader("ANALYSIS")
+    //                        .addSubSection(
+    //                                SectionReader("DYNAMIC")
+    //                                        .addField("EPSILON")
+    //                                        .addField("INTEGRATOR")
+    //                                        .addField("TIME")
+    //                        )
+    //        );
 }
 
 
 Reader::~Reader()
 {
+	if (theReaderRigid) { delete[] theReaderRigid; theReaderRigid = 0;}
+	if (theReaderFlex) { delete[] theReaderFlex; theReaderFlex = 0; }
+	if (theReaderConstraints != nullptr) { delete[] theReaderConstraints; theReaderConstraints = 0; }
 }
 
 

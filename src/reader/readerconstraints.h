@@ -23,7 +23,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#if defined(_WIN32) || defined(WIN32)
+#if defined(_WIN32) || defined(WIN32) || _WIN64
 #  include <io.h>
 #else
 #  include <unistd.h>
