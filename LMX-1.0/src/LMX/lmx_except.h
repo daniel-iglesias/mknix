@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2006 by Daniel Iglesias                                 *
- *   http://code.google.com/p/lmx                                          *
+ *   https://github.com/daniel-iglesias/lmx                                *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU Library General Public License as       *

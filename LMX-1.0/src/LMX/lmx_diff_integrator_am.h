@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Daniel Iglesias                                 *
- *   http://code.google.com/p/lmx                                          *
+ *   https://github.com/daniel-iglesias/lmx                                *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU Library General Public License as       *
@@ -126,7 +126,6 @@ namespace lmx {
       void IntegratorAM<T>::initialize( Configuration<T>* configuration_in )
   {
 #undef max
-
     q = configuration_in;
     q->setStoredSteps( 2, std::max(order,2), order );
   }

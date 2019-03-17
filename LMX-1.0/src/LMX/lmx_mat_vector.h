@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Daniel Iglesias                                 *
- *   http://code.google.com/p/lmx                                          *
+ *   https://github.com/daniel-iglesias/lmx                                *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU Library General Public License as       *
@@ -145,8 +145,8 @@ public:
   T readElement(size_type m) const
   { if (m >= elements){
       std::stringstream message;
-      message << "Row index exceeds vector dimensions. Trying to access element " << m << " of vecor with dimension " << elements << "." << endl;
-      LMX_THROW(dimension_error, message.str());
+      message << "Row index exceeds vector dimensions. Trying to access element (" << m << "of vecor with dimension " << elements << "." << endl;
+      LMX_THROW(dimension_error, message.str() );
     }
     return type_vector->readElement(m,zero);
   }

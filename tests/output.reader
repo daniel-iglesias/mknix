@@ -1,0 +1,33 @@
+TITLE: 2triangfem
+DIMENSION: 2
+MATERIALS: 
+MATERIAL: THERMAL, number = 1,
+	 Cp = 1348, kappa = 224, density = 1750
+SYSTEM: baseSystem.2triangles
+FLEXBODY: 2triangles.triangle
+FORMULATION: THERMAL
+MESH:
+Material: 1
+Number of GPs per cell: 1
+Influence domain factor (alpha): 3.5
+FILE: 2triangles.dat
+	Nodes: 4
+	Node	x	y	z 
+	0	0	0	0
+	1	1	0	0
+	2	1	1	0
+	3	0	1	0
+	Cells: 6
+	Cell	node1	node2	node3 
+	 Bound	0	1
+	 Bound	1	2
+	 Bound	2	3
+	 Bound	3	0
+	0	0	2	1
+	1	2	0	3
+THERMALFLUENCE 2 5e+06
+ANALYSYS: 
+	THERMALDYNAMIC:
+		EPSILON: 1e-06
+		INTEGRATOR: BDF-1
+		TIME: 0, 0.01, 0.001

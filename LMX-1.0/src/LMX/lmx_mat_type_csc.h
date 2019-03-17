@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Roberto Ortega                                 *
- *   http://code.google.com/p/lmx                                          *
+ *   https://github.com/daniel-iglesias/lmx                                *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU Library General Public License as       *
@@ -552,7 +552,7 @@ template <typename T>
     void Type_csc<T>::trn()
 {
 
-  std::vector<size_type> ja_starO(Nnze);
+	std::vector<size_type> ja_starO(Nnze);
 
   size_type NrowT = Ncol;
   size_type NcolT = Nrow;
