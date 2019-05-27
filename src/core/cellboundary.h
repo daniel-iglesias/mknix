@@ -35,12 +35,14 @@
  */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
-namespace lmx {
+namespace lmx
+{
 template <typename T> class Vector;
 template <typename T> class Matrix;
 }
 
-namespace mknix {
+namespace mknix
+{
 
 class LoadThermalBoundary1D;
 class GaussPointBoundary;
@@ -50,7 +52,8 @@ class Point;
 /**
 @author Daniel Iglesias
 */
-class CellBoundary {
+class CellBoundary
+{
 
 public:
     CellBoundary();
@@ -68,7 +71,7 @@ public:
     void assembleQextGaussPoints( lmx::Vector<data_type> & );
 
 //     void outputConnectivityToFile(std::ofstream*);
-    
+
 //     virtual void gnuplotOut( std::ofstream&, std::ofstream& ) = 0;
 
 //     void gnuplotOutStress( std::ofstream& );

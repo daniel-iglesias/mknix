@@ -4,7 +4,8 @@
 #include "node.h"
 #include "gausspoint2D.h"
 
-namespace mknix {
+namespace mknix
+{
 
 CellRect::CellRect()
 {
@@ -22,16 +23,16 @@ CellRect::CellRect(Material& material_in,
                    double dcx_in, double dcy_in,
                    double minX_in, double minY_in,
                    double maxX_in, double maxY_in
-)
-        : Cell(material_in, formulation_in, alpha_in, nGPoints_in
-)
-        , Az(0)
-        , minX(minX_in)
-        , minY(minY_in)
-        , minZ(0)
-        , maxX(maxX_in)
-        , maxY(maxY_in)
-        , maxZ(0)
+                  )
+    : Cell(material_in, formulation_in, alpha_in, nGPoints_in
+          )
+    , Az(0)
+    , minX(minX_in)
+    , minY(minY_in)
+    , minZ(0)
+    , maxX(maxX_in)
+    , maxY(maxY_in)
+    , maxZ(0)
 {
     points.resize(4, 2);
     points.writeElement(x1_in, 0, 0);
@@ -67,15 +68,15 @@ CellRect::CellRect(Material& material_in,
                    double dcx_in, double dcy_in, double dcz_in,
                    double minX_in, double minY_in, double minZ_in,
                    double maxX_in, double maxY_in, double maxZ_in
-)
-        : Cell(material_in, formulation_in, alpha_in, nGPoints_in
-)
-        , minX(minX_in)
-        , minY(minY_in)
-        , minZ(minZ_in)
-        , maxX(maxX_in)
-        , maxY(maxY_in)
-        , maxZ(maxZ_in)
+                  )
+    : Cell(material_in, formulation_in, alpha_in, nGPoints_in
+          )
+    , minX(minX_in)
+    , minY(minY_in)
+    , minZ(minZ_in)
+    , maxX(maxX_in)
+    , maxY(maxY_in)
+    , maxZ(maxZ_in)
 {
     points.resize(8, 3);
     points.writeElement(x1_in, 0, 0);
@@ -122,17 +123,20 @@ void CellRect::createGaussPoints(double dcx_in, double dcy_in, double dcz_in)
 {
     lmx::DenseMatrix<double> gCoef((size_type) nGPoints, 2); // col 1: offset from center point,  col 2: weight factor.
 
-    if (nGPoints == 1) {
+    if (nGPoints == 1)
+    {
         gCoef(0, 0) = 0.;
         gCoef(0, 1) = 1.;
     }
-    else if (nGPoints == 2) {
+    else if (nGPoints == 2)
+    {
         gCoef(0, 0) = -std::sqrt(1. / 3.);
         gCoef(0, 1) = 1.;
         gCoef(1, 0) = std::sqrt(1. / 3.);
         gCoef(1, 1) = 1.;
     }
-    else if (nGPoints == 3) {
+    else if (nGPoints == 3)
+    {
         gCoef(0, 0) = -0.77459666924148337703;
         gCoef(0, 1) = 0.88888888888888888888;
         gCoef(1, 0) = 0.00000000000000000000;
@@ -140,7 +144,8 @@ void CellRect::createGaussPoints(double dcx_in, double dcy_in, double dcz_in)
         gCoef(2, 0) = 0.77459666924148337703;
         gCoef(2, 1) = 0.88888888888888888888;
     }
-    else if (nGPoints == 4) {
+    else if (nGPoints == 4)
+    {
         gCoef(0, 0) = -0.86113631159405257522;
         gCoef(0, 1) = 0.34785484513745385737;
         gCoef(1, 0) = -0.33998104358485626480;
@@ -150,7 +155,8 @@ void CellRect::createGaussPoints(double dcx_in, double dcy_in, double dcz_in)
         gCoef(3, 0) = 0.86113631159405257522;
         gCoef(3, 1) = 0.34785484513745385737;
     }
-    else if (nGPoints == 5) {
+    else if (nGPoints == 5)
+    {
         gCoef(0, 0) = -0.90617984593866399279;
         gCoef(0, 1) = 0.23692688505618908751;
         gCoef(1, 0) = -0.53846931010568309103;
@@ -162,7 +168,8 @@ void CellRect::createGaussPoints(double dcx_in, double dcy_in, double dcz_in)
         gCoef(4, 0) = 0.90617984593866399279;
         gCoef(3, 1) = 0.23692688505618908751;
     }
-    else if (nGPoints == 6) {
+    else if (nGPoints == 6)
+    {
         gCoef(0, 0) = -0.932469514203152;
         gCoef(0, 1) = 0.23692688505618908751;
         gCoef(1, 0) = -0.661209386466265;
@@ -176,7 +183,8 @@ void CellRect::createGaussPoints(double dcx_in, double dcy_in, double dcz_in)
         gCoef(5, 0) = -gCoef(0, 0);
         gCoef(5, 1) = gCoef(0, 1);
     }
-    else if (nGPoints == 8) {
+    else if (nGPoints == 8)
+    {
         gCoef(0, 0) = -0.96028985649753623168;
         gCoef(0, 1) = 0.10122853629037625915;
         gCoef(1, 0) = -0.79666647741362673959;
@@ -194,7 +202,8 @@ void CellRect::createGaussPoints(double dcx_in, double dcy_in, double dcz_in)
         gCoef(7, 0) = -gCoef(0, 0);
         gCoef(7, 1) = gCoef(0, 1);
     }
-    else if (nGPoints == 12) {
+    else if (nGPoints == 12)
+    {
         gCoef(0, 0) = -0.981560634246719;
         gCoef(0, 1) = 0.047175336386511;
         gCoef(1, 0) = -0.904117256370475;
@@ -220,7 +229,8 @@ void CellRect::createGaussPoints(double dcx_in, double dcy_in, double dcz_in)
         gCoef(11, 0) = -gCoef(0, 0);
         gCoef(11, 1) = gCoef(0, 1);
     }
-    else if (nGPoints == 20) {
+    else if (nGPoints == 20)
+    {
         gCoef(0, 0) = -0.993128599185094924786;
         gCoef(0, 1) = 0.017614007139152118312;
         gCoef(1, 0) = -0.963971927277913791268;
@@ -263,8 +273,10 @@ void CellRect::createGaussPoints(double dcx_in, double dcy_in, double dcz_in)
         gCoef(19, 1) = gCoef(0, 1);
     }
 
-    for (unsigned int i = 0; i < gCoef.rows(); ++i) {
-        for (unsigned int j = 0; j < gCoef.rows(); ++j) {
+    for (unsigned int i = 0; i < gCoef.rows(); ++i)
+    {
+        for (unsigned int j = 0; j < gCoef.rows(); ++j)
+        {
             gPoints.push_back(new GaussPoint2D(this->alpha,
                                                gCoef(i, 1) * gCoef(j, 1),
                                                jacobian,
@@ -274,8 +286,8 @@ void CellRect::createGaussPoints(double dcx_in, double dcy_in, double dcz_in)
                                                points.readElement(0, 1) + Ay / 2 * (1 + gCoef(j, 0)),
                                                dcx_in,
                                                true
-            )
-            );
+                                              )
+                             );
 
         }
     }
@@ -300,7 +312,8 @@ void CellRect::initialize(std::vector<Node *>& nodes_in)
 //   cout << "CellRect points " << this->points << endl;
 
     // This function can be joined with assembleGaussPoints so the Gpoints are iterated only once...
-    for (auto& point : gPoints) {
+    for (auto& point : gPoints)
+    {
         point->findSupportNodes(nodes_in, minX, maxX, minY, maxY);
 //    (*it)->findSupportNodes( nodes_in );
     }
@@ -311,13 +324,15 @@ void CellRect::gnuplotOut(std::ofstream& data, std::ofstream& gpdata)
 //   cout << "Cell points" << points.rows() << ", " << points.cols() << endl;
 //   cout << "Cell points " << this->points << endl;
 
-    for (unsigned int i = 0; i < points.rows(); ++i) {
+    for (unsigned int i = 0; i < points.rows(); ++i)
+    {
         data << points(i, 0) << " " << points(i, 1) << " 0\n";
     }
     data << points(0, 0) << " " << points(0, 1) << " 0\n";
     data << std::endl;
 
-    for (auto& point : gPoints) {
+    for (auto& point : gPoints)
+    {
         point->gnuplotOut(gpdata);
     }
 }

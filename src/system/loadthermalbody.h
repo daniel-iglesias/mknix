@@ -25,13 +25,15 @@
 #include <map>
 
 
-namespace mknix {
+namespace mknix
+{
 class Point;
 
 /**
 	@author AUTHORS <MAILS>
 */
-class LoadThermalBody {
+class LoadThermalBody
+{
 public:
     LoadThermalBody();
 

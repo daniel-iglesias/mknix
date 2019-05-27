@@ -21,7 +21,8 @@
 #include "point.h"
 #include "node.h"
 
-namespace mknix {
+namespace mknix
+{
 
 ShapeFunctionTriangleSigned::ShapeFunctionTriangleSigned()
     : ShapeFunction()

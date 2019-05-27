@@ -22,7 +22,8 @@
 
 #include "celltetrahedron.h"
 
-namespace mknix {
+namespace mknix
+{
 
 /**
 	@author AUTHORS <MAILS>

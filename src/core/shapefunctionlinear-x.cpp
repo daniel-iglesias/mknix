@@ -21,7 +21,8 @@
 #include "point.h"
 #include "node.h"
 
-namespace mknix {
+namespace mknix
+{
 
 ShapeFunctionLinearX::ShapeFunctionLinearX()
     : ShapeFunction()
@@ -43,7 +44,8 @@ ShapeFunctionLinearX::~ShapeFunctionLinearX()
 
 
 void ShapeFunctionLinearX::calc()
-{   // Signed calculation using only the x components of the points
+{
+    // Signed calculation using only the x components of the points
     double distance_x1x0 = gp->supportNodes[1]->getX() - gp->supportNodes[0]->getX(); // should use the jacobian
 
     cout << "DISTANCE_X1X0 = " << distance_x1x0 << endl;

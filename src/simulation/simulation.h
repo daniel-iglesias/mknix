@@ -36,7 +36,8 @@
 #  define MKNIX_API
 #endif
 
-namespace mknix {
+namespace mknix
+{
 
 class Reader;
 
@@ -135,64 +136,64 @@ public:
 
     void staticThermalResidue(lmx::Vector<data_type>& residue,
                               lmx::Vector<data_type>& q
-    );
+                             );
 
     void staticThermalTangent(lmx::Matrix<data_type>& tangent_in,
                               lmx::Vector<data_type>& q
-    );
+                             );
 
     bool staticThermalConvergence(lmx::Vector<data_type>& res,
                                   lmx::Vector<data_type>& q
-    );
+                                 );
 
     void explicitThermalEvaluation(const lmx::Vector<data_type>& qt, lmx::Vector<data_type>& qtdot, double time);
 
     void dynamicThermalEvaluation(const lmx::Vector<data_type>& q,
                                   lmx::Vector<data_type>& qdot,
                                   double time
-    );
+                                 );
 
     void dynamicThermalResidue(lmx::Vector<data_type>& residue,
                                const lmx::Vector<data_type>& q,
                                const lmx::Vector<data_type>& qdot,
                                double time
-    );
+                              );
 
     void dynamicThermalTangent(lmx::Matrix<data_type>& tangent_in,
                                const lmx::Vector<data_type>& q,
                                double partial_qdot,
                                double time
-    );
+                              );
 
     bool dynamicThermalConvergence(const lmx::Vector<data_type>& q,
                                    const lmx::Vector<data_type>& qdot,
                                    double time
-    );
+                                  );
 
     bool dynamicThermalConvergenceInThermomechanical
-            (const lmx::Vector<data_type>& q,
-             const lmx::Vector<data_type>& qdot,
-             double time
-            );
+    (const lmx::Vector<data_type>& q,
+     const lmx::Vector<data_type>& qdot,
+     double time
+    );
 
     void explicitAcceleration(const lmx::Vector<data_type>& q,
                               const lmx::Vector<data_type>& qdot,
                               lmx::Vector<data_type>& qddot,
                               double time
-    );
+                             );
 
     void dynamicAcceleration(const lmx::Vector<data_type>& q,
                              const lmx::Vector<data_type>& qdot,
                              lmx::Vector<data_type>& qddot,
                              double time
-    );
+                            );
 
     void dynamicResidue(lmx::Vector<data_type>& residue,
                         const lmx::Vector<data_type>& q,
                         const lmx::Vector<data_type>& qdot,
                         const lmx::Vector<data_type>& qddot,
                         double time
-    );
+                       );
 
     void dynamicTangent(lmx::Matrix<data_type>& tangent_in,
                         const lmx::Vector<data_type>& q,
@@ -200,25 +201,25 @@ public:
                         double partial_qdot,
                         double partial_qddot,
                         double time
-    );
+                       );
 
     bool dynamicConvergence(const lmx::Vector<data_type>& q,
                             const lmx::Vector<data_type>& qdot,
                             const lmx::Vector<data_type>& qddot,
                             double time
-    );
+                           );
 
     void staticResidue(lmx::Vector<data_type>& residue,
                        lmx::Vector<data_type>& q
-    );
+                      );
 
     void staticTangent(lmx::Matrix<data_type>& tangent_in,
                        lmx::Vector<data_type>& q
-    );
+                      );
 
     bool staticConvergence(lmx::Vector<data_type>& res,
                            lmx::Vector<data_type>& q
-    );
+                          );
 
     void stepTriggered();
 
@@ -229,17 +230,17 @@ public:
         return this->globalSparsePattern;
     }
 
-	static double getGravity(int component);
+    static double getGravity(int component);
 
-	static double getAlpha();
+    static double getAlpha();
 
-	static double getTime();
+    static double getTime();
 
-	static int getDim();
+    static int getDim();
 
-	static std::string getConstraintMethod();
+    static std::string getConstraintMethod();
 
-	static std::string getSmoothingType();
+    static std::string getSmoothingType();
 
 private:
     void storeTimeConfiguration(lmx::Vector<data_type>& q);
@@ -268,8 +269,8 @@ private:
     lmx::ExactStopwatch* globalTimer;
     std::ofstream* timerFile;
     std::ofstream* configurationFile;
-	static double stepTime;
-	static double oldClockTime;
+    static double stepTime;
+    static double oldClockTime;
     int iterationsNLSolver;
     int outputFilesDetail;
 

@@ -21,23 +21,24 @@
 
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 RigidBody::RigidBody()
-        : Body()
-        , computeEnergy(false)
-        , dim(Simulation::getDim())
-        , mass(0)
-        , densityFactor(1)
+    : Body()
+    , computeEnergy(false)
+    , dim(Simulation::getDim())
+    , mass(0)
+    , densityFactor(1)
 {
 }
 
 RigidBody::RigidBody(std::string title_in)
-        : Body(title_in)
-        , computeEnergy(false)
-        , dim(Simulation::getDim())
-        , mass(0)
-        , densityFactor(1)
+    : Body(title_in)
+    , computeEnergy(false)
+    , dim(Simulation::getDim())
+    , mass(0)
+    , densityFactor(1)
 {
 }
 
@@ -53,14 +54,18 @@ void RigidBody::assembleMassMatrix(lmx::Matrix<data_type>& globalMass)
     int frameNodesSize = frameNodes.size();
     int i, j, m, n;
 
-    for (i = 0; i < frameNodesSize; ++i) {
-        for (j = 0; j < frameNodesSize; ++j) {
-            for (m = 0; m < Simulation::getDim(); ++m) {
-                for (n = 0; n < Simulation::getDim(); ++n) {
+    for (i = 0; i < frameNodesSize; ++i)
+    {
+        for (j = 0; j < frameNodesSize; ++j)
+        {
+            for (m = 0; m < Simulation::getDim(); ++m)
+            {
+                for (n = 0; n < Simulation::getDim(); ++n)
+                {
                     globalMass(Simulation::getDim() * frameNodes[i]->getNumber() + m,
                                Simulation::getDim() * frameNodes[j]->getNumber() + n)
-                            += localMassMatrix.readElement(Simulation::getDim() * i + m,
-                                                           Simulation::getDim() * j + n);
+                    += localMassMatrix.readElement(Simulation::getDim() * i + m,
+                                                   Simulation::getDim() * j + n);
                 }
             }
         }
@@ -68,15 +73,17 @@ void RigidBody::assembleMassMatrix(lmx::Matrix<data_type>& globalMass)
 }
 
 void RigidBody::assembleExternalForces
-        (lmx::Vector<data_type>& globalExternalForces)
+(lmx::Vector<data_type>& globalExternalForces)
 {
     int frameNodesSize = frameNodes.size();
     int i, m;
 
-    for (i = 0; i < frameNodesSize; ++i) {
-        for (m = 0; m < Simulation::getDim(); ++m) {
+    for (i = 0; i < frameNodesSize; ++i)
+    {
+        for (m = 0; m < Simulation::getDim(); ++m)
+        {
             globalExternalForces(Simulation::getDim() * frameNodes[i]->getNumber() + m)
-                    += externalForces.readElement(Simulation::getDim() * i + m);
+            += externalForces.readElement(Simulation::getDim() * i + m);
         }
     }
 }
@@ -96,22 +103,28 @@ void RigidBody::setOutput(std::string outputType_in)
 
 Node * RigidBody::getNode(int node_number)
 {
-    if (node_number == -1) {
+    if (node_number == -1)
+    {
         return this->frameNodes[0];
     }
-    else if (node_number == -2) {
+    else if (node_number == -2)
+    {
         return this->frameNodes[1];
     }
-    else if (node_number == -3 && this->frameNodes.size() > 2) {
+    else if (node_number == -3 && this->frameNodes.size() > 2)
+    {
         return this->frameNodes[2];
     }
-    else if (node_number == -4 && this->frameNodes.size() > 3) {
+    else if (node_number == -4 && this->frameNodes.size() > 3)
+    {
         return this->frameNodes[3];
     }
-    else if (node_number >=0 && (size_t)node_number < this->nodes.size()) {
+    else if (node_number >=0 && (size_t)node_number < this->nodes.size())
+    {
         return this->nodes[node_number];
     }
-    else {
+    else
+    {
         cerr << "ERROR: NODE " << node_number << " not found!!!" << endl;
         return nullptr;
     }
@@ -119,20 +132,24 @@ Node * RigidBody::getNode(int node_number)
 
 
 void RigidBody::outputStep
-        (const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot)
+(const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot)
 {
     Body::outputStep();
 
     auto nodesSize = nodes.size();
-    if (nodesSize > 0) {
+    if (nodesSize > 0)
+    {
         domainConf.push_back(new lmx::Vector<data_type>(dim * nodesSize));
-        for (auto i = 0u; i < nodesSize; ++i) {
-            for (auto j = 0u; j < (size_t)dim; ++j) {
+        for (auto i = 0u; i < nodesSize; ++i)
+        {
+            for (auto j = 0u; j < (size_t)dim; ++j)
+            {
                 domainConf.back()->writeElement(nodes[i]->getConf(j), dim * i + j);
             }
         }
     }
-    if (computeEnergy) {
+    if (computeEnergy)
+    {
         // TODO: compute energy for each kind of rigid body
         /*potential, kinetic, elastic, total*/
 //     energy.push_back( new lmx::Vector<data_type>( 4 ) );
@@ -177,15 +194,19 @@ void RigidBody::outputStep(const lmx::Vector<data_type>& q)
 
     int nodesSize = nodes.size();
     int i, j;
-    if (nodesSize > 0) {
+    if (nodesSize > 0)
+    {
         domainConf.push_back(new lmx::Vector<data_type>(dim * nodesSize));
-        for (i = 0; i < nodesSize; ++i) {
-            for (j = 0; j < dim; ++j) {
+        for (i = 0; i < nodesSize; ++i)
+        {
+            for (j = 0; j < dim; ++j)
+            {
                 domainConf.back()->writeElement(nodes[i]->getConf(j), dim * i + j);
             }
         }
     }
-    if (computeEnergy) {
+    if (computeEnergy)
+    {
         // TODO: compute energy for each kind of rigid body
 //     energy.push_back( new lmx::Vector<data_type>( 4 ) ); //potential, kinetic, elastic
 //
@@ -213,13 +234,17 @@ void RigidBody::outputToFile(std::ofstream * outFile)
 
     std::vector<lmx::Vector<data_type> *>::iterator itDomainNodes;
 
-    if (domainConf.size() > 0) {
+    if (domainConf.size() > 0)
+    {
         *outFile << "DOMAIN " << title << " " << nodes.size() << endl;
-        for (auto& domainNode : domainConf) {
+        for (auto& domainNode : domainConf)
+        {
 //       vectorSize = (*itDomainNodes)->size();
 //       for( i=0; i<vectorSize; ++i){
-            for (auto i = 0u; i < nodes.size(); ++i) {
-                for (auto j = 0u; j < static_cast<size_t>(dim); ++j) {
+            for (auto i = 0u; i < nodes.size(); ++i)
+            {
+                for (auto j = 0u; j < static_cast<size_t>(dim); ++j)
+                {
 //         *outFile << (*itDomainNodes)->readElement(i) << " ";
                     *outFile << domainNode->readElement(dim * i + j) << " ";
                 }
@@ -228,11 +253,14 @@ void RigidBody::outputToFile(std::ofstream * outFile)
             *outFile << endl;
         }
     }
-    if (energy.size() > 0) {
+    if (energy.size() > 0)
+    {
         *outFile << "ENERGY " << title << endl;
-        for (auto& el : energy) {
+        for (auto& el : energy)
+        {
             auto vectorSize = el->size();
-            for (auto i = 0u; i < vectorSize; ++i) {
+            for (auto i = 0u; i < vectorSize; ++i)
+            {
                 *outFile << el->readElement(i) << " ";
             }
             *outFile << endl;
@@ -243,12 +271,13 @@ void RigidBody::outputToFile(std::ofstream * outFile)
 void RigidBody::writeBodyInfo(std::ofstream * outFile)
 {
     *outFile << "\t" << this->getType() << " "
-    << this->title << " "
-    << "0 "; // should give material information
+             << this->title << " "
+             << "0 "; // should give material information
     std::vector<Node *>::iterator it_frameNodes;
     for (it_frameNodes = frameNodes.begin();
-         it_frameNodes != frameNodes.end();
-         ++it_frameNodes) {
+            it_frameNodes != frameNodes.end();
+            ++it_frameNodes)
+    {
         *outFile << (*it_frameNodes)->getNumber() << " ";
     }
     *outFile << endl;

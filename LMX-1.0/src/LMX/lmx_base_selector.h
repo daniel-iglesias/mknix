@@ -36,7 +36,8 @@
 */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
-namespace lmx {
+namespace lmx
+{
 
 /** Function that changes the type of matrix container that will be used.
  */
@@ -44,13 +45,17 @@ inline int setMatrixType(int type)
 {
     static int matrix_type = 0;
     static bool type_locked = 0;
-    if (type < 0) {
+    if (type < 0)
+    {
         type_locked = 1;
         return matrix_type;
     }
-    else if (type_locked == 0) {
+    else if (type_locked == 0)
+    {
         return matrix_type = type;
-    } else {
+    }
+    else
+    {
         std::stringstream message;
         message << "\nERROR: MatrixType can't be set after a Matrix object is created." << endl;
         LMX_THROW(failure_error, message.str());
@@ -63,13 +68,17 @@ inline int setVectorType(int type)
 {
     static int vector_type = 0;
     static bool type_locked = 0;
-    if (type < 0) {
+    if (type < 0)
+    {
         type_locked = 1;
         return vector_type;
     }
-    else if (type_locked == 0) {
+    else if (type_locked == 0)
+    {
         return vector_type = type;
-    } else {
+    }
+    else
+    {
         std::stringstream message;
         message << "\nERROR: VectorType can't be set after a Vector object is created." << endl;
         LMX_THROW(failure_error, message.str());
@@ -81,28 +90,42 @@ inline int setVectorType(int type)
 inline int setLinSolverType(int type)
 {
     static int lin_solver_type = 0;
-    if (type < 0) {
+    if (type < 0)
+    {
         return lin_solver_type;
-    } else { return lin_solver_type = type; }
+    }
+    else
+    {
+        return lin_solver_type = type;
+    }
 }
 
 /** Function reads the type of Matrix container that is used.
  */
-inline int getMatrixType() { return setMatrixType(-1); }
+inline int getMatrixType()
+{
+    return setMatrixType(-1);
+}
 
 /** Function reads the type of Vector container that is used.
  */
-inline int getVectorType() { return setVectorType(-1); }
+inline int getVectorType()
+{
+    return setVectorType(-1);
+}
 
 /** Function reads the type of LinearSystem that is used.
  */
-inline int getLinSolverType() { return setLinSolverType(-1); }
+inline int getLinSolverType()
+{
+    return setLinSolverType(-1);
+}
 
 
 constexpr int nl_solver_type = 0; /**< This variable switches between different types of non-linear solvers. */
 
 
-} // namespace lmx 
+} // namespace lmx
 
 
 #endif

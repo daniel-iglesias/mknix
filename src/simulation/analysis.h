@@ -26,7 +26,8 @@
 #include "LMX/lmx_diff_problem_first.h"
 #include "LMX/lmx_diff_problem_second.h"
 
-namespace mknix {
+namespace mknix
+{
 
 class Simulation;
 
@@ -52,7 +53,7 @@ public:
     virtual void solve(lmx::Vector<data_type> *,
                        lmx::Vector<data_type> * = 0,
                        lmx::Vector<data_type> * = 0
-    ) = 0;
+                      ) = 0;
 
     virtual void init(lmx::Vector<data_type> * q_in, lmx::Vector<data_type> * qdot_in, int verbosity) = 0; // specialised in AnalysisThermalDynamic
     virtual void nextStep() = 0; // specialised in AnalysisThermalDynamic

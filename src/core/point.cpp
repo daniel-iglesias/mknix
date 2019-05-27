@@ -10,41 +10,42 @@
 
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 Point::Point()
 {
 }
 
 Point::Point(const Point& point_in)
-        : dim(point_in.dim)
-        , num(point_in.getNumber())
-        , X(point_in.X)
-        , Y(point_in.Y)
-        , Z(point_in.Z)
-        , alphai(point_in.alphai)
-        , dc(point_in.dc)
-        , shapeFunType(point_in.shapeFunType)
-        , shapeFun(point_in.shapeFun)
-        , supportNodes(point_in.supportNodes)
-        , supportNodesSize(point_in.supportNodesSize)
-        , jacobian(point_in.jacobian)
+    : dim(point_in.dim)
+    , num(point_in.getNumber())
+    , X(point_in.X)
+    , Y(point_in.Y)
+    , Z(point_in.Z)
+    , alphai(point_in.alphai)
+    , dc(point_in.dc)
+    , shapeFunType(point_in.shapeFunType)
+    , shapeFun(point_in.shapeFun)
+    , supportNodes(point_in.supportNodes)
+    , supportNodesSize(point_in.supportNodesSize)
+    , jacobian(point_in.jacobian)
 {
 }
 
 Point::Point(const Point * point_in)
-        : dim(point_in->dim)
-        , num(point_in->getNumber())
-        , X(point_in->X)
-        , Y(point_in->Y)
-        , Z(point_in->Z)
-        , alphai(point_in->alphai)
-        , dc(point_in->dc)
-        , shapeFunType(point_in->shapeFunType)
-        , shapeFun(point_in->shapeFun)
-        , supportNodes(point_in->supportNodes)
-        , supportNodesSize(point_in->supportNodesSize)
-        , jacobian(point_in->jacobian)
+    : dim(point_in->dim)
+    , num(point_in->getNumber())
+    , X(point_in->X)
+    , Y(point_in->Y)
+    , Z(point_in->Z)
+    , alphai(point_in->alphai)
+    , dc(point_in->dc)
+    , shapeFunType(point_in->shapeFunType)
+    , shapeFun(point_in->shapeFun)
+    , supportNodes(point_in->supportNodes)
+    , supportNodesSize(point_in->supportNodesSize)
+    , jacobian(point_in->jacobian)
 {
 }
 
@@ -52,17 +53,17 @@ Point::Point(int i,
              double coor_x,
              double coor_y,
              double coor_z
-)
-        : dim(Simulation::getDim())
-        , num(i)
-        , X(coor_x)
-        , Y(coor_y)
-        , Z(coor_z)
-        , alphai(0)
-        , dc(0)
-        , shapeFun(0)
-        , supportNodesSize(0)
-        , jacobian(0) // initialized to one for rigid body additional points
+            )
+    : dim(Simulation::getDim())
+    , num(i)
+    , X(coor_x)
+    , Y(coor_y)
+    , Z(coor_z)
+    , alphai(0)
+    , dc(0)
+    , shapeFun(0)
+    , supportNodesSize(0)
+    , jacobian(0) // initialized to one for rigid body additional points
 {
 }
 
@@ -73,17 +74,17 @@ Point::Point(int dim_in,
              double coor_z,
              double alpha_in,
              double dc_in
-)
-        : dim(dim_in)
-        , num(i)
-        , X(coor_x)
-        , Y(coor_y)
-        , Z(coor_z)
-        , alphai(alpha_in)
-        , dc(dc_in)
-        , shapeFun(0)
-        , supportNodesSize(0)
-        , jacobian(0)
+            )
+    : dim(dim_in)
+    , num(i)
+    , X(coor_x)
+    , Y(coor_y)
+    , Z(coor_z)
+    , alphai(alpha_in)
+    , dc(dc_in)
+    , shapeFun(0)
+    , supportNodesSize(0)
+    , jacobian(0)
 {
 }
 
@@ -95,29 +96,33 @@ Point::Point(int dim_in,
              double jacobian_in,
              double alpha_in,
              double dc_in
-)
-        : dim(dim_in)
-        , num(i)
-        , X(coor_x)
-        , Y(coor_y)
-        , Z(coor_z)
-        , alphai(alpha_in)
-        , dc(dc_in)
-        , shapeFun(0)
-        , supportNodesSize(0)
-        , jacobian(jacobian_in)
+            )
+    : dim(dim_in)
+    , num(i)
+    , X(coor_x)
+    , Y(coor_y)
+    , Z(coor_z)
+    , alphai(alpha_in)
+    , dc(dc_in)
+    , shapeFun(0)
+    , supportNodesSize(0)
+    , jacobian(jacobian_in)
 {
 }
 
 Point::~Point()
 {
-    if (shapeFun) { delete (shapeFun); }
+    if (shapeFun)
+    {
+        delete (shapeFun);
+    }
 }
 
 double Point::getTemp() const
 {
     double conf_value(0);
-    for (auto i = 0u; i < supportNodesSize; ++i) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
         conf_value += shapeFun->getPhi(0, i) * (supportNodes[i]->getqt());
     }
     return conf_value;
@@ -126,7 +131,8 @@ double Point::getTemp() const
 double Point::getConf(int dof) const
 {
     double conf_value(0);
-    for (auto i = 0u; i < supportNodesSize; ++i) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
         conf_value += shapeFun->getPhi(0, i) * (supportNodes[i]->getqx(dof));
     }
     return conf_value;
@@ -165,15 +171,20 @@ void Point::findSupportNodes(std::vector<Node *>& domainNodes)
 //  cout << alphai << "*"<<dc<<" = " << di << endl;
 //  cout << "("<<minX<<"-"<<maxX<<")"<<",("<<minY<<"-"<<maxY<<")"<< endl;
 
-    if (dim == 2) {
-        for (auto& node : domainNodes) {
+    if (dim == 2)
+    {
+        for (auto& node : domainNodes)
+        {
             // enclose first in a rectangle, seems more efficient:
-            if (node->getX() >= minX && node->getX() <= maxX) {
-                if (node->getY() >= minY && node->getY() <= maxY) {
+            if (node->getX() >= minX && node->getX() <= maxX)
+            {
+                if (node->getY() >= minY && node->getY() <= maxY)
+                {
                     // distance criteria:
                     distance = sqrt(pow(node->getX() - X, 2)
                                     + pow(node->getY() - Y, 2));
-                    if (distance <= di) {
+                    if (distance <= di)
+                    {
                         //          cout << "Distance = " << distance << endl;
                         supportNodes.push_back(node);
                         if (distance > smax) smax = distance;
@@ -182,19 +193,25 @@ void Point::findSupportNodes(std::vector<Node *>& domainNodes)
             }
         }
     }
-    else if (dim == 3) {
+    else if (dim == 3)
+    {
         double maxZ = Z + di;
         double minZ = Z - di;
-        for (auto& node : domainNodes) {
+        for (auto& node : domainNodes)
+        {
             // enclose first in a rectangle, seems more efficient:
-            if (node->getX() >= minX && node->getX() <= maxX) {
-                if (node->getY() >= minY && node->getY() <= maxY) {
-                    if (node->getZ() >= minZ && node->getZ() <= maxZ) {
+            if (node->getX() >= minX && node->getX() <= maxX)
+            {
+                if (node->getY() >= minY && node->getY() <= maxY)
+                {
+                    if (node->getZ() >= minZ && node->getZ() <= maxZ)
+                    {
                         // distance criteria:
                         distance = sqrt(pow(node->getX() - X, 2)
                                         + pow(node->getY() - Y, 2)
                                         + pow(node->getZ() - Z, 2));
-                        if (distance <= di) {
+                        if (distance <= di)
+                        {
                             //          cout << "Distance = " << distance << endl;
                             supportNodes.push_back(node);
                             if (distance > smax) smax = distance;
@@ -218,42 +235,55 @@ void Point::findSupportNodes(std::vector<Node *>& domainNodes,
                              double domain_maxX,
                              double domain_minY,
                              double domain_maxY
-)
+                            )
 {
     double dix = alphai * dc;
     double diy = alphai * dc;
 
-    for (auto& node : domainNodes) {
+    for (auto& node : domainNodes)
+    {
         // First, check if bounding box is outside the cells' patch domain
         // and define the box of searching:
         double minX;
         double maxX;
-        if (X - dix < domain_minX) {
+        if (X - dix < domain_minX)
+        {
             minX = domain_minX;
             maxX = minX + 2 * dix;
-        } else if (X + dix > domain_maxX) {
+        }
+        else if (X + dix > domain_maxX)
+        {
             maxX = domain_maxX;
             minX = maxX - 2 * dix;
-        } else {
+        }
+        else
+        {
             minX = X - dix;
             maxX = X + dix;
         }
         double minY;
         double maxY;
-        if (Y - diy < domain_minY) {
+        if (Y - diy < domain_minY)
+        {
             minY = domain_minY;
             maxY = minY + 2 * diy;
-        } else if (Y + diy > domain_maxY) {
+        }
+        else if (Y + diy > domain_maxY)
+        {
             maxY = domain_maxY;
             minY = maxY - 2 * diy;
-        } else {
+        }
+        else
+        {
             minY = Y - dix;
             maxY = Y + dix;
         }
 
         // Search for nodes inside the box:
-        if (node->getX() >= minX && node->getX() <= maxX) {
-            if (node->getY() >= minY && node->getY() <= maxY) {
+        if (node->getX() >= minX && node->getX() <= maxX)
+        {
+            if (node->getY() >= minY && node->getY() <= maxY)
+            {
                 supportNodes.push_back(node);
             }
         }
@@ -263,18 +293,21 @@ void Point::findSupportNodes(std::vector<Node *>& domainNodes,
 
 void Point::shapeFunSolve(std::string type_in, double q_in)
 {
-    if (type_in == "RBF" || type_in == "MLS") {
+    if (type_in == "RBF" || type_in == "MLS")
+    {
         cout << "INFO AT shapeFunSolve IN Point: (x, y) = "
-        << this->X << ", " << this->Y << endl;
+             << this->X << ", " << this->Y << endl;
         cout << "\t alphai = " << alphai << ", "
-        << "dc = " << dc << ", "
-        << "q_in = " << q_in
-        << endl;
+             << "dc = " << dc << ", "
+             << "q_in = " << q_in
+             << endl;
         cout << "\t Number of Support Nodes = " << supportNodesSize << endl;
         q_in = .5;
     }
-    if (!shapeFun) {
-        if (type_in == "RBF") {
+    if (!shapeFun)
+    {
+        if (type_in == "RBF")
+        {
             shapeFun = new ShapeFunctionRBF(supportNodesSize,
                                             0,
                                             0, // RBF type
@@ -282,20 +315,30 @@ void Point::shapeFunSolve(std::string type_in, double q_in)
                                             dc,
                                             q_in,
                                             this);
-        } else if (type_in == "MLS") {
+        }
+        else if (type_in == "MLS")
+        {
             shapeFun = new ShapeFunctionMLS(supportNodesSize,
                                             1,
                                             1, // weight type
                                             alphai,
                                             dc,
                                             this);
-        } else if (type_in == "1D") {
+        }
+        else if (type_in == "1D")
+        {
             shapeFun = new ShapeFunctionLinear(this);
-        } else if (type_in == "1D-X") {
+        }
+        else if (type_in == "1D-X")
+        {
             shapeFun = new ShapeFunctionLinearX(this);
-        } else if (type_in == "2D") {
+        }
+        else if (type_in == "2D")
+        {
             shapeFun = new ShapeFunctionTriangle(this);
-        } else if (type_in == "3D") {
+        }
+        else if (type_in == "3D")
+        {
             shapeFun = new ShapeFunctionTetrahedron(this);
         }
 
@@ -312,7 +355,8 @@ void Point::gnuplotOut(std::ofstream& gpdata)
     this_gp << X << " " << Y << " " << Z << endl;
 
     // For output of support nodes.
-    for (auto& node : supportNodes) {
+    for (auto& node : supportNodes)
+    {
         this_gp_sup_nodes << node->getX() << " " << node->getY() << " " << node->getZ() << endl;
     }
 

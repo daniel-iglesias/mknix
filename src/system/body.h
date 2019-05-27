@@ -28,7 +28,8 @@
 #include <core/cellboundary.h>
 #include <core/node.h>
 
-namespace mknix {
+namespace mknix
+{
 
 class Point;
 
@@ -87,7 +88,7 @@ public:
     virtual void setOutput(std::string) = 0;
 
     virtual void outputStep
-            (const lmx::Vector<data_type>&, const lmx::Vector<data_type>&) = 0;
+    (const lmx::Vector<data_type>&, const lmx::Vector<data_type>&) = 0;
 
     virtual void outputStep(const lmx::Vector<data_type>&) = 0;
 
@@ -138,7 +139,7 @@ public:
 //     {
 //       this->boundaryGroups[boundary_name];
 //     }
-// 
+//
 //     BoundaryGroup& getBoundaryGroup( std::string boundary_name )
 //     {
 //       return this->boundaryGroups[boundary_name];

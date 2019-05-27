@@ -20,7 +20,8 @@
 #include "analysisstatic.h"
 #include "simulation.h"
 
-namespace mknix {
+namespace mknix
+{
 
 AnalysisStatic::AnalysisStatic()
     : Analysis()

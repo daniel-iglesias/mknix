@@ -38,7 +38,8 @@
 //////////////////////////////////////////// Doxygen file documentation (end)
 
 
-namespace lmx {
+namespace lmx
+{
 
 /**
 \class Configuration
@@ -68,11 +69,11 @@ public:
 
     /** Empty constructor. */
     Configuration()
-            : vectorSize(0)
-            , lastStepSize(0)
-            , presentTime(0)
-            , steps(0)
-            , verbose(true)
+        : vectorSize(0)
+        , lastStepSize(0)
+        , presentTime(0)
+        , steps(0)
+        , verbose(true)
 //     , temp(0)
     { }
 
@@ -80,11 +81,11 @@ public:
      * \param t_o Time at first step.
      */
     Configuration(double t_o)
-            : vectorSize(0)
-            , verbose(1)
-            , lastStepSize(0)
-            , steps(1)
-            , presentTime(t_o)
+        : vectorSize(0)
+        , verbose(1)
+        , lastStepSize(0)
+        , steps(1)
+        , presentTime(t_o)
 //     , temp(0)
     { /*time.push_back( t_o );*/ }
 
@@ -104,7 +105,10 @@ public:
     /**
      * @brief Needed to improve the output of DiffProblemFirstSecond runs
      */
-    void quiet() { verbose = 0; }
+    void quiet()
+    {
+        verbose = 0;
+    }
 
     void nextStep(double& stepSize);
 
@@ -114,31 +118,44 @@ public:
      */
     double getTime(int step = 0)
 //       { return this->time[time.size() - 1 - step]; }
-    { return (presentTime - step * lastStepSize); }
+    {
+        return (presentTime - step * lastStepSize);
+    }
 
     /**
      * Access to size of time line.
      */
     int getTimeSize()
 //     { return this->time.size(); }
-    { return steps; }
+    {
+        return steps;
+    }
 
     /**
      * @return Value of last time increment.
      */
-    double getLastStepSize() { return this->lastStepSize; }
+    double getLastStepSize()
+    {
+        return this->lastStepSize;
+    }
 
     /**
      * @param order Differential order of configuration.
      * @param step Indicates the (actual - step) time step
      * @return The configuration of the diff-order and step specified.
      */
-    const lmx::Vector<T>& getConf(int order, int step = 0) { return *(this->q[order][step]); }
+    const lmx::Vector<T>& getConf(int order, int step = 0)
+    {
+        return *(this->q[order][step]);
+    }
 
     /**
      * @return Maximum differential order of stored configuration.
      */
-    int getDiffOrder() { return this->q.size() - 1; }
+    int getDiffOrder()
+    {
+        return this->q.size() - 1;
+    }
 
 
     /**
@@ -161,14 +178,20 @@ public:
      * @param values Values of configuration to be set.
      * @param time_step Indicates the (actual - step) time step
      */
-    void setConf(int diff_order, Vector <T> values, int time_step = 0) { *q[diff_order][time_step] = values; }
+    void setConf(int diff_order, Vector <T> values, int time_step = 0)
+    {
+        *q[diff_order][time_step] = values;
+    }
 
     /**
      * @param diff_order Differential order of configuration.
      * @param time_step Indicates the (actual - step) time step
      * @return Values of configuration.
      */
-    Vector <T>& setConf(int diff_order, int time_step = 0) { return *q[diff_order][time_step]; }
+    Vector <T>& setConf(int diff_order, int time_step = 0)
+    {
+        return *q[diff_order][time_step];
+    }
 
 };
 
@@ -179,17 +202,21 @@ void Configuration<T>::setInitialCondition(int diff_order, lmx::Vector<T>& q_o)
  * @param q_o Value of initial condition to be set.
  */
 {
-    if (vectorSize == 0) {
+    if (vectorSize == 0)
+    {
         vectorSize = q_o.size();
     }
-    else if (vectorSize != q_o.size()) {
+    else if (vectorSize != q_o.size())
+    {
         std::stringstream message;
         message << "ERROR : trying to assing an initial condition vector of different size than the exising ones." <<
-        endl;
+                endl;
         LMX_THROW(lmx::failure_error, message.str());
     }
-    if (diff_order + 1 >= q.size()) {
-        for (int i = q.size(); i <= diff_order + 1; ++i) {
+    if (diff_order + 1 >= q.size())
+    {
+        for (int i = q.size(); i <= diff_order + 1; ++i)
+        {
             std::unique_ptr<Vector<T> > ptr(new Vector<T>(vectorSize));
             q.push_back(std::vector<std::unique_ptr<Vector<T> > >());
             q[i].push_back(std::move(ptr));
@@ -215,31 +242,37 @@ void Configuration<T>::setInitialCondition(int diff_order, lmx::Vector<T>& q_o)
 template<class T>
 void Configuration<T>::setStoredSteps(int steps_q_o, int steps_q_i, int steps_q_n)
 {
-    if (vectorSize == 0) {
+    if (vectorSize == 0)
+    {
         std::stringstream message;
         message << "ERROR : Initial conditions must be assigned before defining step storing." << endl;
         LMX_THROW(lmx::failure_error, message.str());
     }
     // Add new columns to the vectors, starting in column 1:
     unsigned int i, j;
-    for (j = 1; j < steps_q_o; ++j) {
+    for (j = 1; j < steps_q_o; ++j)
+    {
         std::unique_ptr<Vector<T> > ptr(new Vector<T>(vectorSize));
         q[0].push_back(std::move(ptr));
     }
-    for (i = 1; i < (q.size() - 1); ++i) {
-        for (j = 1; j < steps_q_i; ++j) {
+    for (i = 1; i < (q.size() - 1); ++i)
+    {
+        for (j = 1; j < steps_q_i; ++j)
+        {
             std::unique_ptr<Vector<T> > ptr(new Vector<T>(vectorSize));
             q[i].push_back(std::move(ptr));
         }
     }
-    for (j = 1; j < steps_q_n; ++j) {
+    for (j = 1; j < steps_q_n; ++j)
+    {
         std::unique_ptr<Vector<T> > ptr(new Vector<T>(vectorSize));
         q[q.size() - 1].push_back(std::move(ptr));
     }
 
     cout << "--------------------------------------------------------" << endl;
     cout << "Configuration has been resized to the following vectors:" << endl;
-    for (i = 0; i < q.size(); ++i) {
+    for (i = 0; i < q.size(); ++i)
+    {
         cout << "Derivative order = " << i << ", time line size = " << q[i].size() << endl;
     }
     cout << "--------------------------------------------------------" << endl;
@@ -260,11 +293,13 @@ void Configuration<T>::nextStep(double& step_size)
 //     cout << "Derivative order = " << i << ", q_t = " << *q[i][0] << endl;
 //   cout << "--------------------------------------------------------" << endl;
 
-    for (i = 0; i < q.size(); ++i) {
+    for (i = 0; i < q.size(); ++i)
+    {
         if (q[i].size() > 1)
         {
             temp = std::move(q[i].back()); // Save direction to last element.
-            for (j = q[i].size() - 1; j > 0; --j) {
+            for (j = q[i].size() - 1; j > 0; --j)
+            {
                 q[i][j] = std::move(q[i][j - 1]); // Move back elements
             }
             q[i][0] = std::move(temp);
@@ -278,7 +313,8 @@ void Configuration<T>::nextStep(double& step_size)
     ++steps;
 //   time.push_back( time.back() + lastStepSize );
 
-    if (verbose) {
+    if (verbose)
+    {
         cout << "--------------------------------------------------------" << endl;
 //     cout << "             Solving step number " << time.size()-1 << " time = " << time.back() << endl;
         cout << "             Solving step number " << steps << " time = " << presentTime << endl;

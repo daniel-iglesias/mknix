@@ -22,7 +22,8 @@
 
 #include "constraint.h"
 
-namespace mknix {
+namespace mknix
+{
 
 /**
 	@author AUTHORS <MAILS>
@@ -32,7 +33,7 @@ class ConstraintFixedCoordinates : public Constraint
 public:
     ConstraintFixedCoordinates();
 
-    ConstraintFixedCoordinates( Node* , Node*, double&, std::string& );
+    ConstraintFixedCoordinates( Node*, Node*, double&, std::string& );
 
     ~ConstraintFixedCoordinates();
 
@@ -42,11 +43,13 @@ public:
 
     void calcPhiqq( ) ;
 
-    lmx::Vector<data_type>& getInternalForces( ) {
+    lmx::Vector<data_type>& getInternalForces( )
+    {
         return this->internalForces;
     }
 
-    lmx::DenseMatrix<data_type>& getStiffnessMatrix( ) {
+    lmx::DenseMatrix<data_type>& getStiffnessMatrix( )
+    {
         return this->stiffnessMatrix;
     }
 

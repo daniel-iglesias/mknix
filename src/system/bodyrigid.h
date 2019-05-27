@@ -23,7 +23,8 @@
 #include "body.h"
 // #include "node.h"
 
-namespace mknix {
+namespace mknix
+{
 
 class Node;
 

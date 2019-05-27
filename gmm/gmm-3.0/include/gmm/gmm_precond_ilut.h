@@ -37,7 +37,7 @@
 */
 
 /*
-  Performane comparing for SSOR, ILU and ILUT based on sherman 5 matrix 
+  Performane comparing for SSOR, ILU and ILUT based on sherman 5 matrix
   in Harwell-Boeing collection on Sun Ultra 30 UPA/PCI (UltraSPARC-II 296MHz)
   Preconditioner & Factorization time  &  Number of Iteration \\ \hline
   SSOR        &   0.010577  & 41 \\
@@ -48,25 +48,30 @@
 
 #include "gmm_precond.h"
 
-namespace gmm {
+namespace gmm
+{
 
-  template<typename T> struct elt_rsvector_value_less_ {
-    inline bool operator()(const elt_rsvector_<T>& a, 
-			   const elt_rsvector_<T>& b) const
-    { return (gmm::abs(a.e) > gmm::abs(b.e)); }
-  };
+template<typename T> struct elt_rsvector_value_less_
+{
+    inline bool operator()(const elt_rsvector_<T>& a,
+                           const elt_rsvector_<T>& b) const
+    {
+        return (gmm::abs(a.e) > gmm::abs(b.e));
+    }
+};
 
-  /** Incomplete LU with threshold and K fill-in Preconditioner.
+/** Incomplete LU with threshold and K fill-in Preconditioner.
 
-  The algorithm of ILUT(A, 0, 1.0e-6) is slower than ILU(A). If No
-  fill-in is arrowed, you can use ILU instead of ILUT.
+The algorithm of ILUT(A, 0, 1.0e-6) is slower than ILU(A). If No
+fill-in is arrowed, you can use ILU instead of ILUT.
 
-  Notes: The idea under a concrete Preconditioner such as ilut is to
-  create a Preconditioner object to use in iterative methods.
-  */
-  template <typename Matrix>
-  class ilut_precond  {
-  public :
+Notes: The idea under a concrete Preconditioner such as ilut is to
+create a Preconditioner object to use in iterative methods.
+*/
+template <typename Matrix>
+class ilut_precond
+{
+public :
     typedef typename linalg_traits<Matrix>::value_type value_type;
     typedef wsvector<value_type> _wsvector;
     typedef rsvector<value_type> _rsvector;
@@ -75,153 +80,203 @@ namespace gmm {
     bool invert;
     LU_Matrix L, U;
 
-  protected:
+protected:
     size_type K;
-    double eps;    
+    double eps;
 
     template<typename M> void do_ilut(const M&, row_major);
     void do_ilut(const Matrix&, col_major);
 
-  public:
-    void build_with(const Matrix& A) {
-      invert = false;
-      gmm::resize(L, mat_nrows(A), mat_ncols(A));
-      gmm::resize(U, mat_nrows(A), mat_ncols(A));
-      do_ilut(A, typename principal_orientation_type<typename
-	      linalg_traits<Matrix>::sub_orientation>::potype());
+public:
+    void build_with(const Matrix& A)
+    {
+        invert = false;
+        gmm::resize(L, mat_nrows(A), mat_ncols(A));
+        gmm::resize(U, mat_nrows(A), mat_ncols(A));
+        do_ilut(A, typename principal_orientation_type<typename
+                linalg_traits<Matrix>::sub_orientation>::potype());
     }
-    ilut_precond(const Matrix& A, int k_, double eps_) 
-      : L(mat_nrows(A), mat_ncols(A)), U(mat_nrows(A), mat_ncols(A)),
-	K(k_), eps(eps_) { build_with(A); }
+    ilut_precond(const Matrix& A, int k_, double eps_)
+        : L(mat_nrows(A), mat_ncols(A)), U(mat_nrows(A), mat_ncols(A)),
+          K(k_), eps(eps_)
+    {
+        build_with(A);
+    }
     ilut_precond(size_type k_, double eps_) :  K(k_), eps(eps_) {}
-    ilut_precond(void) { K = 10; eps = 1E-7; }
-    size_type memsize() const { 
-      return sizeof(*this) + (nnz(U)+nnz(L))*sizeof(value_type);
+    ilut_precond(void)
+    {
+        K = 10;
+        eps = 1E-7;
     }
-  };
+    size_type memsize() const
+    {
+        return sizeof(*this) + (nnz(U)+nnz(L))*sizeof(value_type);
+    }
+};
 
-  template<typename Matrix> template<typename M> 
-  void ilut_precond<Matrix>::do_ilut(const M& A, row_major) {
+template<typename Matrix> template<typename M>
+void ilut_precond<Matrix>::do_ilut(const M& A, row_major)
+{
     typedef value_type T;
     typedef typename number_traits<T>::magnitude_type R;
-    
+
     size_type n = mat_nrows(A);
     if (n == 0) return;
     std::vector<T> indiag(n);
     _wsvector w(mat_ncols(A));
     _rsvector ww(mat_ncols(A)), wL(mat_ncols(A)), wU(mat_ncols(A));
     T tmp;
-    gmm::clear(U); gmm::clear(L);
-    R prec = default_tol(R()); 
+    gmm::clear(U);
+    gmm::clear(L);
+    R prec = default_tol(R());
     R max_pivot = gmm::abs(A(0,0)) * prec;
 
-    for (size_type i = 0; i < n; ++i) {
-      gmm::copy(mat_const_row(A, i), w);
-      double norm_row = gmm::vect_norm2(w);
+    for (size_type i = 0; i < n; ++i)
+    {
+        gmm::copy(mat_const_row(A, i), w);
+        double norm_row = gmm::vect_norm2(w);
 
-      typename _wsvector::iterator wkold = w.begin();
-      bool itfirst = true;
-      for (typename _wsvector::iterator wk = w.begin();
-	   wk != w.end() && wk->first < i; ) {
-	size_type k = wk->first;
-	tmp = (wk->second) * indiag[k];
-	if (gmm::abs(tmp) < eps * norm_row) w.erase(k); 
-	else { wk->second += tmp; gmm::add(scaled(mat_row(U, k), -tmp), w); }
-	if (itfirst) wk = w.begin(); else wk = ++wkold;
-	if (wk != w.end() && wk->first == k) { ++wk; itfirst = false; }
-      }
-      tmp = w[i];
+        typename _wsvector::iterator wkold = w.begin();
+        bool itfirst = true;
+        for (typename _wsvector::iterator wk = w.begin();
+                wk != w.end() && wk->first < i; )
+        {
+            size_type k = wk->first;
+            tmp = (wk->second) * indiag[k];
+            if (gmm::abs(tmp) < eps * norm_row) w.erase(k);
+            else
+            {
+                wk->second += tmp;
+                gmm::add(scaled(mat_row(U, k), -tmp), w);
+            }
+            if (itfirst) wk = w.begin();
+            else wk = ++wkold;
+            if (wk != w.end() && wk->first == k)
+            {
+                ++wk;
+                itfirst = false;
+            }
+        }
+        tmp = w[i];
 
-      if (gmm::abs(tmp) <= max_pivot) {
-	GMM_WARNING2("pivot " << i << " too small. try with ilutp ?");
-	w[i] = tmp = T(1);
-      }
+        if (gmm::abs(tmp) <= max_pivot)
+        {
+            GMM_WARNING2("pivot " << i << " too small. try with ilutp ?");
+            w[i] = tmp = T(1);
+        }
 
-      max_pivot = std::max(max_pivot, std::min(gmm::abs(tmp) * prec, R(1)));
-      indiag[i] = T(1) / tmp;
-      gmm::clean(w, eps * norm_row);
-      gmm::copy(w, ww);
-      std::sort(ww.begin(), ww.end(), elt_rsvector_value_less_<T>());
-      typename _rsvector::const_iterator wit = ww.begin(), wite = ww.end();
+        max_pivot = std::max(max_pivot, std::min(gmm::abs(tmp) * prec, R(1)));
+        indiag[i] = T(1) / tmp;
+        gmm::clean(w, eps * norm_row);
+        gmm::copy(w, ww);
+        std::sort(ww.begin(), ww.end(), elt_rsvector_value_less_<T>());
+        typename _rsvector::const_iterator wit = ww.begin(), wite = ww.end();
 
-      size_type nnl = 0, nnu = 0;    
-      wL.base_resize(K); wU.base_resize(K+1);
-      typename _rsvector::iterator witL = wL.begin(), witU = wU.begin();
-      for (; wit != wite; ++wit) 
-	if (wit->c < i) { if (nnl < K) { *witL++ = *wit; ++nnl; } }
-	else { if (nnu < K  || wit->c == i) { *witU++ = *wit; ++nnu; } }
-      wL.base_resize(nnl); wU.base_resize(nnu);
-      std::sort(wL.begin(), wL.end());
-      std::sort(wU.begin(), wU.end());
-      gmm::copy(wL, L.row(i));
-      gmm::copy(wU, U.row(i));
+        size_type nnl = 0, nnu = 0;
+        wL.base_resize(K);
+        wU.base_resize(K+1);
+        typename _rsvector::iterator witL = wL.begin(), witU = wU.begin();
+        for (; wit != wite; ++wit)
+            if (wit->c < i)
+            {
+                if (nnl < K)
+                {
+                    *witL++ = *wit;
+                    ++nnl;
+                }
+            }
+            else
+            {
+                if (nnu < K  || wit->c == i)
+                {
+                    *witU++ = *wit;
+                    ++nnu;
+                }
+            }
+        wL.base_resize(nnl);
+        wU.base_resize(nnu);
+        std::sort(wL.begin(), wL.end());
+        std::sort(wU.begin(), wU.end());
+        gmm::copy(wL, L.row(i));
+        gmm::copy(wU, U.row(i));
     }
-
-  }
-
-  template<typename Matrix> 
-  void ilut_precond<Matrix>::do_ilut(const Matrix& A, col_major) {
-    do_ilut(gmm::transposed(A), row_major());
-    invert = true;
-  }
-
-  template <typename Matrix, typename V1, typename V2> inline
-  void mult(const ilut_precond<Matrix>& P, const V1 &v1, V2 &v2) {
-    gmm::copy(v1, v2);
-    if (P.invert) {
-      gmm::lower_tri_solve(gmm::transposed(P.U), v2, false);
-      gmm::upper_tri_solve(gmm::transposed(P.L), v2, true);
-    }
-    else {
-      gmm::lower_tri_solve(P.L, v2, true);
-      gmm::upper_tri_solve(P.U, v2, false);
-    }
-  }
-
-  template <typename Matrix, typename V1, typename V2> inline
-  void transposed_mult(const ilut_precond<Matrix>& P,const V1 &v1,V2 &v2) {
-    gmm::copy(v1, v2);
-    if (P.invert) {
-      gmm::lower_tri_solve(P.L, v2, true);
-      gmm::upper_tri_solve(P.U, v2, false);
-    }
-    else {
-      gmm::lower_tri_solve(gmm::transposed(P.U), v2, false);
-      gmm::upper_tri_solve(gmm::transposed(P.L), v2, true);
-    }
-  }
-
-  template <typename Matrix, typename V1, typename V2> inline
-  void left_mult(const ilut_precond<Matrix>& P, const V1 &v1, V2 &v2) {
-    copy(v1, v2);
-    if (P.invert) gmm::lower_tri_solve(gmm::transposed(P.U), v2, false);
-    else gmm::lower_tri_solve(P.L, v2, true);
-  }
-
-  template <typename Matrix, typename V1, typename V2> inline
-  void right_mult(const ilut_precond<Matrix>& P, const V1 &v1, V2 &v2) {
-    copy(v1, v2);
-    if (P.invert) gmm::upper_tri_solve(gmm::transposed(P.L), v2, true);
-    else gmm::upper_tri_solve(P.U, v2, false);
-  }
-
-  template <typename Matrix, typename V1, typename V2> inline
-  void transposed_left_mult(const ilut_precond<Matrix>& P, const V1 &v1,
-			    V2 &v2) {
-    copy(v1, v2);
-    if (P.invert) gmm::upper_tri_solve(P.U, v2, false);
-    else gmm::upper_tri_solve(gmm::transposed(P.L), v2, true);
-  }
-
-  template <typename Matrix, typename V1, typename V2> inline
-  void transposed_right_mult(const ilut_precond<Matrix>& P, const V1 &v1,
-			     V2 &v2) {
-    copy(v1, v2);
-    if (P.invert) gmm::lower_tri_solve(P.L, v2, true);
-    else gmm::lower_tri_solve(gmm::transposed(P.U), v2, false);
-  }
 
 }
 
-#endif 
+template<typename Matrix>
+void ilut_precond<Matrix>::do_ilut(const Matrix& A, col_major)
+{
+    do_ilut(gmm::transposed(A), row_major());
+    invert = true;
+}
+
+template <typename Matrix, typename V1, typename V2> inline
+void mult(const ilut_precond<Matrix>& P, const V1 &v1, V2 &v2)
+{
+    gmm::copy(v1, v2);
+    if (P.invert)
+    {
+        gmm::lower_tri_solve(gmm::transposed(P.U), v2, false);
+        gmm::upper_tri_solve(gmm::transposed(P.L), v2, true);
+    }
+    else
+    {
+        gmm::lower_tri_solve(P.L, v2, true);
+        gmm::upper_tri_solve(P.U, v2, false);
+    }
+}
+
+template <typename Matrix, typename V1, typename V2> inline
+void transposed_mult(const ilut_precond<Matrix>& P,const V1 &v1,V2 &v2)
+{
+    gmm::copy(v1, v2);
+    if (P.invert)
+    {
+        gmm::lower_tri_solve(P.L, v2, true);
+        gmm::upper_tri_solve(P.U, v2, false);
+    }
+    else
+    {
+        gmm::lower_tri_solve(gmm::transposed(P.U), v2, false);
+        gmm::upper_tri_solve(gmm::transposed(P.L), v2, true);
+    }
+}
+
+template <typename Matrix, typename V1, typename V2> inline
+void left_mult(const ilut_precond<Matrix>& P, const V1 &v1, V2 &v2)
+{
+    copy(v1, v2);
+    if (P.invert) gmm::lower_tri_solve(gmm::transposed(P.U), v2, false);
+    else gmm::lower_tri_solve(P.L, v2, true);
+}
+
+template <typename Matrix, typename V1, typename V2> inline
+void right_mult(const ilut_precond<Matrix>& P, const V1 &v1, V2 &v2)
+{
+    copy(v1, v2);
+    if (P.invert) gmm::upper_tri_solve(gmm::transposed(P.L), v2, true);
+    else gmm::upper_tri_solve(P.U, v2, false);
+}
+
+template <typename Matrix, typename V1, typename V2> inline
+void transposed_left_mult(const ilut_precond<Matrix>& P, const V1 &v1,
+                          V2 &v2)
+{
+    copy(v1, v2);
+    if (P.invert) gmm::upper_tri_solve(P.U, v2, false);
+    else gmm::upper_tri_solve(gmm::transposed(P.L), v2, true);
+}
+
+template <typename Matrix, typename V1, typename V2> inline
+void transposed_right_mult(const ilut_precond<Matrix>& P, const V1 &v1,
+                           V2 &v2)
+{
+    copy(v1, v2);
+    if (P.invert) gmm::lower_tri_solve(P.L, v2, true);
+    else gmm::lower_tri_solve(gmm::transposed(P.U), v2, false);
+}
+
+}
+
+#endif
 

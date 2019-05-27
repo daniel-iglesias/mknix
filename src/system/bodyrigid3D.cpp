@@ -27,7 +27,8 @@
 #include <core/node.h>
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 RigidBody3D::RigidBody3D() : RigidBody()
 {
@@ -86,8 +87,10 @@ void RigidBody3D::setPosition(std::vector<double>& position)
 }
 
 void RigidBody3D::calcMassMatrix()
-{   // TODO: Define matrix in generic inertia axes
-    if( densityFactor != 1) {
+{
+    // TODO: Define matrix in generic inertia axes
+    if( densityFactor != 1)
+    {
         mass *= densityFactor;
         Ixx *= densityFactor;
         Iyy *= densityFactor;
@@ -96,7 +99,8 @@ void RigidBody3D::calcMassMatrix()
         Iyz *= densityFactor;
         Ixz *= densityFactor;
     }
-    if( Ixy == 0 && Iyz == 0 && Ixz == 0 ) { // Principal inertia axes defined
+    if( Ixy == 0 && Iyz == 0 && Ixz == 0 )   // Principal inertia axes defined
+    {
         Pxx = .5*( -Ixx +Iyy +Izz );
         Pyy = .5*( +Ixx -Iyy +Izz );
         Pzz = .5*( +Ixx +Iyy -Izz );

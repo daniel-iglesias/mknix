@@ -8,7 +8,8 @@
 #include <system/system.h>
 #include <system/loadthermalbody.h>
 
-namespace mknix {
+namespace mknix
+{
 
 GaussPoint3D::GaussPoint3D()
 {
@@ -24,19 +25,19 @@ GaussPoint3D::GaussPoint3D(double alpha_in,
                            double coor_y,
                            double coor_z,
                            double dc_in, bool stressPoint_in
-)
-        : GaussPoint(3,
-                     alpha_in,
-                     weight_in,
-                     jacobian_in,
-                     mat_in,
-                     num_in,
-                     coor_x,
-                     coor_y,
-                     coor_z,
-                     dc_in,
-                     stressPoint_in
-)
+                          )
+    : GaussPoint(3,
+                 alpha_in,
+                 weight_in,
+                 jacobian_in,
+                 mat_in,
+                 num_in,
+                 coor_x,
+                 coor_y,
+                 coor_z,
+                 dc_in,
+                 stressPoint_in
+                )
 {
 //   this->jacobian = jacobian_in;
 //  cout << "jacobian = " << jacobian << endl;
@@ -53,7 +54,8 @@ void GaussPoint3D::shapeFunSolve(std::string type_in, double q_in)
     initializeMatVecs();
     GaussPoint::shapeFunSolve(type_in, q_in);
     //////////////// Filling matrix B = L * Phi
-    for (auto i = 0u; i < supportNodesSize; ++i) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
         B.writeElement(shapeFun->getPhi(1, i), 0, 0 + 3 * i);
         B.writeElement(shapeFun->getPhi(2, i), 1, 1 + 3 * i);
         B.writeElement(shapeFun->getPhi(3, i), 2, 2 + 3 * i);
@@ -64,14 +66,19 @@ void GaussPoint3D::shapeFunSolve(std::string type_in, double q_in)
         B.writeElement(shapeFun->getPhi(3, i), 5, 0 + 3 * i);
         B.writeElement(shapeFun->getPhi(1, i), 5, 2 + 3 * i);
     }
-    if (stressPoint) {
-        if (Simulation::getSmoothingType() == "CONSTANT") {
-            for (auto i = 0u; i < supportNodesSize; ++i) {
+    if (stressPoint)
+    {
+        if (Simulation::getSmoothingType() == "CONSTANT")
+        {
+            for (auto i = 0u; i < supportNodesSize; ++i)
+            {
                 supportNodes[i]->addWeight(weight * jacobian);
             }
         }
-        if (Simulation::getSmoothingType() == "LOCAL") {
-            for (auto i = 0u; i < supportNodesSize; ++i) {
+        if (Simulation::getSmoothingType() == "LOCAL")
+        {
+            for (auto i = 0u; i < supportNodesSize; ++i)
+            {
                 supportNodes[i]->addWeight(weight * shapeFun->getPhi(0, i) * jacobian);
             }
         }
@@ -83,13 +90,15 @@ void GaussPoint3D::fillFEmatrices()
 {
     initializeMatVecs();
 
-    if (!shapeFun) {
+    if (!shapeFun)
+    {
         shapeFun = new ShapeFunctionTetrahedron(this);
     }
     shapeFun->calc();
     //////////////// Filling matrix B = L * Phi
     /////////////// Dim(B) = 6x12
-    for (auto i = 0u; i < supportNodesSize; ++i) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
         B.writeElement(shapeFun->getPhi(1, i), 0, 0 + 3 * i);
         B.writeElement(shapeFun->getPhi(2, i), 1, 1 + 3 * i);
         B.writeElement(shapeFun->getPhi(3, i), 2, 2 + 3 * i);
@@ -99,11 +108,14 @@ void GaussPoint3D::fillFEmatrices()
         B.writeElement(shapeFun->getPhi(2, i), 4, 2 + 3 * i);
         B.writeElement(shapeFun->getPhi(3, i), 5, 0 + 3 * i);
         B.writeElement(shapeFun->getPhi(1, i), 5, 2 + 3 * i);
-        if (stressPoint) {
-            if (Simulation::getSmoothingType() == "CONSTANT") {
+        if (stressPoint)
+        {
+            if (Simulation::getSmoothingType() == "CONSTANT")
+            {
                 supportNodes[i]->addWeight(weight * jacobian);
             }
-            if (Simulation::getSmoothingType() == "LOCAL") {
+            if (Simulation::getSmoothingType() == "LOCAL")
+            {
                 supportNodes[i]->addWeight(weight * shapeFun->getPhi(0, i) * jacobian);
             }
         }
@@ -116,8 +128,10 @@ void GaussPoint3D::computeMij()
     //////////////// Calculation of Mass matrix:
     //////////////// M = rho * wg * N^T * N * |Jc|
     //////////////// Mij = rho * wg * Ni * Nj * |Jc| = M(3*i + m, 3*j + n), m,n = 0,1.
-    for (auto i = 0u; i < supportNodesSize; ++i) {
-        for (auto j = 0u; j < supportNodesSize; ++j) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
+        for (auto j = 0u; j < supportNodesSize; ++j)
+        {
             M.writeElement(mat->getDensity() * weight * shapeFun->getPhi(0, i) * shapeFun->getPhi(0, j) * jacobian,
                            3 * i, 3 * j);
             M.writeElement(mat->getDensity() * weight * shapeFun->getPhi(0, i) * shapeFun->getPhi(0, j) * jacobian,
@@ -138,12 +152,18 @@ void GaussPoint3D::computeKij()
 {
     K.reset();
     // Kij = wg * Bi^T * D * Bj * |Jc| = K(3*i + m, 3*j + n)
-    for (auto i = 0u; i < supportNodesSize; ++i) {
-        for (auto j = 0u; j < supportNodesSize; ++j) {
-            for (auto m = 0u; m < 3; ++m) {
-                for (auto n = 0u; n < 3; ++n) {
-                    for (auto a = 0u; a < 6; ++a) {
-                        for (auto b = 0u; b < 6; ++b) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
+        for (auto j = 0u; j < supportNodesSize; ++j)
+        {
+            for (auto m = 0u; m < 3; ++m)
+            {
+                for (auto n = 0u; n < 3; ++n)
+                {
+                    for (auto a = 0u; a < 6; ++a)
+                    {
+                        for (auto b = 0u; b < 6; ++b)
+                        {
                             // K(3*i + m, 3*j + n) = Kij(m,n)
                             // = w * J * Bi(a,m) * D(a,b) * Bj(b,n);
                             K.addElement(weight *
@@ -168,40 +188,44 @@ void GaussPoint3D::computeStress()
 {
     tension.clear();
 
-    for (auto i = 0u; i < supportNodesSize; ++i) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
         tension.addElement(
-                mat->getD().readElement(0, 0) * B.readElement(0, 0 + 2 * i) * supportNodes[i]->getUx() +
-                mat->getD().readElement(0, 1) * B.readElement(1, 1 + 2 * i) * supportNodes[i]->getUy() +
-                mat->getD().readElement(0, 2) * B.readElement(2, 2 + 2 * i) * supportNodes[i]->getUz(),
-                0);
+            mat->getD().readElement(0, 0) * B.readElement(0, 0 + 2 * i) * supportNodes[i]->getUx() +
+            mat->getD().readElement(0, 1) * B.readElement(1, 1 + 2 * i) * supportNodes[i]->getUy() +
+            mat->getD().readElement(0, 2) * B.readElement(2, 2 + 2 * i) * supportNodes[i]->getUz(),
+            0);
         tension.addElement(
-                mat->getD().readElement(1, 0) * B.readElement(0, 0 + 2 * i) * supportNodes[i]->getUx() +
-                mat->getD().readElement(1, 1) * B.readElement(1, 1 + 2 * i) * supportNodes[i]->getUy() +
-                mat->getD().readElement(1, 2) * B.readElement(2, 2 + 2 * i) * supportNodes[i]->getUz(),
-                1);
+            mat->getD().readElement(1, 0) * B.readElement(0, 0 + 2 * i) * supportNodes[i]->getUx() +
+            mat->getD().readElement(1, 1) * B.readElement(1, 1 + 2 * i) * supportNodes[i]->getUy() +
+            mat->getD().readElement(1, 2) * B.readElement(2, 2 + 2 * i) * supportNodes[i]->getUz(),
+            1);
         tension.addElement(
-                mat->getD().readElement(2, 0) * B.readElement(0, 0 + 2 * i) * supportNodes[i]->getUx() +
-                mat->getD().readElement(2, 1) * B.readElement(1, 1 + 2 * i) * supportNodes[i]->getUy() +
-                mat->getD().readElement(2, 2) * B.readElement(2, 2 + 2 * i) * supportNodes[i]->getUz(),
-                2);
+            mat->getD().readElement(2, 0) * B.readElement(0, 0 + 2 * i) * supportNodes[i]->getUx() +
+            mat->getD().readElement(2, 1) * B.readElement(1, 1 + 2 * i) * supportNodes[i]->getUy() +
+            mat->getD().readElement(2, 2) * B.readElement(2, 2 + 2 * i) * supportNodes[i]->getUz(),
+            2);
         tension.addElement(
-                mat->getD().readElement(3, 3) * B.readElement(3, 0 + 2 * i) * supportNodes[i]->getUx() +
-                mat->getD().readElement(3, 3) * B.readElement(3, 1 + 2 * i) * supportNodes[i]->getUy(),
-                3);
+            mat->getD().readElement(3, 3) * B.readElement(3, 0 + 2 * i) * supportNodes[i]->getUx() +
+            mat->getD().readElement(3, 3) * B.readElement(3, 1 + 2 * i) * supportNodes[i]->getUy(),
+            3);
         tension.addElement(
-                mat->getD().readElement(4, 4) * B.readElement(4, 1 + 2 * i) * supportNodes[i]->getUy() +
-                mat->getD().readElement(4, 4) * B.readElement(4, 2 + 2 * i) * supportNodes[i]->getUz(),
-                4);
+            mat->getD().readElement(4, 4) * B.readElement(4, 1 + 2 * i) * supportNodes[i]->getUy() +
+            mat->getD().readElement(4, 4) * B.readElement(4, 2 + 2 * i) * supportNodes[i]->getUz(),
+            4);
         tension.addElement(
-                mat->getD().readElement(5, 5) * B.readElement(5, 0 + 2 * i) * supportNodes[i]->getUx() +
-                mat->getD().readElement(5, 5) * B.readElement(5, 2 + 2 * i) * supportNodes[i]->getUz(),
-                5);
+            mat->getD().readElement(5, 5) * B.readElement(5, 0 + 2 * i) * supportNodes[i]->getUx() +
+            mat->getD().readElement(5, 5) * B.readElement(5, 2 + 2 * i) * supportNodes[i]->getUz(),
+            5);
     }
 //  cout << "\nVector tension: \n" << tension << endl;
 
-    if (Simulation::getSmoothingType() == "CONSTANT") {
-        for (auto i = 0u; i < supportNodesSize; ++i) {
-            for (auto j = 0u; j < 6; ++j) {
+    if (Simulation::getSmoothingType() == "CONSTANT")
+    {
+        for (auto i = 0u; i < supportNodesSize; ++i)
+        {
+            for (auto j = 0u; j < 6; ++j)
+            {
                 r.writeElement(weight / supportNodes[i]->getWeight()
                                * tension.readElement(j) * jacobian, 6 * i + j);
             }
@@ -216,8 +240,10 @@ void GaussPoint3D::computeNLStress()
     sigma3 *= 1. / F3.determinant();
 
 //  cout << "\nVector tension: \n" << sigma2 << endl;
-    if (Simulation::getSmoothingType() == "CONSTANT") {
-        for (auto i = 0u; i < supportNodesSize; ++i) {
+    if (Simulation::getSmoothingType() == "CONSTANT")
+    {
+        for (auto i = 0u; i < supportNodesSize; ++i)
+        {
             r.writeElement(weight / supportNodes[i]->getWeight()
                            * sigma3(0, 0) * jacobian, 6 * i + 0);
             r.writeElement(weight / supportNodes[i]->getWeight()
@@ -232,8 +258,10 @@ void GaussPoint3D::computeNLStress()
                            * sigma3(2, 2) * jacobian, 6 * i + 5);
         }
     }
-    else if (Simulation::getSmoothingType() == "LOCAL") {
-        for (auto i = 0u; i < supportNodesSize; ++i) {
+    else if (Simulation::getSmoothingType() == "LOCAL")
+    {
+        for (auto i = 0u; i < supportNodesSize; ++i)
+        {
             r.writeElement(weight / supportNodes[i]->getWeight()
                            * shapeFun->getPhi(0, i) * sigma3(0, 0) * jacobian, 6 * i + 0);
             r.writeElement(weight / supportNodes[i]->getWeight()
@@ -248,8 +276,10 @@ void GaussPoint3D::computeNLStress()
                            * shapeFun->getPhi(0, i) * sigma3(2, 2) * jacobian, 6 * i + 5);
         }
     }
-    else if (Simulation::getSmoothingType() == "GLOBAL") {
-        for (auto i = 0u; i < supportNodesSize; ++i) {
+    else if (Simulation::getSmoothingType() == "GLOBAL")
+    {
+        for (auto i = 0u; i < supportNodesSize; ++i)
+        {
             r.writeElement(weight * mat->getDensity()
                            * shapeFun->getPhi(0, i) * sigma3(0, 0) * jacobian, 6 * i + 0);
             r.writeElement(weight * mat->getDensity()
@@ -271,8 +301,10 @@ void GaussPoint3D::computeFint()
     fint.reset();
     computeKij();
     lmx::Vector<data_type> disp(3 * supportNodesSize);
-    for (auto a = 0u; a < supportNodesSize; ++a) {
-        for (auto j = 0u; j < 3; ++j) {
+    for (auto a = 0u; a < supportNodesSize; ++a)
+    {
+        for (auto j = 0u; j < 3; ++j)
+        {
             disp.writeElement(supportNodes[a]->getU(j), 3 * a + j);
         }
     }
@@ -287,8 +319,10 @@ void GaussPoint3D::computeFext()
     // Mass matrix must be computed previously
     fext.reset();
     lmx::Vector<data_type> gravity(3 * supportNodesSize);
-    for (auto a = 0u; a < supportNodesSize; ++a) {
-        for (auto j = 0u; j < 3; ++j) {
+    for (auto a = 0u; a < supportNodesSize; ++a)
+    {
+        for (auto j = 0u; j < 3; ++j)
+        {
             gravity.writeElement(-Simulation::getGravity(j), 3 * a + j);
         }
     }
@@ -302,9 +336,12 @@ void GaussPoint3D::computeFext()
 void GaussPoint3D::computeNLFint()
 {
     F3.zero();
-    for (auto i = 0u; i < 3; ++i) {
-        for (auto j = 0u; j < 3; ++j) {
-            for (auto k = 0u; k < supportNodesSize; ++k) {
+    for (auto i = 0u; i < 3; ++i)
+    {
+        for (auto j = 0u; j < 3; ++j)
+        {
+            for (auto k = 0u; k < supportNodesSize; ++k)
+            {
                 F3(i, j) += supportNodes[k]->getqx(i) * shapeFun->getPhi(j + 1, k);
             }
         }
@@ -312,12 +349,15 @@ void GaussPoint3D::computeNLFint()
     mat->computeS(S3, F3);
     P3.beProductOf(F3, S3);
     fint.reset();
-    for (auto a = 0u; a < supportNodesSize; ++a) {
-        for (auto j = 0u; j < 3; ++j) {
-            for (auto k = 0u; k < 3; ++k) { //dot product
+    for (auto a = 0u; a < supportNodesSize; ++a)
+    {
+        for (auto j = 0u; j < 3; ++j)
+        {
+            for (auto k = 0u; k < 3; ++k)   //dot product
+            {
                 fint.addElement(weight * jacobian * P3(j, k) * shapeFun->getPhi(k + 1, a),
                                 3 * a + j
-                ); //maybe P(j,i)?
+                               ); //maybe P(j,i)?
             }
         }
     }
@@ -335,12 +375,18 @@ void GaussPoint3D::computeNLKij()
     ////////////// Kab = wg * |Jc| * phidot_a * csym * phidot_b
     //////////////     = K(3*a + m, 3*b + n)
     //Exactly the same as in 2D but less efficient...
-    for (auto a = 0u; a < supportNodesSize; ++a) {
-        for (auto b = 0u; b < supportNodesSize; ++b) {
-            for (auto m = 0u; m < 3; ++m) {
-                for (auto n = 0u; n < 3; ++n) {
-                    for (auto i = 0u; i < 3; ++i) {
-                        for (auto j = 0u; j < 3; ++j) {
+    for (auto a = 0u; a < supportNodesSize; ++a)
+    {
+        for (auto b = 0u; b < supportNodesSize; ++b)
+        {
+            for (auto m = 0u; m < 3; ++m)
+            {
+                for (auto n = 0u; n < 3; ++n)
+                {
+                    for (auto i = 0u; i < 3; ++i)
+                    {
+                        for (auto j = 0u; j < 3; ++j)
+                        {
 //                             for (  k=0; k<3; ++k ) {
 //                                 for ( l=0; l<3; ++l ) {
 // //                   K(3*a + m, 3*b + n) = Kab(m,n);
@@ -382,10 +428,14 @@ void GaussPoint3D::computeNLKij()
     }
     // Initial Stress component:
     data_type phiSphi = 0.;
-    for (auto a = 0u; a < supportNodesSize; ++a) {
-        for (auto b = 0u; b < supportNodesSize; ++b) {
-            for (auto i = 0u; i < 3; ++i) {
-                for (auto j = 0u; j < 3; ++j) {
+    for (auto a = 0u; a < supportNodesSize; ++a)
+    {
+        for (auto b = 0u; b < supportNodesSize; ++b)
+        {
+            for (auto i = 0u; i < 3; ++i)
+            {
+                for (auto j = 0u; j < 3; ++j)
+                {
 //          phiSphi += shapeFun->getPhi(i+1,a) * S2(i,j) *
 //                     shapeFun->getPhi(j+1,b);
                     phiSphi += shapeFun->getPhi(i + 1, a) * S3(i, j)
@@ -497,17 +547,21 @@ void GaussPoint3D::computeNLKij()
 void GaussPoint3D::assembleMij(lmx::Matrix<data_type>& globalMass)
 {
 // 	cout << "MATRIX M in assembly:" << M << endl;
-    for (auto i = 0u; i < supportNodesSize; ++i) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
 //     cout<<"node: "<< supportNodes[i]->getNumber() << " "
 //         <<supportNodes[i]->getX() << " "
 //         <<supportNodes[i]->getY() << " " << endl ;
-        for (auto j = 0u; j < supportNodesSize; ++j) {
-            for (auto m = 0u; m < 3; ++m) {
-                for (auto n = 0u; n < 3; ++n) {
+        for (auto j = 0u; j < supportNodesSize; ++j)
+        {
+            for (auto m = 0u; m < 3; ++m)
+            {
+                for (auto n = 0u; n < 3; ++n)
+                {
                     globalMass.addElement(M.readElement(3 * i + m, 3 * j + n),
                                           3 * supportNodes[i]->getNumber() + m,
                                           3 * supportNodes[j]->getNumber() + n
-                    );
+                                         );
                 }
             }
         }
@@ -518,17 +572,21 @@ void GaussPoint3D::assembleMij(lmx::Matrix<data_type>& globalMass)
 
 void GaussPoint3D::assembleKij(lmx::Matrix<data_type>& globalTangent)
 {
-    for (auto i = 0u; i < supportNodesSize; ++i) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
 //     cout<<"node: "<< supportNodes[i]->nodeNumber() << " "
 //         <<supportNodes[i]->getx() << " "
 //         <<supportNodes[i]->gety() << " " << endl ;
-        for (auto j = 0u; j < supportNodesSize; ++j) {
-            for (auto m = 0u; m < 3; ++m) {
-                for (auto n = 0u; n < 3; ++n) {
+        for (auto j = 0u; j < supportNodesSize; ++j)
+        {
+            for (auto m = 0u; m < 3; ++m)
+            {
+                for (auto n = 0u; n < 3; ++n)
+                {
                     globalTangent.addElement(K.readElement(3 * i + m, 3 * j + n),
                                              3 * supportNodes[i]->getNumber() + m,
                                              3 * supportNodes[j]->getNumber() + n
-                    );
+                                            );
                 }
             }
         }
@@ -541,11 +599,13 @@ void GaussPoint3D::assembleRi(lmx::Vector<data_type>& bodyR, int firstNode)
 //   cout << "Size = " << bodyR.size() << "solving tensions..." << endl;
 //   cout << "Size = " << r.size() << "solving tensions..." << endl;
 
-    for (auto i = 0u; i < supportNodesSize; ++i) {
-        for (auto m = 0u; m < 6; ++m) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
+        for (auto m = 0u; m < 6; ++m)
+        {
             bodyR.addElement(r.readElement(6 * i + m),
                              6 * (supportNodes[i]->getNumber() - firstNode) + m
-            );
+                            );
         }
     }
 }
@@ -553,11 +613,13 @@ void GaussPoint3D::assembleRi(lmx::Vector<data_type>& bodyR, int firstNode)
 
 void GaussPoint3D::assembleFint(lmx::Vector<data_type>& globalFint)
 {
-    for (auto i = 0u; i < supportNodesSize; ++i) {
-        for (auto m = 0u; m < 3; ++m) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
+        for (auto m = 0u; m < 3; ++m)
+        {
             globalFint.addElement(fint.readElement(3 * i + m),
                                   3 * supportNodes[i]->getNumber() + m
-            );
+                                 );
         }
     }
 }
@@ -565,11 +627,13 @@ void GaussPoint3D::assembleFint(lmx::Vector<data_type>& globalFint)
 
 void GaussPoint3D::assembleFext(lmx::Vector<data_type>& globalFext)
 {
-    for (auto i = 0u; i < supportNodesSize; ++i) {
-        for (auto m = 0u; m < 3; ++m) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
+        for (auto m = 0u; m < 3; ++m)
+        {
             globalFext.addElement(fext.readElement(3 * i + m),
                                   3 * supportNodes[i]->getNumber() + m
-            );
+                                 );
         }
     }
 }
@@ -578,8 +642,10 @@ void GaussPoint3D::assembleFext(lmx::Vector<data_type>& globalFext)
 double GaussPoint3D::calcPotentialE(const lmx::Vector<data_type>& q)
 {
     double potential = 0;
-    for (auto i = 0u; i < supportNodesSize; ++i) {
-        for (auto m = 0u; m < 3; ++m) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
+        for (auto m = 0u; m < 3; ++m)
+        {
             potential += q.readElement(3 * supportNodes[i]->getNumber() + m)
                          * fext.readElement(3 * i + m);
         }
@@ -591,10 +657,14 @@ double GaussPoint3D::calcPotentialE(const lmx::Vector<data_type>& q)
 double GaussPoint3D::calcKineticE(const lmx::Vector<data_type>& qdot)
 {
     double kinetic = 0;
-    for (auto i = 0u; i < supportNodesSize; ++i) {
-        for (auto n = 0u; n < 3; ++n) {
-            for (auto j = 0u; j < supportNodesSize; ++j) {
-                for (auto m = 0u; m < 3; ++m) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
+        for (auto n = 0u; n < 3; ++n)
+        {
+            for (auto j = 0u; j < supportNodesSize; ++j)
+            {
+                for (auto m = 0u; m < 3; ++m)
+                {
                     kinetic -= 0.5
                                * qdot.readElement(3 * supportNodes[i]->getNumber() + n)
                                * M.readElement(3 * i + n, 3 * j + m)

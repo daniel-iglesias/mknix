@@ -21,7 +21,8 @@
 #include "point.h"
 #include "node.h"
 
-namespace mknix {
+namespace mknix
+{
 
 ShapeFunctionTetrahedron::ShapeFunctionTetrahedron()
     : ShapeFunction()
@@ -55,7 +56,8 @@ void ShapeFunctionTetrahedron::calc()
 
     //////////////////////////////////////////////////////////////////
     // phi(0,i) = (a_i + b_i*x + c_i*y + d_i*z) / (6*J)
-    for( int i=0; i<4; ++i ) {
+    for( int i=0; i<4; ++i )
+    {
         phi.writeElement
         (
             ( a[i] + b[i]*gp->X + c[i]*gp->Y + d[i]*gp->Z )
@@ -66,19 +68,20 @@ void ShapeFunctionTetrahedron::calc()
     //////////////////////////////////////////////////////////////////
     // FIRST DERIVATIVES:
     //////////////////////////////////////////////////////////////////
-    for( int i=0; i<4; ++i ) {
+    for( int i=0; i<4; ++i )
+    {
         phi.writeElement( b[i] / ( 6*gp->jacobian ), 1, i ); // ,x
         phi.writeElement( c[i] / ( 6*gp->jacobian ), 2, i ); // ,y
         phi.writeElement( d[i] / ( 6*gp->jacobian ), 3, i ); // ,z
     }
 
-  //     cout << "jacobian = " << gp->jacobian << endl;
-  //     cout << "gp = (" << gp->X << ", " << gp->Y << ", " << gp->Z << ");\n";
-  //     cout << "a = (" << a[0] << ", " << a[1] << ", " << a[2] << ", " << a[3] << ");\n";
-  //     cout << "b = (" << b[0] << ", " << b[1] << ", " << b[2] << ", " << b[3] << ");\n";
-  //     cout << "c = (" << c[0] << ", " << c[1] << ", " << c[2] << ", " << c[3] << ");\n";
-  //     cout << "d = (" << d[0] << ", " << d[1] << ", " << d[2] << ", " << d[3] << ");\n";
-  //     cout << "phi = " << phi << endl;
+    //     cout << "jacobian = " << gp->jacobian << endl;
+    //     cout << "gp = (" << gp->X << ", " << gp->Y << ", " << gp->Z << ");\n";
+    //     cout << "a = (" << a[0] << ", " << a[1] << ", " << a[2] << ", " << a[3] << ");\n";
+    //     cout << "b = (" << b[0] << ", " << b[1] << ", " << b[2] << ", " << b[3] << ");\n";
+    //     cout << "c = (" << c[0] << ", " << c[1] << ", " << c[2] << ", " << c[3] << ");\n";
+    //     cout << "d = (" << d[0] << ", " << d[1] << ", " << d[2] << ", " << d[3] << ");\n";
+    //     cout << "phi = " << phi << endl;
 }
 
 void ShapeFunctionTetrahedron::compute_abcd( int i1, int i2, int i3 )
@@ -98,7 +101,7 @@ void ShapeFunctionTetrahedron::compute_abcd( int i1, int i2, int i3 )
     det_a(2,0) = gp->supportNodes[i3]->getX();
     det_a(2,1) = gp->supportNodes[i3]->getY();
     det_a(2,2) = gp->supportNodes[i3]->getZ();
-    
+
 //     cout << det_a << endl;
 
     a.push_back(sign[i2]*det_a.determinant());
@@ -106,19 +109,22 @@ void ShapeFunctionTetrahedron::compute_abcd( int i1, int i2, int i3 )
     int i;
 
     det_bcd = det_a;
-    for(i=0; i<3; ++i) {
+    for(i=0; i<3; ++i)
+    {
         det_bcd(i,0) = 1.;
     }
     b.push_back( -sign[i2]*(det_bcd.determinant()) );
 
     det_bcd = det_a;
-    for(i=0; i<3; ++i) {
+    for(i=0; i<3; ++i)
+    {
         det_bcd(i,0) = 1.;
         det_bcd(i,1) = det_a(i,0);
     }
     c.push_back( sign[i2]*(det_bcd.determinant()) );
 
-    for(i=0; i<3; ++i) {
+    for(i=0; i<3; ++i)
+    {
         det_bcd(i,0) = 1.;
         det_bcd(i,1) = det_a(i,0);
         det_bcd(i,2) = det_a(i,1);

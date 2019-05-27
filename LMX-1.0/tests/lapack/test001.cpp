@@ -5,50 +5,52 @@ using namespace lmx;
 
 class SolveTest
 {
-  public:
+public:
     SolveTest()
     {}
     ~SolveTest()
     {}
     void solve( int dim )
     {
-      A.resize(0,0);
-      A.resize(dim,dim);
-      cout << "Solving system of " << dim << " equations... ";
-      cout.flush();
-      b.resize(dim);
+        A.resize(0,0);
+        A.resize(dim,dim);
+        cout << "Solving system of " << dim << " equations... ";
+        cout.flush();
+        b.resize(dim);
 
-      b.fillIdentity();
-      A.fillRandom();
+        b.fillIdentity();
+        A.fillRandom();
 
-      LinearSystem<double> x(A,b);
+        LinearSystem<double> x(A,b);
 
-      {
-        ExactStopwatch sw;
-        sw.setQuiet();
-        x.solveYourself();
-        cout << sw.getTime() << endl;
-      }
+        {
+            ExactStopwatch sw;
+            sw.setQuiet();
+            x.solveYourself();
+            cout << sw.getTime() << endl;
+        }
 
     }
 
-  private:
+private:
     Matrix<double> A;
     Vector<double> b;
 };
 
-int main(int argc, char* argv){
+int main(int argc, char* argv)
+{
 
-  setMatrixType(0);
-  setVectorType(0);
-  setLinSolverType(0);
+    setMatrixType(0);
+    setVectorType(0);
+    setLinSolverType(0);
 
-  int i;
-  SolveTest tester;
+    int i;
+    SolveTest tester;
 
-  for(i=10; i<=1000; i=10*i){
-    tester.solve( i );
-  }
+    for(i=10; i<=1000; i=10*i)
+    {
+        tester.solve( i );
+    }
 
-  return 1;
-} 
+    return 1;
+}

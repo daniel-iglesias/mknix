@@ -22,27 +22,28 @@
 #include <core/node.h>
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 Constraint::Constraint()
 {
 }
 
 Constraint::Constraint(double& alpha_in, std::string& method_in)
-        : dim(Simulation::getDim())
-        , iter_augmented(0)
-        , alpha(alpha_in)
-        , method(method_in)
-        , title()
+    : dim(Simulation::getDim())
+    , iter_augmented(0)
+    , alpha(alpha_in)
+    , method(method_in)
+    , title()
 {
 }
 
 Constraint::Constraint(double& alpha_in, std::string& method_in, int dim_in)
-        : dim(dim_in)
-        , iter_augmented(0)
-        , alpha(alpha_in)
-        , method(method_in)
-        , title()
+    : dim(dim_in)
+    , iter_augmented(0)
+    , alpha(alpha_in)
+    , method(method_in)
+    , title()
 {
 }
 
@@ -56,9 +57,11 @@ void Constraint::writeJointInfo(std::ofstream * outfile)
 {
     int i, nodesSize(nodes.size());
 
-    if (!title.empty()) {
+    if (!title.empty())
+    {
         *outfile << "\t" << method << " " << title << " ";
-        for (i = 0; i < nodesSize; ++i) {
+        for (i = 0; i < nodesSize; ++i)
+        {
             *outfile << nodes[i]->getNumber() << " ";
         }
         *outfile << endl;
@@ -73,7 +76,8 @@ void Constraint::calcInternalForces()
     calcPhiq();
 
     unsigned int i;
-    for (i = 0; i < phi.size(); ++i) {
+    for (i = 0; i < phi.size(); ++i)
+    {
         internalForces += phi_q[i] * (alpha * phi[i] + lambda[i]);
 //     cout << "i: " << i << ", phi_q[i]= "<< phi_q[i];
     }
@@ -85,9 +89,12 @@ void Constraint::calcTangentMatrix()
     calcPhiqq();
 
     unsigned int i, j, k;
-    for (i = 0; i < stiffnessMatrix.rows(); ++i) {
-        for (j = 0; j < stiffnessMatrix.cols(); ++j) {
-            for (k = 0; k < phi.size(); ++k) {
+    for (i = 0; i < stiffnessMatrix.rows(); ++i)
+    {
+        for (j = 0; j < stiffnessMatrix.cols(); ++j)
+        {
+            for (k = 0; k < phi.size(); ++k)
+            {
                 stiffnessMatrix(i, j) += phi_qq[k](i, j) * (alpha * phi[k] + lambda[k]);
                 stiffnessMatrix(i, j) += phi_q[k](i) * (alpha * phi_q[k](j));
             }
@@ -101,22 +108,26 @@ void Constraint::calcTangentMatrix()
 
 
 void Constraint::assembleInternalForces
-        (lmx::Vector<data_type>& globalInternalForces)
+(lmx::Vector<data_type>& globalInternalForces)
 {
     int nodesSize = nodes.size();
     int i, m;
     size_t k, counter(0);
-    for (i = 0; i < nodesSize; ++i) {
-        for (k = 0; k < nodes[i]->getSupportSize(0); ++k) {
-            if (nodes[i]->getNumber() >= 0) {
-                for (m = 0; m < Simulation::getDim(); ++m) {
+    for (i = 0; i < nodesSize; ++i)
+    {
+        for (k = 0; k < nodes[i]->getSupportSize(0); ++k)
+        {
+            if (nodes[i]->getNumber() >= 0)
+            {
+                for (m = 0; m < Simulation::getDim(); ++m)
+                {
 //           cout << endl <<
 //                   "Simulation::getDim()*nodes[i]->getSupportNodeNumber(0,k) + m = " <<
 //                   Simulation::getDim()*nodes[i]->getSupportNodeNumber(0,k) + m << endl <<
 //                   "Simulation::getDim()*counter + m = " <<
 //                   Simulation::getDim()*counter + m << endl;
                     globalInternalForces(Simulation::getDim() * nodes[i]->getSupportNodeNumber(0, k) + m)
-                            += internalForces.readElement(Simulation::getDim() * counter + m);
+                    += internalForces.readElement(Simulation::getDim() * counter + m);
                 }
             }
             ++counter;
@@ -128,26 +139,34 @@ void Constraint::assembleInternalForces
 }
 
 void Constraint::assembleTangentMatrix
-        (lmx::Matrix<data_type>& globalTangent)
+(lmx::Matrix<data_type>& globalTangent)
 {
     int nodesSize = nodes.size();
     size_t supportNodesSize_i, supportNodesSize_j;
     int i, j, m, n;
     size_t k, l, counter_i(0), counter_j(0);
-    for (i = 0; i < nodesSize; ++i) {
+    for (i = 0; i < nodesSize; ++i)
+    {
         supportNodesSize_i = nodes[i]->getSupportSize(0);
-        for (k = 0; k < supportNodesSize_i; ++k) {
-            for (j = 0; j < nodesSize; ++j) {
+        for (k = 0; k < supportNodesSize_i; ++k)
+        {
+            for (j = 0; j < nodesSize; ++j)
+            {
                 supportNodesSize_j = nodes[j]->getSupportSize(0);
-                for (l = 0; l < supportNodesSize_j; ++l) {
-                    if (nodes[i]->getNumber() >= 0) {
-                        if (nodes[j]->getNumber() >= 0) {
-                            for (m = 0; m < Simulation::getDim(); ++m) {
-                                for (n = 0; n < Simulation::getDim(); ++n) {
+                for (l = 0; l < supportNodesSize_j; ++l)
+                {
+                    if (nodes[i]->getNumber() >= 0)
+                    {
+                        if (nodes[j]->getNumber() >= 0)
+                        {
+                            for (m = 0; m < Simulation::getDim(); ++m)
+                            {
+                                for (n = 0; n < Simulation::getDim(); ++n)
+                                {
                                     globalTangent(Simulation::getDim() * nodes[i]->getSupportNodeNumber(0, k) + m,
                                                   Simulation::getDim() * nodes[j]->getSupportNodeNumber(0, l) + n)
-                                            += stiffnessMatrix.readElement(Simulation::getDim() * counter_i + m,
-                                                                           Simulation::getDim() * counter_j + n);
+                                    += stiffnessMatrix.readElement(Simulation::getDim() * counter_i + m,
+                                                                   Simulation::getDim() * counter_j + n);
                                 }
                             }
                         }
@@ -171,29 +190,37 @@ void Constraint::assembleTangentMatrix
 
 bool Constraint::checkAugmented()
 {
-     if (method == "AUGMENTED") {
+    if (method == "AUGMENTED")
+    {
 //         double energy(0);
-         double delta(0);
-         for (auto i = 0u; i < phi.size(); ++i) {
+        double delta(0);
+        for (auto i = 0u; i < phi.size(); ++i)
+        {
             delta += std::abs(phi[i]);
 //             energy += phi[i] * phi[i];
 //             cout << endl << "Phi: " << phi[0] << "\t\t\t\t";
         }
 //         energy *= 0.5 * alpha;
 //         if (energy <= 2E5) {
-        if (delta <= 5) {
+        if (delta <= 5)
+        {
 //             cout << endl << "Energy: " << energy << "\t\t\t\t";
             return 1;
         }
-        else {
+        else
+        {
 //             cout << endl << "energy: " << energy << "\t\t\t\t";
-            for (auto i = 0u; i < phi.size(); ++i) {
+            for (auto i = 0u; i < phi.size(); ++i)
+            {
                 lambda[i] += alpha * phi[i];
             }
             return 0;
         }
-     }
-     else { return 1; }
+    }
+    else
+    {
+        return 1;
+    }
 }
 
 }
@@ -214,8 +241,10 @@ void mknix::Constraint::clearAugmented()
           << endl;
     //   }*/
 
-    if (method == "AUGMENTED") {
-        for (auto i = 0u; i < phi.size(); ++i) {
+    if (method == "AUGMENTED")
+    {
+        for (auto i = 0u; i < phi.size(); ++i)
+        {
             lambda[i] = 0.;
         }
     }
@@ -223,7 +252,8 @@ void mknix::Constraint::clearAugmented()
 
 void mknix::Constraint::outputStep(const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot)
 {
-    if (!title.empty()) { // do not store internal constraints of rigid bodies
+    if (!title.empty())   // do not store internal constraints of rigid bodies
+    {
         internalForcesOutput.push_back(lmx::Vector<data_type>(internalForces.size()));
         internalForcesOutput.back() = internalForces;
     }
@@ -231,7 +261,8 @@ void mknix::Constraint::outputStep(const lmx::Vector<data_type>& q, const lmx::V
 
 void mknix::Constraint::outputStep(const lmx::Vector<data_type>& q)
 {
-    if (!title.empty()) { // do not store internal constraints of rigid bodies
+    if (!title.empty())   // do not store internal constraints of rigid bodies
+    {
         internalForcesOutput.push_back(lmx::Vector<data_type>(internalForces.size()));
         internalForcesOutput.back() = internalForces;
     }
@@ -241,11 +272,14 @@ void mknix::Constraint::outputToFile(std::ofstream * outFile)
 {
     auto vectorSize = internalForces.size();
 
-    if (internalForcesOutput.size() > 0) {
+    if (internalForcesOutput.size() > 0)
+    {
 
         *outFile << "FORCES " << title << " " << vectorSize << endl;
-        for (auto& force : internalForcesOutput) {
-            for (auto i = 0u; i < vectorSize; ++i) {
+        for (auto& force : internalForcesOutput)
+        {
+            for (auto i = 0u; i < vectorSize; ++i)
+            {
                 *outFile << force.readElement(i) << " ";
             }
             *outFile << endl;

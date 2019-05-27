@@ -23,16 +23,16 @@
 #include<algorithm>
 
 //////////////////////////////////////////// Doxygen file documentation entry:
-    /*!
-      \file lmx_mat_data_blas.h
-      
-      \brief Basic Linear Algebra Methods for Data_mat and Data_vec derived classes.
-      
-      Basic linear algebra numerical methodso including specialization for some Matrix and Vector data types.
-      
-      \author Daniel Iglesias 
-      
-    */
+/*!
+  \file lmx_mat_data_blas.h
+
+  \brief Basic Linear Algebra Methods for Data_mat and Data_vec derived classes.
+
+  Basic linear algebra numerical methodso including specialization for some Matrix and Vector data types.
+
+  \author Daniel Iglesias
+
+*/
 //////////////////////////////////////////// Doxygen file documentation (end)
 
 /**
@@ -41,7 +41,8 @@
 typedef size_t size_type;
 
 
-namespace lmx{
+namespace lmx
+{
 
 template <typename T> class Data_mat;
 template <typename T> class Data_vec;
@@ -66,15 +67,17 @@ template <typename T> class Type_gmmVector_sparse;
  * @param C Result Data_mat<T>, C=A+B.
  */
 template <typename T>
-    void mat_mat_add( const Data_mat<T>* A,
-                       const Data_mat<T>* B,
-                       Data_mat<T>* C)
+void mat_mat_add(const Data_mat<T>* A,
+                 const Data_mat<T>* B,
+                 Data_mat<T>* C)
 {
-  for (size_type i=0; i < C->getRows(); ++i){
-    for (size_type j=0; j < C->getCols(); ++j){
-      C->writeElement( A->readElement(i,j) + B->readElement(i,j) , i, j );
+    for (size_type i = 0; i < C->getRows(); ++i)
+    {
+        for (size_type j = 0; j < C->getCols(); ++j)
+        {
+            C->writeElement(A->readElement(i, j) + B->readElement(i, j), i, j);
+        }
     }
-  }
 }
 
 /**
@@ -85,15 +88,17 @@ template <typename T>
  * @param C Result Data_mat<T>, C=A-B.
  */
 template <typename T>
-    void mat_mat_subs( const Data_mat<T>* A,
-                       const Data_mat<T>* B,
-                       Data_mat<T>* C)
+void mat_mat_subs(const Data_mat<T>* A,
+                  const Data_mat<T>* B,
+                  Data_mat<T>* C)
 {
-  for (size_type i=0; i < C->getRows(); ++i){
-    for (size_type j=0; j < C->getCols(); ++j){
-      C->writeElement( A->readElement(i,j) - B->readElement(i,j) , i, j );
+    for (size_type i = 0; i < C->getRows(); ++i)
+    {
+        for (size_type j = 0; j < C->getCols(); ++j)
+        {
+            C->writeElement(A->readElement(i, j) - B->readElement(i, j), i, j);
+        }
     }
-  }
 }
 
 /**
@@ -104,33 +109,39 @@ template <typename T>
  * @param C Result Data_mat<T>, C=A*B.
  */
 template <typename T>
-    void mat_mat_mult( const Data_mat<T>* A,
-                       const Data_mat<T>* B,
-                       Data_mat<T>* C)
+void mat_mat_mult(const Data_mat<T>* A,
+                  const Data_mat<T>* B,
+                  Data_mat<T>* C)
 {
-  // Emmit an error if C is A or B...
-    if(C == A || C == B){
-      std::stringstream message;
-      message << "Trying to multiply and save results on same data at the same time."
-	    << endl << "  This cannot be done." << endl;
-      LMX_THROW(failure_error, message.str() );
+    // Emmit an error if C is A or B...
+    if (C == A || C == B)
+    {
+        std::stringstream message;
+        message << "Trying to multiply and save results on same data at the same time."
+                << endl << "  This cannot be done." << endl;
+        LMX_THROW(failure_error, message.str());
     }
-  size_type i, j, k;
-  C->resize( A->getRows(), B->getCols() );
-  for (i=0; i< C->getRows(); ++i){
-    for (j=0; j< C->getCols(); ++j){
-      C->writeElement( T(0), i, j );
-	}
-  }
-  // This can have a good optimization...
-  for (i=0; i < C->getRows(); ++i){
-    for (j=0; j < C->getCols(); ++j){
-      C->writeElement( 0, i, j );
-      for (k=0; k < A->getCols(); ++k){
-        C->writeElement( C->readElement(i,j) + A->readElement(i,k) * B->readElement(k,j) , i, j );
-      }
+    size_type i, j, k;
+    C->resize(A->getRows(), B->getCols());
+    for (i = 0; i < C->getRows(); ++i)
+    {
+        for (j = 0; j < C->getCols(); ++j)
+        {
+            C->writeElement(T(0), i, j);
+        }
     }
-  }
+    // This can have a good optimization...
+    for (i = 0; i < C->getRows(); ++i)
+    {
+        for (j = 0; j < C->getCols(); ++j)
+        {
+            C->writeElement(0, i, j);
+            for (k = 0; k < A->getCols(); ++k)
+            {
+                C->writeElement(C->readElement(i, j) + A->readElement(i, k) * B->readElement(k, j), i, j);
+            }
+        }
+    }
 }
 
 /**
@@ -140,14 +151,16 @@ template <typename T>
  * @param C Result Data_mat<T>.
  */
 template <typename T>
-    void mat_mat_multElements( const Data_mat<T>* A,
-                           Data_mat<T>* C)
+void mat_mat_multElements(const Data_mat<T>* A,
+                          Data_mat<T>* C)
 {
-  for (size_type i=0; i < C->getRows(); ++i){
-    for (size_type j=0; j < C->getCols(); ++j){
-      C->writeElement( C->readElement(i,j) * A->readElement(i,j) , i, j );
+    for (size_type i = 0; i < C->getRows(); ++i)
+    {
+        for (size_type j = 0; j < C->getCols(); ++j)
+        {
+            C->writeElement(C->readElement(i, j) * A->readElement(i, j), i, j);
+        }
     }
-  }
 }
 
 /**
@@ -158,15 +171,17 @@ template <typename T>
  * @param C Result Data_mat<T>.
  */
 template <typename T>
-    void mat_mat_multElements( const Data_mat<T>* A,
-                           const Data_mat<T>* B,
-                           Data_mat<T>* C)
+void mat_mat_multElements(const Data_mat<T>* A,
+                          const Data_mat<T>* B,
+                          Data_mat<T>* C)
 {
-  for (size_type i=0; i < C->getRows(); ++i){
-    for (size_type j=0; j < C->getCols(); ++j){
-      C->writeElement( A->readElement(i,j) * B->readElement(i,j) , i, j );
+    for (size_type i = 0; i < C->getRows(); ++i)
+    {
+        for (size_type j = 0; j < C->getCols(); ++j)
+        {
+            C->writeElement(A->readElement(i, j) * B->readElement(i, j), i, j);
+        }
     }
-  }
 }
 
 
@@ -180,34 +195,36 @@ template <typename T>
  * @param vector_out Type_stdVector *Vector c = A*b.
  */
 template <typename T>
-    void mat_vec_mult
-    ( const Type_csc<T>* matrix_in,
-      const Type_stdVector<T>* vector_in,
-      Type_stdVector<T>* vector_out
-    )
+void mat_vec_mult
+(const Type_csc<T>* matrix_in,
+ const Type_stdVector<T>* vector_in,
+ Type_stdVector<T>* vector_out
+)
 {
-  size_type a;
-  size_type b;
-  T c;
-  size_type d;
+    size_type a;
+    size_type b;
+    T c;
+    size_type d;
 
- //rutina que multiplica la  matriz A (en formato Harwell-Boeing) con el vector X
+    //rutina que multiplica la  matriz A (en formato Harwell-Boeing) con el vector X
 
-  for(unsigned int i=0; i < (matrix_in->getRows()); ++i)
-    vector_out->contents[i] = 0;
+    for (unsigned int i = 0; i < (matrix_in->getRows()); ++i)
+        vector_out->contents[i] = 0;
 
-  //std::fill(vector_out->contents.begin(), vector_out->contents.end(), 0);
+    //std::fill(vector_out->contents.begin(), vector_out->contents.end(), 0);
 
-  for(unsigned int i=0; i < (matrix_in->getCols()); ++i) {
-    a = matrix_in->ja[i];
-    b = matrix_in->ja[i+1];
+    for (unsigned int i = 0; i < (matrix_in->getCols()); ++i)
+    {
+        a = matrix_in->ja[i];
+        b = matrix_in->ja[i + 1];
 
-    for(unsigned int j=a; j<b; ++j) {
-      c = matrix_in->aa[j-1];
-      d = matrix_in->ia[j-1]-1;
-      vector_out->contents[d] += c * vector_in->contents[i];
+        for (unsigned int j = a; j < b; ++j)
+        {
+            c = matrix_in->aa[j - 1];
+            d = matrix_in->ia[j - 1] - 1;
+            vector_out->contents[d] += c * vector_in->contents[i];
+        }
     }
-  }
 }
 
 
@@ -220,10 +237,11 @@ template <typename T>
  * @param vector_out Type_stdVector *Vector c = A*b.
  */
 template <typename T>
-void mat_vec_mult( Type_gmm<T>* matrix_in,
-                        Type_stdVector<T>* vector_in,
-                        Type_stdVector<T>* vector_out) {
-  gmm::mult( *(matrix_in->data_pointer() ), *(vector_in->data_pointer() ), *(vector_out->data_pointer() ) );
+void mat_vec_mult(Type_gmm<T>* matrix_in,
+                  Type_stdVector<T>* vector_in,
+                  Type_stdVector<T>* vector_out)
+{
+    gmm::mult(*(matrix_in->data_pointer()), *(vector_in->data_pointer()), *(vector_out->data_pointer()));
 }
 
 /**
@@ -234,10 +252,11 @@ void mat_vec_mult( Type_gmm<T>* matrix_in,
  * @param vector_out Type_stdVector *Vector c = A*b.
  */
 template <typename T>
-void mat_vec_mult( Type_gmm_sparse<T>* matrix_in,
-                        Type_stdVector<T>* vector_in,
-                        Type_stdVector<T>* vector_out) {
-  gmm::mult( *(matrix_in->data_pointer() ), *(vector_in->data_pointer() ), *(vector_out->data_pointer() )  );
+void mat_vec_mult(Type_gmm_sparse<T>* matrix_in,
+                  Type_stdVector<T>* vector_in,
+                  Type_stdVector<T>* vector_out)
+{
+    gmm::mult(*(matrix_in->data_pointer()), *(vector_in->data_pointer()), *(vector_out->data_pointer()));
 }
 
 /**
@@ -248,10 +267,11 @@ void mat_vec_mult( Type_gmm_sparse<T>* matrix_in,
  * @param vector_out Type_gmmVector_sparse *Vector c = A*b.
  */
 template <typename T>
-void mat_vec_mult( Type_gmm<T>* matrix_in,
-                   Type_gmmVector_sparse<T>* vector_in,
-                   Type_gmmVector_sparse<T>* vector_out) {
-  gmm::mult( *(matrix_in->data_pointer() ), *(vector_in->data_pointer() ), *(vector_out->data_pointer() ) );
+void mat_vec_mult(Type_gmm<T>* matrix_in,
+                  Type_gmmVector_sparse<T>* vector_in,
+                  Type_gmmVector_sparse<T>* vector_out)
+{
+    gmm::mult(*(matrix_in->data_pointer()), *(vector_in->data_pointer()), *(vector_out->data_pointer()));
 }
 
 /**
@@ -262,10 +282,11 @@ void mat_vec_mult( Type_gmm<T>* matrix_in,
  * @param vector_out Type_gmmVector_sparse *Vector c = A*b.
  */
 template <typename T>
-void mat_vec_mult( Type_gmm_sparse<T>* matrix_in,
-                   Type_gmmVector_sparse<T>* vector_in,
-                   Type_gmmVector_sparse<T>* vector_out) {
-  gmm::mult( *(matrix_in->data_pointer() ), *(vector_in->data_pointer() ), *(vector_out->data_pointer() )  );
+void mat_vec_mult(Type_gmm_sparse<T>* matrix_in,
+                  Type_gmmVector_sparse<T>* vector_in,
+                  Type_gmmVector_sparse<T>* vector_out)
+{
+    gmm::mult(*(matrix_in->data_pointer()), *(vector_in->data_pointer()), *(vector_out->data_pointer()));
 }
 #endif
 
@@ -278,35 +299,38 @@ void mat_vec_mult( Type_gmm_sparse<T>* matrix_in,
  * @param matrix_in Type_csc *Matrix A.
  */
 template <typename T>
-    void copy( const Type_stdmatrix<T>* dense_matrix_in,
-               Type_csc<T>* matrix_in )
+void copy(const Type_stdmatrix<T>* dense_matrix_in,
+          Type_csc<T>* matrix_in)
 {
-  size_type i,j, col_counter=1;
-  size_type rows = matrix_in->getRows();
-  size_type cols = matrix_in->getCols();
-  T value;
+    size_type i, j, col_counter = 1;
+    size_type rows = matrix_in->getRows();
+    size_type cols = matrix_in->getCols();
+    T value;
 
-  matrix_in->aa.clear();
-  matrix_in->ia.clear();
-  matrix_in->ja.clear();
+    matrix_in->aa.clear();
+    matrix_in->ia.clear();
+    matrix_in->ja.clear();
 
-  for (j=0; j<cols; ++j){
-    matrix_in->ja.push_back(col_counter);
-    for (i=0; i<rows; ++i){
-      value = dense_matrix_in->contents[i][j];
-      if ( value != T(0) ){
-        matrix_in->ia.push_back(i+1);
-        matrix_in->aa.push_back(value);
-        ++col_counter;
-      }
+    for (j = 0; j < cols; ++j)
+    {
+        matrix_in->ja.push_back(col_counter);
+        for (i = 0; i < rows; ++i)
+        {
+            value = dense_matrix_in->contents[i][j];
+            if (value != T(0))
+            {
+                matrix_in->ia.push_back(i + 1);
+                matrix_in->aa.push_back(value);
+                ++col_counter;
+            }
+        }
     }
-  }
-  matrix_in->ja.push_back(col_counter);
+    matrix_in->ja.push_back(col_counter);
 
-  matrix_in->Nrow = rows;
-  matrix_in->Ncol = cols;
-  matrix_in->Nnze = matrix_in->aa.size();
-}                           
+    matrix_in->Nrow = rows;
+    matrix_in->Ncol = cols;
+    matrix_in->Nnze = matrix_in->aa.size();
+}
 
 
 } //namespace lmx

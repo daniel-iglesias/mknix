@@ -8,7 +8,8 @@
 #include <system/system.h>
 #include <system/loadthermalbody.h>
 
-namespace mknix {
+namespace mknix
+{
 
 GaussPoint::GaussPoint()
 {
@@ -25,11 +26,11 @@ GaussPoint::GaussPoint(int dim_in,
                        double coor_y,
                        double dc_in,
                        bool stressPoint_in
-)
-        : Point(dim_in, num_in, coor_x, coor_y, 0., jacobian_in, alpha_in, dc_in)
-        , weight(weight_in)
-        , mat(mat_in)
-        , stressPoint(stressPoint_in)
+                      )
+    : Point(dim_in, num_in, coor_x, coor_y, 0., jacobian_in, alpha_in, dc_in)
+    , weight(weight_in)
+    , mat(mat_in)
+    , stressPoint(stressPoint_in)
 {
 }
 
@@ -44,11 +45,11 @@ GaussPoint::GaussPoint(int dim_in,
                        double coor_z,
                        double dc_in,
                        bool stressPoint_in
-)
-        : Point(dim_in, num_in, coor_x, coor_y, coor_z, jacobian_in, alpha_in, dc_in)
-        , weight(weight_in)
-        , mat(mat_in)
-        , stressPoint(stressPoint_in)
+                      )
+    : Point(dim_in, num_in, coor_x, coor_y, coor_z, jacobian_in, alpha_in, dc_in)
+    , weight(weight_in)
+    , mat(mat_in)
+    , stressPoint(stressPoint_in)
 {
 }
 
@@ -60,8 +61,10 @@ GaussPoint::~GaussPoint()
 void GaussPoint::shapeFunSolve(std::string type_in, double q_in)
 {
     q_in = 0.5; // Original RBF
-    if (!shapeFun) {
-        if (type_in == "RBF") {
+    if (!shapeFun)
+    {
+        if (type_in == "RBF")
+        {
 //             alphai = 3.5; // For the validation triangle, this works better: phi closer to 1.
             this->shapeFun = new ShapeFunctionRBF(supportNodesSize,
                                                   0,
@@ -71,7 +74,8 @@ void GaussPoint::shapeFunSolve(std::string type_in, double q_in)
                                                   q_in,
                                                   this);
         }
-        else if (type_in == "MLS") {
+        else if (type_in == "MLS")
+        {
 // 	    alphai=3.5; // For the validation triangle, this works better: phi closer to 1.
             this->shapeFun = new ShapeFunctionMLS(supportNodesSize,
                                                   1,
@@ -81,11 +85,11 @@ void GaussPoint::shapeFunSolve(std::string type_in, double q_in)
                                                   this);
         }
         cout << "INFO AT shapeFunSolve IN GaussPoint: (x, y) = "
-        << this->X << ", " << this->Y << endl;
+             << this->X << ", " << this->Y << endl;
         cout << "\t alphai = " << alphai << ", "
-        << "dc = " << dc << ", "
-        << "q_in = " << q_in
-        << endl;
+             << "dc = " << dc << ", "
+             << "q_in = " << q_in
+             << endl;
         cout << "\t Number of Support Nodes = " << supportNodesSize << endl;
 
         shapeFun->calc();
@@ -97,7 +101,8 @@ void GaussPoint::computeCij()
 {
     // TODO: not sure why it's needed to be done here too, but for the moment is required for positive validation
     avgTemp = 0;
-    for (auto i = 0u; i < supportNodesSize; ++i) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
         avgTemp += supportNodes[i]->getTemp() * shapeFun->getPhi(0, i);
     }
     double avgFactor = mat->getDensity() * mat->getCapacity(avgTemp) * weight * std::abs(jacobian);
@@ -108,7 +113,8 @@ void GaussPoint::computeCij()
 //   cout << mat->getDensity() << " " << mat->getCapacity() << " = density, capacity" << endl;
 //     C.reset();
     // TODO: Select between lumped and consistent matrices as an input option
-    for (auto i = 0u; i < supportNodesSize; ++i) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
 //         for (j=0; j<supportNodesSize; ++j) {
 //             C.writeElement( avgFactor * shapeFun->getPhi(0,i) * shapeFun->getPhi(0,j), i, j );
 //         }
@@ -117,18 +123,18 @@ void GaussPoint::computeCij()
 /////////////////////////////////
 // Lumped matrix:
 //          C.addElement( mat->getDensity() * mat->getCapacity() * weight * shapeFun->getPhi(0,i)
-//                             * shapeFun->getPhi(0,j) * std::abs(jacobian), i, i );	
+//                             * shapeFun->getPhi(0,j) * std::abs(jacobian), i, i );
 //         }
 // Faster lumped matrix:
         C.writeElement(
-                mat->getDensity() * mat->getCapacity(supportNodes[i]->getTemp()) * weight * shapeFun->getPhi(0, i)
-                * std::abs(jacobian), i, i);
+            mat->getDensity() * mat->getCapacity(supportNodes[i]->getTemp()) * weight * shapeFun->getPhi(0, i)
+            * std::abs(jacobian), i, i);
 // 	  cout << i << "," << j << " = "
-// 	       << mat->getDensity() << "*" 
-// 	       << mat->getCapacity() << "*" 
-// 	       << weight  << "*" 
-// 	       << shapeFun->getPhi(0,i) << "*" 
-// 	       << shapeFun->getPhi(0,j)  << "*" 
+// 	       << mat->getDensity() << "*"
+// 	       << mat->getCapacity() << "*"
+// 	       << weight  << "*"
+// 	       << shapeFun->getPhi(0,i) << "*"
+// 	       << shapeFun->getPhi(0,j)  << "*"
 // 	       << std::abs(jacobian)  << " = "
 // 	       << C.readElement(i,j) << endl;
     }
@@ -141,13 +147,16 @@ void GaussPoint::computeHij()
     int max_deriv_index = dim + 1;
     H.reset();
     avgTemp = 0;
-    for (auto i = 0u; i < supportNodesSize; ++i) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
         avgTemp += supportNodes[i]->getTemp() * shapeFun->getPhi(0, i);
     }
     double avgFactor = mat->getKappa(avgTemp) * weight * std::abs(jacobian);
     // Hij = wg * grad(N_j) * kappa * grad(N_I) * |Jc|
-    for (auto i = 0u; i < supportNodesSize; ++i) {
-        for (auto j = 0u; j < supportNodesSize; ++j) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
+        for (auto j = 0u; j < supportNodesSize; ++j)
+        {
 // 	  if(supportNodes[i]->getThermalNumber() == 39){
 // 	    cout << "KAPPA in " << i << "," << j << " = " ;
 // 	    cout << 0.5*( mat->getKappa(supportNodes[i]->getTemp()) + mat->getKappa(supportNodes[j]->getTemp()) );
@@ -155,23 +164,24 @@ void GaussPoint::computeHij()
 // 	    cout << supportNodes[i]->getTemp() << " and ";
 // 	    cout << supportNodes[j]->getTemp() << endl;
 // 	  }
-            for (auto m = 1; m < max_deriv_index; ++m) {
+            for (auto m = 1; m < max_deriv_index; ++m)
+            {
 //         for ( n=1; n<max_deriv_index; ++n ){
                 //           K(2*i + m, 2*j + n) = Kij(m,n);
                 H.addElement( (shapeFun->getPhi(m, i)
-                                       // 					 * mat->getKappa(supportNodes[i]->getTemp())
-                                       // 					 + .5*mat->getKappa(supportNodes[j]->getTemp())/*.readElement(m,n)*/
+                               // 					 * mat->getKappa(supportNodes[i]->getTemp())
+                               // 					 + .5*mat->getKappa(supportNodes[j]->getTemp())/*.readElement(m,n)*/
 //                                        * mat->getKappa(avgTemp) /*.readElement(m,n)*/
-                                       // 					 * 0.5*( mat->getKappa(supportNodes[i]->getTemp()) + mat->getKappa(supportNodes[j]->getTemp()) )/*.readElement(m,n)*/
-                                * shapeFun->getPhi(m, j)) * avgFactor,
-                             i,
-                             j);
+                               // 					 * 0.5*( mat->getKappa(supportNodes[i]->getTemp()) + mat->getKappa(supportNodes[j]->getTemp()) )/*.readElement(m,n)*/
+                               * shapeFun->getPhi(m, j)) * avgFactor,
+                              i,
+                              j);
 // 	  cout << i << "," << j << " = "
-// 	       << mat->getDensity() << "*" 
-// 	       << mat->getKappa() << "*" 
-// 	       << weight  << "*" 
-// 	       << shapeFun->getPhi(m,i) << "*" 
-// 	       << shapeFun->getPhi(m,j)  << "*" 
+// 	       << mat->getDensity() << "*"
+// 	       << mat->getKappa() << "*"
+// 	       << weight  << "*"
+// 	       << shapeFun->getPhi(m,i) << "*"
+// 	       << shapeFun->getPhi(m,j)  << "*"
 // 	       << jacobian  << " = "
 // 	       << H.readElement(i,j) << endl;
 //         }
@@ -190,7 +200,8 @@ void GaussPoint::computeHij()
 
 void GaussPoint::computeQext(LoadThermalBody * loadThermalBody_in)
 {
-    for (auto i = 0u; i < supportNodesSize; ++i) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
         // Qi = wg * r * N_I * |Jc|
         Qext.writeElement(weight * shapeFun->getPhi(0, i) * loadThermalBody_in->getLoadThermalBody(this)
                           * std::abs(jacobian), i);
@@ -201,34 +212,39 @@ void GaussPoint::computeQext(LoadThermalBody * loadThermalBody_in)
 
 void GaussPoint::assembleCij(lmx::Matrix<data_type>& globalCapacity)
 {
-    for (auto i = 0u; i < supportNodesSize; ++i) {
-        for (auto j = 0u; j < supportNodesSize; ++j) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
+        for (auto j = 0u; j < supportNodesSize; ++j)
+        {
             globalCapacity.addElement(C.readElement(i, j),
                                       supportNodes[i]->getThermalNumber(),
                                       supportNodes[j]->getThermalNumber()
-            );
+                                     );
         }
     }
 }
 
 void GaussPoint::assembleHij(lmx::Matrix<data_type>& globalConductivity)
 {
-    for (auto i = 0u; i < supportNodesSize; ++i) {
-        for (auto j = 0u; j < supportNodesSize; ++j) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
+        for (auto j = 0u; j < supportNodesSize; ++j)
+        {
             globalConductivity.addElement(H.readElement(i, j),
                                           supportNodes[i]->getThermalNumber(),
                                           supportNodes[j]->getThermalNumber()
-            );
+                                         );
         }
     }
 }
 
 void GaussPoint::assembleQext(lmx::Vector<data_type>& globalHeat)
 {
-    for (auto i = 0u; i < supportNodesSize; ++i) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
         globalHeat.addElement(Qext.readElement(i),
                               supportNodes[i]->getThermalNumber()
-        );
+                             );
     }
 }
 

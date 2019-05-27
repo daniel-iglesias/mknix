@@ -27,7 +27,8 @@
 #include "constraint.h"
 #include "bodyflex.h"
 
-namespace mknix {
+namespace mknix
+{
 
 class Body;
 
@@ -79,21 +80,39 @@ public:
         return this->title;
     }
 
-    size_t getNumberOfNodes() { return groundNodes.size(); }
+    size_t getNumberOfNodes()
+    {
+        return groundNodes.size();
+    }
 
-    virtual Node* getNode(size_t index) { return groundNodes[index]; }
+    virtual Node* getNode(size_t index)
+    {
+        return groundNodes[index];
+    }
 
-    virtual Node* getOutputNode(const std::string& name) { return outputSignals[name]; }
+    virtual Node* getOutputNode(const std::string& name)
+    {
+        return outputSignals[name];
+    }
 
-    Node* getNode(const std::string& name) { return groundNodesMap[name]; }
+    Node* getNode(const std::string& name)
+    {
+        return groundNodesMap[name];
+    }
 
-    System* getSystem(const std::string& sysName) { return subSystems.at(sysName); }
+    System* getSystem(const std::string& sysName)
+    {
+        return subSystems.at(sysName);
+    }
 
     std::vector<std::string> getConstraintNames()
     {
         std::vector<std::string> names{ constraints.size() };
         std::transform(constraints.begin(), constraints.end(), names.begin(),
-                       [](std::pair<std::string, Constraint*> el) { return el.first; });
+                       [](std::pair<std::string, Constraint*> el)
+        {
+            return el.first;
+        });
         return names;
     }
 
@@ -104,11 +123,11 @@ public:
 
     Constraint* getConstraint(const std::string& constraintName)
     {
-       auto it = constraints.find(constraintName);
+        auto it = constraints.find(constraintName);
 
-       return (it != constraints.end())
-           ? it->second
-           : nullptr;
+        return (it != constraints.end())
+               ? it->second
+               : nullptr;
     }
 
     void getThermalNodes(std::vector<double>&);
@@ -185,7 +204,10 @@ public:
     {
         std::vector<std::string> names{ flexBodies.size() };
         std::transform(flexBodies.begin(), flexBodies.end(), names.begin(),
-                       [](std::pair<std::string, FlexBody*> el) { return el.first; });
+                       [](std::pair<std::string, FlexBody*> el)
+        {
+            return el.first;
+        });
         return names;
     }
 

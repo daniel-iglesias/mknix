@@ -22,7 +22,8 @@
 #include <core/node.h>
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 ConstraintContact::ConstraintContact()
     : Constraint()
@@ -154,7 +155,8 @@ void ConstraintContact::calcPhiqq()
         this->phi_qq[0](5,2*dim+1) =  2*pow(normal[1],2) ;
 
 
-        if (dim == 3) {
+        if (dim == 3)
+        {
 //      this->phi_qq[0](2,2) =  2.0 ;
 //      this->phi_qq[0](dim+2,dim+2) =  2.0 ;
 //      this->phi_qq[0](2,dim+2) = -2.0 ;
@@ -178,7 +180,8 @@ void ConstraintContact::calcPhiqq()
         this->phi_qq[0](2*dim,dim) = 0.0 ;
         this->phi_qq[0](dim+1,2*dim+1) = 0.0 ;
         this->phi_qq[0](2*dim+1,dim+1) = 0.0 ;
-        if (dim == 3) {
+        if (dim == 3)
+        {
 //      this->phi_qq[0](2,2) = 0.0 ;
 //      this->phi_qq[0](2,dim+2) = 0.0 ;
 //      this->phi_qq[0](dim+2,2) = 0.0 ;

@@ -8,7 +8,8 @@
 #include <system/system.h>
 #include <system/loadthermalbody.h>
 
-namespace mknix {
+namespace mknix
+{
 
 GaussPoint2D::GaussPoint2D()
 {
@@ -17,9 +18,9 @@ GaussPoint2D::GaussPoint2D()
 
 GaussPoint2D::GaussPoint2D(double alpha_in, double weight_in, double jacobian_in, Material * mat_in, int num_in,
                            double coor_x, double coor_y, double dc_in, bool stressPoint_in
-)
-        : GaussPoint(2, alpha_in, weight_in, jacobian_in, mat_in, num_in, coor_x, coor_y, dc_in, stressPoint_in
-)
+                          )
+    : GaussPoint(2, alpha_in, weight_in, jacobian_in, mat_in, num_in, coor_x, coor_y, dc_in, stressPoint_in
+                )
 {
 //   this->jacobian = jacobian_in;
 //  cout << "jacobian = " << jacobian << endl;
@@ -28,9 +29,9 @@ GaussPoint2D::GaussPoint2D(double alpha_in, double weight_in, double jacobian_in
 
 GaussPoint2D::GaussPoint2D(double alpha_in, double weight_in, double jacobian_in, Material * mat_in, int num_in,
                            double coor_x, double coor_y, double coor_z, double dc_in, bool stressPoint_in
-)
-        : GaussPoint(2, alpha_in, weight_in, jacobian_in, mat_in, num_in, coor_x, coor_y, coor_z, dc_in, stressPoint_in
-)
+                          )
+    : GaussPoint(2, alpha_in, weight_in, jacobian_in, mat_in, num_in, coor_x, coor_y, coor_z, dc_in, stressPoint_in
+                )
 {
 //   this->jacobian = jacobian_in;
 //  cout << "jacobian = " << jacobian << endl;
@@ -47,7 +48,8 @@ void GaussPoint2D::shapeFunSolve(std::string type_in, double q_in)
     initializeMatVecs();
     GaussPoint::shapeFunSolve(type_in, q_in);
     //////////////// Filling matrix B = L * Phi
-    for (auto i = 0u; i < supportNodesSize; ++i) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
         B.writeElement(shapeFun->getPhi(1, i), 0, 0 + 2 * i);
         B.writeElement(shapeFun->getPhi(2, i), 1, 1 + 2 * i);
         B.writeElement(shapeFun->getPhi(2, i), 2, 0 + 2 * i);
@@ -59,14 +61,19 @@ void GaussPoint2D::shapeFunSolve(std::string type_in, double q_in)
 //			  << shapeFun->getPhi(2,i) << "\n";
 //      cout << B << endl;
     }
-    if (stressPoint) {
-        if (Simulation::getSmoothingType() == "CONSTANT") {
-            for (auto i = 0u; i < supportNodesSize; ++i) {
+    if (stressPoint)
+    {
+        if (Simulation::getSmoothingType() == "CONSTANT")
+        {
+            for (auto i = 0u; i < supportNodesSize; ++i)
+            {
                 supportNodes[i]->addWeight(weight * jacobian);
             }
         }
-        if (Simulation::getSmoothingType() == "LOCAL") {
-            for (auto i = 0u; i < supportNodesSize; ++i) {
+        if (Simulation::getSmoothingType() == "LOCAL")
+        {
+            for (auto i = 0u; i < supportNodesSize; ++i)
+            {
                 supportNodes[i]->addWeight(weight * shapeFun->getPhi(0, i) * jacobian);
             }
         }
@@ -79,13 +86,15 @@ void GaussPoint2D::fillFEmatrices()
     initializeMatVecs();
     cout << "GP in (" << this->X << ", " << this->Y << ")" << endl;
 
-    if (!shapeFun) {
+    if (!shapeFun)
+    {
         shapeFun = new ShapeFunctionTriangle(this);
     }
     shapeFun->calc();
     //////////////// Filling matrix B = L * Phi
     /////////////// Dim(B) = 3x6
-    for (auto i = 0u; i < supportNodesSize; ++i) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
 // 	  cout << supportNodes[i]->getX() << "\t"
 // 			  << supportNodes[i]->getY() << "\t"
 // 			  << shapeFun->getPhi(0,i) << "\t"
@@ -96,13 +105,16 @@ void GaussPoint2D::fillFEmatrices()
         B.writeElement(shapeFun->getPhi(2, i), 2, 0 + 2 * i);
         B.writeElement(shapeFun->getPhi(1, i), 2, 1 + 2 * i);
 //    cout << B << endl;
-        if (stressPoint) {
-            if (Simulation::getSmoothingType() == "CONSTANT") {
+        if (stressPoint)
+        {
+            if (Simulation::getSmoothingType() == "CONSTANT")
+            {
                 supportNodes[i]->addWeight(weight * jacobian);
 // 	      cout << "i=" << i << ", weight = " << weight << ", jacobian = "<< jacobian << endl;
 // 	      cout << "B matrix = " << B << endl;
             }
-            if (Simulation::getSmoothingType() == "LOCAL") {
+            if (Simulation::getSmoothingType() == "LOCAL")
+            {
                 supportNodes[i]->addWeight(weight * shapeFun->getPhi(0, i) * jacobian);
             }
         }
@@ -115,8 +127,10 @@ void GaussPoint2D::computeMij()
     //////////////// Calculation of Mass matrix:
     //////////////// M = rho * wg * N^T * N * |Jc|
     //////////////// Mij = rho * wg * Ni * Nj * |Jc| = M(2*i + m, 2*j + n), m,n = 0,1.
-    for (auto i = 0u; i < supportNodesSize; ++i) {
-        for (auto j = 0u; j < supportNodesSize; ++j) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
+        for (auto j = 0u; j < supportNodesSize; ++j)
+        {
             M.writeElement(mat->getDensity() * weight * shapeFun->getPhi(0, i) * shapeFun->getPhi(0, j) * jacobian,
                            2 * i, 2 * j);
             M.writeElement(mat->getDensity() * weight * shapeFun->getPhi(0, i) * shapeFun->getPhi(0, j) * jacobian,
@@ -134,17 +148,21 @@ void GaussPoint2D::computeKij()
 {
 //////////////// Calculation of Tangent matrix:
 // Kij = wg * Bi^T * D * Bj * |Jc| = K(2*i + m, 2*j + n)
-    for (auto i = 0u; i < supportNodesSize; ++i) {
-        for (auto j = 0u; j < supportNodesSize; ++j) {
-            for (auto m = 0u; m < 2; ++m) {
-                for (auto n = 0u; n < 2; ++n) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
+        for (auto j = 0u; j < supportNodesSize; ++j)
+        {
+            for (auto m = 0u; m < 2; ++m)
+            {
+                for (auto n = 0u; n < 2; ++n)
+                {
                     //           K(2*i + m, 2*j + n) = Kij(m,n);
                     K.writeElement(
-                            (B.readElement(m, m + 2 * i) * mat->getD().readElement(m, n) * B.readElement(n, n + 2 * j)
-                             + B.readElement(2, m + 2 * i) * mat->getD().readElement(2, 2) * B.readElement(2, n + 2 * j)
-                            ) * weight * jacobian,
-                            2 * i + m,
-                            2 * j + n);
+                        (B.readElement(m, m + 2 * i) * mat->getD().readElement(m, n) * B.readElement(n, n + 2 * j)
+                         + B.readElement(2, m + 2 * i) * mat->getD().readElement(2, 2) * B.readElement(2, n + 2 * j)
+                        ) * weight * jacobian,
+                        2 * i + m,
+                        2 * j + n);
                 }
             }
             //       cout<< endl << "Ks, node=" << this->i << ", i=" << i << ", j=" << j
@@ -161,27 +179,30 @@ void GaussPoint2D::computeStress()
 {
     tension.clear();
 
-    for (auto i = 0u; i < supportNodesSize; ++i) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
         tension.addElement(
-                mat->getD().readElement(0, 0) * B.readElement(0, 0 + 2 * i) * supportNodes[i]->getUx()
-                + mat->getD().readElement(0, 1) * B.readElement(1, 1 + 2 * i) * supportNodes[i]->getUy(),
-                0);
+            mat->getD().readElement(0, 0) * B.readElement(0, 0 + 2 * i) * supportNodes[i]->getUx()
+            + mat->getD().readElement(0, 1) * B.readElement(1, 1 + 2 * i) * supportNodes[i]->getUy(),
+            0);
         tension.addElement(
-                mat->getD().readElement(1, 0) * B.readElement(0, 0 + 2 * i) * supportNodes[i]->getUx()
-                + mat->getD().readElement(1, 1) * B.readElement(1, 1 + 2 * i) * supportNodes[i]->getUy(),
-                1);
+            mat->getD().readElement(1, 0) * B.readElement(0, 0 + 2 * i) * supportNodes[i]->getUx()
+            + mat->getD().readElement(1, 1) * B.readElement(1, 1 + 2 * i) * supportNodes[i]->getUy(),
+            1);
         tension.addElement(
-                mat->getD().readElement(2, 2) * B.readElement(2, 0 + 2 * i) * supportNodes[i]->getUx()
-                + mat->getD().readElement(2, 2) * B.readElement(2, 1 + 2 * i) * supportNodes[i]->getUy(),
-                2);
+            mat->getD().readElement(2, 2) * B.readElement(2, 0 + 2 * i) * supportNodes[i]->getUx()
+            + mat->getD().readElement(2, 2) * B.readElement(2, 1 + 2 * i) * supportNodes[i]->getUy(),
+            2);
 // 	cout << "computeStress() " << i << " " << B.readElement(1,1+2*i) << " " << supportNodes[i]->getUy() << endl ;
     }
 //     cout << " B = " << B << endl;
 //     cout << "TENSION = " << tension << endl;
 
-    if (Simulation::getSmoothingType() == "CONSTANT") {
-        for (auto i = 0u; i < supportNodesSize; ++i) {
-// 	    cout << "i=" << i << ", weight = " << weight << ", jacobian = "<< jacobian 
+    if (Simulation::getSmoothingType() == "CONSTANT")
+    {
+        for (auto i = 0u; i < supportNodesSize; ++i)
+        {
+// 	    cout << "i=" << i << ", weight = " << weight << ", jacobian = "<< jacobian
 // 		 << "supportNodes[i]->getWeight() = " << supportNodes[i]->getWeight() << endl;
             r.writeElement((weight * jacobian) / supportNodes[i]->getWeight()
                            * tension.readElement(0), 3 * i + 0);
@@ -191,8 +212,10 @@ void GaussPoint2D::computeStress()
                            * tension.readElement(2), 3 * i + 2);
         }
     }
-    else if (Simulation::getSmoothingType() == "LOCAL") {
-        for (auto i = 0u; i < supportNodesSize; ++i) {
+    else if (Simulation::getSmoothingType() == "LOCAL")
+    {
+        for (auto i = 0u; i < supportNodesSize; ++i)
+        {
             r.writeElement(weight / supportNodes[i]->getWeight()
                            * shapeFun->getPhi(0, i) * tension.readElement(0) * jacobian, 3 * i + 0);
             r.writeElement(weight / supportNodes[i]->getWeight()
@@ -201,8 +224,10 @@ void GaussPoint2D::computeStress()
                            * shapeFun->getPhi(0, i) * tension.readElement(2) * jacobian, 3 * i + 2);
         }
     }
-    else if (Simulation::getSmoothingType() == "GLOBAL") {
-        for (auto i = 0u; i < supportNodesSize; ++i) {
+    else if (Simulation::getSmoothingType() == "GLOBAL")
+    {
+        for (auto i = 0u; i < supportNodesSize; ++i)
+        {
             r.writeElement(weight * mat->getDensity()
                            * shapeFun->getPhi(0, i) * tension.readElement(0) * jacobian, 3 * i + 0);
             r.writeElement(weight * mat->getDensity()
@@ -220,8 +245,10 @@ void GaussPoint2D::computeNLStress()
     sigma2 *= 1. / F2.determinant();
 
 //  cout << "\nVector tension: \n" << sigma2 << endl;
-    if (Simulation::getSmoothingType() == "CONSTANT") {
-        for (auto i = 0u; i < supportNodesSize; ++i) {
+    if (Simulation::getSmoothingType() == "CONSTANT")
+    {
+        for (auto i = 0u; i < supportNodesSize; ++i)
+        {
             r.writeElement(weight / supportNodes[i]->getWeight()
                            * sigma2(0, 0) * jacobian, 3 * i + 0);
             r.writeElement(weight / supportNodes[i]->getWeight()
@@ -230,8 +257,10 @@ void GaussPoint2D::computeNLStress()
                            * sigma2(0, 1) * jacobian, 3 * i + 2);
         }
     }
-    else if (Simulation::getSmoothingType() == "LOCAL") {
-        for (auto i = 0u; i < supportNodesSize; ++i) {
+    else if (Simulation::getSmoothingType() == "LOCAL")
+    {
+        for (auto i = 0u; i < supportNodesSize; ++i)
+        {
             r.writeElement(weight / supportNodes[i]->getWeight()
                            * shapeFun->getPhi(0, i) * sigma2(0, 0) * jacobian, 3 * i + 0);
             r.writeElement(weight / supportNodes[i]->getWeight()
@@ -240,8 +269,10 @@ void GaussPoint2D::computeNLStress()
                            * shapeFun->getPhi(0, i) * sigma2(0, 1) * jacobian, 3 * i + 2);
         }
     }
-    else if (Simulation::getSmoothingType() == "GLOBAL") {
-        for (auto i = 0u; i < supportNodesSize; ++i) {
+    else if (Simulation::getSmoothingType() == "GLOBAL")
+    {
+        for (auto i = 0u; i < supportNodesSize; ++i)
+        {
             r.writeElement(weight * mat->getDensity()
                            * shapeFun->getPhi(0, i) * sigma2(0, 0) * jacobian, 3 * i + 0);
             r.writeElement(weight * mat->getDensity()
@@ -257,8 +288,10 @@ void GaussPoint2D::computeFint()
     fint.reset();
     computeKij();
     lmx::Vector<data_type> disp(2 * supportNodesSize);
-    for (auto a = 0u; a < supportNodesSize; ++a) {
-        for (auto j = 0u; j < 2; ++j) {
+    for (auto a = 0u; a < supportNodesSize; ++a)
+    {
+        for (auto j = 0u; j < 2; ++j)
+        {
             disp.writeElement(supportNodes[a]->getU(j), 2 * a + j);
         }
     }
@@ -273,8 +306,10 @@ void GaussPoint2D::computeFext()
     // Mass matrix must be computed previously
     fext.reset();
     lmx::Vector<data_type> gravity(2 * supportNodesSize);
-    for (auto a = 0u; a < supportNodesSize; ++a) {
-        for (auto j = 0u; j < 2; ++j) {
+    for (auto a = 0u; a < supportNodesSize; ++a)
+    {
+        for (auto j = 0u; j < 2; ++j)
+        {
             gravity.writeElement(-Simulation::getGravity(j), 2 * a + j);
         }
     }
@@ -288,9 +323,12 @@ void GaussPoint2D::computeFext()
 void GaussPoint2D::computeNLFint()
 {
     F2.zero();
-    for (auto i = 0u; i < 2; ++i) {
-        for (auto j = 0u; j < 2; ++j) {
-            for (auto k = 0u; k < supportNodesSize; ++k) {
+    for (auto i = 0u; i < 2; ++i)
+    {
+        for (auto j = 0u; j < 2; ++j)
+        {
+            for (auto k = 0u; k < supportNodesSize; ++k)
+            {
                 F2(i, j) += supportNodes[k]->getqx(i) * shapeFun->getPhi(j + 1, k);
             }
         }
@@ -298,12 +336,15 @@ void GaussPoint2D::computeNLFint()
     mat->computeS(S2, F2, this->getTemp());
     P2.beProductOf(F2, S2);
     fint.reset();
-    for (auto a = 0u; a < supportNodesSize; ++a) {
-        for (auto j = 0u; j < 2; ++j) {
-            for (auto k = 0u; k < 2; ++k) { //dot product
+    for (auto a = 0u; a < supportNodesSize; ++a)
+    {
+        for (auto j = 0u; j < 2; ++j)
+        {
+            for (auto k = 0u; k < 2; ++k)   //dot product
+            {
                 fint.addElement(weight * jacobian * P2(j, k) * shapeFun->getPhi(k + 1, a),
                                 2 * a + j
-                ); //maybe P(j,i)?
+                               ); //maybe P(j,i)?
             }
         }
     }
@@ -319,12 +360,18 @@ void GaussPoint2D::computeNLKij()
     ////////////// Calculation of Tangent matrix:
     ////////////// Kij = wg * |Jc| * phidot_i * csym * phidot_j
     //////////////     = K(2*i + m, 2*j + n)
-    for (auto a = 0u; a < supportNodesSize; ++a) {
-        for (auto b = 0u; b < supportNodesSize; ++b) {
-            for (auto m = 0u; m < 2; ++m) {
-                for (auto n = 0u; n < 2; ++n) {
-                    for (auto i = 0u; i < 2; ++i) {
-                        for (auto j = 0u; j < 2; ++j) {
+    for (auto a = 0u; a < supportNodesSize; ++a)
+    {
+        for (auto b = 0u; b < supportNodesSize; ++b)
+        {
+            for (auto m = 0u; m < 2; ++m)
+            {
+                for (auto n = 0u; n < 2; ++n)
+                {
+                    for (auto i = 0u; i < 2; ++i)
+                    {
+                        for (auto j = 0u; j < 2; ++j)
+                        {
 //                K(2*a + m, 2*b + n) = Kab(m,n);
 //                K(2*a + m, 2*b + n) +=
 //                    weight * F(m,i)
@@ -357,10 +404,14 @@ void GaussPoint2D::computeNLKij()
     }
     // Initial Stress component:
     data_type phiSphi = 0.;
-    for (auto a = 0u; a < supportNodesSize; ++a) {
-        for (auto b = 0u; b < supportNodesSize; ++b) {
-            for (auto i = 0u; i < 2; ++i) {
-                for (auto j = 0u; j < 2; ++j) {
+    for (auto a = 0u; a < supportNodesSize; ++a)
+    {
+        for (auto b = 0u; b < supportNodesSize; ++b)
+        {
+            for (auto i = 0u; i < 2; ++i)
+            {
+                for (auto j = 0u; j < 2; ++j)
+                {
 //          phiSphi += shapeFun->getPhi(i+1,a) * S2(i,j) *
 //                     shapeFun->getPhi(j+1,b);
                     phiSphi += shapeFun->getPhi(i + 1, a) * S2(i, j)
@@ -470,17 +521,21 @@ void GaussPoint2D::computeNLKij()
 
 void GaussPoint2D::assembleMij(lmx::Matrix<data_type>& globalMass)
 {
-    for (auto i = 0u; i < supportNodesSize; ++i) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
 //     cout<<"node: "<< supportNodes[i]->nodeNumber() << " "
 //         <<supportNodes[i]->getx() << " "
 //         <<supportNodes[i]->gety() << " " << endl ;
-        for (auto j = 0u; j < supportNodesSize; ++j) {
-            for (auto m = 0u; m < 2; ++m) {
-                for (auto n = 0u; n < 2; ++n) {
+        for (auto j = 0u; j < supportNodesSize; ++j)
+        {
+            for (auto m = 0u; m < 2; ++m)
+            {
+                for (auto n = 0u; n < 2; ++n)
+                {
                     globalMass.addElement(M.readElement(2 * i + m, 2 * j + n),
                                           2 * supportNodes[i]->getNumber() + m,
                                           2 * supportNodes[j]->getNumber() + n
-                    );
+                                         );
                 }
             }
         }
@@ -491,17 +546,21 @@ void GaussPoint2D::assembleMij(lmx::Matrix<data_type>& globalMass)
 
 void GaussPoint2D::assembleKij(lmx::Matrix<data_type>& globalTangent)
 {
-    for (auto i = 0u; i < supportNodesSize; ++i) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
 //     cout<<"node: "<< supportNodes[i]->nodeNumber() << " "
 //         <<supportNodes[i]->getx() << " "
 //         <<supportNodes[i]->gety() << " " << endl ;
-        for (auto j = 0u; j < supportNodesSize; ++j) {
-            for (auto m = 0u; m < 2; ++m) {
-                for (auto n = 0u; n < 2; ++n) {
+        for (auto j = 0u; j < supportNodesSize; ++j)
+        {
+            for (auto m = 0u; m < 2; ++m)
+            {
+                for (auto n = 0u; n < 2; ++n)
+                {
                     globalTangent.addElement(K.readElement(2 * i + m, 2 * j + n),
                                              2 * supportNodes[i]->getNumber() + m,
                                              2 * supportNodes[j]->getNumber() + n
-                    );
+                                            );
                 }
             }
         }
@@ -515,21 +574,27 @@ void GaussPoint2D::assembleRi(lmx::Vector<data_type>& bodyR, int firstNode)
 //   cout << "Size = " << r.size() << "solving tensions..." << endl;
 
 //     cout << "bodyR before: " << bodyR << endl;
-    if (Simulation::getSmoothingType() == "OFF") {
-        for (auto i = 0u; i < supportNodesSize; ++i) {
-            for (auto m = 0u; m < 3; ++m) {
+    if (Simulation::getSmoothingType() == "OFF")
+    {
+        for (auto i = 0u; i < supportNodesSize; ++i)
+        {
+            for (auto m = 0u; m < 3; ++m)
+            {
                 bodyR.writeElement(r.readElement(3 * i + m),
                                    3 * (supportNodes[i]->getNumber() - firstNode) + m
-                );
+                                  );
             }
         }
     }
-    else {
-        for (auto i = 0u; i < supportNodesSize; ++i) {
-            for (auto m = 0u; m < 3; ++m) {
+    else
+    {
+        for (auto i = 0u; i < supportNodesSize; ++i)
+        {
+            for (auto m = 0u; m < 3; ++m)
+            {
                 bodyR.addElement(r.readElement(3 * i + m),
                                  3 * (supportNodes[i]->getNumber() - firstNode) + m
-                );
+                                );
             }
         }
     }
@@ -539,11 +604,13 @@ void GaussPoint2D::assembleRi(lmx::Vector<data_type>& bodyR, int firstNode)
 
 void GaussPoint2D::assembleFint(lmx::Vector<data_type>& globalFint)
 {
-    for (auto i = 0u; i < supportNodesSize; ++i) {
-        for (auto m = 0u; m < 2; ++m) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
+        for (auto m = 0u; m < 2; ++m)
+        {
             globalFint.addElement(fint.readElement(2 * i + m),
                                   2 * supportNodes[i]->getNumber() + m
-            );
+                                 );
         }
     }
 }
@@ -551,11 +618,13 @@ void GaussPoint2D::assembleFint(lmx::Vector<data_type>& globalFint)
 
 void GaussPoint2D::assembleFext(lmx::Vector<data_type>& globalFext)
 {
-    for (auto i = 0u; i < supportNodesSize; ++i) {
-        for (auto m = 0u; m < 2; ++m) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
+        for (auto m = 0u; m < 2; ++m)
+        {
             globalFext.addElement(fext.readElement(2 * i + m),
                                   2 * supportNodes[i]->getNumber() + m
-            );
+                                 );
         }
     }
 }
@@ -564,8 +633,10 @@ void GaussPoint2D::assembleFext(lmx::Vector<data_type>& globalFext)
 double GaussPoint2D::calcPotentialE(const lmx::Vector<data_type>& q)
 {
     double potential = 0;
-    for (auto i = 0u; i < supportNodesSize; ++i) {
-        for (auto m = 0u; m < 2; ++m) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
+        for (auto m = 0u; m < 2; ++m)
+        {
             potential += q.readElement(2 * supportNodes[i]->getNumber() + m)
                          * fext.readElement(2 * i + m);
         }
@@ -577,10 +648,14 @@ double GaussPoint2D::calcPotentialE(const lmx::Vector<data_type>& q)
 double GaussPoint2D::calcKineticE(const lmx::Vector<data_type>& qdot)
 {
     double kinetic = 0;
-    for (auto i = 0u; i < supportNodesSize; ++i) {
-        for (auto n = 0u; n < 2; ++n) {
-            for (auto j = 0u; j < supportNodesSize; ++j) {
-                for (auto m = 0u; m < 2; ++m) {
+    for (auto i = 0u; i < supportNodesSize; ++i)
+    {
+        for (auto n = 0u; n < 2; ++n)
+        {
+            for (auto j = 0u; j < supportNodesSize; ++j)
+            {
+                for (auto m = 0u; m < 2; ++m)
+                {
                     kinetic -= 0.5
                                * qdot.readElement(2 * supportNodes[i]->getNumber() + n)
                                * M.readElement(2 * i + n, 2 * j + m)

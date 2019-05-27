@@ -23,7 +23,8 @@
 #include "body.h"
 #include <core/point.h>
 
-namespace mknix {
+namespace mknix
+{
 
 class Point;
 
@@ -47,15 +48,20 @@ public:
     Point* getBodyPoint(int point_number)
     {
         cout << "req " << point_number << ", first: " << bodyPoints.front()->getNumber() << ", last: " <<
-        bodyPoints.back()->getNumber() << endl;
+             bodyPoints.back()->getNumber() << endl;
         return this->bodyPoints[point_number];
     }
 
     virtual Node* getNode(int node_number) override
     {
-        if (node_number < 0) {
+        if (node_number < 0)
+        {
             return this->points[-1 - node_number];
-        } else { return this->nodes[node_number]; }
+        }
+        else
+        {
+            return this->nodes[node_number];
+        }
     }
 
     Point* getLastBodyPoint()
@@ -87,7 +93,10 @@ public:
 
     void addPoint(int, double, double, double, double, double);
 
-    virtual int getNumberOfPoints() { return points.size(); }
+    virtual int getNumberOfPoints()
+    {
+        return points.size();
+    }
 
 //     Node* getPoint( int node_number )
 //     {
@@ -113,7 +122,7 @@ protected:
     /**< Points to define integration domain */
     bool computeStress;
     bool computeEnergy;
-//     std::vector<Node*> points; 
+//     std::vector<Node*> points;
     lmx::Matrix<data_type> smoothingMassMatrix;
     std::vector<lmx::Vector<data_type>> stresses;
     std::vector<lmx::Vector<data_type>*> energies;

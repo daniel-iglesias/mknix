@@ -22,7 +22,8 @@
 
 #include "bodyflex.h"
 
-namespace mknix {
+namespace mknix
+{
 
 /**
   @author AUTHORS <MAILS>
@@ -36,11 +37,13 @@ public:
 
     ~FlexGlobalGalerkin();
 
-    std::string getType() {
+    std::string getType()
+    {
         return bodyType;
     }
 
-    void setType( std::string type_in ) {
+    void setType( std::string type_in )
+    {
         bodyType = type_in;
     }
 

@@ -28,7 +28,7 @@
 //
 //===========================================================================
 
-/** @file gmm_except.h 
+/** @file gmm_except.h
     @author Yves Renard <Yves.Renard@insa-lyon.fr>
     @author Julien Pommier <Julien.Pommier@insa-toulouse.fr>
     @date September 01, 2002.
@@ -40,40 +40,43 @@
 
 #include "gmm_std.h"
 
-namespace gmm {
+namespace gmm
+{
 
 /* *********************************************************************** */
 /*	Getfem++ generic errors.                     			   */
 /* *********************************************************************** */
 
-  class gmm_error: public std::logic_error {
-  public:
+class gmm_error: public std::logic_error
+{
+public:
     gmm_error(const std::string& what_arg): std::logic_error (what_arg) {}
-  };
+};
 
 #ifdef GETFEM_HAVE_PRETTY_FUNCTION
 #  define GMM_PRETTY_FUNCTION __PRETTY_FUNCTION__
-#else 
+#else
 #  define GMM_PRETTY_FUNCTION ""
 #endif
 
-  // Errors : GMM_THROW should not be used on its own.
-  //          GMM_ASSERT1 : Non-maskable errors. Typically for in/ouput and
-  //               when the test do not significantly reduces the performance.
-  //          GMM_ASSERT2 : All tests which are potentially performance
-  //               consuming. Not hidden by default. Hidden when NDEBUG is
-  //               defined.
-  //          GMM_ASSERT3 : For internal checks. Hidden by default. Active
-  //               only when DEBUG_MODE is defined.
+// Errors : GMM_THROW should not be used on its own.
+//          GMM_ASSERT1 : Non-maskable errors. Typically for in/ouput and
+//               when the test do not significantly reduces the performance.
+//          GMM_ASSERT2 : All tests which are potentially performance
+//               consuming. Not hidden by default. Hidden when NDEBUG is
+//               defined.
+//          GMM_ASSERT3 : For internal checks. Hidden by default. Active
+//               only when DEBUG_MODE is defined.
 
 #ifdef __EXCEPTIONS
-  inline void short_error_throw(const char *file, int line, const char *func,
-				const char *errormsg) {
+inline void short_error_throw(const char *file, int line, const char *func,
+                              const char *errormsg)
+{
     std::stringstream msg;
     msg << "Error in " << file << ", line " << line << " " << func
-	<< ": \n" << errormsg << ends;
-    throw gmm::gmm_error(msg.str());	
-  }
+        << ": \n" << errormsg << ends;
+    throw gmm::gmm_error(msg.str());
+}
 # define GMM_THROW_(type, errormsg) {					\
     std::stringstream msg;						\
     msg << "Error in " __FILE__ << ", line "				\
@@ -82,13 +85,14 @@ namespace gmm {
     throw (type)(msg.str());						\
   }
 #else
-  inline void short_error_throw(const char *file, int line, const char *func,
-				const char *errormsg) {
+inline void short_error_throw(const char *file, int line, const char *func,
+                              const char *errormsg)
+{
     std::stringstream msg;
     msg << "Error in " << file << ", line " << line << " " << func
-	<< ": \n" << errormsg << ends;
-    ::abort();	
-  }
+        << ": \n" << errormsg << ends;
+    ::abort();
+}
 # define GMM_THROW_(type, errormsg) {					\
     std::stringstream msg;						\
     msg << "Error in "__FILE__ << ", line "				\
@@ -97,12 +101,12 @@ namespace gmm {
     ::abort();								\
   }
 #endif
-  
+
 # define GMM_ASSERT1(test, errormsg)		        		\
   { if (!(test)) GMM_THROW_(gmm::gmm_error, errormsg); }
 
-  // inline void GMM_THROW() IS_DEPRECATED;
-  inline void GMM_THROW() {}
+// inline void GMM_THROW() IS_DEPRECATED;
+inline void GMM_THROW() {}
 #define GMM_THROW(a, b) { GMM_THROW_(a,b); gmm::GMM_THROW(); }
 
 #if defined(NDEBUG)
@@ -126,25 +130,35 @@ namespace gmm {
 /*	Getfem++ warnings.                         			   */
 /* *********************************************************************** */
 
-  // This allows to dynamically hide warnings
-  struct warning_level {
+// This allows to dynamically hide warnings
+struct warning_level
+{
     static int level(int l = -2)
-    { static int level_ = 3; return (l != -2) ? (level_ = l) : level_; }
-  };
+    {
+        static int level_ = 3;
+        return (l != -2) ? (level_ = l) : level_;
+    }
+};
 
-  inline void set_warning_level(int l) { warning_level::level(std::max(0,l)); }
-  inline int  get_warning_level(void)  { return warning_level::level(-2); }
+inline void set_warning_level(int l)
+{
+    warning_level::level(std::max(0,l));
+}
+inline int  get_warning_level(void)
+{
+    return warning_level::level(-2);
+}
 
-  // This allow not too compile some Warnings
+// This allow not too compile some Warnings
 #ifndef GMM_WARNING_LEVEL
 # define GMM_WARNING_LEVEL 4
 #endif
 
-  // Warning levels : 0 always printed
-  //                  1 very important : specify a possible error in the code.
-  //                  2 important : specify a default of optimization for inst.
-  //                  3 remark
-  //                  4 ignored by default.
+// Warning levels : 0 always printed
+//                  1 very important : specify a possible error in the code.
+//                  2 important : specify a default of optimization for inst.
+//                  3 remark
+//                  4 ignored by default.
 
 #define GMM_WARNING_MSG(level_, thestr)  {			       \
       std::stringstream msg;                                           \
@@ -164,21 +178,21 @@ namespace gmm {
 
 #if GMM_WARNING_LEVEL > 1
 # define GMM_WARNING2(thestr)                                           \
-  { if (2 <= gmm::warning_level::level()) GMM_WARNING_MSG(2, thestr) } 
+  { if (2 <= gmm::warning_level::level()) GMM_WARNING_MSG(2, thestr) }
 #else
 # define GMM_WARNING1(thestr) {}
 #endif
 
 #if GMM_WARNING_LEVEL > 2
 # define GMM_WARNING3(thestr)                                           \
-  { if (3 <= gmm::warning_level::level()) GMM_WARNING_MSG(3, thestr) } 
+  { if (3 <= gmm::warning_level::level()) GMM_WARNING_MSG(3, thestr) }
 #else
 # define GMM_WARNING1(thestr) {}
 #endif
 
 #if GMM_WARNING_LEVEL > 3
 # define GMM_WARNING4(thestr)                                           \
-  { if (4 <= gmm::warning_level::level()) GMM_WARNING_MSG(4, thestr) } 
+  { if (4 <= gmm::warning_level::level()) GMM_WARNING_MSG(4, thestr) }
 #else
 # define GMM_WARNING1(thestr) {}
 #endif
@@ -187,24 +201,31 @@ namespace gmm {
 /*	Getfem++ traces.                         			   */
 /* *********************************************************************** */
 
-  // This allows to dynamically hide traces
-  struct traces_level {
+// This allows to dynamically hide traces
+struct traces_level
+{
     static int level(int l = -2)
-    { static int level_ = 3; return (l != -2) ? (level_ = l) : level_; }
-  };
+    {
+        static int level_ = 3;
+        return (l != -2) ? (level_ = l) : level_;
+    }
+};
 
-  inline void set_traces_level(int l) { traces_level::level(std::max(0,l)); }
+inline void set_traces_level(int l)
+{
+    traces_level::level(std::max(0,l));
+}
 
-  // This allow not too compile some Warnings
+// This allow not too compile some Warnings
 #ifndef GMM_TRACES_LEVEL
 # define GMM_TRACES_LEVEL 3
 #endif
 
-  // Traces levels : 0 always printed
-  //                 1 Susceptible to occur once in a program.
-  //                 2 Susceptible to occur occasionnaly in a program (10).
-  //                 3 Susceptible to occur often (100).
-  //                 4 Susceptible to occur very often (>1000).
+// Traces levels : 0 always printed
+//                 1 Susceptible to occur once in a program.
+//                 2 Susceptible to occur occasionnaly in a program (10).
+//                 3 Susceptible to occur often (100).
+//                 4 Susceptible to occur very often (>1000).
 
 #define GMM_TRACE_MSG_MPI     // for Parallelized version
 #define GMM_TRACE_MSG(level_, thestr)  {			       \
@@ -215,7 +236,7 @@ namespace gmm {
           << ends;						       \
       std::cout << msg.str() << std::endl;			       \
     }                                                                  \
-  }        
+  }
 
 #define GMM_TRACE0(thestr) GMM_TRACE_MSG(0, thestr)
 
@@ -225,47 +246,59 @@ namespace gmm {
 #else
 # define GMM_TRACE1(thestr) {}
 #endif
-  
+
 #if GMM_TRACES_LEVEL > 1
 # define GMM_TRACE2(thestr)						\
-  { if (2 <= gmm::traces_level::level()) GMM_TRACE_MSG(2, thestr) } 
+  { if (2 <= gmm::traces_level::level()) GMM_TRACE_MSG(2, thestr) }
 #else
 # define GMM_TRACE2(thestr) {}
 #endif
-  
+
 #if GMM_TRACES_LEVEL > 2
 # define GMM_TRACE3(thestr)						\
-  { if (3 <= gmm::traces_level::level()) GMM_TRACE_MSG(3, thestr) } 
+  { if (3 <= gmm::traces_level::level()) GMM_TRACE_MSG(3, thestr) }
 #else
 # define GMM_TRACE3(thestr) {}
 #endif
-  
+
 #if GMM_TRACES_LEVEL > 3
 # define GMM_TRACE4(thestr)						\
-  { if (4 <= gmm::traces_level::level()) GMM_TRACE_MSG(4, thestr) } 
+  { if (4 <= gmm::traces_level::level()) GMM_TRACE_MSG(4, thestr) }
 #else
 # define GMM_TRACE4(thestr) {}
 #endif
-  
-  
-  /* ********************************************************************* */
-  /*    Definitions for compatibility with old versions.        	   */
-  /* ********************************************************************* */ 
-  
-  using std::invalid_argument;
-  
-  struct dimension_error : public std::logic_error
-  { dimension_error(const std::string& w): std::logic_error(w) {} };
-  struct file_not_found_error : public std::logic_error
-  { file_not_found_error(const std::string& w): std::logic_error (w) {} };
-  struct internal_error : public std::logic_error
-  { internal_error(const std::string& w): std::logic_error(w) {} };
-  struct failure_error : public std::logic_error
-  { failure_error(const std::string& w): std::logic_error (w) {} };
-  struct not_linear_error : public std::logic_error
-  { not_linear_error(const std::string& w): std::logic_error (w) {} };
-  struct to_be_done_error : public std::logic_error
-  { to_be_done_error(const std::string& w): std::logic_error (w) {} };
+
+
+/* ********************************************************************* */
+/*    Definitions for compatibility with old versions.        	   */
+/* ********************************************************************* */
+
+using std::invalid_argument;
+
+struct dimension_error : public std::logic_error
+{
+    dimension_error(const std::string& w): std::logic_error(w) {}
+};
+struct file_not_found_error : public std::logic_error
+{
+    file_not_found_error(const std::string& w): std::logic_error (w) {}
+};
+struct internal_error : public std::logic_error
+{
+    internal_error(const std::string& w): std::logic_error(w) {}
+};
+struct failure_error : public std::logic_error
+{
+    failure_error(const std::string& w): std::logic_error (w) {}
+};
+struct not_linear_error : public std::logic_error
+{
+    not_linear_error(const std::string& w): std::logic_error (w) {}
+};
+struct to_be_done_error : public std::logic_error
+{
+    to_be_done_error(const std::string& w): std::logic_error (w) {}
+};
 
 #define GMM_STANDARD_CATCH_ERROR   catch(std::logic_error e)	\
     {								\
@@ -313,12 +346,12 @@ namespace gmm {
     cerr << "============================================\n";	\
     exit(1);							\
   }
-  //   catch(ios_base::failure) { 
-  //     cerr << "============================================\n";
-  //     cerr << "| A ios_base::failure has been detected !!!|\n";
-  //     cerr << "============================================\n";
-  //     exit(1);
-  //   } 
+//   catch(ios_base::failure) {
+//     cerr << "============================================\n";
+//     cerr << "| A ios_base::failure has been detected !!!|\n";
+//     cerr << "============================================\n";
+//     exit(1);
+//   }
 
 #if defined(__GNUC__) && (__GNUC__ > 3)
 # define GMM_SET_EXCEPTION_DEBUG				\

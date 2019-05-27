@@ -22,7 +22,8 @@
 
 #include "analysis.h"
 
-namespace mknix {
+namespace mknix
+{
 
 /**
 	@author AUTHORS <MAILS>
@@ -45,7 +46,7 @@ public:
 
     void nextStep() override;
 
-   void init(lmx::Vector<data_type> * q_in, lmx::Vector<data_type> * qdot_in, int verbosity) override;
+    void init(lmx::Vector<data_type> * q_in, lmx::Vector<data_type> * qdot_in, int verbosity) override;
 
 private:
     std::string integratorType;

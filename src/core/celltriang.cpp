@@ -4,7 +4,8 @@
 #include "node.h"
 #include "gausspoint2D.h"
 
-namespace mknix {
+namespace mknix
+{
 
 CellTriang::CellTriang()
 {
@@ -18,9 +19,9 @@ CellTriang::CellTriang(Material& material_in,
                        Point * n1_in,
                        Point * n2_in,
                        Point * n3_in
-)
-        : Cell(material_in, formulation_in, alpha_in, nGPoints_in
-)
+                      )
+    : Cell(material_in, formulation_in, alpha_in, nGPoints_in
+          )
 {
     this->bodyPoints.push_back(n1_in);
     this->bodyPoints.push_back(n2_in);
@@ -53,9 +54,9 @@ CellTriang::CellTriang(Material& material_in,
                        Point * n2_in,
                        Point * n3_in,
                        double dc_in
-)
-        : Cell(material_in, formulation_in, alpha_in, nGPoints_in
-)
+                      )
+    : Cell(material_in, formulation_in, alpha_in, nGPoints_in
+          )
 {
     this->bodyPoints.push_back(n1_in);
     this->bodyPoints.push_back(n2_in);
@@ -88,13 +89,15 @@ void CellTriang::createGaussPoints()
     lmx::DenseMatrix<double> gCoef(size_type(nGPoints), 4);
 
     // reference: http://www.cs.rpi.edu/~flaherje/pdf/fea6.pdf
-    if (nGPoints == 1) {
+    if (nGPoints == 1)
+    {
         gCoef(0, 0) = 1. / 3.;
         gCoef(0, 1) = 1. / 3.;
         gCoef(0, 2) = 1. / 3.;
         gCoef(0, 3) = 1.;
     }
-    else if (nGPoints == 3) {
+    else if (nGPoints == 3)
+    {
         gCoef(0, 0) = 2. / 3.;
         gCoef(0, 1) = 1. / 6.;
         gCoef(0, 2) = 1. / 6.;
@@ -121,7 +124,8 @@ void CellTriang::createGaussPoints()
 //         gCoef(2,2) = 0.5;
 //         gCoef(2,3) = 1./3.;
     }
-    else if (nGPoints == 4) {
+    else if (nGPoints == 4)
+    {
         gCoef(0, 0) = 1. / 3.;
         gCoef(0, 1) = 1. / 3.;
         gCoef(0, 2) = 1. / 3.;
@@ -139,7 +143,8 @@ void CellTriang::createGaussPoints()
         gCoef(3, 2) = 0.6;
         gCoef(3, 3) = 25. / 48.;
     }
-    else if (nGPoints == 6) { //must be checked
+    else if (nGPoints == 6)   //must be checked
+    {
         double alpha1 = 0.8168475730;
         double alpha2 = 0.0915762135;
         double beta1 = 0.1081030182;
@@ -169,7 +174,8 @@ void CellTriang::createGaussPoints()
         gCoef(5, 2) = beta2;
         gCoef(5, 3) = 0.1116907998;
     }
-    else if (nGPoints == 7) {
+    else if (nGPoints == 7)
+    {
         double alpha1 = 0.0597158717;
         double alpha2 = 0.7974269853;
         double beta1 = 0.4701420641;
@@ -203,7 +209,8 @@ void CellTriang::createGaussPoints()
         gCoef(6, 2) = alpha2;
         gCoef(6, 3) = 0.1259391805;
     }
-    else if (nGPoints == 12) {
+    else if (nGPoints == 12)
+    {
         double alpha1 = 0.873821971016996;
         double beta1 = 0.063089014491502;
         double weight1 = 0.05084490637027;
@@ -267,7 +274,8 @@ void CellTriang::createGaussPoints()
 //   else if(nGPoints == 20){
 //   }
 
-    for (int i = 0; i < nGPoints; ++i) {
+    for (int i = 0; i < nGPoints; ++i)
+    {
         gPoints.push_back(new GaussPoint2D(this->alpha,
                                            gCoef(i, 3),
                                            jacobian,
@@ -279,21 +287,23 @@ void CellTriang::createGaussPoints()
                                            points(2, 1) * gCoef(i, 2),
                                            dc,
                                            true
-        )
-        );
+                                          )
+                         );
     }
 }
 
 
 void CellTriang::gnuplotOut(std::ofstream& data, std::ofstream& gpdata)
 {
-    for (int i = 0; i < 3; ++i) {
+    for (int i = 0; i < 3; ++i)
+    {
         data << points(i, 0) << " " << points(i, 1) << " 0\n";
     }
     data << points(0, 0) << " " << points(0, 1) << " 0\n";
     data << std::endl;
 
-    for (auto& point : gPoints) {
+    for (auto& point : gPoints)
+    {
         point->gnuplotOut(gpdata);
     }
 }

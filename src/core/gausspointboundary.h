@@ -34,14 +34,16 @@
  */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
-namespace mknix {
+namespace mknix
+{
 
 class LoadThermalBoundary1D;
 
 /**
 @author Daniel Iglesias
 */
-class GaussPointBoundary : public Point {
+class GaussPointBoundary : public Point
+{
 
 public:
     GaussPointBoundary();

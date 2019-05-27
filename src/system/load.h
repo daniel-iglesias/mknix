@@ -23,13 +23,15 @@
 #include "common.h"
 #include "LMX/lmx.h"
 
-namespace mknix {
+namespace mknix
+{
 class Node;
 
 /**
 	@author AUTHORS <MAILS>
 */
-class Load {
+class Load
+{
 public:
     Load();
 

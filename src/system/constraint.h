@@ -24,7 +24,8 @@
 #include "LMX/lmx.h"
 
 
-namespace mknix {
+namespace mknix
+{
 class Node;
 
 /**
@@ -41,9 +42,15 @@ public:
 
     virtual ~Constraint();
 
-    void setTitle(std::string& title_in) { title = title_in; }
+    void setTitle(std::string& title_in)
+    {
+        title = title_in;
+    }
 
-    std::string getTitle() { return title; }
+    std::string getTitle()
+    {
+        return title;
+    }
 
     lmx::Vector<data_type>& getInternalForces()
     {

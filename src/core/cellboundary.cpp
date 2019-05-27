@@ -7,7 +7,8 @@
 #include <system/loadthermalboundary1D.h>
 
 
-namespace mknix {
+namespace mknix
+{
 
 CellBoundary::CellBoundary()
 {
@@ -17,16 +18,17 @@ CellBoundary::CellBoundary()
 CellBoundary::CellBoundary(std::string formulation_in,
                            double alpha_in,
                            int nGPoints_in)
-        : formulation(formulation_in)
-        , alpha(alpha_in)
-        , nGPoints(nGPoints_in)
-        , dc(0)
+    : formulation(formulation_in)
+    , alpha(alpha_in)
+    , nGPoints(nGPoints_in)
+    , dc(0)
 {
 }
 
 CellBoundary::~CellBoundary()
 {
-    for (auto& point : gPoints) {
+    for (auto& point : gPoints)
+    {
         delete point;
     }
 }
@@ -34,9 +36,11 @@ CellBoundary::~CellBoundary()
 // Only for Meshfree CellBoundarys, function is specialized for FEM in each cell type
 void CellBoundary::initialize(std::vector<Node *>& nodes_in)
 {
-    if (formulation == "RPIM" || formulation == "EFG") {
+    if (formulation == "RPIM" || formulation == "EFG")
+    {
         // This function can be joined with assembleGaussPoints so the Gpoints are iterated only once...
-        for (auto& point : gPoints) {
+        for (auto& point : gPoints)
+        {
             point->findSupportNodes(nodes_in);
         }
     }
@@ -45,10 +49,14 @@ void CellBoundary::initialize(std::vector<Node *>& nodes_in)
 
 void CellBoundary::computeShapeFunctions()
 {
-    for (auto& point : gPoints) {
-        if (formulation == "RPIM") {
+    for (auto& point : gPoints)
+    {
+        if (formulation == "RPIM")
+        {
             point->shapeFunSolve("RBF", 1.03);
-        } else if (formulation == "EFG") {
+        }
+        else if (formulation == "EFG")
+        {
             point->shapeFunSolve("MLS", 1.03);
         }
     }
@@ -57,14 +65,16 @@ void CellBoundary::computeShapeFunctions()
 
 void CellBoundary::computeQextGaussPoints(LoadThermalBoundary1D * loadThermalBoundary1D_in)
 {
-    for (auto& point : gPoints) {
+    for (auto& point : gPoints)
+    {
         point->computeQext(loadThermalBoundary1D_in);
     }
 }
 
 void CellBoundary::assembleQextGaussPoints(lmx::Vector<data_type>& globalQext)
 {
-    for (auto& point : gPoints) {
+    for (auto& point : gPoints)
+    {
         point->assembleQext(globalQext);
     }
 }
@@ -80,8 +90,8 @@ void CellBoundary::assembleQextGaussPoints(lmx::Vector<data_type>& globalQext)
 //   }
 //   *outfile << std::endl;
 // }
-// 
-// 
+//
+//
 // void CellBoundary::gnuplotOutStress( std::ofstream & gptension )
 // {
 //     int counter;

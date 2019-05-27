@@ -19,16 +19,17 @@
  ***************************************************************************/
 #include "material.h"
 
-namespace mknix {
+namespace mknix
+{
 
 Material::Material()
-        : dim(0)
-        , capacity(0)
-        , kappa(0)
-        , young(0)
-        , poisson(0)
-        , beta(0)
-        , density(0)
+    : dim(0)
+    , capacity(0)
+    , kappa(0)
+    , young(0)
+    , poisson(0)
+    , beta(0)
+    , density(0)
 {
 }
 
@@ -61,7 +62,8 @@ void Material::computeD()
 {
     double comFacD; // Common factor for matrix D.
 
-    if (dim == 2) {
+    if (dim == 2)
+    {
         D.resize(3, 3);
         // Plain stress case:
         comFacD = young / (1 - std::pow(poisson, 2)); // = E/(1-mu^2)
@@ -72,7 +74,8 @@ void Material::computeD()
         D(2, 2) = (1 - poisson) / 2;
         D *= comFacD; //Apply common factor.
     }
-    else if (dim == 3) {
+    else if (dim == 3)
+    {
         D.resize(6, 6);
         comFacD = young / ((1 + poisson) * (1 - 2 * poisson)); // = E/((1+mu)(1-2*mu))
         D.writeElement(1. - poisson, 0, 0);
@@ -93,7 +96,8 @@ void Material::computeD()
 
 void Material::computeC()
 {
-    if (dim == 2) {
+    if (dim == 2)
+    {
         C.resize(3, 3);
         // Plain stress case:
         C(0, 0) = lambda + 2 * mu;
@@ -102,7 +106,8 @@ void Material::computeC()
         C(1, 1) = lambda + 2 * mu;
         C(2, 2) = mu;
     }
-    else if (dim == 3) {
+    else if (dim == 3)
+    {
         C.resize(6, 6);
         // Plain stress case:
         C(0, 0) = lambda + 2 * mu;

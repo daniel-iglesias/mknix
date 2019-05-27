@@ -22,7 +22,8 @@
 
 #include "system.h"
 
-namespace mknix {
+namespace mknix
+{
 
 class Node;
 

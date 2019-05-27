@@ -22,7 +22,8 @@
 #include <core/node.h>
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 ConstraintThermal::ConstraintThermal()
     : Constraint()
@@ -46,10 +47,14 @@ void ConstraintThermal::assembleInternalForces
     int nodesSize = nodes.size();
     int i, m;
     size_t k, counter(0);
-    for (i=0; i<nodesSize; ++i) {
-        for (k=0; k < nodes[i]->getSupportSize(0); ++k) {
-            if (nodes[i]->getThermalNumber() >= 0 ) {
-                for (m=0; m<dim; ++m) {
+    for (i=0; i<nodesSize; ++i)
+    {
+        for (k=0; k < nodes[i]->getSupportSize(0); ++k)
+        {
+            if (nodes[i]->getThermalNumber() >= 0 )
+            {
+                for (m=0; m<dim; ++m)
+                {
 //           cout << endl <<
 //                   "dim*nodes[i]->getSupportNodeNumber(0,k) + m = " <<
 //                   dim*nodes[i]->getSupportNodeNumber(0,k) + m << endl <<
@@ -73,16 +78,24 @@ void ConstraintThermal::assembleTangentMatrix(lmx::Matrix< data_type > & globalT
     size_t supportNodesSize_i, supportNodesSize_j;
     int i, j, m, n;
     size_t k, l, counter_i(0), counter_j(0);
-    for ( i=0; i<nodesSize; ++i ) {
+    for ( i=0; i<nodesSize; ++i )
+    {
         supportNodesSize_i = nodes[i]->getSupportSize(0);
-        for (k=0; k < supportNodesSize_i; ++k) {
-            for ( j=0; j<nodesSize; ++j ) {
+        for (k=0; k < supportNodesSize_i; ++k)
+        {
+            for ( j=0; j<nodesSize; ++j )
+            {
                 supportNodesSize_j = nodes[j]->getSupportSize(0);
-                for (l=0; l < supportNodesSize_j; ++l) {
-                    if (nodes[i]->getThermalNumber() >= 0 ) {
-                        if (nodes[j]->getThermalNumber() >= 0 ) {
-                            for ( m=0; m<dim; ++m ) {
-                                for ( n=0; n<dim; ++n ) {
+                for (l=0; l < supportNodesSize_j; ++l)
+                {
+                    if (nodes[i]->getThermalNumber() >= 0 )
+                    {
+                        if (nodes[j]->getThermalNumber() >= 0 )
+                        {
+                            for ( m=0; m<dim; ++m )
+                            {
+                                for ( n=0; n<dim; ++n )
+                                {
                                     globalTangent(dim*nodes[i]->getSupportNodeNumber(0,k) + m,
                                                   dim*nodes[j]->getSupportNodeNumber(0,l) + n)
                                     += stiffnessMatrix.readElement(dim*counter_i + m,

@@ -55,8 +55,8 @@
 # define SECURE_NONCHAR_FSCANF fscanf_s
 # define SECURE_STRNCPY(a, la, b, lb) strncpy_s(a, la, b, lb)
 # define SECURE_FOPEN(F, filename, mode) (*(F) = 0,  fopen_s(F, filename, mode))
-# define SECURE_SPRINTF1(S, l, st, p1) sprintf_s(S, l, st, p1) 
-# define SECURE_SPRINTF2(S, l, st, p1, p2) sprintf_s(S, l, st, p1, p2) 
+# define SECURE_SPRINTF1(S, l, st, p1) sprintf_s(S, l, st, p1)
+# define SECURE_SPRINTF2(S, l, st, p1, p2) sprintf_s(S, l, st, p1, p2)
 # define SECURE_SPRINTF4(S, l, st, p1, p2, p3, p4) sprintf_s(S, l, st, p1, p2, p3, p4)
 # define SECURE_STRDUP(s) _strdup(s)
 # ifndef _SCL_SECURE_NO_DEPRECATE
@@ -69,7 +69,7 @@
 # define SECURE_FOPEN(F, filename, mode) ((*(F)) = fopen(filename, mode))
 # define SECURE_SPRINTF1(S, l, st, p1) sprintf(S, st, p1)
 # define SECURE_SPRINTF2(S, l, st, p1, p2) sprintf(S, st, p1, p2)
-# define SECURE_SPRINTF4(S, l, st, p1, p2, p3, p4) sprintf(S, st, p1, p2, p3, p4) 
+# define SECURE_SPRINTF4(S, l, st, p1, p2, p3, p4) sprintf(S, st, p1, p2, p3, p4)
 # define SECURE_STRDUP(s) strdup(s)
 #endif
 
@@ -87,7 +87,7 @@
 # include <stdcomp.h>
 # undef _RWSTD_NO_CLASS_PARTIAL_SPEC
 # undef _RWSTD_NO_NAMESPACE
-#endif 
+#endif
 */
 /* for VISUAL C++ ...
    #if defined(_MSC_VER) //  && !defined(__MWERKS__)
@@ -112,7 +112,7 @@
 #include <cassert>
 #include <climits>
 #include <iostream>
-//#include <ios> 
+//#include <ios>
 #include <fstream>
 #include <ctime>
 #include <exception>
@@ -129,74 +129,89 @@
 #include <numeric>
 
 
-using std::endl; using std::cout; using std::cerr;
-using std::ends; using std::cin;
+using std::endl;
+using std::cout;
+using std::cerr;
+using std::ends;
+using std::cin;
 
-namespace gmm {
+namespace gmm
+{
 
-  /* ******************************************************************* */
-  /*       Clock functions.                                              */
-  /* ******************************************************************* */
-  
+/* ******************************************************************* */
+/*       Clock functions.                                              */
+/* ******************************************************************* */
+
 # if  defined(HAVE_SYS_TIMES)
-  inline double uclock_sec(void) {
+inline double uclock_sec(void)
+{
     static double ttclk = 0.;
     if (ttclk == 0.) ttclk = sysconf(_SC_CLK_TCK);
-    tms t; times(&t); return double(t.tms_utime) / ttclk;
-  }
+    tms t;
+    times(&t);
+    return double(t.tms_utime) / ttclk;
+}
 # else
-  inline double uclock_sec(void)
-  { return double(clock())/double(CLOCKS_PER_SEC); }
+inline double uclock_sec(void)
+{
+    return double(clock())/double(CLOCKS_PER_SEC);
+}
 # endif
-  
-  /* ******************************************************************** */
-  /*	Fixed size integer types.                     			  */
-  /* ******************************************************************** */
-  // Remark : the test program dynamic_array tests the lenght of
-  //          resulting integers
 
-  template <size_t s> struct fixed_size_integer_generator {
+/* ******************************************************************** */
+/*	Fixed size integer types.                     			  */
+/* ******************************************************************** */
+// Remark : the test program dynamic_array tests the lenght of
+//          resulting integers
+
+template <size_t s> struct fixed_size_integer_generator
+{
     typedef void int_base_type;
-    typedef void uint_base_type;  
-  };
+    typedef void uint_base_type;
+};
 
-  template <> struct fixed_size_integer_generator<sizeof(char)> {
+template <> struct fixed_size_integer_generator<sizeof(char)>
+{
     typedef signed char int_base_type;
     typedef unsigned char uint_base_type;
-  };
+};
 
-  template <> struct fixed_size_integer_generator<sizeof(short int)
-    - ((sizeof(short int) == sizeof(char)) ? 78 : 0)> {
+template <> struct fixed_size_integer_generator<sizeof(short int)
+- ((sizeof(short int) == sizeof(char)) ? 78 : 0)>
+{
     typedef signed short int int_base_type;
     typedef unsigned short int uint_base_type;
-  };
+};
 
-  template <> struct fixed_size_integer_generator<sizeof(int)
-    - ((sizeof(int) == sizeof(short int)) ? 59 : 0)> {
+template <> struct fixed_size_integer_generator<sizeof(int)
+- ((sizeof(int) == sizeof(short int)) ? 59 : 0)>
+{
     typedef signed int int_base_type;
     typedef unsigned int uint_base_type;
-  };
- 
-  template <> struct fixed_size_integer_generator<sizeof(long)
-    - ((sizeof(int) == sizeof(long)) ? 93 : 0)> {
+};
+
+template <> struct fixed_size_integer_generator<sizeof(long)
+- ((sizeof(int) == sizeof(long)) ? 93 : 0)>
+{
     typedef signed long int_base_type;
     typedef unsigned long uint_base_type;
-  };
+};
 
-  template <> struct fixed_size_integer_generator<sizeof(long long)
-    - ((sizeof(long long) == sizeof(long)) ? 99 : 0)> {
+template <> struct fixed_size_integer_generator<sizeof(long long)
+- ((sizeof(long long) == sizeof(long)) ? 99 : 0)>
+{
     typedef signed long long int_base_type;
     typedef unsigned long long uint_base_type;
-  };
- 
-  typedef fixed_size_integer_generator<1>::int_base_type int8_type;
-  typedef fixed_size_integer_generator<1>::uint_base_type uint8_type;
-  typedef fixed_size_integer_generator<2>::int_base_type int16_type;
-  typedef fixed_size_integer_generator<2>::uint_base_type uint16_type;
-  typedef fixed_size_integer_generator<4>::int_base_type int32_type;
-  typedef fixed_size_integer_generator<4>::uint_base_type uint32_type;
-  typedef fixed_size_integer_generator<8>::int_base_type int64_type;
-  typedef fixed_size_integer_generator<8>::uint_base_type uint64_type;
+};
+
+typedef fixed_size_integer_generator<1>::int_base_type int8_type;
+typedef fixed_size_integer_generator<1>::uint_base_type uint8_type;
+typedef fixed_size_integer_generator<2>::int_base_type int16_type;
+typedef fixed_size_integer_generator<2>::uint_base_type uint16_type;
+typedef fixed_size_integer_generator<4>::int_base_type int32_type;
+typedef fixed_size_integer_generator<4>::uint_base_type uint32_type;
+typedef fixed_size_integer_generator<8>::int_base_type int64_type;
+typedef fixed_size_integer_generator<8>::uint_base_type uint64_type;
 
 // #if INT_MAX == 32767
 //   typedef signed int    int16_type;
@@ -235,20 +250,20 @@ namespace gmm {
 // #endif
 
 #if defined(__GNUC__) && !defined(__ICC)
-/* 
-   g++ can issue a warning at each usage of a function declared with this special attribute 
+/*
+   g++ can issue a warning at each usage of a function declared with this special attribute
    (also works with typedefs and variable declarations)
 */
 # define IS_DEPRECATED __attribute__ ((__deprecated__))
 /*
-   the specified function is inlined at any optimization level 
+   the specified function is inlined at any optimization level
 */
 # define ALWAYS_INLINE __attribute__((always_inline))
 #else
 # define IS_DEPRECATED
 # define ALWAYS_INLINE
 #endif
-  
+
 }
 
 #endif /* GMM_STD_H__ */

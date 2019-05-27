@@ -34,12 +34,14 @@
  */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
-namespace lmx {
+namespace lmx
+{
 template<typename T>
 class DenseMatrix;
 }
 
-namespace mknix {
+namespace mknix
+{
 
 /**
 @author Daniel Iglesias
@@ -79,7 +81,7 @@ public:
              double, double, double,
              double, double, double,
              double, double, double
-    );
+            );
 
     ~CellRect();
 

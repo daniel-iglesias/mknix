@@ -23,14 +23,15 @@
 #include <core/node.h>
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 ConstraintClearance::ConstraintClearance()
     : Constraint()
 {
 }
 
-ConstraintClearance::ConstraintClearance( Node* a_in, Node* b_in, double& rh_in , double& alpha_in, std::string& method_in )
+ConstraintClearance::ConstraintClearance( Node* a_in, Node* b_in, double& rh_in, double& alpha_in, std::string& method_in )
     : Constraint(alpha_in, method_in)
     , rh(rh_in)
 {
@@ -101,7 +102,8 @@ void ConstraintClearance::calcPhiqq()
         this->phi_qq[0](dim,0) = -2.0 ;
         this->phi_qq[0](1,dim+1) = -2.0 ;
         this->phi_qq[0](dim+1,1) = -2.0 ;
-        if (dim == 3) {
+        if (dim == 3)
+        {
             this->phi_qq[0](2,2) =  2.0 ;
             this->phi_qq[0](dim+2,dim+2) =  2.0 ;
             this->phi_qq[0](2,dim+2) = -2.0 ;
@@ -119,7 +121,8 @@ void ConstraintClearance::calcPhiqq()
         this->phi_qq[0](dim,0) = 0.0 ;
         this->phi_qq[0](1,dim+1) = 0.0 ;
         this->phi_qq[0](dim+1,1) = 0.0 ;
-        if (dim == 3) {
+        if (dim == 3)
+        {
             this->phi_qq[0](2,2) = 0.0 ;
             this->phi_qq[0](2,dim+2) = 0.0 ;
             this->phi_qq[0](dim+2,2) = 0.0 ;

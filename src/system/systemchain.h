@@ -23,7 +23,8 @@
 #include "system.h"
 #include <string>
 
-namespace mknix {
+namespace mknix
+{
 
 class Simulation;
 

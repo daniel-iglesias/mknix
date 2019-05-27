@@ -22,7 +22,8 @@
 
 #include "shapefunction.h"
 
-namespace mknix {
+namespace mknix
+{
 
 /**
 	@author AUTHORS <MAILS>

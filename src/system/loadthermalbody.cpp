@@ -23,22 +23,26 @@
 #include <core/point.h>
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 LoadThermalBody::LoadThermalBody()
 {
     std::ifstream power;
     power.open("POWER.txt");
-    if (power.is_open()) {
+    if (power.is_open())
+    {
 
         double keyword, keyword_2;
 
-        while(power >> keyword) {
+        while(power >> keyword)
+        {
             power >> keyword_2;
             srim[keyword] = keyword_2;
         }
     }
-    else {
+    else
+    {
         cerr << "ERROR: LOAD FILE NOT FOUND!!!" << endl;
     }
 
@@ -58,7 +62,7 @@ double LoadThermalBody::getLoadThermalBody( Point* thePoint )
 //   if (Simulation::getTime() <= 1.E-4){
 // //    if ( thePoint->getX() < 10.E-3 )
 //     typedef std::map<double, double>::const_iterator i_t;
-// 
+//
 //     i_t i=srim.upper_bound(thePoint->getX()/4.);
 //     if(i==srim.end())
 //     {
@@ -69,7 +73,7 @@ double LoadThermalBody::getLoadThermalBody( Point* thePoint )
 //       return i->second;
 //     }
 //     i_t l=i; --l;
-// 
+//
 //     const double delta=(thePoint->getX()/4.- l->first)/(i->first - l->first);
 //     return (delta*i->second +(1-delta)*l->second)/4.;//    else return 0.;
 //   }
@@ -79,14 +83,16 @@ double LoadThermalBody::getLoadThermalBody( Point* thePoint )
 //     For thermal pendulum:
     /////////////////////////////////////////////////////////////////////////////////////////////
     if (srim.size() == 0) cerr << "ERROR: LOAD FILE NOT FOUND!!!" << endl;
-    if (Simulation::getTime() <= 0.1) { // permanent
-        if ( thePoint->getX() < 5. ) {
+    if (Simulation::getTime() <= 0.1)   // permanent
+    {
+        if ( thePoint->getX() < 5. )
+        {
             return mknix::interpolate1D(thePoint->getX(), srim); // else return 0.;
         }
     }
     else return 0.;
 
-  return 0;
+    return 0;
 }
 
 }

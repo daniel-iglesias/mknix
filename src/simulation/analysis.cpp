@@ -20,7 +20,8 @@
 #include "analysis.h"
 #include "simulation.h"
 
-namespace mknix {
+namespace mknix
+{
 
 Analysis::Analysis()
 {

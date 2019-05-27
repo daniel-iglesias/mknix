@@ -19,17 +19,20 @@
  ***************************************************************************/
 #include "common.h"
 
-namespace mknix {
+namespace mknix
+{
 
 double interpolate1D(double key, const std::map<double, double>& theMap)
 {
     typedef std::map<double, double>::const_iterator i_t;
 
     i_t i = theMap.upper_bound(key);
-    if (i == theMap.end()) {
+    if (i == theMap.end())
+    {
         return (--i)->second;
     }
-    if (i == theMap.begin()) {
+    if (i == theMap.begin())
+    {
         return i->second;
     }
     i_t l = i;
@@ -40,14 +43,16 @@ double interpolate1D(double key, const std::map<double, double>& theMap)
 }
 
 boxFIR::boxFIR(int _numCoeffs) :
-        numCoeffs(_numCoeffs * 2)
+    numCoeffs(_numCoeffs * 2)
 {
-    if (numCoeffs < 1) { //Must be > 0 or bad stuff happens
+    if (numCoeffs < 1)   //Must be > 0 or bad stuff happens
+    {
         numCoeffs = 2;
     }
 
     double val = 1. / numCoeffs;
-    for (std::size_t ii = 0; ii < numCoeffs; ++ii) {
+    for (std::size_t ii = 0; ii < numCoeffs; ++ii)
+    {
         b.push_back(val);
         m.push_back(0.);
     }
@@ -58,37 +63,47 @@ void boxFIR::filter(vector<double>& a)
     double output;
 
     // init with all memories equal to first values:
-    for (std::size_t ii = 0; ii < numCoeffs; ++ii) {
+    for (std::size_t ii = 0; ii < numCoeffs; ++ii)
+    {
         m[ii] = a[ii];
     }
 
-    for (std::size_t nn = 0; nn < a.size(); ++nn) {
+    for (std::size_t nn = 0; nn < a.size(); ++nn)
+    {
         output = 0;
-        if (nn < numCoeffs / 2) {
+        if (nn < numCoeffs / 2)
+        {
             //Apply smoothing filter to signal
             //     m[0] = a[nn+numCoeffs/2];
-            for (std::size_t ii = 0; ii < numCoeffs; ++ii) {
+            for (std::size_t ii = 0; ii < numCoeffs; ++ii)
+            {
                 output += b[ii] * m[ii];
             }
         }
-        else if ((a.size() - nn) < numCoeffs) {
+        else if ((a.size() - nn) < numCoeffs)
+        {
             //Apply smoothing filter to signal
             m[0] = a[nn];
-            for (std::size_t ii = 0; ii < numCoeffs; ++ii) {
+            for (std::size_t ii = 0; ii < numCoeffs; ++ii)
+            {
                 output += b[ii] * m[ii];
             }
         }
-        else {
+        else
+        {
             //Apply smoothing filter to signal
             m[0] = a[nn + numCoeffs / 2];
-            for (std::size_t ii = 0; ii < numCoeffs; ++ii) {
+            for (std::size_t ii = 0; ii < numCoeffs; ++ii)
+            {
                 output += b[ii] * m[ii];
             }
         }
 
         //Reshuffle memories
-        if (nn > numCoeffs / 2) {
-            for (std::size_t ii = numCoeffs - 1; ii != 0; --ii) {
+        if (nn > numCoeffs / 2)
+        {
+            for (std::size_t ii = numCoeffs - 1; ii != 0; --ii)
+            {
                 m[ii] = m[ii - 1];
             }
         }

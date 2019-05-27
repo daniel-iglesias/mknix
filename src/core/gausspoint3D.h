@@ -34,7 +34,8 @@
  */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
-namespace mknix {
+namespace mknix
+{
 
 class Material;
 class LoadThermal;
@@ -42,7 +43,8 @@ class LoadThermal;
 /**
 @author Daniel Iglesias
 */
-class GaussPoint3D : public GaussPoint {
+class GaussPoint3D : public GaussPoint
+{
 
 public:
     GaussPoint3D();

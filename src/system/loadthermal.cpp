@@ -22,7 +22,8 @@
 #include <core/node.h>
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 LoadThermal::LoadThermal()
 {
@@ -41,8 +42,10 @@ LoadThermal::~LoadThermal()
 void LoadThermal::insertNodesXCoordinates(std::vector<double>& x_coordinates)
 {
     auto nodesSize = nodes.size();
-    for (auto i = 0u; i < nodesSize; ++i) {
-        if (nodes[i]->getNumber() >= 0) {
+    for (auto i = 0u; i < nodesSize; ++i)
+    {
+        if (nodes[i]->getNumber() >= 0)
+        {
             x_coordinates.push_back(nodes[i]->getX());
         }
     }
@@ -50,14 +53,16 @@ void LoadThermal::insertNodesXCoordinates(std::vector<double>& x_coordinates)
 }
 
 void LoadThermal::assembleExternalHeat
-        (lmx::Vector<data_type>& globalExternalHeat)
+(lmx::Vector<data_type>& globalExternalHeat)
 {
     auto nodesSize = nodes.size();
-    for (auto i = 0u; i < nodesSize; ++i) {
-        if (nodes[i]->getNumber() >= 0) {
+    for (auto i = 0u; i < nodesSize; ++i)
+    {
+        if (nodes[i]->getNumber() >= 0)
+        {
 //             for (m=0; m<Simulation::getDim(); ++m) {
             globalExternalHeat(nodes[i]->getNumber())
-                    += externalHeat; // change of sign!!
+            += externalHeat; // change of sign!!
 //             }
         }
     }
@@ -67,9 +72,11 @@ void LoadThermal::getMaxTemp(double& maxTemp_in)
 {
     auto nodesSize = nodes.size();
 
-    for (auto i = 0u; i < nodesSize; ++i) {
+    for (auto i = 0u; i < nodesSize; ++i)
+    {
 // can be improved using fmax()
-        if (nodes[i]->getTemp() > maxTemp_in) {
+        if (nodes[i]->getTemp() > maxTemp_in)
+        {
             maxTemp_in = nodes[i]->getTemp();
         }
     }

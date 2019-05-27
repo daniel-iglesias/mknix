@@ -66,7 +66,7 @@
    @author  Lie-Quan Lee <llee@osl.iu.edu>
    @author  Yves Renard <Yves.Renard@insa-lyon.fr>
    @date October 13, 2002.
-   @brief Conjugate gradient iterative solver. 
+   @brief Conjugate gradient iterative solver.
 */
 #ifndef GMM_SOLVER_CG_H__
 #define GMM_SOLVER_CG_H__
@@ -74,72 +74,78 @@
 #include "gmm_kernel.h"
 #include "gmm_iter.h"
 
-namespace gmm {
+namespace gmm
+{
 
-  /* ******************************************************************** */
-  /*		conjugate gradient                           		  */
-  /* (preconditionned, with parametrable additional scalar product)       */
-  /* ******************************************************************** */
+/* ******************************************************************** */
+/*		conjugate gradient                           		  */
+/* (preconditionned, with parametrable additional scalar product)       */
+/* ******************************************************************** */
 
-  template <typename Matrix, typename Matps, typename Precond, 
-            typename Vector1, typename Vector2>
-  void cg(const Matrix& A, Vector1& x, const Vector2& b, const Matps& PS,
-	  const Precond &P, iteration &iter) {
+template <typename Matrix, typename Matps, typename Precond,
+          typename Vector1, typename Vector2>
+void cg(const Matrix& A, Vector1& x, const Vector2& b, const Matps& PS,
+        const Precond &P, iteration &iter)
+{
 
     typedef typename temporary_dense_vector<Vector1>::vector_type temp_vector;
     typedef typename linalg_traits<Vector1>::value_type T;
 
     T rho, rho_1(0), a;
     temp_vector p(vect_size(x)), q(vect_size(x)), r(vect_size(x)),
-      z(vect_size(x));
+                z(vect_size(x));
     iter.set_rhsnorm(gmm::sqrt(gmm::abs(vect_hp(PS, b, b))));
 
     if (iter.get_rhsnorm() == 0.0)
-      clear(x);
-    else {
-      mult(A, scaled(x, T(-1)), b, r);
-      mult(P, r, z);
-      rho = vect_hp(PS, z, r);
-      copy(z, p);
+        clear(x);
+    else
+    {
+        mult(A, scaled(x, T(-1)), b, r);
+        mult(P, r, z);
+        rho = vect_hp(PS, z, r);
+        copy(z, p);
 
 // #ifdef GMM_USES_MPI
 //       double t_ref, t_prec = MPI_Wtime(), t_tot = 0;
 //       static double tmult_tot = 0.0;
 // #endif
-      while (!iter.finished_vect(r)) {
+        while (!iter.finished_vect(r))
+        {
 
-	if (!iter.first()) { 
-	  mult(P, r, z);
-	  rho = vect_hp(PS, z, r);
-	  add(z, scaled(p, rho / rho_1), p);
-	}
+            if (!iter.first())
+            {
+                mult(P, r, z);
+                rho = vect_hp(PS, z, r);
+                add(z, scaled(p, rho / rho_1), p);
+            }
 // #ifdef GMM_USES_MPI
 // t_ref = MPI_Wtime();
 //     cout << "mult CG " << endl;
-// #endif	
-	mult(A, p, q);
+// #endif
+            mult(A, p, q);
 // #ifdef GMM_USES_MPI
 //     tmult_tot += MPI_Wtime()-t_ref;
 //     cout << "tmult_tot CG = " << tmult_tot << endl;
 // #endif
-	a = rho / vect_hp(PS, q, p);	
-	add(scaled(p, a), x);
-	add(scaled(q, -a), r);
-	rho_1 = rho;
+            a = rho / vect_hp(PS, q, p);
+            add(scaled(p, a), x);
+            add(scaled(q, -a), r);
+            rho_1 = rho;
 
 // #ifdef GMM_USES_MPI
 // 	t_tot = MPI_Wtime() - t_prec;
-// 	cout << "temps CG : " << t_tot << endl; 
+// 	cout << "temps CG : " << t_tot << endl;
 // #endif
-	++iter;
-      }
+            ++iter;
+        }
     }
-  }
+}
 
-  template <typename Matrix, typename Matps, typename Precond, 
-            typename Vector1, typename Vector2>
-  void cg(const Matrix& A, Vector1& x, const Vector2& b, const Matps& PS,
-	  const gmm::identity_matrix &, iteration &iter) {
+template <typename Matrix, typename Matps, typename Precond,
+          typename Vector1, typename Vector2>
+void cg(const Matrix& A, Vector1& x, const Vector2& b, const Matps& PS,
+        const gmm::identity_matrix &, iteration &iter)
+{
 
     typedef typename temporary_dense_vector<Vector1>::vector_type temp_vector;
     typedef typename linalg_traits<Vector1>::value_type T;
@@ -149,63 +155,72 @@ namespace gmm {
     iter.set_rhsnorm(gmm::sqrt(gmm::abs(vect_hp(PS, b, b))));
 
     if (iter.get_rhsnorm() == 0.0)
-      clear(x);
-    else {
-      mult(A, scaled(x, T(-1)), b, r);
-      rho = vect_hp(PS, r, r);
-      copy(r, p);
+        clear(x);
+    else
+    {
+        mult(A, scaled(x, T(-1)), b, r);
+        rho = vect_hp(PS, r, r);
+        copy(r, p);
 
 // #ifdef GMM_USES_MPI
 //       double t_ref, t_prec = MPI_Wtime(), t_tot = 0;
 //       static double tmult_tot = 0.0;
 // #endif
-      while (!iter.finished_vect(r)) {
+        while (!iter.finished_vect(r))
+        {
 
-	if (!iter.first()) { 
-	  rho = vect_hp(PS, r, r);
-	  add(r, scaled(p, rho / rho_1), p);
-	}
+            if (!iter.first())
+            {
+                rho = vect_hp(PS, r, r);
+                add(r, scaled(p, rho / rho_1), p);
+            }
 // #ifdef GMM_USES_MPI
 // t_ref = MPI_Wtime();
 //     cout << "mult CG " << endl;
-// #endif	
-	mult(A, p, q);
+// #endif
+            mult(A, p, q);
 // #ifdef GMM_USES_MPI
 //     tmult_tot += MPI_Wtime()-t_ref;
 //     cout << "tmult_tot CG = " << tmult_tot << endl;
 // #endif
-	a = rho / vect_hp(PS, q, p);	
-	add(scaled(p, a), x);
-	add(scaled(q, -a), r);
-	rho_1 = rho;
+            a = rho / vect_hp(PS, q, p);
+            add(scaled(p, a), x);
+            add(scaled(q, -a), r);
+            rho_1 = rho;
 
 // #ifdef GMM_USES_MPI
 // 	t_tot = MPI_Wtime() - t_prec;
-// 	cout << "temps CG : " << t_tot << endl; 
+// 	cout << "temps CG : " << t_tot << endl;
 // #endif
-	++iter;
-      }
+            ++iter;
+        }
     }
-  }
+}
 
-  template <typename Matrix, typename Matps, typename Precond, 
-            typename Vector1, typename Vector2> inline 
-  void cg(const Matrix& A, const Vector1& x, const Vector2& b, const Matps& PS,
-	 const Precond &P, iteration &iter)
-  { cg(A, linalg_const_cast(x), b, PS, P, iter); }
+template <typename Matrix, typename Matps, typename Precond,
+          typename Vector1, typename Vector2> inline
+void cg(const Matrix& A, const Vector1& x, const Vector2& b, const Matps& PS,
+        const Precond &P, iteration &iter)
+{
+    cg(A, linalg_const_cast(x), b, PS, P, iter);
+}
 
-  template <typename Matrix, typename Precond, 
-            typename Vector1, typename Vector2> inline
-  void cg(const Matrix& A, Vector1& x, const Vector2& b,
-	 const Precond &P, iteration &iter)
-  { cg(A, x , b, identity_matrix(), P, iter); }
+template <typename Matrix, typename Precond,
+          typename Vector1, typename Vector2> inline
+void cg(const Matrix& A, Vector1& x, const Vector2& b,
+        const Precond &P, iteration &iter)
+{
+    cg(A, x, b, identity_matrix(), P, iter);
+}
 
-  template <typename Matrix, typename Precond, 
-            typename Vector1, typename Vector2> inline
-  void cg(const Matrix& A, const Vector1& x, const Vector2& b,
-	 const Precond &P, iteration &iter)
-  { cg(A, x , b , identity_matrix(), P , iter); }
-  
+template <typename Matrix, typename Precond,
+          typename Vector1, typename Vector2> inline
+void cg(const Matrix& A, const Vector1& x, const Vector2& b,
+        const Precond &P, iteration &iter)
+{
+    cg(A, x, b, identity_matrix(), P, iter);
+}
+
 }
 
 

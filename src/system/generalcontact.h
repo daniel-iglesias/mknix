@@ -40,14 +40,16 @@ class vtkRenderWindowInteractor;
 class vtkWindowToImageFilter;
 class vtkJPEGWriter;
 
-namespace mknix {
+namespace mknix
+{
 
 class Simulation;
 class Node;
 class Constraint;
 class CompBar;
 
-class Contact {
+class Contact
+{
 public:
     Contact( );
     Contact( Simulation*, double );

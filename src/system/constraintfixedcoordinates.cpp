@@ -22,7 +22,8 @@
 #include <simulation/simulation.h>
 #include <core/node.h>
 
-namespace mknix {
+namespace mknix
+{
 
 ConstraintFixedCoordinates::ConstraintFixedCoordinates()
     : Constraint()
@@ -92,15 +93,18 @@ void ConstraintFixedCoordinates::calcPhi()
 }
 
 void ConstraintFixedCoordinates::calcPhiq()
-{   size_type i,j;
-    for(i=0; i<nodes[0]->getSupportSize(0); ++i) {
+{
+    size_type i,j;
+    for(i=0; i<nodes[0]->getSupportSize(0); ++i)
+    {
         this->phi_q[0](dim*i+0) = -nodes[0]->getShapeFunValue(0,i);
         this->phi_q[1](dim*i+1) = -nodes[0]->getShapeFunValue(0,i);
         if (dim == 3)
             this->phi_q[2](dim*i+2) = -nodes[0]->getShapeFunValue(0,i);
     }
     // Now i=supportNodes[0].size()
-    for(j=0; j<nodes[1]->getSupportSize(0); ++j) {
+    for(j=0; j<nodes[1]->getSupportSize(0); ++j)
+    {
         this->phi_q[0](dim*(i+j)) = nodes[1]->getShapeFunValue(0,j);
         this->phi_q[1](dim*(i+j)+1) = nodes[1]->getShapeFunValue(0,j);
         if (dim == 3)

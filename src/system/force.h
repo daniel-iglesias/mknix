@@ -22,7 +22,8 @@
 
 #include "load.h"
 
-namespace mknix {
+namespace mknix
+{
 
 /**
 	@author AUTHORS <MAILS>

@@ -37,7 +37,8 @@
  */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
-namespace mknix {
+namespace mknix
+{
 
 class Node;
 
@@ -142,7 +143,8 @@ public:
     virtual int getSupportNodeNumber(int deriv, int s_node);
 
     void setDc(double dc_in)
-    {   // set dc only if is a greater (conservative) value:
+    {
+        // set dc only if is a greater (conservative) value:
         if (dc_in > dc) dc = dc_in;
     }
 
@@ -161,7 +163,10 @@ public:
 
     virtual void shapeFunSolve(std::string, double);
 
-    void shapeFunSolve(double q_in) { shapeFunSolve(shapeFunType, q_in); }
+    void shapeFunSolve(double q_in)
+    {
+        shapeFunSolve(shapeFunType, q_in);
+    }
 
     void setJacobian(double jac_in)
     {

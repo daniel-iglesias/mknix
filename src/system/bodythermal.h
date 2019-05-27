@@ -23,7 +23,8 @@
 #include "LMX/lmx.h"
 #include "common.h"
 
-namespace mknix {
+namespace mknix
+{
 
 class Node;
 class Cell;
@@ -32,7 +33,8 @@ class LoadThermalBody;
 /**
 	@author AUTHORS <MAILS>
 */
-class ThermalBody {
+class ThermalBody
+{
 
 public:
 

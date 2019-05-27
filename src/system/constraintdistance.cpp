@@ -22,7 +22,8 @@
 #include <core/node.h>
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 ConstraintDistance::ConstraintDistance()
     : Constraint()
@@ -61,7 +62,8 @@ ConstraintDistance::~ConstraintDistance()
 {
 }
 
-void ConstraintDistance::calcRo() {
+void ConstraintDistance::calcRo()
+{
     ro = std::sqrt( std::pow( nodes[1]->getConf(0) - nodes[0]->getConf(0), 2 )
                     +std::pow( nodes[1]->getConf(1) - nodes[0]->getConf(1), 2 )
                     +std::pow( nodes[1]->getConf(2) - nodes[0]->getConf(2), 2 ) );
@@ -125,7 +127,8 @@ void ConstraintDistance::calcPhiqq()
     this->phi_qq[0](dim,0) = -2.0 ;
     this->phi_qq[0](1,dim+1) = -2.0 ;
     this->phi_qq[0](dim+1,1) = -2.0 ;
-    if (dim == 3) {
+    if (dim == 3)
+    {
         this->phi_qq[0](2,2) =  2.0 ;
         this->phi_qq[0](2,dim+2) = -2.0 ;
         this->phi_qq[0](dim+2,2) = -2.0 ;

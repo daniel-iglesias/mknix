@@ -29,7 +29,8 @@
 #  include <unistd.h>
 #endif
 
-namespace mknix {
+namespace mknix
+{
 
 class Node;
 

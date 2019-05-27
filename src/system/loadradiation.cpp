@@ -19,10 +19,11 @@
  ***************************************************************************/
 #include "loadradiation.h"
 
-namespace mknix {
+namespace mknix
+{
 
 Radiation::Radiation()
-        : Load()
+    : Load()
 {
 }
 
@@ -46,13 +47,16 @@ void Radiation::outputToFile(std::ofstream * outFile)
             << radMap.begin()->second.size() << "\t"
             << radMap.size() << endl;
 
-    for (auto& z : radMap) {
-        for (auto& y : z.second) {
-            for (auto& x : y.second) {
+    for (auto& z : radMap)
+    {
+        for (auto& y : z.second)
+        {
+            for (auto& x : y.second)
+            {
                 *outFile << x.first << "\t"
-                        << y.first << "\t"
-                        << z.first << "\t"
-                        << x.second << endl;
+                         << y.first << "\t"
+                         << z.first << "\t"
+                         << x.second << endl;
             }
         }
     }

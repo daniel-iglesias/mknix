@@ -22,16 +22,17 @@
 #include <core/cell.h>
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 FlexGlobalGalerkin::FlexGlobalGalerkin()
-        : FlexBody()
+    : FlexBody()
 {
 }
 
 
 FlexGlobalGalerkin::FlexGlobalGalerkin(std::string title_in)
-        : FlexBody(title_in)
+    : FlexBody(title_in)
 {
 }
 
@@ -44,7 +45,8 @@ void FlexGlobalGalerkin::calcMassMatrix()
 {
     auto end_int = this->cells.size();
 //     #pragma omp parallel for
-    for (auto i = 0u; i < end_int; ++i) {
+    for (auto i = 0u; i < end_int; ++i)
+    {
         this->cells[i]->computeMGaussPoints();
         this->cells[i]->computeFextGaussPoints(); // Depends on M and gravity
     }
@@ -54,15 +56,19 @@ void FlexGlobalGalerkin::calcMassMatrix()
 void FlexGlobalGalerkin::calcInternalForces()
 {
     auto end_int = this->cells.size();
-    if (formulation == "NONLINEAR") {
+    if (formulation == "NONLINEAR")
+    {
 //         #pragma omp parallel for
-        for (auto i = 0u; i < end_int; ++i) {
+        for (auto i = 0u; i < end_int; ++i)
+        {
             this->cells[i]->computeNLFintGaussPoints();
         }
     }
-    else if (formulation == "LINEAR") {
+    else if (formulation == "LINEAR")
+    {
 //         #pragma omp parallel for
-        for (auto i = 0u; i < end_int; ++i) {
+        for (auto i = 0u; i < end_int; ++i)
+        {
             this->cells[i]->computeFintGaussPoints();
         }
     }
@@ -73,7 +79,8 @@ void FlexGlobalGalerkin::calcExternalForces()
 {
     auto end_int = this->cells.size();
 //     #pragma omp parallel for
-    for (auto i = 0u; i < end_int; ++i) { // Moved to calcMassMatrix(), as M and Gravity are constant
+    for (auto i = 0u; i < end_int; ++i)   // Moved to calcMassMatrix(), as M and Gravity are constant
+    {
 //         this->cells[i]->computeFextGaussPoints( );
     }
 
@@ -82,15 +89,19 @@ void FlexGlobalGalerkin::calcExternalForces()
 void FlexGlobalGalerkin::calcTangentMatrix()
 {
     auto end_int = this->cells.size();
-    if (formulation == "NONLINEAR") {
+    if (formulation == "NONLINEAR")
+    {
         #pragma omp parallel for
-        for (auto i = 0u; i < end_int; ++i) {
+        for (auto i = 0u; i < end_int; ++i)
+        {
             this->cells[i]->computeNLKGaussPoints();
         }
     }
-    else if (formulation == "LINEAR") {
+    else if (formulation == "LINEAR")
+    {
         #pragma omp parallel for
-        for (auto i = 0u; i < end_int; ++i) {
+        for (auto i = 0u; i < end_int; ++i)
+        {
             this->cells[i]->computeKGaussPoints();
         }
     }
@@ -98,23 +109,28 @@ void FlexGlobalGalerkin::calcTangentMatrix()
 }
 
 void FlexGlobalGalerkin::assembleMassMatrix
-        (lmx::Matrix<data_type>& globalMass)
+(lmx::Matrix<data_type>& globalMass)
 {
     auto end_int = this->cells.size();
-    for (auto i = 0u; i < end_int; ++i) {
+    for (auto i = 0u; i < end_int; ++i)
+    {
         this->cells[i]->assembleMGaussPoints(globalMass);
     }
 
     // Chapuza...
-    if (Simulation::getSmoothingType() == "GLOBAL") {
-        if (smoothingMassMatrix.rows() == 0) {
+    if (Simulation::getSmoothingType() == "GLOBAL")
+    {
+        if (smoothingMassMatrix.rows() == 0)
+        {
             // Compute smoothing matrix (local mass matrix in 1D)
             smoothingMassMatrix.resize(nodes.size(), nodes.size());
-            for (auto i = 0u; i < nodes.size(); ++i) {
-                for (auto j = 0u; j < nodes.size(); ++j) {
+            for (auto i = 0u; i < nodes.size(); ++i)
+            {
+                for (auto j = 0u; j < nodes.size(); ++j)
+                {
                     smoothingMassMatrix.writeElement(globalMass.readElement
-                                                             (Simulation::getDim() * (nodes[i]->getNumber()),
-                                                              Simulation::getDim() * (nodes[j]->getNumber())),
+                                                     (Simulation::getDim() * (nodes[i]->getNumber()),
+                                                      Simulation::getDim() * (nodes[j]->getNumber())),
                                                      i, j);
                 }
             }
@@ -123,20 +139,22 @@ void FlexGlobalGalerkin::assembleMassMatrix
 }
 
 void FlexGlobalGalerkin::assembleInternalForces
-        (lmx::Vector<data_type>& globalInternalForces)
+(lmx::Vector<data_type>& globalInternalForces)
 {
     auto end_int = this->cells.size();
-    for (auto i = 0u; i < end_int; ++i) {
+    for (auto i = 0u; i < end_int; ++i)
+    {
         this->cells[i]->assembleFintGaussPoints(globalInternalForces);
     }
 
 }
 
 void FlexGlobalGalerkin::assembleExternalForces
-        (lmx::Vector<data_type>& globalExternalForces)
+(lmx::Vector<data_type>& globalExternalForces)
 {
     auto end_int = this->cells.size();
-    for (auto i = 0u; i < end_int; ++i) {
+    for (auto i = 0u; i < end_int; ++i)
+    {
         this->cells[i]->assembleFextGaussPoints(globalExternalForces);
     }
 
@@ -145,7 +163,8 @@ void FlexGlobalGalerkin::assembleExternalForces
 void FlexGlobalGalerkin::assembleTangentMatrix(lmx::Matrix<data_type>& globalTangent)
 {
     auto end_int = this->cells.size();
-    for (auto i = 0u; i < end_int; ++i) {
+    for (auto i = 0u; i < end_int; ++i)
+    {
         this->cells[i]->assembleKGaussPoints(globalTangent);
     }
 
@@ -163,43 +182,50 @@ void FlexGlobalGalerkin::outputStep(const lmx::Vector<data_type>& q, const lmx::
     Body::outputStep();
     int stressVectorSize = (Simulation::getDim() == 2) ? 3 : 6;
 
-    if (computeStress) {
-        if (formulation == "LINEAR") {
+    if (computeStress)
+    {
+        if (formulation == "LINEAR")
+        {
 
             stresses.push_back(lmx::Vector<data_type>(stressVectorSize * nodes.size()));
 
             auto end_int = this->cells.size();
-            for (auto i = 0u; i < end_int; ++i) {
+            for (auto i = 0u; i < end_int; ++i)
+            {
                 this->cells[i]->assembleRGaussPoints(stresses.back(), nodes[0]->getNumber());
             }
         }
-        else if (formulation == "NONLINEAR") {
+        else if (formulation == "NONLINEAR")
+        {
 
             stresses.push_back(lmx::Vector<data_type>(stressVectorSize * nodes.size()));
 
             auto end_int = this->cells.size();
-            for (auto i = 0u; i < end_int; ++i) {
+            for (auto i = 0u; i < end_int; ++i)
+            {
                 this->cells[i]->assembleNLRGaussPoints(stresses.back(), nodes[0]->getNumber());
             }
         }
         recoverStressField(stressVectorSize);
     }
 
-    if (computeEnergy) {
+    if (computeEnergy)
+    {
         energies.push_back(new lmx::Vector<data_type>(4)); //potential, kinetic, elastic, total
 
         energies.back()->fillIdentity(0.);
 
         auto end_int = this->cells.size();
 
-        for (auto i = 0u; i < end_int; ++i) {
+        for (auto i = 0u; i < end_int; ++i)
+        {
             energies.back()->operator()(0) += this->cells[i]->calcPotentialEGaussPoints(q); //potential
             energies.back()->operator()(1) += this->cells[i]->calcKineticEGaussPoints(qdot); //kinetic
             energies.back()->operator()(2) += this->cells[i]->calcElasticEGaussPoints(); //elastic
 //total
         }
         energies.back()->operator()(3) +=
-                energies.back()->readElement(0) + energies.back()->readElement(1) + energies.back()->readElement(2);
+            energies.back()->readElement(0) + energies.back()->readElement(1) + energies.back()->readElement(2);
     }
 }
 
@@ -214,62 +240,72 @@ void FlexGlobalGalerkin::outputStep(const lmx::Vector<data_type>& q)
     Body::outputStep();
     int stressVectorSize = (Simulation::getDim() == 2) ? 3 : 6;
 
-    if (computeStress) {
-        if (formulation == "LINEAR") {
+    if (computeStress)
+    {
+        if (formulation == "LINEAR")
+        {
 
             stresses.push_back(lmx::Vector<data_type>(stressVectorSize * nodes.size()));
 
             auto end_int = this->cells.size();
 //             #pragma omp parallel for
-            for (auto i = 0u; i < end_int; ++i) {
+            for (auto i = 0u; i < end_int; ++i)
+            {
                 this->cells[i]->assembleRGaussPoints(stresses.back(), nodes[0]->getNumber());
             }
         }
-        else if (formulation == "NONLINEAR") {
+        else if (formulation == "NONLINEAR")
+        {
 
             stresses.push_back(lmx::Vector<data_type>(stressVectorSize * nodes.size()));
 
             auto end_int = this->cells.size();
 //             #pragma omp parallel for
-            for (auto i = 0u; i < end_int; ++i) {
+            for (auto i = 0u; i < end_int; ++i)
+            {
                 this->cells[i]->assembleNLRGaussPoints(stresses.back(), nodes[0]->getNumber());
             }
         }
         recoverStressField(stressVectorSize);
     }
 
-    if (computeEnergy) {
+    if (computeEnergy)
+    {
         energies.push_back(new lmx::Vector<data_type>(4)); //potential, kinetic, elastic, total
 
         energies.back()->fillIdentity(0.);
 
         auto end_int = this->cells.size();
-#pragma omp parallel for
-        for (auto i = 0u; i < end_int; ++i) {
+        #pragma omp parallel for
+        for (auto i = 0u; i < end_int; ++i)
+        {
             energies.back()->operator()(0) += this->cells[i]->calcPotentialEGaussPoints(q); //potential
             // no kinetic
             energies.back()->operator()(2) += this->cells[i]->calcElasticEGaussPoints(); //elastic
         }
         energies.back()->operator()(3) +=
-                energies.back()->readElement(0) + energies.back()->readElement(1) + energies.back()->readElement(2); //total
+            energies.back()->readElement(0) + energies.back()->readElement(1) + energies.back()->readElement(2); //total
     }
 }
 
 void FlexGlobalGalerkin::recoverStressField(int stressVectorSize)
 {
-    if (Simulation::getSmoothingType() == "GLOBAL") {
+    if (Simulation::getSmoothingType() == "GLOBAL")
+    {
         int j = 0;
         // Solve linear systems for stress smoothing:
         lmx::Vector<data_type> rhs(nodes.size());
         lmx::Vector<data_type> smooth(nodes.size());
 //         for(j=0; j<stressVectorSize; ++j){
-        for (auto i = 0u; i < nodes.size(); ++i) {
+        for (auto i = 0u; i < nodes.size(); ++i)
+        {
             rhs.writeElement(stresses.back().readElement(stressVectorSize * i + j), i);
         }
         lmx::LinearSystem<data_type> theLSolver(smoothingMassMatrix, smooth, rhs);
 //           cout << smoothingMassMatrix << rhs << endl;
         theLSolver.solveYourself();
-        for (auto i = 0u; i < nodes.size(); ++i) {
+        for (auto i = 0u; i < nodes.size(); ++i)
+        {
             stresses.back().writeElement(smooth.readElement(i), stressVectorSize * i + j);
         }
 //           cout << smooth << endl;

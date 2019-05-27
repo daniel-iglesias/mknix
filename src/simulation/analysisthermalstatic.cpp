@@ -20,7 +20,8 @@
 #include "analysisthermalstatic.h"
 #include "simulation.h"
 
-namespace mknix {
+namespace mknix
+{
 
 AnalysisThermalStatic::AnalysisThermalStatic()
     : Analysis()

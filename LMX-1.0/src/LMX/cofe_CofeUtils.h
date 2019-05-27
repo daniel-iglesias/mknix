@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Jaime Planas, Jose M Sancho                     *
  ***************************************************************************/
-/* 
+/*
 	CofeUtils.h
   Created by Jaime Planas.
 	Description:
@@ -24,7 +24,8 @@
  * \author Jaime Planas & J. M. Sancho.
  *
  */
-namespace cofe {
+namespace cofe
+{
 
 class CofeUtils
 {
@@ -35,7 +36,7 @@ public:
         std::cin.get();
         std::exit(0);
     }
-    
+
     static void error(const std::string & stri, int code)
     {
         std::cout << stri << " " << code << std::endl;
@@ -45,7 +46,10 @@ public:
 };
 
 template<class T>
-double norm(const T& a){ return std::sqrt(a.dot(a));}
+double norm(const T& a)
+{
+    return std::sqrt(a.dot(a));
+}
 
 }	// namespace cofe
 

@@ -32,13 +32,16 @@ using namespace std;
 int main(int argc, char * argv[])
 {
 //   try{
-    if (argc > 2) {
+    if (argc > 2)
+    {
         lmx::setMatrixType(atoi(argv[2]));
-        if (argc == 4) {
+        if (argc == 4)
+        {
             lmx::setLinSolverType(atoi(argv[3]));
         }
     }
-    if (argc >= 2 && argc < 5) {
+    if (argc >= 2 && argc < 5)
+    {
 //     cout << "EXECUTING: $ mknix " << argv[1] << endl;
 //     system("echo -n '1. Current Directory is '; pwd");
         mknix::Simulation mySimulation;
@@ -50,9 +53,11 @@ int main(int argc, char * argv[])
 //     mySimulation.resultsFile("res.mbr");
 //       mySimulation.run();
 
-    } else if (argc != 2) {
+    }
+    else if (argc != 2)
+    {
         cout << "Need at least one parameter with file to read from." << endl
-        << "Usage: $./mknix \"file_name\"" << endl;
+             << "Usage: $./mknix \"file_name\"" << endl;
     }
     return EXIT_SUCCESS;
 }

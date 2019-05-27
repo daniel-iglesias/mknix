@@ -21,15 +21,17 @@
 
 #include <core/node.h>
 
-namespace mknix {
+namespace mknix
+{
 
 Motion::Motion()
 {
 }
 
 Motion::Motion(Node * node_in)
-        : theNode(node_in)
-{   // Initializing motions to zero
+    : theNode(node_in)
+{
+    // Initializing motions to zero
     timeUx[0.] = 0.;
     timeUy[0.] = 0.;
     timeUz[0.] = 0.;

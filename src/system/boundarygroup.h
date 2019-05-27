@@ -24,7 +24,8 @@
 #include "LMX/lmx.h"
 
 
-namespace mknix {
+namespace mknix
+{
 
 class Point;
 

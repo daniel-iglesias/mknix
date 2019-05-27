@@ -22,10 +22,11 @@
 #include "node.h"
 #include "gausspoint3D.h"
 
-namespace mknix {
+namespace mknix
+{
 
 ElemTetrahedron::ElemTetrahedron()
-        : CellTetrahedron()
+    : CellTetrahedron()
 {
 }
 
@@ -37,16 +38,16 @@ ElemTetrahedron::ElemTetrahedron(Material& material_in,
                                  Node * n2_in,
                                  Node * n3_in,
                                  Node * n4_in
-)
-        : CellTetrahedron(material_in,
-                          std::string(),
-                          alpha_in,
-                          nGPoints_in,
-                          n1_in,
-                          n2_in,
-                          n3_in,
-                          n4_in
-) { }
+                                )
+    : CellTetrahedron(material_in,
+                      std::string(),
+                      alpha_in,
+                      nGPoints_in,
+                      n1_in,
+                      n2_in,
+                      n3_in,
+                      n4_in
+                     ) { }
 
 
 ElemTetrahedron::~ElemTetrahedron()
@@ -62,13 +63,17 @@ void ElemTetrahedron::initialize(std::vector<Node *>& nodes_in)
 
     // This function can be joined with assembleGaussPoints so the Gpoints are iterated only once...
     int i = 0;
-    for (auto& point : gPoints) {
-        for (i = 0; i < 4; ++i) {
+    for (auto& point : gPoints)
+    {
+        for (i = 0; i < 4; ++i)
+        {
             point->addSupportNode(dynamic_cast<Node *>(bodyPoints[i]));
         }
     }
-    for (auto& point : gPoints_MC) {
-        for (i = 0; i < 4; ++i) {
+    for (auto& point : gPoints_MC)
+    {
+        for (i = 0; i < 4; ++i)
+        {
             point->addSupportNode(dynamic_cast<Node *>(this->bodyPoints[i]));
         }
     }
@@ -77,10 +82,12 @@ void ElemTetrahedron::initialize(std::vector<Node *>& nodes_in)
 
 void ElemTetrahedron::computeShapeFunctions()
 {
-    for (auto& point : gPoints) {
+    for (auto& point : gPoints)
+    {
         point->fillFEmatrices();
     }
-    for (auto& point : gPoints_MC) {
+    for (auto& point : gPoints_MC)
+    {
         point->fillFEmatrices();
     }
 }
@@ -88,21 +95,25 @@ void ElemTetrahedron::computeShapeFunctions()
 void ElemTetrahedron::createGaussPoints_MC()
 {
     int nGPoints_MC = 4;
-    if (nGPoints == 1) {
+    if (nGPoints == 1)
+    {
         nGPoints_MC = 4;
-    } else if (nGPoints == 4) nGPoints_MC = 4; // TODO: More needed
+    }
+    else if (nGPoints == 4) nGPoints_MC = 4;   // TODO: More needed
 
     lmx::DenseMatrix<double> gCoef(size_type(nGPoints_MC), 5);
 
     // reference: http://www.cs.rpi.edu/~flaherje/pdf/fea6.pdf
-    if (nGPoints_MC == 1) {
+    if (nGPoints_MC == 1)
+    {
         gCoef(0, 0) = .25;
         gCoef(0, 1) = .25;
         gCoef(0, 2) = .25;
         gCoef(0, 3) = .25;
         gCoef(0, 4) = 1.;
     }
-    else if (nGPoints_MC == 4) {
+    else if (nGPoints_MC == 4)
+    {
         gCoef(0, 0) = .585410196624969;
         gCoef(0, 1) = gCoef(0, 2) = gCoef(0, 3) = .138196601125011;
         gCoef(0, 4) = .25;
@@ -122,30 +133,31 @@ void ElemTetrahedron::createGaussPoints_MC()
 //   else if(nGPoints == 20){
 //   }
 
-    for (int i = 0; i < nGPoints_MC; ++i) {
+    for (int i = 0; i < nGPoints_MC; ++i)
+    {
         gPoints_MC.push_back
-                (new GaussPoint3D
-                         (this->alpha,
-                          gCoef(i, 4),
-                          jacobian,
-                          mat,
-                          i,
-                          bodyPoints[0]->getX() * gCoef(i, 0)
-                          + bodyPoints[1]->getX() * gCoef(i, 1)
-                          + bodyPoints[2]->getX() * gCoef(i, 2)
-                          + bodyPoints[3]->getX() * gCoef(i, 3),
-                          bodyPoints[0]->getY() * gCoef(i, 0)
-                          + bodyPoints[1]->getY() * gCoef(i, 1)
-                          + bodyPoints[2]->getY() * gCoef(i, 2)
-                          + bodyPoints[3]->getY() * gCoef(i, 3),
-                          bodyPoints[0]->getZ() * gCoef(i, 0)
-                          + bodyPoints[1]->getZ() * gCoef(i, 1)
-                          + bodyPoints[2]->getZ() * gCoef(i, 2)
-                          + bodyPoints[3]->getZ() * gCoef(i, 3),
-                          dc,
-                          false
-                         )
-                );
+        (new GaussPoint3D
+         (this->alpha,
+          gCoef(i, 4),
+          jacobian,
+          mat,
+          i,
+          bodyPoints[0]->getX() * gCoef(i, 0)
+          + bodyPoints[1]->getX() * gCoef(i, 1)
+          + bodyPoints[2]->getX() * gCoef(i, 2)
+          + bodyPoints[3]->getX() * gCoef(i, 3),
+          bodyPoints[0]->getY() * gCoef(i, 0)
+          + bodyPoints[1]->getY() * gCoef(i, 1)
+          + bodyPoints[2]->getY() * gCoef(i, 2)
+          + bodyPoints[3]->getY() * gCoef(i, 3),
+          bodyPoints[0]->getZ() * gCoef(i, 0)
+          + bodyPoints[1]->getZ() * gCoef(i, 1)
+          + bodyPoints[2]->getZ() * gCoef(i, 2)
+          + bodyPoints[3]->getZ() * gCoef(i, 3),
+          dc,
+          false
+         )
+        );
     }
 }
 

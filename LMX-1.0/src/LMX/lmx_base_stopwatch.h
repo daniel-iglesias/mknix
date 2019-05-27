@@ -44,210 +44,216 @@
 
 
 
-namespace lmx {
+namespace lmx
+{
 
-	/**
-	 * \class Stopwatch
-	 * \brief Class Stopwatch
-	 *
-	 * This class is used to measure the time that it takes to do a group of operations.
-	 * Those operations must be consecutive. The usage is very simple:
-	 * just put the operations you want to measure inside a block (use braces) and create an empty Stopwatch object before any operation takes place.
-	 *
-	 * WARNING: If using more than one core (processor) in execution, use class ExactStopWatch instead.
-	 *
-	 * Inspired by Danny Kalev's recipe. More info in: http://www.informit.com/guides/content.asp?g=cplusplus&seqNum=156
-	 *
-	 * \author Daniel Iglesias
-	 *
-	 */
-	class Stopwatch
-	{
+/**
+ * \class Stopwatch
+ * \brief Class Stopwatch
+ *
+ * This class is used to measure the time that it takes to do a group of operations.
+ * Those operations must be consecutive. The usage is very simple:
+ * just put the operations you want to measure inside a block (use braces) and create an empty Stopwatch object before any operation takes place.
+ *
+ * WARNING: If using more than one core (processor) in execution, use class ExactStopWatch instead.
+ *
+ * Inspired by Danny Kalev's recipe. More info in: http://www.informit.com/guides/content.asp?g=cplusplus&seqNum=156
+ *
+ * \author Daniel Iglesias
+ *
+ */
+class Stopwatch
+{
 
-	public:
+public:
 
-		/**
-		 * Empty constructor
-		 */
-		Stopwatch() :
-			start(std::clock()), //start counting time
-			verbose(1), new_out(0), out(&std::cout) { }
+    /**
+     * Empty constructor
+     */
+    Stopwatch() :
+        start(std::clock()), //start counting time
+        verbose(1), new_out(0), out(&std::cout) { }
 
-		/**
-		 * Constructor with name of file
-		 */
-		Stopwatch(char* file_name) :
-			start(std::clock()), //start counting time
-			verbose(1), new_out(1) {
-			out = new std::ofstream(file_name);
-		}
+    /**
+     * Constructor with name of file
+     */
+    Stopwatch(char* file_name) :
+        start(std::clock()), //start counting time
+        verbose(1), new_out(1)
+    {
+        out = new std::ofstream(file_name);
+    }
 
-		/**
-		 * Destructor
-		 */
-		~Stopwatch()
-		{
-			if (verbose) {
-				std::clock_t total_ticks = std::clock() - start; //get elapsed time
-				*out << std::endl;
-				*out << "---------------------timer info:--------------------" << std::endl;
-				*out << "|                                                  |" << std::endl;
-				*out << "| total of ticks for this activity: " << total_ticks << std::endl;
-				*out << "| in seconds: " << double(total_ticks) / CLOCKS_PER_SEC << std::endl;
-				*out << "|                                                  |" << std::endl;
-				*out << "-------------------end timer info.------------------" << std::endl;
-				*out << std::endl;
-			}
-			if (new_out) {
-				delete out;
-				out = 0;
-			}
-		}
+    /**
+     * Destructor
+     */
+    ~Stopwatch()
+    {
+        if (verbose)
+        {
+            std::clock_t total_ticks = std::clock() - start; //get elapsed time
+            *out << std::endl;
+            *out << "---------------------timer info:--------------------" << std::endl;
+            *out << "|                                                  |" << std::endl;
+            *out << "| total of ticks for this activity: " << total_ticks << std::endl;
+            *out << "| in seconds: " << double(total_ticks) / CLOCKS_PER_SEC << std::endl;
+            *out << "|                                                  |" << std::endl;
+            *out << "-------------------end timer info.------------------" << std::endl;
+            *out << std::endl;
+        }
+        if (new_out)
+        {
+            delete out;
+            out = 0;
+        }
+    }
 
-		/**
-		 * Time count access.
-		 *
-		 * @return value of the counter.
-		 */
-		double getTime()
-		{
-			std::clock_t total = std::clock() - start;
-			return double(total) / CLOCKS_PER_SEC;
-		}
+    /**
+     * Time count access.
+     *
+     * @return value of the counter.
+     */
+    double getTime()
+    {
+        std::clock_t total = std::clock() - start;
+        return double(total) / CLOCKS_PER_SEC;
+    }
 
-		/**
-		 * Turns off the default time info message.
-		 */
-		void setQuiet()
-		{
-			verbose = 0;
-		}
+    /**
+     * Turns off the default time info message.
+     */
+    void setQuiet()
+    {
+        verbose = 0;
+    }
 
-	private:
-		std::clock_t start;
-		int verbose;
-		bool new_out;
-		std::ostream* out;
-	};
+private:
+    std::clock_t start;
+    int verbose;
+    bool new_out;
+    std::ostream* out;
+};
 
 
-	/**
-	 * \class ExactStopwatch
-	 * \brief Class ExactStopwatch
-	 *
-	 * This class is better than class Stopwatch when using parallelized executables because it uses the system's time
-	 * instead of counting processor clicks. The usage is very simple: just put the operations you want to measure inside
-	 * a block (use braces) and create an empty Stopwatch object before any operation takes place.
-	 *
-	 * WARNING: Ther might be some portability issues.
-	 *
-	 * \author Daniel Iglesias
-	 *
-	 */
-	class ExactStopwatch
-	{
+/**
+ * \class ExactStopwatch
+ * \brief Class ExactStopwatch
+ *
+ * This class is better than class Stopwatch when using parallelized executables because it uses the system's time
+ * instead of counting processor clicks. The usage is very simple: just put the operations you want to measure inside
+ * a block (use braces) and create an empty Stopwatch object before any operation takes place.
+ *
+ * WARNING: Ther might be some portability issues.
+ *
+ * \author Daniel Iglesias
+ *
+ */
+class ExactStopwatch
+{
 
-	public:
+public:
 
-		/**
-		 * Empty constructor
-		 */
-		ExactStopwatch()
-			: start(std::clock())
-			, verbose(true)
-			, new_out(false)
-			, out(&std::cout)
-		{
+    /**
+     * Empty constructor
+     */
+    ExactStopwatch()
+        : start(std::clock())
+        , verbose(true)
+        , new_out(false)
+        , out(&std::cout)
+    {
 #ifdef WIN32
-			t1 = GetTickCount64() * 1000;
+        t1 = GetTickCount64() * 1000;
 #else
-			timeval tv;
-			gettimeofday(&tv, (struct timezone*)NULL);
-			t1 = tv.tv_sec * 1000000 + tv.tv_usec;
+        timeval tv;
+        gettimeofday(&tv, (struct timezone*)NULL);
+        t1 = tv.tv_sec * 1000000 + tv.tv_usec;
 #endif
-		}
+    }
 
-		/**
-		* Constructor with name of file
-		*/
-		ExactStopwatch(char* file_name)
-			: start(std::clock())
-			, verbose(true)
-			, new_out(true)
-		{
-			out = new std::ofstream(file_name);
-		}
+    /**
+    * Constructor with name of file
+    */
+    ExactStopwatch(char* file_name)
+        : start(std::clock())
+        , verbose(true)
+        , new_out(true)
+    {
+        out = new std::ofstream(file_name);
+    }
 
-		/**
-		 * Destructor
-		 */
-		~ExactStopwatch()
-		{
-			if (verbose) {
-				std::clock_t total_ticks = std::clock() - start; //get elapsed time
+    /**
+     * Destructor
+     */
+    ~ExactStopwatch()
+    {
+        if (verbose)
+        {
+            std::clock_t total_ticks = std::clock() - start; //get elapsed time
 #ifdef WIN32
-				t2 = GetTickCount64() * 1000;
+            t2 = GetTickCount64() * 1000;
 #else
-				timeval tv;
-				gettimeofday(&tv, (struct timezone*)NULL);
-				t2 = tv.tv_sec * 1000000 + tv.tv_usec;
+            timeval tv;
+            gettimeofday(&tv, (struct timezone*)NULL);
+            t2 = tv.tv_sec * 1000000 + tv.tv_usec;
 #endif
-				total_time = (t2 - t1) + 1E-6;
-				*out << std::endl;
-				*out << "---------------------timer info:--------------------" << std::endl;
-				*out << "|                                                  |" << std::endl;
-				*out << "| total of ticks for this activity: " << total_ticks << std::endl;
-				*out << "| in seconds: " << total_time << std::endl;
-				*out << "|                                                  |" << std::endl;
-				*out << "-------------------end timer info.------------------" << std::endl;
-				*out << std::endl;
-			}
-			if (new_out) {
-				delete out;
-				out = NULL;
-			}
-		}
+            total_time = (t2 - t1) + 1E-6;
+            *out << std::endl;
+            *out << "---------------------timer info:--------------------" << std::endl;
+            *out << "|                                                  |" << std::endl;
+            *out << "| total of ticks for this activity: " << total_ticks << std::endl;
+            *out << "| in seconds: " << total_time << std::endl;
+            *out << "|                                                  |" << std::endl;
+            *out << "-------------------end timer info.------------------" << std::endl;
+            *out << std::endl;
+        }
+        if (new_out)
+        {
+            delete out;
+            out = NULL;
+        }
+    }
 
-		/**
-		 * Time count access.
-		 *
-		 * @return value of the counter.
-		 */
-		double getTime()
-		{
+    /**
+     * Time count access.
+     *
+     * @return value of the counter.
+     */
+    double getTime()
+    {
 #ifdef WIN32
-			t2 = GetTickCount64() * 1000;
+        t2 = GetTickCount64() * 1000;
 #else
-			timeval tv;
-			gettimeofday(&tv, (struct timezone*)NULL);
-			t2 = tv.tv_sec * 1000000 + tv.tv_usec;
+        timeval tv;
+        gettimeofday(&tv, (struct timezone*)NULL);
+        t2 = tv.tv_sec * 1000000 + tv.tv_usec;
 #endif
-			total_time = (t2 - t1) + 1E-6;
-			return total_time;
-		}
+        total_time = (t2 - t1) + 1E-6;
+        return total_time;
+    }
 
-		/**
-		 * Turns off the default time info message.
-		 */
-		void setQuiet()
-		{
-			verbose = false;
-		}
+    /**
+     * Turns off the default time info message.
+     */
+    void setQuiet()
+    {
+        verbose = false;
+    }
 
-	private:
-		std::clock_t start;
-		double total_time;
-		bool verbose;
-		const bool new_out;
-		std::ostream* out;
+private:
+    std::clock_t start;
+    double total_time;
+    bool verbose;
+    const bool new_out;
+    std::ostream* out;
 #ifdef WIN32
-		ULONGLONG t1;
-		ULONGLONG t2;
+    ULONGLONG t1;
+    ULONGLONG t2;
 #else
-		long t1;
-		long t2;
+    long t1;
+    long t2;
 #endif
-	};
+};
 
 }
 

@@ -23,96 +23,102 @@
 #include "lmx_mat_data.h"
 
 //////////////////////////////////////////// Doxygen file documentation entry:
-    /*!
-      \file lmx_mat_elem_ref.h
+/*!
+  \file lmx_mat_elem_ref.h
 
-      \brief This file contains both the declaration and implementation for Elem_ref class.
+  \brief This file contains both the declaration and implementation for Elem_ref class.
 
-      Elem_ref class is used by Matrix and Vector objects as a parameter.
+  Elem_ref class is used by Matrix and Vector objects as a parameter.
 
-      \author Daniel Iglesias 
-      
-    */
+  \author Daniel Iglesias
+
+*/
 //////////////////////////////////////////// Doxygen file documentation (end)
 
-namespace lmx {
+namespace lmx
+{
 
 int getMatrixType();
 
-    /**
-    \class Elem_ref
-    \brief Template class Elem_ref
+/**
+\class Elem_ref
+\brief Template class Elem_ref
 
-    This class is used to gain access for read and write purposes in any data structure derived from the Data class.
+This class is used to gain access for read and write purposes in any data structure derived from the Data class.
 
-    @param type Pointer to the matrix or vector structure that is a Data derived class.
-    @param value Copy of the numerical value read.
-    @param i Row where the original value is stored.
-    @param j Column where the original value is stored.
+@param type Pointer to the matrix or vector structure that is a Data derived class.
+@param value Copy of the numerical value read.
+@param i Row where the original value is stored.
+@param j Column where the original value is stored.
 
-    @author Daniel Iglesias .
-    */
+@author Daniel Iglesias .
+*/
 
-template <typename T> class Elem_ref{
+template <typename T> class Elem_ref
+{
 private:
-  Data<T>* type;
-  T value;
-  size_type i;
-  size_type j;
+    Data<T>* type;
+    T value;
+    size_type i;
+    size_type j;
 
 public:
-  Elem_ref();
+    Elem_ref();
 
-  /**
-   * Standard constructor
-   * @param type_in Pointer to Matrix or Vector's data.
-   */
-  Elem_ref(Data<T>* type_in) :
-   type(type_in)
-  {
-  }
+    /**
+     * Standard constructor
+     * @param type_in Pointer to Matrix or Vector's data.
+     */
+    Elem_ref(Data<T>* type_in) :
+        type(type_in)
+    {
+    }
 
-  /**
-   * Destructor
-   */
-  ~Elem_ref()
-  {}
+    /**
+     * Destructor
+     */
+    ~Elem_ref()
+    {}
 
-  /**
-   * Cast operator. Converts the Elem_ref to a T type if its used as a right-hand-side argument in assignment.
-   * @return Value pointed by type in position (i,j).
-   */
-  operator T() { return this->type->readElement(i,j); }
+    /**
+     * Cast operator. Converts the Elem_ref to a T type if its used as a right-hand-side argument in assignment.
+     * @return Value pointed by type in position (i,j).
+     */
+    operator T()
+    {
+        return this->type->readElement(i, j);
+    }
 
-/**
- * Method for storing a given position.
- * @param m Row number.
- * @param n Column number.
- */
-  void write_pos(size_type m, size_type n)
-  { this->i = m;
-    this->j = n;
-  }
+    /**
+     * Method for storing a given position.
+     * @param m Row number.
+     * @param n Column number.
+     */
+    void write_pos(size_type m, size_type n)
+    {
+        this->i = m;
+        this->j = n;
+    }
 
-  inline void operator = (const Elem_ref& ref_in);
+    inline void operator = (const Elem_ref& ref_in);
 
-  inline T operator = (T data_in);
+    inline T operator = (T data_in);
 
-  inline T operator += (T data_in);
+    inline T operator += (T data_in);
 
-  inline T operator -= (T data_in);
+    inline T operator -= (T data_in);
 
-  inline T operator *= (T data_in);
+    inline T operator *= (T data_in);
 
-  inline T operator /= (T data_in);
+    inline T operator /= (T data_in);
 
-  inline T operator ++ ();
+    inline T operator ++ ();
 
-  inline T operator ++ (int);
+    inline T operator ++ (int);
 
-  inline T operator -- ();
+    inline T operator -- ();
 
-  inline T operator -- (int);
+    inline T operator -- (int);
 
 };
 
@@ -120,7 +126,7 @@ public:
  * Empty constructor
  */
 template <typename T>
-    Elem_ref<T>::Elem_ref()
+Elem_ref<T>::Elem_ref()
 {}
 
 /**
@@ -130,8 +136,10 @@ template <typename T>
  * @return Value of element.
  */
 template <typename T> inline
-    void Elem_ref<T>::operator = (const Elem_ref& ref_in)
-{ type->writeElement( ref_in.type->readElement(ref_in.i, ref_in.j), i, j); }
+void Elem_ref<T>::operator = (const Elem_ref& ref_in)
+{
+    type->writeElement(ref_in.type->readElement(ref_in.i, ref_in.j), i, j);
+}
 
 /**
  * Overloaded operator for equaling the element in position (i,j) in
@@ -140,58 +148,58 @@ template <typename T> inline
  * @return A reference to the value.
  */
 template <typename T> inline
-    T Elem_ref<T>::operator = (T data_in)
+T Elem_ref<T>::operator = (T data_in)
 {
-  type->writeElement( data_in, i, j );
-  return data_in;
+    type->writeElement(data_in, i, j);
+    return data_in;
 }
 
-/** Overloaded operator for adding the element in position (i,j) in 
+/** Overloaded operator for adding the element in position (i,j) in
  * type structure the given value.
  * @param data_in Value to add.
  * @return A reference to the final value.
  */
 template <typename T> inline
-    T Elem_ref<T>::operator += (T data_in)
+T Elem_ref<T>::operator += (T data_in)
 {
-  type->writeElement( type->readElement(i,j) + data_in, i, j );
-  return type->readElement(i,j);
+    type->writeElement(type->readElement(i, j) + data_in, i, j);
+    return type->readElement(i, j);
 }
 
-/** Overloaded operator for substracting the element in position (i,j) in 
+/** Overloaded operator for substracting the element in position (i,j) in
  * type structure the given value.
  * @param data_in Value to substract.
  * @return A reference to the final value.
  */
 template <typename T> inline
-    T Elem_ref<T>::operator -= (T data_in)
+T Elem_ref<T>::operator -= (T data_in)
 {
-  type->writeElement( type->readElement(i,j) - data_in, i, j );
-  return type->readElement(i,j);
+    type->writeElement(type->readElement(i, j) - data_in, i, j);
+    return type->readElement(i, j);
 }
 
-/** Overloaded operator for multiplying the element in position (i,j) in 
+/** Overloaded operator for multiplying the element in position (i,j) in
  * type structure by the given value.
  * @param data_in Value to multiply by.
  * @return A reference to the final value.
  */
 template <typename T> inline
-    T Elem_ref<T>::operator *= (T data_in)
+T Elem_ref<T>::operator *= (T data_in)
 {
-  type->writeElement( type->readElement(i,j) * data_in, i, j );
-  return type->readElement(i,j);
+    type->writeElement(type->readElement(i, j) * data_in, i, j);
+    return type->readElement(i, j);
 }
 
-/** Overloaded operator for dividing the element in position (i,j) in 
+/** Overloaded operator for dividing the element in position (i,j) in
  * type structure by the given value.
  * @param data_in Value to divide by.
  * @return A reference to the final value.
  */
 template <typename T> inline
-    T Elem_ref<T>::operator /= (T data_in)
+T Elem_ref<T>::operator /= (T data_in)
 {
-  type->writeElement( type->readElement(i,j) / data_in, i, j );
-  return type->readElement(i,j);
+    type->writeElement(type->readElement(i, j) / data_in, i, j);
+    return type->readElement(i, j);
 }
 
 
@@ -200,10 +208,10 @@ template <typename T> inline
  * @return Incremented value.
  */
 template <typename T> inline
-    T Elem_ref<T>::operator ++ ()
+T Elem_ref<T>::operator ++ ()
 {
-  type->writeElement( type->readElement(i,j)+1, i, j);
-  return type->readElement(i,j);
+    type->writeElement(type->readElement(i, j) + 1, i, j);
+    return type->readElement(i, j);
 }
 
 /**
@@ -211,10 +219,11 @@ template <typename T> inline
  * @return Not incremented value.
  */
 template <typename T> inline
-    T Elem_ref<T>::operator ++ (int foo)
-{ T temp = type->readElement(i,j);
-  type->writeElement( temp+1, i, j);
-  return temp;
+T Elem_ref<T>::operator ++ (int foo)
+{
+    T temp = type->readElement(i, j);
+    type->writeElement(temp + 1, i, j);
+    return temp;
 }
 
 /**
@@ -222,10 +231,10 @@ template <typename T> inline
  * @return Decremented value.
  */
 template <typename T> inline
-    T Elem_ref<T>::operator -- ()
+T Elem_ref<T>::operator -- ()
 {
-  type->writeElement( type->readElement(i,j)-1, i, j);
-  return type->readElement(i,j);
+    type->writeElement(type->readElement(i, j) - 1, i, j);
+    return type->readElement(i, j);
 }
 
 /**
@@ -233,10 +242,11 @@ template <typename T> inline
  * @return Not decremented value.
  */
 template <typename T> inline
-    T Elem_ref<T>::operator -- (int foo)
-{ T temp = type->readElement(i,j);
-  type->writeElement( temp-1, i, j);
-  return temp;
+T Elem_ref<T>::operator -- (int foo)
+{
+    T temp = type->readElement(i, j);
+    type->writeElement(temp - 1, i, j);
+    return temp;
 }
 
 

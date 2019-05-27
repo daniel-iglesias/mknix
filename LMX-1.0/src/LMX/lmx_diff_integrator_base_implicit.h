@@ -22,52 +22,56 @@
 #define LMXINTEGRATOR_BASE_IMPLICIT_H
 
 //////////////////////////////////////////// Doxygen file documentation entry:
-    /*!
-      \file lmx_diff_integrator_base_implicit.h
-      
-      \brief IntegratorBaseImplicit abstract class implementation
+/*!
+  \file lmx_diff_integrator_base_implicit.h
 
-      Implements the basic structure that will have the implicit integrators.
+  \brief IntegratorBaseImplicit abstract class implementation
 
-      \author Daniel Iglesias
+  Implements the basic structure that will have the implicit integrators.
 
-    */
+  \author Daniel Iglesias
+
+*/
 //////////////////////////////////////////// Doxygen file documentation (end)
 
 #include "lmx_diff_integrator_base.h"
 
-namespace lmx {
+namespace lmx
+{
 
-    /**
-    \class IntegratorBaseImplicit
-    \brief Template abstract class IntegratorBaseImplicit.
-    
-    Implicit integrator basic structure.
-    
-    @author Daniel Iglesias .
-    */
-template <class T> class IntegratorBaseImplicit : public IntegratorBase<T>{
+/**
+\class IntegratorBaseImplicit
+\brief Template abstract class IntegratorBaseImplicit.
+
+Implicit integrator basic structure.
+
+@author Daniel Iglesias .
+*/
+template <class T> class IntegratorBaseImplicit : public IntegratorBase<T>
+{
 
 public:
 
-  /** Empty constructor. */
-  IntegratorBaseImplicit(){}
+    /** Empty constructor. */
+    IntegratorBaseImplicit() {}
 
-  /** Destructor. */
-  virtual ~IntegratorBaseImplicit( ){}
+    /** Destructor. */
+    virtual ~IntegratorBaseImplicit( ) {}
 
-  /** Returns 1 (TRUE) if it is an explicit-scheme integrator. */
-  bool isExplicit()
-  { return 0; }
+    /** Returns 1 (TRUE) if it is an explicit-scheme integrator. */
+    bool isExplicit()
+    {
+        return 0;
+    }
 
-  /** Calculates the factor \f$ \frac{\partial qdot_n}{\partial q_n} \f$. */
-  virtual double getPartialQdot( ) = 0;
+    /** Calculates the factor \f$ \frac{\partial qdot_n}{\partial q_n} \f$. */
+//  virtual double getPartialQdot( ) = 0;
 
-  /** Calculates the factor \f$ \frac{\partial qddot_n}{\partial q_n} \f$. */
-  virtual double getPartialQddot( ) = 0;
+    /** Calculates the factor \f$ \frac{\partial qddot_n}{\partial q_n} \f$. */
+//  virtual double getPartialQddot( ) = 0;
 
-  /** Actualizes variables applying an increment. */
-  virtual void integratorUpdate( lmx::Vector<T> delta ) = 0;
+    /** Actualizes variables applying an increment. */
+//  virtual void integratorUpdate( lmx::Vector<T> delta ) = 0;
 };
 
 }; // namespace lmx

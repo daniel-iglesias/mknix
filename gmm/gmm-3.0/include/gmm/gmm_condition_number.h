@@ -38,24 +38,26 @@
 
 #include "gmm_dense_qr.h"
 
-namespace gmm {
+namespace gmm
+{
 
-  /** computation of the condition number of dense matrices using SVD.
+/** computation of the condition number of dense matrices using SVD.
 
-      Uses symmetric_qr_algorithm => dense matrices only.
+    Uses symmetric_qr_algorithm => dense matrices only.
 
-      @param M a matrix.
-      @param emin smallest (in magnitude) eigenvalue
-      @param emax largest eigenvalue.
-   */
-  template <typename MAT> 
-  typename number_traits<typename 
-  linalg_traits<MAT>::value_type>::magnitude_type
-  condition_number(const MAT& M, 
-	  typename number_traits<typename
-	  linalg_traits<MAT>::value_type>::magnitude_type& emin,
-	  typename number_traits<typename
-	  linalg_traits<MAT>::value_type>::magnitude_type& emax) {
+    @param M a matrix.
+    @param emin smallest (in magnitude) eigenvalue
+    @param emax largest eigenvalue.
+ */
+template <typename MAT>
+typename number_traits<typename
+linalg_traits<MAT>::value_type>::magnitude_type
+condition_number(const MAT& M,
+                 typename number_traits<typename
+                 linalg_traits<MAT>::value_type>::magnitude_type& emin,
+                 typename number_traits<typename
+                 linalg_traits<MAT>::value_type>::magnitude_type& emax)
+{
     typedef typename linalg_traits<MAT>::value_type T;
     typedef typename number_traits<T>::magnitude_type R;
 
@@ -64,41 +66,46 @@ namespace gmm {
     std::vector<R> eig(m+n);
 
     if (m+n == 0) return R(0);
-    if (is_hermitian(M)) {
-      eig.resize(m);
-      gmm::symmetric_qr_algorithm(M, eig);
+    if (is_hermitian(M))
+    {
+        eig.resize(m);
+        gmm::symmetric_qr_algorithm(M, eig);
     }
-    else {
-      dense_matrix<T> B(m+n, m+n); // not very efficient ??
-      gmm::copy(conjugated(M), sub_matrix(B, sub_interval(m, n), sub_interval(0, m)));
-      gmm::copy(M, sub_matrix(B, sub_interval(0, m),
-					  sub_interval(m, n)));
-      gmm::symmetric_qr_algorithm(B, eig);
+    else
+    {
+        dense_matrix<T> B(m+n, m+n); // not very efficient ??
+        gmm::copy(conjugated(M), sub_matrix(B, sub_interval(m, n), sub_interval(0, m)));
+        gmm::copy(M, sub_matrix(B, sub_interval(0, m),
+                                sub_interval(m, n)));
+        gmm::symmetric_qr_algorithm(B, eig);
     }
     emin = emax = gmm::abs(eig[0]);
-    for (size_type i = 1; i < eig.size(); ++i) {
-      R e = gmm::abs(eig[i]); 
-      emin = std::min(emin, e);
-      emax = std::max(emax, e);
+    for (size_type i = 1; i < eig.size(); ++i)
+    {
+        R e = gmm::abs(eig[i]);
+        emin = std::min(emin, e);
+        emax = std::max(emax, e);
     }
     // cout << "emin = " << emin << " emax = " << emax << endl;
     if (emin == R(0)) return gmm::default_max(R());
     return emax / emin;
-  }
+}
 
-  template <typename MAT> 
-  typename number_traits<typename 
-  linalg_traits<MAT>::value_type>::magnitude_type
-  condition_number(const MAT& M) { 
+template <typename MAT>
+typename number_traits<typename
+linalg_traits<MAT>::value_type>::magnitude_type
+condition_number(const MAT& M)
+{
     typename number_traits<typename
-      linalg_traits<MAT>::value_type>::magnitude_type emax, emin;
+    linalg_traits<MAT>::value_type>::magnitude_type emax, emin;
     return condition_number(M, emin, emax);
-  }
+}
 
-  template <typename MAT> 
-  typename number_traits<typename 
-  linalg_traits<MAT>::value_type>::magnitude_type
-  Frobenius_condition_number_sqr(const MAT& M) { 
+template <typename MAT>
+typename number_traits<typename
+linalg_traits<MAT>::value_type>::magnitude_type
+Frobenius_condition_number_sqr(const MAT& M)
+{
     typedef typename linalg_traits<MAT>::value_type T;
     typedef typename number_traits<T>::magnitude_type R;
     size_type m = mat_nrows(M), n = mat_ncols(M);
@@ -108,35 +115,39 @@ namespace gmm {
     R trB = abs(mat_trace(B));
     lu_inverse(B);
     return trB*abs(mat_trace(B));
-  }
+}
 
-  template <typename MAT> 
-  typename number_traits<typename 
-  linalg_traits<MAT>::value_type>::magnitude_type
-  Frobenius_condition_number(const MAT& M)
-  { return sqrt(Frobenius_condition_number_sqr(M)); }
+template <typename MAT>
+typename number_traits<typename
+linalg_traits<MAT>::value_type>::magnitude_type
+Frobenius_condition_number(const MAT& M)
+{
+    return sqrt(Frobenius_condition_number_sqr(M));
+}
 
-  /** estimation of the condition number (TO BE DONE...)
-   */
-  template <typename MAT> 
-  typename number_traits<typename 
-  linalg_traits<MAT>::value_type>::magnitude_type
-  condest(const MAT& M, 
-	  typename number_traits<typename
-	  linalg_traits<MAT>::value_type>::magnitude_type& emin,
-	  typename number_traits<typename
-	  linalg_traits<MAT>::value_type>::magnitude_type& emax) {
+/** estimation of the condition number (TO BE DONE...)
+ */
+template <typename MAT>
+typename number_traits<typename
+linalg_traits<MAT>::value_type>::magnitude_type
+condest(const MAT& M,
+        typename number_traits<typename
+        linalg_traits<MAT>::value_type>::magnitude_type& emin,
+        typename number_traits<typename
+        linalg_traits<MAT>::value_type>::magnitude_type& emax)
+{
     return condition_number(M, emin, emax);
-  }
-  
-  template <typename MAT> 
-  typename number_traits<typename 
-  linalg_traits<MAT>::value_type>::magnitude_type
-  condest(const MAT& M) { 
+}
+
+template <typename MAT>
+typename number_traits<typename
+linalg_traits<MAT>::value_type>::magnitude_type
+condest(const MAT& M)
+{
     typename number_traits<typename
-      linalg_traits<MAT>::value_type>::magnitude_type emax, emin;
+    linalg_traits<MAT>::value_type>::magnitude_type emax, emin;
     return condest(M, emin, emax);
-  }
+}
 }
 
 #endif
