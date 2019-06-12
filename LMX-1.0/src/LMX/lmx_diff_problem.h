@@ -64,10 +64,11 @@ public:
 
     /** Empty constructor. */
     DiffProblem()
-        : theConfiguration(0)
-        , theNLSolver(0)
-        , theSystem(0)
-        , p_delta_q(0)
+        : theConfiguration(nullptr)
+		, theIntegrator(nullptr)
+        , theNLSolver(nullptr)
+        , theSystem(nullptr)
+        , p_delta_q(nullptr)
         , b_steptriggered(0)
         , vervosity(2)
     { }

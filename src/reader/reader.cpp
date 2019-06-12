@@ -436,6 +436,7 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
             readAnalysis();
         }
     }
+	input.close();
 }
 
 void mknix::Reader::readSystem(System * system_in)

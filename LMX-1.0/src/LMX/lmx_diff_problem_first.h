@@ -64,6 +64,10 @@ public:
     DiffProblemFirst()
         : solveInitialEquilibrium(1)
         , b_convergence(0)
+		, res(nullptr)
+		, jac(nullptr)
+		, eval(nullptr)
+		, conv(nullptr)
     {}
 
     /** Destructor. */
