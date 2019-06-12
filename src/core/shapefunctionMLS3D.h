@@ -34,12 +34,14 @@
 
 #include "shapefunction.h"
 
-namespace mknix {
+namespace mknix
+{
 
 /**
 @author Daniel Iglesias
 */
-class ShapeFunctionMLS3D : public ShapeFunction {
+class ShapeFunctionMLS3D : public ShapeFunction
+{
 
 private:
 //    int dim; /**< Dimension of problem's space.*/

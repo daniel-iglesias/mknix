@@ -35,7 +35,8 @@
 //////////////////////////////////////////// Doxygen file documentation (end)
 
 
-namespace mknix {
+namespace mknix
+{
 
 /**
 @author Daniel Iglesias
@@ -55,7 +56,7 @@ public:
                     Point *,
                     Point *,
                     Point *
-    );
+                   );
 
     virtual ~CellTetrahedron();
 

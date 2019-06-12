@@ -34,7 +34,8 @@
  */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
-namespace mknix {
+namespace mknix
+{
 
 class Material;
 class LoadThermalBody;
@@ -42,7 +43,8 @@ class LoadThermalBody;
 /**
 @author Daniel Iglesias
 */
-class GaussPoint : public Point {
+class GaussPoint : public Point
+{
 
 public:
     GaussPoint();
@@ -62,8 +64,10 @@ public:
     virtual void fillFEmatrices( )=0;
 
     void setMaterial( Material& mat_in )
-    {this->mat = &mat_in; }
-    
+    {
+        this->mat = &mat_in;
+    }
+
     void computeCij( );
 
     void computeHij( );

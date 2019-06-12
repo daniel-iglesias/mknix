@@ -45,9 +45,11 @@
 #include <vtkWindowToImageFilter.h>
 #include <vtkJPEGWriter.h>
 
-namespace mknix {
+namespace mknix
+{
 
-Contact::Contact( ) {
+Contact::Contact( )
+{
 }
 
 Contact::Contact( Simulation* theSimulation_in, double alpha_in )
@@ -70,7 +72,8 @@ void Contact::createPoints()
     theSimulation->baseSystem->writeBoundaryNodes( nodes );
 //     cout << "Contact Points: " << nodes.size() << endl;
 
-    for(size_type i=0; i<nodes.size(); ++i) {
+    for(size_type i=0; i<nodes.size(); ++i)
+    {
         points->InsertPoint(i,
                             nodes[i]->getx(),
                             nodes[i]->gety(),
@@ -133,7 +136,8 @@ void Contact::updatePoints()
 //    theSimulation->baseSystem->writeBoundaryNodes( nodes );
 //    cout << "Contact Points: " << nodes.size() << endl;
 
-    for(size_type i=0; i<nodes.size(); ++i) {
+    for(size_type i=0; i<nodes.size(); ++i)
+    {
         points->SetPoint(   i,
                             nodes[i]->getx(),
                             nodes[i]->gety(),
@@ -193,13 +197,15 @@ void Contact::createPolys()
     std::ofstream outfile("boundary");
     for( it_boundaries = boundaries.begin();
             it_boundaries!= it_boundaries_end;
-            ++it_boundaries ) {
+            ++it_boundaries )
+    {
         polys->InsertNextCell( it_boundaries->size() );
         it_nodes_end = it_boundaries->rend();
         for( it_nodes = it_boundaries->rbegin();
                 it_nodes!= it_nodes_end;
                 ++it_nodes
-           ) {
+           )
+        {
 //         cout << "Node A:" << (*it_nodes)->getNumber() << cout.flush();
             polys->InsertCellPoint( mapNodes[(*it_nodes)->getNumber()] );
             outfile << (*it_nodes)->getNumber() << " "
@@ -218,13 +224,15 @@ void Contact::createPolys()
     //Create lines in vector:
     for( it_boundaries = boundaries.begin();
             it_boundaries!= it_boundaries_end;
-            ++it_boundaries ) {
+            ++it_boundaries )
+    {
         polys->InsertNextCell( it_boundaries->size() );
         it_nodes_end = --it_boundaries->rend();
         for( it_nodes = it_boundaries->rbegin();
                 it_nodes!= it_nodes_end;
                 ++it_nodes
-           ) {
+           )
+        {
 //         cout << "Node 1:" << (*it_nodes)->getNumber() << cout.flush();
 //         cout << ", Node 2: " << (*it_nodes+1)->getNumber() << endl;
             bars.push_back( new CompBar(mat, *it_nodes, *(it_nodes+1) ) );
@@ -240,7 +248,8 @@ void Contact::updateLines()
     std::vector<CompBar*>::iterator it_bars;
     for( it_bars = bars.begin();
             it_bars!= bars.end();
-            ++it_bars ) {
+            ++it_bars )
+    {
         (*it_bars)->updatePoints( );
     }
 }
@@ -256,14 +265,17 @@ void Contact::readDelaunay()
 
     vTriangles.clear();
     oCellArray = delnyData->GetPolys();
-    for(int i=0; i<delnyData->GetNumberOfPolys(); ++i) {
+    for(int i=0; i<delnyData->GetNumberOfPolys(); ++i)
+    {
         h=oCellArray->GetNextCell(npts, pts);
         if(h==0)
             break;
-        if(npts==3) {
+        if(npts==3)
+        {
             if( pts[0] < nodes.size() &&
                     pts[1] < nodes.size() &&
-                    pts[2] < nodes.size() ) {
+                    pts[2] < nodes.size() )
+            {
                 vTriangles.push_back(pts[0]);
                 vTriangles.push_back(pts[1]);
                 vTriangles.push_back(pts[2]);
@@ -288,7 +300,8 @@ bool Contact::orderTriangleNodes()
     std::vector< Node* >::iterator it_nodes;
     size_type number_of_triangles = vTriangles.size()/3;
 
-    for(i=0; i<number_of_triangles; ++i) {
+    for(i=0; i<number_of_triangles; ++i)
+    {
         cout << vTriangles[3*i] << "," << std::flush;
         cout << nodes[vTriangles[3*i]]->getNumber() << "; " << std::flush;
         cout << vTriangles[3*i+1] << "," << std::flush;
@@ -300,12 +313,14 @@ bool Contact::orderTriangleNodes()
         third_node  = theSimulation->nodes[ nodes[vTriangles[3*i+2]]->getNumber() ];
         for( it_boundaries = boundaries.begin();
                 it_boundaries!= boundaries.end();
-                ++it_boundaries ) {
+                ++it_boundaries )
+        {
             it_nodes = find( it_boundaries->begin(),
                              it_boundaries->end(),
                              first_node
                            );
-            if( it_nodes != it_boundaries->end() ) {
+            if( it_nodes != it_boundaries->end() )
+            {
                 j = it_boundaries - boundaries.begin(); // num. of body where the node is
                 k = it_nodes - it_boundaries->begin(); // position in boundary
                 break; //node found, stop searching
@@ -315,8 +330,10 @@ bool Contact::orderTriangleNodes()
                          it_boundaries->end(),
                          second_node
                        );
-        if( it_nodes != it_boundaries->end() ) {
-            if( it_nodes - it_boundaries->begin() < k ) {
+        if( it_nodes != it_boundaries->end() )
+        {
+            if( it_nodes - it_boundaries->begin() < k )
+            {
                 vTriangles[3*i] = mapNodes[second_node->getNumber()];
                 vTriangles[3*i+1] = mapNodes[first_node->getNumber()];
             }
@@ -333,31 +350,38 @@ bool Contact::orderTriangleNodes()
 //          vTriangles[3*i+2] = -1;
 //        }
         }
-        else { //node2 not found in body of node1... searching for node3:
+        else   //node2 not found in body of node1... searching for node3:
+        {
             it_nodes = find( it_boundaries->begin(),
                              it_boundaries->end(),
                              third_node
                            );
-            if( it_nodes != it_boundaries->end() ) {
-                if( it_nodes - it_boundaries->begin() < k ) {
+            if( it_nodes != it_boundaries->end() )
+            {
+                if( it_nodes - it_boundaries->begin() < k )
+                {
                     vTriangles[3*i] = mapNodes[third_node->getNumber()];
                     vTriangles[3*i+1] = mapNodes[first_node->getNumber()];
                 }
-                else {
+                else
+                {
                     vTriangles[3*i] = mapNodes[first_node->getNumber()];
                     vTriangles[3*i+1] = mapNodes[third_node->getNumber()];
                 }
                 vTriangles[3*i+2] = mapNodes[second_node->getNumber()];
             }
-            else { //node 2 & 3 are in the same body... searching:
+            else   //node 2 & 3 are in the same body... searching:
+            {
                 for( it_boundaries = boundaries.begin();
                         it_boundaries!= boundaries.end();
-                        ++it_boundaries ) {
+                        ++it_boundaries )
+                {
                     it_nodes = find( it_boundaries->begin(),
                                      it_boundaries->end(),
                                      second_node
                                    );
-                    if( it_nodes != it_boundaries->end() ) {
+                    if( it_nodes != it_boundaries->end() )
+                    {
                         j = it_boundaries - boundaries.begin(); // num. of body where the node is
                         k = it_nodes - it_boundaries->begin(); // position in boundary
                         break; //node found, stop searching
@@ -367,12 +391,15 @@ bool Contact::orderTriangleNodes()
                                  it_boundaries->end(),
                                  third_node
                                );
-                if( it_nodes != it_boundaries->end() ) {
-                    if( it_nodes - it_boundaries->begin() < k ) {
+                if( it_nodes != it_boundaries->end() )
+                {
+                    if( it_nodes - it_boundaries->begin() < k )
+                    {
                         vTriangles[3*i] = mapNodes[third_node->getNumber()];
                         vTriangles[3*i+1] = mapNodes[second_node->getNumber()];
                     }
-                    else {
+                    else
+                    {
                         vTriangles[3*i] = mapNodes[second_node->getNumber()];
                         vTriangles[3*i+1] = mapNodes[third_node->getNumber()];
                     }
@@ -396,18 +423,22 @@ void Contact::updateContactElements()
     for(it_to_constraint = theSimulation->baseSystem->constraints.begin();
             it_to_constraint!= theSimulation->baseSystem->constraints.end();
             ++it_to_constraint
-       ) {
+       )
+    {
         // deleting the pointers from basesystem:
         it_constraints = find( constraints.begin(),
                                constraints.end(),
                                it_to_constraint->second );
-        if( it_constraints != constraints.end() ) {
-            if( (static_cast<ConstraintContact*>(*it_constraints))->getGap() > 0 ) {
+        if( it_constraints != constraints.end() )
+        {
+            if( (static_cast<ConstraintContact*>(*it_constraints))->getGap() > 0 )
+            {
                 delete it_to_constraint->second;
                 theSimulation->baseSystem->constraints.erase( it_to_constraint );
                 constraints.erase( it_constraints );
             }
-            else {
+            else
+            {
                 indexes.push_back( it_to_constraint->first );
                 theSimulation->baseSystem->constraints.erase( it_to_constraint );
             }
@@ -418,7 +449,8 @@ void Contact::updateContactElements()
     //renaming keys of contacts with negative gaps:
     int i; //index number
     std::vector< std::string >::iterator it_indexes;
-    for(i=0; i<constraints.size(); ++i) {
+    for(i=0; i<constraints.size(); ++i)
+    {
         theSimulation->baseSystem->constraints
         ["CONTACT.N"+i] = constraints[i];
 
@@ -426,7 +458,8 @@ void Contact::updateContactElements()
     //creating new contact elements
     size_type old_size = constraints.size();
     size_type number_of_triangles = vTriangles.size()/3;
-    for(size_type j=0; j<number_of_triangles; ++j) {
+    for(size_type j=0; j<number_of_triangles; ++j)
+    {
 //      if(vTriangles[3*j] >= 0){
         constraints.push_back(
             new ConstraintContact( theSimulation->nodes[ nodes[vTriangles[3*j]]->getNumber() ]
@@ -494,7 +527,8 @@ void Contact::createDrawingObjects()
     std::vector<CompBar*>::iterator it_bars;
     for( it_bars = bars.begin();
             it_bars!= bars.end();
-            ++it_bars ) {
+            ++it_bars )
+    {
         (*it_bars)->addToRender( ren );
     }
     ren->SetBackground(0, 0, 0);

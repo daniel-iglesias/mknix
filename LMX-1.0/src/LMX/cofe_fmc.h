@@ -145,19 +145,19 @@ cofe::TensorRank2<DIM> inverseOf(const cofe::TensorRank2<DIM> & T)
     det = T.determinant();
     if(std::abs(det) <= std::numeric_limits<double>::min()) cofe::CofeUtils::error("Near singular matrix");
     invdet= 1.0/det;
-    
+
     r(0,0)=  T(1,1)*T(2,2) - T(1,2)*T(2,1);
     r(1,0)=  T(1,2)*T(2,0) - T(1,0)*T(2,2);
     r(2,0)=  T(1,0)*T(2,1) - T(1,1)*T(2,0);
-    
+
     r(0,1)=  T(0,2)*T(2,1) - T(0,1)*T(2,2);
     r(1,1)=  T(0,0)*T(2,2) - T(0,2)*T(2,0);
     r(2,1)=  T(0,1)*T(2,0) - T(0,0)*T(2,1);
-    
+
     r(0,2)=  T(0,1)*T(1,2) - T(0,2)*T(1,1);
     r(1,2)=  T(0,2)*T(1,0) - T(0,0)*T(1,2);
     r(2,2)=  T(0,0)*T(1,1) - T(0,1)*T(1,0);
-    
+
     r *= invdet;
     return r;
 }

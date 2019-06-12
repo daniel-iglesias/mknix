@@ -22,7 +22,8 @@
 #include <simulation/simulation.h>
 #include <core/node.h>
 
-namespace mknix {
+namespace mknix
+{
 
 Load::Load()
 {
@@ -39,9 +40,12 @@ void Load::assembleExternalForces
 {
     int nodesSize = nodes.size();
     int i, m;
-    for (i=0; i<nodesSize; ++i) {
-        if (nodes[i]->getNumber() >= 0 ) {
-            for (m=0; m<Simulation::getDim(); ++m) {
+    for (i=0; i<nodesSize; ++i)
+    {
+        if (nodes[i]->getNumber() >= 0 )
+        {
+            for (m=0; m<Simulation::getDim(); ++m)
+            {
                 globalExternalForces( Simulation::getDim()*nodes[i]->getNumber() + m)
                 += externalForces.readElement(Simulation::getDim()*i + m); // change of sign!!
             }

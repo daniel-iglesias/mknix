@@ -23,7 +23,8 @@
 
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 ShapeFunctionTriangle::ShapeFunctionTriangle()
     : ShapeFunction()

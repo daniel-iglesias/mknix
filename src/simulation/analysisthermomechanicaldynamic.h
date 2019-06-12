@@ -24,7 +24,8 @@
 
 #include <LMX/lmx_diff_problem_first_second.h>
 
-namespace mknix {
+namespace mknix
+{
 
 /**
 	@author AUTHORS <MAILS>

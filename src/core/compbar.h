@@ -30,11 +30,13 @@ class vtkActor;
 /**
 	@author Daniel Iglesias <daniel@extremo>
 */
-namespace mknix {
+namespace mknix
+{
 
 class Node;
 
-class CompBar {
+class CompBar
+{
 public:
     CompBar();
 

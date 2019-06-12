@@ -22,7 +22,8 @@
 
 #include "bodyrigid.h"
 
-namespace mknix {
+namespace mknix
+{
 class Node;
 
 class RigidBody3D: public RigidBody
@@ -31,11 +32,12 @@ public:
 
     RigidBody3D();
 
-    RigidBody3D( std::string , Node*, Node*, Node*, Node*);
+    RigidBody3D( std::string, Node*, Node*, Node*, Node*);
 
     ~RigidBody3D();
 
-    std::string getType() {
+    std::string getType()
+    {
         return std::string("GENERIC3D");
     }
 

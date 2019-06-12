@@ -26,7 +26,8 @@
 
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 RigidBodyMassPoint::RigidBodyMassPoint() : RigidBody()
 {

@@ -25,13 +25,15 @@
 #include <map>
 
 
-namespace mknix {
+namespace mknix
+{
 class Point;
 
 /**
 	@author AUTHORS <MAILS>
 */
-class LoadThermalBoundary1D {
+class LoadThermalBoundary1D
+{
 public:
     LoadThermalBoundary1D();
 
@@ -40,13 +42,13 @@ public:
     /*virtual */~LoadThermalBoundary1D();
 
     void loadFile(std::string);
-    
+
     void loadTimeFile(std::string);
-    
+
     void scaleLoad(double);
 
     double getLoadThermalBoundary1D( Point* );
-    
+
 protected:
     std::map<double, double> loadmap;
     std::map<double, double> timemap;

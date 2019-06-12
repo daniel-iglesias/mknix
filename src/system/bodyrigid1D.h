@@ -22,7 +22,8 @@
 
 #include "bodyrigid.h"
 
-namespace mknix {
+namespace mknix
+{
 class Node;
 
 /**
@@ -37,7 +38,8 @@ public:
 
     ~RigidBar();
 
-    std::string getType() {
+    std::string getType()
+    {
         return std::string("BAR");
     }
 

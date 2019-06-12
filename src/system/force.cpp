@@ -22,7 +22,8 @@
 #include <core/node.h>
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 Force::Force()
     : Load()

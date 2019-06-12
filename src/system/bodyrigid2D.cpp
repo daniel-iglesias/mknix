@@ -21,7 +21,8 @@
 
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 RigidBody2D::RigidBody2D()
     : RigidBody()
@@ -103,7 +104,8 @@ void RigidBody2D::calcMassMatrix()
     this->localMassMatrix(2*Simulation::getDim()+1,1) =  -Ixx;
 
 
-    if (Simulation::getDim() == 3) { // It shouldn't happen, maybe throw an error
+    if (Simulation::getDim() == 3)   // It shouldn't happen, maybe throw an error
+    {
         // m00
         this->localMassMatrix(2,2) = mass + Ixx + Iyy;
         // m01

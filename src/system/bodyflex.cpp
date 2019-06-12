@@ -22,22 +22,23 @@
 #include <core/cell.h>
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 FlexBody::FlexBody()
-        : Body()
-        , formulation("NONLINEAR")
-        , computeStress(0)
-        , computeEnergy(0)
+    : Body()
+    , formulation("NONLINEAR")
+    , computeStress(0)
+    , computeEnergy(0)
 {
 }
 
 
 FlexBody::FlexBody(std::string title_in)
-        : Body(title_in)
-        , formulation("NONLINEAR")
-        , computeStress(0)
-        , computeEnergy(0)
+    : Body(title_in)
+    , formulation("NONLINEAR")
+    , computeStress(0)
+    , computeEnergy(0)
 {
 }
 
@@ -50,11 +51,13 @@ void FlexBody::initialize()
 {
     mknix::Body::initialize();
 
-    for (auto& point : points) {
+    for (auto& point : points)
+    {
         point->findSupportNodes(this->nodes);
         point->shapeFunSolve(1.03);
     }
-    for (auto& point : bodyPoints) {
+    for (auto& point : bodyPoints)
+    {
         point->findSupportNodes(this->nodes);
         point->shapeFunSolve(1.03);
     }
@@ -63,31 +66,41 @@ void FlexBody::initialize()
 
 
 void FlexBody::addBodyPoint( /*const*/ Point * point_in, std::string method_in)
-{   // Creates or redefines a point of the integration domain:
+{
+    // Creates or redefines a point of the integration domain:
 //       cout << "addBodyPoint, with points(size) = " << this->points.size() << endl;
     this->bodyPoints.push_back(point_in);
 //     cout << "POINT ADDED in FLEXBODY:" << points.back()->getNumber()
 //          << ", Support nodes: " << points.back()->getSupportSize(0) << endl;
-    if (method_in == "RPIM" || method_in == "RBF") {
+    if (method_in == "RPIM" || method_in == "RBF")
+    {
         method_in = "RBF";
-    } else if (method_in == "EFG" || method_in == "MLS") {
+    }
+    else if (method_in == "EFG" || method_in == "MLS")
+    {
         method_in = "MLS";
-    } else { cerr << "ERROR: UNKNOWN METHOD FOR BODY POINT. " << method_in << " WAS DEFINED."; }
+    }
+    else
+    {
+        cerr << "ERROR: UNKNOWN METHOD FOR BODY POINT. " << method_in << " WAS DEFINED.";
+    }
     bodyPoints.back()->setShapeFunType(method_in);
 }
 
 void FlexBody::addPoint( /*const*/ Node * node_in) // problems with munmap_chunk(). Use the later function
-{   // Creates or redefines a point, not part of the calculation domain:
+{
+    // Creates or redefines a point, not part of the calculation domain:
 //       cout << "addPoint, with points(size) = " << this->points.size() << endl;
     this->points.push_back(new Node(node_in));
     cout << "POINT ADDED in FLEXBODY:" << points.back()->getNumber()
-    << ", Support nodes: " << points.back()->getSupportSize(0) << endl;
+         << ", Support nodes: " << points.back()->getSupportSize(0) << endl;
     points.back()->setShapeFunType("MLS");
 }
 
 
 void FlexBody::addPoint(int nodeNumber, double x, double y, double z, double alpha, double dc)
-{   // Creates or redefines a point, not part of the calculation domain:
+{
+    // Creates or redefines a point, not part of the calculation domain:
 //       cout << "addPoint, with points(size) = " << this->points.size() << endl;
     this->points.push_back(new Node(nodeNumber, x, y, z));
     points.back()->setAlphai(alpha);
@@ -95,7 +108,7 @@ void FlexBody::addPoint(int nodeNumber, double x, double y, double z, double alp
 
     points.back()->findSupportNodes(this->nodes);
     cout << "POINT ADDED in FLEXBODY:" << points.back()->getNumber()
-    << ", Support nodes: " << points.back()->getSupportSize(0) << endl;
+         << ", Support nodes: " << points.back()->getSupportSize(0) << endl;
     points.back()->setShapeFunType("MLS");
     points.back()->shapeFunSolve("MLS", 1.03);
 }
@@ -111,9 +124,12 @@ void FlexBody::addPoint(int nodeNumber, double x, double y, double z, double alp
  **/
 void FlexBody::setOutput(std::string outputType_in)
 {
-    if (outputType_in == "STRESS") {
+    if (outputType_in == "STRESS")
+    {
         computeStress = 1;
-    } else if (outputType_in == "ENERGY") {
+    }
+    else if (outputType_in == "ENERGY")
+    {
         computeEnergy = 1;
     }
 }
@@ -129,22 +145,28 @@ void FlexBody::outputToFile(std::ofstream * outFile)
 {
     Body::outputToFile(outFile);
 
-    if (computeStress) {
+    if (computeStress)
+    {
         *outFile << "STRESS " << title << endl;
-        for (auto& stress: stresses) {
+        for (auto& stress: stresses)
+        {
             auto vectorSize = stress.size();
-            for (auto i = 0u; i < vectorSize; ++i) {
+            for (auto i = 0u; i < vectorSize; ++i)
+            {
                 *outFile << stress.readElement(i) << " ";
             }
             *outFile << endl;
         }
     }
 
-    if (computeEnergy) {
+    if (computeEnergy)
+    {
         *outFile << "ENERGY " << title << endl;
-        for (auto& energy : energies) {
+        for (auto& energy : energies)
+        {
             auto vectorSize = energy->size();
-            for (auto i = 0u; i < vectorSize; ++i) {
+            for (auto i = 0u; i < vectorSize; ++i)
+            {
                 *outFile << energy->readElement(i) << " ";
             }
             *outFile << endl;
@@ -157,47 +179,56 @@ void FlexBody::writeBodyInfo(std::ofstream * outFile)
 // DONE: set type to MESH (alt:GALERKIN), export the connectivity and read it in mknixPost
 //   Implemented 2D; 3D shows strange connectivity when read in mknixpost.
 //   Previous code is use for 3D meshes till fixed.
-    if (Simulation::getDim() == 2) {
+    if (Simulation::getDim() == 2)
+    {
         *outFile << "\t" << "MESH" << " "
-        << this->title << endl;
-        if (bodyPoints.size() == 0) { //regular one domain meshes
+                 << this->title << endl;
+        if (bodyPoints.size() == 0)   //regular one domain meshes
+        {
             *outFile << "\t" << "\t" << "NODES "
-            << this->getNode(0)->getNumber() << " "
-            << this->getLastNode()->getNumber() << endl;
+                     << this->getNode(0)->getNumber() << " "
+                     << this->getLastNode()->getNumber() << endl;
         }
-        else { // multiple domains
+        else   // multiple domains
+        {
             *outFile << "\t" << "\t" << "NODES "
-            << this->getBodyPoint(0)->getNumber() << " "
-            << this->getLastBodyPoint()->getNumber() << endl;
+                     << this->getBodyPoint(0)->getNumber() << " "
+                     << this->getLastBodyPoint()->getNumber() << endl;
         }
         *outFile << "\t" << "\t" << "CELLS "
-        << this->cells.size() << endl;
-        for (auto& cell : cells) {
+                 << this->cells.size() << endl;
+        for (auto& cell : cells)
+        {
             cell.second->outputConnectivityToFile(outFile);
         }
         *outFile << "\n\t" << "END" << "MESH" << endl;
     }
-    else {
+    else
+    {
         //    if(itFlexBodies->second->getType() == "MESHFREE"){
         //    *outFile << "\t" << itFlexBodies->second->getType() << " "
         *outFile << "\t" << "MESHFREE" << " "
-        << this->title << endl;
-        if (bodyPoints.size() == 0) { //regular one domain meshes
+                 << this->title << endl;
+        if (bodyPoints.size() == 0)   //regular one domain meshes
+        {
             *outFile << "\t" << "\t" << "NODES "
-            << this->getNode(0)->getNumber() << " "
-            << this->getLastNode()->getNumber() << endl;
+                     << this->getNode(0)->getNumber() << " "
+                     << this->getLastNode()->getNumber() << endl;
         }
-        else { // multiple domains
+        else   // multiple domains
+        {
             *outFile << "\t" << "\t" << "NODES "
-            << this->getBodyPoint(0)->getNumber() << " "
-            << this->getLastBodyPoint()->getNumber() << endl;
+                     << this->getBodyPoint(0)->getNumber() << " "
+                     << this->getLastBodyPoint()->getNumber() << endl;
         }
 
         //TODO: implement for 3D. For the moment
-        if (Simulation::getDim() == 2) {
+        if (Simulation::getDim() == 2)
+        {
             *outFile << "\t" << "\t" << "BOUNDARY "
-            << getBoundarySize() << endl;
-            if (getBoundarySize() > 0) {
+                     << getBoundarySize() << endl;
+            if (getBoundarySize() > 0)
+            {
                 int firstNode = getBoundaryFirstNode()->getNumber();
                 //int actualNode = firstNode;
                 //Point * p_actualNode = getBoundaryFirstNode();
@@ -213,7 +244,8 @@ void FlexBody::writeBodyInfo(std::ofstream * outFile)
                 //    for(int i=0; i<getBoundarySize(); ++i){
                 //      p_actualNode = getBoundaryNextNode( p_actualNode );
                 //      actualNode = p_actualNode->getNumber();
-                for (auto& boundary : linearBoundary) {
+                for (auto& boundary : linearBoundary)
+                {
                     auto p_actualNode = boundary.second;
                     auto actualNode = p_actualNode->getNumber();
                     *outFile << actualNode << " ";
@@ -232,7 +264,8 @@ void FlexBody::writeBodyInfo(std::ofstream * outFile)
 
 void FlexBody::writeBoundaryNodes(std::vector<Point *>& boundary_nodes)
 {
-    for (auto boundary : linearBoundary) {
+    for (auto boundary : linearBoundary)
+    {
         boundary_nodes.push_back(boundary.first);
     }
 }
@@ -243,7 +276,8 @@ void FlexBody::writeBoundaryConnectivity(std::vector<std::vector<Point *> >& con
     Point * first_node = linearBoundary.begin()->first;
     connectivity_nodes.back().push_back(first_node);
     Point * next_node = linearBoundary[first_node];
-    while (next_node != first_node) {
+    while (next_node != first_node)
+    {
         connectivity_nodes.back().push_back(next_node);
         next_node = linearBoundary[next_node];
     }

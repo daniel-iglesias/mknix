@@ -44,50 +44,75 @@
 #include "gmm_dense_qr.h"
 
 
-namespace gmm {
+namespace gmm
+{
 
-  /* ********************************************************************* */
-  /* Operations interfaced for T = float, double, std::complex<float>      */
-  /*    or std::complex<double> :                                          */
-  /*                                                                       */
-  /* lu_factor(dense_matrix<T>, std::vector<int>)                          */
-  /* lu_solve(dense_matrix<T>, std::vector<T>, std::vector<T>)             */
-  /* lu_solve(dense_matrix<T>, std::vector<int>, std::vector<T>,           */
-  /*          std::vector<T>)                                              */
-  /* lu_solve_transposed(dense_matrix<T>, std::vector<int>, std::vector<T>,*/
-  /*          std::vector<T>)                                              */
-  /* lu_inverse(dense_matrix<T>)                                           */
-  /* lu_inverse(dense_matrix<T>, std::vector<int>, dense_matrix<T>)        */
-  /*                                                                       */
-  /* qr_factor(dense_matrix<T>, dense_matrix<T>, dense_matrix<T>)          */
-  /*                                                                       */
-  /* implicit_qr_algorithm(dense_matrix<T>, std::vector<T>)                */
-  /* implicit_qr_algorithm(dense_matrix<T>, std::vector<T>,                */
-  /*                       dense_matrix<T>)                                */
-  /* implicit_qr_algorithm(dense_matrix<T>, std::vector<std::complex<T> >) */
-  /* implicit_qr_algorithm(dense_matrix<T>, std::vector<std::complex<T> >, */
-  /*                       dense_matrix<T>)                                */
-  /*                                                                       */
-  /* ********************************************************************* */
+/* ********************************************************************* */
+/* Operations interfaced for T = float, double, std::complex<float>      */
+/*    or std::complex<double> :                                          */
+/*                                                                       */
+/* lu_factor(dense_matrix<T>, std::vector<int>)                          */
+/* lu_solve(dense_matrix<T>, std::vector<T>, std::vector<T>)             */
+/* lu_solve(dense_matrix<T>, std::vector<int>, std::vector<T>,           */
+/*          std::vector<T>)                                              */
+/* lu_solve_transposed(dense_matrix<T>, std::vector<int>, std::vector<T>,*/
+/*          std::vector<T>)                                              */
+/* lu_inverse(dense_matrix<T>)                                           */
+/* lu_inverse(dense_matrix<T>, std::vector<int>, dense_matrix<T>)        */
+/*                                                                       */
+/* qr_factor(dense_matrix<T>, dense_matrix<T>, dense_matrix<T>)          */
+/*                                                                       */
+/* implicit_qr_algorithm(dense_matrix<T>, std::vector<T>)                */
+/* implicit_qr_algorithm(dense_matrix<T>, std::vector<T>,                */
+/*                       dense_matrix<T>)                                */
+/* implicit_qr_algorithm(dense_matrix<T>, std::vector<std::complex<T> >) */
+/* implicit_qr_algorithm(dense_matrix<T>, std::vector<std::complex<T> >, */
+/*                       dense_matrix<T>)                                */
+/*                                                                       */
+/* ********************************************************************* */
 
-  /* ********************************************************************* */
-  /* LAPACK functions used.                                                */
-  /* ********************************************************************* */
+/* ********************************************************************* */
+/* LAPACK functions used.                                                */
+/* ********************************************************************* */
 
-  extern "C" {
-    void sgetrf_(...); void dgetrf_(...); void cgetrf_(...); void zgetrf_(...);
-    void sgetrs_(...); void dgetrs_(...); void cgetrs_(...); void zgetrs_(...);
-    void sgetri_(...); void dgetri_(...); void cgetri_(...); void zgetri_(...);
-    void sgeqrf_(...); void dgeqrf_(...); void cgeqrf_(...); void zgeqrf_(...);
-    void sorgqr_(...); void dorgqr_(...); void cungqr_(...); void zungqr_(...);
-    void sormqr_(...); void dormqr_(...); void cunmqr_(...); void zunmqr_(...);
-    void sgees_ (...); void dgees_ (...); void cgees_ (...); void zgees_ (...);
-    void sgeev_ (...); void dgeev_ (...); void cgeev_ (...); void zgeev_ (...);
-  }
+extern "C" {
+    void sgetrf_(...);
+    void dgetrf_(...);
+    void cgetrf_(...);
+    void zgetrf_(...);
+    void sgetrs_(...);
+    void dgetrs_(...);
+    void cgetrs_(...);
+    void zgetrs_(...);
+    void sgetri_(...);
+    void dgetri_(...);
+    void cgetri_(...);
+    void zgetri_(...);
+    void sgeqrf_(...);
+    void dgeqrf_(...);
+    void cgeqrf_(...);
+    void zgeqrf_(...);
+    void sorgqr_(...);
+    void dorgqr_(...);
+    void cungqr_(...);
+    void zungqr_(...);
+    void sormqr_(...);
+    void dormqr_(...);
+    void cunmqr_(...);
+    void zunmqr_(...);
+    void sgees_ (...);
+    void dgees_ (...);
+    void cgees_ (...);
+    void zgees_ (...);
+    void sgeev_ (...);
+    void dgeev_ (...);
+    void cgeev_ (...);
+    void zgeev_ (...);
+}
 
-  /* ********************************************************************* */
-  /* LU decomposition.                                                     */
-  /* ********************************************************************* */
+/* ********************************************************************* */
+/* LU decomposition.                                                     */
+/* ********************************************************************* */
 
 # define getrf_interface(lapack_name, base_type) inline                    \
   size_type lu_factor(dense_matrix<base_type > &A, std::vector<int> &ipvt){\
@@ -97,14 +122,14 @@ namespace gmm {
     return size_type(info);                                                \
   }
 
-  getrf_interface(sgetrf_, BLAS_S)
-  getrf_interface(dgetrf_, BLAS_D)
-  getrf_interface(cgetrf_, BLAS_C)
-  getrf_interface(zgetrf_, BLAS_Z)
+getrf_interface(sgetrf_, BLAS_S)
+getrf_interface(dgetrf_, BLAS_D)
+getrf_interface(cgetrf_, BLAS_C)
+getrf_interface(zgetrf_, BLAS_Z)
 
-  /* ********************************************************************* */
-  /* LU solve.                                                             */
-  /* ********************************************************************* */
+/* ********************************************************************* */
+/* LU solve.                                                             */
+/* ********************************************************************* */
 
 # define getrs_interface(f_name, trans1, lapack_name, base_type) inline    \
   void f_name(const dense_matrix<base_type > &A,                           \
@@ -116,22 +141,22 @@ namespace gmm {
     if (n)                                                                 \
       lapack_name(&t, &n, &nrhs, &(A(0,0)),&n,&ipvt[0], &x[0], &n, &info); \
   }
-  
+
 # define getrs_trans_n const char t = 'N'
 # define getrs_trans_t const char t = 'T'
 
-  getrs_interface(lu_solve, getrs_trans_n, sgetrs_, BLAS_S)
-  getrs_interface(lu_solve, getrs_trans_n, dgetrs_, BLAS_D)
-  getrs_interface(lu_solve, getrs_trans_n, cgetrs_, BLAS_C)
-  getrs_interface(lu_solve, getrs_trans_n, zgetrs_, BLAS_Z)
-  getrs_interface(lu_solve_transposed, getrs_trans_t, sgetrs_, BLAS_S)
-  getrs_interface(lu_solve_transposed, getrs_trans_t, dgetrs_, BLAS_D)
-  getrs_interface(lu_solve_transposed, getrs_trans_t, cgetrs_, BLAS_C)
-  getrs_interface(lu_solve_transposed, getrs_trans_t, zgetrs_, BLAS_Z)
+getrs_interface(lu_solve, getrs_trans_n, sgetrs_, BLAS_S)
+getrs_interface(lu_solve, getrs_trans_n, dgetrs_, BLAS_D)
+getrs_interface(lu_solve, getrs_trans_n, cgetrs_, BLAS_C)
+getrs_interface(lu_solve, getrs_trans_n, zgetrs_, BLAS_Z)
+getrs_interface(lu_solve_transposed, getrs_trans_t, sgetrs_, BLAS_S)
+getrs_interface(lu_solve_transposed, getrs_trans_t, dgetrs_, BLAS_D)
+getrs_interface(lu_solve_transposed, getrs_trans_t, cgetrs_, BLAS_C)
+getrs_interface(lu_solve_transposed, getrs_trans_t, zgetrs_, BLAS_Z)
 
-  /* ********************************************************************* */
-  /* LU inverse.                                                           */
-  /* ********************************************************************* */
+/* ********************************************************************* */
+/* LU inverse.                                                           */
+/* ********************************************************************* */
 
 # define getri_interface(lapack_name, base_type) inline                    \
   void lu_inverse(const dense_matrix<base_type > &LU,                      \
@@ -149,15 +174,15 @@ namespace gmm {
     }                                                                      \
   }
 
-  getri_interface(sgetri_, BLAS_S)
-  getri_interface(dgetri_, BLAS_D)
-  getri_interface(cgetri_, BLAS_C)
-  getri_interface(zgetri_, BLAS_Z)
+getri_interface(sgetri_, BLAS_S)
+getri_interface(dgetri_, BLAS_D)
+getri_interface(cgetri_, BLAS_C)
+getri_interface(zgetri_, BLAS_Z)
 
 
-  /* ********************************************************************* */
-  /* QR factorization.                                                     */
-  /* ********************************************************************* */
+/* ********************************************************************* */
+/* QR factorization.                                                     */
+/* ********************************************************************* */
 
 # define geqrf_interface(lapack_name1, base_type) inline		   \
   void qr_factor(dense_matrix<base_type > &A){			           \
@@ -172,13 +197,13 @@ namespace gmm {
       GMM_ASSERT1(!info, "QR factorization failed");			   \
     }									   \
   }
-    
-  geqrf_interface(sgeqrf_, BLAS_S)
-  geqrf_interface(dgeqrf_, BLAS_D)
-    // For complex values, housholder vectors are not the same as in
-    // gmm::lu_factor. Impossible to interface for the moment.
-    //  geqrf_interface(cgeqrf_, BLAS_C)
-    //  geqrf_interface(zgeqrf_, BLAS_Z)
+
+geqrf_interface(sgeqrf_, BLAS_S)
+geqrf_interface(dgeqrf_, BLAS_D)
+// For complex values, housholder vectors are not the same as in
+// gmm::lu_factor. Impossible to interface for the moment.
+//  geqrf_interface(cgeqrf_, BLAS_C)
+//  geqrf_interface(zgeqrf_, BLAS_Z)
 
 # define geqrf_interface2(lapack_name1, lapack_name2, base_type) inline    \
   void qr_factor(const dense_matrix<base_type > &A,                        \
@@ -202,14 +227,14 @@ namespace gmm {
     else gmm::clear(Q);                                                    \
   }
 
-  geqrf_interface2(sgeqrf_, sorgqr_, BLAS_S)
-  geqrf_interface2(dgeqrf_, dorgqr_, BLAS_D)
-  geqrf_interface2(cgeqrf_, cungqr_, BLAS_C)
-  geqrf_interface2(zgeqrf_, zungqr_, BLAS_Z)
-  
-  /* ********************************************************************* */
-  /* QR algorithm for eigenvalues search.                                  */
-  /* ********************************************************************* */
+geqrf_interface2(sgeqrf_, sorgqr_, BLAS_S)
+geqrf_interface2(dgeqrf_, dorgqr_, BLAS_D)
+geqrf_interface2(cgeqrf_, cungqr_, BLAS_C)
+geqrf_interface2(zgeqrf_, zungqr_, BLAS_Z)
+
+/* ********************************************************************* */
+/* QR algorithm for eigenvalues search.                                  */
+/* ********************************************************************* */
 
 # define gees_interface(lapack_name, base_type)                            \
   template <typename VECT> inline void implicit_qr_algorithm(              \
@@ -255,10 +280,10 @@ namespace gmm {
     extract_eig(H, const_cast<VECT &>(eigval_), tol);                      \
   }
 
-  gees_interface(sgees_, BLAS_S)
-  gees_interface(dgees_, BLAS_D)
-  gees_interface2(cgees_, BLAS_C)
-  gees_interface2(zgees_, BLAS_Z)
+gees_interface(sgees_, BLAS_S)
+gees_interface(dgees_, BLAS_D)
+gees_interface2(cgees_, BLAS_C)
+gees_interface2(zgees_, BLAS_Z)
 
 # define geev_int_right(lapack_name, base_type)			           \
   template <typename VECT> inline void geev_interface_right(               \
@@ -302,10 +327,10 @@ namespace gmm {
     gmm::copy(eigv, const_cast<VECT &>(eigval_));			   \
   }
 
-  geev_int_right(sgeev_, BLAS_S)
-  geev_int_right(dgeev_, BLAS_D)
-  geev_int_rightc(cgeev_, BLAS_C)
-  geev_int_rightc(zgeev_, BLAS_Z)
+geev_int_right(sgeev_, BLAS_S)
+geev_int_right(dgeev_, BLAS_D)
+geev_int_rightc(cgeev_, BLAS_C)
+geev_int_rightc(zgeev_, BLAS_Z)
 
 # define geev_int_left(lapack_name, base_type)                             \
   template <typename VECT> inline void geev_interface_left(                \
@@ -349,11 +374,11 @@ namespace gmm {
     gmm::copy(eigv, const_cast<VECT &>(eigval_));			   \
   }
 
-  geev_int_left(sgeev_, BLAS_S)
-  geev_int_left(dgeev_, BLAS_D)
-  geev_int_leftc(cgeev_, BLAS_C)
-  geev_int_leftc(zgeev_, BLAS_Z) 
-    
+geev_int_left(sgeev_, BLAS_S)
+geev_int_left(dgeev_, BLAS_D)
+geev_int_leftc(cgeev_, BLAS_C)
+geev_int_leftc(zgeev_, BLAS_Z)
+
 
 }
 

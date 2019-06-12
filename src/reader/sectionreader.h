@@ -9,7 +9,8 @@
 #include <vector>
 #include <fstream>
 
-namespace mknix {
+namespace mknix
+{
 
 class SectionReader
 {

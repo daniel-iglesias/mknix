@@ -34,7 +34,8 @@
  */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
-namespace mknix {
+namespace mknix
+{
 
 /**
 @author Daniel Iglesias
@@ -54,7 +55,7 @@ public:
                Point *,
                Point *,
                Point *
-    );
+              );
 
     CellTriang(Material&,
                std::string,
@@ -64,7 +65,7 @@ public:
                Point *,
                Point *,
                double
-    );
+              );
 
     virtual ~CellTriang();
 

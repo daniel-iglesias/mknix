@@ -44,7 +44,8 @@
 #include "lmx_diff_integrator_bdf.h"
 #include "lmx_diff_integrator_centraldiff.h"
 
-namespace lmx {
+namespace lmx
+{
 
 /**
 \class DiffProblemDouble
@@ -55,7 +56,7 @@ This class implements methods for defining and solving partitioned initial value
 
 @author Daniel Iglesias.
 */
-template<typename Sys, typename T=double>
+template<typename Sys, typename T = double>
 class DiffProblemDouble
 {
 
@@ -63,15 +64,15 @@ public:
 
     /** Empty constructor. */
     DiffProblemDouble()
-            : theNLSolver(0)
-            , theConfiguration1(0)
-            , theConfiguration2(0)
-            , theIntegrator1(0)
-            , theIntegrator2(0)
-            , theSystem(0)
-            , p_delta_q1(0)
-            , p_delta_q2(0)
-            , b_steptriggered(0) { }
+        : theNLSolver(0)
+        , theConfiguration1(0)
+        , theConfiguration2(0)
+        , theIntegrator1(0)
+        , theIntegrator2(0)
+        , theSystem(0)
+        , p_delta_q1(0)
+        , p_delta_q2(0)
+        , b_steptriggered(0) { }
 
     /** Destructor. */
     virtual ~DiffProblemDouble() { }
@@ -79,7 +80,10 @@ public:
     /**
      * @param system_in Object that defines the differential system equations.
      */
-    void setDiffSystem(Sys& system_in) { theSystem = &system_in; }
+    void setDiffSystem(Sys& system_in)
+    {
+        theSystem = &system_in;
+    }
 
     void setIntegrator1(int type, int opt1 = 0, int opt2 = 0);
 
@@ -99,23 +103,33 @@ public:
 
     void setTimeParameters(double to_in, double tf_in, double step_size_in);
 
-//     void iterationResidue( lmx::Vector<T>& residue, lmx::Vector<T>& q_current );
+    //     void iterationResidue( lmx::Vector<T>& residue, lmx::Vector<T>& q_current );
     void setStepTriggered(void (Sys::* stepTriggered_in)());
 
     // needs documentation:
-    void setConvergence(double eps_in) { epsilon = eps_in; }
+    void setConvergence(double eps_in)
+    {
+        epsilon = eps_in;
+    }
 
     // needs documentation:
-    const lmx::Vector<T>& getConfiguration1(int order, int step = 0) { return theConfiguration1->getConf(order, step); }
+    const lmx::Vector<T>& getConfiguration1(int order, int step = 0)
+    {
+        return theConfiguration1->getConf(order, step);
+    }
 
-    const lmx::Vector<T>& getConfiguration2(int order, int step = 0) { return theConfiguration2->getConf(order, step); }
+    const lmx::Vector<T>& getConfiguration2(int order, int step = 0)
+    {
+        return theConfiguration2->getConf(order, step);
+    }
 
     bool isIntegratorExplicit()
     {
-        if (theIntegrator1 && theIntegrator2) {
+        if (theIntegrator1 && theIntegrator2)
+        {
             return (this->theIntegrator1->isExplicit()
                     * this->theIntegrator2->isExplicit()
-            );
+                   );
         }
         return false;
     }
@@ -168,20 +182,21 @@ protected:
 template<typename Sys, typename T>
 void DiffProblemDouble<Sys, T>::setIntegrator1(int type, int opt1, int opt2)
 {
-    switch (type) {
-    case 0 : // integrator == 0 -> Adams-Bashford
+    switch (type)
+    {
+    case 0: // integrator == 0 -> Adams-Bashford
         theIntegrator1 = new IntegratorAB<T>(opt1);
         break;
 
-    case 1 : // integrator == 1 -> Adams-Moulton
+    case 1: // integrator == 1 -> Adams-Moulton
         theIntegrator1 = new IntegratorAM<T>(opt1);
         break;
 
-    case 2 : // integrator == 2 -> BDF
+    case 2: // integrator == 2 -> BDF
         theIntegrator1 = new IntegratorBDF<T>(opt1);
         break;
 
-    case 3 : // integrator == 2 -> BDF
+    case 3: // integrator == 2 -> BDF
         theIntegrator1 = new IntegratorCentralDifference<T>();
         break;
     }
@@ -196,20 +211,21 @@ void DiffProblemDouble<Sys, T>::setIntegrator1(int type, int opt1, int opt2)
 template<typename Sys, typename T>
 void DiffProblemDouble<Sys, T>::setIntegrator2(int type, int opt1, int opt2)
 {
-    switch (type) {
-    case 0 : // integrator == 0 -> Adams-Bashford
+    switch (type)
+    {
+    case 0: // integrator == 0 -> Adams-Bashford
         theIntegrator2 = new IntegratorAB<T>(opt1);
         break;
 
-    case 1 : // integrator == 1 -> Adams-Moulton
+    case 1: // integrator == 1 -> Adams-Moulton
         theIntegrator2 = new IntegratorAM<T>(opt1);
         break;
 
-    case 2 : // integrator == 2 -> BDF
+    case 2: // integrator == 2 -> BDF
         theIntegrator2 = new IntegratorBDF<T>(opt1);
         break;
 
-    case 3 : // integrator == 2 -> BDF
+    case 3: // integrator == 2 -> BDF
         theIntegrator2 = new IntegratorCentralDifference<T>();
         break;
     }
@@ -223,37 +239,67 @@ void DiffProblemDouble<Sys, T>::setIntegrator2(int type, int opt1, int opt2)
 template<typename Sys, typename T>
 void DiffProblemDouble<Sys, T>::setIntegrator1(const char * type, int opt2)
 {
-    if (!strcmp(type, "AB-1")) {
+    if (!strcmp(type, "AB-1"))
+    {
         theIntegrator1 = new IntegratorAB<T>(1);
-    } else if (!strcmp(type, "AB-2")) {
+    }
+    else if (!strcmp(type, "AB-2"))
+    {
         theIntegrator1 = new IntegratorAB<T>(2);
-    } else if (!strcmp(type, "AB-3")) {
+    }
+    else if (!strcmp(type, "AB-3"))
+    {
         theIntegrator1 = new IntegratorAB<T>(3);
-    } else if (!strcmp(type, "AB-4")) {
+    }
+    else if (!strcmp(type, "AB-4"))
+    {
         theIntegrator1 = new IntegratorAB<T>(4);
-    } else if (!strcmp(type, "AB-5")) {
+    }
+    else if (!strcmp(type, "AB-5"))
+    {
         theIntegrator1 = new IntegratorAB<T>(5);
-    } else if (!strcmp(type, "AM-1")) {
+    }
+    else if (!strcmp(type, "AM-1"))
+    {
         theIntegrator1 = new IntegratorAM<T>(1);
-    } else if (!strcmp(type, "AM-2")) {
+    }
+    else if (!strcmp(type, "AM-2"))
+    {
         theIntegrator1 = new IntegratorAM<T>(2);
-    } else if (!strcmp(type, "AM-3")) {
+    }
+    else if (!strcmp(type, "AM-3"))
+    {
         theIntegrator1 = new IntegratorAM<T>(3);
-    } else if (!strcmp(type, "AM-4")) {
+    }
+    else if (!strcmp(type, "AM-4"))
+    {
         theIntegrator1 = new IntegratorAM<T>(4);
-    } else if (!strcmp(type, "AM-5")) {
+    }
+    else if (!strcmp(type, "AM-5"))
+    {
         theIntegrator1 = new IntegratorAM<T>(5);
-    } else if (!strcmp(type, "BDF-1")) {
+    }
+    else if (!strcmp(type, "BDF-1"))
+    {
         theIntegrator1 = new IntegratorBDF<T>(1);
-    } else if (!strcmp(type, "BDF-2")) {
+    }
+    else if (!strcmp(type, "BDF-2"))
+    {
         theIntegrator1 = new IntegratorBDF<T>(2);
-    } else if (!strcmp(type, "BDF-3")) {
+    }
+    else if (!strcmp(type, "BDF-3"))
+    {
         theIntegrator1 = new IntegratorBDF<T>(3);
-    } else if (!strcmp(type, "BDF-4")) {
+    }
+    else if (!strcmp(type, "BDF-4"))
+    {
         theIntegrator1 = new IntegratorBDF<T>(4);
-    } else if (!strcmp(type, "BDF-5")) {
+    }
+    else if (!strcmp(type, "BDF-5"))
+    {
         theIntegrator1 = new IntegratorBDF<T>(5);
-    } else if (!strcmp(type, "CD")) theIntegrator1 = new IntegratorCentralDifference<T>();
+    }
+    else if (!strcmp(type, "CD")) theIntegrator1 = new IntegratorCentralDifference<T>();
 }
 
 /**
@@ -264,37 +310,67 @@ void DiffProblemDouble<Sys, T>::setIntegrator1(const char * type, int opt2)
 template<typename Sys, typename T>
 void DiffProblemDouble<Sys, T>::setIntegrator2(const char * type, int opt2)
 {
-    if (!strcmp(type, "AB-1")) {
+    if (!strcmp(type, "AB-1"))
+    {
         theIntegrator2 = new IntegratorAB<T>(1);
-    } else if (!strcmp(type, "AB-2")) {
+    }
+    else if (!strcmp(type, "AB-2"))
+    {
         theIntegrator2 = new IntegratorAB<T>(2);
-    } else if (!strcmp(type, "AB-3")) {
+    }
+    else if (!strcmp(type, "AB-3"))
+    {
         theIntegrator2 = new IntegratorAB<T>(3);
-    } else if (!strcmp(type, "AB-4")) {
+    }
+    else if (!strcmp(type, "AB-4"))
+    {
         theIntegrator2 = new IntegratorAB<T>(4);
-    } else if (!strcmp(type, "AB-5")) {
+    }
+    else if (!strcmp(type, "AB-5"))
+    {
         theIntegrator2 = new IntegratorAB<T>(5);
-    } else if (!strcmp(type, "AM-1")) {
+    }
+    else if (!strcmp(type, "AM-1"))
+    {
         theIntegrator2 = new IntegratorAM<T>(1);
-    } else if (!strcmp(type, "AM-2")) {
+    }
+    else if (!strcmp(type, "AM-2"))
+    {
         theIntegrator2 = new IntegratorAM<T>(2);
-    } else if (!strcmp(type, "AM-3")) {
+    }
+    else if (!strcmp(type, "AM-3"))
+    {
         theIntegrator2 = new IntegratorAM<T>(3);
-    } else if (!strcmp(type, "AM-4")) {
+    }
+    else if (!strcmp(type, "AM-4"))
+    {
         theIntegrator2 = new IntegratorAM<T>(4);
-    } else if (!strcmp(type, "AM-5")) {
+    }
+    else if (!strcmp(type, "AM-5"))
+    {
         theIntegrator2 = new IntegratorAM<T>(5);
-    } else if (!strcmp(type, "BDF-1")) {
+    }
+    else if (!strcmp(type, "BDF-1"))
+    {
         theIntegrator2 = new IntegratorBDF<T>(1);
-    } else if (!strcmp(type, "BDF-2")) {
+    }
+    else if (!strcmp(type, "BDF-2"))
+    {
         theIntegrator2 = new IntegratorBDF<T>(2);
-    } else if (!strcmp(type, "BDF-3")) {
+    }
+    else if (!strcmp(type, "BDF-3"))
+    {
         theIntegrator2 = new IntegratorBDF<T>(3);
-    } else if (!strcmp(type, "BDF-4")) {
+    }
+    else if (!strcmp(type, "BDF-4"))
+    {
         theIntegrator2 = new IntegratorBDF<T>(4);
-    } else if (!strcmp(type, "BDF-5")) {
+    }
+    else if (!strcmp(type, "BDF-5"))
+    {
         theIntegrator2 = new IntegratorBDF<T>(5);
-    } else if (!strcmp(type, "CD")) theIntegrator2 = new IntegratorCentralDifference<T>();
+    }
+    else if (!strcmp(type, "CD")) theIntegrator2 = new IntegratorCentralDifference<T>();
 }
 
 /**
@@ -304,7 +380,8 @@ void DiffProblemDouble<Sys, T>::setIntegrator2(const char * type, int opt2)
 template<typename Sys, typename T>
 void DiffProblemDouble<Sys, T>::setInitialConfiguration1(lmx::Vector<T>& q_o)
 {
-    if (theConfiguration1 == 0) {
+    if (theConfiguration1 == 0)
+    {
         theConfiguration1 = new Configuration<T>;
     }
 
@@ -320,7 +397,8 @@ void DiffProblemDouble<Sys, T>::setInitialConfiguration1(lmx::Vector<T>& q_o)
 template<typename Sys, typename T>
 void DiffProblemDouble<Sys, T>::setInitialConfiguration2(lmx::Vector<T>& q_o, lmx::Vector<T>& qdot_o)
 {
-    if (theConfiguration2 == 0) {
+    if (theConfiguration2 == 0)
+    {
         theConfiguration2 = new Configuration<T>;
     }
 
@@ -335,17 +413,19 @@ void DiffProblemDouble<Sys, T>::setInitialConfiguration2(lmx::Vector<T>& q_o, lm
   * Defines which variables to store, specifing the file name for each diff-order.
   *
   * @param filename Name of file for storing variables.
-  * @param diffOrder 
+  * @param diffOrder
   */
 template<typename Sys, typename T>
 void DiffProblemDouble<Sys, T>::setOutputFile1(const char * filename, int diffOrder)
 {
-    if (!(fileOutMap1[diffOrder] == 0)) {
+    if (!(fileOutMap1[diffOrder] == 0))
+    {
         cout << "WARNING: Changing opened file for diff order = " << diffOrder << endl;
         cout << "         New name: " << filename << endl;
         fileOutMap1[diffOrder]->open(filename);
     }
-    else {
+    else
+    {
         fileOutMap1[diffOrder] = new std::ofstream(filename);
     }
 }
@@ -359,12 +439,14 @@ void DiffProblemDouble<Sys, T>::setOutputFile1(const char * filename, int diffOr
 template<typename Sys, typename T>
 void DiffProblemDouble<Sys, T>::setOutputFile2(const char * filename, int diffOrder)
 {
-    if (!(fileOutMap2[diffOrder] == 0)) {
+    if (!(fileOutMap2[diffOrder] == 0))
+    {
         cout << "WARNING: Changing opened file for diff order = " << diffOrder << endl;
         cout << "         New name: " << filename << endl;
         fileOutMap2[diffOrder]->open(filename);
     }
-    else {
+    else
+    {
         fileOutMap2[diffOrder] = new std::ofstream(filename);
     }
 }
@@ -392,20 +474,24 @@ template<typename Sys, typename T>
 void DiffProblemDouble<Sys, T>::writeStepFiles()
 {
     std::map<int, std::ofstream *>::iterator it;
-    for (it = fileOutMap1.begin(); it != fileOutMap1.end(); ++it) {
+    for (it = fileOutMap1.begin(); it != fileOutMap1.end(); ++it)
+    {
         it->second->setf(std::ios::scientific, std::ios::floatfield);
         it->second->precision(6);
         *(it->second) << theConfiguration1->getTime() << "\t";
-        for (unsigned int i = 0; i < theConfiguration1->getConf(it->first, 0).size(); ++i) {
+        for (unsigned int i = 0; i < theConfiguration1->getConf(it->first, 0).size(); ++i)
+        {
             *(it->second) << theConfiguration1->getConf(it->first, 0).readElement(i) << "\t";
         }
         *(it->second) << endl;
     }
-    for (it = fileOutMap2.begin(); it != fileOutMap2.end(); ++it) {
+    for (it = fileOutMap2.begin(); it != fileOutMap2.end(); ++it)
+    {
         it->second->setf(std::ios::scientific, std::ios::floatfield);
         it->second->precision(6);
         *(it->second) << theConfiguration2->getTime() << "\t";
-        for (unsigned int i = 0; i < theConfiguration2->getConf(it->first, 0).size(); ++i) {
+        for (unsigned int i = 0; i < theConfiguration2->getConf(it->first, 0).size(); ++i)
+        {
             *(it->second) << theConfiguration2->getConf(it->first, 0).readElement(i) << "\t";
         }
         *(it->second) << endl;

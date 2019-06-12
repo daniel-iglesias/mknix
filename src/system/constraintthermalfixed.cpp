@@ -22,7 +22,8 @@
 #include <core/node.h>
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 ConstraintThermalFixed::ConstraintThermalFixed()
     : ConstraintThermal()
@@ -75,12 +76,15 @@ void ConstraintThermalFixed::calcPhi()
 }
 
 void ConstraintThermalFixed::calcPhiq()
-{   size_type i,j;
-    for(i=0; i<nodes[0]->getSupportSize(0); ++i) {
+{
+    size_type i,j;
+    for(i=0; i<nodes[0]->getSupportSize(0); ++i)
+    {
         this->phi_q[0](i+0) = -nodes[0]->getShapeFunValue(0,i);
     }
     // Now i=supportNodes[0].size()
-    for(j=0; j<nodes[1]->getSupportSize(0); ++j) {
+    for(j=0; j<nodes[1]->getSupportSize(0); ++j)
+    {
         this->phi_q[0](i+j) = nodes[1]->getShapeFunValue(0,j);
     }
 //  this->phi_q[0](0) = -1.0;
@@ -93,38 +97,46 @@ void ConstraintThermalFixed::calcPhiqq()
 }
 
 bool ConstraintThermalFixed::checkAugmented()
-{// TODO: Define as parameters in the input file: Aug-stage T limit (Tt), max_iter_augmented and delta_T for stage1, and delta_T for stage2.
-    if (method == "AUGMENTED") {
+{
+    // TODO: Define as parameters in the input file: Aug-stage T limit (Tt), max_iter_augmented and delta_T for stage1, and delta_T for stage2.
+    if (method == "AUGMENTED")
+    {
 //         if(Tt>300){
         //         double energy(0);
         double delta(0);
-        for (auto i = 0u; i < phi.size(); ++i) {
+        for (auto i = 0u; i < phi.size(); ++i)
+        {
             delta += std::abs(phi[i]);
             //             energy += phi[i] * phi[i];
             //             cout << endl << "Phi: " << phi[0] << "\t\t\t\t";
         }
         //         energy *= 0.5 * alpha;
         //         if (energy <= 2E5) {
-        if ( (delta <= 10) && (Tt>=300) ) {
+        if ( (delta <= 10) && (Tt>=300) )
+        {
             iter_augmented=0;
             return 1;
         }
-        if ( ( (iter_augmented == 2) || (delta <= 20) ) && (Tt<300) ) {
+        if ( ( (iter_augmented == 2) || (delta <= 20) ) && (Tt<300) )
+        {
             iter_augmented=0;
             return 1;
         }
-        else {
+        else
+        {
             //             cout << endl << "energy: " << energy << "\t\t\t\t";
-            for (auto i = 0u; i < phi.size(); ++i) {
+            for (auto i = 0u; i < phi.size(); ++i)
+            {
                 lambda[i] += alpha * phi[i];
             }
             ++iter_augmented;
             return 0;
         }
     }
-    else {
+    else
+    {
         iter_augmented=0;
-        return 1; 
+        return 1;
     }
 }
 

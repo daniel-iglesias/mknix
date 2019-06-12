@@ -63,87 +63,117 @@ extern "C" {
 
 }
 
-namespace gmm {
+namespace gmm
+{
 
-  template <typename T> struct ij_sparse_matrix {
+template <typename T> struct ij_sparse_matrix
+{
     std::vector<int> irn;
     std::vector<int> jcn;
     std::vector<T>        a;
-    
-    template <typename L> void store(const L& l, size_type i) {
-       typename linalg_traits<L>::const_iterator it = vect_const_begin(l),
-	 ite = vect_const_end(l);
-       for (; it != ite; ++it)
-	 { irn.push_back(i + 1); jcn.push_back(it.index() + 1); a.push_back(*it); }
+
+    template <typename L> void store(const L& l, size_type i)
+    {
+        typename linalg_traits<L>::const_iterator it = vect_const_begin(l),
+                                                  ite = vect_const_end(l);
+        for (; it != ite; ++it)
+        {
+            irn.push_back(i + 1);
+            jcn.push_back(it.index() + 1);
+            a.push_back(*it);
+        }
     }
 
-    template <typename L> void build_from(const L& l, row_major) {
-      for (size_type i = 0; i < mat_nrows(l); ++i)
-	store(mat_const_row(l, i), i);
+    template <typename L> void build_from(const L& l, row_major)
+    {
+        for (size_type i = 0; i < mat_nrows(l); ++i)
+            store(mat_const_row(l, i), i);
     }
 
-    template <typename L> void build_from(const L& l, col_major) {
-      for (size_type i = 0; i < mat_ncols(l); ++i)
-	store(mat_const_col(l, i), i);
-      irn.swap(jcn);
+    template <typename L> void build_from(const L& l, col_major)
+    {
+        for (size_type i = 0; i < mat_ncols(l); ++i)
+            store(mat_const_col(l, i), i);
+        irn.swap(jcn);
     }
 
-    template <typename L> ij_sparse_matrix(const L& A) {
-      size_type nz = nnz(A);
-      irn.reserve(nz); jcn.reserve(nz); a.reserve(nz);
-      build_from(A,  typename principal_orientation_type<typename
-	       linalg_traits<L>::sub_orientation>::potype());
+    template <typename L> ij_sparse_matrix(const L& A)
+    {
+        size_type nz = nnz(A);
+        irn.reserve(nz);
+        jcn.reserve(nz);
+        a.reserve(nz);
+        build_from(A,  typename principal_orientation_type<typename
+                   linalg_traits<L>::sub_orientation>::potype());
     }
-  };
+};
 
-  /* ********************************************************************* */
-  /*   MUMPS solve interface                                               */
-  /* ********************************************************************* */
+/* ********************************************************************* */
+/*   MUMPS solve interface                                               */
+/* ********************************************************************* */
 
 
-  template <typename T> struct mumps_interf {};
+template <typename T> struct mumps_interf {};
 
-  template <> struct mumps_interf<float> {
+template <> struct mumps_interf<float>
+{
     typedef SMUMPS_STRUC_C  MUMPS_STRUC_C;
     typedef float value_type;
 
-    static void mumps_c(MUMPS_STRUC_C &id) { smumps_c(&id); }
-  };
+    static void mumps_c(MUMPS_STRUC_C &id)
+    {
+        smumps_c(&id);
+    }
+};
 
-  template <> struct mumps_interf<double> {
+template <> struct mumps_interf<double>
+{
     typedef DMUMPS_STRUC_C  MUMPS_STRUC_C;
     typedef double value_type;
-    static void mumps_c(MUMPS_STRUC_C &id) { dmumps_c(&id); }
-  };
+    static void mumps_c(MUMPS_STRUC_C &id)
+    {
+        dmumps_c(&id);
+    }
+};
 
-  template <> struct mumps_interf<std::complex<float> > {
+template <> struct mumps_interf<std::complex<float> >
+{
     typedef CMUMPS_STRUC_C  MUMPS_STRUC_C;
     typedef mumps_complex value_type;
-    static void mumps_c(MUMPS_STRUC_C &id) { cmumps_c(&id); }
-  };
+    static void mumps_c(MUMPS_STRUC_C &id)
+    {
+        cmumps_c(&id);
+    }
+};
 
-  template <> struct mumps_interf<std::complex<double> > {
+template <> struct mumps_interf<std::complex<double> >
+{
     typedef ZMUMPS_STRUC_C  MUMPS_STRUC_C;
     typedef mumps_double_complex value_type;
-    static void mumps_c(MUMPS_STRUC_C &id) { zmumps_c(&id); }
-  };
+    static void mumps_c(MUMPS_STRUC_C &id)
+    {
+        zmumps_c(&id);
+    }
+};
 
 
-  /** MUMPS solve interface  
-   *  Works only with sparse or skyline matrices
-   */
-  template <typename MAT, typename VECTX, typename VECTB>
-  void MUMPS_solve(const MAT &A, const VECTX &X_, const VECTB &B) {
+/** MUMPS solve interface
+ *  Works only with sparse or skyline matrices
+ */
+template <typename MAT, typename VECTX, typename VECTB>
+void MUMPS_solve(const MAT &A, const VECTX &X_, const VECTB &B)
+{
     VECTX &X = const_cast<VECTX &>(X_);
 
     typedef typename linalg_traits<MAT>::value_type T;
     typedef typename mumps_interf<T>::value_type MUMPS_T;
     GMM_ASSERT2(gmm::mat_nrows(A) == gmm::mat_ncols(A), "Non square matrix");
-  
-    std::vector<T> rhs(gmm::vect_size(B)); gmm::copy(B, rhs);
-  
+
+    std::vector<T> rhs(gmm::vect_size(B));
+    gmm::copy(B, rhs);
+
     ij_sparse_matrix<T> AA(A);
-  
+
     const int JOB_INIT = -1;
     const int JOB_END = -2;
     const int USE_COMM_WORLD = -987654;
@@ -154,51 +184,58 @@ namespace gmm {
     int rank;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 #endif
-    
+
     id.job = JOB_INIT;
     id.par = 1;
     id.sym = 0;
     id.comm_fortran = USE_COMM_WORLD;
     mumps_interf<T>::mumps_c(id);
-    
+
 #ifdef GMM_USES_MPI
-    if (rank == 0) {
+    if (rank == 0)
+    {
 #endif
-      id.n = gmm::mat_nrows(A);
-      id.nz = AA.irn.size();
-      id.irn = &(AA.irn[0]);
-      id.jcn = &(AA.jcn[0]);
-      id.a = (MUMPS_T*)(&(AA.a[0]));
-      id.rhs = (MUMPS_T*)(&(rhs[0]));
+        id.n = gmm::mat_nrows(A);
+        id.nz = AA.irn.size();
+        id.irn = &(AA.irn[0]);
+        id.jcn = &(AA.jcn[0]);
+        id.a = (MUMPS_T*)(&(AA.a[0]));
+        id.rhs = (MUMPS_T*)(&(rhs[0]));
 #ifdef GMM_USES_MPI
     }
 #endif
 
 #define ICNTL(I) icntl[(I)-1]
 #define INFO(I) info[(I)-1]
-    id.ICNTL(1) = -1; id.ICNTL(2) = -1; id.ICNTL(3) = -1; id.ICNTL(4) = 0;
+    id.ICNTL(1) = -1;
+    id.ICNTL(2) = -1;
+    id.ICNTL(3) = -1;
+    id.ICNTL(4) = 0;
     id.job = 6;
-    
+
     id.ICNTL(14) += 40; /* small boost to the workspace size as we have encountered some problem
-			   who did not fit in the default settings of mumps.. 
+			   who did not fit in the default settings of mumps..
 			   by default, ICNTL(14) = 15 or 20
 		       */
     //cout << "ICNTL(14): " << id.ICNTL(14) << "\n";
 
     mumps_interf<T>::mumps_c(id);
-    if (id.INFO(1) < 0) {
-      switch (id.INFO(1)) {
-	case -6 : case -10 :
-	  GMM_ASSERT1(false, "Solve with MUMPS failed: matrix is singular");
-	case -13 :
-	  GMM_ASSERT1(false, "Solve with MUMPS failed: not enough memory");
+    if (id.INFO(1) < 0)
+    {
+        switch (id.INFO(1))
+        {
+        case -6 :
+        case -10 :
+            GMM_ASSERT1(false, "Solve with MUMPS failed: matrix is singular");
+        case -13 :
+            GMM_ASSERT1(false, "Solve with MUMPS failed: not enough memory");
         case -9:
-	  GMM_ASSERT1(false, "Solve with MUMPS failed: error " << id.INFO(1)
-		      << ", increase ICNTL(14)");
-	default :
-	  GMM_ASSERT1(false, "Solve with MUMPS failed with error "
-		      << id.INFO(1));
-      }
+            GMM_ASSERT1(false, "Solve with MUMPS failed: error " << id.INFO(1)
+                        << ", increase ICNTL(14)");
+        default :
+            GMM_ASSERT1(false, "Solve with MUMPS failed with error "
+                        << id.INFO(1));
+        }
     }
 
     id.job = JOB_END;
@@ -209,26 +246,28 @@ namespace gmm {
 #undef ICNTL
 #undef INFO
 
-  }
+}
 
 
 
-  /** MUMPS solve interface for distributed matrices 
-   *  Works only with sparse or skyline matrices
-   */
-  template <typename MAT, typename VECTX, typename VECTB>
-  void MUMPS_distributed_matrix_solve(const MAT &A, const VECTX &X_,
-				      const VECTB &B) {
+/** MUMPS solve interface for distributed matrices
+ *  Works only with sparse or skyline matrices
+ */
+template <typename MAT, typename VECTX, typename VECTB>
+void MUMPS_distributed_matrix_solve(const MAT &A, const VECTX &X_,
+                                    const VECTB &B)
+{
     VECTX &X = const_cast<VECTX &>(X_);
 
     typedef typename linalg_traits<MAT>::value_type T;
     typedef typename mumps_interf<T>::value_type MUMPS_T;
     GMM_ASSERT2(gmm::mat_nrows(A) == gmm::mat_ncols(A), "Non-square matrix");
-  
-    std::vector<T> rhs(gmm::vect_size(B)); gmm::copy(B, rhs);
-  
+
+    std::vector<T> rhs(gmm::vect_size(B));
+    gmm::copy(B, rhs);
+
     ij_sparse_matrix<T> AA(A);
-  
+
     const int JOB_INIT = -1;
     const int JOB_END = -2;
     const int USE_COMM_WORLD = -987654;
@@ -239,13 +278,13 @@ namespace gmm {
     int rank;
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
 #endif
-    
+
     id.job = JOB_INIT;
     id.par = 1;
     id.sym = 0;
     id.comm_fortran = USE_COMM_WORLD;
     mumps_interf<T>::mumps_c(id);
-    
+
     id.n = gmm::mat_nrows(A);
     id.nz_loc = AA.irn.size();
     id.irn_loc = &(AA.irn[0]);
@@ -253,34 +292,40 @@ namespace gmm {
     id.a_loc = (MUMPS_T*)(&(AA.a[0]));
 
 #ifdef GMM_USES_MPI
-    if (rank == 0) {
+    if (rank == 0)
+    {
 #endif
-      id.rhs = (MUMPS_T*)(&(rhs[0]));
+        id.rhs = (MUMPS_T*)(&(rhs[0]));
 #ifdef GMM_USES_MPI
     }
 #endif
 
 #define ICNTL(I) icntl[(I)-1]
 #define INFO(I) info[(I)-1]
-    id.ICNTL(1) = -1; id.ICNTL(2) = 6; // id.ICNTL(2) = -1;
+    id.ICNTL(1) = -1;
+    id.ICNTL(2) = 6; // id.ICNTL(2) = -1;
     id.ICNTL(3) = 6;
-    // id.ICNTL(3) = -1; 
+    // id.ICNTL(3) = -1;
     id.ICNTL(4) = 2;
-    id.ICNTL(5)=0; id.ICNTL(18)=3;
+    id.ICNTL(5)=0;
+    id.ICNTL(18)=3;
     id.job = 6;
     mumps_interf<T>::mumps_c(id);
-    if (id.INFO(1) < 0) {
-      switch (id.INFO(1)) {
-      case -6 : case -10 :
-	GMM_ASSERT1(false, "Solve with MUMPS failed: matrix is singular");
-      case -13:
-	GMM_ASSERT1(false, "Solve with MUMPS failed: not enough memory");
-      case -9:
-	GMM_ASSERT1(false, "Solve with MUMPS failed: error " << id.INFO(1)
-		    << ", increase ICNTL(14)");
-      default :
-	GMM_ASSERT1(false, "Solve with MUMPS failed with error " <<id.INFO(1));
-      }
+    if (id.INFO(1) < 0)
+    {
+        switch (id.INFO(1))
+        {
+        case -6 :
+        case -10 :
+            GMM_ASSERT1(false, "Solve with MUMPS failed: matrix is singular");
+        case -13:
+            GMM_ASSERT1(false, "Solve with MUMPS failed: not enough memory");
+        case -9:
+            GMM_ASSERT1(false, "Solve with MUMPS failed: error " << id.INFO(1)
+                        << ", increase ICNTL(14)");
+        default :
+            GMM_ASSERT1(false, "Solve with MUMPS failed with error " <<id.INFO(1));
+        }
     }
 
     id.job = JOB_END;
@@ -293,14 +338,14 @@ namespace gmm {
 #undef ICNTL
 #undef INFO
 
-  }
+}
 
 
 
 
 }
 
-  
+
 #endif // GMM_MUMPS_INTERFACE_H
 
 #endif // GMM_USES_MUMPS

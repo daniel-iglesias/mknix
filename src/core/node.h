@@ -23,7 +23,8 @@
 #include "point.h"
 #include "LMX/lmx.h"
 
-namespace mknix {
+namespace mknix
+{
 
 /**
   @author AUTHORS <MAILS>
@@ -69,11 +70,11 @@ public:
 //     inline const double& getx() const {
 //         return this->x;
 //     }
-// 
+//
 //     inline const double& gety() const {
 //         return this->y;
 //     }
-// 
+//
 //     inline const double& getz() const {
 //         return this->z;
 //     }
@@ -85,11 +86,16 @@ public:
 
     inline double getqx(int i) const
     {
-        switch (i) {
-        case 0: return qx;
-        case 1: return qy;
-        case 2: return qz;
-        default: return 1E10;
+        switch (i)
+        {
+        case 0:
+            return qx;
+        case 1:
+            return qy;
+        case 2:
+            return qz;
+        default:
+            return 1E10;
         }
     }
 
@@ -110,11 +116,16 @@ public:
 
     inline double getU(int i) const
     {
-        switch (i) {
-        case 0: return getConf(0) - X;
-        case 1: return getConf(1) - Y;
-        case 2: return getConf(2) - Z;
-        default: return 1E10;
+        switch (i)
+        {
+        case 0:
+            return getConf(0) - X;
+        case 1:
+            return getConf(1) - Y;
+        case 2:
+            return getConf(2) - Z;
+        default:
+            return 1E10;
         }
     }
 
@@ -156,15 +167,15 @@ public:
 //     inline void setx(double x_in) {
 //         qx = x_in;
 //     }
-// 
+//
 //     inline void sety(double y_in) {
 //         y = y_in;
 //     }
-// 
+//
 //     inline void setz(double z_in) {
 //         z = z_in;
 //     }
-// 
+//
     inline void setX(double X_in)
     {
         X = X_in;

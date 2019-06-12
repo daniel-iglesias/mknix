@@ -32,7 +32,8 @@
 
 #include <cmath>
 
-namespace mknix {
+namespace mknix
+{
 
 CompBar::CompBar()
 {

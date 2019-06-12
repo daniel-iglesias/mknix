@@ -34,7 +34,8 @@
  */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
-namespace mknix {
+namespace mknix
+{
 
 /**
 @author Daniel Iglesias
@@ -48,20 +49,20 @@ public:
     CellBoundaryLinear();
 
     CellBoundaryLinear(
-            std::string,
-            double,
-            int,
-            Point *,
-            Point *
+        std::string,
+        double,
+        int,
+        Point *,
+        Point *
     );
 
     CellBoundaryLinear(
-            std::string,
-            double,
-            int,
-            Point *,
-            Point *,
-            double
+        std::string,
+        double,
+        int,
+        Point *,
+        Point *,
+        double
     );
 
     ~CellBoundaryLinear();

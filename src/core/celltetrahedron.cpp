@@ -5,7 +5,8 @@
 #include "gausspoint3D.h"
 #include <string>
 
-namespace mknix {
+namespace mknix
+{
 
 CellTetrahedron::CellTetrahedron()
 {
@@ -72,14 +73,16 @@ void CellTetrahedron::createGaussPoints( )
     lmx::DenseMatrix<double> gCoef( size_type(nGPoints), 5);
 
     // reference: http://www.cs.rpi.edu/~flaherje/pdf/fea6.pdf
-    if (nGPoints == 1) {
+    if (nGPoints == 1)
+    {
         gCoef(0,0) = .25;
         gCoef(0,1) = .25;
         gCoef(0,2) = .25;
         gCoef(0,3) = .25;
         gCoef(0,4) = 1.;
     }
-    else if(nGPoints == 4) {
+    else if(nGPoints == 4)
+    {
         gCoef(0,0) = .585410196624969;
         gCoef(0,1) = gCoef(0,2) = gCoef(0,3) = .138196601125011;
         gCoef(0,4) = .25;
@@ -99,7 +102,8 @@ void CellTetrahedron::createGaussPoints( )
 //   else if(nGPoints == 20){
 //   }
 
-    for (int i=0; i<nGPoints; ++i) {
+    for (int i=0; i<nGPoints; ++i)
+    {
         gPoints.push_back
         ( new GaussPoint3D
           ( this->alpha,
@@ -120,7 +124,7 @@ void CellTetrahedron::createGaussPoints( )
             + bodyPoints[2]->getZ() * gCoef(i,2)
             + bodyPoints[3]->getZ() * gCoef(i,3),
             dc,
-	    true
+            true
           )
         );
     }

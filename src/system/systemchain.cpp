@@ -25,7 +25,8 @@
 
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 SystemChain::SystemChain()
 {
@@ -63,7 +64,8 @@ void SystemChain::populate(Simulation* theSimulation, std::string& energyKeyword
     // Define or update the timeLenght[0] value
     timeLenghts[0] = currentLength;
 
-    for (int i=0; i<segments; ++i) {
+    for (int i=0; i<segments; ++i)
+    {
 //     cout << i*(length/segments) <<" < "<< currentLength << " ?"<< endl;
         xA = x0 + i*((x1-x0)/segments);
         yA = y0 + i*((y1-y0)/segments);
@@ -98,7 +100,8 @@ void SystemChain::populate(Simulation* theSimulation, std::string& energyKeyword
 
         this->rigidBodies[rigidTitle]->setOutput( energyKeyword ); //chapuza
         // Spherical joints between the bars:
-        if(i>0) { // No joint in the first bar
+        if(i>0)   // No joint in the first bar
+        {
             barName << this->title << i+1;
             rigidTitle = barName.str();
             this->constraints[rigidTitle] = new ConstraintFixedCoordinates(
@@ -123,14 +126,18 @@ void SystemChain::update(double theTime)
 //   cout << "currentLength = " << currentLength
 //        << ", updateLength = " << updateLength << endl;
 
-    if(updateLength != currentLength) {
-        if( updateLength > length || updateLength < 0 ) {
+    if(updateLength != currentLength)
+    {
+        if( updateLength > length || updateLength < 0 )
+        {
             cerr << "ERROR: Trying to extend CHAIN beyond its lenght!!!" << endl;
         }
-        else { // Commented are possible optimizations (opt)
+        else   // Commented are possible optimizations (opt)
+        {
 //       if( updateLength > currentLength ){ // EXTENSION for opt
             // Locate bar. Compute index with currentLength
-            for (int i=0; i < segments; ++i) { // for opt: Should say i=firstConstraint
+            for (int i=0; i < segments; ++i)   // for opt: Should say i=firstConstraint
+            {
                 barName.str(std::string());
                 barName << this->title << i;
                 this->localConstraintDistance[barName.str()]

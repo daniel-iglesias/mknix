@@ -44,7 +44,8 @@
 #include "lmx_diff_integrator_bdf.h"
 #include "lmx_diff_integrator_centraldiff.h"
 
-namespace lmx {
+namespace lmx
+{
 
 /**
 \class DiffProblem
@@ -63,26 +64,27 @@ public:
 
     /** Empty constructor. */
     DiffProblem()
-            : theConfiguration(0)
-            , theIntegrator(0)
-            , theNLSolver(0)
-            , theSystem(0)
-            , p_delta_q(0)
-            , b_steptriggered(0)
-            , vervosity(2)
-            { }
+        : theConfiguration(0)
+        , theNLSolver(0)
+        , theSystem(0)
+        , p_delta_q(0)
+        , b_steptriggered(0)
+        , vervosity(2)
+    { }
 
     /** Destructor. */
     virtual ~DiffProblem()
     {
-        if (theIntegrator) delete theIntegrator;
         if (theConfiguration) delete theConfiguration;
     }
 
     /**
      * @param system_in Object that defines the differential system equations.
      */
-    void setDiffSystem(Sys& system_in) { theSystem = &system_in; }
+    void setDiffSystem(Sys& system_in)
+    {
+        theSystem = &system_in;
+    }
 
     void setIntegrator(int type, int opt1 = 0, int opt2 = 0);
 
@@ -101,18 +103,25 @@ public:
     void setStepTriggered(void (Sys::* stepTriggered_in)());
 
     // needs documentation:
-    void setConvergence(double eps_in) { epsilon = eps_in; }
+    void setConvergence(double eps_in)
+    {
+        epsilon = eps_in;
+    }
 
     // needs documentation:
-    const lmx::Vector<T>& getConfiguration(int order, int step = 0) { return theConfiguration->getConf(order, step); }
+    const lmx::Vector<T>& getConfiguration(int order, int step = 0)
+    {
+        return theConfiguration->getConf(order, step);
+    }
 
     bool isIntegratorExplicit()
     {
         if (theIntegrator) return this->theIntegrator->isExplicit();
         return false;
     }
-    
-    void setVervosity(int level){
+
+    void setVervosity(int level)
+    {
         vervosity = level;
     }
 
@@ -137,7 +146,7 @@ private:
 
 protected:
     lmx::Configuration<T> * theConfiguration; ///< Pointer to the Configuration object, (auto-created).
-    lmx::IntegratorBase<T> * theIntegrator; ///< Pointer to the Integrator object, (auto-created).
+    std::unique_ptr< lmx::IntegratorBase<T> > theIntegrator; ///< Pointer to the Integrator object, (auto-created).
     lmx::NLSolver<T> * theNLSolver; ///< Pointer to the NLSolver object, (auto-created).
     Sys * theSystem; ///< Pointer to object where the differential system is defined.
     lmx::Vector<T> * p_delta_q; ///< Stores pointer to NLSolver increment.
@@ -163,21 +172,22 @@ protected:
 template<typename Sys, typename T>
 void DiffProblem<Sys, T>::setIntegrator(int type, int opt1, int opt2)
 {
-    switch (type) {
+    switch (type)
+    {
     case 0 : // integrator == 0 -> Adams-Bashford
-        theIntegrator = new IntegratorAB<T>(opt1);
+        theIntegrator = std::make_unique< IntegratorAB<T> >(opt1);
         break;
 
     case 1 : // integrator == 1 -> Adams-Moulton
-        theIntegrator = new IntegratorAM<T>(opt1);
+        theIntegrator = std::make_unique< IntegratorAM<T> >(opt1);
         break;
 
     case 2 : // integrator == 2 -> BDF
-        theIntegrator = new IntegratorBDF<T>(opt1);
+        theIntegrator = std::make_unique< IntegratorBDF<T> >(opt1);
         break;
 
     case 3 : // integrator == 2 -> BDF
-        theIntegrator = new IntegratorCentralDifference<T>();
+        theIntegrator = std::make_unique< IntegratorCentralDifference<T> >();
         break;
 
     }
@@ -192,37 +202,67 @@ void DiffProblem<Sys, T>::setIntegrator(int type, int opt1, int opt2)
 template<typename Sys, typename T>
 void DiffProblem<Sys, T>::setIntegrator(const std::string& type, int opt2)
 {
-    if (type == "AB-1") {
-        theIntegrator = new IntegratorAB<T>(1);
-    } else if (type == "AB-2") {
-        theIntegrator = new IntegratorAB<T>(2);
-    } else if (type == "AB-3") {
-        theIntegrator = new IntegratorAB<T>(3);
-    } else if (type == "AB-4") {
-        theIntegrator = new IntegratorAB<T>(4);
-    } else if (type == "AB-5") {
-        theIntegrator = new IntegratorAB<T>(5);
-    } else if (type == "AM-1") {
-        theIntegrator = new IntegratorAM<T>(1);
-    } else if (type == "AM-2") {
-        theIntegrator = new IntegratorAM<T>(2);
-    } else if (type == "AM-3") {
-        theIntegrator = new IntegratorAM<T>(3);
-    } else if (type == "AM-4") {
-        theIntegrator = new IntegratorAM<T>(4);
-    } else if (type == "AM-5") {
-        theIntegrator = new IntegratorAM<T>(5);
-    } else if (type == "BDF-1") {
-        theIntegrator = new IntegratorBDF<T>(1);
-    } else if (type == "BDF-2") {
-        theIntegrator = new IntegratorBDF<T>(2);
-    } else if (type == "BDF-3") {
-        theIntegrator = new IntegratorBDF<T>(3);
-    } else if (type == "BDF-4") {
-        theIntegrator = new IntegratorBDF<T>(4);
-    } else if (type == "BDF-5") {
-        theIntegrator = new IntegratorBDF<T>(5);
-    } else if (type == "CD") theIntegrator = new IntegratorCentralDifference<T>();
+    if (type == "AB-1")
+    {
+        theIntegrator = std::make_unique< IntegratorAB<T> >(1);
+    }
+    else if (type == "AB-2")
+    {
+        theIntegrator = std::make_unique<IntegratorAB<T> >(2);
+    }
+    else if (type == "AB-3")
+    {
+        theIntegrator = std::make_unique<IntegratorAB<T> >(3);
+    }
+    else if (type == "AB-4")
+    {
+        theIntegrator = std::make_unique<IntegratorAB<T> >(4);
+    }
+    else if (type == "AB-5")
+    {
+        theIntegrator = std::make_unique<IntegratorAB<T> >(5);
+    }
+    else if (type == "AM-1")
+    {
+        theIntegrator = std::make_unique<IntegratorAM<T> >(1);
+    }
+    else if (type == "AM-2")
+    {
+        theIntegrator = std::make_unique<IntegratorAM<T> >(2);
+    }
+    else if (type == "AM-3")
+    {
+        theIntegrator = std::make_unique<IntegratorAM<T> >(3);
+    }
+    else if (type == "AM-4")
+    {
+        theIntegrator = std::make_unique<IntegratorAM<T> >(4);
+    }
+    else if (type == "AM-5")
+    {
+        theIntegrator = std::make_unique<IntegratorAM<T> >(5);
+    }
+    else if (type == "BDF-1")
+    {
+        theIntegrator = std::make_unique<IntegratorBDF<T> >(1);
+    }
+    else if (type == "BDF-2")
+    {
+        theIntegrator = std::make_unique<IntegratorBDF<T> >(2);
+    }
+    else if (type == "BDF-3")
+    {
+        theIntegrator = std::make_unique<IntegratorBDF<T> >(3);
+    }
+    else if (type == "BDF-4")
+    {
+        theIntegrator = std::make_unique<IntegratorBDF<T> >(4);
+    }
+    else if (type == "BDF-5")
+    {
+        theIntegrator = std::make_unique<IntegratorBDF<T> >(5);
+    }
+    else if (type == "CD") theIntegrator = std::make_unique< IntegratorCentralDifference<T> >();
 }
 
 /**
@@ -232,7 +272,8 @@ void DiffProblem<Sys, T>::setIntegrator(const std::string& type, int opt2)
 template<typename Sys, typename T>
 void DiffProblem<Sys, T>::setInitialConfiguration(lmx::Vector<T>& q_o)
 {
-    if (theConfiguration == 0) {
+    if (theConfiguration == 0)
+    {
         theConfiguration = new Configuration<T>;
     }
 
@@ -248,7 +289,8 @@ void DiffProblem<Sys, T>::setInitialConfiguration(lmx::Vector<T>& q_o)
 template<typename Sys, typename T>
 void DiffProblem<Sys, T>::setInitialConfiguration(lmx::Vector<T>& q_o, lmx::Vector<T>& qdot_o)
 {
-    if (theConfiguration == 0) {
+    if (theConfiguration == 0)
+    {
         theConfiguration = new Configuration<T>;
     }
 
@@ -267,12 +309,14 @@ void DiffProblem<Sys, T>::setInitialConfiguration(lmx::Vector<T>& q_o, lmx::Vect
 template<typename Sys, typename T>
 void DiffProblem<Sys, T>::setOutputFile(const char * filename, int diffOrder)
 {
-    if (!(fileOutMap[diffOrder] == 0)) {
+    if (!(fileOutMap[diffOrder] == 0))
+    {
         cout << "WARNING: Changing opened file for diff order = " << diffOrder << endl;
         cout << "         New name: " << filename << endl;
         fileOutMap[diffOrder]->open(filename);
     }
-    else {
+    else
+    {
         fileOutMap[diffOrder] = new std::ofstream(filename);
     }
 }
@@ -300,11 +344,13 @@ template<typename Sys, typename T>
 void DiffProblem<Sys, T>::writeStepFiles()
 {
     std::map<int, std::ofstream *>::iterator it;
-    for (it = fileOutMap.begin(); it != fileOutMap.end(); ++it) {
+    for (it = fileOutMap.begin(); it != fileOutMap.end(); ++it)
+    {
         it->second->setf(std::ios::scientific, std::ios::floatfield);
         it->second->precision(6);
         *(it->second) << theConfiguration->getTime() << "\t";
-        for (unsigned int i = 0; i < theConfiguration->getConf(it->first, 0).size(); ++i) {
+        for (unsigned int i = 0; i < theConfiguration->getConf(it->first, 0).size(); ++i)
+        {
             *(it->second) << theConfiguration->getConf(it->first, 0).readElement(i) << "\t";
         }
         *(it->second) << endl;

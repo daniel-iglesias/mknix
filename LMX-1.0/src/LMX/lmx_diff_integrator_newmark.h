@@ -23,114 +23,116 @@
 
 
 //////////////////////////////////////////// Doxygen file documentation entry:
-    /*!
-      \file lmx_diff_integrator_newmark.h
-      
-      \brief IntegratorNEWMARK class implementation
+/*!
+  \file lmx_diff_integrator_newmark.h
 
-      Implements Beta-Newmark family integrators for solving dynamic systems.
+  \brief IntegratorNEWMARK class implementation
 
-      \author Daniel Iglesias
-      
-    */
+  Implements Beta-Newmark family integrators for solving dynamic systems.
+
+  \author Daniel Iglesias
+
+*/
 //////////////////////////////////////////// Doxygen file documentation (end)
 
 // #include<cmath>
 
 #include"lmx_diff_integrator_base_implicit.h"
 
-namespace lmx {
+namespace lmx
+{
 
-    /**
-  \class IntegratorNEWMARK
-  \brief Template class IntegratorNEWMARK.
-  Gear's BDF integrator implementation for ODE systems.
-    
-  @author Daniel Iglesias.
-     */
-  template <class T> class IntegratorNEWMARK : public IntegratorBaseImplicit<T>
-  {
-    public:
-  
-      /** Empty constructor. */
-      IntegratorNEWMARK(){}
-  
-      /** Standard constructor. */
-      IntegratorNEWMARK(double beta, double gamma);
-  
-      /** Destructor. */
-      ~IntegratorNEWMARK(){}
-  
-      /** Initialize integration function. */
-      void initialize( Configuration<T>* );
-  
-      /** Advance to next time-step function. */
-      void advance();
-  
-      /** Actualize with delta in actual time-step. */
-      void integratorUpdate( lmx::Vector<T> delta );
+/**
+\class IntegratorNEWMARK
+\brief Template class IntegratorNEWMARK.
+Gear's BDF integrator implementation for ODE systems.
 
-      /** Calculates the factor \f$ \frac{\partial qdot_n}{\partial q_n} \f$. */
-      double getPartialQdot( )
-      {
+@author Daniel Iglesias.
+ */
+template <class T> class IntegratorNEWMARK : public IntegratorBaseImplicit<T>
+{
+public:
+
+    /** Empty constructor. */
+    IntegratorNEWMARK() {}
+
+    /** Standard constructor. */
+    IntegratorNEWMARK(double beta, double gamma);
+
+    /** Destructor. */
+    ~IntegratorNEWMARK() {}
+
+    /** Initialize integration function. */
+    void initialize( Configuration<T>* );
+
+    /** Advance to next time-step function. */
+    void advance();
+
+    /** Actualize with delta in actual time-step. */
+    void integratorUpdate( lmx::Vector<T> delta );
+
+    /** Calculates the factor \f$ \frac{\partial qdot_n}{\partial q_n} \f$. */
+    double getPartialQdot( )
+    {
         return gamma / ( q->getLastStepSize()*beta );
-      }
+    }
 
-      /** Calculates the factor \f$ \frac{\partial qddot_n}{\partial q_n} \f$. */
-      double getPartialQddot( )
-      {
+    /** Calculates the factor \f$ \frac{\partial qddot_n}{\partial q_n} \f$. */
+    double getPartialQddot( )
+    {
         return 1./ ( std::pow( q->getLastStepSize(), 2. )*beta );
-      }
-  
-    private:
-      double beta, gamma;
-      Configuration<T>* q;
+    }
 
-  };
+private:
+    double beta, gamma;
+    Configuration<T>* q;
+
+};
 
 }; // namespace lmx
 
 /////////////////////////////// Implementation of the methods defined previously
 
-namespace lmx {
+namespace lmx
+{
 
-  template <class T> IntegratorNEWMARK<T>::
-      IntegratorNEWMARK( double beta_in,
-                         double gamma_in)
-  : beta(beta_in), gamma(gamma_in)
-  {
-  }
+template <class T> IntegratorNEWMARK<T>::
+IntegratorNEWMARK( double beta_in,
+                   double gamma_in)
+    : beta(beta_in), gamma(gamma_in)
+{
+}
 
-  template <class T>
-      void IntegratorNEWMARK<T>::initialize( Configuration<T>* configuration_in )
-  {
+template <class T>
+void IntegratorNEWMARK<T>::initialize( Configuration<T>* configuration_in )
+{
     q = configuration_in;
     q->setStoredSteps( 2, 2, 2 );
-  }
+}
 
 
-  template <class T>
-      void IntegratorNEWMARK<T>::advance( )
-  {
+template <class T>
+void IntegratorNEWMARK<T>::advance( )
+{
     q->setConf( 1,
                 q->getConf( 1, 1 ) +
-                    (T)(1. - gamma) * q->getLastStepSize()
-                    * q->getConf( 2 , 1 ) );
+                (T)(1. - gamma) * q->getLastStepSize()
+                * q->getConf( 2, 1 ) );
     q->setConf( 0,
                 q->getConf( 0, 1 ) +
-                    (T)q->getLastStepSize() * q->getConf( 1, 1 ) +
-                    (T)(0.5-beta) * std::pow( q->getLastStepSize(), 2 )
-                    * q->getConf( 2, 1 ) );
+                (T)q->getLastStepSize() * q->getConf( 1, 1 ) +
+                (T)(0.5-beta) * std::pow( q->getLastStepSize(), 2 )
+                * q->getConf( 2, 1 ) );
     q->setConf( 2 ).fillIdentity( 0 );
-  }
+}
 
-  template <class T>
-      void IntegratorNEWMARK<T>::integratorUpdate( lmx::Vector<T> delta )
-  {
+template <class T>
+void IntegratorNEWMARK<T>::integratorUpdate( lmx::Vector<T> delta )
+{
     q->setConf( 0 ) += delta;
     q->setConf( 1 ) += delta * ( gamma/(beta*q->getLastStepSize() ) );
     q->setConf( 2 ) += delta * ( 1. / ( beta * std::pow(q->getLastStepSize(), 2 ) ) );
-  }
+}
 
 }; // namespace lmx
 

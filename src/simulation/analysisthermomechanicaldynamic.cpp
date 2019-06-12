@@ -20,7 +20,8 @@
 #include "analysisthermomechanicaldynamic.h"
 #include "simulation.h"
 
-namespace mknix {
+namespace mknix
+{
 
 AnalysisThermoMechanicalDynamic::AnalysisThermoMechanicalDynamic()
     : Analysis()
@@ -47,10 +48,12 @@ AnalysisThermoMechanicalDynamic::AnalysisThermoMechanicalDynamic
 
     // Setting up the THERMAL problem
 //  theProblem.setOutputFile("dis.dat", 0);
-    if (theProblem.isIntegratorExplicit() ) {
+    if (theProblem.isIntegratorExplicit() )
+    {
         theProblem.setEvaluation1( &Simulation::explicitThermalEvaluation );
     }
-    else {
+    else
+    {
         theProblem.setOutputFile1("flux.dat", 1);
         theProblem.setEvaluation1( &Simulation::dynamicThermalEvaluation );
         theProblem.setResidue1( &Simulation::dynamicThermalResidue );
@@ -62,10 +65,12 @@ AnalysisThermoMechanicalDynamic::AnalysisThermoMechanicalDynamic
     }
 
     // Setting up the MECHANICAL problem
-    if (theProblem.isIntegratorExplicit() ) {
+    if (theProblem.isIntegratorExplicit() )
+    {
         theProblem.setEvaluation2( &Simulation::explicitAcceleration );
     }
-    else {
+    else
+    {
         theProblem.setOutputFile2("vel.dat", 1);
         theProblem.setOutputFile2("acc.dat", 2);
         theProblem.setEvaluation2( &Simulation::dynamicAcceleration );
@@ -92,7 +97,8 @@ void AnalysisThermoMechanicalDynamic::solve
   lmx::Vector< data_type >* qdot_in = 0
 )
 {
-    if( lmx::getMatrixType() == 1 ) {
+    if( lmx::getMatrixType() == 1 )
+    {
 //    theProblem.setSparsePatternJacobian( theSimulation->getSparsePattern() ); // TBD for 1-DOF
         theProblem.setSparsePatternJacobian2( theSimulation->getSparsePattern() );
     }

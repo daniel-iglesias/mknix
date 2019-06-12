@@ -34,12 +34,14 @@
 
 #include "shapefunction.h"
 
-namespace mknix {
+namespace mknix
+{
 
 /**
 @author Daniel Iglesias
 */
-class ShapeFunctionRBF : public ShapeFunction {
+class ShapeFunctionRBF : public ShapeFunction
+{
 
 private:
     size_t nn, mm; /**< Number of radial basis functions(nn) and monomials(mm). */

@@ -36,7 +36,8 @@
 //////////////////////////////////////////// Doxygen file documentation (end)
 
 
-namespace lmx {
+namespace lmx
+{
 
 /**
 \class Type_stdmatrix
@@ -86,14 +87,20 @@ public:
       * \param mrows Row position in dense matrix.
       * \param ncolumns Column position in dense matrix.
       * \return Value of the element in the position given by the parameters. */
-    const T& readElement(const size_type& mrows, const size_type& ncolumns) const { return contents[mrows][ncolumns]; }
+    const T& readElement(const size_type& mrows, const size_type& ncolumns) const
+    {
+        return contents[mrows][ncolumns];
+    }
 
     /** Write element method.
       * Implements a method for writing data on the dense matrix.
       * \param mrows Row position in dense matrix.
       * \param ncolumns Column position in dense matrix.
       * \param value Numerical type value. */
-    void writeElement(T value, const size_type& mrows, const size_type& ncolumns) { contents[mrows][ncolumns] = value; }
+    void writeElement(T value, const size_type& mrows, const size_type& ncolumns)
+    {
+        contents[mrows][ncolumns] = value;
+    }
 
     /** Add element method.
       * Implements a method for adding data on the Harwell-Boeing matrix.
@@ -102,22 +109,34 @@ public:
       * \param ncolumns Column position in dense matrix.
       * \param value Numerical type value. */
     inline void addElement(T value, const size_type& mrows,
-                           const size_type& ncolumns) { contents[mrows][ncolumns] += value; }
+                           const size_type& ncolumns)
+    {
+        contents[mrows][ncolumns] += value;
+    }
 
     /** Method for knowing the number of data rows.
      * \returns Number of rows.
      */
-    size_type getRows() const { return rows; }
+    size_type getRows() const
+    {
+        return rows;
+    }
 
     /** Method for knowing the number of data columns.
      * \returns Number of columns.
      */
-    size_type getCols() const { return cols; }
+    size_type getCols() const
+    {
+        return cols;
+    }
 
     /** Copy method.
       * Equals the data in the object's contents to those given by the input matrix parameter.
       * \param matrix_in pointer to an object that belongs to a class derived from Data. */
-    void equals(const Data<T> * matrix_in) { contents = static_cast<const Type_stdmatrix *>(matrix_in)->contents; }
+    void equals(const Data<T> * matrix_in)
+    {
+        contents = static_cast<const Type_stdmatrix *>(matrix_in)->contents;
+    }
 
     /** Add method.
       * Adds the the input matrix parameter's elements to the object's contents.
@@ -125,8 +144,10 @@ public:
       * \param matrix_in_1 pointer to an object that belongs to a class derived from Data. */
     void add(const Data<T> * matrix_in_1)
     {
-        for (size_type i = 0; i < rows; ++i) {
-            for (size_type j = 0; j < cols; ++j) {
+        for (size_type i = 0; i < rows; ++i)
+        {
+            for (size_type j = 0; j < cols; ++j)
+            {
                 contents[i][j] += matrix_in_1->readElement(i, j);
             }
         }
@@ -138,8 +159,10 @@ public:
       * \param matrix_in_1 pointer to an object that belongs to a class derived from Data. */
     void substract(const Data<T> * matrix_in_1)
     {
-        for (size_type i = 0; i < rows; ++i) {
-            for (size_type j = 0; j < cols; ++j) {
+        for (size_type i = 0; i < rows; ++i)
+        {
+            for (size_type j = 0; j < cols; ++j)
+            {
                 contents[i][j] -= matrix_in_1->readElement(i, j);
             }
         }
@@ -154,22 +177,28 @@ public:
     void multiply(const Data<T> * matrix_in_1, const Data<T> * matrix_in_2)
     {
         // Emmit an error if called over self data...
-        if (this == matrix_in_1 || this == matrix_in_2) {
+        if (this == matrix_in_1 || this == matrix_in_2)
+        {
             std::stringstream message;
             message << "Trying to multiply and save results on same data at the same time."
-            << endl << "  This cannot be done." << endl;
+                    << endl << "  This cannot be done." << endl;
             LMX_THROW(failure_error, message.str());
         }
         // This can have a good optimization...
         this->resize(matrix_in_1->getRows(), matrix_in_2->getCols());
-        for (size_type i = 0; i < rows; ++i) {
-            for (size_type j = 0; j < cols; ++j) {
+        for (size_type i = 0; i < rows; ++i)
+        {
+            for (size_type j = 0; j < cols; ++j)
+            {
                 contents[i][j] = T(0);
             }
         }
-        for (size_type i = 0; i < rows; ++i) {
-            for (size_type j = 0; j < matrix_in_2->getRows(); ++j) {
-                for (size_type k = 0; k < cols; ++k) {
+        for (size_type i = 0; i < rows; ++i)
+        {
+            for (size_type j = 0; j < matrix_in_2->getRows(); ++j)
+            {
+                for (size_type k = 0; k < cols; ++k)
+                {
                     contents[i][k] += matrix_in_1->readElement(i, j)
                                       * matrix_in_2->readElement(j, k);
                 }
@@ -183,8 +212,10 @@ public:
       * \param scalar A scalar factor of template's class. */
     void multiplyScalar(const T& scalar)
     {
-        for (size_type i = 0; i < rows; ++i) {
-            for (size_type j = 0; j < cols; ++j) {
+        for (size_type i = 0; i < rows; ++i)
+        {
+            for (size_type j = 0; j < cols; ++j)
+            {
                 contents[i][j] *= scalar;
             }
         }
@@ -196,8 +227,10 @@ public:
        */
     void multiplyElements(const Data<T> * matrix_in)
     {
-        for (size_type i = 0; i < rows; ++i) {
-            for (size_type j = 0; j < cols; ++j) {
+        for (size_type i = 0; i < rows; ++i)
+        {
+            for (size_type j = 0; j < cols; ++j)
+            {
                 contents[i][j] *= matrix_in->readElement(i, j);
             }
         }
@@ -214,34 +247,36 @@ public:
 #ifndef HAVE_GMM
         std::stringstream message;
         message
-        << "---------------------------------------------\n"
-        <<
-        "We are very very sorry but this feature (read_mm_file) requires at the moment the use of \nthe gmm++ library.\n"
-        <<
-        "If you really feel that it is important to have the Matrix Market file reading \nas a built in feature, you can post it into our web page:\n"
-        << "w3.mecanica.upm.es/lmx\n"
-        << "Thank you very much for your interest and help in setting our priorities in the \ndevelopment schedule.\n"
-        << "---------------------------------------------\n"
-        << "gmm++ not defined.\nYou must set \"#define HAVE_GMM\" in your file in order to use this library." << endl;
+                << "---------------------------------------------\n"
+                <<
+                "We are very very sorry but this feature (read_mm_file) requires at the moment the use of \nthe gmm++ library.\n"
+                <<
+                "If you really feel that it is important to have the Matrix Market file reading \nas a built in feature, you can post it into our web page:\n"
+                << "w3.mecanica.upm.es/lmx\n"
+                << "Thank you very much for your interest and help in setting our priorities in the \ndevelopment schedule.\n"
+                << "---------------------------------------------\n"
+                << "gmm++ not defined.\nYou must set \"#define HAVE_GMM\" in your file in order to use this library." << endl;
         LMX_THROW(failure_error, message.str());
 #else
         gmm::csc_matrix<double> cscmat;
         gmm::col_matrix< gmm::wsvector<double> > matrix_loaded;
         gmm::MatrixMarket_load(input_file, matrix_loaded);
-    //   gmm::resize(contents, gmm::mat_nrows(matrix_loaded), gmm::mat_ncols(matrix_loaded));
+        //   gmm::resize(contents, gmm::mat_nrows(matrix_loaded), gmm::mat_ncols(matrix_loaded));
         gmm::copy(matrix_loaded, cscmat);
 
         this->resize(cscmat.nr, cscmat.nc);
 
         size_type col_count;
-        size_type elem_count=0;
+        size_type elem_count = 0;
 
-        for(int j = 0 ; j < rows+1 ; ++j){
-          col_count = cscmat.jc[j];
-          for(int m = cscmat.jc[j]; m < cscmat.jc[j+1]; ++m){
-            this->contents [ cscmat.ir[elem_count] ] [ j ] = cscmat.pr[elem_count];
-            ++elem_count;
-          }
+        for (int j = 0; j < rows + 1; ++j)
+        {
+            col_count = cscmat.jc[j];
+            for (int m = cscmat.jc[j]; m < cscmat.jc[j + 1]; ++m)
+            {
+                this->contents[cscmat.ir[elem_count]][j] = cscmat.pr[elem_count];
+                ++elem_count;
+            }
         }
         cout << col_count << endl;
 #endif
@@ -270,8 +305,10 @@ public:
 
         size_type elem_count = 0;
 
-        for (int j = 0; j < N + 1; ++j) {
-            for (int m = colptr[j]; m < colptr[j + 1]; ++m) {
+        for (int j = 0; j < N + 1; ++j)
+        {
+            for (int m = colptr[j]; m < colptr[j + 1]; ++m)
+            {
                 this->contents[rowind[elem_count] - 1][j] = val[elem_count];
                 ++elem_count;
             }
@@ -279,38 +316,40 @@ public:
 
     }
 
-/**
-   * Write data in Harwell-Boeing format method.
-   * Opens the file specified and writes the matrix's data in it.
-   *
-   * \param input_file Name of the file to be read.
- */
+    /**
+       * Write data in Harwell-Boeing format method.
+       * Opens the file specified and writes the matrix's data in it.
+       *
+       * \param input_file Name of the file to be read.
+     */
     void write_hb_file(const char * input_file)
     {
 #ifndef HAVE_GMM
         std::stringstream message;
         message
-        << "---------------------------------------------\n"
-        <<
-        "We are very very sorry but this feature (write_hb_file) requires at the moment the use of \nthe gmm++ library.\n"
-        <<
-        "If you really feel that it is important to have the Matrix Market file reading \nas a built in feature, you can post it into our web page:\n"
-        << "w3.mecanica.upm.es/lmx\n"
-        << "Thank you very much for your interest and help in setting our priorities in the \ndevelopment schedule.\n"
-        << "---------------------------------------------\n"
-        << "gmm++ not defined.\nYou must set \"#define HAVE_GMM\" in your file in order to use this library." << endl;
+                << "---------------------------------------------\n"
+                <<
+                "We are very very sorry but this feature (write_hb_file) requires at the moment the use of \nthe gmm++ library.\n"
+                <<
+                "If you really feel that it is important to have the Matrix Market file reading \nas a built in feature, you can post it into our web page:\n"
+                << "w3.mecanica.upm.es/lmx\n"
+                << "Thank you very much for your interest and help in setting our priorities in the \ndevelopment schedule.\n"
+                << "---------------------------------------------\n"
+                << "gmm++ not defined.\nYou must set \"#define HAVE_GMM\" in your file in order to use this library." << endl;
         LMX_THROW(failure_error, message.str());
 #else
-        gmm::dense_matrix<T> gmm_dense_matrix( rows , cols );
-        gmm::csc_matrix<T> cscmat( rows , cols );
+        gmm::dense_matrix<T> gmm_dense_matrix(rows, cols);
+        gmm::csc_matrix<T> cscmat(rows, cols);
 
-        for (size_type i = 0; i<rows; ++i){
-          for (size_type j = 0; j<cols; ++j){
-            gmm_dense_matrix(i,j) = this->contents[i][j];
-          }
+        for (size_type i = 0; i < rows; ++i)
+        {
+            for (size_type j = 0; j < cols; ++j)
+            {
+                gmm_dense_matrix(i, j) = this->contents[i][j];
+            }
         }
 
-        gmm::copy( gmm_dense_matrix, cscmat );
+        gmm::copy(gmm_dense_matrix, cscmat);
         gmm::Harwell_Boeing_save(input_file, cscmat);
 
 #endif
@@ -325,17 +364,22 @@ public:
         size_type i, j;
 
         temp.resize(cols);
-        for (i = 0; i < cols; ++i) {
+        for (i = 0; i < cols; ++i)
+        {
             temp[i].resize(rows);
         }
-        for (i = 0; i < rows; ++i) {
-            for (j = 0; j < cols; ++j) {
+        for (i = 0; i < rows; ++i)
+        {
+            for (j = 0; j < cols; ++j)
+            {
                 temp[j][i] = contents[i][j];
             }
         }
         this->resize(cols, rows);
-        for (i = 0; i < cols; ++i) {
-            for (j = 0; j < rows; ++j) {
+        for (i = 0; i < cols; ++i)
+        {
+            for (j = 0; j < rows; ++j)
+            {
                 contents[i][j] = temp[i][j];
             }
         }
@@ -349,8 +393,10 @@ public:
       * \param factor Reference value for cleaning. */
     void cleanBelow(const double factor)
     {
-        for (size_type i = 0; i < rows; ++i) {
-            for (size_type j = 0; j < cols; ++j) {
+        for (size_type i = 0; i < rows; ++i)
+        {
+            for (size_type j = 0; j < cols; ++j)
+            {
                 if (std::abs(contents[i][j]) < std::abs(static_cast<T>(factor))) contents[i][j] = static_cast<T>(0);
             }
         }
@@ -372,8 +418,10 @@ public:
      */
     void reset()
     {
-        for (size_type i = 0; i < rows; ++i) {
-            for (size_type j = 0; j < cols; ++j) {
+        for (size_type i = 0; i < rows; ++i)
+        {
+            for (size_type j = 0; j < cols; ++j)
+            {
                 contents[i][j] = static_cast<T>(0);
             }
         }
@@ -384,9 +432,15 @@ public:
      * Gives the direction in memory of (pointer to) the object.
      * @return A pointer to the matrix's contents (Type_stdmatrix).
      */
-    std::vector<std::vector<T> > * data_pointer() { return &(this->contents); }
+    std::vector<std::vector<T> > * data_pointer()
+    {
+        return &(this->contents);
+    }
 
-    bool exists(size_type, size_type) { return 1; }
+    bool exists(size_type, size_type)
+    {
+        return 1;
+    }
 
 }; // class Type_stdmatrix definitions.
 
@@ -398,7 +452,10 @@ public:
   * \param columns_in Columns of dense matrix. */
 template<typename T>
 Type_stdmatrix<T>::Type_stdmatrix(size_type rows_in, size_type columns_in) :
-        Data_mat<T>(), rows(rows_in), cols(columns_in) { resize(rows_in, columns_in); }
+    Data_mat<T>(), rows(rows_in), cols(columns_in)
+{
+    resize(rows_in, columns_in);
+}
 
 /** Resize method.
   * Changes the size of the contents parameter.
@@ -407,21 +464,24 @@ Type_stdmatrix<T>::Type_stdmatrix(size_type rows_in, size_type columns_in) :
 template<typename T>
 void Type_stdmatrix<T>::resize(size_type mrows, size_type ncolumns)
 {
-    if (mrows != this->rows || ncolumns != this->cols) {
+    if (mrows != this->rows || ncolumns != this->cols)
+    {
 
-        for (size_type i = 0; i < this->rows; ++i) {
+        for (size_type i = 0; i < this->rows; ++i)
+        {
             contents[i].resize(ncolumns);
         }
 
         contents.resize(mrows);
-        for (size_type i = rows; i < mrows; ++i) {
-//            contents[i] = std::vector<T>(ncolumns);
-			contents[i].resize(ncolumns);
+        for (size_type i = rows; i < mrows; ++i)
+        {
+            //            contents[i] = std::vector<T>(ncolumns);
+            contents[i].resize(ncolumns);
         }
 
         /*
         for (size_type i = this->rows; i < mrows; ++i) {
-            contents[i].resize(ncolumns);
+        	contents[i].resize(ncolumns);
         }
         */
 

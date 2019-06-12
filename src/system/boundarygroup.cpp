@@ -20,7 +20,8 @@
 #include "boundarygroup.h"
 #include <core/cellboundary.h>
 
-namespace mknix {
+namespace mknix
+{
 
 BoundaryGroup::BoundaryGroup()
 {
@@ -39,7 +40,8 @@ BoundaryGroup::BoundaryGroup()
 
 BoundaryGroup::~BoundaryGroup()
 {
-    for (auto& cell : cells) {
+    for (auto& cell : cells)
+    {
         delete (cell.second);
     }
 }
@@ -55,12 +57,14 @@ void BoundaryGroup::initialize()
     auto end_int = this->cells.size();
 
 //     #pragma omp parallel for
-    for (auto i = 0u; i < end_int; ++i) {
+    for (auto i = 0u; i < end_int; ++i)
+    {
         this->cells[i]->initialize(this->nodes);
     }
 
 //     #pragma omp parallel for
-    for (auto i = 0u; i < end_int; ++i) {
+    for (auto i = 0u; i < end_int; ++i)
+    {
         this->cells[i]->computeShapeFunctions();
     }
 
@@ -82,8 +86,9 @@ void BoundaryGroup::calcExternalHeat()
     int end_int = this->cells.size();
 //     #pragma omp parallel for
     for (int i = 0;
-         i < end_int;
-         ++i) {
+            i < end_int;
+            ++i)
+    {
         this->cells[i]->computeQextGaussPoints(this->loadThermalBoundaryGroup);
     }
 
@@ -99,8 +104,9 @@ void BoundaryGroup::assembleExternalHeat(lmx::Vector<data_type>& globalExternalH
     int end_int = this->cells.size();
 //     #pragma omp parallel for
     for (int i = 0;
-         i < end_int;
-         ++i) {
+            i < end_int;
+            ++i)
+    {
         this->cells[i]->assembleQextGaussPoints(globalExternalHeat);
     }
 }

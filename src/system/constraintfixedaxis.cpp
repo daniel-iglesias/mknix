@@ -22,7 +22,8 @@
 #include <core/node.h>
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 ConstraintFixedAxis::ConstraintFixedAxis()
     : Constraint()
@@ -80,7 +81,8 @@ void ConstraintFixedAxis::calcPhi()
 void ConstraintFixedAxis::calcPhiq()
 {
     size_type i,j;
-    for(i=0; i<nodes[0]->getSupportSize(0); ++i) {
+    for(i=0; i<nodes[0]->getSupportSize(0); ++i)
+    {
         if( axisName == "x" || axisName == "X" )
             this->phi_q[0](dim*i+0) = -nodes[0]->getShapeFunValue(0,i);
         if( axisName == "y" || axisName == "Y" )
@@ -89,7 +91,8 @@ void ConstraintFixedAxis::calcPhiq()
             this->phi_q[0](dim*i+2) = -nodes[0]->getShapeFunValue(0,i);
     }
     // Now i=supportNodes[0].size()
-    for(j=0; j<nodes[1]->getSupportSize(0); ++j) {
+    for(j=0; j<nodes[1]->getSupportSize(0); ++j)
+    {
         if( axisName == "x" || axisName == "X" )
             this->phi_q[0](dim*(i+j)) = nodes[1]->getShapeFunValue(0,j);
         if( axisName == "y" || axisName == "Y" )

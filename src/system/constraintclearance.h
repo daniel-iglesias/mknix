@@ -22,7 +22,8 @@
 
 #include "constraint.h"
 
-namespace mknix {
+namespace mknix
+{
 
 /**
 	@author AUTHORS <MAILS>
@@ -34,7 +35,7 @@ public:
 
     ~ConstraintClearance();
 
-    ConstraintClearance( Node* , Node*, double& , double&, std::string& );
+    ConstraintClearance( Node*, Node*, double&, double&, std::string& );
 
     void calcPhi( ) ;
 
@@ -42,11 +43,13 @@ public:
 
     void calcPhiqq( ) ;
 
-    lmx::Vector<data_type>& getInternalForces( ) {
+    lmx::Vector<data_type>& getInternalForces( )
+    {
         return this->internalForces;
     }
 
-    lmx::DenseMatrix<data_type>& getStiffnessMatrix( ) {
+    lmx::DenseMatrix<data_type>& getStiffnessMatrix( )
+    {
         return this->stiffnessMatrix;
     }
 

@@ -35,7 +35,8 @@
 */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
-namespace lmx {
+namespace lmx
+{
 
 /*************************************************************************/
 /*                                                                       */
@@ -67,11 +68,20 @@ namespace lmx {
 
 
 /// \cond IOHB
-inline void IOHBTerminate(const char * a) {LMX_THROW(lmx::failure_error, a); }
+inline void IOHBTerminate(const char * a)
+{
+    LMX_THROW(lmx::failure_error, a);
+}
 
-inline bool is_complex_double__(std::complex<double>) { return true; }
+inline bool is_complex_double__(std::complex<double>)
+{
+    return true;
+}
 
-inline bool is_complex_double__(double) { return false; }
+inline bool is_complex_double__(double)
+{
+    return false;
+}
 
 inline int ParseIfmt(const char * fmt, int * perline, int * width)
 {
@@ -85,7 +95,7 @@ inline int ParseRfmt(const char * fmt, int * perline, int * width,
     char p;
     *perline = *width = *flag = *prec = 0;
     if (sscanf(fmt, " (%d%c%d.%d)", perline, &p, width, prec) < 3 ||
-        !strchr("PEDF", p)) LMX_THROW(lmx::failure_error, "invalid HB REAL format : " << fmt);
+            !strchr("PEDF", p)) LMX_THROW(lmx::failure_error, "invalid HB REAL format : " << fmt);
     *flag = p;
     return *width;
 }
@@ -95,19 +105,40 @@ inline int ParseRfmt(const char * fmt, int * perline, int * width,
 struct HarwellBoeing_IO
 {
 /// \cond IOHB
-    int nrows() const { return Nrow; }
+    int nrows() const
+    {
+        return Nrow;
+    }
 
-    int ncols() const { return Ncol; }
+    int ncols() const
+    {
+        return Ncol;
+    }
 
-    int nnz() const { return Nnzero; }
+    int nnz() const
+    {
+        return Nnzero;
+    }
 
-    int is_complex() const { return Type[0] == 'C'; }
+    int is_complex() const
+    {
+        return Type[0] == 'C';
+    }
 
-    int is_symmetric() const { return Type[1] == 'S'; }
+    int is_symmetric() const
+    {
+        return Type[1] == 'S';
+    }
 
-    int is_hermitian() const { return Type[1] == 'H'; }
+    int is_hermitian() const
+    {
+        return Type[1] == 'H';
+    }
 
-    HarwellBoeing_IO() { clear(); }
+    HarwellBoeing_IO()
+    {
+        clear();
+    }
 
     HarwellBoeing_IO(const char * filename)
     {
@@ -115,7 +146,10 @@ struct HarwellBoeing_IO
         open(filename);
     }
 
-    ~HarwellBoeing_IO() { close(); }
+    ~HarwellBoeing_IO()
+    {
+        close();
+    }
 
     /* open filename and reads header */
     void open(const char * filename);
@@ -123,8 +157,8 @@ struct HarwellBoeing_IO
     template<typename T>
     void read(int& M, int& N, int& nonzeros, int *& colptr, int *& rowind, T *& val);
     /* read the opened file */
-/*    template <typename T, int shift> void read(csc_matrix<T, shift>& A);
-    template <typename MAT> void read(MAT &M);*/
+    /*    template <typename T, int shift> void read(csc_matrix<T, shift>& A);
+        template <typename MAT> void read(MAT &M);*/
     /* save the matrix */
 //     template <typename T, int shift> static void write(const char *filename, const csc_matrix<T, shift>& A);
 //     template <typename MAT> static void write(const char *filename, const MAT& A);
@@ -177,12 +211,15 @@ private:
         len = std::min(len, sizeof s - 1);
         strncpy(s, p, len);
         s[len] = 0;
-        if (Valflag != 'F' && !strchr(s, 'E')) {
+        if (Valflag != 'F' && !strchr(s, 'E'))
+        {
             /* insert a char prefix for exp */
             auto last = strlen(s);
-            for (auto j = last + 1; j >= 0; j--) {
+            for (auto j = last + 1; j >= 0; j--)
+            {
                 s[j] = s[j - 1];
-                if (s[j] == '+' || s[j] == '-') {
+                if (s[j] == '+' || s[j] == '-')
+                {
                     s[j - 1] = (char)Valflag;
                     break;
                 }
@@ -222,7 +259,8 @@ private:
         /*  Parse the array input formats from Line 3 of HB file  */
         ParseIfmt(Ptrfmt, &Ptrperline, &Ptrwidth);
         ParseIfmt(Indfmt, &Indperline, &Indwidth);
-        if (Type[0] != 'P') {          /* Skip if pattern only  */
+        if (Type[0] != 'P')            /* Skip if pattern only  */
+        {
             ParseRfmt(Valfmt, &Valperline, &Valwidth, &Valprec, &Valflag);
         }
 
@@ -230,9 +268,11 @@ private:
         offset = 0;         /* if base 0 storage is declared (via macro def),  */
         /* then storage entries are offset by 1            */
 
-        for (count = 0, i = 0; i < Ptrcrd; i++) {
+        for (count = 0, i = 0; i < Ptrcrd; i++)
+        {
             getline(line);
-            for (col = 0, ind = 0; ind < Ptrperline; ind++) {
+            for (col = 0, ind = 0; ind < Ptrperline; ind++)
+            {
                 if (count > Ncol) break;
                 colptr[count] = substrtoi(line + col, (size_t)Ptrwidth) - offset;
                 count++;
@@ -241,9 +281,11 @@ private:
         }
 
         /*  Read row index array:  */
-        for (count = 0, i = 0; i < Indcrd; i++) {
+        for (count = 0, i = 0; i < Indcrd; i++)
+        {
             getline(line);
-            for (col = 0, ind = 0; ind < Indperline; ind++) {
+            for (col = 0, ind = 0; ind < Indperline; ind++)
+            {
                 if (count == Nnzero) break;
                 rowind[count] = substrtoi(line + col, (size_t)Indwidth) - offset;
                 count++;
@@ -252,20 +294,29 @@ private:
         }
 
         /*  Read array of values:  */
-        if (Type[0] != 'P') {          /* Skip if pattern only  */
-            if (Type[0] == 'C') {
+        if (Type[0] != 'P')            /* Skip if pattern only  */
+        {
+            if (Type[0] == 'C')
+            {
                 Nentries = 2 * Nnzero;
-            } else { Nentries = Nnzero; }
+            }
+            else
+            {
+                Nentries = Nnzero;
+            }
 
             count = 0;
-            for (i = 0; i < Valcrd; i++) {
+            for (i = 0; i < Valcrd; i++)
+            {
                 getline(line);
-                if (Valflag == 'D') {
+                if (Valflag == 'D')
+                {
                     // const_cast Due to aCC excentricity
                     char * p;
                     while ((p = const_cast<char *>(strchr(line, 'D')))) *p = 'E';
                 }
-                for (col = 0, ind = 0; ind < Valperline; ind++) {
+                for (col = 0, ind = 0; ind < Valperline; ind++)
+                {
                     if (count == Nentries) break;
                     val[count] = substrtod(line + col, (size_t)Valwidth, Valflag);
                     count++;
@@ -284,7 +335,10 @@ inline void HarwellBoeing_IO::open(const char * filename)
     char line[BUFSIZ];
     close();
     f = fopen(filename, "r");
-    if (!f) {LMX_THROW(lmx::failure_error, "could not open " << filename); }
+    if (!f)
+    {
+        LMX_THROW(lmx::failure_error, "could not open " << filename);
+    }
     /* First line: */
     sscanf(getline(line), "%72c%8s", Title, Key);
     Key[8] = Title[72] = 0;
@@ -294,23 +348,27 @@ inline void HarwellBoeing_IO::open(const char * filename)
 
     /* Third line: */
     Nrow = Ncol = Nnzero = Neltvl = 0;
-    if (sscanf(getline(line), "%3c%d%d%d%d", Type, &Nrow, &Ncol, &Nnzero, &Neltvl) < 1) {
+    if (sscanf(getline(line), "%3c%d%d%d%d", Type, &Nrow, &Ncol, &Nnzero, &Neltvl) < 1)
+    {
         IOHBTerminate("Invalid Type info, line 3 of Harwell-Boeing file.\n");
     }
     std::for_each(Type, Type + 3, (int (*)(int)) toupper);
 //    std::for_each(Type, Type+3, toupper);
     /*  Fourth line:  */
-    if (sscanf(getline(line), "%16c%16c%20c%20c", Ptrfmt, Indfmt, Valfmt, Rhsfmt) < 3) {
+    if (sscanf(getline(line), "%16c%16c%20c%20c", Ptrfmt, Indfmt, Valfmt, Rhsfmt) < 3)
+    {
         IOHBTerminate("Invalid format info, line 4 of Harwell-Boeing file.\n");
     }
     Ptrfmt[16] = Indfmt[16] = Valfmt[20] = Rhsfmt[20] = 0;
 
     /*  (Optional) Fifth line: */
-    if (Rhscrd != 0) {
+    if (Rhscrd != 0)
+    {
         Nrhs = Nrhsix = 0;
-        if (sscanf(getline(line), "%3c%d%d", Rhstype, &Nrhs, &Nrhsix) != 1) {
+        if (sscanf(getline(line), "%3c%d%d", Rhstype, &Nrhs, &Nrhsix) != 1)
+        {
             IOHBTerminate("Invalid RHS type information, line 5 of"
-                                  " Harwell-Boeing file.\n");
+                          " Harwell-Boeing file.\n");
         }
     }
 }
@@ -326,9 +384,9 @@ HarwellBoeing_IO::read(int& M, int& N, int& nonzeros, int *& colptr, int *& rowi
     if (!f) LMX_THROW(lmx::failure_error, "no file opened!");
     if (Type[0] == 'P') LMX_THROW(lmx::failure_error, "Bad HB matrix format (pattern matrices not supported)");
     if (is_complex_double__(T()) && Type[0] == 'R') LMX_THROW(lmx::failure_error,
-                                                              "Bad HB matrix format (file contains a REAL matrix)");
+                "Bad HB matrix format (file contains a REAL matrix)");
     if (!is_complex_double__(T()) && Type[0] == 'C') LMX_THROW(lmx::failure_error,
-                                                               "Bad HB matrix format (file contains a COMPLEX matrix)");
+                "Bad HB matrix format (file contains a COMPLEX matrix)");
 
     N = ncols();
     M = nrows();
@@ -340,22 +398,22 @@ HarwellBoeing_IO::read(int& M, int& N, int& nonzeros, int *& colptr, int *& rowi
     readHB_data(colptr, rowind, (double *) val);
 }
 
-/*  template <typename MAT> void 
+/*  template <typename MAT> void
   HarwellBoeing_IO::read(MAT &M) {
     csc_matrix<typename gmm::linalg_traits<MAT>::value_type> csc;
-    read(csc); 
+    read(csc);
     resize(M, mat_nrows(csc), mat_ncols(csc));
     copy(csc, M);
   }*/
 
-//   template <typename IND_TYPE> 
+//   template <typename IND_TYPE>
 //   inline int writeHB_mat_double(const char* filename, int M, int N, int nz,
 // 				const IND_TYPE colptr[],
-// 				const IND_TYPE rowind[], 
+// 				const IND_TYPE rowind[],
 // 				const double val[], int Nrhs,
 // 				const double /*rhs*/[], const double /*guess*/[],
 // 				const double /*exact*/[], const char* Title,
-// 				const char* Key, const char* Type, 
+// 				const char* Key, const char* Type,
 // 				const char* Ptrfmt, const char* Indfmt,
 // 				const char* Valfmt, const char* Rhsfmt,
 // 				const char* Rhstype, int shift) {
@@ -377,29 +435,29 @@ HarwellBoeing_IO::read(int& M, int& N, int& nonzeros, int *& colptr, int *& rowi
 //       int Valperline, Valwidth, Valprec;
 //       int Valflag;           /* Indicates 'E','D', or 'F' float format */
 //       char pformat[16],iformat[16],vformat[19],rformat[19];
-//     
+//
 //       if ( Type[0] == 'C' )
 // 	{ nvalentries = 2*nz; nrhsentries = 2*M; }
 //       else
 // 	{ nvalentries = nz; nrhsentries = M; }
-//     
+//
 //       if ( filename != NULL ) {
 // 	if ( (out_file = fopen( filename, "w")) == NULL )
 // 	  DAL_THROW(gmm::failure_error,"Error: Cannot open file: " << filename);
 //       } else out_file = stdout;
-//     
+//
 //       if ( Ptrfmt == NULL ) Ptrfmt = "(8I10)";
 //       ParseIfmt(Ptrfmt, &Ptrperline, &Ptrwidth);
 //       sprintf(pformat,"%%%dd",Ptrwidth);
 //       ptrcrd = (N+1)/Ptrperline;
 //       if ( (N+1)%Ptrperline != 0) ptrcrd++;
-//     
+//
 //       if ( Indfmt == NULL ) Indfmt =  Ptrfmt;
 //       ParseIfmt(Indfmt, &Indperline, &Indwidth);
 //       sprintf(iformat,"%%%dd",Indwidth);
 //       indcrd = nz/Indperline;
 //       if ( nz%Indperline != 0) indcrd++;
-//     
+//
 //       if ( Type[0] != 'P' ) {          /* Skip if pattern only  */
 // 	if ( Valfmt == NULL ) Valfmt = "(4E20.13)";
 // 	ParseRfmt(Valfmt, &Valperline, &Valwidth, &Valprec, &Valflag);
@@ -411,7 +469,7 @@ HarwellBoeing_IO::read(int& M, int& N, int& nonzeros, int *& colptr, int *& rowi
 // 	valcrd = nvalentries/Valperline;
 // 	if ( nvalentries%Valperline != 0) valcrd++;
 //       } else valcrd = 0;
-//     
+//
 //       if ( Nrhs > 0 ) {
 // 	if ( Rhsfmt == NULL ) Rhsfmt = Valfmt;
 // 	ParseRfmt(Rhsfmt,&Rhsperline,&Rhswidth,&Rhsprec, &Rhsflag);
@@ -420,18 +478,18 @@ HarwellBoeing_IO::read(int& M, int& N, int& nonzeros, int *& colptr, int *& rowi
 // 	else
 // 	  sprintf(rformat,"%% %d.%dE",Rhswidth,Rhsprec);
 // 	if (Rhsflag == 'D') *strchr(Rhsfmt,'D') = 'E';
-// 	rhscrd = nrhsentries/Rhsperline; 
+// 	rhscrd = nrhsentries/Rhsperline;
 // 	if ( nrhsentries%Rhsperline != 0) rhscrd++;
 // 	if ( Rhstype[1] == 'G' ) rhscrd+=rhscrd;
 // 	if ( Rhstype[2] == 'X' ) rhscrd+=rhscrd;
 // 	rhscrd*=Nrhs;
 //       } else rhscrd = 0;
-//     
+//
 //       totcrd = 4+ptrcrd+indcrd+valcrd+rhscrd;
-//     
-//     
+//
+//
 //       /*  Print header information:  */
-//     
+//
 //       fprintf(out_file,"%-72s%-8s\n%14d%14d%14d%14d%14d\n",Title, Key, totcrd,
 // 	      ptrcrd, indcrd, valcrd, rhscrd);
 //       fprintf(out_file,"%3s%11s%14d%14d%14d\n",Type,"          ", M, N, nz);
@@ -442,30 +500,30 @@ HarwellBoeing_IO::read(int& M, int& N, int& nonzeros, int *& colptr, int *& rowi
 //       //       fprintf(out_file,"%-20s\n%-14s%d\n",Rhsfmt,Rhstype,Nrhs);
 //       //     } else
 //       fprintf(out_file,"\n");
-//     
+//
 //       offset = 1 - shift;  /* if base 0 storage is declared (via macro def), */
 //       /* then storage entries are offset by 1           */
-//     
+//
 //       /*  Print column pointers:   */
 //       for (i = 0; i < N+1; i++) {
 // 	entry = colptr[i]+offset;
 // 	fprintf(out_file,pformat,entry);
 // 	if ( (i+1)%Ptrperline == 0 ) fprintf(out_file,"\n");
 //       }
-//     
+//
 //       if ( (N+1) % Ptrperline != 0 ) fprintf(out_file,"\n");
-//     
+//
 //       /*  Print row indices:       */
 //       for (i=0;i<nz;i++) {
 // 	entry = rowind[i]+offset;
 // 	fprintf(out_file,iformat,entry);
 // 	if ( (i+1)%Indperline == 0 ) fprintf(out_file,"\n");
 //       }
-//     
+//
 //       if ( nz % Indperline != 0 ) fprintf(out_file,"\n");
-//     
+//
 //       /*  Print values:            */
-//     
+//
 //       if ( Type[0] != 'P' ) {          /* Skip if pattern only  */
 // 	for (i=0;i<nvalentries;i++) {
 // 	  fprintf(out_file,vformat,val[i]);
@@ -473,15 +531,15 @@ HarwellBoeing_IO::read(int& M, int& N, int& nonzeros, int *& colptr, int *& rowi
 // 	}
 // 	if ( nvalentries % Valperline != 0 ) fprintf(out_file,"\n");
 //       }
-//     
+//
 //       if ( fclose(out_file) != 0) {
 // 	DAL_THROW(gmm::failure_error,"Error closing file in writeHB_mat_double().");
 //       } else return 1;
 //     }
-// 
+//
 //   template <typename T, int shift> void
 //   HarwellBoeing_IO::write(const char *filename, const csc_matrix<T, shift>& A) {
-//     const char *t = 0;    
+//     const char *t = 0;
 //     if (is_complex_double__(T()))
 //       if (mat_nrows(A) == mat_ncols(A)) t = "CUA"; else t = "CRA";
 //     else
@@ -492,22 +550,22 @@ HarwellBoeing_IO::read(int& M, int& N, int& nonzeros, int *& colptr, int *& rowi
 // 		       0, 0, 0, 0, "GETFEM++ CSC MATRIX", "CSCMAT",
 // 		       t, 0, 0, 0, 0, "F", shift);
 //   }
-// 
+//
 //   template <typename MAT> void
 //   HarwellBoeing_IO::write(const char *filename, const MAT& A) {
-//     gmm::csc_matrix<typename gmm::linalg_traits<MAT>::value_type> 
+//     gmm::csc_matrix<typename gmm::linalg_traits<MAT>::value_type>
 //       tmp(gmm::mat_nrows(A), gmm::mat_ncols(A));
-//     gmm::copy(A,tmp); 
+//     gmm::copy(A,tmp);
 //     HarwellBoeing_IO::write(filename, tmp);
 //   }
-//   
-// 
+//
+//
 //   /** save a "double" or "std::complex<double>" matrix into a HarwellBoeing file */
 //   template <typename T, int shift> inline void
 //   Harwell_Boeing_save(const char *filename, const csc_matrix<T, shift>& A) {
 //     HarwellBoeing_IO h; h.write(filename, A);
 //   }
-// 
+//
 //  /** load a "double" or "std::complex<double>" matrix from a HarwellBoeing file */
 //   template <typename T, int shift> void
 //   Harwell_Boeing_load(const char *filename, csc_matrix<T, shift>& A) {

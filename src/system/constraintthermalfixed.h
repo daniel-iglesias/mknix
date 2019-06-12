@@ -22,7 +22,8 @@
 
 #include "constraintthermal.h"
 
-namespace mknix {
+namespace mknix
+{
 
 /**
 	@author AUTHORS <MAILS>
@@ -32,7 +33,7 @@ class ConstraintThermalFixed : public ConstraintThermal
 public:
     ConstraintThermalFixed();
 
-    ConstraintThermalFixed( Node* , Node*, double&, std::string& );
+    ConstraintThermalFixed( Node*, Node*, double&, std::string& );
 
     ~ConstraintThermalFixed();
 
@@ -43,7 +44,7 @@ public:
     void calcPhiqq( ) ;
 
     bool checkAugmented();
-    
+
 protected:
     double Tt;
 

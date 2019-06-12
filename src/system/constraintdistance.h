@@ -22,7 +22,8 @@
 
 #include "constraint.h"
 
-namespace mknix {
+namespace mknix
+{
 
 /**
 	@author AUTHORS <MAILS>
@@ -34,7 +35,7 @@ public:
 
     ~ConstraintDistance();
 
-    ConstraintDistance( Node* , Node*, double&, std::string& );
+    ConstraintDistance( Node*, Node*, double&, std::string& );
 
     void calcRo( ) ;
 
@@ -49,11 +50,13 @@ public:
         ro = new_ro;
     }
 
-    lmx::Vector<data_type>& getInternalForces( ) {
+    lmx::Vector<data_type>& getInternalForces( )
+    {
         return this->internalForces;
     }
 
-    lmx::DenseMatrix<data_type>& getStiffnessMatrix( ) {
+    lmx::DenseMatrix<data_type>& getStiffnessMatrix( )
+    {
         return this->stiffnessMatrix;
     }
 

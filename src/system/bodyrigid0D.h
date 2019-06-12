@@ -22,7 +22,8 @@
 
 #include "bodyrigid.h"
 
-namespace mknix {
+namespace mknix
+{
 
 class node;
 
@@ -45,7 +46,8 @@ public:
 
 //     Node* getDomainNode( std::string );
 
-    std::string getType() {
+    std::string getType()
+    {
         return std::string("MASSPOINT");
     }
 

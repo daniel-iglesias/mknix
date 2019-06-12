@@ -20,7 +20,8 @@
 #include "analysisthermaldynamic.h"
 #include "simulation.h"
 
-namespace mknix {
+namespace mknix
+{
 
 AnalysisThermalDynamic::AnalysisThermalDynamic()
     : Analysis()
@@ -45,17 +46,19 @@ AnalysisThermalDynamic::AnalysisThermalDynamic( Simulation* simulation_in,
 
 //  theProblem.setOutputFile("dis.dat", 0);
 //     theProblem.setOutputFile("flux.dat", 1);
-    if (theProblem.isIntegratorExplicit() ) {
-      theProblem.setEvaluation( &Simulation::explicitThermalEvaluation );
+    if (theProblem.isIntegratorExplicit() )
+    {
+        theProblem.setEvaluation( &Simulation::explicitThermalEvaluation );
     }
-    else {
-      theProblem.setEvaluation( &Simulation::dynamicThermalEvaluation );
-      theProblem.setResidue( &Simulation::dynamicThermalResidue );
-      theProblem.setJacobian( &Simulation::dynamicThermalTangent );
-      if (epsilon == 0.0)
-          theProblem.setConvergence( &Simulation::dynamicThermalConvergence );
-      else
-          theProblem.setConvergence( epsilon );
+    else
+    {
+        theProblem.setEvaluation( &Simulation::dynamicThermalEvaluation );
+        theProblem.setResidue( &Simulation::dynamicThermalResidue );
+        theProblem.setJacobian( &Simulation::dynamicThermalTangent );
+        if (epsilon == 0.0)
+            theProblem.setConvergence( &Simulation::dynamicThermalConvergence );
+        else
+            theProblem.setConvergence( epsilon );
     }
     theProblem.setStepTriggered( &Simulation::stepTriggered );
 }

@@ -29,7 +29,8 @@
 #  include <unistd.h>
 #endif
 
-namespace mknix {
+namespace mknix
+{
 
 class Simulation;
 class System;
@@ -52,7 +53,7 @@ private:
     void readRigidBody2DMesh( System* );
     void readRigidBody3DGeneric( System* );
 
-    void readNode( double & , double & , double & , std::string );
+    void readNode( double &, double &, double &, std::string );
 
 private:
     Simulation* theSimulation;

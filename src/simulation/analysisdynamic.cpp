@@ -20,10 +20,11 @@
 #include "analysisdynamic.h"
 #include "simulation.h"
 
-namespace mknix {
+namespace mknix
+{
 
 AnalysisDynamic::AnalysisDynamic()
-        : Analysis()
+    : Analysis()
 {
 }
 
@@ -36,23 +37,27 @@ AnalysisDynamic::AnalysisDynamic(Simulation * simulation_in,
                                  double par1 = -1.,
                                  double par2 = -1.,
                                  double par3 = -1.)
-        : Analysis(simulation_in)
-        , integratorType(integrator_in)
-        , to(to_in)
-        , tf(tf_in)
-        , At(At_in)
+    : Analysis(simulation_in)
+    , integratorType(integrator_in)
+    , to(to_in)
+    , tf(tf_in)
+    , At(At_in)
 {
     theProblem.setDiffSystem(*theSimulation);
-    if (par1 == -1.) {
+    if (par1 == -1.)
+    {
         theProblem.setIntegrator(integrator_in);
     }
-    else if (par2 == -1.) {
+    else if (par2 == -1.)
+    {
         theProblem.setIntegrator(integrator_in, par1);
     }
-    else if (par3 == -1.) {
+    else if (par3 == -1.)
+    {
         theProblem.setIntegrator(integrator_in, par1, par2);
     }
-    else {
+    else
+    {
         theProblem.setIntegrator(integrator_in, par1, par2, par3);
     }
     theProblem.setTimeParameters(to_in, tf_in, At_in);
@@ -63,9 +68,12 @@ AnalysisDynamic::AnalysisDynamic(Simulation * simulation_in,
     theProblem.setEvaluation(&Simulation::dynamicAcceleration);
     theProblem.setResidue(&Simulation::dynamicResidue);
     theProblem.setJacobian(&Simulation::dynamicTangent);
-    if (epsilon == 0.0) {
+    if (epsilon == 0.0)
+    {
         theProblem.setConvergence(&Simulation::dynamicConvergence);
-    } else {
+    }
+    else
+    {
         theProblem.setConvergence(epsilon);
     }
     theProblem.setStepTriggered(&Simulation::stepTriggered);
@@ -80,9 +88,10 @@ AnalysisDynamic::~AnalysisDynamic()
 void AnalysisDynamic::solve(lmx::Vector<data_type> * q_in,
                             lmx::Vector<data_type> * qdot_in,
                             lmx::Vector<data_type> *
-)
+                           )
 {
-    if (lmx::getMatrixType() == 1) {
+    if (lmx::getMatrixType() == 1)
+    {
         theProblem.setSparsePatternJacobian(theSimulation->getSparsePattern());
     }
     theProblem.setInitialConfiguration(*q_in, *qdot_in);

@@ -21,7 +21,8 @@
 #include "point.h"
 #include "node.h"
 
-namespace mknix {
+namespace mknix
+{
 
 ShapeFunctionLinear::ShapeFunctionLinear()
     : ShapeFunction()
@@ -43,7 +44,8 @@ ShapeFunctionLinear::~ShapeFunctionLinear()
 
 
 void ShapeFunctionLinear::calc()
-{   // Signed calculation as expressed in http://stackoverflow.com/questions/552916/how-to-find-sign-of-directed-distance
+{
+    // Signed calculation as expressed in http://stackoverflow.com/questions/552916/how-to-find-sign-of-directed-distance
     double distance_x1x0 = gp->supportNodes[1]->distance( *(gp->supportNodes[0]) ); // should use the jacobian
 
     cout << "DISTANCE_X1X0 = " << distance_x1x0 << endl;

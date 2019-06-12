@@ -20,7 +20,8 @@
 #ifndef MKNIXDICTIONARY_H
 #define MKNIXDICTIONARY_H
 
-namespace mknix {
+namespace mknix
+{
 
 static lmx::Vector<double> gravity(3);
 

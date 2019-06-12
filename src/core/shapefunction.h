@@ -33,14 +33,16 @@
  */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
-namespace mknix {
+namespace mknix
+{
 
 class Point;
 
 /**
 @author Daniel Iglesias
 */
-class ShapeFunction {
+class ShapeFunction
+{
 
 protected:
     size_t dim;

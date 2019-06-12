@@ -9,18 +9,20 @@
 #include <iostream>
 
 mknix::SectionReader::SectionReader(const std::string& name)
-        : sectionName(name)
+    : sectionName(name)
 {}
 
 void mknix::SectionReader::read(std::ifstream& input, std::ofstream& log, size_t& line_no)
 {
     std::string line;
-    while (std::getline(input, line)) {
+    while (std::getline(input, line))
+    {
         ++line_no;
 
         std::cerr << line_no << " [" << sectionName << "]: " << line << std::endl;
 
-        if (line.empty()) {
+        if (line.empty())
+        {
             continue;
         }
 
@@ -28,26 +30,34 @@ void mknix::SectionReader::read(std::ifstream& input, std::ofstream& log, size_t
         std::string name;
         ss >> name;
 
-        if (name == ("END" + sectionName)) {
+        if (name == ("END" + sectionName))
+        {
             break;
         }
 
         std::ostringstream rem;
-        for (std::string word, delim; ss >> word;) {
+        for (std::string word, delim; ss >> word;)
+        {
             rem << delim << word;
             delim = " ";
         }
 
         auto fieldName = std::find(fieldNames.begin(), fieldNames.end(), name);
-        auto subSection = std::find_if(subSections.begin(), subSections.end(), [name](SectionReader& subSec) {
+        auto subSection = std::find_if(subSections.begin(), subSections.end(), [name](SectionReader& subSec)
+        {
             return subSec.sectionName == name;
         });
 
-        if (fieldName != fieldNames.end()) {
+        if (fieldName != fieldNames.end())
+        {
             fields.emplace_back(name, rem.str());
-        } else if (subSection != subSections.end()) {
+        }
+        else if (subSection != subSections.end())
+        {
             subSection->read(input, log, line_no);
-        } else {
+        }
+        else
+        {
             throw std::logic_error("unexpected field name " + name + " found at line " + std::to_string(line_no));
         }
     }

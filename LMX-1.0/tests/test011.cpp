@@ -33,11 +33,12 @@
 
 using namespace std;
 
-class MyDiffSystem{
-  public:
-    MyDiffSystem(){}
+class MyDiffSystem
+{
+public:
+    MyDiffSystem() {}
 
-    ~MyDiffSystem(){}
+    ~MyDiffSystem() {}
 
     void myEvaluation( const lmx::Vector<double>& q,
                        const lmx::Vector<double>& qdot,
@@ -46,30 +47,30 @@ class MyDiffSystem{
                      )
     {
 //      qddot.fillIdentity( time );
-      qddot(0) = time;
-      qddot(1) = time;
+        qddot(0) = time;
+        qddot(1) = time;
     }
 };
 
 int main(int argc, char* argv[])
 {
-  lmx::setMatrixType( 0 );
-  lmx::setVectorType( 0 );
-  lmx::setLinSolverType( 0 );
+    lmx::setMatrixType( 0 );
+    lmx::setVectorType( 0 );
+    lmx::setLinSolverType( 0 );
 
-  lmx::DiffProblemSecond< MyDiffSystem > theProblem;
-  MyDiffSystem theSystem;
-  lmx::Vector<double> q0(2);
-  lmx::Vector<double> qdot0(2);
+    lmx::DiffProblemSecond< MyDiffSystem > theProblem;
+    MyDiffSystem theSystem;
+    lmx::Vector<double> q0(2);
+    lmx::Vector<double> qdot0(2);
 
-  theProblem.setDiffSystem( theSystem );
-  theProblem.setIntegrator( "AB-1" );
-  theProblem.setInitialConfiguration( q0, qdot0 );
-  theProblem.setTimeParameters( 0, 1, 0.1 );
-  theProblem.setEvaluation( &MyDiffSystem::myEvaluation );
-  theProblem.solve();
+    theProblem.setDiffSystem( theSystem );
+    theProblem.setIntegrator( "AB-1" );
+    theProblem.setInitialConfiguration( q0, qdot0 );
+    theProblem.setTimeParameters( 0, 1, 0.1 );
+    theProblem.setEvaluation( &MyDiffSystem::myEvaluation );
+    theProblem.solve();
 
-  cout << "End configuration: " << theProblem.getConfiguration( 0, 0);
+    cout << "End configuration: " << theProblem.getConfiguration( 0, 0);
 
-  return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

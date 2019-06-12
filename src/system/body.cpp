@@ -21,12 +21,13 @@
 
 #include <core/cell.h>
 
-namespace mknix {
+namespace mknix
+{
 
 Body::Body()
-        : computeEnergy(0)
-        , isThermal(1)
-        , loadThermalBody(0)
+    : computeEnergy(0)
+    , isThermal(1)
+    , loadThermalBody(0)
 {
 }
 
@@ -36,21 +37,23 @@ Body::Body()
  * @param title_in Name of body in the system. Will be the same as the associated material body
  **/
 Body::Body(std::string title_in)
-        : title(title_in)
-        , lastNode(0)
-        , computeEnergy(0)
-        , isThermal(1)
-        , loadThermalBody(0)
+    : title(title_in)
+    , lastNode(0)
+    , computeEnergy(0)
+    , isThermal(1)
+    , loadThermalBody(0)
 {
 }
 
 
 Body::~Body()
 {
-    for (auto& temp : temperature) {
+    for (auto& temp : temperature)
+    {
         delete temp;
     }
-    for (auto& cell : cells) {
+    for (auto& cell : cells)
+    {
         delete cell.second;
     }
     /*
@@ -61,7 +64,8 @@ Body::~Body()
         delete node;
     }
     */
-    for (auto& group : boundaryGroups) {
+    for (auto& group : boundaryGroups)
+    {
         delete group.second;
     }
     delete loadThermalBody;
@@ -82,12 +86,14 @@ void Body::initialize()
     nodes.insert(nodes.end(), bondedBodyNodes.begin(), bondedBodyNodes.end());
 
 //     #pragma omp parallel for
-    for (auto i = 0u; i < end_int; ++i) {
+    for (auto i = 0u; i < end_int; ++i)
+    {
         this->cells[i]->initialize(this->nodes);
     }
 
 //     #pragma omp parallel for
-    for (auto i = 0u; i < end_int; ++i) {
+    for (auto i = 0u; i < end_int; ++i)
+    {
         this->cells[i]->computeShapeFunctions();
     }
 
@@ -102,24 +108,30 @@ void Body::initialize()
     end_int = this->nodes.size();
 
 //     #pragma omp parallel for
-    for (auto i = 0u; i < end_int; ++i) {
+    for (auto i = 0u; i < end_int; ++i)
+    {
         if (this->nodes[i]->getShapeFunType() == "RBF" ||
-            this->nodes[i]->getShapeFunType() == "MLS") {
-                this->nodes[i]->findSupportNodes(this->nodes);
+                this->nodes[i]->getShapeFunType() == "MLS")
+        {
+            this->nodes[i]->findSupportNodes(this->nodes);
         }
     }
 
 //     #pragma omp parallel for
-    for (auto i = 0u; i < end_int; ++i) {
-        if (this->nodes[i]->getShapeFunType() == "RBF") {
+    for (auto i = 0u; i < end_int; ++i)
+    {
+        if (this->nodes[i]->getShapeFunType() == "RBF")
+        {
             this->nodes[i]->shapeFunSolve("RBF", 1.03);
         }
-        if (this->nodes[i]->getShapeFunType() == "MLS") {
+        if (this->nodes[i]->getShapeFunType() == "MLS")
+        {
             this->nodes[i]->shapeFunSolve("MLS", 1.03);
         }
     }
     std::map<std::string, BoundaryGroup *>::iterator it_boundaryGroups;
-    for (auto& group : boundaryGroups) {
+    for (auto& group : boundaryGroups)
+    {
         group.second->initialize();
     }
 }
@@ -133,7 +145,8 @@ void Body::calcCapacityMatrix()
 {
     auto end_int = this->cells.size();
 //#pragma omp parallel for
-    for (auto i = 0u; i < end_int; ++i) {
+    for (auto i = 0u; i < end_int; ++i)
+    {
         this->cells[i]->computeCapacityGaussPoints();
     }
 }
@@ -147,7 +160,8 @@ void Body::calcConductivityMatrix()
 {
     auto end_int = this->cells.size();
 //#pragma omp parallel for
-    for (auto i = 0u; i < end_int; ++i) {
+    for (auto i = 0u; i < end_int; ++i)
+    {
         this->cells[i]->computeConductivityGaussPoints();
     }
 }
@@ -161,12 +175,15 @@ void Body::calcExternalHeat()
 {
     auto end_int = this->cells.size();
 //     #pragma omp parallel for
-    if (loadThermalBody) {
-        for (auto i = 0u; i < end_int; ++i) {
+    if (loadThermalBody)
+    {
+        for (auto i = 0u; i < end_int; ++i)
+        {
             this->cells[i]->computeQextGaussPoints(this->loadThermalBody);
         }
     }
-    for (auto group : boundaryGroups) {
+    for (auto group : boundaryGroups)
+    {
         group.second->calcExternalHeat();
     }
 }
@@ -181,7 +198,8 @@ void Body::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity)
 {
     auto end_int = this->cells.size();
 //     #pragma omp parallel for
-    for (auto i = 0u; i < end_int; ++i) {
+    for (auto i = 0u; i < end_int; ++i)
+    {
         this->cells[i]->assembleCapacityGaussPoints(globalCapacity);
     }
 }
@@ -196,7 +214,8 @@ void Body::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity
 {
     auto end_int = this->cells.size();
 //     #pragma omp parallel for
-    for (auto i = 0u; i < end_int; ++i) {
+    for (auto i = 0u; i < end_int; ++i)
+    {
         this->cells[i]->assembleConductivityGaussPoints(globalConductivity);
     }
 }
@@ -210,10 +229,12 @@ void Body::assembleExternalHeat(lmx::Vector<data_type>& globalExternalHeat)
 {
     auto end_int = this->cells.size();
 //     #pragma omp parallel for
-    for (auto i = 0u; i < end_int; ++i) {
+    for (auto i = 0u; i < end_int; ++i)
+    {
         this->cells[i]->assembleQextGaussPoints(globalExternalHeat);
     }
-    for (auto group : boundaryGroups) {
+    for (auto group : boundaryGroups)
+    {
         group.second->assembleExternalHeat(globalExternalHeat);
     }
 //     cout << globalExternalHeat << endl;
@@ -221,7 +242,8 @@ void Body::assembleExternalHeat(lmx::Vector<data_type>& globalExternalHeat)
 
 void Body::setTemperature(double temp_in)
 {
-    for (auto& node : nodes) {
+    for (auto& node : nodes)
+    {
         node->setqt(temp_in);
     }
 }
@@ -234,14 +256,17 @@ void Body::setTemperature(double temp_in)
  **/
 void Body::outputStep()
 {
-    if (isThermal && nodes.size() != 0) {
+    if (isThermal && nodes.size() != 0)
+    {
         temperature.push_back(new lmx::Vector<data_type>(nodes.size())); //temperature
-        for (auto i = 0u; i < nodes.size(); ++i) {
+        for (auto i = 0u; i < nodes.size(); ++i)
+        {
             temperature.back()->writeElement(nodes[i]->getqt(), i);
         }
     }
 
-    if (computeEnergy) { // TODO: store thermal energy
+    if (computeEnergy)   // TODO: store thermal energy
+    {
 //     energy.push_back( new lmx::Vector<data_type>( 4 ) ); //potential, kinetic, elastic, total
 //
 //     energy.back()->fillIdentity( 0. );
@@ -287,21 +312,27 @@ void Body::outputToFile(std::ofstream * outFile)
 //     }
 //   }
 
-    if (boundaryConnectivity.size() > 0) {
+    if (boundaryConnectivity.size() > 0)
+    {
         *outFile << "BOUNDARY " << title << " " << boundaryConnectivity.size() << endl;
-        for (auto& boundary : boundaryConnectivity) {
-            for (auto& segment : boundary) {
+        for (auto& boundary : boundaryConnectivity)
+        {
+            for (auto& segment : boundary)
+            {
                 *outFile << segment << " ";
             }
             *outFile << endl;
         }
     }
 
-    if (temperature.size() != 0) {
+    if (temperature.size() != 0)
+    {
         *outFile << "TEMPERATURE " << title << endl;
-        for (auto& temp : temperature) {
+        for (auto& temp : temperature)
+        {
             auto  vectorSize = temp->size();
-            for (auto i = 0u; i < vectorSize; ++i) {
+            for (auto i = 0u; i < vectorSize; ++i)
+            {
                 *outFile << temp->readElement(i) << " ";
             }
             *outFile << endl;
@@ -317,7 +348,8 @@ void Body::addBoundaryConnectivity(std::vector<int> connectivity_in)
 
 void Body::translate(double x_in, double y_in, double z_in)
 {
-    for (auto node : nodes) {
+    for (auto node : nodes)
+    {
         node->setX(node->getX() + x_in);
         node->setY(node->getY() + y_in);
         node->setZ(node->getZ() + z_in);
@@ -360,7 +392,8 @@ void Body::rotate(double phi, double theta, double psi)
 
     lmx::Vector<double> v(3);
 
-    for (auto node : nodes) {
+    for (auto node : nodes)
+    {
         v.writeElement(node->getX(), 0);
         v.writeElement(node->getY(), 1);
         v.writeElement(node->getZ(), 2);

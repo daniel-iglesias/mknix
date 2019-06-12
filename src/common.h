@@ -32,7 +32,8 @@
 
 using namespace std;
 
-namespace mknix {
+namespace mknix
+{
 
 typedef double data_type;
 
@@ -52,7 +53,7 @@ class boxFIR
     std::size_t numCoeffs;
     vector<double> b; //Filter coefficients
     vector<double> m; //Filter memories
-    
+
 public:
     boxFIR(int);
     void filter(vector<double> &);

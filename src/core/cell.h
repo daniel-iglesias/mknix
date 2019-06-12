@@ -35,12 +35,14 @@
  */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
-namespace lmx {
+namespace lmx
+{
 template <typename T> class Vector;
 template <typename T> class Matrix;
 }
 
-namespace mknix {
+namespace mknix
+{
 
 class LoadThermalBody;
 class Material;
@@ -51,7 +53,8 @@ class Point;
 /**
 @author Daniel Iglesias
 */
-class Cell {
+class Cell
+{
 
 public:
     Cell();
@@ -59,7 +62,7 @@ public:
     Cell( Material&, std::string, double, int );
 
     virtual ~Cell();
-    
+
     bool setMaterialIfLayer( Material&, double );
 
     virtual void initialize( std::vector<Node*> & );
@@ -109,7 +112,7 @@ public:
     double calcElasticEGaussPoints(  );
 
     void outputConnectivityToFile(std::ofstream*);
-    
+
     virtual void gnuplotOut( std::ofstream&, std::ofstream& ) = 0;
 
     void gnuplotOutStress( std::ofstream& );

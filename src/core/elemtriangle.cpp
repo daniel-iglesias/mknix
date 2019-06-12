@@ -22,10 +22,11 @@
 #include "node.h"
 #include "gausspoint2D.h"
 
-namespace mknix {
+namespace mknix
+{
 
 ElemTriangle::ElemTriangle()
-        : CellTriang()
+    : CellTriang()
 {
 }
 
@@ -36,15 +37,15 @@ ElemTriangle::ElemTriangle(Material& material_in,
                            Node * n1_in,
                            Node * n2_in,
                            Node * n3_in
-)
-        : CellTriang(material_in,
-                     std::string(),
-                     alpha_in,
-                     nGPoints_in,
-                     n1_in,
-                     n2_in,
-                     n3_in
-) { }
+                          )
+    : CellTriang(material_in,
+                 std::string(),
+                 alpha_in,
+                 nGPoints_in,
+                 n1_in,
+                 n2_in,
+                 n3_in
+                ) { }
 
 
 ElemTriangle::~ElemTriangle()
@@ -60,13 +61,17 @@ void ElemTriangle::initialize(std::vector<Node *>& nodes_in)
     this->createGaussPoints_MC();
     // This function can be joined with assembleGaussPoints so the Gpoints are iterated only once...
     int i;
-    for (auto& point : gPoints) {
-        for (i = 0; i < 3; ++i) {
+    for (auto& point : gPoints)
+    {
+        for (i = 0; i < 3; ++i)
+        {
             point->addSupportNode(dynamic_cast<Node *>(this->bodyPoints[i]));
         }
     }
-    for (auto& point : gPoints_MC) {
-        for (i = 0; i < 3; ++i) {
+    for (auto& point : gPoints_MC)
+    {
+        for (i = 0; i < 3; ++i)
+        {
             point->addSupportNode(dynamic_cast<Node *>(this->bodyPoints[i]));
         }
     }
@@ -74,10 +79,12 @@ void ElemTriangle::initialize(std::vector<Node *>& nodes_in)
 
 void ElemTriangle::computeShapeFunctions()
 {
-    for (auto& point : gPoints) {
+    for (auto& point : gPoints)
+    {
         point->fillFEmatrices();
     }
-    for (auto& point : gPoints_MC) {
+    for (auto& point : gPoints_MC)
+    {
         point->fillFEmatrices();
     }
 
@@ -86,28 +93,39 @@ void ElemTriangle::computeShapeFunctions()
 void ElemTriangle::createGaussPoints_MC()
 {
     int nGPoints_MC = 3;
-    if (nGPoints == 1) {
+    if (nGPoints == 1)
+    {
         nGPoints_MC = 3;
-    } else if (nGPoints == 3) {
+    }
+    else if (nGPoints == 3)
+    {
         nGPoints_MC = 7; // Why not 6?
-    } else if (nGPoints == 4) {
+    }
+    else if (nGPoints == 4)
+    {
         nGPoints_MC = 7;
-    } else if (nGPoints == 6) {
+    }
+    else if (nGPoints == 6)
+    {
         nGPoints_MC = 12;
-    } else if (nGPoints == 7) {
+    }
+    else if (nGPoints == 7)
+    {
         nGPoints_MC = 12;
     }
 
     lmx::DenseMatrix<double> gCoef(size_type(nGPoints_MC), 4);
 
     // reference: http://www.cs.rpi.edu/~flaherje/pdf/fea6.pdf
-    if (nGPoints_MC == 1) {
+    if (nGPoints_MC == 1)
+    {
         gCoef(0, 0) = 1. / 3.;
         gCoef(0, 1) = 1. / 3.;
         gCoef(0, 2) = 1. / 3.;
         gCoef(0, 3) = 1.;
     }
-    else if (nGPoints_MC == 3) {
+    else if (nGPoints_MC == 3)
+    {
         gCoef(0, 0) = 2. / 3.;
         gCoef(0, 1) = 1. / 6.;
         gCoef(0, 2) = 1. / 6.;
@@ -133,7 +151,8 @@ void ElemTriangle::createGaussPoints_MC()
 //         gCoef(2,2) = 0.5;
 //         gCoef(2,3) = 1./3.;
     }
-    else if (nGPoints_MC == 4) { //must be checked
+    else if (nGPoints_MC == 4)   //must be checked
+    {
         gCoef(0, 0) = 1. / 3.;
         gCoef(0, 1) = 1. / 3.;
         gCoef(0, 2) = 1. / 3.;
@@ -151,7 +170,8 @@ void ElemTriangle::createGaussPoints_MC()
         gCoef(3, 2) = 0.6;
         gCoef(3, 3) = 25. / 48.;
     }
-    else if (nGPoints_MC == 6) { //must be checked
+    else if (nGPoints_MC == 6)   //must be checked
+    {
         double alpha1 = 0.8168475730;
         double alpha2 = 0.0915762135;
         double beta1 = 0.1081030182;
@@ -181,7 +201,8 @@ void ElemTriangle::createGaussPoints_MC()
         gCoef(5, 2) = beta2;
         gCoef(5, 3) = 0.1116907998;
     }
-    else if (nGPoints_MC == 7) {
+    else if (nGPoints_MC == 7)
+    {
         double alpha1 = 0.0597158717;
         double alpha2 = 0.7974269853;
         double beta1 = 0.4701420641;
@@ -215,8 +236,9 @@ void ElemTriangle::createGaussPoints_MC()
         gCoef(6, 2) = alpha2;
         gCoef(6, 3) = 0.1259391805;
     }
-        // more on ... http://electromagnetics.biz/2D%20Gauss.txt
-    else if (nGPoints_MC == 12) {
+    // more on ... http://electromagnetics.biz/2D%20Gauss.txt
+    else if (nGPoints_MC == 12)
+    {
         double alpha1 = 0.873821971016996;
         double beta1 = 0.063089014491502;
         double weight1 = 0.05084490637027;
@@ -279,7 +301,8 @@ void ElemTriangle::createGaussPoints_MC()
 //   else if(nGPoints == 20){
 //   }
 
-    for (int i = 0; i < nGPoints_MC; ++i) {
+    for (int i = 0; i < nGPoints_MC; ++i)
+    {
         gPoints_MC.push_back(new GaussPoint2D(this->alpha,
                                               gCoef(i, 3),
                                               jacobian,
@@ -291,8 +314,8 @@ void ElemTriangle::createGaussPoints_MC()
                                               points(2, 1) * gCoef(i, 2),
                                               dc,
                                               false
-        )
-        );
+                                             )
+                            );
     }
 }
 

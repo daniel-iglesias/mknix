@@ -74,24 +74,26 @@
 #include "gmm_kernel.h"
 #include "gmm_iter.h"
 
-namespace gmm {
+namespace gmm
+{
 
-  /** Quasi-Minimal Residual.
-     
-     This routine solves the unsymmetric linear system Ax = b using
-     the Quasi-Minimal Residual method.
-   
-     See: R. W. Freund and N. M. Nachtigal, A quasi-minimal residual
-     method for non-Hermitian linear systems, Numerical Math.,
-     60(1991), pp. 315-339
-  
-     Preconditioner -  Incomplete LU, Incomplete LU with threshold,
-                       SSOR or identity_preconditioner.
-  */
-  template <typename Matrix, typename Vector, typename VectorB,
-	    typename Precond1>
-  void qmr(const Matrix &A, Vector &x, const VectorB &b, const Precond1 &M1,
-	   iteration& iter) {
+/** Quasi-Minimal Residual.
+
+   This routine solves the unsymmetric linear system Ax = b using
+   the Quasi-Minimal Residual method.
+
+   See: R. W. Freund and N. M. Nachtigal, A quasi-minimal residual
+   method for non-Hermitian linear systems, Numerical Math.,
+   60(1991), pp. 315-339
+
+   Preconditioner -  Incomplete LU, Incomplete LU with threshold,
+                     SSOR or identity_preconditioner.
+*/
+template <typename Matrix, typename Vector, typename VectorB,
+          typename Precond1>
+void qmr(const Matrix &A, Vector &x, const VectorB &b, const Precond1 &M1,
+         iteration& iter)
+{
 
     typedef typename linalg_traits<Vector>::value_type T;
     typedef typename number_traits<T>::magnitude_type R;
@@ -106,7 +108,11 @@ namespace gmm {
     TmpVec y_tld(nn), z_tld(nn), p(nn), q(nn), p_tld(nn), d(nn), s(nn);
 
     iter.set_rhsnorm(double(gmm::vect_norm2(b)));
-    if (iter.get_rhsnorm() == 0.0) { clear(x); return; }
+    if (iter.get_rhsnorm() == 0.0)
+    {
+        clear(x);
+        return;
+    }
 
     gmm::mult(A, gmm::scaled(x, T(-1)), b, r);
     gmm::copy(r, v_tld);
@@ -117,108 +123,140 @@ namespace gmm {
     gmm::copy(r, w_tld);
     gmm::transposed_right_mult(M1, w_tld, z);
     xi = gmm::vect_norm2(z);
-  
-    while (! iter.finished_vect(r)) {
-    
-      if (rho == R(0) || xi == R(0)) {
-        if (iter.get_maxiter() == size_type(-1)) {GMM_ASSERT1(false, "QMR failed to converge"); }
-        else {
-          GMM_WARNING1("QMR failed to converge");
-          return;
+
+    while (! iter.finished_vect(r))
+    {
+
+        if (rho == R(0) || xi == R(0))
+        {
+            if (iter.get_maxiter() == size_type(-1))
+            {
+                GMM_ASSERT1(false, "QMR failed to converge");
+            }
+            else
+            {
+                GMM_WARNING1("QMR failed to converge");
+                return;
+            }
         }
-      }
 
-      gmm::copy(gmm::scaled(v_tld, T(R(1)/rho)), v);
-      gmm::scale(y, T(R(1)/rho));
+        gmm::copy(gmm::scaled(v_tld, T(R(1)/rho)), v);
+        gmm::scale(y, T(R(1)/rho));
 
-      gmm::copy(gmm::scaled(w_tld, T(R(1)/xi)), w);
-      gmm::scale(z, T(R(1)/xi));
+        gmm::copy(gmm::scaled(w_tld, T(R(1)/xi)), w);
+        gmm::scale(z, T(R(1)/xi));
 
-      delta = gmm::vect_sp(z, y);
-      if (delta == T(0)) {
-        if (iter.get_maxiter() == size_type(-1)) {GMM_ASSERT1(false, "QMR failed to converge"); }
-        else {
-          GMM_WARNING1("QMR failed to converge");
-          return;
+        delta = gmm::vect_sp(z, y);
+        if (delta == T(0))
+        {
+            if (iter.get_maxiter() == size_type(-1))
+            {
+                GMM_ASSERT1(false, "QMR failed to converge");
+            }
+            else
+            {
+                GMM_WARNING1("QMR failed to converge");
+                return;
+            }
         }
-      }
 
-      gmm::right_mult(M1, y, y_tld);		
-      gmm::transposed_left_mult(M1, z, z_tld);
+        gmm::right_mult(M1, y, y_tld);
+        gmm::transposed_left_mult(M1, z, z_tld);
 
-      if (iter.first()) {
-	gmm::copy(y_tld, p);
-	gmm::copy(z_tld, q);
-      } else {
-	gmm::add(y_tld, gmm::scaled(p, -(T(xi  * delta) / ep)), p);
-	gmm::add(z_tld, gmm::scaled(q, -(T(rho * delta) / ep)), q);
-      }
-    
-      gmm::mult(A, p, p_tld);
-
-      ep = gmm::vect_sp(q, p_tld);
-      if (ep == T(0)) {
-        if (iter.get_maxiter() == size_type(-1)) {GMM_ASSERT1(false, "QMR failed to converge"); }
-        else {
-          GMM_WARNING1("QMR failed to converge");
-          return;
+        if (iter.first())
+        {
+            gmm::copy(y_tld, p);
+            gmm::copy(z_tld, q);
         }
-      }
-
-      beta = ep / delta;
-      if (beta == T(0)) {
-        if (iter.get_maxiter() == size_type(-1)) {GMM_ASSERT1(false, "QMR failed to converge"); }
-        else {
-          GMM_WARNING1("QMR failed to converge");
-          return;
+        else
+        {
+            gmm::add(y_tld, gmm::scaled(p, -(T(xi  * delta) / ep)), p);
+            gmm::add(z_tld, gmm::scaled(q, -(T(rho * delta) / ep)), q);
         }
-      }
 
-      gmm::add(p_tld, gmm::scaled(v, -beta), v_tld);
-      gmm::left_mult(M1, v_tld, y);
+        gmm::mult(A, p, p_tld);
 
-      rho_1 = rho;
-      rho = gmm::vect_norm2(y);
-
-      gmm::mult(gmm::transposed(A), q, w_tld);
-      gmm::add(w_tld, gmm::scaled(w, -beta), w_tld);
-      gmm::transposed_right_mult(M1, w_tld, z);
-
-      xi = gmm::vect_norm2(z);
-
-      gamma_1 = gamma;
-      theta_1 = theta;
-
-      theta = rho / (gamma_1 * beta);
-      gamma = T(1) / gmm::sqrt(T(1) + gmm::sqr(theta));
-
-      if (gamma == T(0)) {
-        if (iter.get_maxiter() == size_type(-1)) {GMM_ASSERT1(false, "QMR failed to converge"); }
-        else {
-          GMM_WARNING1("QMR failed to converge");
-          return;
+        ep = gmm::vect_sp(q, p_tld);
+        if (ep == T(0))
+        {
+            if (iter.get_maxiter() == size_type(-1))
+            {
+                GMM_ASSERT1(false, "QMR failed to converge");
+            }
+            else
+            {
+                GMM_WARNING1("QMR failed to converge");
+                return;
+            }
         }
-      }
-      
-      eta = -eta * T(rho_1) * gmm::sqr(gamma) / (beta * gmm::sqr(gamma_1));
 
-      if (iter.first()) {
-	gmm::copy(gmm::scaled(p, eta), d);
-	gmm::copy(gmm::scaled(p_tld, eta), s);
-      } else {
-	T tmp = gmm::sqr(theta_1 * gamma);
-	gmm::add(gmm::scaled(p, eta), gmm::scaled(d, tmp), d);
-	gmm::add(gmm::scaled(p_tld, eta), gmm::scaled(s, tmp), s);
-      }
-      gmm::add(d, x);
-      gmm::add(gmm::scaled(s, T(-1)), r);
+        beta = ep / delta;
+        if (beta == T(0))
+        {
+            if (iter.get_maxiter() == size_type(-1))
+            {
+                GMM_ASSERT1(false, "QMR failed to converge");
+            }
+            else
+            {
+                GMM_WARNING1("QMR failed to converge");
+                return;
+            }
+        }
 
-      ++iter;
+        gmm::add(p_tld, gmm::scaled(v, -beta), v_tld);
+        gmm::left_mult(M1, v_tld, y);
+
+        rho_1 = rho;
+        rho = gmm::vect_norm2(y);
+
+        gmm::mult(gmm::transposed(A), q, w_tld);
+        gmm::add(w_tld, gmm::scaled(w, -beta), w_tld);
+        gmm::transposed_right_mult(M1, w_tld, z);
+
+        xi = gmm::vect_norm2(z);
+
+        gamma_1 = gamma;
+        theta_1 = theta;
+
+        theta = rho / (gamma_1 * beta);
+        gamma = T(1) / gmm::sqrt(T(1) + gmm::sqr(theta));
+
+        if (gamma == T(0))
+        {
+            if (iter.get_maxiter() == size_type(-1))
+            {
+                GMM_ASSERT1(false, "QMR failed to converge");
+            }
+            else
+            {
+                GMM_WARNING1("QMR failed to converge");
+                return;
+            }
+        }
+
+        eta = -eta * T(rho_1) * gmm::sqr(gamma) / (beta * gmm::sqr(gamma_1));
+
+        if (iter.first())
+        {
+            gmm::copy(gmm::scaled(p, eta), d);
+            gmm::copy(gmm::scaled(p_tld, eta), s);
+        }
+        else
+        {
+            T tmp = gmm::sqr(theta_1 * gamma);
+            gmm::add(gmm::scaled(p, eta), gmm::scaled(d, tmp), d);
+            gmm::add(gmm::scaled(p_tld, eta), gmm::scaled(s, tmp), s);
+        }
+        gmm::add(d, x);
+        gmm::add(gmm::scaled(s, T(-1)), r);
+
+        ++iter;
     }
-  }
+}
 
 
 }
 
-#endif 
+#endif
 

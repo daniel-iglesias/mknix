@@ -23,7 +23,8 @@
 #include <iostream>
 #include <fstream>
 
-namespace mknix {
+namespace mknix
+{
 
 class Simulation;
 

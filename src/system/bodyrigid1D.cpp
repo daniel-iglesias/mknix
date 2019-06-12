@@ -21,11 +21,12 @@
 
 #include <simulation/simulation.h>
 
-namespace mknix {
+namespace mknix
+{
 
 RigidBar::RigidBar()
-        : RigidBody()
-        , Jo(0)
+    : RigidBody()
+    , Jo(0)
 {
 }
 
@@ -33,8 +34,8 @@ RigidBar::RigidBar(std::string title_in,
                    Node * nodeA_in,
                    Node * nodeB_in,
                    double mass_in
-)
-        : RigidBody(title_in)
+                  )
+    : RigidBody(title_in)
 {
     this->mass = mass_in;
     // Read frameNodes from theReader:
@@ -58,9 +59,14 @@ RigidBar::~RigidBar()
 
 void RigidBar::setInertia(double inertia_in, int axis)
 {
-    if (axis == 0) {
+    if (axis == 0)
+    {
         Jo = inertia_in;
-    } else { cerr << endl << "ERROR: Trying to set inertia out of bounds in RigidBar" << endl; }
+    }
+    else
+    {
+        cerr << endl << "ERROR: Trying to set inertia out of bounds in RigidBar" << endl;
+    }
 }
 
 void RigidBar::setPosition(std::vector<double>& position)
@@ -84,7 +90,8 @@ void RigidBar::calcMassMatrix()
     this->localMassMatrix(1, Simulation::getDim() + 1) = 1. / 6. * mass;
     this->localMassMatrix(Simulation::getDim() + 1, 1) = 1. / 6. * mass;
 
-    if (Simulation::getDim() == 3) {
+    if (Simulation::getDim() == 3)
+    {
         this->localMassMatrix(2, 2) = 1. / 3. * mass;
         this->localMassMatrix(Simulation::getDim() + 2, Simulation::getDim() + 2) = 1. / 3. * mass;
         this->localMassMatrix(2, Simulation::getDim() + 2) = 1. / 6. * mass;
@@ -96,12 +103,14 @@ void RigidBar::calcExternalForces()
 {
     this->externalForces(0) = -0.5 * mass * Simulation::getGravity(0);
     this->externalForces(1) = -0.5 * mass * Simulation::getGravity(1);
-    if (Simulation::getDim() == 3) {
+    if (Simulation::getDim() == 3)
+    {
         this->externalForces(2) = -0.5 * mass * Simulation::getGravity(2);
     }
     this->externalForces(Simulation::getDim()) = -0.5 * mass * Simulation::getGravity(0);
     this->externalForces(Simulation::getDim() + 1) = -0.5 * mass * Simulation::getGravity(1);
-    if (Simulation::getDim() == 3) {
+    if (Simulation::getDim() == 3)
+    {
         this->externalForces(Simulation::getDim() + 2) = -0.5 * mass * Simulation::getGravity(2);
     }
 }
@@ -127,7 +136,8 @@ void RigidBar::addNode(Node * node_in)
 void RigidBar::writeBoundaryNodes(std::vector<Node *>& boundary_nodes)
 {
     // We specialize only for the bar, as its frameNodes are its own boundary
-    for (auto& node : this->frameNodes) {
+    for (auto& node : this->frameNodes)
+    {
         boundary_nodes.push_back(node);
     }
 }
@@ -136,7 +146,8 @@ void RigidBar::writeBoundaryConnectivity(std::vector<std::vector<Node *> >& conn
 {
     // We specialize only for the bar, as its frameNodes are its own boundary
     connectivity_nodes.push_back(std::vector<Node *>());
-    for (auto& node : this->frameNodes) {
+    for (auto& node : this->frameNodes)
+    {
         connectivity_nodes.back().push_back(node);
     }
 }

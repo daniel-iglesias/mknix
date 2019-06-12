@@ -22,16 +22,16 @@
 #define LMX_H
 
 //////////////////////////////////////////// Doxygen file documentation entry:
-    /**
-     * \file lmx.h
-     *
-     * \brief This is the main file that has to be included from an extern program so that the basic features of the library can be used.
-     *
-     * This basic facilities include all the linear algebra operations over Vectors and Matrices, Tensor algebra and linear systems solvers.
-     *
-     * \author Daniel Iglesias
-     * 
-     */
+/**
+ * \file lmx.h
+ *
+ * \brief This is the main file that has to be included from an extern program so that the basic features of the library can be used.
+ *
+ * This basic facilities include all the linear algebra operations over Vectors and Matrices, Tensor algebra and linear systems solvers.
+ *
+ * \author Daniel Iglesias
+ *
+ */
 //////////////////////////////////////////// Doxygen file documentation (end)
 
 #include "lmx_linsolvers.h"
@@ -48,7 +48,8 @@
  *
  */
 
-namespace lmx{
+namespace lmx
+{
 
 }
 
