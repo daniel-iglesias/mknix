@@ -42,6 +42,7 @@ double interpolate1D(double key, const std::map<double, double>& theMap)
     return (delta * i->second + (1 - delta) * l->second);
 }
 
+
 boxFIR::boxFIR(int _numCoeffs) :
     numCoeffs(_numCoeffs * 2)
 {

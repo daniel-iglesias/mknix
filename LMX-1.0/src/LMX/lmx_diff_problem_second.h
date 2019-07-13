@@ -407,7 +407,7 @@ void DiffProblemSecond<Sys, T>::setIntegrator
     {
         this->b_alpha = 1;
         this->alpha = alpha_in;
-        this->theIntegrator = std::make_unique<IntegratorNEWMARK<T> >(.25*std::pow(1 + alpha, 2), .5 + alpha);
+        this->theIntegrator = new IntegratorNEWMARK<T> (.25*std::pow(1 + alpha, 2), .5 + alpha);
     }
 }
 
@@ -430,10 +430,10 @@ void DiffProblemSecond<Sys, T>::setIntegrator
     {
         this->b_alpha = 1;
         this->alpha = alpha_in;
-        this->theIntegrator = std::make_unique<IntegratorNEWMARK<T> >(beta_in*std::pow(1 + alpha, 2), gamma_in + alpha);
+        this->theIntegrator = new IntegratorNEWMARK<T> (beta_in*std::pow(1 + alpha, 2), gamma_in + alpha);
     }
     else if (!strcmp(type, "NEWMARK"))
-        this->theIntegrator = std::make_unique<IntegratorNEWMARK<T> >(beta_in/**std::pow(1+alpha,2)*/, gamma_in/*+alpha*/);
+        this->theIntegrator = new IntegratorNEWMARK<T> (beta_in/**std::pow(1+alpha,2)*/, gamma_in/*+alpha*/);
 }
 
 /**

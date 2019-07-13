@@ -147,7 +147,7 @@ private:
 
 protected:
     lmx::Configuration<T> * theConfiguration; ///< Pointer to the Configuration object, (auto-created).
-    std::unique_ptr< lmx::IntegratorBase<T> > theIntegrator; ///< Pointer to the Integrator object, (auto-created).
+    lmx::IntegratorBase<T> * theIntegrator; ///< Pointer to the Integrator object, (auto-created).
     lmx::NLSolver<T> * theNLSolver; ///< Pointer to the NLSolver object, (auto-created).
     Sys * theSystem; ///< Pointer to object where the differential system is defined.
     lmx::Vector<T> * p_delta_q; ///< Stores pointer to NLSolver increment.
@@ -176,19 +176,19 @@ void DiffProblem<Sys, T>::setIntegrator(int type, int opt1, int opt2)
     switch (type)
     {
     case 0 : // integrator == 0 -> Adams-Bashford
-        theIntegrator = std::make_unique< IntegratorAB<T> >(opt1);
+        theIntegrator =new IntegratorAB<T> (opt1);
         break;
 
     case 1 : // integrator == 1 -> Adams-Moulton
-        theIntegrator = std::make_unique< IntegratorAM<T> >(opt1);
+        theIntegrator =new IntegratorAM<T> (opt1);
         break;
 
     case 2 : // integrator == 2 -> BDF
-        theIntegrator = std::make_unique< IntegratorBDF<T> >(opt1);
+        theIntegrator =new IntegratorBDF<T> (opt1);
         break;
 
     case 3 : // integrator == 2 -> BDF
-        theIntegrator = std::make_unique< IntegratorCentralDifference<T> >();
+        theIntegrator =new IntegratorCentralDifference<T> ();
         break;
 
     }
@@ -205,65 +205,65 @@ void DiffProblem<Sys, T>::setIntegrator(const std::string& type, int opt2)
 {
     if (type == "AB-1")
     {
-        theIntegrator = std::make_unique< IntegratorAB<T> >(1);
+        theIntegrator = new IntegratorAB<T> (1);
     }
     else if (type == "AB-2")
     {
-        theIntegrator = std::make_unique<IntegratorAB<T> >(2);
+        theIntegrator = new IntegratorAB<T> (2);
     }
     else if (type == "AB-3")
     {
-        theIntegrator = std::make_unique<IntegratorAB<T> >(3);
+        theIntegrator = new IntegratorAB<T> (3);
     }
     else if (type == "AB-4")
     {
-        theIntegrator = std::make_unique<IntegratorAB<T> >(4);
+        theIntegrator = new IntegratorAB<T> (4);
     }
     else if (type == "AB-5")
     {
-        theIntegrator = std::make_unique<IntegratorAB<T> >(5);
+        theIntegrator = new IntegratorAB<T> (5);
     }
     else if (type == "AM-1")
     {
-        theIntegrator = std::make_unique<IntegratorAM<T> >(1);
+        theIntegrator = new IntegratorAM<T> (1);
     }
     else if (type == "AM-2")
     {
-        theIntegrator = std::make_unique<IntegratorAM<T> >(2);
+        theIntegrator = new IntegratorAM<T> (2);
     }
     else if (type == "AM-3")
     {
-        theIntegrator = std::make_unique<IntegratorAM<T> >(3);
+        theIntegrator = new IntegratorAM<T> (3);
     }
     else if (type == "AM-4")
     {
-        theIntegrator = std::make_unique<IntegratorAM<T> >(4);
+        theIntegrator = new IntegratorAM<T> (4);
     }
     else if (type == "AM-5")
     {
-        theIntegrator = std::make_unique<IntegratorAM<T> >(5);
+        theIntegrator = new IntegratorAM<T> (5);
     }
     else if (type == "BDF-1")
     {
-        theIntegrator = std::make_unique<IntegratorBDF<T> >(1);
+        theIntegrator = new IntegratorBDF<T> (1);
     }
     else if (type == "BDF-2")
     {
-        theIntegrator = std::make_unique<IntegratorBDF<T> >(2);
+        theIntegrator = new IntegratorBDF<T> (2);
     }
     else if (type == "BDF-3")
     {
-        theIntegrator = std::make_unique<IntegratorBDF<T> >(3);
+        theIntegrator = new IntegratorBDF<T> (3);
     }
     else if (type == "BDF-4")
     {
-        theIntegrator = std::make_unique<IntegratorBDF<T> >(4);
+        theIntegrator = new IntegratorBDF<T> (4);
     }
     else if (type == "BDF-5")
     {
-        theIntegrator = std::make_unique<IntegratorBDF<T> >(5);
+        theIntegrator = new IntegratorBDF<T> (5);
     }
-    else if (type == "CD") theIntegrator = std::make_unique< IntegratorCentralDifference<T> >();
+    else if (type == "CD") theIntegrator = new IntegratorCentralDifference<T> ();
 }
 
 /**

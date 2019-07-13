@@ -8,7 +8,7 @@ if(UNIX)
 elseif(WIN32)
   add_definitions(/DHAVE_GMM)
 endif()
-include_directories(SYSTEM ${LMX_INCLUDE_DIR})
+include_directories(SYSTEM ${LMX_INCLUDE_DIR} ${LMX_INCLUDE_DIR}/LMX)
 include_directories(SYSTEM ${GMM_INCLUDE_DIR})
 
 add_subdirectory(core)
