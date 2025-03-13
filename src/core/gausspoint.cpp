@@ -198,14 +198,31 @@ void GaussPoint::computeHij()
 //     cout << "H = " << H << endl;
 }
 
-void GaussPoint::computeQext(LoadThermalBody * loadThermalBody_in)
+// Todo: add somewhere the coordinate for interpolation of heat load and porosity resistance. It now uses only x.
+// Also, it would be ideal to divide this function into two parts so that we separate 
+void GaussPoint::computeQext(std::vector<LoadThermalBody*> loadThermalBody_in)
 {
-    for (auto i = 0u; i < supportNodesSize; ++i)
-    {
-        // Qi = wg * r * N_I * |Jc|
-        Qext.writeElement(weight * shapeFun->getPhi(0, i) * loadThermalBody_in->getLoadThermalBody(this)
-                          * std::abs(jacobian), i);
-//       M.writeElement( weight * shapeFun->getPhi(0,i) * shapeFun->getPhi(0,j) * jacobian, dim*i+2, dim*j+2 );
+    double load;
+    // Only execute if the load vector is not empty or if the porosity resistance is greater than zero. 
+    if ( !loadThermalBody_in.empty() || mat->isPorous() ) {
+        // Compute the coordinate for the external volumetric power
+        for (auto i = 0u; i < supportNodesSize; ++i)
+        {
+            // Reset the load
+            load = 0.0;
+            // Qi = wg * ( r- (T - Tl)/R ) * N_I * |Jc| , 
+            // r-> external volumetric power, 
+            // Tl->fluid temp, 
+            // R->volumetric ratio
+            for (auto& v_load : loadThermalBody_in){
+                load += v_load->getLoadThermalBody(supportNodes[i]) ;
+            }
+            if(mat->isPorous()){
+               load -= (supportNodes[i]->getTemp() - mat->getPorosityTfluid() ) / mat->getPorosityResistance(supportNodes[i]) ;
+            }
+            Qext.writeElement( weight * shapeFun->getPhi(0, i) * load * std::abs(jacobian), i );
+            cout << "load = " << Qext.readElement(i) << endl;
+        }
     }
 }
 

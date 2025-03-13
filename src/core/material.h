@@ -26,6 +26,7 @@
 
 namespace mknix
 {
+    class Point;
 
 /**
   @author Daniel Iglesias
@@ -34,6 +35,7 @@ class Material
 {
 private:
     int dim; /**< Dimension of space */
+    bool b_porous; /**< Is material porous? */
     double capacity; /**< Thermal specific capacity */
     double kappa; /**< Thermal conductivity */
     double young; /**< Young Modulus. */
@@ -41,6 +43,8 @@ private:
     double beta; /**< Thermal expansion*/
     double lambda, mu; /**< Lame's coefficients. */
     double density; /**< Density. */
+    double resistance; /**< Volumetric thermal resistance for porosity formulation. */
+    double fluid_temperature; /**< Temperature of the fluid for porosity formulation. */
     std::map<double, double> m_capacity;
     std::map<double, double> m_kapppa;
     lmx::DenseMatrix<double> D; /**< Constitutive Linear */
@@ -83,8 +87,22 @@ public:
     {
         return C;    // be careful, returns a writable reference!!!
     }
+    double getPorosityResistance(Point*)
+    {
+        return resistance;
+    }
+    double getPorosityTfluid()
+    {
+        return fluid_temperature;
+    }
+
+    inline bool isPorous()
+    {
+        return b_porous;
+    }
 
     void setThermalProps( double capacity_in, double kappa_in, double beta_in, double density_in );
+    void setPorosityProps( double resistance_in, double fluid_temperature_in );
     void setMechanicalProps( int dim_in, double young_in, double poisson_in, double density_in );
 
     void addThermalCapacity( double temp_in, double capacity_in)

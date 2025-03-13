@@ -38,7 +38,7 @@ LoadThermalBody::LoadThermalBody()
         while(power >> keyword)
         {
             power >> keyword_2;
-            srim[keyword] = keyword_2;
+            source[keyword] = keyword_2;
         }
     }
     else
@@ -82,12 +82,12 @@ double LoadThermalBody::getLoadThermalBody( Point* thePoint )
     /////////////////////////////////////////////////////////////////////////////////////////////
 //     For thermal pendulum:
     /////////////////////////////////////////////////////////////////////////////////////////////
-    if (srim.size() == 0) cerr << "ERROR: LOAD FILE NOT FOUND!!!" << endl;
+    if ( source.size() == 0) cerr << "ERROR: LOAD FILE NOT FOUND!!!" << endl;
     if (Simulation::getTime() <= 0.1)   // permanent
     {
         if ( thePoint->getX() < 5. )
         {
-            return mknix::interpolate1D(thePoint->getX(), srim); // else return 0.;
+            return mknix::interpolate1D(thePoint->getX(), source); // else return 0.;
         }
     }
     else return 0.;

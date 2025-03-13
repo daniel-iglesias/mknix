@@ -98,9 +98,9 @@ public:
     }
 
     // Temporary, should be a pointer to a load class
-    virtual void setLoadThermal( LoadThermalBody* theLoad )
+    virtual void addLoadThermal(LoadThermalBody* theLoad)
     {
-        loadThermalBody = theLoad;
+        volumetricHeatSources.push_back(theLoad);
     }
 
 protected:
@@ -110,7 +110,7 @@ protected:
     std::vector<Node*> nodes;
     std::map<int,Cell*> cells; /**< Map of integration cells. */
     std::vector< lmx::Vector<data_type>* > temperature;
-    LoadThermalBody* loadThermalBody;
+    std::vector<LoadThermalBody*> volumetricHeatSources;
 
 };
 

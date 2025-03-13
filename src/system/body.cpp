@@ -27,7 +27,6 @@ namespace mknix
 Body::Body()
     : computeEnergy(0)
     , isThermal(1)
-    , loadThermalBody(0)
 {
 }
 
@@ -41,7 +40,6 @@ Body::Body(std::string title_in)
     , lastNode(0)
     , computeEnergy(0)
     , isThermal(1)
-    , loadThermalBody(0)
 {
 }
 
@@ -68,8 +66,11 @@ Body::~Body()
     {
         delete group.second;
     }
-    delete loadThermalBody;
-    loadThermalBody = 0;
+    for (auto p : volumetricHeatSources)
+    {
+        delete p;
+    } 
+    volumetricHeatSources.clear();
 }
 
 /**
@@ -175,15 +176,10 @@ void Body::calcExternalHeat()
 {
     auto end_int = this->cells.size();
 //     #pragma omp parallel for
-    if (loadThermalBody)
-    {
-        for (auto i = 0u; i < end_int; ++i)
-        {
-            this->cells[i]->computeQextGaussPoints(this->loadThermalBody);
+    for (auto i = 0u; i < end_int; ++i){
+            this->cells[i]->computeQextGaussPoints(this->volumetricHeatSources);
         }
-    }
-    for (auto group : boundaryGroups)
-    {
+    for (auto group : boundaryGroups){
         group.second->calcExternalHeat();
     }
 }

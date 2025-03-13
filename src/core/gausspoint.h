@@ -72,7 +72,7 @@ public:
 
     void computeHij( );
 
-    void computeQext( LoadThermalBody* );
+    void computeQext( std::vector<LoadThermalBody*> );
 
     virtual void computeFint( )=0;
 

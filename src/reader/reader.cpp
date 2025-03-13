@@ -301,6 +301,26 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
                     }
                     while (a != '\n');
                 }
+                else if (keyword == "POROSITY")
+                {
+                    int num_mat;
+                    double resistance, temperature_fluid; // Rsl, Tb
+                    input >> num_mat >> resistance >> temperature_fluid;
+
+                    if (theSimulation->materials.count(num_mat) == 1)
+                    {
+                        theSimulation->materials.at(num_mat).setPorosityProps(resistance, temperature_fluid);
+                        output << "MATERIAL: " << keyword
+                            << ", number = " << num_mat << ",\n\t Rsl = " << resistance
+                            << ", Tbulk = " << temperature_fluid << std::endl;
+                    }
+                    else output << "ERROR: MATERIAL " << num_mat << " not found \n";
+                    do
+                    {
+                        input.get(a);
+                    }
+                    while (a != '\n');
+                }
                 else if (keyword == "FILES")
                 {
                     while (input >> keyword)
@@ -838,7 +858,7 @@ void mknix::Reader::readLoads(System * system_in)
                     sBody.push_back(a);
                 }
             }
-            system_in->thermalBodies[sBody]->setLoadThermal(new LoadThermalBody());
+            system_in->thermalBodies[sBody]->addLoadThermal(new LoadThermalBody());
         }
         else if (keyword == "THERMALFLUX1D")     //Improvement from above
         {

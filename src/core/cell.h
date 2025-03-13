@@ -77,7 +77,7 @@ public:
 
     void assembleConductivityGaussPoints( lmx::Matrix<data_type> & );
 
-    void computeQextGaussPoints( LoadThermalBody* );
+    void computeQextGaussPoints( std::vector<LoadThermalBody  *> );
 
     void assembleQextGaussPoints( lmx::Vector<data_type> & );
 

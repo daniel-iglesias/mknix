@@ -66,6 +66,8 @@ private:
 
     void readLoads(System *);
 
+    void readPorosity(System *);
+
     void readEnvironment(System *);
 
     void readMotion(System *);

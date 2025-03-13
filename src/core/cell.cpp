@@ -151,7 +151,7 @@ void Cell::assembleConductivityGaussPoints(lmx::Matrix<data_type>& globalConduct
 }
 
 
-void Cell::computeQextGaussPoints(LoadThermalBody * loadThermalBody_in)
+void Cell::computeQextGaussPoints(std::vector<LoadThermalBody*> loadThermalBody_in)
 {
     for (auto& point : gPoints)
     {

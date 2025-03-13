@@ -18,6 +18,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 #include "material.h"
+#include <core/point.h>
 
 namespace mknix
 {
@@ -30,6 +31,9 @@ Material::Material()
     , poisson(0)
     , beta(0)
     , density(0)
+    , resistance(0)
+    , fluid_temperature(0)
+    , b_porous(false)
 {
 }
 
@@ -43,6 +47,13 @@ void Material::setThermalProps(double capacity_in, double kappa_in, double beta_
     kappa = kappa_in;
     beta = beta_in;
     density = density_in;
+}
+
+void Material::setPorosityProps(double resistance_in, double fluid_temperature_in )
+{
+    resistance = resistance_in;
+    fluid_temperature = fluid_temperature_in;
+    this->b_porous = true;
 }
 
 // Mechanical needs dimension

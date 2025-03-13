@@ -202,9 +202,9 @@ public:
     virtual void rotate(double phi, double theta, double psi);
 
     // Temporary, should be a pointer to a load class
-    virtual void setLoadThermal(LoadThermalBody* theLoad)
+    virtual void addLoadThermal(LoadThermalBody* theLoad)
     {
-        loadThermalBody = theLoad;
+        volumetricHeatSources.push_back(theLoad);
     }
 
 
@@ -222,7 +222,7 @@ protected:
     bool computeEnergy;
     bool isThermal;
     std::vector<lmx::Vector<data_type>*> temperature;
-    LoadThermalBody* loadThermalBody;
+    std::vector<LoadThermalBody*> volumetricHeatSources;
 
 };
 

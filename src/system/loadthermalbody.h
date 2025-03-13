@@ -17,17 +17,19 @@
  *  License along with Nemesis.  If not, see <http://www.gnu.org/licenses/>.  *
  *****************************************************************************/
 
-#ifndef MKNIXLOADTHERMALBODY_H
-#define MKNIXLOADTHERMALBODY_H
+#ifndef MKNIXLOADTHERMALBODYFLUENCE_H
+#define MKNIXLOADTHERMALBODYFLUENCE_H
 
 #include "common.h"
 #include "LMX/lmx.h"
 #include <map>
 
+#include "loadthermalbody.h"
 
 namespace mknix
 {
-class Point;
+    class LoadThermalBody;
+    class Point;
 
 /**
 	@author AUTHORS <MAILS>
@@ -39,12 +41,12 @@ public:
 
 //    LoadThermalBody( /*double, double, double*/ );
 
-    /*virtual */~LoadThermalBody();
+    virtual ~LoadThermalBody();
 
-    double getLoadThermalBody( Point* );
+    virtual double getLoadThermalBody( Point* );
 
 protected:
-    std::map<double, double> srim;
+    std::map<double, double> source;
 };
 
 }

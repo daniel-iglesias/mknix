@@ -133,7 +133,7 @@ void ThermalBody::calcExternalHeat()
             i < end_int;
             ++i)
     {
-        this->cells[i]->computeQextGaussPoints(this->loadThermalBody);
+        this->cells[i]->computeQextGaussPoints(this->volumetricHeatSources);
     }
 
 }
