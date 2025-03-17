@@ -221,7 +221,6 @@ void GaussPoint::computeQext(std::vector<LoadThermalBody*> loadThermalBody_in)
                load -= (supportNodes[i]->getTemp() - mat->getPorosityTfluid() ) / mat->getPorosityResistance(supportNodes[i]) ;
             }
             Qext.writeElement( weight * shapeFun->getPhi(0, i) * load * std::abs(jacobian), i );
-            cout << "load = " << Qext.readElement(i) << endl;
         }
     }
 }
