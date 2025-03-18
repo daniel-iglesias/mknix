@@ -47,6 +47,7 @@ private:
     double fluid_temperature; /**< Temperature of the fluid for porosity formulation. */
     std::map<double, double> m_capacity;
     std::map<double, double> m_kapppa;
+    std::map<double, double> m_resistance; /**< Volumetric thermal resistance for porosity formulation, variable with distance. */
     lmx::DenseMatrix<double> D; /**< Constitutive Linear */
     lmx::DenseMatrix<double> C; /**< Constitutive Saint-Venant Kirchoff*/
     cofe::TensorRank2Sym<2,double> E;
@@ -87,10 +88,8 @@ public:
     {
         return C;    // be careful, returns a writable reference!!!
     }
-    double getPorosityResistance(Point*)
-    {
-        return resistance;
-    }
+    double getPorosityResistance(Point*);
+
     double getPorosityTfluid()
     {
         return fluid_temperature;
@@ -112,6 +111,10 @@ public:
     void addThermalConductivity( double temp_in, double conductivity_in)
     {
         m_kapppa[temp_in] = conductivity_in;
+    }
+    void addVariableResistance( double distance_in, double resistance_in)
+    {
+        m_resistance[distance_in] = resistance_in;
     }
 
     void computeD();

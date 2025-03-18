@@ -345,7 +345,7 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
                             {
                                 thermalfile >> capacity;
                                 theSimulation->materials.at(num_mat).addThermalCapacity(temperature, capacity);
-                                output << "TEMP:" << temperature << ", \t" << capacity << endl;
+                                output << '\t' << "TEMP:" << temperature << ", \t" << capacity << endl;
                             }
                             do
                             {
@@ -369,7 +369,31 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
                             {
                                 thermalfile >> conductivity;
                                 theSimulation->materials.at(num_mat).addThermalConductivity(temperature, conductivity);
-                                output << "TEMP:" << temperature << ", \t" << conductivity << endl;
+                                output << '\t' << "TEMP:" << temperature << ", \t" << conductivity << endl;
+                            }
+                            do
+                            {
+                                input.get(a);
+                            }
+                            while (a != '\n');
+                        }
+                        else if (keyword == "RESISTANCE")
+                        {
+                            int num_mat;
+                            double distance, resistance;
+                            input >> num_mat >> keyword;
+                            if (theSimulation->materials.count(num_mat) == 0)
+                            {
+                                theSimulation->materials[num_mat];
+                            }
+                            output << "THERMALFILE RESISTANCE: " << keyword
+                                   << " for mat # " << num_mat << endl;
+                            std::ifstream thermalfile(keyword); // file to read points from
+                            while (thermalfile >> distance)
+                            {
+                                thermalfile >> resistance;
+                                theSimulation->materials.at(num_mat).addVariableResistance(distance, resistance);
+                                output << '\t' << "DISTANCE:" << distance << ", \t" << resistance << endl;
                             }
                             do
                             {

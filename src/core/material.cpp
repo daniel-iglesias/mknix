@@ -41,6 +41,13 @@ Material::~Material()
 {
 }
 
+double Material::getPorosityResistance(Point* point_in)
+{
+    if (m_resistance.empty()) return resistance;
+    else return interpolate1D(point_in->getX(), m_resistance);;
+}
+
+
 void Material::setThermalProps(double capacity_in, double kappa_in, double beta_in, double density_in)
 {
     capacity = capacity_in;
