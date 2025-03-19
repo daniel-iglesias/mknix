@@ -63,6 +63,7 @@ std::vector<double> doubles_in_vector( const std::string& );
 
 std::vector< std::vector<double> > read_lines( std::istream& );
 
+bool isNumber(const std::string& str);
 }
 
 #endif

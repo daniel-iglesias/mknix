@@ -45,8 +45,20 @@ public:
 
     virtual double getLoadThermalBody( Point* );
 
+    virtual void setConstantValue( double value_in  )
+    {
+        constantSouce = value_in;
+    }
+
+    void addLoad( double distance_in, double load_in )
+    {
+        m_source[distance_in] = load_in;
+    }
+
+
 protected:
-    std::map<double, double> source;
+    double constantSouce;
+    std::map<double, double> m_source;
 };
 
 }

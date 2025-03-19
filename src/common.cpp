@@ -133,5 +133,16 @@ std::vector<std::vector<double>> read_lines(std::istream& stm)
     return result;
 }
 
+/// @brief Checks if a string represents a number. 
+/// @param str The string to check. Can be empty.
+/// @return True if the string represents a number, False otherwise. 
+bool isNumber(const std::string& str) {
+    if (str.empty()) return false; // Handle empty strings
+
+    for (char c : str) {
+        if (!std::isdigit(c)) return false;
+    }
+    return true;
+}
 
 }

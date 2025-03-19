@@ -21,78 +21,22 @@
 #include "loadthermalbody.h"
 
 #include <core/point.h>
-#include <simulation/simulation.h>
 
 namespace mknix
 {
 
 LoadThermalBody::LoadThermalBody()
 {
-    std::ifstream power;
-    power.open("POWER.txt");
-    if (power.is_open())
-    {
-
-        double keyword, keyword_2;
-
-        while(power >> keyword)
-        {
-            power >> keyword_2;
-            source[keyword] = keyword_2;
-        }
-    }
-    else
-    {
-        cerr << "ERROR: LOAD FILE NOT FOUND!!!" << endl;
-    }
-
 }
-
 
 LoadThermalBody::~LoadThermalBody( /*double , double, double*/ )
 {
 }
 
-double LoadThermalBody::getLoadThermalBody( Point* thePoint )
+double LoadThermalBody::getLoadThermalBody( Point* point_in )
 {
-//  cout << Simulation::getTime() << endl;
-    /////////////////////////////////////////////////////////////////////////////////////////////
-//     For thermal slits:
-//   if (srim.size() == 0) cerr << "ERROR: LOAD FILE NOT FOUND!!!" << endl;
-//   if (Simulation::getTime() <= 1.E-4){
-// //    if ( thePoint->getX() < 10.E-3 )
-//     typedef std::map<double, double>::const_iterator i_t;
-//
-//     i_t i=srim.upper_bound(thePoint->getX()/4.);
-//     if(i==srim.end())
-//     {
-//       return (--i)->second;
-//     }
-//     if (i==srim.begin())
-//     {
-//       return i->second;
-//     }
-//     i_t l=i; --l;
-//
-//     const double delta=(thePoint->getX()/4.- l->first)/(i->first - l->first);
-//     return (delta*i->second +(1-delta)*l->second)/4.;//    else return 0.;
-//   }
-//   else return 0.;
-    /////////////////////////////////////////////////////////////////////////////////////////////
-    /////////////////////////////////////////////////////////////////////////////////////////////
-//     For thermal pendulum:
-    /////////////////////////////////////////////////////////////////////////////////////////////
-    if ( source.size() == 0) cerr << "ERROR: LOAD FILE NOT FOUND!!!" << endl;
-    if (Simulation::getTime() <= 0.1)   // permanent
-    {
-        if ( thePoint->getX() < 5. )
-        {
-            return mknix::interpolate1D(thePoint->getX(), source); // else return 0.;
-        }
-    }
-    else return 0.;
-
-    return 0;
+    if (m_source.empty()) return constantSouce;
+    else return interpolate1D(point_in->getX(), m_source);;
 }
 
 }

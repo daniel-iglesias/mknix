@@ -860,29 +860,37 @@ void mknix::Reader::readLoads(System * system_in)
                 system_in->outputSignalThermal.push_back(pNode);
             }
         }
-        else if (keyword == "THERMALBODY")
+        else if (keyword == "THERMALBODY") // Has an optional file name
         {
-            std::string sBody;
+            std::string sBody, sOption, sValue;
             char a;
-            while (input.get(a))   // we read the body...
+            double distance, loadValue;
+            input >> sBody >> sOption;
+            cout << "in THERMALBODY" << sBody << endl;
+            LoadThermalBody* theLoad = new LoadThermalBody();
+            system_in->thermalBodies.at(sBody)->addLoadThermal(theLoad);
+            output << "THERMALBODY created in " << sBody << endl;
+            if (sOption == "VALUE")   // we read the second string, either a file or a number
             {
-                if (a == '.')
-                {
-                    break;
-                }
-                else if (a == '\n')
-                {
-                    break;
-                }
-                else if (a == ' ')     //get blank space
-                {
-                }
-                else
-                {
-                    sBody.push_back(a);
-                }
+                input >> sValue;
+                theLoad->setConstantValue( std::stod(sValue) ); 
             }
-            system_in->thermalBodies[sBody]->addLoadThermal(new LoadThermalBody());
+            else if (sOption == "FILE"){ // we read the second string, either a file or a number
+                input >> sValue;
+                output << "\t FILE: " << sValue << endl;
+                std::ifstream loadfile(sValue); // file to read points from
+                while (loadfile >> distance)
+                {
+                    loadfile >> loadValue;
+                    theLoad->addLoad(distance, loadValue);
+                    output << '\t' << "DISTANCE:" << distance << ", \t" << loadValue << endl;
+                }
+                do
+                {
+                    input.get(a);
+                }
+                while (a != '\n');
+            }
         }
         else if (keyword == "THERMALFLUX1D")     //Improvement from above
         {
