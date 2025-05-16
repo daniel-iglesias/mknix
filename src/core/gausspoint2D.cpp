@@ -84,7 +84,7 @@ void GaussPoint2D::shapeFunSolve(std::string type_in, double q_in)
 void GaussPoint2D::fillFEmatrices()
 {
     initializeMatVecs();
-    cout << "GP in (" << this->X << ", " << this->Y << ")" << endl;
+    // cout << "GP in (" << this->X << ", " << this->Y << ")" << endl;
 
     if (!shapeFun)
     {

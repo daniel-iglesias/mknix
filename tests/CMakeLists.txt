@@ -12,10 +12,14 @@ include_directories(${GMM_INCLUDE_DIR})
 add_executable(mknixrunner mknix.cpp)
 target_link_libraries(mknixrunner mknix)
 
+add_executable(mknixwrapper mknixwrapper.cpp)
+target_link_libraries(mknixwrapper mknix)
+
 include(mknix_test.cmake)
 
 MKNIX_TEST(
     NAME test1
+    COMMAND mknixrunner
     COMMAND_ARGS input_2triangles.fem.mknix 2 0
     INPUT_FILES input_2triangles.fem.mknix 2triangles.dat
     OUTPUT_FILE 2triangfem.mec

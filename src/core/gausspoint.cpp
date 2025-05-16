@@ -84,13 +84,13 @@ void GaussPoint::shapeFunSolve(std::string type_in, double q_in)
                                                   dc,
                                                   this);
         }
-        cout << "INFO AT shapeFunSolve IN GaussPoint: (x, y) = "
-             << this->X << ", " << this->Y << endl;
-        cout << "\t alphai = " << alphai << ", "
-             << "dc = " << dc << ", "
-             << "q_in = " << q_in
-             << endl;
-        cout << "\t Number of Support Nodes = " << supportNodesSize << endl;
+        // cout << "INFO AT shapeFunSolve IN GaussPoint: (x, y) = "
+        //      << this->X << ", " << this->Y << endl;
+        // cout << "\t alphai = " << alphai << ", "
+        //      << "dc = " << dc << ", "
+        //      << "q_in = " << q_in
+        //      << endl;
+        // cout << "\t Number of Support Nodes = " << supportNodesSize << endl;
 
         shapeFun->calc();
     }
