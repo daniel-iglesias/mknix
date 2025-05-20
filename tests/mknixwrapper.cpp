@@ -18,42 +18,20 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
 
-#include <iostream>
-#include <fstream>
-#include <sstream>
+#include <simulation/mknixWrapper.h>
 
-#include <simulation/simulation.h>
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <vector>
+
+#include "LMX/lmx.h"
 
 using namespace std;
-
-class MknixWraper
-{
-    mknix::Simulation theSimulation;
-    
-    public:
-        MknixWraper(){};
-        void config(char* input_file_name, int output_detail)
-        {
-                theSimulation.setOutputFilesDetail(output_detail); 
-                theSimulation.inputFromFile(input_file_name);
-
-        };
-        void init(double temperatures)
-        {
-            theSimulation.setInitialTemperatures(temperatures);
-            theSimulation.init();
-        }
-        void run( double* heatFluence, double* temperatures)
-        {
-            theSimulation.solveStep(heatFluence, temperatures);;
-        }
-
-};
 
 std::vector<std::vector<double> > transpose(const std::vector<std::vector<double> >& data) {
     // this assumes that all inner vectors have the same size and
@@ -175,8 +153,7 @@ int main(int argc, char * argv[])
         std::vector<double*> signals;
         std::vector<std::vector<double>> transposed_data = transpose(data);
 
-        MknixWraper simulationWrapper;
-        simulationWrapper.config( argv[1], output_files_detail );
+        mknix::MknixWrapper simulationWrapper(argv[1], output_files_detail);
         simulationWrapper.init( initialTemperature );
         for(int i = 0; i < steps; ++i){
             temperatures.push_back( new double[4] );
