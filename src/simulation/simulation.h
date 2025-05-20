@@ -78,7 +78,7 @@ public:
 
     Simulation& operator=(const Simulation&) = delete;
 
-    void inputFromFile(std::string fileIn);
+    void inputFromFile(const std::string& fileIn);
 
     size_t getInterfaceNumberOfNodes(const std::string& name) const;
 
