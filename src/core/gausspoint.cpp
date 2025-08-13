@@ -112,23 +112,30 @@ void GaussPoint::computeCij()
     int j;
 //   cout << mat->getDensity() << " " << mat->getCapacity() << " = density, capacity" << endl;
 //     C.reset();
-    // TODO: Select between lumped and consistent matrices as an input option
+//    TODO: Select between lumped and consistent matrices as an input option
     for (auto i = 0u; i < supportNodesSize; ++i)
     {
-//         for (j=0; j<supportNodesSize; ++j) {
-//             C.writeElement( avgFactor * shapeFun->getPhi(0,i) * shapeFun->getPhi(0,j), i, j );
-//         }
+        for (j=0; j<supportNodesSize; ++j) {
+/////////////////////////////////
+// Consistent Matrix option:   //
+// Not reliable for coarse     //
+// meshes, check for negative  //
+// temperatures and refine     //
+/////////////////////////////////
+            C.writeElement( avgFactor * shapeFun->getPhi(0,i) * shapeFun->getPhi(0,j), i, j );
+        }
 /////////////////////////////////
 // Do not use Lumped in ALICIA //
+// It is also  buggy for 3D... //
 /////////////////////////////////
-// Lumped matrix:
-//          C.addElement( mat->getDensity() * mat->getCapacity() * weight * shapeFun->getPhi(0,i)
-//                             * shapeFun->getPhi(0,j) * std::abs(jacobian), i, i );
-//         }
+// Lumped matrix (bug?):
+        //  C.addElement( mat->getDensity() * mat->getCapacity() * weight * shapeFun->getPhi(0,i)
+        //                     * shapeFun->getPhi(0,j) * std::abs(jacobian), i, i );
+        // }
 // Faster lumped matrix:
-        C.writeElement(
-            mat->getDensity() * mat->getCapacity(supportNodes[i]->getTemp()) * weight * shapeFun->getPhi(0, i)
-            * std::abs(jacobian), i, i);
+        // C.writeElement(
+        //     mat->getDensity() * mat->getCapacity(supportNodes[i]->getTemp()) * weight * shapeFun->getPhi(0, i)
+        //     * std::abs(jacobian), i, i);
 // 	  cout << i << "," << j << " = "
 // 	       << mat->getDensity() << "*"
 // 	       << mat->getCapacity() << "*"
@@ -238,6 +245,7 @@ void GaussPoint::assembleCij(lmx::Matrix<data_type>& globalCapacity)
                                      );
         }
     }
+//    cout << globalCapacity << endl;
 }
 
 void GaussPoint::assembleHij(lmx::Matrix<data_type>& globalConductivity)
@@ -252,6 +260,7 @@ void GaussPoint::assembleHij(lmx::Matrix<data_type>& globalConductivity)
                                          );
         }
     }
+//    cout << globalConductivity << endl;
 }
 
 void GaussPoint::assembleQext(lmx::Vector<data_type>& globalHeat)

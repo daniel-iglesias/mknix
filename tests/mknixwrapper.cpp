@@ -159,10 +159,10 @@ int main(int argc, char * argv[])
             temperatures.push_back( new double[4] );
             signals.push_back( transposed_data[2*i+2].data() );
             cout << "Temperature: " << endl;
-            printLastVector( temperatures, 4 );
             cout << "Heat signal: " << endl;
             printLastVector( signals, data.size() );
             simulationWrapper.run( signals.back(), temperatures.back() );
+            printLastVector( temperatures, 4 );
         }
         // Cleaning up: delete allocated memory for output temperatures
         for (auto& ptr : temperatures) {
