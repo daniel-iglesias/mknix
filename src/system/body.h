@@ -96,6 +96,8 @@ public:
 
     virtual void outputToFile(std::ofstream*);
 
+    void outputVTK( );
+
     virtual void addNode(Node* node_in)
     {
         this->nodes.push_back(node_in);

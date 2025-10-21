@@ -597,6 +597,7 @@ void Simulation::writeSystem()
 
 }
 
+
 void Simulation::staticThermalResidue(lmx::Vector<data_type>& residue,
                                       lmx::Vector<data_type>& q
                                      )

@@ -287,6 +287,7 @@ private:
     lmx::DenseMatrix<data_type> globalSparsePattern;
 
     std::ofstream outFile;
+    std::ofstream outFileVTK;
 
     static lmx::Vector<double> gravity;
     static double alpha;

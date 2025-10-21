@@ -1,6 +1,6 @@
-project (MkniX)
+cmake_minimum_required(VERSION 3.5)
 
-cmake_minimum_required(VERSION 2.8.8)
+project (MkniX)
 
 include(CPack)
 
@@ -11,6 +11,37 @@ elseif(WIN32)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Wall /DMKNIX_EXPORT /D_SCL_SECURE_NO_DEPRECATE /D_CRT_SECURE_NO_WARNINGS /Qopenmp")
   set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /Wall /D_SCL_SECURE_NO_DEPRECATE /D_CRT_SECURE_NO_WARNINGS /DMKNIX_EXPORT")
 endif()
+
+option(USE_VTK "Enable VTK features within MkniX" OFF)
+
+if(UNIX)
+  add_definitions(-DHAVE_GMM)
+  if(USE_VTK)
+    add_definitions(-DHAVE_VTK)
+  endif(USE_VTK)
+elseif(WIN32)
+  add_definitions(/DHAVE_GMM)
+  if(USE_VTK)
+    add_definitions(/DHAVE_VTK)
+  endif(USE_VTK)
+endif()
+
+include_directories(SYSTEM ${LMX_INCLUDE_DIR} ${LMX_INCLUDE_DIR}/LMX)
+include_directories(SYSTEM ${GMM_INCLUDE_DIR})
+
+if(USE_VTK)
+  FIND_PACKAGE(VTK REQUIRED)
+  IF(VTK_FOUND)
+    INCLUDE(${VTK_USE_FILE})
+    INCLUDE_DIRECTORIES(${VTK_INCLUDE_DIR})
+    option(VTK_LEGACY_REMOVE "Remove all legacy code completely." ON)
+    option(VTK_LEGACY_SILENT "Silence all legacy code messages." ON)
+    mark_as_advanced(VTK_LEGACY_REMOVE VTK_LEGACY_SILENT)
+    message(STATUS "VTK wants to link: ${VTK_LIBRARIES}")
+  ELSE(VTK_FOUND)
+    MESSAGE(FATAL_ERROR "Please set VTK_DIR.")
+  ENDIF(VTK_FOUND)
+endif(USE_VTK)
 
 add_subdirectory(src)
 add_subdirectory(tests)

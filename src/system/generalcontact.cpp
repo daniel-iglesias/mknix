@@ -18,7 +18,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#ifdef USE_VTK
+#ifdef HAVE_VTK
 
 #include "generalcontact.h"
 #include "constraintcontact.h"
@@ -69,15 +69,22 @@ void Contact::createPoints()
 //    cout<<" outfile.bad() = "<<outfile.bad()<<endl;
 //    cout<<" outfile.good() = "<<outfile.good()<<endl;
     outfile.open("boundary_nodes");
-    theSimulation->baseSystem->writeBoundaryNodes( nodes );
+    
+    // Convert Node* to Point*
+    std::vector<Point*> pointBoundaryNodes;
+    for (Node* node : nodes) {
+        pointBoundaryNodes.push_back(static_cast<Point*>(node));
+    }
+
+    theSimulation->baseSystem->writeBoundaryNodes( pointBoundaryNodes );
 //     cout << "Contact Points: " << nodes.size() << endl;
 
     for(size_type i=0; i<nodes.size(); ++i)
     {
         points->InsertPoint(i,
-                            nodes[i]->getx(),
-                            nodes[i]->gety(),
-                            nodes[i]->getz()
+                            nodes[i]->getqx(0),
+                            nodes[i]->getqx(1),
+                            nodes[i]->getqx(2)
                            );
         mapNodes[nodes[i]->getNumber()] = i;
 //      cout<<" outfile.is_open() = "<<outfile.is_open()<<endl;
@@ -86,11 +93,11 @@ void Contact::createPoints()
 //      cout<<" outfile.good() = "<<outfile.good()<<endl;
         outfile << nodes[i]->getNumber() << "(";
 //      cout<<"nodes[i]->getNumber() = " <<nodes[i]->getNumber()<< endl;
-//      cout<<"nodes[i]->getx() = " <<nodes[i]->getx()<< endl;
-//      cout<<"nodes[i]->gety() = " <<nodes[i]->gety()<< endl;
-        outfile << nodes[i]->getx() <<","
-                << nodes[i]->gety() <<","
-                //<< nodes[i]->getz() << ")"
+//      cout<<"nodes[i]->getqx(0) = " <<nodes[i]->getqx(0)<< endl;
+//      cout<<"nodes[i]->getqx(1) = " <<nodes[i]->getqx(1)<< endl;
+        outfile << nodes[i]->getqx(0) <<","
+                << nodes[i]->getqx(1) <<","
+                //<< nodes[i]->getqx(2) << ")"
                 << endl;
 //      cout << "OK! " << i << endl;
 //      points->GetData()->Print( cout);
@@ -139,9 +146,9 @@ void Contact::updatePoints()
     for(size_type i=0; i<nodes.size(); ++i)
     {
         points->SetPoint(   i,
-                            nodes[i]->getx(),
-                            nodes[i]->gety(),
-                            nodes[i]->getz()
+                            nodes[i]->getqx(0),
+                            nodes[i]->getqx(1),
+                            nodes[i]->getqx(2)
                         );
     }
 //  boundary_first_number = points->GetData()->GetMaxId() + 1;
@@ -180,7 +187,22 @@ void Contact::updatePoints()
 void Contact::createPolys()
 {
     polys = vtkCellArray::New();
-    theSimulation->baseSystem->writeBoundaryConnectivity( boundaries );
+
+    std::vector<std::vector<Point*>> pointConnectivity;
+    pointConnectivity.reserve(boundaries.size());
+    // Convert Node* to Point*
+    for (const auto& nodeVec : boundaries)
+    {
+        std::vector<Point*> pointVec;
+        pointVec.reserve(nodeVec.size());
+
+        for (Node* node : nodeVec)
+        {
+            pointVec.push_back(static_cast<Point*>(node));
+        }
+        pointConnectivity.push_back(std::move(pointVec));
+    }
+    theSimulation->baseSystem->writeBoundaryConnectivity( pointConnectivity );
 
     //boundary:
     polys->InsertNextCell( 4 );
@@ -209,9 +231,9 @@ void Contact::createPolys()
 //         cout << "Node A:" << (*it_nodes)->getNumber() << cout.flush();
             polys->InsertCellPoint( mapNodes[(*it_nodes)->getNumber()] );
             outfile << (*it_nodes)->getNumber() << " "
-                    << (*it_nodes)->getx() << " "
-                    << (*it_nodes)->gety() << " "
-                    << (*it_nodes)->getz() << endl;
+                    << (*it_nodes)->getqx(0) << " "
+                    << (*it_nodes)->getqx(1) << " "
+                    << (*it_nodes)->getqx(2) << endl;
         }
         outfile << endl;
     }
@@ -480,8 +502,8 @@ void Contact::createDelaunay()
 {
     delny = vtkDelaunay2D::New();
     delny->SetAlpha(alpha);
-    delny->SetInput(polyData);
-    delny->SetSource(polyData);
+    delny->SetInputData(polyData);
+    delny->SetSourceData(polyData);
     delny->Update();
     delnyData = vtkPolyData::New();
     delnyData = delny->GetOutput();
@@ -499,8 +521,8 @@ void Contact::updateDelaunay()
     delny->Delete();
     delny = vtkDelaunay2D::New();
     delny->SetAlpha(alpha);
-    delny->SetInput(polyData);
-    delny->SetSource(polyData);
+    delny->SetInputData(polyData);
+    delny->SetSourceData(polyData);
     delny->Update();
     delnyData = delny->GetOutput();
 
@@ -521,7 +543,8 @@ void Contact::createDrawingObjects()
     psw = vtkJPEGWriter::New();
     renWin->AddRenderer(ren);
     w2if->SetInput(renWin);
-    psw->SetInput(w2if->GetOutput());
+    w2if->Update();  // Ensure the filter is updated before writing
+    psw->SetInputConnection(w2if->GetOutputPort());
 //    vtkRenderWindowInteractor* iren = vtkRenderWindowInteractor::New();
 //    iren->SetRenderWindow(renWin);
     std::vector<CompBar*>::iterator it_bars;
@@ -600,4 +623,4 @@ void Contact::drawObjects()
 
 }
 
-#endif // USE_VTK
+#endif // HAVE_VTK

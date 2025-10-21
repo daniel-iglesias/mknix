@@ -18,7 +18,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#ifdef USE_VTK
+#ifdef HAVE_VTK
 
 #include "node.h"
 #include "compbar.h"
@@ -46,9 +46,9 @@ CompBar::CompBar(int mat_in, Node * nodeA_in, Node *nodeB_in)
     , nodeB(nodeB_in)
 {
     double length;
-    length = std::sqrt( std::pow(nodeA->getx()-nodeB->getx(), 2) +
-                        std::pow(nodeA->gety()-nodeB->gety(), 2) +
-                        std::pow(nodeA->getz()-nodeB->getz(), 2) );
+    length = std::sqrt( std::pow(nodeA->getqx(0)-nodeB->getqx(0), 2) +
+                        std::pow(nodeA->getqx(1)-nodeB->getqx(1), 2) +
+                        std::pow(nodeA->getqx(2)-nodeB->getqx(2), 2) );
     line = vtkLineSource::New();
     line->SetResolution(10);
 
@@ -74,13 +74,13 @@ CompBar::~CompBar()
 
 void CompBar::updatePoints()
 {
-    line->SetPoint1(nodeA->getx(),
-                    nodeA->gety(),
-                    nodeA->getz()
+    line->SetPoint1(nodeA->getqx(0),
+                    nodeA->getqx(1),
+                    nodeA->getqx(2)
                    );
-    line->SetPoint2(nodeB->getx(),
-                    nodeB->gety(),
-                    nodeB->getz()
+    line->SetPoint2(nodeB->getqx(0),
+                    nodeB->getqx(1),
+                    nodeB->getqx(2)
                    );
 }
 
@@ -97,4 +97,4 @@ void CompBar::removeFromRender(vtkRenderer * renderer_in)
 
 }
 
-#endif // USE_VTK
+#endif // HAVE_VTK

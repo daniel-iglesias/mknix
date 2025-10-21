@@ -21,6 +21,21 @@
 
 #include <core/cell.h>
 
+#include <sys/stat.h>
+#include <sys/types.h>
+
+#ifdef HAVE_VTK
+#include <vtkPoints.h>
+#include <vtkPointData.h>
+#include <vtkFloatArray.h>
+#include <vtkSmartPointer.h>
+#include <vtkUnstructuredGrid.h>
+#include <vtkVertex.h>
+#include <vtkXMLUnstructuredGridWriter.h>
+#include <vtkTetra.h>
+#include <vtkTriangle.h>
+#endif 
+
 namespace mknix
 {
 
@@ -334,6 +349,142 @@ void Body::outputToFile(std::ofstream * outFile)
             *outFile << endl;
         }
     }
+    outputVTK();
+}
+
+/**
+ * @brief Prepare for saving VTK files.
+ *
+ * @return void
+ **/
+void Body::outputVTK( )
+{
+#ifdef HAVE_VTK
+    // Create VTK file for visualization
+    std::stringstream ss;
+    ss << this->title << ".vtu";
+    auto outFileNameVTK = ss.str();
+
+    std::string outputDir = "./" + this->title + "/";
+
+   // Check and create output directory if needed
+    struct stat info;
+    if (stat(outputDir.c_str(), &info) != 0) {
+        if (mkdir(outputDir.c_str(), 0777) != 0) {
+            std::cerr << "Error: Cannot create directory " << outputDir << ": " << std::strerror(errno) << std::endl;
+            return;
+        }
+    } else if (!(info.st_mode & S_IFDIR)) {
+        std::cerr << "Error: " << outputDir << " exists but is not a directory." << std::endl;
+        return;
+    }
+
+
+    // Save nodes in VTK variables 
+    vtkPoints * vtkpoints = vtkPoints::New();
+    
+    // Create an unstructured grid and add points
+    vtkSmartPointer<vtkUnstructuredGrid> uGrid = vtkSmartPointer<vtkUnstructuredGrid>::New();
+
+    // Create an the writer
+    vtkSmartPointer<vtkXMLUnstructuredGridWriter> writer = vtkSmartPointer<vtkXMLUnstructuredGridWriter>::New();
+
+    cout << "VTK OUTPUT: Initial configuration." << endl;
+    for (auto& point : nodes)
+    {
+        vtkpoints->InsertNextPoint(point->getConf(0),
+                                point->getConf(1),
+                                point->getConf(2));
+    }
+
+    // TBD : Save mesh in VTK cells variables
+    // baseSystem->writeFlexBodies(&outFile);
+
+    uGrid->SetPoints(vtkpoints);
+
+    for (auto& cell : cells) {
+        std::vector<int> nodeNumbers = cell.second->getNodeNumbers();
+        // Create a VTK cell (e.g., tetrahedron, hexahedron) based on nodeNumbers
+        // This part depends on the type of cell and needs to be implemented accordingly
+        // We assume it's a TETRA cell for the moment:
+        if ( nodeNumbers.size() == 4 ) {
+            vtkSmartPointer<vtkTetra> quad = vtkSmartPointer<vtkTetra>::New();
+            for (vtkIdType i = 0; i < nodeNumbers.size(); ++i) {
+                quad->GetPointIds()->SetId(i, nodeNumbers[i]);
+            }
+            uGrid->InsertNextCell(quad->GetCellType(), quad->GetPointIds());
+        }
+        else if ( nodeNumbers.size() == 3 ) {
+            // Handle triangle case
+            // Similar to tetrahedron, but using vtkTriangle
+            vtkSmartPointer<vtkTriangle> triangle = vtkSmartPointer<vtkTriangle>::New();
+            for (vtkIdType i = 0; i < nodeNumbers.size(); ++i) {
+                triangle->GetPointIds()->SetId(i, nodeNumbers[i]);
+            }
+            uGrid->InsertNextCell(triangle->GetCellType(), triangle->GetPointIds());
+        }
+    }
+    std::vector<std::pair<int, std::string>> pvd_entries;
+    int t=0;
+    for (auto& temp : temperature)
+    {
+        // Create temperature array
+        vtkSmartPointer<vtkFloatArray> temperature = vtkSmartPointer<vtkFloatArray>::New();
+        temperature->SetName("Temperature");
+        temperature->SetNumberOfComponents(1);
+        auto  vectorSize = temp->size();
+        temperature->SetNumberOfTuples(vectorSize);
+        for (auto i = 0u; i < vectorSize; ++i) {
+            temperature->SetValue(i, temp->readElement(i));
+        }
+
+        uGrid->GetPointData()->SetScalars(temperature);
+
+        // Format filename
+        std::ostringstream filename;
+        filename << "step_" << std::setw(3) << std::setfill('0') << t << ".vtu";
+        std::string filepath = "./" + this->title + "/" + filename.str();
+
+        // Write .vtu file
+        vtkSmartPointer<vtkXMLUnstructuredGridWriter> writer = vtkSmartPointer<vtkXMLUnstructuredGridWriter>::New();
+        writer->SetFileName(filepath.c_str());
+        writer->SetInputData(uGrid);
+        writer->Write();
+
+        pvd_entries.emplace_back(t, filename.str());
+        
+        ++t;
+    }
+
+    // Write to VTU file
+    writer->SetFileName(outFileNameVTK.c_str());
+    writer->SetInputData(uGrid);
+    writer->Write();
+
+    // Write .pvd file
+    std::string pvd_filename = outputDir + "/output.pvd";
+    std::ofstream pvd_file(pvd_filename.c_str());
+    if (!pvd_file) {
+        std::cerr << "Error: Could not open " << pvd_filename << " for writing." << std::endl;
+        return;
+    }
+
+    pvd_file << "<?xml version=\"1.0\"?>\n";
+    pvd_file << "<VTKFile type=\"Collection\" version=\"0.1\" byte_order=\"LittleEndian\">\n";
+    pvd_file << "  <Collection>\n";
+
+    for (size_t i = 0; i < pvd_entries.size(); ++i) {
+        pvd_file << "    <DataSet timestep=\"" << pvd_entries[i].first
+                << "\" group=\"\" part=\"0\" file=\"" << pvd_entries[i].second << "\"/>\n";
+    }
+
+    pvd_file << "  </Collection>\n";
+    pvd_file << "</VTKFile>\n";
+    pvd_file.close();
+
+
+    
+#endif
 }
 
 void Body::addBoundaryConnectivity(std::vector<int> connectivity_in)

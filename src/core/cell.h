@@ -117,6 +117,13 @@ public:
 
     void gnuplotOutStress( std::ofstream& );
 
+    std::vector<int> getNodeNumbers();
+
+    int getNumberofNodes()
+    {
+        return bodyPoints.size();
+    }
+
 protected:
     Material* mat;
     std::string formulation;

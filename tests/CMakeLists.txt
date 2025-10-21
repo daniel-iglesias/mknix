@@ -1,5 +1,3 @@
-cmake_minimum_required(VERSION 2.8.8)
-
 enable_testing()
 
 set(LMX_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/LMX-1.0/src)
@@ -10,10 +8,10 @@ include_directories(${LMX_INCLUDE_DIR})
 include_directories(${GMM_INCLUDE_DIR})
 
 add_executable(mknixrunner mknix.cpp)
-target_link_libraries(mknixrunner mknix)
+target_link_libraries(mknixrunner ${VTK_LIBRARIES} mknix)
 
 add_executable(mknixwrapper mknixwrapper.cpp)
-target_link_libraries(mknixwrapper mknix)
+target_link_libraries(mknixwrapper ${VTK_LIBRARIES} mknix )
 
 include(mknix_test.cmake)
 

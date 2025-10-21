@@ -340,4 +340,15 @@ void Cell::gnuplotOutStress(std::ofstream& gptension)
     }
 }
 
+std::vector<int> Cell::getNodeNumbers()
+{
+    std::vector<int> nodeNumbers;
+    for (auto& point : bodyPoints)
+    {
+        nodeNumbers.push_back( point->getNumber() );
+    }
+    return nodeNumbers;
+}
+
+
 } //Namespace mknix
