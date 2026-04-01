@@ -45,6 +45,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <algorithm>
 
 namespace
 {
@@ -864,7 +865,6 @@ void mknix::Reader::readLoads(System * system_in)
         {
             std::string sBody, sOption, sValue;
             char a;
-            double distance, loadValue;
             input >> sBody >> sOption;
             cout << "in THERMALBODY" << sBody << endl;
             LoadThermalBody* theLoad = new LoadThermalBody();
@@ -879,11 +879,58 @@ void mknix::Reader::readLoads(System * system_in)
                 input >> sValue;
                 output << "\t FILE: " << sValue << endl;
                 std::ifstream loadfile(sValue); // file to read points from
-                while (loadfile >> distance)
+                std::string loadLine;
+                std::vector<std::vector<double>> rows;
+                while (std::getline(loadfile, loadLine))
                 {
-                    loadfile >> loadValue;
-                    theLoad->addLoad(distance, loadValue);
-                    output << '\t' << "DISTANCE:" << distance << ", \t" << loadValue << endl;
+                    const auto values = doubles_in_vector(loadLine);
+                    if (!values.empty())
+                    {
+                        rows.push_back(values);
+                    }
+                }
+
+                bool is1D = !rows.empty();
+                for (const auto& row : rows)
+                {
+                    if (row.size() != 2)
+                    {
+                        is1D = false;
+                        break;
+                    }
+                }
+
+                if (is1D)
+                {
+                    for (const auto& row : rows)
+                    {
+                        theLoad->addLoad(row[0], row[1]);
+                        output << '\t' << "DISTANCE:" << row[0] << ", \t" << row[1] << endl;
+                    }
+                }
+                else if (rows.size() >= 2 && rows.front().size() >= 2)
+                {
+                    // 2D regular-grid format: row 0 contains key2 values,
+                    // column 0 contains key1 values, and element (0,0) is ignored.
+                    const std::vector<double> key2Values(rows.front().begin() + 1, rows.front().end());
+                    for (std::size_t r = 1; r < rows.size(); ++r)
+                    {
+                        const auto& row = rows[r];
+                        if (row.size() < 2)
+                        {
+                            continue;
+                        }
+
+                        const double key1 = row[0];
+                        const std::size_t cols = std::min(key2Values.size(), row.size() - 1);
+                        for (std::size_t c = 0; c < cols; ++c)
+                        {
+                            theLoad->addLoad(key1, key2Values[c], row[c + 1]);
+                            output << '\t' << "K1:" << key1
+                                   << ", \tK2:" << key2Values[c]
+                                   << ", \t" << row[c + 1] << endl;
+                        }
+                    }
                 }
                 do
                 {

@@ -55,10 +55,16 @@ public:
         m_source[distance_in] = load_in;
     }
 
+    void addLoad( double key1_in, double key2_in, double load_in )
+    {
+        m_source2D[key1_in][key2_in] = load_in;
+    }
+
 
 protected:
     double constantSouce;
     std::map<double, double> m_source;
+    std::map<double, std::map<double, double>> m_source2D;
 };
 
 }

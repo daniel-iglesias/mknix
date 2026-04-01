@@ -26,6 +26,7 @@ namespace mknix
 {
 
 LoadThermalBody::LoadThermalBody()
+    : constantSouce(0.)
 {
 }
 
@@ -35,8 +36,17 @@ LoadThermalBody::~LoadThermalBody( /*double , double, double*/ )
 
 double LoadThermalBody::getLoadThermalBody( Point* point_in )
 {
-    if (m_source.empty()) return constantSouce;
-    else return interpolate1D(point_in->getX(), m_source);;
+    if (!m_source2D.empty())
+    {
+        return interpolate2D(point_in->getX(), point_in->getY(), m_source2D);
+    }
+
+    if (!m_source.empty())
+    {
+        return interpolate1D(point_in->getX(), m_source);
+    }
+
+    return constantSouce;
 }
 
 }

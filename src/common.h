@@ -38,6 +38,9 @@ namespace mknix
 typedef double data_type;
 
 double interpolate1D( double, const std::map<double,double>& );
+double interpolate2D(double key1,
+                     double key2,
+                     const std::map<double, std::map<double, double>>& the2DMap);
 
 /*!
  * Stand-in for std::make_unique included in C++14

@@ -42,6 +42,52 @@ double interpolate1D(double key, const std::map<double, double>& theMap)
     return (delta * i->second + (1 - delta) * l->second);
 }
 
+double interpolate2D(
+    double key1,
+    double key2,
+    const std::map<double, std::map<double, double>>& the2DMap)
+{
+    typedef std::map<double, std::map<double, double>>::const_iterator i2_t;
+
+    if (the2DMap.empty())
+    {
+        return 0.0;
+    }
+
+    i2_t i = the2DMap.upper_bound(key1);
+    if (i == the2DMap.end())
+    {
+        --i;
+        if (i->second.empty())
+        {
+            return 0.0;
+        }
+        return interpolate1D(key2, i->second);
+    }
+    if (i == the2DMap.begin())
+    {
+        if (i->second.empty())
+        {
+            return 0.0;
+        }
+        return interpolate1D(key2, i->second);
+    }
+
+    i2_t l = i;
+    --l;
+
+    const double vL = l->second.empty() ? 0.0 : interpolate1D(key2, l->second);
+    const double vU = i->second.empty() ? vL : interpolate1D(key2, i->second);
+
+    if (i->first == l->first)
+    {
+        return vL;
+    }
+
+    const double delta = (key1 - l->first) / (i->first - l->first);
+    return (delta * vU + (1.0 - delta) * vL);
+}
+
 
 boxFIR::boxFIR(int _numCoeffs) :
     numCoeffs(_numCoeffs * 2)
