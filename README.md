@@ -36,7 +36,13 @@ ctest
 
 ## Usage
 
-TODO: Write some usage instructions
+Run MkniX with an input file as the sole argument:
+
+```
+mknix <input_file.mknix>
+```
+
+For a full description of the input file format and all available commands (materials, rigid/flexible bodies, joints, loads, motion, signals, and analysis types), see [doc/input_manual.md](doc/input_manual.md).
 
 ## License
 
