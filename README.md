@@ -1,6 +1,8 @@
 # MkniX
 
-TODO: Write a project description
+MkniX is a simulation library for nonlinear thermo-mechanical multibody systems using FEM and mesh-free methods. It includes as well a standalone executable for forward simulations, and is used in other projects for such as [WHAM](https://github.com/daniel-iglesias/wham) and [ALICIA](https://github.com/daniel-iglesias/alicia) for real-time and inverse thermal operational monitoring, respectively. 
+
+For details on the formulation, applications and benchmarking, you can consult the author's [PhD Thesis [1]](https://oa.upm.es/39121/1/Daniel_Iglesias_Ibanez.pdf). Please use any of the references bellow for citing this work.
 
 ## Installation
 
@@ -43,6 +45,15 @@ mknix <input_file.mknix>
 ```
 
 For a full description of the input file format and all available commands (materials, rigid/flexible bodies, joints, loads, motion, signals, and analysis types), see [doc/input_manual.md](doc/input_manual.md).
+
+## References
+[1] Iglesias, Daniel. On the application of meshfree methods to the nonlinear dynamics of multibody systems, 2017. [doi: 10.20868/upm.thesis.39121](https://doi.org/10.20868/upm.thesis.39121)
+
+[2] Iglesias, D., García Orden, J.C. Galerkin meshfree methods applied to the nonlinear dynamics of flexible multibody systems. Multibody Syst Dyn 25, 203–224 (2011). [doi: 10.1007/s11044-010-9224-9](https://doi.org/10.1007/s11044-010-9224-9).
+
+[3] D. Iglesias, J. C. García Orden, B. Brañas, J.M. Carmona, J. Molla. Application of Galerkin meshfree methods to nonlinear thermo-mechanical simulation
+of solids under extremely high pulsed loading, Fusion Engineering and Design, Vol.
+88(9-10), 2744–2747, 2013. [doi: 10.1016/j.fusengdes.2013.02.158](https://doi.org/10.1016/j.fusengdes.2013.02.158)
 
 ## License
 
