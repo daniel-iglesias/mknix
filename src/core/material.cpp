@@ -34,6 +34,7 @@ Material::Material()
     , resistance(0)
     , fluid_temperature(0)
     , b_porous(false)
+    , m_resistanceCoords("x")
 {
 }
 
@@ -43,8 +44,49 @@ Material::~Material()
 
 double Material::getPorosityResistance(Point* point_in)
 {
-    if (m_resistance.empty()) return resistance;
-    else return interpolate1D(point_in->getX(), m_resistance);;
+    if (m_resistance.empty() && m_resistance2D.empty())
+    {
+        return resistance;
+    }
+
+    if (m_resistanceCoords == "xy")
+    {
+        if (!m_resistance2D.empty())
+        {
+            return interpolate2D(point_in->getX(), point_in->getY(), m_resistance2D);
+        }
+        return m_resistance.empty() ? resistance : interpolate1D(point_in->getX(), m_resistance);
+    }
+
+    if (m_resistanceCoords == "xz")
+    {
+        if (!m_resistance2D.empty())
+        {
+            return interpolate2D(point_in->getX(), point_in->getZ(), m_resistance2D);
+        }
+        return m_resistance.empty() ? resistance : interpolate1D(point_in->getX(), m_resistance);
+    }
+
+    if (m_resistanceCoords == "yz")
+    {
+        if (!m_resistance2D.empty())
+        {
+            return interpolate2D(point_in->getY(), point_in->getZ(), m_resistance2D);
+        }
+        return m_resistance.empty() ? resistance : interpolate1D(point_in->getY(), m_resistance);
+    }
+
+    if (m_resistanceCoords == "y")
+    {
+        return m_resistance.empty() ? resistance : interpolate1D(point_in->getY(), m_resistance);
+    }
+
+    if (m_resistanceCoords == "z")
+    {
+        return m_resistance.empty() ? resistance : interpolate1D(point_in->getZ(), m_resistance);
+    }
+
+    return m_resistance.empty() ? resistance : interpolate1D(point_in->getX(), m_resistance);
 }
 
 

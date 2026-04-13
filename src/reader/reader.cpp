@@ -382,25 +382,100 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
                         {
                             int num_mat;
                             double distance, resistance;
-                            input >> num_mat >> keyword;
+                            input >> num_mat;
+
+                            std::string resistanceFile;
+                            std::string resistanceCoords("x");
+                            std::string optionsLine;
+                            std::getline(input, optionsLine);
+                            std::stringstream optionStream(optionsLine);
+                            std::string optionKeyword;
+                            while (optionStream >> optionKeyword)
+                            {
+                                if (optionKeyword == "COORDS")
+                                {
+                                    optionStream >> resistanceCoords;
+                                }
+                                else if (resistanceFile.empty())
+                                {
+                                    resistanceFile = optionKeyword;
+                                }
+                            }
+
+                            if (resistanceFile.empty())
+                            {
+                                output << "ERROR: RESISTANCE file name not found for material "
+                                       << num_mat << endl;
+                                continue;
+                            }
+
+                            if (resistanceCoords != "x"
+                                && resistanceCoords != "y"
+                                && resistanceCoords != "z"
+                                && resistanceCoords != "xy"
+                                && resistanceCoords != "xz"
+                                && resistanceCoords != "yz")
+                            {
+                                output << "WARNING: invalid COORDS '" << resistanceCoords
+                                       << "' for RESISTANCE. Using default x." << endl;
+                                resistanceCoords = "x";
+                            }
+
                             if (theSimulation->materials.count(num_mat) == 0)
                             {
                                 theSimulation->materials[num_mat];
                             }
-                            output << "THERMALFILE RESISTANCE: " << keyword
-                                   << " for mat # " << num_mat << endl;
-                            std::ifstream thermalfile(keyword); // file to read points from
-                            while (thermalfile >> distance)
+                            theSimulation->materials.at(num_mat).setVariableResistanceCoords(resistanceCoords);
+                            output << "THERMALFILE RESISTANCE: " << resistanceFile
+                                   << " for mat # " << num_mat
+                                   << ", COORDS=" << resistanceCoords << endl;
+
+                            std::ifstream thermalfile(resistanceFile); // file to read points from
+                            if (resistanceCoords == "xy" || resistanceCoords == "xz" || resistanceCoords == "yz")
                             {
-                                thermalfile >> resistance;
-                                theSimulation->materials.at(num_mat).addVariableResistance(distance, resistance);
-                                output << '\t' << "DISTANCE:" << distance << ", \t" << resistance << endl;
+                                std::string line;
+                                std::vector<std::vector<double>> rows;
+                                while (std::getline(thermalfile, line))
+                                {
+                                    const auto values = doubles_in_vector(line);
+                                    if (!values.empty())
+                                    {
+                                        rows.push_back(values);
+                                    }
+                                }
+
+                                if (rows.size() >= 2 && rows.front().size() >= 2)
+                                {
+                                    const std::vector<double> key2Values(rows.front().begin() + 1, rows.front().end());
+                                    for (std::size_t r = 1; r < rows.size(); ++r)
+                                    {
+                                        const auto& row = rows[r];
+                                        if (row.size() < 2)
+                                        {
+                                            continue;
+                                        }
+
+                                        const double key1 = row[0];
+                                        const std::size_t cols = std::min(key2Values.size(), row.size() - 1);
+                                        for (std::size_t c = 0; c < cols; ++c)
+                                        {
+                                            theSimulation->materials.at(num_mat).addVariableResistance(key1, key2Values[c], row[c + 1]);
+                                            output << '\t' << "K1:" << key1
+                                                   << ", \tK2:" << key2Values[c]
+                                                   << ", \t" << row[c + 1] << endl;
+                                        }
+                                    }
+                                }
                             }
-                            do
+                            else
                             {
-                                input.get(a);
+                                while (thermalfile >> distance)
+                                {
+                                    thermalfile >> resistance;
+                                    theSimulation->materials.at(num_mat).addVariableResistance(distance, resistance);
+                                    output << '\t' << "DISTANCE:" << distance << ", \t" << resistance << endl;
+                                }
                             }
-                            while (a != '\n');
                         }
                     }
                 }

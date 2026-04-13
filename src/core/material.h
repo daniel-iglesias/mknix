@@ -48,6 +48,8 @@ private:
     std::map<double, double> m_capacity;
     std::map<double, double> m_kapppa;
     std::map<double, double> m_resistance; /**< Volumetric thermal resistance for porosity formulation, variable with distance. */
+    std::map<double, std::map<double, double>> m_resistance2D; /**< Variable porosity resistance in 2D coordinate tables. */
+    std::string m_resistanceCoords; /**< Coordinate mode used for variable resistance interpolation: x, y, z, xy, xz, yz. */
     lmx::DenseMatrix<double> D; /**< Constitutive Linear */
     lmx::DenseMatrix<double> C; /**< Constitutive Saint-Venant Kirchoff*/
     cofe::TensorRank2Sym<2,double> E;
@@ -115,6 +117,14 @@ public:
     void addVariableResistance( double distance_in, double resistance_in)
     {
         m_resistance[distance_in] = resistance_in;
+    }
+    void addVariableResistance( double key1_in, double key2_in, double resistance_in)
+    {
+        m_resistance2D[key1_in][key2_in] = resistance_in;
+    }
+    void setVariableResistanceCoords(const std::string& coords_in)
+    {
+        m_resistanceCoords = coords_in;
     }
 
     void computeD();

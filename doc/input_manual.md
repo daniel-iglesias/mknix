@@ -134,17 +134,42 @@ POROSITY <mat_id> <Rsl> <T_bulk>
 FILES
   CAPACITY     <mat_id> <filename>
   CONDUCTIVITY <mat_id> <filename>
-  RESISTANCE   <mat_id> <filename>
+  RESISTANCE   <mat_id> <filename> [COORDS <x|y|z|xy|xz|yz>]
+  RESISTANCE   <mat_id> [COORDS <x|y|z|xy|xz|yz>] <filename>
 ENDFILES
 ```
 
-Each file is a two-column, whitespace-separated text file with no header:
+`CAPACITY` and `CONDUCTIVITY` files are two-column, whitespace-separated text files with no header:
 
 | File type | Column 1 | Column 2 |
 |---|---|---|
 | `CAPACITY` | temperature | heat capacity |
 | `CONDUCTIVITY` | temperature | thermal conductivity |
-| `RESISTANCE` | distance | interface thermal resistance |
+
+`RESISTANCE` supports coordinate-dependent interpolation via optional `COORDS`:
+
+- `x`, `y`, `z`: 1D table (two columns: key and resistance)
+- `xy`, `xz`, `yz`: 2D regular grid table
+- Default when omitted: `COORDS x`
+
+For `COORDS x|y|z`, use a two-column file:
+
+| File type | Column 1 | Column 2 |
+|---|---|---|
+| `RESISTANCE` | coordinate value | interface thermal resistance |
+
+For `COORDS xy|xz|yz`, use a regular-grid file:
+
+- Row 1: first value ignored, remaining values are key2 coordinates.
+- Column 1 (rows 2..N): key1 coordinates.
+- Body: resistance values on the `(key1, key2)` grid.
+
+Examples:
+
+```text
+RESISTANCE 1 COORDS xz resistance_xz.txt
+RESISTANCE 2 resistance_y.txt COORDS y
+```
 
 ---
 
