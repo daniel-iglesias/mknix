@@ -21,6 +21,7 @@
 #include "loadthermalbody.h"
 
 #include <core/point.h>
+#include <simulation/simulation.h>
 
 namespace mknix
 {
@@ -34,19 +35,44 @@ LoadThermalBody::~LoadThermalBody( /*double , double, double*/ )
 {
 }
 
+void LoadThermalBody::loadTimeFile(const std::string& fileName)
+{
+    std::ifstream power;
+    power.open(fileName);
+    if (power.is_open())
+    {
+        double t, load;
+        while (power >> t)
+        {
+            power >> load;
+            m_time[t] = load;
+        }
+    }
+    else
+    {
+        cerr << "ERROR: TIME FILE NOT FOUND!!!" << endl;
+    }
+}
+
 double LoadThermalBody::getLoadThermalBody( Point* point_in )
 {
+    double load = constantSouce;
+
     if (!m_source2D.empty())
     {
-        return interpolate2D(point_in->getX(), point_in->getY(), m_source2D);
+        load = interpolate2D(point_in->getX(), point_in->getY(), m_source2D);
     }
-
-    if (!m_source.empty())
+    else if (!m_source.empty())
     {
-        return interpolate1D(point_in->getX(), m_source);
+        load = interpolate1D(point_in->getX(), m_source);
     }
 
-    return constantSouce;
+    if (m_time.empty())
+    {
+        return load;
+    }
+
+    return load * interpolate1D(Simulation::getTime(), m_time);
 }
 
 }

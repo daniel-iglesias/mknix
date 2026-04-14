@@ -936,22 +936,66 @@ void mknix::Reader::readLoads(System * system_in)
                 system_in->outputSignalThermal.push_back(pNode);
             }
         }
-        else if (keyword == "THERMALBODY") // Has an optional file name
+        else if (keyword == "THERMALBODY") // Supports VALUE, FILE and optional TIMEFILE scaling
         {
-            std::string sBody, sOption, sValue;
-            char a;
-            input >> sBody >> sOption;
+            std::string sBody;
+            input >> sBody;
+
+            std::string optionsLine;
+            std::getline(input, optionsLine);
+            std::stringstream options(optionsLine);
+
+            std::string sOption;
+            if (!(options >> sOption))
+            {
+                output << "ERROR: THERMALBODY missing options for body " << sBody << endl;
+                continue;
+            }
+
             cout << "in THERMALBODY" << sBody << endl;
             LoadThermalBody* theLoad = new LoadThermalBody();
             system_in->thermalBodies.at(sBody)->addLoadThermal(theLoad);
             output << "THERMALBODY created in " << sBody << endl;
-            if (sOption == "VALUE")   // we read the second string, either a file or a number
+
+            if (sOption == "VALUE")
             {
-                input >> sValue;
-                theLoad->setConstantValue( std::stod(sValue) ); 
+                std::string sValue;
+                if (options >> sValue)
+                {
+                    theLoad->setConstantValue(std::stod(sValue));
+                }
+                else
+                {
+                    output << "ERROR: THERMALBODY VALUE missing value in " << sBody << endl;
+                }
+
+                std::string token;
+                while (options >> token)
+                {
+                    if (token == "TIMEFILE")
+                    {
+                        std::string timeFile;
+                        if (options >> timeFile)
+                        {
+                            theLoad->loadTimeFile(timeFile);
+                            output << "\t TIMEFILE: " << timeFile << endl;
+                        }
+                        else
+                        {
+                            output << "ERROR: THERMALBODY TIMEFILE missing filename in " << sBody << endl;
+                        }
+                    }
+                }
             }
-            else if (sOption == "FILE"){ // we read the second string, either a file or a number
-                input >> sValue;
+            else if (sOption == "FILE")
+            {
+                std::string sValue;
+                if (!(options >> sValue))
+                {
+                    output << "ERROR: THERMALBODY FILE missing filename in " << sBody << endl;
+                    continue;
+                }
+
                 output << "\t FILE: " << sValue << endl;
                 std::ifstream loadfile(sValue); // file to read points from
                 std::string loadLine;
@@ -1007,11 +1051,43 @@ void mknix::Reader::readLoads(System * system_in)
                         }
                     }
                 }
-                do
+
+                std::string token;
+                while (options >> token)
                 {
-                    input.get(a);
+                    if (token == "TIMEFILE")
+                    {
+                        std::string timeFile;
+                        if (options >> timeFile)
+                        {
+                            theLoad->loadTimeFile(timeFile);
+                            output << "\t TIMEFILE: " << timeFile << endl;
+                        }
+                        else
+                        {
+                            output << "ERROR: THERMALBODY TIMEFILE missing filename in " << sBody << endl;
+                        }
+                    }
                 }
-                while (a != '\n');
+            }
+            else if (sOption == "TIMEFILE")
+            {
+                std::string timeFile;
+                if (options >> timeFile)
+                {
+                    // Allow pure temporal scaling by defaulting the spatial profile to 1.0.
+                    theLoad->setConstantValue(1.0);
+                    theLoad->loadTimeFile(timeFile);
+                    output << "\t TIMEFILE: " << timeFile << endl;
+                }
+                else
+                {
+                    output << "ERROR: THERMALBODY TIMEFILE missing filename in " << sBody << endl;
+                }
+            }
+            else
+            {
+                output << "ERROR: THERMALBODY unknown option '" << sOption << "' in " << sBody << endl;
             }
         }
         else if (keyword == "THERMALFLUX1D")     //Improvement from above

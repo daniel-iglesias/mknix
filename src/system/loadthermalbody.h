@@ -50,6 +50,8 @@ public:
         constantSouce = value_in;
     }
 
+    void loadTimeFile(const std::string& fileName);
+
     void addLoad( double distance_in, double load_in )
     {
         m_source[distance_in] = load_in;
@@ -65,6 +67,7 @@ protected:
     double constantSouce;
     std::map<double, double> m_source;
     std::map<double, std::map<double, double>> m_source2D;
+    std::map<double, double> m_time;
 };
 
 }

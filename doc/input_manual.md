@@ -418,6 +418,7 @@ LOADS
   THERMALOUTPUT   MAX_INTERFACE_TEMP
   THERMALBODY     <bodyName> VALUE <value>
   THERMALBODY     <bodyName> FILE  <filename>
+  THERMALBODY     <bodyName> TIMEFILE <timeFilename>
   THERMALFLUX1D   <body>.<boundaryGroup> ... ENDTHERMALFLUX1D
   RADIATION       ... ENDRADIATION
 ENDLOADS
@@ -457,6 +458,18 @@ The file uses a matrix layout. The first row lists the `key2` coordinate values 
 0.10  1200   1300   1400
 ```
 The parser automatically distinguishes 1-D from 2-D based on the number of columns.
+
+**Optional time scaling (with `VALUE` or `FILE`):**
+```
+THERMALBODY <bodyName> VALUE <value> TIMEFILE <timeFilename>
+THERMALBODY <bodyName> FILE <filename> TIMEFILE <timeFilename>
+```
+
+**Pure time-dependent source:**
+```
+THERMALBODY <bodyName> TIMEFILE <timeFilename>
+```
+`TIMEFILE` is a two-column file: time vs scale factor. For pure time-dependent input, the spatial source defaults to `1.0` and is scaled in time.
 
 ---
 
