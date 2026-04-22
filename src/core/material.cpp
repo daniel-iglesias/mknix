@@ -212,7 +212,7 @@ void Material::computeS(cofe::TensorRank2Sym<2, double>& S,
     E -= one;
     E *= 0.5;
     // Adding thermal expansion
-    one *= beta * temperature_in;
+    one *= getBeta(temperature_in) * temperature_in;
     E -= one;
     one.beUnityTensor();
     // St. Venant Kirchoff:

@@ -47,6 +47,8 @@ private:
     double fluid_temperature; /**< Temperature of the fluid for porosity formulation. */
     std::map<double, double> m_capacity;
     std::map<double, double> m_kapppa;
+    std::map<double, double> m_beta;
+    std::map<double, double> m_density;
     std::map<double, double> m_resistance; /**< Volumetric thermal resistance for porosity formulation, variable with distance. */
     std::map<double, std::map<double, double>> m_resistance2D; /**< Variable porosity resistance in 2D coordinate tables. */
     std::string m_resistanceCoords; /**< Coordinate mode used for variable resistance interpolation: x, y, z, xy, xz, yz. */
@@ -68,9 +70,10 @@ public:
     {
         return poisson;
     }
-    double getDensity()
+    double getDensity(double temp_in=0)
     {
-        return density;
+        if (m_density.empty()) return density;
+        else return interpolate1D(temp_in, m_density);
     }
     double getCapacity(double temp_in=0)
     {
@@ -81,6 +84,11 @@ public:
     {
         if (m_kapppa.empty()) return kappa;
         else return interpolate1D(temp_in, m_kapppa);
+    }
+    double getBeta(double temp_in=0)
+    {
+        if (m_beta.empty()) return beta;
+        else return interpolate1D(temp_in, m_beta);
     }
     lmx::DenseMatrix<double>& getD()
     {
@@ -113,6 +121,14 @@ public:
     void addThermalConductivity( double temp_in, double conductivity_in)
     {
         m_kapppa[temp_in] = conductivity_in;
+    }
+    void addThermalExpansion( double temp_in, double beta_in)
+    {
+        m_beta[temp_in] = beta_in;
+    }
+    void addThermalDensity( double temp_in, double density_in)
+    {
+        m_density[temp_in] = density_in;
     }
     void addVariableResistance( double distance_in, double resistance_in)
     {

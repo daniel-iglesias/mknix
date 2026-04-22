@@ -378,6 +378,54 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
                             }
                             while (a != '\n');
                         }
+                        else if (keyword == "BETA")
+                        {
+                            int num_mat;
+                            double temperature, beta;
+                            input >> num_mat >> keyword;
+                            if (theSimulation->materials.count(num_mat) == 0)
+                            {
+                                theSimulation->materials[num_mat];
+                            }
+                            output << "THERMALFILE BETA: " << keyword
+                                   << " for mat # " << num_mat << endl;
+                            std::ifstream thermalfile(keyword); // file to read points from
+                            while (thermalfile >> temperature)
+                            {
+                                thermalfile >> beta;
+                                theSimulation->materials.at(num_mat).addThermalExpansion(temperature, beta);
+                                output << '\t' << "TEMP:" << temperature << ", \t" << beta << endl;
+                            }
+                            do
+                            {
+                                input.get(a);
+                            }
+                            while (a != '\n');
+                        }
+                        else if (keyword == "DENSITY")
+                        {
+                            int num_mat;
+                            double temperature, density;
+                            input >> num_mat >> keyword;
+                            if (theSimulation->materials.count(num_mat) == 0)
+                            {
+                                theSimulation->materials[num_mat];
+                            }
+                            output << "THERMALFILE DENSITY: " << keyword
+                                   << " for mat # " << num_mat << endl;
+                            std::ifstream thermalfile(keyword); // file to read points from
+                            while (thermalfile >> temperature)
+                            {
+                                thermalfile >> density;
+                                theSimulation->materials.at(num_mat).addThermalDensity(temperature, density);
+                                output << '\t' << "TEMP:" << temperature << ", \t" << density << endl;
+                            }
+                            do
+                            {
+                                input.get(a);
+                            }
+                            while (a != '\n');
+                        }
                         else if (keyword == "RESISTANCE")
                         {
                             int num_mat;

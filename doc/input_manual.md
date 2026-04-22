@@ -134,17 +134,21 @@ POROSITY <mat_id> <Rsl> <T_bulk>
 FILES
   CAPACITY     <mat_id> <filename>
   CONDUCTIVITY <mat_id> <filename>
+  BETA         <mat_id> <filename>
+  DENSITY      <mat_id> <filename>
   RESISTANCE   <mat_id> <filename> [COORDS <x|y|z|xy|xz|yz>]
   RESISTANCE   <mat_id> [COORDS <x|y|z|xy|xz|yz>] <filename>
 ENDFILES
 ```
 
-`CAPACITY` and `CONDUCTIVITY` files are two-column, whitespace-separated text files with no header:
+`CAPACITY`, `CONDUCTIVITY`, `BETA`, and `DENSITY` files are two-column, whitespace-separated text files with no header:
 
 | File type | Column 1 | Column 2 |
 |---|---|---|
 | `CAPACITY` | temperature | heat capacity |
 | `CONDUCTIVITY` | temperature | thermal conductivity |
+| `BETA` | temperature | thermal expansion coefficient |
+| `DENSITY` | temperature | mass density |
 
 `RESISTANCE` supports coordinate-dependent interpolation via optional `COORDS`:
 
@@ -167,6 +171,11 @@ For `COORDS xy|xz|yz`, use a regular-grid file:
 Examples:
 
 ```text
+CAPACITY 1 cp_vs_temp.txt
+CONDUCTIVITY 1 kappa_vs_temp.txt
+BETA 1 beta_vs_temp.txt
+DENSITY 1 density_vs_temp.txt
+
 RESISTANCE 1 COORDS xz resistance_xz.txt
 RESISTANCE 2 resistance_y.txt COORDS y
 ```

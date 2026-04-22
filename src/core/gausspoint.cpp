@@ -105,7 +105,7 @@ void GaussPoint::computeCij()
     {
         avgTemp += supportNodes[i]->getTemp() * shapeFun->getPhi(0, i);
     }
-    double avgFactor = mat->getDensity() * mat->getCapacity(avgTemp) * weight * std::abs(jacobian);
+    double avgFactor = mat->getDensity(avgTemp) * mat->getCapacity(avgTemp) * weight * std::abs(jacobian);
     //////////////// Calculation of Capacity matrix:
     //////////////// M = rho * Cp * wg * N^T * N * |Jc|
     //////////////// Mij = rho * Cp * wg * Ni * Nj * |Jc| = M(i ,j)
