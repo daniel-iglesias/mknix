@@ -397,6 +397,8 @@ JOINTS
   THERMALSPHERICAL <name> ... ENDTHERMALSPHERICAL
 ENDJOINTS
 ```
+The `<name>` field corresponds to a unique joint name defined by the user.
+The ... parts will have the following information: 
 
 All joint types share `NODEA` and `NODEB` sub-commands:
 ```
