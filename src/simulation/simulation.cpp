@@ -173,6 +173,25 @@ void Simulation::setInitialTemperatures(double temp_in)
     initialTemperature = temp_in;
 }
 
+void Simulation::setThermalNodeInitialTemperature(Node* node, double temperature)
+{
+    if (node == nullptr)
+    {
+        return;
+    }
+
+    if (node->getThermalNumber() >= 0)
+    {
+        thermalNodeInitialOverrides[node->getThermalNumber()] = temperature;
+    }
+    else
+    {
+        groundedNodeInitialOverrides[node] = temperature;
+    }
+
+    node->setqt(temperature);
+}
+
 // Part copy of run(), limited to preparation and thermal dynamic analysis
 void Simulation::init(int verbosity)
 {
@@ -207,6 +226,15 @@ lmx::Vector<data_type> Simulation::initThermalSimulation(Analysis* theAnalysis_i
     lmx::Vector<data_type> q(gdlSize);
     q.fillIdentity(initialTemperature);
 
+    for (const auto& thermalOverride : thermalNodeInitialOverrides)
+    {
+        if (thermalOverride.first >= 0
+            && static_cast<std::size_t>(thermalOverride.first) < static_cast<std::size_t>(q.size()))
+        {
+            q(thermalOverride.first) = thermalOverride.second;
+        }
+    }
+
     globalConductivity.resize(gdlSize, gdlSize);
     globalCapacity.resize(gdlSize, gdlSize);
     globalRHSHeat.resize(gdlSize);
@@ -222,6 +250,14 @@ lmx::Vector<data_type> Simulation::initThermalSimulation(Analysis* theAnalysis_i
     for (auto& node : thermalNodes)
     {
         node.second->setqt(q);
+    }
+
+    for (const auto& groundedOverride : groundedNodeInitialOverrides)
+    {
+        if (groundedOverride.first != nullptr)
+        {
+            groundedOverride.first->setqt(groundedOverride.second);
+        }
     }
 
     writeConfStep();

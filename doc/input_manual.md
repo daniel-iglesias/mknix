@@ -406,6 +406,16 @@ NODEA <bodyName>.<nodeId>
 NODEB <bodyName>.<nodeId>
 ```
 Use `GROUND` as the body name to fix a node to the ground frame.
+For grounded joints, write `GROUND` without `.nodeId`:
+```
+NODEA GROUND
+NODEB <bodyName>.<nodeId>
+```
+or
+```
+NODEA <bodyName>.<nodeId>
+NODEB GROUND
+```
 
 ### `AXIS` – additional sub-command
 ```
@@ -416,6 +426,17 @@ DIRECTION <x|y|z>
 ```
 TOLERANCE <value>
 ```
+
+### `THERMALSPHERICAL` – additional sub-command
+`THERMALSPHERICAL` supports an optional initial temperature override:
+```
+TEMPERATURE <value>
+```
+
+If `TEMPERATURE` is provided, it initializes both nodes in that thermal joint with the specified value.
+If omitted, the nodes are initialized using the global `INITIALTEMPERATURE` value.
+
+This initialization is persistent through thermal analysis setup (it is not overwritten by the global thermal initialization step).
 
 ---
 

@@ -116,6 +116,13 @@ public:
 
     void setInitialTemperatures(double);
 
+    void setThermalNodeInitialTemperature(Node* node, double temperature);
+
+    double getInitialTemperature() const
+    {
+        return initialTemperature;
+    }
+
     void solveStep();
 
     void solveStep(double*, double* o_output = 0);
@@ -275,6 +282,8 @@ private:
     int outputFilesDetail;
 
     double initialTemperature;
+    std::map<int, double> thermalNodeInitialOverrides;
+    std::map<Node*, double> groundedNodeInitialOverrides;
     lmx::Matrix<data_type> globalCapacity;
     lmx::Matrix<data_type> globalConductivity;
     lmx::Vector<data_type> globalRHSHeat;
