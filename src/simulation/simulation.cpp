@@ -218,6 +218,12 @@ lmx::Vector<data_type> Simulation::initThermalSimulation(Analysis* theAnalysis_i
     baseSystem->calcCapacityMatrix();
     baseSystem->assembleCapacityMatrix(globalCapacity);
 
+    // Set initial temperatures in nodes:
+    for (auto& node : thermalNodes)
+    {
+        node.second->setqt(q);
+    }
+
     writeConfStep();
 
     if (outputFilesDetail > 1 && theAnalysis->type() == "THERMAL")
