@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2013 by Daniel Iglesias                                 *
- *   http://code.google.com/p/mknix                                        *
+ *   https://github.com/daniel-iglesias/mknix                                        *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
