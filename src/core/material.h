@@ -108,20 +108,7 @@ public:
         return fluid_temperature;
     }
 
-    void update(int convergence)
-    {
-        if (b_porous)
-        {
-            if (convergence == 1)
-            {
-                fluidTempHistory.push_back(fluid_temperature);
-            }
-            else if (convergence == 0)
-            {
-                    fluid_temperature = fluidTempHistory.back();
-            }
-        }
-    }
+    void update(int convergence);
 
     const std::vector<double>& getFluidTempHistory() const
     {

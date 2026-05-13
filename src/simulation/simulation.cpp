@@ -394,11 +394,6 @@ void Simulation::endSimulation()
                 // output extra flexible bodies data...
                 baseSystem->outputToFile(&outFile);
 
-                // output material data...
-                for (auto& mat : materials)
-                {
-                    mat.second.outputToFile(&outFile);
-                }
             }
         }
     }
@@ -499,6 +494,14 @@ void Simulation::runThermalAnalysis(Analysis* theAnalysis_in)
 
             // output extra flexible bodies data...
             baseSystem->outputToFile(&outFile);
+
+            // output material data...
+            outFile << "MATERIALS data:" << endl;
+            for (auto& mat : materials)
+            {
+                outFile << "Material " << mat.first << ": " ;
+                mat.second.outputToFile(&outFile);
+            }
         }
     }
 
@@ -574,6 +577,13 @@ void Simulation::runMechanicalAnalysis(Analysis* theAnalysis_in)
 
             // output extra flexible bodies data...
             baseSystem->outputToFile(&outFile);
+
+            // output material data...
+            outFile << "MATERIALS data:" << endl;
+            for (auto& mat : materials)
+            {
+                mat.second.outputToFile(&outFile);
+            }
         }
     }
 
@@ -871,7 +881,6 @@ bool Simulation::dynamicThermalConvergence(const lmx::Vector<data_type>& q,
             stepTime = time;
             systemOuputStep(q);
 //             baseSystem->clearAugmented();
-            return 1;
         }
     }
     updateMaterials(stepConverged);
@@ -893,7 +902,6 @@ bool Simulation::dynamicThermalConvergenceInThermomechanical(const lmx::Vector<d
         {
             stepTime = time;
             baseSystem->clearAugmented();
-            return 1;
         }
     }
     updateMaterials(stepConverged);
@@ -1051,7 +1059,6 @@ bool Simulation::dynamicConvergence(const lmx::Vector<data_type>& q,
             stepTime = time;
             systemOuputStep(q, qdot);
             baseSystem->clearAugmented();
-            return 1;
         }
     }
     updateMaterials(stepConverged);

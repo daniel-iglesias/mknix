@@ -131,7 +131,7 @@ POROSITY <mat_id> <Rsl> <T_bulk> [porosityCapacity]
 - `porosityCapacity` (optional) – fluid volumetric heat capacity (if provided, fluid temperature is updated dynamically)
 
 **Details:**
-- If `porosityCapacity` is specified (and non-zero), the fluid temperature is automatically updated during the simulation according to the energy balance, using the provided capacity value.
+- If `porosityCapacity` is specified (and non-zero), the fluid temperature is automatically updated during the simulation according to the power balance, using the provided capacity value. *Note* that this porosityCapacity is currently dependant on the time step parameter. This feature is experimental and may be removed in future versions, as this effect should be implemented as a body property, in order to have a proper residual and tangent contributions.
 - If omitted, the fluid temperature remains constant at `T_bulk` (backward compatible with previous input files).
 
 ### `FILES` (Temperature-dependent thermal properties from files)

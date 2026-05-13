@@ -119,6 +119,21 @@ void Material::setMechanicalProps(int dim_in, double young_in, double poisson_in
     computeC();
 }
 
+void Material::update(int convergence)
+{ 
+    if (b_porous)
+    {
+        if (convergence == 1)
+        {
+            fluidTempHistory.push_back(fluid_temperature);
+        }
+        else if (convergence == 0)
+        {
+                fluid_temperature = fluidTempHistory.back();
+        }
+    }
+}
+
 void Material::computeD()
 {
     double comFacD; // Common factor for matrix D.
@@ -284,6 +299,8 @@ double Material::computeEnergy(const cofe::TensorRank2<3, double>& F)
 }
 
 void Material::outputToFile(std::ofstream * outFile){
+    *outFile << "isPorous " << b_porous << ", "
+             <<  "fluidTempHistory.size = " << fluidTempHistory.size() << endl;
     if (fluidTempHistory.size() > 1)
     {
         *outFile << "FLUID_TEMPERATURE " << endl;
