@@ -123,10 +123,16 @@ THERMAL <mat_id> <Cp> <kappa> <beta> <density>
 
 ### `POROSITY` (Porous medium extension; requires a `THERMAL` entry for the same `mat_id`)
 ```
-POROSITY <mat_id> <Rsl> <T_bulk>
+POROSITY <mat_id> <Rsl> <T_bulk> [porosityCapacity]
 ```
+- `mat_id` – integer material identifier (must match a `THERMAL` entry)
 - `Rsl` – fluid-solid thermal resistance
-- `T_bulk` – bulk fluid temperature
+- `T_bulk` – initial bulk fluid temperature
+- `porosityCapacity` (optional) – fluid volumetric heat capacity (if provided, fluid temperature is updated dynamically)
+
+**Details:**
+- If `porosityCapacity` is specified (and non-zero), the fluid temperature is automatically updated during the simulation according to the energy balance, using the provided capacity value.
+- If omitted, the fluid temperature remains constant at `T_bulk` (backward compatible with previous input files).
 
 ### `FILES` (Temperature-dependent thermal properties from files)
 
