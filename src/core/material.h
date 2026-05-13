@@ -45,6 +45,7 @@ private:
     double density; /**< Density. */
     double resistance; /**< Volumetric thermal resistance for porosity formulation. */
     double fluid_temperature; /**< Temperature of the fluid for porosity formulation. */
+    double porosityCapacity = 0.0; /**< Optional porosity capacity for porous materials. */
     std::map<double, double> m_capacity;
     std::map<double, double> m_kapppa;
     std::map<double, double> m_beta;
@@ -52,6 +53,7 @@ private:
     std::map<double, double> m_resistance; /**< Volumetric thermal resistance for porosity formulation, variable with distance. */
     std::map<double, std::map<double, double>> m_resistance2D; /**< Variable porosity resistance in 2D coordinate tables. */
     std::string m_resistanceCoords; /**< Coordinate mode used for variable resistance interpolation: x, y, z, xy, xz, yz. */
+    std::vector<double> fluidTempHistory; /**< History of fluid temperatures at each converged iteration. */
     lmx::DenseMatrix<double> D; /**< Constitutive Linear */
     lmx::DenseMatrix<double> C; /**< Constitutive Saint-Venant Kirchoff*/
     cofe::TensorRank2Sym<2,double> E;
@@ -99,10 +101,36 @@ public:
         return C;    // be careful, returns a writable reference!!!
     }
     double getPorosityResistance(Point*);
+    double computePorosityLoad(Point*);
 
-    double getPorosityTfluid()
+    double getPorosityFluidTemp()
     {
         return fluid_temperature;
+    }
+
+    void update(int convergence)
+    {
+        if (b_porous)
+        {
+            if (convergence == 1)
+            {
+                fluidTempHistory.push_back(fluid_temperature);
+            }
+            else if (convergence == 0)
+            {
+                    fluid_temperature = fluidTempHistory.back();
+            }
+        }
+    }
+
+    const std::vector<double>& getFluidTempHistory() const
+    {
+        return fluidTempHistory;
+    }
+
+    void setPorosityFluidTemp(double temp_in)
+    {
+        fluid_temperature = temp_in;
     }
 
     inline bool isPorous()
@@ -111,7 +139,7 @@ public:
     }
 
     void setThermalProps( double capacity_in, double kappa_in, double beta_in, double density_in );
-    void setPorosityProps( double resistance_in, double fluid_temperature_in );
+    void setPorosityProps(double resistance_in, double fluid_temperature_in, double porosityCapacity_in = 0.0);
     void setMechanicalProps( int dim_in, double young_in, double poisson_in, double density_in );
 
     void addThermalCapacity( double temp_in, double capacity_in)
@@ -154,6 +182,8 @@ public:
 
     double computeEnergy( const cofe::TensorRank2<2,double>& S );
     double computeEnergy( const cofe::TensorRank2<3,double>& S );
+
+    void outputToFile(std::ofstream * outFile);
 
 private:
     double Cijkl( int& i, int& j, int& k, int& l );

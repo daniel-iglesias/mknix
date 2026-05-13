@@ -252,6 +252,15 @@ public:
 private:
     void storeTimeConfiguration(lmx::Vector<data_type>& q);
 
+    void updateMaterials(int convergence)
+    {
+        for (auto& material : materials)
+        {
+            material.second.update(convergence);
+        }
+    }
+
+
 private:
     void systemOuputStep(const lmx::Vector<data_type>&, const lmx::Vector<data_type>&);
 
@@ -280,6 +289,7 @@ private:
     static double oldClockTime;
     int iterationsNLSolver;
     int outputFilesDetail;
+    bool stepConverged;
 
     double initialTemperature;
     std::map<int, double> thermalNodeInitialOverrides;

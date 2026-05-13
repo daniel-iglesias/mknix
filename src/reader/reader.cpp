@@ -306,14 +306,35 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
                 {
                     int num_mat;
                     double resistance, temperature_fluid; // Rsl, Tb
+                    double porosityCapacity = 0.0;
+                    std::string nextToken;
                     input >> num_mat >> resistance >> temperature_fluid;
+
+                    // Try to read optional porosityCapacity
+                    std::streampos pos = input.tellg();
+                    if (input >> porosityCapacity) {
+                        // Successfully read a fourth parameter, check if it's a number (not a keyword)
+                        // If the next token is not a number, reset
+                        if (input.fail()) {
+                            input.clear();
+                            input.seekg(pos);
+                            porosityCapacity = 0.0;
+                        }
+                    } else {
+                        input.clear();
+                        input.seekg(pos);
+                        porosityCapacity = 0.0;
+                    }
 
                     if (theSimulation->materials.count(num_mat) == 1)
                     {
-                        theSimulation->materials.at(num_mat).setPorosityProps(resistance, temperature_fluid);
+                        theSimulation->materials.at(num_mat).setPorosityProps(resistance, temperature_fluid, porosityCapacity);
                         output << "MATERIAL: " << keyword
                             << ", number = " << num_mat << ",\n\t Rsl = " << resistance
-                            << ", Tbulk = " << temperature_fluid << std::endl;
+                            << ", Tbulk = " << temperature_fluid;
+                        if (porosityCapacity != 0.0)
+                            output << ", porosityCapacity = " << porosityCapacity;
+                        output << std::endl;
                     }
                     else output << "ERROR: MATERIAL " << num_mat << " not found \n";
                     do

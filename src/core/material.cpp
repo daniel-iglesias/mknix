@@ -89,7 +89,6 @@ double Material::getPorosityResistance(Point* point_in)
     return m_resistance.empty() ? resistance : interpolate1D(point_in->getX(), m_resistance);
 }
 
-
 void Material::setThermalProps(double capacity_in, double kappa_in, double beta_in, double density_in)
 {
     capacity = capacity_in;
@@ -98,10 +97,12 @@ void Material::setThermalProps(double capacity_in, double kappa_in, double beta_
     density = density_in;
 }
 
-void Material::setPorosityProps(double resistance_in, double fluid_temperature_in )
+void Material::setPorosityProps(double resistance_in, double fluid_temperature_in, double porosityCapacity_in)
 {
     resistance = resistance_in;
     fluid_temperature = fluid_temperature_in;
+    porosityCapacity = porosityCapacity_in;
+    fluidTempHistory.push_back(fluid_temperature);
     this->b_porous = true;
 }
 
@@ -259,6 +260,15 @@ double Material::computeEnergy(const cofe::TensorRank2<2, double>& F)
     return energy;
 }
 
+double Material::computePorosityLoad(Point* point_in)
+{
+    double coolingPower = (point_in->getTemp() - fluidTempHistory.back()) / getPorosityResistance(point_in);
+    if(porosityCapacity > 0) 
+        fluid_temperature += coolingPower / porosityCapacity ;
+    return coolingPower;
+}
+
+
 double Material::computeEnergy(const cofe::TensorRank2<3, double>& F)
 {
     cofe::TensorRank2Sym<3, double> one;
@@ -272,5 +282,17 @@ double Material::computeEnergy(const cofe::TensorRank2<3, double>& F)
     double energy = 0.5 * lambda * pow(E.trace(), 2) + mu * E.dot(E);
     return energy;
 }
+
+void Material::outputToFile(std::ofstream * outFile){
+    if (fluidTempHistory.size() > 1)
+    {
+        *outFile << "FLUID_TEMPERATURE " << endl;
+        for (auto i = 0u; i < fluidTempHistory.size(); ++i)
+        {
+            *outFile << fluidTempHistory[i] << " ";
+        }
+        *outFile << endl;
+        }
+    }
 
 }

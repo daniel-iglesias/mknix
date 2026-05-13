@@ -1,20 +1,20 @@
 /******************************************************************************
  *  Copyright (C) 2015 by Daniel Iglesias                                     *
  *                                                                            *
- *  This file is part of MkniX.                                             *
+ *  This file is part of MkniX.                                               *
  *                                                                            *
- *  MkniX is free software: you can redistribute it and/or modify           *
+ *  MkniX is free software: you can redistribute it and/or modify             *
  *  it under the terms of the GNU Lesser General Public License as            *
  *  published by the Free Software Foundation, either version 3 of the        *
  *  License, or (at your option) any later version.                           *
  *                                                                            *
- *  MkniX is distributed in the hope that it will be useful,                *
+ *  MkniX is distributed in the hope that it will be useful,                  *
  *  but WITHOUT ANY WARRANTY; without even the implied warranty of            *
  *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the             *
  *  GNU Lesser General Public License for more details.                       *
  *                                                                            *
  *  You should have received a copy of the GNU Lesser General Public          *
- *  License along with MkniX.  If not, see <http://www.gnu.org/licenses/>.  *
+ *  License along with MkniX.  If not, see <http://www.gnu.org/licenses/>.    *
  *****************************************************************************/
 
 #include "simulation.h"
@@ -393,6 +393,12 @@ void Simulation::endSimulation()
 
                 // output extra flexible bodies data...
                 baseSystem->outputToFile(&outFile);
+
+                // output material data...
+                for (auto& mat : materials)
+                {
+                    mat.second.outputToFile(&outFile);
+                }
             }
         }
     }
@@ -687,26 +693,20 @@ bool Simulation::staticThermalConvergence(lmx::Vector<data_type>& res,
 {
 //   lmx::Vector<data_type> res( qddot.size() );
 //   res =  globalInternalForces - globalExternalForces;
-    if (res.norm2() <= epsilon)
+    stepConverged = (res.norm2() <= epsilon); 
+    if (stepConverged) // if convergence...
     {
-        if (baseSystem->checkAugmented())   // if convergence...
+        stepConverged = baseSystem->checkAugmented();
+        if (stepConverged)  //... and augmented system is also converged
         {
             stepTime = 1.;
             systemOuputStep(q);
             baseSystem->clearAugmented();
             stepTriggered();
-            return 1;
-        }
-        else
-        {
-            return 0;
         }
     }
-    else
-    {
-        return 0;
-    }
-
+    updateMaterials(stepConverged);
+    return stepConverged;
 }
 
 
@@ -859,10 +859,12 @@ bool Simulation::dynamicThermalConvergence(const lmx::Vector<data_type>& q,
 //             + std::fabs(globalExternalForces*q);
 //      cout << "            : MAX_ENERGY = " << energy_max << endl
 //           << "              SUM_ENERGY = " << energy_sum << endl;
-    if (res.norm2() <= epsilon)
+    stepConverged = (res.norm2() <= epsilon); 
+    if (stepConverged) // if convergence...
     {
 //  if( (energy_max / energy_sum) <= epsilon ){
-        if (baseSystem->checkAugmented())
+        stepConverged = baseSystem->checkAugmented();
+        if (stepConverged)  //... and augmented system is also converged
         {
 //      cout << " CONVERGENCE: MAX_ENERGY = " << energy_max << endl
 //           << "              SUM_ENERGY = " << energy_sum << endl;
@@ -871,15 +873,9 @@ bool Simulation::dynamicThermalConvergence(const lmx::Vector<data_type>& q,
 //             baseSystem->clearAugmented();
             return 1;
         }
-        else
-        {
-            return 0;
-        }
     }
-    else
-    {
-        return 0;
-    }
+    updateMaterials(stepConverged);
+    return stepConverged;
 }
 
 bool Simulation::dynamicThermalConvergenceInThermomechanical(const lmx::Vector<data_type>& q,
@@ -889,23 +885,19 @@ bool Simulation::dynamicThermalConvergenceInThermomechanical(const lmx::Vector<d
 {
     lmx::Vector<data_type> res(qdot.size());
     res = globalCapacity * qdot + globalConductivity * q + globalInternalHeat - globalExternalHeat;
-    if (res.norm2() <= epsilon)
+    stepConverged = (res.norm2() <= epsilon); 
+    if (stepConverged) // if convergence...
     {
-        if (baseSystem->checkAugmented())
+        stepConverged = baseSystem->checkAugmented();
+        if (stepConverged)  //... and augmented system is also converged
         {
             stepTime = time;
             baseSystem->clearAugmented();
             return 1;
         }
-        else
-        {
-            return 0;
-        }
     }
-    else
-    {
-        return 0;
-    }
+    updateMaterials(stepConverged);
+    return stepConverged;
 }
 
 
@@ -1047,10 +1039,12 @@ bool Simulation::dynamicConvergence(const lmx::Vector<data_type>& q,
 //             + std::fabs(globalExternalForces*q);
 //      cout << "            : MAX_ENERGY = " << energy_max << endl
 //           << "              SUM_ENERGY = " << energy_sum << endl;
-    if (res.norm2() <= epsilon)
+    stepConverged = (res.norm2() <= epsilon); 
+    if (stepConverged) // if convergence...
     {
 //  if( (energy_max / energy_sum) <= epsilon ){
-        if (baseSystem->checkAugmented())
+        stepConverged = baseSystem->checkAugmented();
+        if (stepConverged)  //... and augmented system is also converged
         {
 //      cout << " CONVERGENCE: MAX_ENERGY = " << energy_max << endl
 //           << "              SUM_ENERGY = " << energy_sum << endl;
@@ -1059,15 +1053,9 @@ bool Simulation::dynamicConvergence(const lmx::Vector<data_type>& q,
             baseSystem->clearAugmented();
             return 1;
         }
-        else
-        {
-            return 0;
-        }
     }
-    else
-    {
-        return 0;
-    }
+    updateMaterials(stepConverged);
+    return stepConverged;
 
 }
 
@@ -1115,9 +1103,11 @@ bool Simulation::staticConvergence(lmx::Vector<data_type>& res,
 {
 //   lmx::Vector<data_type> res( qddot.size() );
 //   res =  globalInternalForces - globalExternalForces;
-    if (res.norm2() <= epsilon)
+    stepConverged = (res.norm2() <= epsilon); 
+    if (stepConverged) // if convergence...
     {
-        if (baseSystem->checkAugmented())   // if convergence...
+        stepConverged = baseSystem->checkAugmented();
+        if (stepConverged)  //... and augmented system is also converged
         {
             stepTime = 1.;
             systemOuputStep(q);
@@ -1126,16 +1116,9 @@ bool Simulation::staticConvergence(lmx::Vector<data_type>& res,
             stepTriggered();
             return 1;
         }
-        else
-        {
-            return 0;
-        }
     }
-    else
-    {
-        return 0;
-    }
-
+    updateMaterials(stepConverged);
+    return stepConverged;
 }
 
 
