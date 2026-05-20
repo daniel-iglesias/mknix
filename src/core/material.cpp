@@ -129,7 +129,7 @@ void Material::update(int convergence)
         }
         else if (convergence == 0)
         {
-                fluid_temperature = fluidTempHistory.back();
+                fluid_temperature = fluidTempHistory.front();
         }
     }
 }
