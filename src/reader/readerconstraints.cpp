@@ -76,7 +76,40 @@ void mknix::ReaderConstraints::readConstraints(System* system_in)
         else if (keyword == "AUGMENTED")
         {
             Simulation::constraintMethod = "AUGMENTED";
-            *output << "AUGMENTED set" << endl;
+
+            std::streampos augmentedPos = input->tellg();
+            std::string augmentedToleranceToken;
+            if (*input >> augmentedToleranceToken)
+            {
+                try
+                {
+                    std::size_t processed = 0;
+                    Simulation::setAugmentedTolerance(std::stod(augmentedToleranceToken, &processed));
+                    if (processed == augmentedToleranceToken.size())
+                    {
+                        *output << "AUGMENTED set" << endl;
+                        *output << "AUGMENTED TOLERANCE: "
+                                << Simulation::getAugmentedTolerance()
+                                << endl;
+                    }
+                    else
+                    {
+                        input->clear();
+                        input->seekg(augmentedPos);
+                        *output << "AUGMENTED set" << endl;
+                    }
+                }
+                catch (const std::exception&)
+                {
+                    input->clear();
+                    input->seekg(augmentedPos);
+                    *output << "AUGMENTED set" << endl;
+                }
+            }
+            else
+            {
+                *output << "AUGMENTED set" << endl;
+            }
         }
         else if (keyword == "ALPHA")
         {

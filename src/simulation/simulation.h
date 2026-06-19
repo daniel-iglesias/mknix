@@ -241,6 +241,10 @@ public:
 
     static double getAlpha();
 
+    static double getAugmentedTolerance();
+
+    static void setAugmentedTolerance(double tolerance);
+
     static double getTime();
 
     static int getDim();
@@ -310,6 +314,7 @@ private:
 
     static lmx::Vector<double> gravity;
     static double alpha;
+    static double augmentedTolerance;
     static int dimension;
     static std::string contact;
     static bool visualization;

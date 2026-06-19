@@ -394,7 +394,7 @@ Adds extra nodes to already-defined bodies.
 
 ```
 JOINTS
-  PENALTY | AUGMENTED
+  PENALTY | AUGMENTED [<tolerance>]
   ALPHA <value>
   SPHERICAL       <name> ... ENDSPHERICAL
   DISTANCE        <name> ... ENDDISTANCE
@@ -427,6 +427,12 @@ NODEB GROUND
 ```
 DIRECTION <x|y|z>
 ```
+
+### `AUGMENTED` tolerance
+```
+AUGMENTED <tolerance>
+```
+Optional tolerance used by augmented constraints to decide convergence. If omitted, the default tolerance is `5.0`.
 
 ### `CLEARANCE` – additional sub-command
 ```

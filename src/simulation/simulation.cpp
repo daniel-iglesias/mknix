@@ -35,6 +35,7 @@ double Simulation::stepTime = 0;
 double Simulation::oldClockTime = 0;
 lmx::Vector<double> Simulation::gravity = lmx::Vector<double>(3);
 double Simulation::alpha = 1E4;
+double Simulation::augmentedTolerance = 5.0;
 int Simulation::dimension = 2;
 std::string Simulation::contact = "NONE";
 bool Simulation::visualization = 0;
@@ -51,6 +52,16 @@ double Simulation::getGravity(int component)
 double Simulation::getAlpha()
 {
     return alpha;
+}
+
+double Simulation::getAugmentedTolerance()
+{
+    return augmentedTolerance;
+}
+
+void Simulation::setAugmentedTolerance(double tolerance)
+{
+    augmentedTolerance = tolerance;
 }
 
 double Simulation::getTime()

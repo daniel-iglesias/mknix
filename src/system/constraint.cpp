@@ -26,6 +26,12 @@ namespace mknix
 {
 
 Constraint::Constraint()
+    : dim(Simulation::getDim())
+    , iter_augmented(0)
+    , alpha(Simulation::getAlpha())
+    , augmentedTolerance(Simulation::getAugmentedTolerance())
+    , method()
+    , title()
 {
 }
 
@@ -33,6 +39,7 @@ Constraint::Constraint(double& alpha_in, std::string& method_in)
     : dim(Simulation::getDim())
     , iter_augmented(0)
     , alpha(alpha_in)
+    , augmentedTolerance(Simulation::getAugmentedTolerance())
     , method(method_in)
     , title()
 {
@@ -42,6 +49,7 @@ Constraint::Constraint(double& alpha_in, std::string& method_in, int dim_in)
     : dim(dim_in)
     , iter_augmented(0)
     , alpha(alpha_in)
+    , augmentedTolerance(Simulation::getAugmentedTolerance())
     , method(method_in)
     , title()
 {
@@ -202,7 +210,7 @@ bool Constraint::checkAugmented()
         }
 //         energy *= 0.5 * alpha;
 //         if (energy <= 2E5) {
-        if (delta <= 5)
+        if (delta <= augmentedTolerance)
         {
 //             cout << endl << "Energy: " << energy << "\t\t\t\t";
             return 1;

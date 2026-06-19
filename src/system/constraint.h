@@ -101,6 +101,7 @@ public:
 protected:
     int dim, iter_augmented;
     double alpha;
+    double augmentedTolerance;
     std::string method;
     std::string title;
     std::vector<Node*> nodes;
