@@ -30,10 +30,21 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor.
+ */
 RigidBody3D::RigidBody3D() : RigidBody()
 {
 }
 
+/**
+ * @brief Constructor with title and four frame nodes (CoG, and three director nodes).
+ * @param title_in  Name identifier for this body.
+ * @param node0_in  Centre-of-gravity node.
+ * @param node1_in  X-direction frame node.
+ * @param node2_in  Y-direction frame node.
+ * @param node3_in  Z-direction frame node.
+ */
 RigidBody3D::RigidBody3D( std::string title_in,
                           Node* node0_in,
                           Node* node1_in,
@@ -51,10 +62,18 @@ RigidBody3D::RigidBody3D( std::string title_in,
     this->externalForces.resize( 4*Simulation::getDim() );
 }
 
+/**
+ * @brief Destructor.
+ */
 RigidBody3D::~RigidBody3D()
 {
 }
 
+/**
+ * @brief Sets one component of the 3D inertia tensor.
+ * @param inertia_in Value to assign.
+ * @param axis       Component: 0=Ixx, 1=Iyy, 2=Izz, 3=Ixy, 4=Iyz, 5=Ixz.
+ */
 void RigidBody3D::setInertia(double inertia_in, int axis)
 {
     if( axis == 0 ) Ixx = inertia_in;
@@ -66,6 +85,10 @@ void RigidBody3D::setInertia(double inertia_in, int axis)
     else cerr << endl << "ERROR: Trying to set inertia out of bounds in RigidBody3D" << endl;
 }
 
+/**
+ * @brief Sets the initial pose of the body from a centre-of-mass position.
+ * @param position Vector [CoG_x, CoG_y, CoG_z] defining the initial position.
+ */
 void RigidBody3D::setPosition(std::vector<double>& position)
 {
     // TODO: Read rotations and check vector size. Should have 3 elements: CoG_x, CoG_y, CoG_z
@@ -86,6 +109,10 @@ void RigidBody3D::setPosition(std::vector<double>& position)
     this->frameNodes[3]->setZ( position[2] + 1. );
 }
 
+/**
+ * @brief Builds the local 3D mass matrix from the principal inertia tensor components.
+ *        Applies optional density scaling before assembling the block structure.
+ */
 void RigidBody3D::calcMassMatrix()
 {
     // TODO: Define matrix in generic inertia axes
@@ -165,6 +192,9 @@ void RigidBody3D::calcMassMatrix()
 //    cout << localMassMatrix << endl;
 }
 
+/**
+ * @brief Computes the gravitational external force vector applied at the CoG node.
+ */
 void RigidBody3D::calcExternalForces()
 {
     /*For Problem in 3D*/
@@ -175,6 +205,11 @@ void RigidBody3D::calcExternalForces()
 //    cout << externalForces << endl;
 }
 
+/**
+ * @brief Adds a domain node, assigning the four frame nodes as support nodes
+ *        and solving the 3D shape function.
+ * @param node_in Pointer to the domain node to add.
+ */
 void RigidBody3D::addNode(Node* node_in)
 {
     mknix::Body::addNode(node_in); // adds node_in to node vector

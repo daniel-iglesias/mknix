@@ -48,10 +48,18 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor.
+ */
 Contact::Contact( )
 {
 }
 
+/**
+ * @brief Constructor with simulation and penalty parameter.
+ * @param theSimulation_in Pointer to the main Simulation object.
+ * @param alpha_in         Penalty/contact stiffness parameter; delta is set to 2.5×alpha.
+ */
 Contact::Contact( Simulation* theSimulation_in, double alpha_in )
     : theSimulation(theSimulation_in)
     , delta(alpha_in*2.5)
@@ -60,6 +68,10 @@ Contact::Contact( Simulation* theSimulation_in, double alpha_in )
 {
 }
 
+/**
+ * @brief Collects boundary nodes from all systems, inserts them as VTK points,
+ *        and appends additional auxiliary points for the Delaunay triangulation.
+ */
 void Contact::createPoints()
 {
     points = vtkPoints::New();
@@ -137,6 +149,10 @@ void Contact::createPoints()
          << ")" << endl;
 }
 
+/**
+ * @brief Moves all boundary nodes to their current positions in the VTK point set
+ *        and updates the bounding-box auxiliary points.
+ */
 void Contact::updatePoints()
 {
 //    nodes.clear();
@@ -184,6 +200,10 @@ void Contact::updatePoints()
          << ")" << endl;
 }
 
+/**
+ * @brief Builds the VTK polygon set from the boundary connectivity and creates
+ *        the bar (CompBar) objects that represent each boundary segment.
+ */
 void Contact::createPolys()
 {
     polys = vtkCellArray::New();
@@ -265,6 +285,9 @@ void Contact::createPolys()
     this->updateLines();
 }
 
+/**
+ * @brief Updates the endpoint positions of all CompBar boundary-segment objects.
+ */
 void Contact::updateLines()
 {
     std::vector<CompBar*>::iterator it_bars;
@@ -276,6 +299,10 @@ void Contact::updateLines()
     }
 }
 
+/**
+ * @brief Reads the Delaunay triangulation output, filters triangles that lie within the
+ *        boundary region, and triggers node ordering and contact-element updates.
+ */
 void Contact::readDelaunay()
 {
     int j=0;
@@ -313,6 +340,11 @@ void Contact::readDelaunay()
     this->updateContactElements();
 }
 
+/**
+ * @brief Ensures that the node ordering of each Delaunay triangle is consistent
+ *        with the CCW boundary orientation so that contact normals point inward.
+ * @return Always returns true.
+ */
 bool Contact::orderTriangleNodes()
 {
     size_type i;
@@ -437,6 +469,10 @@ bool Contact::orderTriangleNodes()
     return true;
 }
 
+/**
+ * @brief Removes stale contact constraints whose gap has opened, renames remaining ones,
+ *        and creates new ConstraintContact objects from the current triangulation.
+ */
 void Contact::updateContactElements()
 {
     std::vector< Constraint* >::iterator it_constraints;
@@ -498,6 +534,9 @@ void Contact::updateContactElements()
 
 }
 
+/**
+ * @brief Creates the initial Delaunay 2D triangulation of the boundary point set.
+ */
 void Contact::createDelaunay()
 {
     delny = vtkDelaunay2D::New();
@@ -516,6 +555,10 @@ void Contact::createDelaunay()
 //    extract->Print(cout);
 }
 
+/**
+ * @brief Rebuilds the Delaunay triangulation to reflect the updated boundary positions,
+ *        then reads the new triangles and updates the contact elements.
+ */
 void Contact::updateDelaunay()
 {
     delny->Delete();
@@ -533,6 +576,10 @@ void Contact::updateDelaunay()
 }
 
 
+/**
+ * @brief Initialises the VTK rendering pipeline (renderer, render window, image writer)
+ *        and adds all boundary bar actors to the scene.
+ */
 void Contact::createDrawingObjects()
 {
     ren = vtkRenderer::New();
@@ -562,6 +609,10 @@ void Contact::createDrawingObjects()
 //    iren->Start();
 }
 
+/**
+ * @brief Triggers the initial Delaunay triangulation read, then creates VTK mappers and actors
+ *        for the contact mesh and its wireframe edges.
+ */
 void Contact::createDrawingContactObjects()
 {
     this->readDelaunay();
@@ -593,6 +644,9 @@ void Contact::createDrawingContactObjects()
 }
 
 
+/**
+ * @brief Resets the camera and renders one frame of the contact scene to the render window.
+ */
 void Contact::drawObjects()
 {
     ren->ResetCamera();

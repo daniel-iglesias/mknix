@@ -33,6 +33,9 @@
 #include <sstream>
 #include <stdexcept>
  
+/**
+ * @brief Default constructor. Initialises all pointers to null.
+ */
 mknix::ReaderConstraints::ReaderConstraints()
     : theSimulation(0)
     , output(0)
@@ -42,6 +45,12 @@ mknix::ReaderConstraints::ReaderConstraints()
 {
 }
  
+/**
+ * @brief Constructs a ReaderConstraints and binds it to the given simulation, output, and input streams.
+ * @param simulation_in Pointer to the active Simulation instance.
+ * @param output_in Reference to the output log file stream.
+ * @param input_in Reference to the input file stream to read from.
+ */
 mknix::ReaderConstraints::ReaderConstraints(Simulation* simulation_in,
         std::ofstream& output_in,
         std::ifstream& input_in)
@@ -53,10 +62,17 @@ mknix::ReaderConstraints::ReaderConstraints(Simulation* simulation_in,
 {
 }
  
+/**
+ * @brief Destructor.
+ */
 mknix::ReaderConstraints::~ReaderConstraints()
 {
 }
  
+/**
+ * @brief Reads and processes a JOINTS block, creating constraint objects for the given system.
+ * @param system_in Pointer to the System whose constraints are being populated.
+ */
 void mknix::ReaderConstraints::readConstraints(System* system_in)
 {
     std::string keyword;
@@ -347,6 +363,11 @@ void mknix::ReaderConstraints::readConstraints(System* system_in)
 }
  
  
+/**
+ * @brief Parses a "BODY.NODE" token from the input stream into separate body and node strings.
+ * @param bodyTitle Output string filled with the body identifier.
+ * @param node Output string filled with the node identifier.
+ */
 void mknix::ReaderConstraints::readNodeName(std::string& bodyTitle, std::string& node)
 {
     char a;
@@ -386,6 +407,15 @@ void mknix::ReaderConstraints::readNodeName(std::string& bodyTitle, std::string&
 }
  
  
+/**
+ * @brief Resolves node pointers for both sides of a constraint, handling GROUND nodes.
+ * @param system_in Pointer to the System containing the bodies.
+ * @param consName Name of the constraint being processed.
+ * @param bodyTitleA Identifier of the body for node A.
+ * @param nodeA Identifier of node A within its body.
+ * @param bodyTitleB Identifier of the body for node B.
+ * @param nodeB Identifier of node B within its body.
+ */
 void mknix::ReaderConstraints::assignConstraintNodes(System* system_in,
         const std::string& consName,
         const std::string& bodyTitleA,
@@ -535,6 +565,15 @@ void mknix::ReaderConstraints::assignConstraintNodes(System* system_in,
 }
  
  
+/**
+ * @brief Logs the resolved constraint node details to the output file.
+ * @param system_in Pointer to the System containing the constraint.
+ * @param consTitle Name of the constraint.
+ * @param nodeName Role label of the node (e.g., "NODEA").
+ * @param bodyTitle Identifier of the body that owns the node.
+ * @param node Identifier of the node within its body.
+ * @param i Index of the node in the constraint (0 for A, 1 for B).
+ */
 void mknix::ReaderConstraints::outputConstraintNode(System* system_in,
         const std::string& consTitle,
         const std::string& nodeName,
@@ -559,6 +598,15 @@ void mknix::ReaderConstraints::outputConstraintNode(System* system_in,
 }
  
  
+/**
+ * @brief Logs the resolved thermal constraint node details to the output file.
+ * @param system_in Pointer to the System containing the thermal constraint.
+ * @param consTitle Name of the thermal constraint.
+ * @param nodeName Role label of the node (e.g., "NODEA").
+ * @param bodyTitle Identifier of the body that owns the node.
+ * @param node Identifier of the node within its body.
+ * @param i Index of the node in the thermal constraint (0 for A, 1 for B).
+ */
 void mknix::ReaderConstraints::outputConstraintThermalNode(System* system_in,
         const std::string& consTitle,
         const std::string& nodeName,

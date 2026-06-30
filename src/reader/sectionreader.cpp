@@ -8,10 +8,20 @@
 #include <algorithm>
 #include <iostream>
 
+/**
+ * @brief Constructs a SectionReader with the given section name.
+ * @param name The keyword name of the section (e.g., "SYSTEM").
+ */
 mknix::SectionReader::SectionReader(const std::string& name)
     : sectionName(name)
 {}
 
+/**
+ * @brief Reads and parses the section from the input stream, dispatching tokens to fields or sub-sections.
+ * @param input Input file stream to read tokens from.
+ * @param log Output log stream for diagnostic messages.
+ * @param line_no Current line number, incremented as lines are consumed.
+ */
 void mknix::SectionReader::read(std::ifstream& input, std::ofstream& log, size_t& line_no)
 {
     std::string line;
@@ -63,12 +73,22 @@ void mknix::SectionReader::read(std::ifstream& input, std::ofstream& log, size_t
     }
 }
 
+/**
+ * @brief Registers a valid field name for this section.
+ * @param fieldName The name of the field to accept.
+ * @return Reference to this SectionReader for chaining.
+ */
 mknix::SectionReader& mknix::SectionReader::addField(const std::string& fieldName)
 {
     fieldNames.push_back(fieldName);
     return *this;
 }
 
+/**
+ * @brief Registers a nested sub-section reader.
+ * @param subSection The SectionReader instance for the sub-section.
+ * @return Reference to this SectionReader for chaining.
+ */
 mknix::SectionReader& mknix::SectionReader::addSubSection(mknix::SectionReader subSection)
 {
     subSections.push_back(subSection);

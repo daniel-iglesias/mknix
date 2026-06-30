@@ -7,11 +7,27 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for CellRect.
+ */
 CellRect::CellRect()
 {
 }
 
 
+/**
+ * @brief Constructs a 2D rectangular integration cell defined by four corner points.
+ * @param material_in Reference to the material.
+ * @param formulation_in Meshfree formulation string (e.g. "EFG").
+ * @param alpha_in Influence radius scaling factor.
+ * @param nGPoints_in Number of Gauss points per direction.
+ * @param x1_in,y1_in Coordinates of corner 1.
+ * @param x2_in,y2_in Coordinates of corner 2.
+ * @param x3_in,y3_in Coordinates of corner 3.
+ * @param x4_in,y4_in Coordinates of corner 4.
+ * @param dcx_in,dcy_in Characteristic nodal spacing in x and y.
+ * @param minX_in,minY_in,maxX_in,maxY_in Bounding box for support node search.
+ */
 CellRect::CellRect(Material& material_in,
                    std::string formulation_in,
                    double alpha_in,
@@ -53,6 +69,16 @@ CellRect::CellRect(Material& material_in,
 
 }
 
+/**
+ * @brief Constructs a 3D hexahedral integration cell defined by eight corner points.
+ * @param material_in Reference to the material.
+ * @param formulation_in Meshfree formulation string.
+ * @param alpha_in Influence radius scaling factor.
+ * @param nGPoints_in Number of Gauss points per direction.
+ * @param x1_in..z8_in Coordinates of the eight hex corners.
+ * @param dcx_in,dcy_in,dcz_in Characteristic nodal spacing in x, y, z.
+ * @param minX_in,minY_in,minZ_in,maxX_in,maxY_in,maxZ_in Bounding box for support node search.
+ */
 CellRect::CellRect(Material& material_in,
                    std::string formulation_in,
                    double alpha_in,
@@ -114,11 +140,20 @@ CellRect::CellRect(Material& material_in,
     this->createGaussPoints(dcx_in, dcy_in, dcz_in);
 }
 
+/**
+ * @brief Destructor for CellRect.
+ */
 CellRect::~CellRect()
 {
 }
 
 
+/**
+ * @brief Creates tensor-product Gauss points using 1D Gauss-Legendre quadrature rules.
+ * @param dcx_in Characteristic nodal spacing in x direction.
+ * @param dcy_in Characteristic nodal spacing in y direction.
+ * @param dcz_in Characteristic nodal spacing in z direction (unused for 2D cells).
+ */
 void CellRect::createGaussPoints(double dcx_in, double dcy_in, double dcz_in)
 {
     lmx::DenseMatrix<double> gCoef((size_type) nGPoints, 2); // col 1: offset from center point,  col 2: weight factor.
@@ -307,6 +342,10 @@ void CellRect::createGaussPoints(double dcx_in, double dcy_in, double dcz_in)
 //  }
 //}
 
+/**
+ * @brief Initializes Gauss points by searching for support nodes within the cell bounding box.
+ * @param nodes_in Vector of domain nodes.
+ */
 void CellRect::initialize(std::vector<Node *>& nodes_in)
 {
 //   cout << "CellRect points " << this->points << endl;
@@ -319,6 +358,11 @@ void CellRect::initialize(std::vector<Node *>& nodes_in)
     }
 }
 
+/**
+ * @brief Outputs the cell geometry and Gauss point positions to files for gnuplot visualization.
+ * @param data Output file stream for cell corner coordinates.
+ * @param gpdata Output file stream for Gauss point coordinates.
+ */
 void CellRect::gnuplotOut(std::ofstream& data, std::ofstream& gpdata)
 {
 //   cout << "Cell points" << points.rows() << ", " << points.cols() << endl;

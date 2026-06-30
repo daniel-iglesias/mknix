@@ -1,9 +1,0 @@
-<map id="mknix::GaussPoint2D" name="mknix::GaussPoint2D">
-<area shape="rect" id="node2" href="$d2/da4/classmknix_1_1_gauss_point.html" title="mknix::GaussPoint" alt="" coords="250,168,383,195"/>
-<area shape="rect" id="node3" href="$d3/d19/classmknix_1_1_point.html" title="mknix::Point" alt="" coords="523,13,617,39"/>
-<area shape="rect" id="node4" href="$dd/d8d/classmknix_1_1_shape_function.html" title="mknix::ShapeFunction" alt="" coords="543,168,695,195"/>
-<area shape="rect" id="node5" href="$d2/d8d/classlmx_1_1_dense_matrix.html" title="lmx::DenseMatrix\&lt; double \&gt;" alt="" coords="642,13,829,39"/>
-<area shape="rect" id="node6" href="$d6/d4a/classmknix_1_1_material.html" title="mknix::Material" alt="" coords="5,13,116,39"/>
-<area shape="rect" id="node7" href="$d2/d8d/classlmx_1_1_dense_matrix.html" title="lmx::DenseMatrix\&lt; data\l_type \&gt;" alt="" coords="141,5,303,47"/>
-<area shape="rect" id="node8" href="$d1/d20/classlmx_1_1_vector.html" title="lmx::Vector\&lt; data_type \&gt;" alt="" coords="327,13,498,39"/>
-</map>

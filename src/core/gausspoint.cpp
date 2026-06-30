@@ -11,11 +11,27 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for GaussPoint.
+ */
 GaussPoint::GaussPoint()
 {
 }
 
 
+/**
+ * @brief Constructs a 2D Gauss point with coordinates (x, y).
+ * @param dim_in Spatial dimension.
+ * @param alpha_in Influence radius scaling factor.
+ * @param weight_in Quadrature weight.
+ * @param jacobian_in Jacobian of the mapping to the reference domain.
+ * @param mat_in Pointer to the material at this point.
+ * @param num_in Index of this Gauss point within its cell.
+ * @param coor_x X coordinate.
+ * @param coor_y Y coordinate.
+ * @param dc_in Characteristic nodal spacing.
+ * @param stressPoint_in True if this point is used for stress smoothing.
+ */
 GaussPoint::GaussPoint(int dim_in,
                        double alpha_in,
                        double weight_in,
@@ -34,6 +50,20 @@ GaussPoint::GaussPoint(int dim_in,
 {
 }
 
+/**
+ * @brief Constructs a 3D Gauss point with coordinates (x, y, z).
+ * @param dim_in Spatial dimension.
+ * @param alpha_in Influence radius scaling factor.
+ * @param weight_in Quadrature weight.
+ * @param jacobian_in Jacobian of the mapping.
+ * @param mat_in Pointer to the material.
+ * @param num_in Index of this point within its cell.
+ * @param coor_x X coordinate.
+ * @param coor_y Y coordinate.
+ * @param coor_z Z coordinate.
+ * @param dc_in Characteristic nodal spacing.
+ * @param stressPoint_in True if this point is used for stress smoothing.
+ */
 GaussPoint::GaussPoint(int dim_in,
                        double alpha_in,
                        double weight_in,
@@ -53,11 +83,19 @@ GaussPoint::GaussPoint(int dim_in,
 {
 }
 
+/**
+ * @brief Destructor for GaussPoint.
+ */
 GaussPoint::~GaussPoint()
 {
 }
 
 
+/**
+ * @brief Computes and stores shape function values at this point using the specified meshfree method.
+ * @param type_in Shape function type: "RBF" for radial basis functions or "MLS" for moving least squares.
+ * @param q_in Shape parameter (overridden internally to 0.5).
+ */
 void GaussPoint::shapeFunSolve(std::string type_in, double q_in)
 {
     q_in = 0.5; // Original RBF
@@ -97,6 +135,9 @@ void GaussPoint::shapeFunSolve(std::string type_in, double q_in)
 }
 
 
+/**
+ * @brief Computes the local thermal capacity (heat capacity) matrix contribution C at this Gauss point.
+ */
 void GaussPoint::computeCij()
 {
     // TODO: not sure why it's needed to be done here too, but for the moment is required for positive validation
@@ -149,6 +190,9 @@ void GaussPoint::computeCij()
 
 }
 
+/**
+ * @brief Computes the local thermal conductivity matrix contribution H at this Gauss point.
+ */
 void GaussPoint::computeHij()
 {
     int max_deriv_index = dim + 1;
@@ -207,6 +251,11 @@ void GaussPoint::computeHij()
 
 // Todo: add somewhere the coordinate for interpolation of heat load and porosity resistance. It now uses only x.
 // Also, it would be ideal to divide this function into two parts so that we separate 
+/**
+ * @brief Computes the external thermal load vector contribution Qext at this Gauss point,
+ *        including volumetric heat sources and porosity cooling.
+ * @param loadThermalBody_in Vector of body thermal load objects.
+ */
 void GaussPoint::computeQext(std::vector<LoadThermalBody*> loadThermalBody_in)
 {
     double load;
@@ -233,6 +282,10 @@ void GaussPoint::computeQext(std::vector<LoadThermalBody*> loadThermalBody_in)
 }
 
 
+/**
+ * @brief Assembles the local capacity matrix C into the global thermal capacity matrix.
+ * @param globalCapacity Global thermal capacity matrix to be updated.
+ */
 void GaussPoint::assembleCij(lmx::Matrix<data_type>& globalCapacity)
 {
     for (auto i = 0u; i < supportNodesSize; ++i)
@@ -248,6 +301,10 @@ void GaussPoint::assembleCij(lmx::Matrix<data_type>& globalCapacity)
 //    cout << globalCapacity << endl;
 }
 
+/**
+ * @brief Assembles the local conductivity matrix H into the global conductivity matrix.
+ * @param globalConductivity Global conductivity matrix to be updated.
+ */
 void GaussPoint::assembleHij(lmx::Matrix<data_type>& globalConductivity)
 {
     for (auto i = 0u; i < supportNodesSize; ++i)
@@ -263,6 +320,10 @@ void GaussPoint::assembleHij(lmx::Matrix<data_type>& globalConductivity)
 //    cout << globalConductivity << endl;
 }
 
+/**
+ * @brief Assembles the local external heat vector Qext into the global heat load vector.
+ * @param globalHeat Global external heat load vector to be updated.
+ */
 void GaussPoint::assembleQext(lmx::Vector<data_type>& globalHeat)
 {
     for (auto i = 0u; i < supportNodesSize; ++i)
@@ -274,6 +335,10 @@ void GaussPoint::assembleQext(lmx::Vector<data_type>& globalHeat)
 }
 
 
+/**
+ * @brief Outputs the Gauss point position and stress value to a gnuplot-compatible file.
+ * @param gptension Output file stream for stress data.
+ */
 void GaussPoint::gnuplotOutStress(std::ofstream& gptension)
 {
     gptension << X << " " << Y << " " << tension(0) << endl;

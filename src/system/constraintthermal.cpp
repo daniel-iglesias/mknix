@@ -25,22 +25,37 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor.
+ */
 ConstraintThermal::ConstraintThermal()
     : Constraint()
 {
 }
 
 
+/**
+ * @brief Constructor with penalty parameter and method.
+ * @param alpha_in  Penalty parameter.
+ * @param method_in Enforcement method keyword.
+ */
 ConstraintThermal::ConstraintThermal(double& alpha_in, std::string& method_in)
     : Constraint(alpha_in, method_in, 1)
 {
 }
 
 
+/**
+ * @brief Destructor.
+ */
 ConstraintThermal::~ConstraintThermal()
 {
 }
 
+/**
+ * @brief Assembles the thermal constraint internal forces into the global thermal load vector.
+ * @param globalInternalForces Reference to the global internal heat vector.
+ */
 void ConstraintThermal::assembleInternalForces
 (lmx::Vector< data_type > & globalInternalForces)
 {
@@ -72,6 +87,10 @@ void ConstraintThermal::assembleInternalForces
     }
 }
 
+/**
+ * @brief Assembles the thermal constraint tangent matrix into the global thermal tangent matrix.
+ * @param globalTangent Reference to the global tangent matrix.
+ */
 void ConstraintThermal::assembleTangentMatrix(lmx::Matrix< data_type > & globalTangent)
 {
     int nodesSize = nodes.size();

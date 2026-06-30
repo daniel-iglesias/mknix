@@ -8,11 +8,25 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for CellTetrahedron.
+ */
 CellTetrahedron::CellTetrahedron()
 {
 }
 
 
+/**
+ * @brief Constructs a tetrahedral integration cell from four corner points.
+ * @param material_in Reference to the material.
+ * @param formulation_in Meshfree formulation string.
+ * @param alpha_in Influence radius scaling factor.
+ * @param nGPoints_in Number of integration Gauss points.
+ * @param n1_in Pointer to corner point 1.
+ * @param n2_in Pointer to corner point 2.
+ * @param n3_in Pointer to corner point 3.
+ * @param n4_in Pointer to corner point 4.
+ */
 CellTetrahedron::CellTetrahedron( Material& material_in,
                                   std::string formulation_in,
                                   double alpha_in,
@@ -63,11 +77,17 @@ CellTetrahedron::CellTetrahedron( Material& material_in,
     this->createGaussPoints( );
 }
 
+/**
+ * @brief Destructor for CellTetrahedron.
+ */
 CellTetrahedron::~CellTetrahedron()
 {
 }
 
 
+/**
+ * @brief Creates and positions Gauss points inside the tetrahedron using standard quadrature rules.
+ */
 void CellTetrahedron::createGaussPoints( )
 {
     lmx::DenseMatrix<double> gCoef( size_type(nGPoints), 5);
@@ -147,6 +167,11 @@ void CellTetrahedron::createGaussPoints( )
 
 
 
+/**
+ * @brief Outputs tetrahedral cell geometry and Gauss points to files for gnuplot visualization.
+ * @param data Output file stream for cell geometry.
+ * @param gpdata Output file stream for Gauss point positions.
+ */
 void CellTetrahedron::gnuplotOut( std::ofstream& data, std::ofstream& gpdata )
 {
 //  for (int i=0; i<3; ++i){

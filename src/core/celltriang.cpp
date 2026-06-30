@@ -7,11 +7,24 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for CellTriang.
+ */
 CellTriang::CellTriang()
 {
 }
 
 
+/**
+ * @brief Constructs a triangular integration cell from three points, computing dc automatically.
+ * @param material_in Reference to the material.
+ * @param formulation_in Meshfree formulation string.
+ * @param alpha_in Influence radius scaling factor.
+ * @param nGPoints_in Number of integration Gauss points.
+ * @param n1_in Pointer to triangle vertex 1.
+ * @param n2_in Pointer to triangle vertex 2.
+ * @param n3_in Pointer to triangle vertex 3.
+ */
 CellTriang::CellTriang(Material& material_in,
                        std::string formulation_in,
                        double alpha_in,
@@ -46,6 +59,17 @@ CellTriang::CellTriang(Material& material_in,
     this->createGaussPoints();
 }
 
+/**
+ * @brief Constructs a triangular integration cell with an explicit characteristic nodal spacing.
+ * @param material_in Reference to the material.
+ * @param formulation_in Meshfree formulation string.
+ * @param alpha_in Influence radius scaling factor.
+ * @param nGPoints_in Number of integration Gauss points.
+ * @param n1_in Pointer to triangle vertex 1.
+ * @param n2_in Pointer to triangle vertex 2.
+ * @param n3_in Pointer to triangle vertex 3.
+ * @param dc_in Explicit characteristic nodal spacing.
+ */
 CellTriang::CellTriang(Material& material_in,
                        std::string formulation_in,
                        double alpha_in,
@@ -79,11 +103,17 @@ CellTriang::CellTriang(Material& material_in,
     this->createGaussPoints();
 }
 
+/**
+ * @brief Destructor for CellTriang.
+ */
 CellTriang::~CellTriang()
 {
 }
 
 
+/**
+ * @brief Creates and positions Gauss points inside the triangle using standard quadrature rules.
+ */
 void CellTriang::createGaussPoints()
 {
     lmx::DenseMatrix<double> gCoef(size_type(nGPoints), 4);
@@ -293,6 +323,11 @@ void CellTriang::createGaussPoints()
 }
 
 
+/**
+ * @brief Outputs triangle cell geometry and Gauss point positions to files for gnuplot visualization.
+ * @param data Output file stream for cell corner coordinates.
+ * @param gpdata Output file stream for Gauss point coordinates.
+ */
 void CellTriang::gnuplotOut(std::ofstream& data, std::ofstream& gpdata)
 {
     for (int i = 0; i < 3; ++i)

@@ -10,11 +10,21 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for Cell.
+ */
 Cell::Cell()
 {
 }
 
 
+/**
+ * @brief Constructs a Cell with a material, formulation type, influence radius factor, and number of Gauss points.
+ * @param material_in Reference to the material assigned to this cell.
+ * @param formulation_in String identifying the meshfree formulation (e.g. "EFG", "RPIM").
+ * @param alpha_in Influence radius scaling factor.
+ * @param nGPoints_in Number of integration Gauss points per direction.
+ */
 Cell::Cell(Material& material_in,
            std::string formulation_in,
            double alpha_in,
@@ -27,6 +37,9 @@ Cell::Cell(Material& material_in,
 {
 }
 
+/**
+ * @brief Destructor. Releases all dynamically allocated Gauss points.
+ */
 Cell::~Cell()
 {
     for (auto& point : gPoints)
@@ -40,6 +53,16 @@ Cell::~Cell()
     */
 }
 
+/**
+ * @brief Reassigns the material for all Gauss points if the cell belongs to a thin layer.
+ *
+ * Detects whether the cell is within a layer of the given thickness by checking if any
+ * pair of body-points is closer than the thickness. If so, the material is replaced.
+ *
+ * @param newMat The replacement material.
+ * @param thickness Maximum inter-node distance that qualifies the cell as part of the layer.
+ * @return True if the material was changed, false otherwise.
+ */
 bool Cell::setMaterialIfLayer(Material& newMat, double thickness)
 {
     bool changed(0);
@@ -74,6 +97,10 @@ bool Cell::setMaterialIfLayer(Material& newMat, double thickness)
 
 
 // Only for Meshfree Cells, function is specialized for FEM elements
+/**
+ * @brief Initializes the cell by finding support nodes for each Gauss point (meshfree formulations).
+ * @param nodes_in Vector of domain nodes used to build the support neighbourhood.
+ */
 void Cell::initialize(std::vector<Node *>& nodes_in)
 {
     // This function can be joined with assembleGaussPoints so the Gpoints are iterated only once...
@@ -101,6 +128,9 @@ void Cell::initialize(std::vector<Node *>& nodes_in)
 }
 
 
+/**
+ * @brief Computes and stores shape function values at each Gauss point using the selected formulation.
+ */
 void Cell::computeShapeFunctions()
 {
     for (auto& point : gPoints)
@@ -117,6 +147,9 @@ void Cell::computeShapeFunctions()
 }
 
 
+/**
+ * @brief Computes the local thermal capacity (heat capacity) contribution at each Gauss point.
+ */
 void Cell::computeCapacityGaussPoints()
 {
     for (auto& point : gPoints_MC)
@@ -125,6 +158,10 @@ void Cell::computeCapacityGaussPoints()
     }
 }
 
+/**
+ * @brief Assembles Gauss-point capacity contributions into the global thermal capacity matrix.
+ * @param globalCapacity Global thermal capacity matrix to be updated.
+ */
 void Cell::assembleCapacityGaussPoints(lmx::Matrix<data_type>& globalCapacity)
 {
     for (auto& point : gPoints_MC)
@@ -134,6 +171,9 @@ void Cell::assembleCapacityGaussPoints(lmx::Matrix<data_type>& globalCapacity)
 }
 
 
+/**
+ * @brief Computes the local thermal conductivity contribution at each Gauss point.
+ */
 void Cell::computeConductivityGaussPoints()
 {
     for (auto& point : gPoints)
@@ -142,6 +182,10 @@ void Cell::computeConductivityGaussPoints()
     }
 }
 
+/**
+ * @brief Assembles Gauss-point conductivity contributions into the global conductivity matrix.
+ * @param globalConductivity Global thermal conductivity matrix to be updated.
+ */
 void Cell::assembleConductivityGaussPoints(lmx::Matrix<data_type>& globalConductivity)
 {
     for (auto& point : gPoints)
@@ -151,6 +195,10 @@ void Cell::assembleConductivityGaussPoints(lmx::Matrix<data_type>& globalConduct
 }
 
 
+/**
+ * @brief Computes the external thermal load vector contribution at each Gauss point.
+ * @param loadThermalBody_in Vector of body thermal loads applied to this cell.
+ */
 void Cell::computeQextGaussPoints(std::vector<LoadThermalBody*> loadThermalBody_in)
 {
     for (auto& point : gPoints)
@@ -159,6 +207,10 @@ void Cell::computeQextGaussPoints(std::vector<LoadThermalBody*> loadThermalBody_
     }
 }
 
+/**
+ * @brief Assembles external thermal load contributions from Gauss points into the global heat vector.
+ * @param globalQext Global external heat load vector to be updated.
+ */
 void Cell::assembleQextGaussPoints(lmx::Vector<data_type>& globalQext)
 {
     for (auto& point : gPoints)
@@ -168,6 +220,9 @@ void Cell::assembleQextGaussPoints(lmx::Vector<data_type>& globalQext)
 }
 
 
+/**
+ * @brief Computes the local mass matrix contribution at each Gauss point.
+ */
 void Cell::computeMGaussPoints()
 {
     for (auto& point : gPoints_MC)
@@ -177,6 +232,10 @@ void Cell::computeMGaussPoints()
 }
 
 
+/**
+ * @brief Assembles Gauss-point mass contributions into the global mass matrix.
+ * @param globalMass Global mass matrix to be updated.
+ */
 void Cell::assembleMGaussPoints(lmx::Matrix<data_type>& globalMass)
 {
     for (auto& point : gPoints_MC)
@@ -186,6 +245,9 @@ void Cell::assembleMGaussPoints(lmx::Matrix<data_type>& globalMass)
 }
 
 
+/**
+ * @brief Computes the linear internal force vector contribution at each Gauss point.
+ */
 void Cell::computeFintGaussPoints()
 {
     for (auto& point : gPoints)
@@ -195,6 +257,9 @@ void Cell::computeFintGaussPoints()
 }
 
 
+/**
+ * @brief Computes the nonlinear internal force vector contribution at each Gauss point.
+ */
 void Cell::computeNLFintGaussPoints()
 {
     for (auto& point : gPoints)
@@ -204,6 +269,10 @@ void Cell::computeNLFintGaussPoints()
 }
 
 
+/**
+ * @brief Assembles internal force contributions from Gauss points into the global internal force vector.
+ * @param globalFint Global internal force vector to be updated.
+ */
 void Cell::assembleFintGaussPoints(lmx::Vector<data_type>& globalFint)
 {
     for (auto& point : gPoints)
@@ -213,6 +282,9 @@ void Cell::assembleFintGaussPoints(lmx::Vector<data_type>& globalFint)
 }
 
 
+/**
+ * @brief Computes the external force vector contribution at each Gauss point.
+ */
 void Cell::computeFextGaussPoints()
 {
     for (auto& point : gPoints_MC)
@@ -222,6 +294,10 @@ void Cell::computeFextGaussPoints()
 }
 
 
+/**
+ * @brief Assembles external force contributions from Gauss points into the global external force vector.
+ * @param globalFext Global external force vector to be updated.
+ */
 void Cell::assembleFextGaussPoints(lmx::Vector<data_type>& globalFext)
 {
     for (auto& point : gPoints_MC)
@@ -231,6 +307,9 @@ void Cell::assembleFextGaussPoints(lmx::Vector<data_type>& globalFext)
 }
 
 
+/**
+ * @brief Computes the linear tangent (stiffness) matrix contribution at each Gauss point.
+ */
 void Cell::computeKGaussPoints()
 {
     for (auto& point : gPoints)
@@ -240,6 +319,9 @@ void Cell::computeKGaussPoints()
 }
 
 
+/**
+ * @brief Computes the nonlinear tangent matrix contribution at each Gauss point.
+ */
 void Cell::computeNLKGaussPoints()
 {
     for (auto& point : gPoints)
@@ -249,6 +331,10 @@ void Cell::computeNLKGaussPoints()
 }
 
 
+/**
+ * @brief Assembles tangent matrix contributions from Gauss points into the global tangent matrix.
+ * @param globalTangent Global tangent (stiffness) matrix to be updated.
+ */
 void Cell::assembleKGaussPoints(lmx::Matrix<data_type>& globalTangent)
 {
     for (auto& point : gPoints)
@@ -258,6 +344,11 @@ void Cell::assembleKGaussPoints(lmx::Matrix<data_type>& globalTangent)
 }
 
 
+/**
+ * @brief Computes linear stress at each Gauss point and assembles the result into a body stress vector.
+ * @param globalStress Body-level stress resultant vector to be updated.
+ * @param firstNode Global index of the first node in this body.
+ */
 void Cell::assembleRGaussPoints(lmx::Vector<data_type>& globalStress,
                                 int firstNode
                                )
@@ -270,6 +361,11 @@ void Cell::assembleRGaussPoints(lmx::Vector<data_type>& globalStress,
 }
 
 
+/**
+ * @brief Computes nonlinear (large-deformation) stress at each Gauss point and assembles the result.
+ * @param globalStress Body-level stress resultant vector to be updated.
+ * @param firstNode Global index of the first node in this body.
+ */
 void Cell::assembleNLRGaussPoints(lmx::Vector<data_type>& globalStress,
                                   int firstNode
                                  )
@@ -282,6 +378,11 @@ void Cell::assembleNLRGaussPoints(lmx::Vector<data_type>& globalStress,
 }
 
 
+/**
+ * @brief Accumulates the potential (gravitational/body-force) energy across all Gauss points.
+ * @param q Current global displacement state vector.
+ * @return Total potential energy contribution from this cell.
+ */
 double Cell::calcPotentialEGaussPoints(const lmx::Vector<data_type>& q)
 {
     double potentialEnergy = 0;
@@ -294,6 +395,11 @@ double Cell::calcPotentialEGaussPoints(const lmx::Vector<data_type>& q)
 }
 
 
+/**
+ * @brief Accumulates the kinetic energy across all Gauss points.
+ * @param qdot Current global velocity state vector.
+ * @return Total kinetic energy contribution from this cell.
+ */
 double Cell::calcKineticEGaussPoints(const lmx::Vector<data_type>& qdot)
 {
     double kineticEnergy = 0;
@@ -306,6 +412,10 @@ double Cell::calcKineticEGaussPoints(const lmx::Vector<data_type>& qdot)
 }
 
 
+/**
+ * @brief Accumulates the elastic strain energy across all Gauss points.
+ * @return Total elastic energy contribution from this cell.
+ */
 double Cell::calcElasticEGaussPoints()
 {
     double elasticEnergy = 0;
@@ -318,6 +428,10 @@ double Cell::calcElasticEGaussPoints()
 }
 
 
+/**
+ * @brief Writes the node numbers of this cell's body points to an output file.
+ * @param outfile Pointer to the open output file stream.
+ */
 void Cell::outputConnectivityToFile(std::ofstream * outfile)
 {
     *outfile << "\t\t\t";
@@ -329,6 +443,10 @@ void Cell::outputConnectivityToFile(std::ofstream * outfile)
 }
 
 
+/**
+ * @brief Outputs Gauss-point stress values to a file suitable for gnuplot visualization.
+ * @param gptension Output file stream for stress/tension data.
+ */
 void Cell::gnuplotOutStress(std::ofstream& gptension)
 {
     int counter = 0;
@@ -340,6 +458,10 @@ void Cell::gnuplotOutStress(std::ofstream& gptension)
     }
 }
 
+/**
+ * @brief Returns the global node numbers of all body points belonging to this cell.
+ * @return Vector of node numbers.
+ */
 std::vector<int> Cell::getNodeNumbers()
 {
     std::vector<int> nodeNumbers;

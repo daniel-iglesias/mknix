@@ -24,6 +24,9 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for ShapeFunctionTriangleSigned.
+ */
 ShapeFunctionTriangleSigned::ShapeFunctionTriangleSigned()
     : ShapeFunction()
 {
@@ -31,6 +34,10 @@ ShapeFunctionTriangleSigned::ShapeFunctionTriangleSigned()
 }
 
 
+/**
+ * @brief Constructs a signed triangular shape function for a triangle embedded in 3D space.
+ * @param gp_in Pointer to the evaluation Point (expects exactly 3 support nodes).
+ */
 ShapeFunctionTriangleSigned::ShapeFunctionTriangleSigned( Point* gp_in )
     : ShapeFunction(gp_in)
 {
@@ -38,11 +45,18 @@ ShapeFunctionTriangleSigned::ShapeFunctionTriangleSigned( Point* gp_in )
 }
 
 
+/**
+ * @brief Destructor for ShapeFunctionTriangleSigned.
+ */
 ShapeFunctionTriangleSigned::~ShapeFunctionTriangleSigned()
 {
 }
 
 
+/**
+ * @brief Computes barycentric (signed-area) shape functions for a triangle embedded in 3D space,
+ *        using cross products to obtain area ratios relative to the total triangle area.
+ */
 void ShapeFunctionTriangleSigned::calc()
 {
     // based on the answer in http://answers.unity3d.com/questions/383804/calculate-uv-coordinates-of-3d-point-on-plane-of-m.html

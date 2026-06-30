@@ -32,6 +32,9 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor. Initialises all pointers to null.
+ */
 ReaderRigid::ReaderRigid()
     : theSimulation(nullptr)
     , output(nullptr)
@@ -39,6 +42,12 @@ ReaderRigid::ReaderRigid()
 {
 }
 
+/**
+ * @brief Constructs a ReaderRigid and binds it to the given simulation, output, and input streams.
+ * @param simulation_in Pointer to the active Simulation instance.
+ * @param output_in Reference to the output log file stream.
+ * @param input_in Reference to the input file stream to read from.
+ */
 ReaderRigid::ReaderRigid(Simulation * simulation_in,
                          std::ofstream& output_in,
                          std::ifstream& input_in)
@@ -49,6 +58,9 @@ ReaderRigid::ReaderRigid(Simulation * simulation_in,
 }
 
 
+/**
+ * @brief Destructor.
+ */
 ReaderRigid::~ReaderRigid()
 {
 }
@@ -56,6 +68,10 @@ ReaderRigid::~ReaderRigid()
 
 } // namespace mknix
 
+/**
+ * @brief Reads the RIGIDBODIES block and dispatches to the appropriate specific rigid body reader.
+ * @param system_in Pointer to the System that will own the rigid bodies.
+ */
 void mknix::ReaderRigid::readRigidBodies(System * system_in)
 {
     std::string keyword;
@@ -114,6 +130,10 @@ void mknix::ReaderRigid::readRigidBodies(System * system_in)
     }
 }
 
+/**
+ * @brief Reads a 0D mass-point rigid body definition.
+ * @param system_in Pointer to the System that will own the body.
+ */
 void mknix::ReaderRigid::readRigidBody0DMassPoint(System * system_in)
 {
     std::string keyword;
@@ -163,6 +183,10 @@ void mknix::ReaderRigid::readRigidBody0DMassPoint(System * system_in)
             mass);
 }
 
+/**
+ * @brief Reads a 1D bar rigid body definition.
+ * @param system_in Pointer to the System that will own the body.
+ */
 void mknix::ReaderRigid::readRigidBody1DBar(System * system_in)
 {
     std::string keyword;
@@ -243,6 +267,10 @@ void mknix::ReaderRigid::readRigidBody1DBar(System * system_in)
 
 }
 
+/**
+ * @brief Reads a 1D chain of rigid bodies definition.
+ * @param system_in Pointer to the System that will own the chain body.
+ */
 void mknix::ReaderRigid::readRigidBody1DChain(System * system_in)
 {
     std::string keyword;
@@ -336,6 +364,10 @@ void mknix::ReaderRigid::readRigidBody1DChain(System * system_in)
     theChain->setTimeLengths(timelengths);
 }
 
+/**
+ * @brief Reads a 2D mesh-based rigid body definition.
+ * @param system_in Pointer to the System that will own the body.
+ */
 void mknix::ReaderRigid::readRigidBody2DMesh(System * system_in)
 {
     std::string rigidTitle;
@@ -561,6 +593,10 @@ void mknix::ReaderRigid::readRigidBody2DMesh(System * system_in)
 }
 
 
+/**
+ * @brief Reads a 3D generic rigid body definition.
+ * @param system_in Pointer to the System that will own the body.
+ */
 void mknix::ReaderRigid::readRigidBody3DGeneric(System * system_in)
 {
     std::string rigidTitle;

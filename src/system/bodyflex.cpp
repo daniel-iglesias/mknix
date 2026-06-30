@@ -25,6 +25,9 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor. Initializes the flexible body with nonlinear formulation and no stress/energy output.
+ */
 FlexBody::FlexBody()
     : Body()
     , formulation("NONLINEAR")
@@ -34,6 +37,10 @@ FlexBody::FlexBody()
 }
 
 
+/**
+ * @brief Constructor with title.
+ * @param title_in Name identifier for this flexible body.
+ */
 FlexBody::FlexBody(std::string title_in)
     : Body(title_in)
     , formulation("NONLINEAR")
@@ -42,14 +49,19 @@ FlexBody::FlexBody(std::string title_in)
 {
 }
 
-
+/**
+ * @brief Destructor.
+ */
 FlexBody::~FlexBody()
 {
 }
 
+/**
+ * @brief Initializes the body, then finds support nodes and solves shape functions
+ *        for all output and body integration points.
+ */
 void FlexBody::initialize()
 {
-    mknix::Body::initialize();
 
     for (auto& point : points)
     {
@@ -65,9 +77,14 @@ void FlexBody::initialize()
 }
 
 
+/**
+ * @brief Adds a body integration point, sets its interpolation method (RBF or MLS),
+ *        and registers it in the list of body points.
+ * @param point_in  Pointer to the Point object to add.
+ * @param method_in Interpolation method keyword: "RPIM"/"RBF" or "EFG"/"MLS".
+ */
 void FlexBody::addBodyPoint( /*const*/ Point * point_in, std::string method_in)
 {
-    // Creates or redefines a point of the integration domain:
 //       cout << "addBodyPoint, with points(size) = " << this->points.size() << endl;
     this->bodyPoints.push_back(point_in);
 //     cout << "POINT ADDED in FLEXBODY:" << points.back()->getNumber()
@@ -87,6 +104,10 @@ void FlexBody::addBodyPoint( /*const*/ Point * point_in, std::string method_in)
     bodyPoints.back()->setShapeFunType(method_in);
 }
 
+/**
+ * @brief Adds a copy of the given Node as a non-integration output point (MLS type).
+ * @param node_in Pointer to the source node to copy.
+ */
 void FlexBody::addPoint( /*const*/ Node * node_in) // problems with munmap_chunk(). Use the later function
 {
     // Creates or redefines a point, not part of the calculation domain:
@@ -98,9 +119,18 @@ void FlexBody::addPoint( /*const*/ Node * node_in) // problems with munmap_chunk
 }
 
 
+/**
+ * @brief Creates a new Node output point from coordinates, sets its influence parameters,
+ *        finds support nodes, and solves its MLS shape function.
+ * @param nodeNumber Node identifier.
+ * @param x          X coordinate.
+ * @param y          Y coordinate.
+ * @param z          Z coordinate.
+ * @param alpha      Influence domain scaling factor.
+ * @param dc         Characteristic length for the influence domain.
+ */
 void FlexBody::addPoint(int nodeNumber, double x, double y, double z, double alpha, double dc)
 {
-    // Creates or redefines a point, not part of the calculation domain:
 //       cout << "addPoint, with points(size) = " << this->points.size() << endl;
     this->points.push_back(new Node(nodeNumber, x, y, z));
     points.back()->setAlphai(alpha);
@@ -174,6 +204,10 @@ void FlexBody::outputToFile(std::ofstream * outFile)
     }
 }
 
+/**
+ * @brief Writes body mesh/meshfree connectivity information to the output file.
+ * @param outFile Pointer to the output file stream.
+ */
 void FlexBody::writeBodyInfo(std::ofstream * outFile)
 {
 // DONE: set type to MESH (alt:GALERKIN), export the connectivity and read it in mknixPost
@@ -262,6 +296,10 @@ void FlexBody::writeBodyInfo(std::ofstream * outFile)
 }
 
 
+/**
+ * @brief Collects all boundary nodes of the body into the provided vector.
+ * @param boundary_nodes Vector to which the boundary node pointers are appended.
+ */
 void FlexBody::writeBoundaryNodes(std::vector<Point *>& boundary_nodes)
 {
     for (auto boundary : linearBoundary)
@@ -270,6 +308,11 @@ void FlexBody::writeBoundaryNodes(std::vector<Point *>& boundary_nodes)
     }
 }
 
+/**
+ * @brief Builds the ordered boundary connectivity list by following the linearBoundary map
+ *        and appending the traversal to connectivity_nodes.
+ * @param connectivity_nodes Vector of node chains to which the boundary loop is appended.
+ */
 void FlexBody::writeBoundaryConnectivity(std::vector<std::vector<Point *> >& connectivity_nodes)
 {
     connectivity_nodes.push_back(std::vector<Point *>());

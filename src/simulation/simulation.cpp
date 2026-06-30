@@ -44,46 +44,82 @@ std::string Simulation::constraintMethod = "PENALTY";
 double Simulation::epsilon = 1E-5;
 std::string Simulation::smoothingType = "GLOBAL";
 
+/**
+ * @brief Returns a component of the global gravity vector.
+ * @param component Index of the gravity vector component (0, 1, or 2).
+ * @return The gravity value for the specified component.
+ */
 double Simulation::getGravity(int component)
 {
     return gravity.readElement(component);
 }
 
+/**
+ * @brief Returns the penalty parameter alpha used for constraint enforcement.
+ * @return The alpha penalty parameter.
+ */
 double Simulation::getAlpha()
 {
     return alpha;
 }
 
+/**
+ * @brief Returns the convergence tolerance for the augmented Lagrangian method.
+ * @return The augmented Lagrangian tolerance value.
+ */
 double Simulation::getAugmentedTolerance()
 {
     return augmentedTolerance;
 }
 
+/**
+ * @brief Sets the convergence tolerance for the augmented Lagrangian method.
+ * @param tolerance The new tolerance value.
+ */
 void Simulation::setAugmentedTolerance(double tolerance)
 {
     augmentedTolerance = tolerance;
 }
 
+/**
+ * @brief Returns the current simulation step time.
+ * @return The current value of stepTime.
+ */
 double Simulation::getTime()
 {
     return Simulation::stepTime;
 }
 
+/**
+ * @brief Returns the spatial dimension of the simulation (2 or 3).
+ * @return The number of spatial dimensions.
+ */
 int Simulation::getDim()
 {
     return dimension;
 }
 
+/**
+ * @brief Returns the name of the constraint enforcement method in use.
+ * @return A string identifying the constraint method (e.g. "PENALTY").
+ */
 std::string Simulation::getConstraintMethod()
 {
     return constraintMethod;
 }
 
+/**
+ * @brief Returns the smoothing type used in the simulation.
+ * @return A string identifying the smoothing type (e.g. "GLOBAL").
+ */
 std::string Simulation::getSmoothingType()
 {
     return smoothingType;
 }
 
+/**
+ * @brief Constructs a Simulation object and initializes output files and the global timer.
+ */
 Simulation::Simulation()
     : baseSystem(nullptr)
 //  , stepTime(0.)
@@ -106,6 +142,9 @@ Simulation::Simulation()
     }
 }
 
+/**
+ * @brief Destroys the Simulation object and frees allocated timers and output file streams.
+ */
 Simulation::~Simulation()
 {
     if (globalTimer) delete globalTimer;
@@ -114,6 +153,10 @@ Simulation::~Simulation()
 }
 
 
+/**
+ * @brief Reads and parses the simulation configuration from an input file.
+ * @param FileIn Path to the input file to read.
+ */
 void Simulation::inputFromFile(const std::string& FileIn)
 {
     auto reader = make_unique<Reader>(this);
@@ -124,26 +167,53 @@ void Simulation::inputFromFile(const std::string& FileIn)
     reader->inputFromFile(FileIn);
 }
 
+/**
+ * @brief Returns the number of nodes in a named subsystem interface.
+ * @param name Name of the subsystem.
+ * @return Number of nodes in the specified subsystem.
+ */
 size_t Simulation::getInterfaceNumberOfNodes(const std::string& name) const
 {
     return baseSystem->getSystem(name)->getNumberOfNodes();
 }
 
+/**
+ * @brief Returns a node from a named subsystem by index.
+ * @param system_name Name of the subsystem.
+ * @param num Zero-based index of the node.
+ * @return Pointer to the requested Node.
+ */
 Node* Simulation::getInterfaceNode(const std::string& system_name, size_t num) const
 {
     return baseSystem->getSystem(system_name)->getNode(num);
 }
 
+/**
+ * @brief Returns the signal nodes associated with a named signal in a subsystem.
+ * @param system_name Name of the subsystem.
+ * @param name Name of the signal.
+ * @return Vector of pointers to the signal nodes.
+ */
 std::vector<Node*> Simulation::getSignalNodes(const std::string& system_name, const std::string& name) const
 {
     return baseSystem->getSystem(system_name)->getSignalNodes(name);
 }
 
+/**
+ * @brief Returns an output node identified by name from a subsystem.
+ * @param system_name Name of the subsystem.
+ * @param name Name of the output node.
+ * @return Pointer to the requested output Node.
+ */
 Node* Simulation::getOuputNode(const std::string& system_name, const std::string& name) const
 {
     return baseSystem->getSystem(system_name)->getOutputNode(name);
 }
 
+/**
+ * @brief Returns the coordinates of all thermal interface nodes.
+ * @return A vector of coordinate values for all thermal nodes.
+ */
 std::vector<double> Simulation::getInterfaceNodesCoords()
 {
     // Loads have access to the nodes, and are part of the system.
@@ -154,12 +224,23 @@ std::vector<double> Simulation::getInterfaceNodesCoords()
 }
 
 
+/**
+ * @brief Returns the names of all constraints defined in a subsystem.
+ * @param systemName Name of the subsystem.
+ * @return Vector of constraint name strings.
+ */
 std::vector<std::string> Simulation::getConstraintNames(const std::string& systemName) const
 {
     auto system = baseSystem->getSystem(systemName);
     return system->getConstraintNames();
 }
 
+/**
+ * @brief Returns a constraint by name from a subsystem, searching both mechanical and thermal constraints.
+ * @param constraintName Name of the constraint.
+ * @param systemName Name of the subsystem.
+ * @return Pointer to the matching Constraint, or nullptr if not found.
+ */
 Constraint* Simulation::getConstraint(const std::string& constraintName, const std::string& systemName) const
 {
     auto system = baseSystem->getSystem(systemName);
@@ -171,6 +252,13 @@ Constraint* Simulation::getConstraint(const std::string& constraintName, const s
     return constraint;
 }
 
+/**
+ * @brief Returns the internal reaction force of a constraint for a given component.
+ * @param constraintName Name of the constraint.
+ * @param systemName Name of the subsystem containing the constraint.
+ * @param component Index of the force component to retrieve.
+ * @return The negated internal force value for the specified component.
+ */
 double Simulation::getConstraintOutput(const std::string& constraintName, const std::string& systemName,
                                        size_t component)
 {
@@ -179,11 +267,20 @@ double Simulation::getConstraintOutput(const std::string& constraintName, const 
 }
 
 
+/**
+ * @brief Sets the uniform initial temperature applied to all thermal nodes.
+ * @param temp_in Initial temperature value.
+ */
 void Simulation::setInitialTemperatures(double temp_in)
 {
     initialTemperature = temp_in;
 }
 
+/**
+ * @brief Sets the initial temperature for a specific thermal node, overriding the uniform value.
+ * @param node Pointer to the node whose temperature is to be set.
+ * @param temperature Initial temperature value for this node.
+ */
 void Simulation::setThermalNodeInitialTemperature(Node* node, double temperature)
 {
     if (node == nullptr)
@@ -204,6 +301,10 @@ void Simulation::setThermalNodeInitialTemperature(Node* node, double temperature
 }
 
 // Part copy of run(), limited to preparation and thermal dynamic analysis
+/**
+ * @brief Initializes all analyses without executing the full simulation loop.
+ * @param verbosity Verbosity level controlling diagnostic output.
+ */
 void Simulation::init(int verbosity)
 {
     if (outputFilesDetail > 1)
@@ -230,6 +331,13 @@ void Simulation::init(int verbosity)
     }
 }
 
+/**
+ * @brief Initializes the global matrices and state vector for a thermal analysis.
+ * @param theAnalysis_in Pointer to the Analysis object to initialize.
+ * @param verbosity Verbosity level controlling diagnostic output.
+ * @param init If true, calls the analysis init routine after setup.
+ * @return The initial temperature state vector.
+ */
 lmx::Vector<data_type> Simulation::initThermalSimulation(Analysis* theAnalysis_in, int verbosity, bool init)
 {
     theAnalysis = theAnalysis_in;
@@ -286,6 +394,13 @@ lmx::Vector<data_type> Simulation::initThermalSimulation(Analysis* theAnalysis_i
     return q;
 }
 
+/**
+ * @brief Initializes the global matrices and state vector for a mechanical analysis.
+ * @param analysis Pointer to the Analysis object to initialize.
+ * @param verbosity Verbosity level controlling diagnostic output.
+ * @param init If true, calls the analysis init routine after setup.
+ * @return The initial displacement state vector.
+ */
 lmx::Vector<data_type> Simulation::initMechanicalSimulation(Analysis* analysis, int verbosity, bool init)
 {
     theAnalysis = analysis;
@@ -350,21 +465,38 @@ lmx::Vector<data_type> Simulation::initMechanicalSimulation(Analysis* analysis, 
     return q;
 }
 
+/**
+ * @brief Placeholder function for setting a signal on a node (currently a no-op).
+ * @param node Name of the node.
+ */
 void setSignal(std::string node, std::vector<double>)
 {
     return;
 }
 
+/**
+ * @brief Placeholder function for retrieving a signal from a node (currently returns an empty vector).
+ * @param node Name of the node.
+ * @return An empty vector.
+ */
 std::vector<double> getSignal(const std::string& node)
 {
     return { };
 }
 
+/**
+ * @brief Advances the current analysis by one time step.
+ */
 void Simulation::solveStep()
 {
     theAnalysis->nextStep();
 }
 
+/**
+ * @brief Advances the current analysis by one time step, applying an input signal and capturing an output signal.
+ * @param signal Pointer to the input signal array used to update thermal loads.
+ * @param outputSignal Pointer to the output signal array; filled with thermal output if non-null.
+ */
 void Simulation::solveStep(double* signal, double* outputSignal)
 {
     baseSystem->updateThermalLoads(signal);
@@ -375,6 +507,9 @@ void Simulation::solveStep(double* signal, double* outputSignal)
     }
 }
 
+/**
+ * @brief Finalizes the simulation, closes output files, and writes remaining results.
+ */
 void Simulation::endSimulation()
 {
     configurationFile->close();
@@ -422,6 +557,9 @@ void Simulation::endSimulation()
 }
 
 
+/**
+ * @brief Executes the complete simulation by running all defined analyses in sequence.
+ */
 void Simulation::run()
 {
 #ifdef HAVE_VTK
@@ -462,6 +600,10 @@ void Simulation::run()
     }
 }
 
+/**
+ * @brief Initializes and solves a thermal or thermalstatic analysis.
+ * @param theAnalysis_in Pointer to the thermal Analysis object to run.
+ */
 void Simulation::runThermalAnalysis(Analysis* theAnalysis_in)
 {
     auto q = initThermalSimulation(theAnalysis_in, 1, false);
@@ -526,6 +668,10 @@ void Simulation::runThermalAnalysis(Analysis* theAnalysis_in)
     }
 }
 
+/**
+ * @brief Initializes and solves a mechanical (static, dynamic, or thermo-mechanical dynamic) analysis.
+ * @param theAnalysis_in Pointer to the mechanical Analysis object to run.
+ */
 void Simulation::runMechanicalAnalysis(Analysis* theAnalysis_in)
 {
     auto q = initMechanicalSimulation(theAnalysis_in, 1, false);
@@ -610,6 +756,10 @@ void Simulation::runMechanicalAnalysis(Analysis* theAnalysis_in)
 //       }
 }
 
+/**
+ * @brief Writes the initial system topology (nodes, rigid/flex bodies, joints) to the main output file
+ *        and a nodes.dat file.
+ */
 void Simulation::writeSystem()
 {
     std::stringstream ss;
@@ -667,6 +817,11 @@ void Simulation::writeSystem()
 }
 
 
+/**
+ * @brief Computes the residue vector for the static thermal equilibrium problem.
+ * @param residue Output residue vector (K*q + f_int - f_ext).
+ * @param q Current temperature state vector.
+ */
 void Simulation::staticThermalResidue(lmx::Vector<data_type>& residue,
                                       lmx::Vector<data_type>& q
                                      )
@@ -696,6 +851,11 @@ void Simulation::staticThermalResidue(lmx::Vector<data_type>& residue,
 
 }
 
+/**
+ * @brief Computes the tangent (Jacobian) matrix for the static thermal problem.
+ * @param tangent_in Output tangent matrix.
+ * @param q Current temperature state vector.
+ */
 void Simulation::staticThermalTangent(lmx::Matrix<data_type>& tangent_in,
                                       lmx::Vector<data_type>& q
                                      )
@@ -708,6 +868,12 @@ void Simulation::staticThermalTangent(lmx::Matrix<data_type>& tangent_in,
 //     cout << tangent_in << endl;
 }
 
+/**
+ * @brief Checks whether the static thermal solver has converged and handles post-convergence output.
+ * @param res Current residue vector.
+ * @param q Current temperature state vector.
+ * @return True if the step has converged, false otherwise.
+ */
 bool Simulation::staticThermalConvergence(lmx::Vector<data_type>& res,
         lmx::Vector<data_type>& q
                                          )
@@ -731,6 +897,12 @@ bool Simulation::staticThermalConvergence(lmx::Vector<data_type>& res,
 }
 
 
+/**
+ * @brief Evaluates the thermal time derivative for explicit time integration.
+ * @param qt Current temperature state vector.
+ * @param qtdot Output temperature rate vector (solved from C*qtdot = -(K*qt + f_int - f_ext)).
+ * @param time Current simulation time.
+ */
 void Simulation::explicitThermalEvaluation
 (const lmx::Vector<data_type>& qt, lmx::Vector<data_type>& qtdot, double time
 )
@@ -770,6 +942,13 @@ void Simulation::explicitThermalEvaluation
 
 }
 
+/**
+ * @brief Evaluates the thermal time derivative for implicit dynamic time integration,
+ *        recomputing the conductivity and capacity matrices at each call.
+ * @param qt Current temperature state vector.
+ * @param qtdot Output temperature rate vector.
+ * @param time Current simulation time.
+ */
 void Simulation::dynamicThermalEvaluation(const lmx::Vector<data_type>& qt,
         lmx::Vector<data_type>& qtdot,
         double time
@@ -802,6 +981,12 @@ void Simulation::dynamicThermalEvaluation(const lmx::Vector<data_type>& qt,
     stepTime = time;
 }
 
+/**
+ * @brief Computes the residue vector for the dynamic thermal problem (C*qdot + K*q + f_int - f_ext).
+ * @param residue Output residue vector.
+ * @param q Current temperature state vector.
+ * @param qdot Current temperature rate vector.
+ */
 void Simulation::dynamicThermalResidue(lmx::Vector<data_type>& residue,
                                        const lmx::Vector<data_type>& q,
                                        const lmx::Vector<data_type>& qdot,
@@ -846,6 +1031,13 @@ void Simulation::dynamicThermalResidue(lmx::Vector<data_type>& residue,
 
 }
 
+/**
+ * @brief Computes the tangent matrix for the dynamic thermal problem
+ *        as partial_qdot * C + K.
+ * @param tangent_in Output tangent matrix.
+ * @param q Current temperature state vector.
+ * @param partial_qdot Partial derivative of qdot with respect to the unknown (from the time integrator).
+ */
 void Simulation::dynamicThermalTangent(lmx::Matrix<data_type>& tangent_in,
                                        const lmx::Vector<data_type>& q,
                                        double partial_qdot,
@@ -859,6 +1051,13 @@ void Simulation::dynamicThermalTangent(lmx::Matrix<data_type>& tangent_in,
     tangent_in += globalConductivity;
 }
 
+/**
+ * @brief Checks convergence for the dynamic thermal solver and handles post-convergence output.
+ * @param q Current temperature state vector.
+ * @param qdot Current temperature rate vector.
+ * @param time Current simulation time.
+ * @return True if the step has converged, false otherwise.
+ */
 bool Simulation::dynamicThermalConvergence(const lmx::Vector<data_type>& q,
         const lmx::Vector<data_type>& qdot,
         double time
@@ -898,6 +1097,13 @@ bool Simulation::dynamicThermalConvergence(const lmx::Vector<data_type>& q,
     return stepConverged;
 }
 
+/**
+ * @brief Checks thermal convergence within a coupled thermo-mechanical dynamic analysis.
+ * @param q Current temperature state vector.
+ * @param qdot Current temperature rate vector.
+ * @param time Current simulation time.
+ * @return True if the thermal step has converged, false otherwise.
+ */
 bool Simulation::dynamicThermalConvergenceInThermomechanical(const lmx::Vector<data_type>& q,
         const lmx::Vector<data_type>& qdot,
         double time
@@ -920,6 +1126,14 @@ bool Simulation::dynamicThermalConvergenceInThermomechanical(const lmx::Vector<d
 }
 
 
+/**
+ * @brief Computes the nodal acceleration for explicit mechanical time integration
+ *        by solving M*qddot = f_ext - f_int.
+ * @param q Current displacement state vector.
+ * @param qdot Current velocity state vector.
+ * @param qddot Output acceleration vector.
+ * @param time Current simulation time.
+ */
 void Simulation::explicitAcceleration(const lmx::Vector<data_type>& q,
                                       const lmx::Vector<data_type>& qdot,
                                       lmx::Vector<data_type>& qddot,
@@ -953,6 +1167,13 @@ void Simulation::explicitAcceleration(const lmx::Vector<data_type>& q,
 
 }
 
+/**
+ * @brief Computes the nodal acceleration for implicit dynamic mechanical analysis,
+ *        recomputing the mass matrix at each call.
+ * @param q Current displacement state vector.
+ * @param qdot Current velocity state vector.
+ * @param qddot Output acceleration vector.
+ */
 void Simulation::dynamicAcceleration(const lmx::Vector<data_type>& q,
                                      const lmx::Vector<data_type>& qdot,
                                      lmx::Vector<data_type>& qddot,
@@ -982,6 +1203,15 @@ void Simulation::dynamicAcceleration(const lmx::Vector<data_type>& q,
 //    cout << "initial_acceleration :" << qddot << endl;
 }
 
+/**
+ * @brief Computes the residue vector for the dynamic mechanical problem
+ *        (M*qddot + f_int - f_ext).
+ * @param residue Output residue vector.
+ * @param q Current displacement state vector.
+ * @param qdot Current velocity state vector.
+ * @param qddot Current acceleration state vector.
+ * @param time Current simulation time.
+ */
 void Simulation::dynamicResidue(lmx::Vector<data_type>& residue,
                                 const lmx::Vector<data_type>& q,
                                 const lmx::Vector<data_type>& qdot,
@@ -1019,6 +1249,14 @@ void Simulation::dynamicResidue(lmx::Vector<data_type>& residue,
 //     cout << "globalExternalForces : " << globalExternalForces;
 }
 
+/**
+ * @brief Computes the tangent matrix for the dynamic mechanical problem
+ *        as K + partial_qddot * M.
+ * @param tangent_in Output tangent matrix.
+ * @param q Current displacement state vector.
+ * @param qdot Current velocity state vector.
+ * @param partial_qddot Partial derivative of qddot with respect to the unknown (from the time integrator).
+ */
 void Simulation::dynamicTangent(lmx::Matrix<data_type>& tangent_in,
                                 const lmx::Vector<data_type>& q,
                                 const lmx::Vector<data_type>& qdot,
@@ -1033,6 +1271,14 @@ void Simulation::dynamicTangent(lmx::Matrix<data_type>& tangent_in,
     tangent_in += (data_type)partial_qddot * globalMass;
 }
 
+/**
+ * @brief Checks convergence for the dynamic mechanical solver and handles post-convergence output.
+ * @param q Current displacement state vector.
+ * @param qdot Current velocity state vector.
+ * @param qddot Current acceleration state vector.
+ * @param time Current simulation time.
+ * @return True if the step has converged, false otherwise.
+ */
 bool Simulation::dynamicConvergence(const lmx::Vector<data_type>& q,
                                     const lmx::Vector<data_type>& qdot,
                                     const lmx::Vector<data_type>& qddot,
@@ -1078,6 +1324,12 @@ bool Simulation::dynamicConvergence(const lmx::Vector<data_type>& q,
 }
 
 
+/**
+ * @brief Computes the residue vector for the static mechanical equilibrium problem
+ *        (f_int - f_ext).
+ * @param residue Output residue vector.
+ * @param q Current displacement state vector.
+ */
 void Simulation::staticResidue(lmx::Vector<data_type>& residue,
                                lmx::Vector<data_type>& q
                               )
@@ -1105,6 +1357,11 @@ void Simulation::staticResidue(lmx::Vector<data_type>& residue,
 //   cout << "globalExternalForces : " << globalExternalForces;
 }
 
+/**
+ * @brief Computes the tangent (stiffness) matrix for the static mechanical problem.
+ * @param tangent_in Output tangent matrix.
+ * @param q Current displacement state vector.
+ */
 void Simulation::staticTangent(lmx::Matrix<data_type>& tangent_in,
                                lmx::Vector<data_type>& q
                               )
@@ -1115,6 +1372,12 @@ void Simulation::staticTangent(lmx::Matrix<data_type>& tangent_in,
 //  cout << "TANGENT:\n" << tangent_in;
 }
 
+/**
+ * @brief Checks convergence for the static mechanical solver and handles post-convergence output.
+ * @param res Current residue vector.
+ * @param q Current displacement state vector.
+ * @return True if the step has converged, false otherwise.
+ */
 bool Simulation::staticConvergence(lmx::Vector<data_type>& res,
                                    lmx::Vector<data_type>& q
                                   )
@@ -1140,6 +1403,9 @@ bool Simulation::staticConvergence(lmx::Vector<data_type>& res,
 }
 
 
+/**
+ * @brief Callback invoked after a successful step convergence; writes configuration and updates timing output.
+ */
 void Simulation::stepTriggered()
 {
 #ifdef HAVE_VTK
@@ -1168,6 +1434,9 @@ void Simulation::stepTriggered()
     }
 }
 
+/**
+ * @brief Writes the current nodal configuration at the current step time to the displacement output file.
+ */
 void Simulation::writeConfStep()
 {
     if (outputFilesDetail > 1)
@@ -1196,6 +1465,10 @@ void Simulation::writeConfStep()
 
 }
 
+/**
+ * @brief Writes the system state output for the current time step using the displacement vector.
+ * @param q Current state vector (displacements or temperatures).
+ */
 void Simulation::systemOuputStep(const lmx::Vector<data_type>& q)
 {
     if (outputFilesDetail > 1)
@@ -1205,6 +1478,11 @@ void Simulation::systemOuputStep(const lmx::Vector<data_type>& q)
 
 }
 
+/**
+ * @brief Writes the system state output for the current time step using both displacement and velocity vectors.
+ * @param q Current displacement state vector.
+ * @param qdot Current velocity state vector.
+ */
 void Simulation::systemOuputStep(const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot)
 {
     if (outputFilesDetail > 1)
@@ -1213,11 +1491,21 @@ void Simulation::systemOuputStep(const lmx::Vector<data_type>& q, const lmx::Vec
     }
 }
 
+/**
+ * @brief Returns the names of all flexible bodies in the base system.
+ * @return Vector of flexible body name strings.
+ */
 std::vector<std::string> Simulation::bodyNames()
 {
     return baseSystem->flexBodyNames();
 }
 
+/**
+ * @brief Returns the current nodal coordinates of all nodes belonging to a named body in a subsystem.
+ * @param system_name Name of the subsystem containing the body.
+ * @param name Name of the body.
+ * @return Flat vector of (x, y, z) coordinate triples for each node.
+ */
 std::vector<double> Simulation::bodyPoints(const std::string& system_name, const std::string& name) const
 {
     std::vector<double> points;

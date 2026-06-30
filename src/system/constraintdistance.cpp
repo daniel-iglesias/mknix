@@ -25,11 +25,21 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor.
+ */
 ConstraintDistance::ConstraintDistance()
     : Constraint()
 {
 }
 
+/**
+ * @brief Constructor for a fixed-distance constraint between two nodes.
+ * @param a_in      Pointer to node A.
+ * @param b_in      Pointer to node B.
+ * @param alpha_in  Penalty parameter.
+ * @param method_in Enforcement method keyword.
+ */
 ConstraintDistance::ConstraintDistance( Node* a_in, Node* b_in, double& alpha_in, std::string& method_in )
     : Constraint(alpha_in, method_in)
 {
@@ -58,10 +68,16 @@ ConstraintDistance::ConstraintDistance( Node* a_in, Node* b_in, double& alpha_in
     this->phi_qq[0].resize(total_support_nodes*dim,total_support_nodes*dim);
 }
 
+/**
+ * @brief Destructor.
+ */
 ConstraintDistance::~ConstraintDistance()
 {
 }
 
+/**
+ * @brief Computes and stores the reference distance ro between the two nodes at the current configuration.
+ */
 void ConstraintDistance::calcRo()
 {
     ro = std::sqrt( std::pow( nodes[1]->getConf(0) - nodes[0]->getConf(0), 2 )
@@ -75,6 +91,9 @@ void ConstraintDistance::calcRo()
 }
 
 
+/**
+ * @brief Evaluates phi = rt^2 - ro^2 where rt is the current inter-node distance.
+ */
 void ConstraintDistance::calcPhi()
 {
 //   rt =  std::pow( nodes[1]->getx() - nodes[0]->getx(), 2 )
@@ -105,6 +124,9 @@ void ConstraintDistance::calcPhi()
 
 }
 
+/**
+ * @brief Computes the gradient of phi with respect to the nodal coordinates.
+ */
 void ConstraintDistance::calcPhiq()
 {
     this->phi_q[0](0) = -2.0*( nodes[1]->getConf(0) - nodes[0]->getConf(0) ) ;
@@ -117,6 +139,9 @@ void ConstraintDistance::calcPhiq()
         this->phi_q[0](dim+2) = +2.0*( nodes[1]->getConf(2) - nodes[0]->getConf(2) ) ;
 }
 
+/**
+ * @brief Computes the Hessian of phi with respect to the nodal coordinates.
+ */
 void ConstraintDistance::calcPhiqq()
 {
     this->phi_qq[0](0,0) =  2.0 ;

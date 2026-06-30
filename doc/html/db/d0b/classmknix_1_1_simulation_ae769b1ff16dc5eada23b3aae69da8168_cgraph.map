@@ -1,5 +1,0 @@
-<map id="mknix::Simulation::runThermalAnalysis" name="mknix::Simulation::runThermalAnalysis">
-<area shape="rect" id="node2" href="$df/d86/classmknix_1_1_analysis.html#a6dd7026a22ae11f3eef3dad3be370e70" title="mknix::Analysis::type" alt="" coords="194,5,342,32"/>
-<area shape="rect" id="node3" href="$df/d86/classmknix_1_1_analysis.html#a515bc01fa8704395d310c5e7ebd45081" title="mknix::Analysis::solve" alt="" coords="191,56,345,83"/>
-<area shape="rect" id="node4" href="$db/d0b/classmknix_1_1_simulation.html#adda4efbeb29fecf80bcd8552703bfed4" title="mknix::Simulation::\lgetDim" alt="" coords="201,107,335,149"/>
-</map>

@@ -12,11 +12,24 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for GaussPointBoundary.
+ */
 GaussPointBoundary::GaussPointBoundary()
 {
 }
 
 
+/**
+ * @brief Constructs a 1D boundary Gauss point with a single x coordinate.
+ * @param dim_in Spatial dimension of the parent domain.
+ * @param alpha_in Influence radius scaling factor.
+ * @param weight_in Quadrature weight.
+ * @param jacobian_in Jacobian value for the boundary mapping.
+ * @param num_in Index of this point within its boundary cell.
+ * @param coor_x X coordinate of the boundary Gauss point.
+ * @param dc_in Characteristic nodal spacing.
+ */
 GaussPointBoundary::GaussPointBoundary(int dim_in,
                                        double alpha_in,
                                        double weight_in,
@@ -30,6 +43,17 @@ GaussPointBoundary::GaussPointBoundary(int dim_in,
 {
 }
 
+/**
+ * @brief Constructs a boundary Gauss point with (x, y) coordinates.
+ * @param dim_in Spatial dimension of the parent domain.
+ * @param alpha_in Influence radius scaling factor.
+ * @param weight_in Quadrature weight.
+ * @param jacobian_in Jacobian value for the boundary mapping.
+ * @param num_in Index of this point within its boundary cell.
+ * @param coor_x X coordinate.
+ * @param coor_y Y coordinate.
+ * @param dc_in Characteristic nodal spacing.
+ */
 GaussPointBoundary::GaussPointBoundary(int dim_in,
                                        double alpha_in,
                                        double weight_in,
@@ -44,11 +68,19 @@ GaussPointBoundary::GaussPointBoundary(int dim_in,
 {
 }
 
+/**
+ * @brief Destructor for GaussPointBoundary.
+ */
 GaussPointBoundary::~GaussPointBoundary()
 {
 }
 
 
+/**
+ * @brief Computes shape function values at this boundary point and initializes internal vectors.
+ * @param type_in Shape function type: "RBF", "MLS", or "1D-X".
+ * @param q_in Shape parameter (overridden internally to 0.5).
+ */
 void GaussPointBoundary::shapeFunSolve(std::string type_in, double q_in)
 {
     cout << "INFO AT shapeFunSolve IN GaussPointBoundary: (x, y) = "
@@ -92,6 +124,10 @@ void GaussPointBoundary::shapeFunSolve(std::string type_in, double q_in)
 }
 
 
+/**
+ * @brief Computes the external thermal boundary heat load contribution Qext at this point.
+ * @param loadThermalBoundary_in Pointer to the 1D boundary thermal load object.
+ */
 void GaussPointBoundary::computeQext(LoadThermalBoundary1D * loadThermalBoundary_in)
 {
     for (auto i = 0u; i < supportNodesSize; ++i)
@@ -108,6 +144,10 @@ void GaussPointBoundary::computeQext(LoadThermalBoundary1D * loadThermalBoundary
 }
 
 
+/**
+ * @brief Assembles the local boundary heat load vector Qext into the global heat load vector.
+ * @param globalHeat Global external heat load vector to be updated.
+ */
 void GaussPointBoundary::assembleQext(lmx::Vector<data_type>& globalHeat)
 {
     for (auto i = 0u; i < supportNodesSize; ++i)
@@ -125,6 +165,9 @@ void GaussPointBoundary::gnuplotOutStress( std::ofstream & gptension )
     gptension << X << " " << Y << " " << tension(0) << endl;
 }*/
 
+/**
+ * @brief Initializes internal vectors to the correct size based on the number of support nodes.
+ */
 void GaussPointBoundary::initializeMatVecs()
 {
     Qext.resize(supportNodesSize);

@@ -7,11 +7,22 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for CellBoundaryLinear.
+ */
 CellBoundaryLinear::CellBoundaryLinear()
 {
 }
 
 
+/**
+ * @brief Constructs a 1D linear boundary cell between two points.
+ * @param formulation_in String identifying the formulation.
+ * @param alpha_in Influence radius scaling factor.
+ * @param nGPoints_in Number of Gauss points along the boundary.
+ * @param n1_in Pointer to the first boundary point.
+ * @param n2_in Pointer to the second boundary point.
+ */
 CellBoundaryLinear::CellBoundaryLinear(std::string formulation_in,
                                        double alpha_in,
                                        int nGPoints_in,
@@ -40,6 +51,15 @@ CellBoundaryLinear::CellBoundaryLinear(std::string formulation_in,
     this->createGaussPoints();
 }
 
+/**
+ * @brief Constructs a 1D linear boundary cell between two points with an explicit nodal spacing.
+ * @param formulation_in String identifying the formulation.
+ * @param alpha_in Influence radius scaling factor.
+ * @param nGPoints_in Number of Gauss points along the boundary.
+ * @param n1_in Pointer to the first boundary point.
+ * @param n2_in Pointer to the second boundary point.
+ * @param dc_in Characteristic nodal spacing override.
+ */
 CellBoundaryLinear::CellBoundaryLinear(std::string formulation_in,
                                        double alpha_in,
                                        int nGPoints_in,
@@ -68,11 +88,19 @@ CellBoundaryLinear::CellBoundaryLinear(std::string formulation_in,
     this->createGaussPoints();
 }
 
+/**
+ * @brief Destructor for CellBoundaryLinear.
+ */
 CellBoundaryLinear::~CellBoundaryLinear()
 {
 }
 
 
+/**
+ * @brief Initializes boundary Gauss points, delegating to the base class for meshfree cases
+ *        and adding FEM support nodes directly for non-meshfree formulations.
+ * @param nodes_in Vector of domain nodes.
+ */
 void CellBoundaryLinear::initialize(std::vector<Node *>& nodes_in)
 {
 // Meshfree CellBoundarys,
@@ -93,6 +121,9 @@ void CellBoundaryLinear::initialize(std::vector<Node *>& nodes_in)
 }
 
 
+/**
+ * @brief Computes shape function values at each Gauss point, using 1D linear functions for FEM.
+ */
 void CellBoundaryLinear::computeShapeFunctions()
 {
 // Meshfree CellBoundarys,
@@ -108,6 +139,9 @@ void CellBoundaryLinear::computeShapeFunctions()
 }
 
 
+/**
+ * @brief Creates and positions Gauss points along the 1D boundary segment using standard quadrature rules.
+ */
 void CellBoundaryLinear::createGaussPoints()
 {
     lmx::DenseMatrix<double> gCoef(size_type(nGPoints), 2);

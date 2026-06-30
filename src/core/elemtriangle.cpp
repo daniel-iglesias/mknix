@@ -25,12 +25,24 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for ElemTriangle.
+ */
 ElemTriangle::ElemTriangle()
     : CellTriang()
 {
 }
 
 
+/**
+ * @brief Constructs an FEM triangular element from three nodes.
+ * @param material_in Reference to the material.
+ * @param alpha_in Influence radius scaling factor.
+ * @param nGPoints_in Number of integration Gauss points.
+ * @param n1_in Pointer to node 1.
+ * @param n2_in Pointer to node 2.
+ * @param n3_in Pointer to node 3.
+ */
 ElemTriangle::ElemTriangle(Material& material_in,
                            double alpha_in,
                            int nGPoints_in,
@@ -48,11 +60,19 @@ ElemTriangle::ElemTriangle(Material& material_in,
                 ) { }
 
 
+/**
+ * @brief Destructor for ElemTriangle.
+ */
 ElemTriangle::~ElemTriangle()
 {
 }
 
 
+/**
+ * @brief Initializes the FEM triangle by assigning the three corner nodes as support nodes
+ *        for all Gauss points and creating separate mass-consistent Gauss points.
+ * @param nodes_in Vector of domain nodes (unused directly; corners are added explicitly).
+ */
 void ElemTriangle::initialize(std::vector<Node *>& nodes_in)
 {
 //   cout << "CellTriang points " << this->points << endl;
@@ -77,6 +97,9 @@ void ElemTriangle::initialize(std::vector<Node *>& nodes_in)
     }
 }
 
+/**
+ * @brief Computes FEM shape functions at each Gauss point by filling the B matrix.
+ */
 void ElemTriangle::computeShapeFunctions()
 {
     for (auto& point : gPoints)
@@ -90,6 +113,10 @@ void ElemTriangle::computeShapeFunctions()
 
 }
 
+/**
+ * @brief Creates mass-consistent Gauss points (gPoints_MC) with a higher-order quadrature rule
+ *        than the standard stress Gauss points.
+ */
 void ElemTriangle::createGaussPoints_MC()
 {
     int nGPoints_MC = 3;

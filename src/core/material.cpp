@@ -23,6 +23,9 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor. Initializes all material properties to zero.
+ */
 Material::Material()
     : dim(0)
     , capacity(0)
@@ -38,10 +41,18 @@ Material::Material()
 {
 }
 
+/**
+ * @brief Destructor for Material.
+ */
 Material::~Material()
 {
 }
 
+/**
+ * @brief Returns the porosity resistance at a given point, interpolating from tabulated data if available.
+ * @param point_in Pointer to the point at which to evaluate the resistance.
+ * @return Porosity resistance value (scalar or interpolated from 1D/2D tables).
+ */
 double Material::getPorosityResistance(Point* point_in)
 {
     if (m_resistance.empty() && m_resistance2D.empty())
@@ -89,6 +100,13 @@ double Material::getPorosityResistance(Point* point_in)
     return m_resistance.empty() ? resistance : interpolate1D(point_in->getX(), m_resistance);
 }
 
+/**
+ * @brief Sets the thermal material properties.
+ * @param capacity_in Specific heat capacity.
+ * @param kappa_in Thermal conductivity.
+ * @param beta_in Thermal expansion coefficient.
+ * @param density_in Mass density.
+ */
 void Material::setThermalProps(double capacity_in, double kappa_in, double beta_in, double density_in)
 {
     capacity = capacity_in;
@@ -97,6 +115,12 @@ void Material::setThermalProps(double capacity_in, double kappa_in, double beta_
     density = density_in;
 }
 
+/**
+ * @brief Sets the porosity material properties and marks the material as porous.
+ * @param resistance_in Volumetric thermal resistance of the porous medium.
+ * @param fluid_temperature_in Initial fluid temperature.
+ * @param porosityCapacity_in Thermal capacity of the fluid.
+ */
 void Material::setPorosityProps(double resistance_in, double fluid_temperature_in, double porosityCapacity_in)
 {
     resistance = resistance_in;
@@ -107,6 +131,13 @@ void Material::setPorosityProps(double resistance_in, double fluid_temperature_i
 }
 
 // Mechanical needs dimension
+/**
+ * @brief Sets the mechanical material properties and pre-computes the elastic stiffness matrices D and C.
+ * @param dim_in Spatial dimension (2 for plane stress, 3 for full 3D).
+ * @param young_in Young's modulus.
+ * @param poisson_in Poisson's ratio.
+ * @param density_in Mass density.
+ */
 void Material::setMechanicalProps(int dim_in, double young_in, double poisson_in, double density_in)
 {
     dim = dim_in;
@@ -119,6 +150,10 @@ void Material::setMechanicalProps(int dim_in, double young_in, double poisson_in
     computeC();
 }
 
+/**
+ * @brief Updates material state variables at the end of a nonlinear iteration or converged step.
+ * @param convergence 1 if the step has converged (commit history), 0 to revert to the last converged state.
+ */
 void Material::update(int convergence)
 { 
     if (b_porous)
@@ -134,6 +169,9 @@ void Material::update(int convergence)
     }
 }
 
+/**
+ * @brief Computes the small-strain elastic constitutive matrix D (Voigt notation, plane stress or 3D).
+ */
 void Material::computeD()
 {
     double comFacD; // Common factor for matrix D.
@@ -170,6 +208,9 @@ void Material::computeD()
     }
 }
 
+/**
+ * @brief Computes the large-strain elastic constitutive tensor C in Voigt notation.
+ */
 void Material::computeC()
 {
     if (dim == 2)
@@ -204,11 +245,27 @@ void Material::computeC()
 //   int kk=1; cout << this->getCsym(kk,kk,kk,kk) << endl;
 }
 
+/**
+ * @brief Returns the fully-symmetrized minor-symmetric component of the material tangent tensor.
+ * @param i Row index (0-based).
+ * @param j Column index (0-based).
+ * @param k Second row index.
+ * @param l Second column index.
+ * @return The value 0.25*(Cijkl + Cijlk + Cjikl + Cjilk).
+ */
 double Material::getCsym(int& i, int& j, int& k, int& l)
 {
     return (0.25 * (Cijkl(i, j, k, l) + Cijkl(i, j, l, k) + Cijkl(j, i, k, l) + Cijkl(j, i, l, k)));
 }
 
+/**
+ * @brief Returns the isotropic elastic tensor component C_ijkl = lambda*delta_ij*delta_kl + 2*mu*(delta_ik*delta_jl).
+ * @param i First index.
+ * @param j Second index.
+ * @param k Third index.
+ * @param l Fourth index.
+ * @return Value of C_ijkl.
+ */
 double Material::Cijkl(int& i, int& j, int& k, int& l)
 {
     double res = 0.;
@@ -217,6 +274,12 @@ double Material::Cijkl(int& i, int& j, int& k, int& l)
     return res;
 }
 
+/**
+ * @brief Computes the 2nd Piola-Kirchhoff stress S for a 2D deformation gradient using St. Venant-Kirchhoff.
+ * @param S Output 2D symmetric stress tensor.
+ * @param F Input 2D deformation gradient tensor.
+ * @param temperature_in Current temperature (used for thermal expansion correction).
+ */
 void Material::computeS(cofe::TensorRank2Sym<2, double>& S,
                         const cofe::TensorRank2<2, double>& F,
                         double temperature_in)
@@ -243,6 +306,11 @@ void Material::computeS(cofe::TensorRank2Sym<2, double>& S,
 //     S -= one;
 }
 
+/**
+ * @brief Computes the 2nd Piola-Kirchhoff stress S for a 3D deformation gradient using St. Venant-Kirchhoff.
+ * @param S Output 3D symmetric stress tensor.
+ * @param F Input 3D deformation gradient tensor.
+ */
 void Material::computeS(cofe::TensorRank2Sym<3, double>& S,
                         const cofe::TensorRank2<3, double>& F)
 {
@@ -261,6 +329,11 @@ void Material::computeS(cofe::TensorRank2Sym<3, double>& S,
 
 }
 
+/**
+ * @brief Computes the strain energy density for a 2D deformation using the St. Venant-Kirchhoff model.
+ * @param F 2D deformation gradient tensor.
+ * @return Elastic strain energy density.
+ */
 double Material::computeEnergy(const cofe::TensorRank2<2, double>& F)
 {
     cofe::TensorRank2Sym<2, double> one;
@@ -275,6 +348,11 @@ double Material::computeEnergy(const cofe::TensorRank2<2, double>& F)
     return energy;
 }
 
+/**
+ * @brief Computes the cooling power per unit volume from the porous medium and updates the fluid temperature.
+ * @param point_in Pointer to the evaluation point (provides local temperature and coordinates).
+ * @return Cooling power: (T_solid - T_fluid) / R_porosity.
+ */
 double Material::computePorosityLoad(Point* point_in)
 {
     double coolingPower = (point_in->getTemp() - fluidTempHistory.back()) / getPorosityResistance(point_in);
@@ -284,6 +362,11 @@ double Material::computePorosityLoad(Point* point_in)
 }
 
 
+/**
+ * @brief Computes the strain energy density for a 3D deformation using the St. Venant-Kirchhoff model.
+ * @param F 3D deformation gradient tensor.
+ * @return Elastic strain energy density.
+ */
 double Material::computeEnergy(const cofe::TensorRank2<3, double>& F)
 {
     cofe::TensorRank2Sym<3, double> one;
@@ -298,6 +381,10 @@ double Material::computeEnergy(const cofe::TensorRank2<3, double>& F)
     return energy;
 }
 
+/**
+ * @brief Writes the material state (porosity flag, fluid temperature history) to an output file.
+ * @param outFile Pointer to the open output file stream.
+ */
 void Material::outputToFile(std::ofstream * outFile){
     *outFile << "isPorous " << b_porous << ", "
              <<  "fluidTempHistory.size = " << fluidTempHistory.size() << endl;

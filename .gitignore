@@ -3,3 +3,9 @@
 
 build/
 target/
+
+# Doxygen generated files
+doc/Doxyfile.bak
+doc/html/*
+doc/latex/*
+doc/xml/*

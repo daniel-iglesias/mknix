@@ -7,11 +7,18 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor. Initializes dimension from the global simulation setting.
+ */
 ShapeFunction::ShapeFunction()
     : dim(Simulation::getDim())
 {
 }
 
+/**
+ * @brief Copy constructor from pointer. Copies dimension, phi matrix, and Gauss point reference.
+ * @param sf_in Pointer to the source ShapeFunction.
+ */
 ShapeFunction::ShapeFunction(const ShapeFunction * sf_in)
     : dim(sf_in->dim)
     , phi(sf_in->phi)
@@ -20,6 +27,10 @@ ShapeFunction::ShapeFunction(const ShapeFunction * sf_in)
 }
 
 
+/**
+ * @brief Constructs a ShapeFunction attached to the given Point (Gauss point).
+ * @param gp_in Pointer to the Point at which shape functions will be evaluated.
+ */
 ShapeFunction::ShapeFunction(Point * gp_in)
     : dim(gp_in->getDim())
     , gp(gp_in)
@@ -27,10 +38,16 @@ ShapeFunction::ShapeFunction(Point * gp_in)
 }
 
 
+/**
+ * @brief Destructor for ShapeFunction.
+ */
 ShapeFunction::~ShapeFunction()
 {
 }
 
+/**
+ * @brief Prints shape function values (phi and derivatives) for all support nodes to stdout.
+ */
 void ShapeFunction::outputValues()
 {
     // output values:
@@ -59,6 +76,10 @@ void ShapeFunction::outputValues()
 }
 
 
+/**
+ * @brief Writes shape function phi values and first derivatives for all support nodes
+ *        to gnuplot-compatible output files.
+ */
 void ShapeFunction::gnuplotOut()
 {
     // for some reason, can't use a std::vector...

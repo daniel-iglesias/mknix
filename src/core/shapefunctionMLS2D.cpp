@@ -7,11 +7,23 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for ShapeFunctionMLS2D.
+ */
 ShapeFunctionMLS2D::ShapeFunctionMLS2D()
 {
 }
 
 
+/**
+ * @brief Constructs a 2D Moving Least Squares shape function.
+ * @param nn_in Number of support nodes.
+ * @param mm_in Polynomial basis order (1 = linear).
+ * @param weightType_in Weight function type.
+ * @param alpha_c_in Influence radius scaling factor.
+ * @param d_c_in Characteristic nodal spacing.
+ * @param gp_in Pointer to the evaluation Point.
+ */
 ShapeFunctionMLS2D::ShapeFunctionMLS2D(int nn_in,
                                        int mm_in,
                                        int weightType_in,
@@ -60,10 +72,16 @@ ShapeFunctionMLS2D::ShapeFunctionMLS2D(int nn_in,
 }
 
 
+/**
+ * @brief Destructor for ShapeFunctionMLS2D.
+ */
 ShapeFunctionMLS2D::~ShapeFunctionMLS2D()
 {
 }
 
+/**
+ * @brief Computes 2D MLS shape functions and derivatives.
+ */
 void ShapeFunctionMLS2D::calc()
 {
     computeWeights();
@@ -73,6 +91,9 @@ void ShapeFunctionMLS2D::calc()
 //   computePhi(0.2, 0.4);
 }
 
+/**
+ * @brief Computes 2D weight functions and their derivatives for each support node.
+ */
 void ShapeFunctionMLS2D::computeWeights()
 {
 //  double radius;
@@ -180,6 +201,9 @@ void ShapeFunctionMLS2D::computeWeights()
     }
 }
 
+/**
+ * @brief Assembles the 2D MLS moment matrix A and the matrices B from the polynomial basis and weights.
+ */
 void ShapeFunctionMLS2D::computeMomentMatrix()
 {
     // Example with mm=1 (first order):
@@ -261,6 +285,12 @@ void ShapeFunctionMLS2D::computeMomentMatrix()
     }
 }
 
+/**
+ * @brief Solves the 2D MLS linear systems to obtain phi and first derivatives at (xp, yp, zp).
+ * @param xp X coordinate of the evaluation point.
+ * @param yp Y coordinate of the evaluation point.
+ * @param zp Z coordinate of the evaluation point.
+ */
 void ShapeFunctionMLS2D::computePhi(double xp, double yp, double zp)
 {
     std::vector<lmx::Vector<double>> alpha; /**< auxiliary variables */

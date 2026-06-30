@@ -25,11 +25,21 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor.
+ */
 Force::Force()
     : Load()
 {
 }
 
+/**
+ * @brief Constructor that creates a concentrated force applied to a single node.
+ * @param node_in Pointer to the node where the force is applied.
+ * @param fx_in   Force component along X.
+ * @param fy_in   Force component along Y.
+ * @param fz_in   Force component along Z (used in 3D only).
+ */
 Force::Force(Node * node_in, double fx_in, double fy_in, double fz_in )
     : Load()
 {
@@ -42,10 +52,17 @@ Force::Force(Node * node_in, double fx_in, double fy_in, double fz_in )
 }
 
 
+/**
+ * @brief Destructor.
+ */
 Force::~Force()
 {
 }
 
+/**
+ * @brief Writes force data to the output file (currently a no-op).
+ * @param outFile Pointer to the output file stream.
+ */
 void Force::outputToFile(std::ofstream * outFile)
 {
     // Nothing yet...

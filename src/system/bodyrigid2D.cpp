@@ -24,6 +24,9 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor. Initializes the 2D rigid body with zero inertia terms.
+ */
 RigidBody2D::RigidBody2D()
     : RigidBody()
     , Ixx(0)
@@ -32,6 +35,13 @@ RigidBody2D::RigidBody2D()
 {
 }
 
+/**
+ * @brief Constructor with title and three frame nodes (CoG, x-director, y-director).
+ * @param title_in  Name identifier for this body.
+ * @param nodeA_in  Pointer to the centre-of-gravity node.
+ * @param nodeB_in  Pointer to the x-direction frame node.
+ * @param nodeC_in  Pointer to the y-direction frame node.
+ */
 RigidBody2D::RigidBody2D( std::string title_in,
                           Node * nodeA_in,
                           Node * nodeB_in,
@@ -56,10 +66,18 @@ RigidBody2D::RigidBody2D( std::string title_in,
 
 }
 
+/**
+ * @brief Destructor.
+ */
 RigidBody2D::~RigidBody2D()
 {
 }
 
+/**
+ * @brief Sets one component of the planar inertia tensor.
+ * @param inertia_in Value to assign.
+ * @param axis       Component index: 0=Ixx, 1=Iyy, 2=Ixy.
+ */
 void RigidBody2D::setInertia(double inertia_in, int axis)
 {
     if( axis == 0 ) Ixx = inertia_in;
@@ -67,6 +85,10 @@ void RigidBody2D::setInertia(double inertia_in, int axis)
     else if( axis == 2 ) Ixy = inertia_in;
     else cerr << endl << "ERROR: Trying to set inertia out of bounds in RigidBody2D" << endl;
 }
+/**
+ * @brief Sets the initial pose of the body from a centre-of-mass position and rotation angle.
+ * @param position Vector [CoG_x, CoG_y, rotation_angle] defining the initial pose.
+ */
 void RigidBody2D::setPosition(std::vector<double>& position)
 {
     // TODO: check vector size. Should have 3 elements: CoG_x, CoG_y, rotation angle
@@ -79,6 +101,9 @@ void RigidBody2D::setPosition(std::vector<double>& position)
 }
 
 
+/**
+ * @brief Builds the local mass matrix for a planar rigid body using the body-inertia parameters.
+ */
 void RigidBody2D::calcMassMatrix()
 {
     // m00
@@ -123,6 +148,9 @@ void RigidBody2D::calcMassMatrix()
     }
 }
 
+/**
+ * @brief Computes the gravitational external force vector applied at the CoG node.
+ */
 void RigidBody2D::calcExternalForces()
 {
     this->externalForces(0) = -mass * Simulation::getGravity(0);
@@ -131,6 +159,11 @@ void RigidBody2D::calcExternalForces()
         this->externalForces(2) = -mass * Simulation::getGravity(2);
 }
 
+/**
+ * @brief Adds a domain node, assigning the three frame nodes as support nodes
+ *        and solving the 2D shape function.
+ * @param node_in Pointer to the domain node to add.
+ */
 void RigidBody2D::addNode(Node* node_in)
 {
     mknix::Body::addNode(node_in); // adds node_in to node vector

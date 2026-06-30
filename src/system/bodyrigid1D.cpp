@@ -24,12 +24,22 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor. Initializes the bar with zero moment of inertia.
+ */
 RigidBar::RigidBar()
     : RigidBody()
     , Jo(0)
 {
 }
 
+/**
+ * @brief Constructor with title, end nodes and mass.
+ * @param title_in  Name identifier for this bar body.
+ * @param nodeA_in  Pointer to node A (first endpoint).
+ * @param nodeB_in  Pointer to node B (second endpoint).
+ * @param mass_in   Total mass of the bar.
+ */
 RigidBar::RigidBar(std::string title_in,
                    Node * nodeA_in,
                    Node * nodeB_in,
@@ -53,10 +63,18 @@ RigidBar::RigidBar(std::string title_in,
 
 }
 
+/**
+ * @brief Destructor.
+ */
 RigidBar::~RigidBar()
 {
 }
 
+/**
+ * @brief Sets the rotational inertia about axis 0 (only one axis supported).
+ * @param inertia_in Inertia value to assign.
+ * @param axis       Axis index (only 0 is valid).
+ */
 void RigidBar::setInertia(double inertia_in, int axis)
 {
     if (axis == 0)
@@ -69,6 +87,10 @@ void RigidBar::setInertia(double inertia_in, int axis)
     }
 }
 
+/**
+ * @brief Sets initial end-node positions from a centre-of-mass position and rotation angle.
+ * @param position Vector [CoG_x, CoG_y, z, angle] defining the bar pose.
+ */
 void RigidBar::setPosition(std::vector<double>& position)
 {
     // TODO: check vector size. Should have 3 elements: CoG_x, CoG_y, rotation angle
@@ -78,6 +100,9 @@ void RigidBar::setPosition(std::vector<double>& position)
     this->frameNodes[1]->setY(position[1] + lenght / 2 * std::sin(position[3]));
 }
 
+/**
+ * @brief Builds the consistent local mass matrix for the bar (2-node linear element).
+ */
 void RigidBar::calcMassMatrix()
 {
     this->localMassMatrix(0, 0) = 1. / 3. * mass;
@@ -99,6 +124,9 @@ void RigidBar::calcMassMatrix()
     }
 }
 
+/**
+ * @brief Computes the gravitational load vector: half of -m*g at each end node.
+ */
 void RigidBar::calcExternalForces()
 {
     this->externalForces(0) = -0.5 * mass * Simulation::getGravity(0);
@@ -116,6 +144,11 @@ void RigidBar::calcExternalForces()
 }
 
 
+/**
+ * @brief Adds a domain node to the bar, assigning the two frame nodes as support nodes
+ *        and solving the 1D shape function.
+ * @param node_in Pointer to the domain node to add.
+ */
 void RigidBar::addNode(Node * node_in)
 {
     mknix::Body::addNode(node_in); // adds node_in to node vector
@@ -133,6 +166,10 @@ void RigidBar::addNode(Node * node_in)
 //   else cerr << "ERROR: NO NODE WITH THAT NAME IN BAR" << endl;
 // }
 
+/**
+ * @brief Collects the frame nodes (bar endpoints) as boundary nodes.
+ * @param boundary_nodes Vector to which the frame node pointers are appended.
+ */
 void RigidBar::writeBoundaryNodes(std::vector<Node *>& boundary_nodes)
 {
     // We specialize only for the bar, as its frameNodes are its own boundary
@@ -142,6 +179,10 @@ void RigidBar::writeBoundaryNodes(std::vector<Node *>& boundary_nodes)
     }
 }
 
+/**
+ * @brief Builds the boundary connectivity using the frame nodes (bar endpoints).
+ * @param connectivity_nodes Vector of node chains to which the bar boundary is appended.
+ */
 void RigidBar::writeBoundaryConnectivity(std::vector<std::vector<Node *> >& connectivity_nodes)
 {
     // We specialize only for the bar, as its frameNodes are its own boundary

@@ -24,6 +24,9 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor. Initializes a rigid body with zero mass and no energy computation.
+ */
 RigidBody::RigidBody()
     : Body()
     , computeEnergy(false)
@@ -33,6 +36,10 @@ RigidBody::RigidBody()
 {
 }
 
+/**
+ * @brief Constructor with title.
+ * @param title_in Name identifier for this rigid body.
+ */
 RigidBody::RigidBody(std::string title_in)
     : Body(title_in)
     , computeEnergy(false)
@@ -42,11 +49,18 @@ RigidBody::RigidBody(std::string title_in)
 {
 }
 
+/**
+ * @brief Destructor.
+ */
 RigidBody::~RigidBody()
 {
 }
 
 
+/**
+ * @brief Assembles the local mass matrix contribution into the global mass matrix.
+ * @param globalMass Reference to the global mass matrix.
+ */
 void RigidBody::assembleMassMatrix(lmx::Matrix<data_type>& globalMass)
 {
     class Body;
@@ -72,6 +86,10 @@ void RigidBody::assembleMassMatrix(lmx::Matrix<data_type>& globalMass)
     }
 }
 
+/**
+ * @brief Assembles the local external forces into the global external force vector.
+ * @param globalExternalForces Reference to the global external force vector.
+ */
 void RigidBody::assembleExternalForces
 (lmx::Vector<data_type>& globalExternalForces)
 {
@@ -96,6 +114,10 @@ void RigidBody::assembleExternalForces
 // }
 
 
+/**
+ * @brief Enables energy computation output.
+ * @param outputType_in Keyword; use "ENERGY" to activate energy output.
+ */
 void RigidBody::setOutput(std::string outputType_in)
 {
     if (outputType_in == "ENERGY") computeEnergy = 1;
@@ -131,6 +153,11 @@ Node * RigidBody::getNode(int node_number)
 }
 
 
+/**
+ * @brief Stores domain-node positions for the current dynamic step.
+ * @param q    Global configuration vector.
+ * @param qdot Global velocity vector.
+ */
 void RigidBody::outputStep
 (const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot)
 {
@@ -188,6 +215,10 @@ void RigidBody::outputStep
     }
 }
 
+/**
+ * @brief Stores domain-node positions for the current static step.
+ * @param q Global configuration vector.
+ */
 void RigidBody::outputStep(const lmx::Vector<data_type>& q)
 {
     Body::outputStep();
@@ -228,6 +259,10 @@ void RigidBody::outputStep(const lmx::Vector<data_type>& q)
     }
 }
 
+/**
+ * @brief Writes stored domain-node positions and optional energy data to the output file.
+ * @param outFile Pointer to the output file stream.
+ */
 void RigidBody::outputToFile(std::ofstream * outFile)
 {
     Body::outputToFile(outFile);
@@ -268,6 +303,10 @@ void RigidBody::outputToFile(std::ofstream * outFile)
     }
 }
 
+/**
+ * @brief Writes rigid-body type and frame-node information to the output file.
+ * @param outFile Pointer to the output file stream.
+ */
 void RigidBody::writeBodyInfo(std::ofstream * outFile)
 {
     *outFile << "\t" << this->getType() << " "
@@ -284,6 +323,10 @@ void RigidBody::writeBodyInfo(std::ofstream * outFile)
 }
 
 
+/**
+ * @brief No-op in the base rigid-body class; specialized subclasses may override.
+ * @param boundary_nodes Output vector (unused here).
+ */
 void RigidBody::writeBoundaryNodes(std::vector<Point *>& boundary_nodes)
 {
 //   std::vector<Node*>::iterator it_nodes;
@@ -295,6 +338,10 @@ void RigidBody::writeBoundaryNodes(std::vector<Point *>& boundary_nodes)
 //   }
 }
 
+/**
+ * @brief No-op in the base rigid-body class; specialized subclasses may override.
+ * @param connectivity_nodes Output vector (unused here).
+ */
 void RigidBody::writeBoundaryConnectivity(std::vector<std::vector<Point *> >& connectivity_nodes)
 {
 //   std::vector<Node*>::iterator it_nodes;

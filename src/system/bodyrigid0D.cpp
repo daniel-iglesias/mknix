@@ -29,10 +29,19 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor.
+ */
 RigidBodyMassPoint::RigidBodyMassPoint() : RigidBody()
 {
 }
 
+/**
+ * @brief Constructor with title, node and mass.
+ * @param title_in  Name identifier for this mass-point body.
+ * @param nodeA_in  Pointer to the single frame node (centre of mass).
+ * @param mass_in   Total mass of the point.
+ */
 RigidBodyMassPoint::RigidBodyMassPoint( std::string title_in,
                                         Node * nodeA_in,
                                         double mass_in
@@ -45,15 +54,27 @@ RigidBodyMassPoint::RigidBodyMassPoint( std::string title_in,
     this->externalForces.resize( 1*dim );
 }
 
+/**
+ * @brief Destructor.
+ */
 RigidBodyMassPoint::~RigidBodyMassPoint()
 {
 }
 
+/**
+ * @brief Inertia assignment is not applicable to a mass point; logs an error.
+ * @param inertia_in Inertia value (ignored).
+ * @param axis       Axis index (ignored).
+ */
 void RigidBodyMassPoint::setInertia(double inertia_in, int axis)
 {
     cerr << endl << "ERROR: Trying to set inertia in RigidBodyMassPoint" << endl;
 }
 
+/**
+ * @brief Sets the initial position of the mass point.
+ * @param position Vector containing [x, y] (or [x, y, z]) coordinates.
+ */
 void RigidBodyMassPoint::setPosition(std::vector<double>& position)
 {
     // TODO: check vector size. Should have 2 elements: CoG_x, CoG_y
@@ -61,6 +82,9 @@ void RigidBodyMassPoint::setPosition(std::vector<double>& position)
     this->frameNodes[0]->setY( position[1] );
 }
 
+/**
+ * @brief Builds the local mass matrix: m*I for 2D, or m*I3 for 3D.
+ */
 void RigidBodyMassPoint::calcMassMatrix()
 {
     /* For Problem in 2D
@@ -81,6 +105,9 @@ void RigidBodyMassPoint::calcMassMatrix()
     }
 }
 
+/**
+ * @brief Computes the gravitational external force vector: -m*g for each dimension.
+ */
 void RigidBodyMassPoint::calcExternalForces()
 {
     /*For Problem in 2D*/

@@ -11,11 +11,27 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for GaussPoint3D.
+ */
 GaussPoint3D::GaussPoint3D()
 {
 }
 
 
+/**
+ * @brief Constructs a 3D Gauss point with (x, y, z) coordinates.
+ * @param alpha_in Influence radius scaling factor.
+ * @param weight_in Quadrature weight.
+ * @param jacobian_in Jacobian of the cell mapping.
+ * @param mat_in Pointer to the material.
+ * @param num_in Index within the parent cell.
+ * @param coor_x X coordinate.
+ * @param coor_y Y coordinate.
+ * @param coor_z Z coordinate.
+ * @param dc_in Characteristic nodal spacing.
+ * @param stressPoint_in True if this point participates in stress smoothing.
+ */
 GaussPoint3D::GaussPoint3D(double alpha_in,
                            double weight_in,
                            double jacobian_in,
@@ -44,11 +60,19 @@ GaussPoint3D::GaussPoint3D(double alpha_in,
     F3.beUnityTensor();
 }
 
+/**
+ * @brief Destructor for GaussPoint3D.
+ */
 GaussPoint3D::~GaussPoint3D()
 {
 }
 
 
+/**
+ * @brief Computes meshfree shape functions, fills the 3D B matrix, and accumulates smoothing weights.
+ * @param type_in Shape function type ("RBF" or "MLS").
+ * @param q_in Shape parameter (overridden internally).
+ */
 void GaussPoint3D::shapeFunSolve(std::string type_in, double q_in)
 {
     initializeMatVecs();
@@ -86,6 +110,9 @@ void GaussPoint3D::shapeFunSolve(std::string type_in, double q_in)
 }
 
 
+/**
+ * @brief Computes FEM tetrahedral shape functions and fills the 3D B matrix for FEM elements.
+ */
 void GaussPoint3D::fillFEmatrices()
 {
     initializeMatVecs();
@@ -123,6 +150,9 @@ void GaussPoint3D::fillFEmatrices()
 }
 
 
+/**
+ * @brief Computes the local 3D mass matrix contribution M at this Gauss point.
+ */
 void GaussPoint3D::computeMij()
 {
     //////////////// Calculation of Mass matrix:
@@ -148,6 +178,9 @@ void GaussPoint3D::computeMij()
 }
 
 
+/**
+ * @brief Computes the linear 3D tangent (stiffness) matrix contribution K at this Gauss point.
+ */
 void GaussPoint3D::computeKij()
 {
     K.reset();
@@ -184,6 +217,9 @@ void GaussPoint3D::computeKij()
 }
 
 
+/**
+ * @brief Computes linear 3D Cauchy stress and assembles the smoothed stress resultant vector r.
+ */
 void GaussPoint3D::computeStress()
 {
     tension.clear();
@@ -233,6 +269,9 @@ void GaussPoint3D::computeStress()
     }
 }
 
+/**
+ * @brief Computes nonlinear (large-deformation) 3D Cauchy stress and assembles the stress resultant r.
+ */
 void GaussPoint3D::computeNLStress()
 {
     //   sigma2.beProductTraOf( P3, F3 );
@@ -296,6 +335,9 @@ void GaussPoint3D::computeNLStress()
     }
 }
 
+/**
+ * @brief Computes the linear 3D internal force vector contribution fint = K * u.
+ */
 void GaussPoint3D::computeFint()
 {
     fint.reset();
@@ -314,6 +356,9 @@ void GaussPoint3D::computeFint()
 }
 
 
+/**
+ * @brief Computes the 3D external force vector contribution fext = M * g.
+ */
 void GaussPoint3D::computeFext()
 {
     // Mass matrix must be computed previously
@@ -333,6 +378,9 @@ void GaussPoint3D::computeFext()
 }
 
 
+/**
+ * @brief Computes the nonlinear 3D internal force vector from the 1st Piola-Kirchhoff stress.
+ */
 void GaussPoint3D::computeNLFint()
 {
     F3.zero();
@@ -363,6 +411,9 @@ void GaussPoint3D::computeNLFint()
     }
 }
 
+/**
+ * @brief Computes the nonlinear 3D tangent (material + initial stress) matrix contribution K.
+ */
 void GaussPoint3D::computeNLKij()
 {
     // It fills the shared K matrix...
@@ -544,6 +595,10 @@ void GaussPoint3D::computeNLKij()
 }
 
 
+/**
+ * @brief Assembles the local 3D mass matrix M into the global mass matrix.
+ * @param globalMass Global mass matrix to be updated.
+ */
 void GaussPoint3D::assembleMij(lmx::Matrix<data_type>& globalMass)
 {
 // 	cout << "MATRIX M in assembly:" << M << endl;
@@ -570,6 +625,10 @@ void GaussPoint3D::assembleMij(lmx::Matrix<data_type>& globalMass)
 }
 
 
+/**
+ * @brief Assembles the local 3D tangent matrix K into the global tangent matrix.
+ * @param globalTangent Global tangent (stiffness) matrix to be updated.
+ */
 void GaussPoint3D::assembleKij(lmx::Matrix<data_type>& globalTangent)
 {
     for (auto i = 0u; i < supportNodesSize; ++i)
@@ -594,6 +653,11 @@ void GaussPoint3D::assembleKij(lmx::Matrix<data_type>& globalTangent)
 //   cout << globalTangent << endl;
 }
 
+/**
+ * @brief Assembles the 3D smoothed stress resultant vector r into the body-level stress vector.
+ * @param bodyR Body-level stress resultant vector to be updated.
+ * @param firstNode Global index of the first node in the parent body.
+ */
 void GaussPoint3D::assembleRi(lmx::Vector<data_type>& bodyR, int firstNode)
 {
 //   cout << "Size = " << bodyR.size() << "solving tensions..." << endl;
@@ -611,6 +675,10 @@ void GaussPoint3D::assembleRi(lmx::Vector<data_type>& bodyR, int firstNode)
 }
 
 
+/**
+ * @brief Assembles the local 3D internal force vector fint into the global internal force vector.
+ * @param globalFint Global internal force vector to be updated.
+ */
 void GaussPoint3D::assembleFint(lmx::Vector<data_type>& globalFint)
 {
     for (auto i = 0u; i < supportNodesSize; ++i)
@@ -625,6 +693,10 @@ void GaussPoint3D::assembleFint(lmx::Vector<data_type>& globalFint)
 }
 
 
+/**
+ * @brief Assembles the local 3D external force vector fext into the global external force vector.
+ * @param globalFext Global external force vector to be updated.
+ */
 void GaussPoint3D::assembleFext(lmx::Vector<data_type>& globalFext)
 {
     for (auto i = 0u; i < supportNodesSize; ++i)
@@ -639,6 +711,11 @@ void GaussPoint3D::assembleFext(lmx::Vector<data_type>& globalFext)
 }
 
 
+/**
+ * @brief Computes the 3D potential energy contribution (fext · q) at this Gauss point.
+ * @param q Current global displacement state vector.
+ * @return Potential energy contribution.
+ */
 double GaussPoint3D::calcPotentialE(const lmx::Vector<data_type>& q)
 {
     double potential = 0;
@@ -654,6 +731,11 @@ double GaussPoint3D::calcPotentialE(const lmx::Vector<data_type>& q)
 }
 
 
+/**
+ * @brief Computes the 3D kinetic energy contribution (0.5 * qdot^T * M * qdot) at this Gauss point.
+ * @param qdot Current global velocity state vector.
+ * @return Kinetic energy contribution.
+ */
 double GaussPoint3D::calcKineticE(const lmx::Vector<data_type>& qdot)
 {
     double kinetic = 0;
@@ -676,6 +758,10 @@ double GaussPoint3D::calcKineticE(const lmx::Vector<data_type>& qdot)
     return kinetic;
 }
 
+/**
+ * @brief Computes the 3D elastic strain energy density using the stored material model.
+ * @return Elastic strain energy contribution.
+ */
 double GaussPoint3D::calcElasticE()
 {
     double elastic;
@@ -691,6 +777,9 @@ double GaussPoint3D::calcElasticE()
 }
 
 
+/**
+ * @brief Resizes all local 3D matrices and vectors to match the current number of support nodes.
+ */
 void GaussPoint3D::initializeMatVecs() // Must be optimized for mech and thermal independency
 {
     B.resize(6, 3 * supportNodesSize);

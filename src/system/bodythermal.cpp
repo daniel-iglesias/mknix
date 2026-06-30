@@ -26,6 +26,9 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor. Initializes the thermal body with energy computation disabled.
+ */
 ThermalBody::ThermalBody()
     : computeEnergy(0)
 //   , formulation( "NONLINEAR" )
@@ -45,7 +48,9 @@ ThermalBody::ThermalBody(std::string title_in)
 {
 }
 
-
+/**
+ * @brief Destructor.
+ */
 ThermalBody::~ThermalBody()
 {
 }

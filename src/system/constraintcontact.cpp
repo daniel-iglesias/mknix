@@ -25,11 +25,22 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor.
+ */
 ConstraintContact::ConstraintContact()
     : Constraint()
 {
 }
 
+/**
+ * @brief Constructor for a contact constraint between a surface segment and a contact point.
+ * @param q1_in     Pointer to the first node defining the contact surface.
+ * @param q2_in     Pointer to the second node defining the contact surface.
+ * @param p_in      Pointer to the contacting node.
+ * @param alpha_in  Penalty parameter.
+ * @param method_in Enforcement method keyword.
+ */
 ConstraintContact::ConstraintContact( Node* q1_in, Node* q2_in, Node* p_in, double& alpha_in, std::string& method_in )
     : Constraint(alpha_in, method_in)
 {
@@ -49,10 +60,16 @@ ConstraintContact::ConstraintContact( Node* q1_in, Node* q2_in, Node* p_in, doub
     normal.resize(dim);
 }
 
+/**
+ * @brief Destructor.
+ */
 ConstraintContact::~ConstraintContact()
 {
 }
 
+/**
+ * @brief Evaluates the contact gap function phi using the surface normal and signed gap distance.
+ */
 void ConstraintContact::calcPhi()
 {
     normal[0] = +( nodes[1]->getConf(1) - nodes[0]->getConf(1) );
@@ -71,6 +88,10 @@ void ConstraintContact::calcPhi()
 //  if( rt < 0. ) cout << endl << "NEGATIVE GAP: " << rt << ", " << rh << endl;
 }
 
+/**
+ * @brief Computes the gradient of phi with respect to the nodal coordinates.
+ *        Returns zero when the contact gap is open (rt > 0).
+ */
 void ConstraintContact::calcPhiq()
 {
     if( rt < 0. )
@@ -108,6 +129,9 @@ void ConstraintContact::calcPhiq()
     }
 }
 
+/**
+ * @brief Computes the Hessian of phi with respect to the nodal coordinates.
+ */
 void ConstraintContact::calcPhiqq()
 {
     if( rt < 0. )

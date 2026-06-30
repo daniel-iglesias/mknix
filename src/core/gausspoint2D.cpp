@@ -11,11 +11,26 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for GaussPoint2D.
+ */
 GaussPoint2D::GaussPoint2D()
 {
 }
 
 
+/**
+ * @brief Constructs a 2D Gauss point with (x, y) coordinates.
+ * @param alpha_in Influence radius scaling factor.
+ * @param weight_in Quadrature weight.
+ * @param jacobian_in Jacobian of the cell mapping.
+ * @param mat_in Pointer to the material.
+ * @param num_in Index within the parent cell.
+ * @param coor_x X coordinate.
+ * @param coor_y Y coordinate.
+ * @param dc_in Characteristic nodal spacing.
+ * @param stressPoint_in True if this point participates in stress smoothing.
+ */
 GaussPoint2D::GaussPoint2D(double alpha_in, double weight_in, double jacobian_in, Material * mat_in, int num_in,
                            double coor_x, double coor_y, double dc_in, bool stressPoint_in
                           )
@@ -27,6 +42,19 @@ GaussPoint2D::GaussPoint2D(double alpha_in, double weight_in, double jacobian_in
     F2.beUnityTensor();
 }
 
+/**
+ * @brief Constructs a 2D Gauss point with (x, y, z) coordinates (z used for out-of-plane position).
+ * @param alpha_in Influence radius scaling factor.
+ * @param weight_in Quadrature weight.
+ * @param jacobian_in Jacobian of the cell mapping.
+ * @param mat_in Pointer to the material.
+ * @param num_in Index within the parent cell.
+ * @param coor_x X coordinate.
+ * @param coor_y Y coordinate.
+ * @param coor_z Z coordinate.
+ * @param dc_in Characteristic nodal spacing.
+ * @param stressPoint_in True if this point participates in stress smoothing.
+ */
 GaussPoint2D::GaussPoint2D(double alpha_in, double weight_in, double jacobian_in, Material * mat_in, int num_in,
                            double coor_x, double coor_y, double coor_z, double dc_in, bool stressPoint_in
                           )
@@ -38,11 +66,19 @@ GaussPoint2D::GaussPoint2D(double alpha_in, double weight_in, double jacobian_in
     F2.beUnityTensor();
 }
 
+/**
+ * @brief Destructor for GaussPoint2D.
+ */
 GaussPoint2D::~GaussPoint2D()
 {
 }
 
 
+/**
+ * @brief Computes meshfree shape functions, fills the B matrix, and accumulates smoothing weights.
+ * @param type_in Shape function type ("RBF" or "MLS").
+ * @param q_in Shape parameter (overridden internally).
+ */
 void GaussPoint2D::shapeFunSolve(std::string type_in, double q_in)
 {
     initializeMatVecs();
@@ -81,6 +117,9 @@ void GaussPoint2D::shapeFunSolve(std::string type_in, double q_in)
 }
 
 
+/**
+ * @brief Computes FEM triangular shape functions and fills the B matrix for FEM elements.
+ */
 void GaussPoint2D::fillFEmatrices()
 {
     initializeMatVecs();
@@ -122,6 +161,9 @@ void GaussPoint2D::fillFEmatrices()
 }
 
 
+/**
+ * @brief Computes the local 2D mass matrix contribution M at this Gauss point.
+ */
 void GaussPoint2D::computeMij()
 {
     //////////////// Calculation of Mass matrix:
@@ -144,6 +186,9 @@ void GaussPoint2D::computeMij()
 }
 
 
+/**
+ * @brief Computes the linear 2D tangent (stiffness) matrix contribution K at this Gauss point.
+ */
 void GaussPoint2D::computeKij()
 {
 //////////////// Calculation of Tangent matrix:
@@ -175,6 +220,9 @@ void GaussPoint2D::computeKij()
 }
 
 
+/**
+ * @brief Computes linear Cauchy stress and assembles the smoothed stress resultant vector r.
+ */
 void GaussPoint2D::computeStress()
 {
     tension.clear();
@@ -238,6 +286,10 @@ void GaussPoint2D::computeStress()
     }
 }
 
+/**
+ * @brief Computes nonlinear (large-deformation) Cauchy stress via the deformation gradient
+ *        and assembles the smoothed stress resultant vector r.
+ */
 void GaussPoint2D::computeNLStress()
 {
     sigma2.beProductTraOf(P2, F2);
@@ -283,6 +335,9 @@ void GaussPoint2D::computeNLStress()
     }
 }
 
+/**
+ * @brief Computes the linear internal force vector contribution fint = K * u at this Gauss point.
+ */
 void GaussPoint2D::computeFint()
 {
     fint.reset();
@@ -301,6 +356,9 @@ void GaussPoint2D::computeFint()
 }
 
 
+/**
+ * @brief Computes the external force vector contribution fext = M * g at this Gauss point.
+ */
 void GaussPoint2D::computeFext()
 {
     // Mass matrix must be computed previously
@@ -320,6 +378,9 @@ void GaussPoint2D::computeFext()
 }
 
 
+/**
+ * @brief Computes the nonlinear internal force vector from the 1st Piola-Kirchhoff stress.
+ */
 void GaussPoint2D::computeNLFint()
 {
     F2.zero();
@@ -350,6 +411,9 @@ void GaussPoint2D::computeNLFint()
     }
 }
 
+/**
+ * @brief Computes the nonlinear tangent (material + initial stress) matrix contribution K.
+ */
 void GaussPoint2D::computeNLKij()
 {
     // It fills the shared K matrix...
@@ -519,6 +583,10 @@ void GaussPoint2D::computeNLKij()
 }
 
 
+/**
+ * @brief Assembles the local mass matrix M into the global mass matrix.
+ * @param globalMass Global mass matrix to be updated.
+ */
 void GaussPoint2D::assembleMij(lmx::Matrix<data_type>& globalMass)
 {
     for (auto i = 0u; i < supportNodesSize; ++i)
@@ -544,6 +612,10 @@ void GaussPoint2D::assembleMij(lmx::Matrix<data_type>& globalMass)
 }
 
 
+/**
+ * @brief Assembles the local tangent matrix K into the global tangent matrix.
+ * @param globalTangent Global tangent (stiffness) matrix to be updated.
+ */
 void GaussPoint2D::assembleKij(lmx::Matrix<data_type>& globalTangent)
 {
     for (auto i = 0u; i < supportNodesSize; ++i)
@@ -568,6 +640,11 @@ void GaussPoint2D::assembleKij(lmx::Matrix<data_type>& globalTangent)
 //   cout << globalTangent << endl;
 }
 
+/**
+ * @brief Assembles the smoothed stress resultant vector r into the body-level stress vector.
+ * @param bodyR Body-level stress resultant vector to be updated.
+ * @param firstNode Global index of the first node in the parent body.
+ */
 void GaussPoint2D::assembleRi(lmx::Vector<data_type>& bodyR, int firstNode)
 {
 //   cout << "Size = " << bodyR.size() << "solving tensions..." << endl;
@@ -602,6 +679,10 @@ void GaussPoint2D::assembleRi(lmx::Vector<data_type>& bodyR, int firstNode)
 }
 
 
+/**
+ * @brief Assembles the local internal force vector fint into the global internal force vector.
+ * @param globalFint Global internal force vector to be updated.
+ */
 void GaussPoint2D::assembleFint(lmx::Vector<data_type>& globalFint)
 {
     for (auto i = 0u; i < supportNodesSize; ++i)
@@ -616,6 +697,10 @@ void GaussPoint2D::assembleFint(lmx::Vector<data_type>& globalFint)
 }
 
 
+/**
+ * @brief Assembles the local external force vector fext into the global external force vector.
+ * @param globalFext Global external force vector to be updated.
+ */
 void GaussPoint2D::assembleFext(lmx::Vector<data_type>& globalFext)
 {
     for (auto i = 0u; i < supportNodesSize; ++i)
@@ -630,6 +715,11 @@ void GaussPoint2D::assembleFext(lmx::Vector<data_type>& globalFext)
 }
 
 
+/**
+ * @brief Computes the potential energy contribution (fext · q) at this Gauss point.
+ * @param q Current global displacement state vector.
+ * @return Potential energy contribution.
+ */
 double GaussPoint2D::calcPotentialE(const lmx::Vector<data_type>& q)
 {
     double potential = 0;
@@ -645,6 +735,11 @@ double GaussPoint2D::calcPotentialE(const lmx::Vector<data_type>& q)
 }
 
 
+/**
+ * @brief Computes the kinetic energy contribution (0.5 * qdot^T * M * qdot) at this Gauss point.
+ * @param qdot Current global velocity state vector.
+ * @return Kinetic energy contribution.
+ */
 double GaussPoint2D::calcKineticE(const lmx::Vector<data_type>& qdot)
 {
     double kinetic = 0;
@@ -668,6 +763,10 @@ double GaussPoint2D::calcKineticE(const lmx::Vector<data_type>& qdot)
     return kinetic;
 }
 
+/**
+ * @brief Computes the elastic strain energy density at this Gauss point using the stored material model.
+ * @return Elastic strain energy contribution.
+ */
 double GaussPoint2D::calcElasticE()
 {
     double elastic;
@@ -683,6 +782,9 @@ double GaussPoint2D::calcElasticE()
 }
 
 
+/**
+ * @brief Resizes all local matrices and vectors to match the current number of support nodes.
+ */
 void GaussPoint2D::initializeMatVecs() // TODO: Must be optimized for mech and thermal independency
 {
     B.resize(3, 2 * supportNodesSize);

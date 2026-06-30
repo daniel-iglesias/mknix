@@ -25,16 +25,26 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor.
+ */
 Load::Load()
 {
 }
 
 
+/**
+ * @brief Destructor.
+ */
 Load::~Load()
 {
 }
 
 
+/**
+ * @brief Assembles the local external force vector into the global force vector.
+ * @param globalExternalForces Reference to the global external force vector.
+ */
 void Load::assembleExternalForces
 (lmx::Vector< data_type > & globalExternalForces)
 {

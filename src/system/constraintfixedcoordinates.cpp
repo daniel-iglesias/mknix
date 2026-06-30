@@ -25,12 +25,22 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor.
+ */
 ConstraintFixedCoordinates::ConstraintFixedCoordinates()
     : Constraint()
 {
 }
 
 
+/**
+ * @brief Constructor for a constraint that fixes the relative displacement in all coordinate directions.
+ * @param a_in      Pointer to node A.
+ * @param b_in      Pointer to node B.
+ * @param alpha_in  Penalty parameter.
+ * @param method_in Enforcement method keyword.
+ */
 ConstraintFixedCoordinates::ConstraintFixedCoordinates( Node* a_in, Node* b_in, double& alpha_in, std::string& method_in )
     : Constraint(alpha_in, method_in)
 {
@@ -72,10 +82,16 @@ ConstraintFixedCoordinates::ConstraintFixedCoordinates( Node* a_in, Node* b_in, 
 }
 
 
+/**
+ * @brief Destructor.
+ */
 ConstraintFixedCoordinates::~ConstraintFixedCoordinates()
 {
 }
 
+/**
+ * @brief Evaluates phi[k] = relative displacement along axis k minus the reference value.
+ */
 void ConstraintFixedCoordinates::calcPhi()
 {
     rxt = nodes[1]->getConf(0) - nodes[0]->getConf(0) ;
@@ -92,6 +108,9 @@ void ConstraintFixedCoordinates::calcPhi()
 //  cout << endl << "Phi in fixedcoordinates = " << phi[0] << endl;
 }
 
+/**
+ * @brief Computes the gradient of each phi component using shape-function values of support nodes.
+ */
 void ConstraintFixedCoordinates::calcPhiq()
 {
     size_type i,j;
@@ -122,6 +141,9 @@ void ConstraintFixedCoordinates::calcPhiq()
 //  }
 }
 
+/**
+ * @brief Hessian of phi is zero (linear constraint); this is a no-op.
+ */
 void ConstraintFixedCoordinates::calcPhiqq()
 {
 }

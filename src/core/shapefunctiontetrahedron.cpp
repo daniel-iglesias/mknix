@@ -24,12 +24,19 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for ShapeFunctionTetrahedron.
+ */
 ShapeFunctionTetrahedron::ShapeFunctionTetrahedron()
     : ShapeFunction()
 {
 }
 
 
+/**
+ * @brief Constructs a tetrahedral FEM shape function for the given Gauss point.
+ * @param gp_in Pointer to the evaluation Point (expects exactly 4 support nodes).
+ */
 ShapeFunctionTetrahedron::ShapeFunctionTetrahedron( Point* gp_in )
     : ShapeFunction(gp_in)
 {
@@ -39,11 +46,18 @@ ShapeFunctionTetrahedron::ShapeFunctionTetrahedron( Point* gp_in )
 }
 
 
+/**
+ * @brief Destructor for ShapeFunctionTetrahedron.
+ */
 ShapeFunctionTetrahedron::~ShapeFunctionTetrahedron()
 {
 }
 
 
+/**
+ * @brief Computes the tetrahedral FEM shape functions and their spatial derivatives
+ *        using the nodal coordinate sub-determinants (Zienkiewicz & Taylor formulation).
+ */
 void ShapeFunctionTetrahedron::calc()
 {
     //////////////////////////////////////////////////////////////////
@@ -84,6 +98,13 @@ void ShapeFunctionTetrahedron::calc()
     //     cout << "phi = " << phi << endl;
 }
 
+/**
+ * @brief Computes the a, b, c, d coefficients for one tetrahedral shape function
+ *        using the 3x3 sub-determinant method.
+ * @param i1 Index of the first vertex in the opposite face.
+ * @param i2 Index of the second vertex in the opposite face.
+ * @param i3 Index of the third vertex in the opposite face.
+ */
 void ShapeFunctionTetrahedron::compute_abcd( int i1, int i2, int i3 )
 {
     //   (From Zien and Taylor, pg 128) does not work...

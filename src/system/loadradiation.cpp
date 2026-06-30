@@ -22,22 +22,39 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor.
+ */
 Radiation::Radiation()
     : Load()
 {
 }
 
+/**
+ * @brief Destructor.
+ */
 Radiation::~Radiation()
 {
 }
 
 
+/**
+ * @brief Stores a radiation voxel value at the given spatial coordinates.
+ * @param x_in     X coordinate of the voxel.
+ * @param y_in     Y coordinate of the voxel.
+ * @param z_in     Z coordinate of the voxel.
+ * @param value_in Radiation intensity value at this voxel.
+ */
 void Radiation::addVoxel(double x_in, double y_in, double z_in, double value_in)
 {
     radMap[z_in][y_in][x_in] = value_in;
 //  cout << "voxel read: (" << x_in << ", " << y_in << ", " << z_in << ") = " << value_in << endl;
 }
 
+/**
+ * @brief Writes the radiation map (regular voxel grid) to the output file.
+ * @param outFile Pointer to the output file stream.
+ */
 void Radiation::outputToFile(std::ofstream * outFile)
 {
     *outFile << "RADIATION" << "\t";

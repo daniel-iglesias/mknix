@@ -13,10 +13,17 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for Point.
+ */
 Point::Point()
 {
 }
 
+/**
+ * @brief Copy constructor. Copies all fields from another Point.
+ * @param point_in Reference to the source Point.
+ */
 Point::Point(const Point& point_in)
     : dim(point_in.dim)
     , num(point_in.getNumber())
@@ -33,6 +40,10 @@ Point::Point(const Point& point_in)
 {
 }
 
+/**
+ * @brief Pointer-based copy constructor.
+ * @param point_in Pointer to the source Point.
+ */
 Point::Point(const Point * point_in)
     : dim(point_in->dim)
     , num(point_in->getNumber())
@@ -49,6 +60,13 @@ Point::Point(const Point * point_in)
 {
 }
 
+/**
+ * @brief Constructs a Point at a given (x, y, z) position using the global simulation dimension.
+ * @param i Global point index.
+ * @param coor_x X coordinate.
+ * @param coor_y Y coordinate.
+ * @param coor_z Z coordinate.
+ */
 Point::Point(int i,
              double coor_x,
              double coor_y,
@@ -67,6 +85,16 @@ Point::Point(int i,
 {
 }
 
+/**
+ * @brief Constructs a Point with explicit dimension, index, coordinates, and meshfree parameters.
+ * @param dim_in Spatial dimension.
+ * @param i Global point index.
+ * @param coor_x X coordinate.
+ * @param coor_y Y coordinate.
+ * @param coor_z Z coordinate.
+ * @param alpha_in Influence radius scaling factor.
+ * @param dc_in Characteristic nodal spacing.
+ */
 Point::Point(int dim_in,
              int i,
              double coor_x,
@@ -88,6 +116,17 @@ Point::Point(int dim_in,
 {
 }
 
+/**
+ * @brief Constructs a Gauss-point-style Point with an explicit Jacobian value.
+ * @param dim_in Spatial dimension.
+ * @param i Global point index.
+ * @param coor_x X coordinate.
+ * @param coor_y Y coordinate.
+ * @param coor_z Z coordinate.
+ * @param jacobian_in Jacobian of the cell mapping.
+ * @param alpha_in Influence radius scaling factor.
+ * @param dc_in Characteristic nodal spacing.
+ */
 Point::Point(int dim_in,
              int i,
              double coor_x,
@@ -110,6 +149,9 @@ Point::Point(int dim_in,
 {
 }
 
+/**
+ * @brief Destructor. Frees the shape function object if one was allocated.
+ */
 Point::~Point()
 {
     if (shapeFun)
@@ -118,6 +160,10 @@ Point::~Point()
     }
 }
 
+/**
+ * @brief Computes the interpolated temperature at this point from its support nodes.
+ * @return Interpolated temperature value.
+ */
 double Point::getTemp() const
 {
     double conf_value(0);
@@ -128,6 +174,11 @@ double Point::getTemp() const
     return conf_value;
 }
 
+/**
+ * @brief Computes the interpolated configuration coordinate for a given DOF from support nodes.
+ * @param dof Degree of freedom index (0 = x, 1 = y, 2 = z).
+ * @return Interpolated configuration value.
+ */
 double Point::getConf(int dof) const
 {
     double conf_value(0);
@@ -138,6 +189,11 @@ double Point::getConf(int dof) const
     return conf_value;
 }
 
+/**
+ * @brief Computes the Euclidean distance from this point to another.
+ * @param node_in Reference to the other point.
+ * @return Euclidean distance.
+ */
 double Point::distance(Point& node_in) const
 {
     return std::sqrt(std::pow(node_in.getX() - X, 2)
@@ -145,12 +201,22 @@ double Point::distance(Point& node_in) const
                      + std::pow(node_in.getZ() - Z, 2));
 }
 
+/**
+ * @brief Returns the global node number of a support node by derivative order and index.
+ * @param deriv Derivative order (currently unused; all derivatives use the same support).
+ * @param s_node Index within the support node set.
+ * @return Global node number.
+ */
 int Point::getSupportNodeNumber(int deriv, int s_node)
 {
     return supportNodes[s_node]->getNumber();
 }
 
 
+/**
+ * @brief Adds a single node to this point's support neighbourhood.
+ * @param node_in Pointer to the node to add.
+ */
 void Point::addSupportNode(Node * node_in)
 {
     supportNodes.push_back(node_in);
@@ -158,6 +224,10 @@ void Point::addSupportNode(Node * node_in)
 }
 
 
+/**
+ * @brief Finds and stores all domain nodes within the influence radius (alpha * dc) of this point.
+ * @param domainNodes Vector of all candidate domain nodes.
+ */
 void Point::findSupportNodes(std::vector<Node *>& domainNodes)
 {
     double di = alphai * dc;
@@ -230,6 +300,12 @@ void Point::findSupportNodes(std::vector<Node *>& domainNodes)
 
 
 // for rectangular domains
+/**
+ * @brief Finds support nodes within the influence radius, clamping the search box to a rectangular domain.
+ * @param domainNodes Vector of all candidate domain nodes.
+ * @param domain_minX,domain_maxX X extent of the rectangular domain.
+ * @param domain_minY,domain_maxY Y extent of the rectangular domain.
+ */
 void Point::findSupportNodes(std::vector<Node *>& domainNodes,
                              double domain_minX,
                              double domain_maxX,
@@ -291,6 +367,11 @@ void Point::findSupportNodes(std::vector<Node *>& domainNodes,
     supportNodesSize = supportNodes.size();
 }
 
+/**
+ * @brief Computes and stores shape function values at this point using the specified method.
+ * @param type_in Method string: "RBF", "MLS", "1D", "1D-X", "2D", or "3D".
+ * @param q_in Shape parameter for RBF (overridden to 0.5 for RBF/MLS).
+ */
 void Point::shapeFunSolve(std::string type_in, double q_in)
 {
     if (type_in == "RBF" || type_in == "MLS")
@@ -346,6 +427,11 @@ void Point::shapeFunSolve(std::string type_in, double q_in)
     }
 }
 
+/**
+ * @brief Writes the point coordinates, support node positions, and shape function values
+ *        to gnuplot-compatible files for visualization.
+ * @param gpdata Output file stream collecting all Gauss point coordinates.
+ */
 void Point::gnuplotOut(std::ofstream& gpdata)
 {
     std::ofstream this_gp("onegp.dat");

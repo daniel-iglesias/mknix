@@ -25,12 +25,25 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for ElemTetrahedron.
+ */
 ElemTetrahedron::ElemTetrahedron()
     : CellTetrahedron()
 {
 }
 
 
+/**
+ * @brief Constructs an FEM tetrahedral element from four nodes.
+ * @param material_in Reference to the material.
+ * @param alpha_in Influence radius scaling factor.
+ * @param nGPoints_in Number of integration Gauss points.
+ * @param n1_in Pointer to node 1.
+ * @param n2_in Pointer to node 2.
+ * @param n3_in Pointer to node 3.
+ * @param n4_in Pointer to node 4.
+ */
 ElemTetrahedron::ElemTetrahedron(Material& material_in,
                                  double alpha_in,
                                  int nGPoints_in,
@@ -50,11 +63,19 @@ ElemTetrahedron::ElemTetrahedron(Material& material_in,
                      ) { }
 
 
+/**
+ * @brief Destructor for ElemTetrahedron.
+ */
 ElemTetrahedron::~ElemTetrahedron()
 {
 }
 
 
+/**
+ * @brief Initializes the FEM tetrahedral element by assigning the four corner nodes as support nodes
+ *        for all Gauss points and creating separate mass-consistent Gauss points.
+ * @param nodes_in Vector of domain nodes (unused directly; corners are added explicitly).
+ */
 void ElemTetrahedron::initialize(std::vector<Node *>& nodes_in)
 {
 //   cout << "CellTriang points " << this->points << endl;
@@ -80,6 +101,9 @@ void ElemTetrahedron::initialize(std::vector<Node *>& nodes_in)
 }
 
 
+/**
+ * @brief Computes FEM shape functions at each Gauss point by filling the B matrix.
+ */
 void ElemTetrahedron::computeShapeFunctions()
 {
     for (auto& point : gPoints)
@@ -92,6 +116,10 @@ void ElemTetrahedron::computeShapeFunctions()
     }
 }
 
+/**
+ * @brief Creates mass-consistent Gauss points (gPoints_MC) with a higher-order quadrature rule
+ *        than the standard stress Gauss points.
+ */
 void ElemTetrahedron::createGaussPoints_MC()
 {
     int nGPoints_MC = 4;

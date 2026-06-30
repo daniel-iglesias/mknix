@@ -23,6 +23,9 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor.
+ */
 BoundaryGroup::BoundaryGroup()
 {
 }
@@ -37,7 +40,9 @@ BoundaryGroup::BoundaryGroup()
 // {
 // }
 
-
+/**
+ * @brief Destructor. Releases memory for all boundary cell objects.
+ */
 BoundaryGroup::~BoundaryGroup()
 {
     for (auto& cell : cells)

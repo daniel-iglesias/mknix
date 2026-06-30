@@ -35,11 +35,20 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for CompBar.
+ */
 CompBar::CompBar()
 {
 }
 
 
+/**
+ * @brief Constructs a CompBar between two nodes and creates the corresponding VTK visualization objects.
+ * @param mat_in Material index for this bar.
+ * @param nodeA_in Pointer to the first end node.
+ * @param nodeB_in Pointer to the second end node.
+ */
 CompBar::CompBar(int mat_in, Node * nodeA_in, Node *nodeB_in)
     : mat(mat_in)
     , nodeA(nodeA_in)
@@ -67,11 +76,17 @@ CompBar::CompBar(int mat_in, Node * nodeA_in, Node *nodeB_in)
 }
 
 
+/**
+ * @brief Destructor for CompBar.
+ */
 CompBar::~CompBar()
 {
 }
 
 
+/**
+ * @brief Updates the VTK line source endpoints to reflect the current node positions.
+ */
 void CompBar::updatePoints()
 {
     line->SetPoint1(nodeA->getqx(0),
@@ -84,12 +99,20 @@ void CompBar::updatePoints()
                    );
 }
 
+/**
+ * @brief Adds this bar's VTK actor to the given renderer.
+ * @param renderer_in VTK renderer to which the actor is added.
+ */
 void CompBar::addToRender(vtkRenderer * renderer_in)
 {
     renderer_in->AddActor( lineActor );
 
 }
 
+/**
+ * @brief Removes this bar's VTK actor from the given renderer.
+ * @param renderer_in VTK renderer from which the actor is removed.
+ */
 void CompBar::removeFromRender(vtkRenderer * renderer_in)
 {
     renderer_in->RemoveActor( lineActor );

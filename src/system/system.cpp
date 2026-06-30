@@ -31,12 +31,19 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor.
+ */
 System::System()
     : outputMaxInterfaceTemp(false)
 {
 }
 
 
+/**
+ * @brief Constructor with title.
+ * @param title_in Name identifier for this system.
+ */
 System::System(const std::string& title_in)
     : outputMaxInterfaceTemp(false)
     , title(title_in)
@@ -44,6 +51,9 @@ System::System(const std::string& title_in)
 }
 
 
+/**
+ * @brief Destructor. Releases memory for sub-systems, bodies, loads and thermal loads.
+ */
 System::~System()
 {
     for (auto& system : subSystems)
@@ -83,6 +93,10 @@ System::~System()
 }
 
 // FIXME: Specific for tiles subsystem. That can change in input
+/**
+ * @brief Collects the X coordinates of all thermal-load nodes in the "tiles" sub-system.
+ * @param x_coordinates Vector to which the node X coordinates are appended.
+ */
 void System::getThermalNodes(std::vector<double>& x_coordinates)
 {
     for (auto& load : subSystems["tiles"]->loadsThermal)
@@ -91,6 +105,11 @@ void System::getThermalNodes(std::vector<double>& x_coordinates)
     }
 }
 
+/**
+ * @brief Writes the current temperature of each output-signal node in the "tiles" sub-system
+ *        (and optionally the maximum interface temperature) into the provided array.
+ * @param vector_in Output array filled with temperature values.
+ */
 void System::getOutputSignalThermal(double * vector_in)
 {
     int counter = 0;
@@ -110,6 +129,10 @@ void System::getOutputSignalThermal(double * vector_in)
     }
 }
 
+/**
+ * @brief Updates the thermal loads in the "tiles" sub-system from an external array.
+ * @param vector_in Array of new load values, one per thermal load.
+ */
 void System::updateThermalLoads(double * vector_in)
 {
     int counter = 0;
@@ -120,6 +143,10 @@ void System::updateThermalLoads(double * vector_in)
     }
 }
 
+/**
+ * @brief Propagates the current time to all motions and recursively to all sub-systems.
+ * @param time Current simulation time.
+ */
 void System::update(double time)
 {
     for (auto& motion : motions)
@@ -133,6 +160,9 @@ void System::update(double time)
 }
 
 
+/**
+ * @brief Initializes all flexible bodies in this system.
+ */
 void System::initFlexBodies()
 {
     for (auto& flexBody : flexBodies)
@@ -142,6 +172,10 @@ void System::initFlexBodies()
 }
 
 
+/**
+ * @brief Writes rigid-body descriptions to the output file for this system and all sub-systems.
+ * @param outFile Pointer to the output file stream.
+ */
 void System::writeRigidBodies(std::ofstream * outFile)
 {
     for (auto& rigidBody : rigidBodies)
@@ -155,6 +189,10 @@ void System::writeRigidBodies(std::ofstream * outFile)
     }
 }
 
+/**
+ * @brief Writes flexible-body descriptions to the output file for this system and all sub-systems.
+ * @param outFile Pointer to the output file stream.
+ */
 void System::writeFlexBodies(std::ofstream * outFile)
 {
     for (auto& body : flexBodies)
@@ -168,6 +206,10 @@ void System::writeFlexBodies(std::ofstream * outFile)
     }
 }
 
+/**
+ * @brief Writes joint/constraint descriptions to the output file for this system and all sub-systems.
+ * @param outFile Pointer to the output file stream.
+ */
 void System::writeJoints(std::ofstream * outFile)
 {
     for (auto& constraint : constraints)
@@ -184,6 +226,9 @@ void System::writeJoints(std::ofstream * outFile)
 } // Namespace mknix
 
 
+/**
+ * @brief Computes the thermal capacity matrices for all thermal bodies and sub-systems.
+ */
 void mknix::System::calcCapacityMatrix()
 {
     for (auto& body : thermalBodies)
@@ -197,6 +242,9 @@ void mknix::System::calcCapacityMatrix()
     }
 }
 
+/**
+ * @brief Computes the thermal conductivity matrices for all thermal bodies and sub-systems.
+ */
 void mknix::System::calcConductivityMatrix()
 {
     for (auto& body : thermalBodies)
@@ -218,6 +266,9 @@ void mknix::System::calcConductivityMatrix()
     }
 }
 
+/**
+ * @brief Computes the external heat vectors for all thermal bodies and sub-systems.
+ */
 void mknix::System::calcExternalHeat()
 {
     for (auto& body : thermalBodies)
@@ -231,6 +282,9 @@ void mknix::System::calcExternalHeat()
     }
 }
 
+/**
+ * @brief Computes the internal heat vectors for all thermal constraints and sub-systems.
+ */
 void mknix::System::calcInternalHeat()
 {
     for (auto& constraint : constraintsThermal)
@@ -245,6 +299,9 @@ void mknix::System::calcInternalHeat()
     }
 }
 
+/**
+ * @brief Computes the thermal tangent matrices for all thermal constraints and sub-systems.
+ */
 void mknix::System::calcThermalTangentMatrix()
 {
     for (auto& constraint : constraintsThermal)
@@ -259,6 +316,10 @@ void mknix::System::calcThermalTangentMatrix()
 
 }
 
+/**
+ * @brief Assembles the capacity matrices of all thermal bodies and sub-systems into the global matrix.
+ * @param globalCapacity_in Reference to the global thermal capacity matrix.
+ */
 void mknix::System::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacity_in)
 {
     for (auto& body : thermalBodies)
@@ -273,6 +334,10 @@ void mknix::System::assembleCapacityMatrix(lmx::Matrix<data_type>& globalCapacit
 
 }
 
+/**
+ * @brief Assembles the conductivity matrices of all thermal bodies and sub-systems into the global matrix.
+ * @param globalConductivity_in Reference to the global thermal conductivity matrix.
+ */
 void mknix::System::assembleConductivityMatrix(lmx::Matrix<data_type>& globalConductivity_in)
 {
     for (auto& body : thermalBodies)
@@ -295,6 +360,10 @@ void mknix::System::assembleConductivityMatrix(lmx::Matrix<data_type>& globalCon
 
 }
 
+/**
+ * @brief Assembles external heat contributions from all thermal bodies, thermal loads, and sub-systems.
+ * @param externalHeat_in Reference to the global external heat vector.
+ */
 void mknix::System::assembleExternalHeat(lmx::Vector<data_type>& externalHeat_in)
 {
     for (auto& body : thermalBodies)
@@ -315,6 +384,10 @@ void mknix::System::assembleExternalHeat(lmx::Vector<data_type>& externalHeat_in
 }
 
 
+/**
+ * @brief Assembles internal heat contributions from all thermal constraints and sub-systems.
+ * @param internalHeat_in Reference to the global internal heat vector.
+ */
 void mknix::System::assembleInternalHeat(lmx::Vector<data_type>& internalHeat_in)
 {
     for (auto& system : subSystems)
@@ -329,6 +402,10 @@ void mknix::System::assembleInternalHeat(lmx::Vector<data_type>& internalHeat_in
 }
 
 
+/**
+ * @brief Assembles the thermal tangent matrix from all thermal constraints and sub-systems.
+ * @param globalTangent_in Reference to the global thermal tangent matrix.
+ */
 void mknix::System::assembleThermalTangentMatrix(lmx::Matrix<data_type>& globalTangent_in)
 {
     for (auto& constraint : constraintsThermal)
@@ -343,6 +420,9 @@ void mknix::System::assembleThermalTangentMatrix(lmx::Matrix<data_type>& globalT
 }
 
 
+/**
+ * @brief Computes the mass matrices for all flexible and rigid bodies and sub-systems.
+ */
 void mknix::System::calcMassMatrix()
 {
     for (auto& body : flexBodies)
@@ -361,6 +441,9 @@ void mknix::System::calcMassMatrix()
     }
 }
 
+/**
+ * @brief Computes internal forces for all flexible bodies, constraints, and sub-systems.
+ */
 void mknix::System::calcInternalForces()
 {
     for (auto& body : flexBodies)
@@ -380,6 +463,9 @@ void mknix::System::calcInternalForces()
 
 }
 
+/**
+ * @brief Computes external forces for all flexible bodies, rigid bodies, and sub-systems.
+ */
 void mknix::System::calcExternalForces()
 {
     for (auto& body : flexBodies)
@@ -399,6 +485,9 @@ void mknix::System::calcExternalForces()
 
 }
 
+/**
+ * @brief Computes tangent stiffness matrices for all flexible bodies, constraints, and sub-systems.
+ */
 void mknix::System::calcTangentMatrix()
 {
     for (auto& body : flexBodies)
@@ -419,6 +508,10 @@ void mknix::System::calcTangentMatrix()
 
 }
 
+/**
+ * @brief Assembles mass matrices from all bodies and sub-systems into the global matrix.
+ * @param globalMass_in Reference to the global mass matrix.
+ */
 void mknix::System::assembleMassMatrix(lmx::Matrix<data_type>& globalMass_in)
 {
     for (auto& body : flexBodies)
@@ -438,6 +531,10 @@ void mknix::System::assembleMassMatrix(lmx::Matrix<data_type>& globalMass_in)
 
 }
 
+/**
+ * @brief Assembles internal forces from all bodies, constraints, and sub-systems into the global vector.
+ * @param internalForces_in Reference to the global internal force vector.
+ */
 void mknix::System::assembleInternalForces(lmx::Vector<data_type>& internalForces_in)
 {
     for (auto& body : flexBodies)
@@ -457,6 +554,10 @@ void mknix::System::assembleInternalForces(lmx::Vector<data_type>& internalForce
 
 }
 
+/**
+ * @brief Assembles external forces from all bodies, loads, and sub-systems into the global vector.
+ * @param externalForces_in Reference to the global external force vector.
+ */
 void mknix::System::assembleExternalForces(lmx::Vector<data_type>& externalForces_in)
 {
 
@@ -484,6 +585,10 @@ void mknix::System::assembleExternalForces(lmx::Vector<data_type>& externalForce
 //  cout << "External in System (2) = " << externalForces_in;
 }
 
+/**
+ * @brief Assembles the tangent stiffness matrix from all bodies, constraints, and sub-systems.
+ * @param globalTangent_in Reference to the global tangent matrix.
+ */
 void mknix::System::assembleTangentMatrix(lmx::Matrix<data_type>& globalTangent_in)
 {
     for (auto& body : flexBodies)
@@ -503,6 +608,10 @@ void mknix::System::assembleTangentMatrix(lmx::Matrix<data_type>& globalTangent_
 }
 
 
+/**
+ * @brief Recomputes and assembles constraint internal forces into the global force vector.
+ * @param internalForces_in Reference to the global internal force vector.
+ */
 void mknix::System::assembleConstraintForces(lmx::Vector<data_type>& internalForces_in)
 {
     for (auto& constraint : constraints)
@@ -527,6 +636,9 @@ void mknix::System::assembleConstraintForces(lmx::Vector<data_type>& internalFor
 }
 
 
+/**
+ * @brief Marks all rigid and flexible bodies as mechanical (non-thermal), propagating to sub-systems.
+ */
 void mknix::System::setMechanical()
 {
     for (auto& body : rigidBodies)
@@ -545,6 +657,11 @@ void mknix::System::setMechanical()
     }
 }
 
+/**
+ * @brief Collects step output data for a dynamic step from all bodies, constraints, and sub-systems.
+ * @param q    Global configuration vector.
+ * @param qdot Global velocity vector.
+ */
 void mknix::System::outputStep(const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot)
 {
     for (auto& body : rigidBodies)
@@ -569,6 +686,10 @@ void mknix::System::outputStep(const lmx::Vector<data_type>& q, const lmx::Vecto
 }
 
 
+/**
+ * @brief Collects step output data for a static step from all bodies, constraints, and sub-systems.
+ * @param q Global configuration vector.
+ */
 void mknix::System::outputStep(const lmx::Vector<data_type>& q)
 {
     for (auto& body : rigidBodies)
@@ -593,6 +714,10 @@ void mknix::System::outputStep(const lmx::Vector<data_type>& q)
 }
 
 
+/**
+ * @brief Streams all stored results for bodies, loads, and constraints to the output file.
+ * @param outFile Pointer to the output file stream.
+ */
 void mknix::System::outputToFile(std::ofstream * outFile)
 {
     for (auto& body : rigidBodies)
@@ -622,6 +747,11 @@ void mknix::System::outputToFile(std::ofstream * outFile)
 }
 
 
+/**
+ * @brief Checks whether all constraints (mechanical and thermal) in this system and sub-systems
+ *        have satisfied the augmented-Lagrangian convergence criterion.
+ * @return True if all constraints converged; false otherwise.
+ */
 bool mknix::System::checkAugmented()
 {
     bool convergence = 1;
@@ -655,6 +785,9 @@ bool mknix::System::checkAugmented()
     return convergence;
 }
 
+/**
+ * @brief Resets the Lagrange multipliers of all constraints and sub-systems to zero.
+ */
 void mknix::System::clearAugmented()
 {
     for (auto& constraint : constraints)
@@ -673,6 +806,10 @@ void mknix::System::clearAugmented()
 }
 
 
+/**
+ * @brief Collects boundary-node pointers from all bodies and sub-systems.
+ * @param boundary_nodes Vector to which the boundary node pointers are appended.
+ */
 void mknix::System::writeBoundaryNodes(std::vector<Point *>& boundary_nodes)
 {
     for (auto& body : rigidBodies)
@@ -692,6 +829,10 @@ void mknix::System::writeBoundaryNodes(std::vector<Point *>& boundary_nodes)
 }
 
 
+/**
+ * @brief Builds the ordered boundary connectivity from all bodies and sub-systems.
+ * @param connectivity_nodes Vector of node chains to which each body's boundary is appended.
+ */
 void mknix::System::writeBoundaryConnectivity(std::vector<std::vector<Point *> >& connectivity_nodes)
 {
     for (auto& body : rigidBodies)
@@ -710,6 +851,13 @@ void mknix::System::writeBoundaryConnectivity(std::vector<std::vector<Point *> >
     }
 }
 
+/**
+ * @brief Finds and returns a body by its system and body names.
+ * @param system_name Name of the sub-system containing the body.
+ * @param body_name   Name of the body to retrieve.
+ * @return Pointer to the found Body.
+ * @throws std::out_of_range if the system or body is not found.
+ */
 mknix::Body * mknix::System::getBody(const std::string& system_name, const std::string& body_name)
 {
     auto it = std::find_if(subSystems.begin(), subSystems.end(),

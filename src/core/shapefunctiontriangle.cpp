@@ -26,6 +26,9 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for ShapeFunctionTriangle.
+ */
 ShapeFunctionTriangle::ShapeFunctionTriangle()
     : ShapeFunction()
 {
@@ -33,6 +36,10 @@ ShapeFunctionTriangle::ShapeFunctionTriangle()
 }
 
 
+/**
+ * @brief Constructs a triangular FEM shape function for the given Gauss point.
+ * @param gp_in Pointer to the evaluation Point (expects exactly 3 support nodes).
+ */
 ShapeFunctionTriangle::ShapeFunctionTriangle( Point* gp_in )
     : ShapeFunction(gp_in)
 {
@@ -40,11 +47,18 @@ ShapeFunctionTriangle::ShapeFunctionTriangle( Point* gp_in )
 }
 
 
+/**
+ * @brief Destructor for ShapeFunctionTriangle.
+ */
 ShapeFunctionTriangle::~ShapeFunctionTriangle()
 {
 }
 
 
+/**
+ * @brief Computes linear triangular (area-coordinate) FEM shape functions and first spatial derivatives
+ *        using the standard Zienkiewicz & Taylor formula.
+ */
 void ShapeFunctionTriangle::calc()
 {
     // phi(0,0) = ( x1*y2 - x2*y1 + (y1-y2)*x_gp + (x2-x1)*y_gp ) / (2*J)

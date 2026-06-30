@@ -25,22 +25,36 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor.
+ */
 FlexGlobalGalerkin::FlexGlobalGalerkin()
     : FlexBody()
 {
 }
 
 
+/**
+ * @brief Constructor with title.
+ * @param title_in Name identifier for this body.
+ */
 FlexGlobalGalerkin::FlexGlobalGalerkin(std::string title_in)
     : FlexBody(title_in)
 {
 }
 
 
+/**
+ * @brief Destructor.
+ */
 FlexGlobalGalerkin::~FlexGlobalGalerkin()
 {
 }
 
+/**
+ * @brief Computes the local mass and external force matrices for all cells.
+ *        External forces are computed here because they depend on mass and gravity.
+ */
 void FlexGlobalGalerkin::calcMassMatrix()
 {
     auto end_int = this->cells.size();
@@ -53,6 +67,9 @@ void FlexGlobalGalerkin::calcMassMatrix()
 
 }
 
+/**
+ * @brief Computes the local internal force vector for all cells (linear or nonlinear formulation).
+ */
 void FlexGlobalGalerkin::calcInternalForces()
 {
     auto end_int = this->cells.size();
@@ -75,6 +92,9 @@ void FlexGlobalGalerkin::calcInternalForces()
 
 }
 
+/**
+ * @brief No-op in GlobalGalerkin formulation; external forces are computed in calcMassMatrix().
+ */
 void FlexGlobalGalerkin::calcExternalForces()
 {
     auto end_int = this->cells.size();
@@ -86,6 +106,9 @@ void FlexGlobalGalerkin::calcExternalForces()
 
 }
 
+/**
+ * @brief Computes the local tangent stiffness matrix for all cells (linear or nonlinear formulation).
+ */
 void FlexGlobalGalerkin::calcTangentMatrix()
 {
     auto end_int = this->cells.size();
@@ -108,6 +131,10 @@ void FlexGlobalGalerkin::calcTangentMatrix()
 
 }
 
+/**
+ * @brief Assembles the local mass matrix into the global mass matrix.
+ * @param globalMass Reference to the global mass matrix.
+ */
 void FlexGlobalGalerkin::assembleMassMatrix
 (lmx::Matrix<data_type>& globalMass)
 {
@@ -138,6 +165,10 @@ void FlexGlobalGalerkin::assembleMassMatrix
     }
 }
 
+/**
+ * @brief Assembles the local internal forces into the global internal force vector.
+ * @param globalInternalForces Reference to the global internal force vector.
+ */
 void FlexGlobalGalerkin::assembleInternalForces
 (lmx::Vector<data_type>& globalInternalForces)
 {
@@ -149,6 +180,10 @@ void FlexGlobalGalerkin::assembleInternalForces
 
 }
 
+/**
+ * @brief Assembles the local external forces into the global external force vector.
+ * @param globalExternalForces Reference to the global external force vector.
+ */
 void FlexGlobalGalerkin::assembleExternalForces
 (lmx::Vector<data_type>& globalExternalForces)
 {
@@ -160,6 +195,10 @@ void FlexGlobalGalerkin::assembleExternalForces
 
 }
 
+/**
+ * @brief Assembles the local tangent stiffness matrix into the global tangent matrix.
+ * @param globalTangent Reference to the global tangent matrix.
+ */
 void FlexGlobalGalerkin::assembleTangentMatrix(lmx::Matrix<data_type>& globalTangent)
 {
     auto end_int = this->cells.size();
@@ -288,6 +327,10 @@ void FlexGlobalGalerkin::outputStep(const lmx::Vector<data_type>& q)
     }
 }
 
+/**
+ * @brief Performs stress field smoothing using global L2-projection if GLOBAL smoothing mode is active.
+ * @param stressVectorSize Number of stress components per node (3 for 2D, 6 for 3D).
+ */
 void FlexGlobalGalerkin::recoverStressField(int stressVectorSize)
 {
     if (Simulation::getSmoothingType() == "GLOBAL")

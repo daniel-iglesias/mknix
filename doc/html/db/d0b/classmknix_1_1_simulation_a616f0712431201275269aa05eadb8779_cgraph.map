@@ -1,9 +1,0 @@
-<map id="mknix::Simulation::run" name="mknix::Simulation::run">
-<area shape="rect" id="node2" href="$db/d0b/classmknix_1_1_simulation.html#acef86e75795b95441e06f1055402a43b" title="mknix::Simulation::\lwriteSystem" alt="" coords="216,5,351,47"/>
-<area shape="rect" id="node3" href="$db/d0b/classmknix_1_1_simulation.html#ae769b1ff16dc5eada23b3aae69da8168" title="mknix::Simulation::\lrunThermalAnalysis" alt="" coords="215,136,352,177"/>
-<area shape="rect" id="node7" href="$db/d0b/classmknix_1_1_simulation.html#a5b02493acba04c0dd6a1450eb2ae548a" title="mknix::Simulation::\lrunMechanicalAnalysis" alt="" coords="205,71,361,112"/>
-<area shape="rect" id="node4" href="$df/d86/classmknix_1_1_analysis.html#a6dd7026a22ae11f3eef3dad3be370e70" title="mknix::Analysis::type" alt="" coords="427,85,575,111"/>
-<area shape="rect" id="node5" href="$df/d86/classmknix_1_1_analysis.html#a515bc01fa8704395d310c5e7ebd45081" title="mknix::Analysis::solve" alt="" coords="424,135,579,162"/>
-<area shape="rect" id="node6" href="$db/d0b/classmknix_1_1_simulation.html#adda4efbeb29fecf80bcd8552703bfed4" title="mknix::Simulation::\lgetDim" alt="" coords="434,187,569,228"/>
-<area shape="rect" id="node8" href="$df/d86/classmknix_1_1_analysis.html#a4e6baab7f63725b4ed816bb3bdbdc1d8" title="mknix::Analysis::setEpsilon" alt="" coords="409,34,593,61"/>
-</map>

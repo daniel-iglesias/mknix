@@ -33,6 +33,9 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor. Initialises all pointers to null.
+ */
 ReaderFlex::ReaderFlex()
     : theSimulation(nullptr)
     , output(nullptr)
@@ -40,6 +43,12 @@ ReaderFlex::ReaderFlex()
 {
 }
 
+/**
+ * @brief Constructs a ReaderFlex and binds it to the given simulation, output, and input streams.
+ * @param simulation_in Pointer to the active Simulation instance.
+ * @param output_in Reference to the output log file stream.
+ * @param input_in Reference to the input file stream to read from.
+ */
 ReaderFlex::ReaderFlex(Simulation* simulation_in,
                        std::ofstream& output_in,
                        std::ifstream& input_in
@@ -51,6 +60,9 @@ ReaderFlex::ReaderFlex(Simulation* simulation_in,
 }
 
 
+/**
+ * @brief Destructor.
+ */
 ReaderFlex::~ReaderFlex()
 {
 }
@@ -59,6 +71,10 @@ ReaderFlex::~ReaderFlex()
 } // namespace mknix
 
 
+/**
+ * @brief Reads and constructs all flexible bodies defined in the FLEXBODIES block.
+ * @param system_in Pointer to the System that will own the flex bodies.
+ */
 void mknix::ReaderFlex::readFlexBodies(System* system_in)
 {
     std::string keyword;
@@ -1064,6 +1080,12 @@ void mknix::ReaderFlex::readFlexBodies(System* system_in)
     system_in->initFlexBodies();
 }
 
+/**
+ * @brief Reads one line from the input stream to extract a tetrahedron mesh filename and optional transformation.
+ * @param file_name Output string filled with the mesh file name.
+ * @param translation Output array of three translation values (x, y, z).
+ * @param rotation Output array of three rotation values.
+ */
 void mknix::ReaderFlex::readTetrahedronsLine(string& file_name, double* translation, double* rotation) const
 {
     std::string line;

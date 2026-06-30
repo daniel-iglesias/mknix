@@ -7,11 +7,23 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for ShapeFunctionMLS.
+ */
 ShapeFunctionMLS::ShapeFunctionMLS()
 {
 }
 
 
+/**
+ * @brief Constructs a Moving Least Squares (MLS) shape function for any spatial dimension.
+ * @param nn_in Number of support nodes.
+ * @param mm_in Polynomial basis order (1 = linear).
+ * @param weightType_in Weight function type (0 = exponential, 1 = cubic spline).
+ * @param alpha_c_in Influence radius scaling factor.
+ * @param d_c_in Characteristic nodal spacing.
+ * @param gp_in Pointer to the evaluation Point.
+ */
 ShapeFunctionMLS::ShapeFunctionMLS(int nn_in,
                                    int mm_in,
                                    int weightType_in,
@@ -77,10 +89,16 @@ ShapeFunctionMLS::ShapeFunctionMLS(int nn_in,
 }
 
 
+/**
+ * @brief Destructor for ShapeFunctionMLS.
+ */
 ShapeFunctionMLS::~ShapeFunctionMLS()
 {
 }
 
+/**
+ * @brief Computes MLS shape functions and derivatives by calling weight, moment matrix, and phi routines.
+ */
 void ShapeFunctionMLS::calc()
 {
 //   cout << endl << "DIM " << dim << endl;
@@ -91,6 +109,9 @@ void ShapeFunctionMLS::calc()
 //   computePhi(0.2, 0.4);
 }
 
+/**
+ * @brief Computes the weight functions and their derivatives for each support node.
+ */
 void ShapeFunctionMLS::computeWeights()
 {
 //  double radius;
@@ -218,6 +239,10 @@ void ShapeFunctionMLS::computeWeights()
     }
 }
 
+/**
+ * @brief Assembles the MLS moment matrix A and the right-hand-side matrices B from the polynomial
+ *        basis and weight functions.
+ */
 void ShapeFunctionMLS::computeMomentMatrix()
 {
     // Example with mm=1 (first order):
@@ -319,6 +344,12 @@ void ShapeFunctionMLS::computeMomentMatrix()
     }
 }
 
+/**
+ * @brief Solves the MLS linear systems to obtain shape function values phi and first derivatives at (xp, yp, zp).
+ * @param xp X coordinate of the evaluation point.
+ * @param yp Y coordinate of the evaluation point.
+ * @param zp Z coordinate of the evaluation point.
+ */
 void ShapeFunctionMLS::computePhi(double xp, double yp, double zp)
 {
     std::vector<lmx::Vector<double>> alpha; /**< auxiliary variables */

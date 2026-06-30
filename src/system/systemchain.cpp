@@ -28,20 +28,36 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor.
+ */
 SystemChain::SystemChain()
 {
 }
 
 
+/**
+ * @brief Constructor with title.
+ * @param title_in C-string name identifier for this chain system.
+ */
 SystemChain::SystemChain(const char * title_in) : System(title_in)
 {
 }
 
 
+/**
+ * @brief Destructor.
+ */
 SystemChain::~SystemChain()
 {
 }
 
+/**
+ * @brief Returns a specific node of the chain by index.
+ *        Index 0 returns the first frame node of the first bar; index 1 returns the last frame node of the last bar.
+ * @param node_i Node index (0 or 1).
+ * @return Pointer to the requested Node, or nullptr for other indices.
+ */
 Node* SystemChain::getNode(size_t node_i)
 {
     std::stringstream barName;
@@ -54,6 +70,12 @@ Node* SystemChain::getNode(size_t node_i)
 }
 
 
+/**
+ * @brief Creates and connects all bar segments, distance constraints, and spherical joints
+ *        that form this chain system, registering them with the simulation.
+ * @param theSimulation   Pointer to the main Simulation object (used to create nodes).
+ * @param energyKeyword   Keyword to activate energy output for each bar segment.
+ */
 void SystemChain::populate(Simulation* theSimulation, std::string& energyKeyword)
 {
     std::stringstream barName;
@@ -116,6 +138,10 @@ void SystemChain::populate(Simulation* theSimulation, std::string& energyKeyword
 }
 
 
+/**
+ * @brief Updates each bar's constraint distance based on the interpolated chain length at the given time.
+ * @param theTime Current simulation time.
+ */
 void SystemChain::update(double theTime)
 {
     std::stringstream barName;

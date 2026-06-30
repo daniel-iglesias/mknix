@@ -1,5 +1,0 @@
-<map id="mknix::Simulation::runMechanicalAnalysis" name="mknix::Simulation::runMechanicalAnalysis">
-<area shape="rect" id="node2" href="$df/d86/classmknix_1_1_analysis.html#a6dd7026a22ae11f3eef3dad3be370e70" title="mknix::Analysis::type" alt="" coords="227,5,375,32"/>
-<area shape="rect" id="node3" href="$df/d86/classmknix_1_1_analysis.html#a4e6baab7f63725b4ed816bb3bdbdc1d8" title="mknix::Analysis::setEpsilon" alt="" coords="209,56,393,83"/>
-<area shape="rect" id="node4" href="$df/d86/classmknix_1_1_analysis.html#a515bc01fa8704395d310c5e7ebd45081" title="mknix::Analysis::solve" alt="" coords="224,107,379,133"/>
-</map>

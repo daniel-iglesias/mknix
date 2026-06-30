@@ -25,6 +25,9 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor. Reads alpha and method from the global Simulation settings.
+ */
 Constraint::Constraint()
     : dim(Simulation::getDim())
     , iter_augmented(0)
@@ -35,6 +38,11 @@ Constraint::Constraint()
 {
 }
 
+/**
+ * @brief Constructor with explicit alpha and method parameters.
+ * @param alpha_in  Augmented-Lagrangian penalty parameter.
+ * @param method_in Constraint enforcement method (e.g. "LAGRANGE", "AUGMENTED").
+ */
 Constraint::Constraint(double& alpha_in, std::string& method_in)
     : dim(Simulation::getDim())
     , iter_augmented(0)
@@ -45,6 +53,12 @@ Constraint::Constraint(double& alpha_in, std::string& method_in)
 {
 }
 
+/**
+ * @brief Constructor with explicit parameters including problem dimension.
+ * @param alpha_in  Augmented-Lagrangian penalty parameter.
+ * @param method_in Constraint enforcement method.
+ * @param dim_in    Problem dimension (2 or 3).
+ */
 Constraint::Constraint(double& alpha_in, std::string& method_in, int dim_in)
     : dim(dim_in)
     , iter_augmented(0)
@@ -55,12 +69,18 @@ Constraint::Constraint(double& alpha_in, std::string& method_in, int dim_in)
 {
 }
 
-
+/**
+ * @brief Destructor.
+ */
 Constraint::~Constraint()
 {
 }
 
 
+/**
+ * @brief Writes the joint type, title and node numbers to the output file.
+ * @param outfile Pointer to the output file stream.
+ */
 void Constraint::writeJointInfo(std::ofstream * outfile)
 {
     int i, nodesSize(nodes.size());
@@ -77,6 +97,10 @@ void Constraint::writeJointInfo(std::ofstream * outfile)
 
 }
 
+/**
+ * @brief Computes the local internal force vector from the current constraint residual
+ *        and Lagrange multiplier estimates.
+ */
 void Constraint::calcInternalForces()
 {
     internalForces.reset();
@@ -91,6 +115,9 @@ void Constraint::calcInternalForces()
     }
 }
 
+/**
+ * @brief Computes the local tangent stiffness matrix from the second derivatives of the constraint.
+ */
 void Constraint::calcTangentMatrix()
 {
     stiffnessMatrix.reset();
@@ -115,6 +142,10 @@ void Constraint::calcTangentMatrix()
 }
 
 
+/**
+ * @brief Assembles the local internal forces into the global force vector using shape-function mapping.
+ * @param globalInternalForces Reference to the global internal force vector.
+ */
 void Constraint::assembleInternalForces
 (lmx::Vector<data_type>& globalInternalForces)
 {
@@ -146,6 +177,10 @@ void Constraint::assembleInternalForces
     }
 }
 
+/**
+ * @brief Assembles the local tangent matrix into the global tangent matrix using shape-function mapping.
+ * @param globalTangent Reference to the global tangent (stiffness) matrix.
+ */
 void Constraint::assembleTangentMatrix
 (lmx::Matrix<data_type>& globalTangent)
 {
@@ -196,6 +231,10 @@ void Constraint::assembleTangentMatrix
     }
 }
 
+/**
+ * @brief Checks whether the AUGMENTED method has converged. Updates Lagrange multipliers if not.
+ * @return True if converged or method is not AUGMENTED; false otherwise.
+ */
 bool Constraint::checkAugmented()
 {
     if (method == "AUGMENTED")
@@ -233,6 +272,9 @@ bool Constraint::checkAugmented()
 
 }
 
+/**
+ * @brief Resets the Lagrange multipliers to zero for the next augmented-Lagrangian cycle.
+ */
 void mknix::Constraint::clearAugmented()
 {
 //   if( nodes[0]->getNumber() < 0 || nodes[0]->getNumber() < 0 ){
@@ -258,6 +300,11 @@ void mknix::Constraint::clearAugmented()
     }
 }
 
+/**
+ * @brief Stores the current internal force vector for post-processing (dynamic step).
+ * @param q    Global configuration vector (unused here).
+ * @param qdot Global velocity vector (unused here).
+ */
 void mknix::Constraint::outputStep(const lmx::Vector<data_type>& q, const lmx::Vector<data_type>& qdot)
 {
     if (!title.empty())   // do not store internal constraints of rigid bodies
@@ -267,6 +314,10 @@ void mknix::Constraint::outputStep(const lmx::Vector<data_type>& q, const lmx::V
     }
 }
 
+/**
+ * @brief Stores the current internal force vector for post-processing (static step).
+ * @param q Global configuration vector (unused here).
+ */
 void mknix::Constraint::outputStep(const lmx::Vector<data_type>& q)
 {
     if (!title.empty())   // do not store internal constraints of rigid bodies
@@ -276,6 +327,10 @@ void mknix::Constraint::outputStep(const lmx::Vector<data_type>& q)
     }
 }
 
+/**
+ * @brief Writes stored constraint force history to the output file.
+ * @param outFile Pointer to the output file stream.
+ */
 void mknix::Constraint::outputToFile(std::ofstream * outFile)
 {
     auto vectorSize = internalForces.size();

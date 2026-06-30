@@ -1,7 +1,0 @@
-<map id="mknix::System::calcCapacityMatrix" name="mknix::System::calcCapacityMatrix">
-<area shape="rect" id="node3" href="$db/d0b/classmknix_1_1_simulation.html#ae769b1ff16dc5eada23b3aae69da8168" title="mknix::Simulation::\lrunThermalAnalysis" alt="" coords="269,5,405,51"/>
-<area shape="rect" id="node9" href="$db/d0b/classmknix_1_1_simulation.html#a4b2297b6adf5b7c2f0c65bae5ea75f7f" title="mknix::Simulation::\ldynamicThermalEvaluation" alt="" coords="248,74,427,121"/>
-<area shape="rect" id="node5" href="$db/d0b/classmknix_1_1_simulation.html#a616f0712431201275269aa05eadb8779" title="mknix::Simulation::run" alt="" coords="507,13,659,43"/>
-<area shape="rect" id="node7" href="$d9/d06/mknix_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="739,13,789,43"/>
-<area shape="rect" id="node11" href="$d5/dd9/classmknix_1_1_analysis_thermal_dynamic.html#a161ebe1ed696232ed05ef778cdcabcb8" title="mknix::AnalysisThermalDynamic\l::AnalysisThermalDynamic" alt="" coords="476,74,689,121"/>
-</map>

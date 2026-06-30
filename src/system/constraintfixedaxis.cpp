@@ -25,12 +25,23 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor.
+ */
 ConstraintFixedAxis::ConstraintFixedAxis()
     : Constraint()
 {
 }
 
 
+/**
+ * @brief Constructor for a constraint that fixes the relative displacement along one axis.
+ * @param a_in        Pointer to node A.
+ * @param b_in        Pointer to node B.
+ * @param axisName_in Name of the locked axis: "x", "y", or "z".
+ * @param alpha_in    Penalty parameter.
+ * @param method_in   Enforcement method keyword.
+ */
 ConstraintFixedAxis::ConstraintFixedAxis( Node* a_in, Node* b_in, std::string& axisName_in, double& alpha_in, std::string& method_in )
     : Constraint(alpha_in, method_in)
     , axisName(axisName_in)
@@ -62,10 +73,16 @@ ConstraintFixedAxis::ConstraintFixedAxis( Node* a_in, Node* b_in, std::string& a
 }
 
 
+/**
+ * @brief Destructor.
+ */
 ConstraintFixedAxis::~ConstraintFixedAxis()
 {
 }
 
+/**
+ * @brief Evaluates phi = rt - ro, the current minus the reference displacement along the fixed axis.
+ */
 void ConstraintFixedAxis::calcPhi()
 {
     if( axisName == "x" || axisName == "X" )
@@ -78,6 +95,9 @@ void ConstraintFixedAxis::calcPhi()
     this->phi[0] = rt - ro ;
 }
 
+/**
+ * @brief Computes the gradient of phi using the shape-function values of the support nodes.
+ */
 void ConstraintFixedAxis::calcPhiq()
 {
     size_type i,j;
@@ -133,6 +153,9 @@ void ConstraintFixedAxis::calcPhiq()
 
 }
 
+/**
+ * @brief Hessian of phi is zero (linear constraint); this is a no-op.
+ */
 void ConstraintFixedAxis::calcPhiqq()
 {
 }

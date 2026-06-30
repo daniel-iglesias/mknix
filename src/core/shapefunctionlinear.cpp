@@ -24,6 +24,9 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for ShapeFunctionLinear.
+ */
 ShapeFunctionLinear::ShapeFunctionLinear()
     : ShapeFunction()
 {
@@ -31,6 +34,10 @@ ShapeFunctionLinear::ShapeFunctionLinear()
 }
 
 
+/**
+ * @brief Constructs a ShapeFunctionLinear attached to the given Point.
+ * @param gp_in Pointer to the evaluation Point (expects exactly 2 support nodes).
+ */
 ShapeFunctionLinear::ShapeFunctionLinear( Point* gp_in )
     : ShapeFunction(gp_in)
 {
@@ -38,11 +45,18 @@ ShapeFunctionLinear::ShapeFunctionLinear( Point* gp_in )
 }
 
 
+/**
+ * @brief Destructor for ShapeFunctionLinear.
+ */
 ShapeFunctionLinear::~ShapeFunctionLinear()
 {
 }
 
 
+/**
+ * @brief Computes linear (Lagrange) 1D shape functions and their derivatives using signed distance.
+ *        The shape functions are defined over the segment between the two support nodes.
+ */
 void ShapeFunctionLinear::calc()
 {
     // Signed calculation as expressed in http://stackoverflow.com/questions/552916/how-to-find-sign-of-directed-distance

@@ -24,6 +24,9 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for ShapeFunctionLinearX.
+ */
 ShapeFunctionLinearX::ShapeFunctionLinearX()
     : ShapeFunction()
 {
@@ -31,6 +34,10 @@ ShapeFunctionLinearX::ShapeFunctionLinearX()
 }
 
 
+/**
+ * @brief Constructs a ShapeFunctionLinearX attached to the given Point.
+ * @param gp_in Pointer to the evaluation Point (expects exactly 2 support nodes).
+ */
 ShapeFunctionLinearX::ShapeFunctionLinearX( Point* gp_in )
     : ShapeFunction(gp_in)
 {
@@ -38,11 +45,18 @@ ShapeFunctionLinearX::ShapeFunctionLinearX( Point* gp_in )
 }
 
 
+/**
+ * @brief Destructor for ShapeFunctionLinearX.
+ */
 ShapeFunctionLinearX::~ShapeFunctionLinearX()
 {
 }
 
 
+/**
+ * @brief Computes linear (Lagrange) 1D shape functions using only the x-component of the nodal positions.
+ *        This is a simplified version for boundary cells aligned with the X axis.
+ */
 void ShapeFunctionLinearX::calc()
 {
     // Signed calculation using only the x components of the points

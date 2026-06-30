@@ -1,7 +1,0 @@
-<map id="mknix::AnalysisThermalStatic::AnalysisThermalStatic" name="mknix::AnalysisThermalStatic::AnalysisThermalStatic">
-<area shape="rect" id="node2" href="$db/d0b/classmknix_1_1_simulation.html#ae86305b2478ec8fdffe9f4866f9389e2" title="mknix::Simulation::\lstaticThermalResidue" alt="" coords="264,5,413,47"/>
-<area shape="rect" id="node3" href="$db/d0b/classmknix_1_1_simulation.html#a382593c555de33392bccdcbbdf244737" title="mknix::Simulation::\lstaticThermalTangent" alt="" coords="265,71,413,112"/>
-<area shape="rect" id="node4" href="$db/d0b/classmknix_1_1_simulation.html#adc5bcdaba46bc9e5332e7e142dd4558f" title="mknix::Simulation::\lstaticThermalConvergence" alt="" coords="249,136,428,177"/>
-<area shape="rect" id="node5" href="$db/d0b/classmknix_1_1_simulation.html#a9fd95351d7fe3ce2ba1991d6aae6a804" title="mknix::Simulation::\lstepTriggered" alt="" coords="476,136,611,177"/>
-<area shape="rect" id="node6" href="$db/d0b/classmknix_1_1_simulation.html#a5d4227d2d500003664587afadecb1081" title="mknix::Simulation::\lwriteConfStep" alt="" coords="659,136,793,177"/>
-</map>

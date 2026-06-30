@@ -26,15 +26,25 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor.
+ */
 LoadThermalBoundary1D::LoadThermalBoundary1D()
 {
 }
 
 
+/**
+ * @brief Destructor.
+ */
 LoadThermalBoundary1D::~LoadThermalBoundary1D( /*double , double, double*/ )
 {
 }
 
+/**
+ * @brief Reads (X, load) pairs from a file and stores them in the spatial load map.
+ * @param fileName Path to the spatial load data file.
+ */
 void LoadThermalBoundary1D::loadFile(std::string fileName)
 {
     std::ifstream power;
@@ -54,6 +64,10 @@ void LoadThermalBoundary1D::loadFile(std::string fileName)
     }
 }
 
+/**
+ * @brief Reads (time, load_factor) pairs from a file and stores them in the time-scale map.
+ * @param fileName Path to the time-scale data file.
+ */
 void LoadThermalBoundary1D::loadTimeFile(std::string fileName)
 {
     std::ifstream power;
@@ -73,6 +87,10 @@ void LoadThermalBoundary1D::loadTimeFile(std::string fileName)
     }
 }
 
+/**
+ * @brief Scales all spatial load values by a constant factor.
+ * @param loadFactor_in Multiplicative factor to apply to every load entry.
+ */
 void LoadThermalBoundary1D::scaleLoad(double loadFactor_in)
 {
     for (auto el : loadmap)
@@ -83,6 +101,12 @@ void LoadThermalBoundary1D::scaleLoad(double loadFactor_in)
 }
 
 
+/**
+ * @brief Returns the thermal boundary load at the given point's X coordinate,
+ *        optionally scaled by the time-dependent factor.
+ * @param thePoint Pointer to the boundary integration point.
+ * @return Interpolated load value at the point's position and current simulation time.
+ */
 double LoadThermalBoundary1D::getLoadThermalBoundary1D(Point * thePoint)
 {
 //  cout << Simulation::getTime() << endl;

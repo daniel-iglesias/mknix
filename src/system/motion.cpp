@@ -24,10 +24,17 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor.
+ */
 Motion::Motion()
 {
 }
 
+/**
+ * @brief Constructor that binds a prescribed motion to a node.
+ * @param node_in Pointer to the node whose position will be driven by this motion.
+ */
 Motion::Motion(Node * node_in)
     : theNode(node_in)
 {
@@ -37,10 +44,18 @@ Motion::Motion(Node * node_in)
     timeUz[0.] = 0.;
 }
 
+/**
+ * @brief Destructor.
+ */
 Motion::~Motion()
 {
 }
 
+/**
+ * @brief Updates the prescribed displacements of the bound node by interpolating
+ *        the stored time-displacement maps at the current simulation time.
+ * @param theTime Current simulation time.
+ */
 void Motion::update(double theTime)
 {
 //   cout << "Node: "<< theNode->getNumber()

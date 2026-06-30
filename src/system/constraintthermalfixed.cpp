@@ -25,12 +25,22 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor.
+ */
 ConstraintThermalFixed::ConstraintThermalFixed()
     : ConstraintThermal()
 {
 }
 
 
+/**
+ * @brief Constructor for a fixed thermal constraint (isothermal boundary between two nodes).
+ * @param a_in      Pointer to the reference temperature node.
+ * @param b_in      Pointer to the constrained temperature node.
+ * @param alpha_in  Penalty parameter.
+ * @param method_in Enforcement method keyword.
+ */
 ConstraintThermalFixed::ConstraintThermalFixed( Node* a_in, Node* b_in, double& alpha_in, std::string& method_in )
     : ConstraintThermal(alpha_in, method_in)
 {
@@ -61,10 +71,16 @@ ConstraintThermalFixed::ConstraintThermalFixed( Node* a_in, Node* b_in, double& 
 }
 
 
+/**
+ * @brief Destructor.
+ */
 ConstraintThermalFixed::~ConstraintThermalFixed()
 {
 }
 
+/**
+ * @brief Evaluates the thermal constraint phi = T_b - T_a (temperature difference).
+ */
 void ConstraintThermalFixed::calcPhi()
 {
     Tt = nodes[1]->getTemp() ;
@@ -75,6 +91,9 @@ void ConstraintThermalFixed::calcPhi()
 //  cout << endl << "Phi in fixedcoordinates = " << phi[0] << endl;
 }
 
+/**
+ * @brief Computes the gradient of the thermal constraint using shape-function values.
+ */
 void ConstraintThermalFixed::calcPhiq()
 {
     size_type i,j;
@@ -92,10 +111,18 @@ void ConstraintThermalFixed::calcPhiq()
 //
 }
 
+/**
+ * @brief Hessian of phi is zero (linear thermal constraint); this is a no-op.
+ */
 void ConstraintThermalFixed::calcPhiqq()
 {
 }
 
+/**
+ * @brief Checks whether the AUGMENTED method has converged for this thermal constraint.
+ *        Uses temperature-dependent tolerances (tighter above 300 K).
+ * @return True if converged or method is not AUGMENTED; false otherwise.
+ */
 bool ConstraintThermalFixed::checkAugmented()
 {
     // TODO: Define as parameters in the input file: Aug-stage T limit (Tt), max_iter_augmented and delta_T for stage1, and delta_T for stage2.

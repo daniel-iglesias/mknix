@@ -51,6 +51,11 @@ namespace
 {
 constexpr auto pathSep = "/";
 
+/**
+ * @brief Extracts the directory component of a file path string.
+ * @param path The full file path.
+ * @return The directory portion of the path, up to and excluding the last separator.
+ */
 std::string dirName(const std::string& path)
 {
     auto found = path.find_last_of(pathSep);
@@ -61,6 +66,9 @@ std::string dirName(const std::string& path)
 namespace mknix
 {
 
+/**
+ * @brief Default constructor. Opens the "output.reader" log file.
+ */
 Reader::Reader()
     : theSimulation(nullptr)
     , theReaderRigid(nullptr)
@@ -69,6 +77,10 @@ Reader::Reader()
     output.open("output.reader");
 }
 
+/**
+ * @brief Constructs a Reader and associates it with the given Simulation instance.
+ * @param simulation_in Pointer to the active Simulation to populate.
+ */
 Reader::Reader(Simulation * simulation_in)
     : theSimulation(simulation_in)
     , theReaderRigid(nullptr)
@@ -142,6 +154,9 @@ Reader::Reader(Simulation * simulation_in)
 }
 
 
+/**
+ * @brief Destructor. Cleans up dynamically allocated reader objects.
+ */
 Reader::~Reader()
 {
     if (theReaderRigid)
@@ -164,6 +179,10 @@ Reader::~Reader()
 
 } // namespace mknix
 
+/**
+ * @brief Parses the main input file, dispatching each top-level keyword to the appropriate reader.
+ * @param fileIn Path to the input file to read.
+ */
 void mknix::Reader::inputFromFile(const std::string& fileIn)
 {
     input.open(fileIn);
@@ -628,6 +647,10 @@ void mknix::Reader::inputFromFile(const std::string& fileIn)
 	input.close();
 }
 
+/**
+ * @brief Reads a SYSTEM block and populates the given system with subsystems, rigid/flex bodies and joints.
+ * @param system_in Pointer to the parent System that will own the new subsystem.
+ */
 void mknix::Reader::readSystem(System * system_in)
 {
     std::string sysTitle;
@@ -754,6 +777,10 @@ void mknix::Reader::readSystem(System * system_in)
     }
 }
 
+/**
+ * @brief Reads a BODYPOINTS block, creating individual nodes and adding them to the system.
+ * @param system_in Pointer to the System that will receive the body-point nodes.
+ */
 void mknix::Reader::readBodyPoints(System * system_in)
 {
     std::string keyword;
@@ -803,6 +830,10 @@ void mknix::Reader::readBodyPoints(System * system_in)
 }
 
 
+/**
+ * @brief Reads a LOADS block and attaches forces, loads and boundary conditions to the system.
+ * @param system_in Pointer to the System that will receive the loads.
+ */
 void mknix::Reader::readLoads(System * system_in)
 {
     std::string keyword;
@@ -1373,6 +1404,10 @@ void mknix::Reader::readLoads(System * system_in)
     }
 }
 
+/**
+ * @brief Reads an ENVIRONMENT block (radiation and convection loads) for the system.
+ * @param system_in Pointer to the System that will receive the environment loads.
+ */
 void mknix::Reader::readEnvironment(System * system_in)
 {
     // Prepared to read radiation and convection.
@@ -1385,6 +1420,10 @@ void mknix::Reader::readEnvironment(System * system_in)
     }
 }
 
+/**
+ * @brief Reads a MOTION block, applying prescribed displacements to nodes of the system.
+ * @param system_in Pointer to the System whose nodes will receive prescribed motions.
+ */
 void mknix::Reader::readMotion(System * system_in)
 {
     std::string keyword;
@@ -1426,6 +1465,9 @@ void mknix::Reader::readMotion(System * system_in)
     }
 }
 
+/**
+ * @brief Reads the ANALYSIS block and configures the simulation analysis parameters.
+ */
 void mknix::Reader::readAnalysis()
 {
     std::string keyword;

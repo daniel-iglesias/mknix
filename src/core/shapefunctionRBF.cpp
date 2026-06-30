@@ -7,11 +7,24 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor for ShapeFunctionRBF.
+ */
 ShapeFunctionRBF::ShapeFunctionRBF()
 {
 }
 
 
+/**
+ * @brief Constructs a Radial Basis Function (RBF) shape function object.
+ * @param nn_in Number of support nodes (radial basis functions).
+ * @param mm_in Number of polynomial basis terms.
+ * @param rbfType_in Type of RBF kernel (0 = multiquadric, etc.).
+ * @param alpha_c_in Influence radius scaling factor.
+ * @param d_c_in Characteristic nodal spacing.
+ * @param q_in Shape parameter for the RBF kernel.
+ * @param gp_in Pointer to the evaluation Point.
+ */
 ShapeFunctionRBF::ShapeFunctionRBF(size_t nn_in,
                                    size_t mm_in,
                                    int rbfType_in,
@@ -53,10 +66,16 @@ ShapeFunctionRBF::ShapeFunctionRBF(size_t nn_in,
 }
 
 
+/**
+ * @brief Destructor for ShapeFunctionRBF.
+ */
 ShapeFunctionRBF::~ShapeFunctionRBF()
 {
 }
 
+/**
+ * @brief Computes RBF shape functions by building the moment matrix and solving for phi.
+ */
 void ShapeFunctionRBF::calc()
 {
     computeMomentMatrix();
@@ -66,6 +85,9 @@ void ShapeFunctionRBF::calc()
 //   computePhi(0.2, 0.4);
 }
 
+/**
+ * @brief Assembles the RBF moment matrix G_o from the radial basis functions evaluated at all support node pairs.
+ */
 void ShapeFunctionRBF::computeMomentMatrix()
 {
     double radius, qq;
@@ -171,6 +193,12 @@ void ShapeFunctionRBF::computeMomentMatrix()
     }
 }
 
+/**
+ * @brief Solves the RBF linear system to obtain shape function values and derivatives at (xp, yp, zp).
+ * @param xp X coordinate of the evaluation point.
+ * @param yp Y coordinate of the evaluation point.
+ * @param zp Z coordinate of the evaluation point.
+ */
 void ShapeFunctionRBF::computePhi(double xp, double yp, double zp)
 {
     lmx::Vector<double> rhs(nn);

@@ -45,6 +45,9 @@
 namespace mknix
 {
 
+/**
+ * @brief Default constructor. Initializes the body with thermal simulation enabled and energy computation disabled.
+ */
 Body::Body()
     : computeEnergy(0)
     , isThermal(1)
@@ -64,7 +67,9 @@ Body::Body(std::string title_in)
 {
 }
 
-
+/**
+ * @brief Destructor. Releases memory for temperature vectors, cells, boundary groups and volumetric heat sources.
+ */
 Body::~Body()
 {
     for (auto& temp : temperature)
@@ -257,6 +262,10 @@ void Body::assembleExternalHeat(lmx::Vector<data_type>& globalExternalHeat)
 //     cout << globalExternalHeat << endl;
 }
 
+/**
+ * @brief Sets the temperature of every node in the body.
+ * @param temp_in Temperature value to assign to all nodes.
+ */
 void Body::setTemperature(double temp_in)
 {
     for (auto& node : nodes)
@@ -481,12 +490,21 @@ void Body::outputVTK( )
 #endif
 }
 
+/**
+ * @brief Appends a connectivity record (list of node indices) to the boundary connectivity table.
+ * @param connectivity_in Vector of node indices defining one boundary segment.
+ */
 void Body::addBoundaryConnectivity(std::vector<int> connectivity_in)
 {
     this->boundaryConnectivity.push_back(std::vector<int>(connectivity_in));
 }
 
-
+/**
+ * @brief Translates all nodes of the body by the given displacement vector.
+ * @param x_in Displacement along the X axis.
+ * @param y_in Displacement along the Y axis.
+ * @param z_in Displacement along the Z axis.
+ */
 void Body::translate(double x_in, double y_in, double z_in)
 {
     for (auto node : nodes)
@@ -502,6 +520,12 @@ constexpr double deg2rad(double deg)
     return deg * M_PI / 180.0;
 }
 
+/**
+ * @brief Rotates all nodes of the body using Euler angles (ZYX convention).
+ * @param phi   Rotation angle about the X axis (degrees).
+ * @param theta Rotation angle about the Y axis (degrees).
+ * @param psi   Rotation angle about the Z axis (degrees).
+ */
 void Body::rotate(double phi, double theta, double psi)
 {
     phi = deg2rad(phi);

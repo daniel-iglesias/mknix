@@ -1,9 +1,0 @@
-<map id="mknix::ShapeFunction" name="mknix::ShapeFunction">
-<area shape="rect" id="node2" href="$d8/d0e/classmknix_1_1_shape_function_linear.html" title="mknix::ShapeFunctionLinear" alt="" coords="223,5,409,32"/>
-<area shape="rect" id="node3" href="$dc/de4/classmknix_1_1_shape_function_linear_x.html" title="mknix::ShapeFunctionLinearX" alt="" coords="218,56,414,83"/>
-<area shape="rect" id="node4" href="$db/d02/classmknix_1_1_shape_function_m_l_s.html" title="mknix::ShapeFunctionMLS" alt="" coords="227,107,405,133"/>
-<area shape="rect" id="node5" href="$db/d4a/classmknix_1_1_shape_function_r_b_f.html" title="mknix::ShapeFunctionRBF" alt="" coords="227,157,405,184"/>
-<area shape="rect" id="node6" href="$d8/dbd/classmknix_1_1_shape_function_tetrahedron.html" title="mknix::ShapeFunctionTetrahedron" alt="" coords="205,208,427,235"/>
-<area shape="rect" id="node7" href="$d4/d8b/classmknix_1_1_shape_function_triangle.html" title="mknix::ShapeFunctionTriangle" alt="" coords="217,259,415,285"/>
-<area shape="rect" id="node8" href="$d0/dbb/classmknix_1_1_shape_function_triangle_signed.html" title="mknix::ShapeFunctionTriangle\lSigned" alt="" coords="217,310,415,351"/>
-</map>
