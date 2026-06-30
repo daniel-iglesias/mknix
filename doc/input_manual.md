@@ -1,4 +1,4 @@
-# mknix Input File Manual
+# mknix Input File Manual {#input_manual}
 
 ## Overview
 
@@ -23,7 +23,7 @@ ENDANALYSIS
 
 ## Top-Level Commands
 
-### `TITLE`
+### TITLE
 ```
 TITLE <name>
 ```
@@ -31,7 +31,7 @@ Sets the simulation title (single token, no spaces).
 
 ---
 
-### `WORKINGDIR`
+### WORKINGDIR
 ```
 WORKINGDIR <path>
 ```
@@ -39,7 +39,7 @@ Changes the working directory. All subsequent file paths are relative to this di
 
 ---
 
-### `DIMENSION`
+### DIMENSION
 ```
 DIMENSION <2|3>
 ```
@@ -47,7 +47,7 @@ Sets the spatial dimension of the problem.
 
 ---
 
-### `GRAVITY`
+### GRAVITY
 ```
 GRAVITY <gx> <gy> <gz>
 ```
@@ -55,7 +55,7 @@ Sets the gravity vector components.
 
 ---
 
-### `CONTACT`
+### CONTACT
 ```
 CONTACT <GLOBAL|NONE>
 ```
@@ -63,7 +63,7 @@ Sets the contact detection strategy.
 
 ---
 
-### `VISUALIZATION`
+### VISUALIZATION
 ```
 VISUALIZATION <ON|OFF>
 ```
@@ -71,7 +71,7 @@ Enables or disables visualization output.
 
 ---
 
-### `OUTPUT`
+### OUTPUT
 ```
 OUTPUT MATRICES
 ```
@@ -79,7 +79,7 @@ Enables output of system matrices to file.
 
 ---
 
-### `SMOOTHING`
+### SMOOTHING
 ```
 SMOOTHING <OFF|LOCAL|CONSTANT|GLOBAL>
 ```
@@ -87,7 +87,7 @@ Sets the stress-smoothing strategy.
 
 ---
 
-### `INITIALTEMPERATURE`
+### INITIALTEMPERATURE
 ```
 INITIALTEMPERATURE <value>
 ```
@@ -95,7 +95,7 @@ Sets the global initial temperature for all nodes.
 
 ---
 
-## `MATERIALS` Section
+## MATERIALS Section
 
 ```
 MATERIALS
@@ -103,7 +103,7 @@ MATERIALS
 ENDMATERIALS
 ```
 
-### `PLSTRAIN` (Plane-strain mechanical material)
+### PLSTRAIN (Plane-strain mechanical material)
 ```
 PLSTRAIN <mat_id> <E> <nu> <density>
 ```
@@ -112,7 +112,7 @@ PLSTRAIN <mat_id> <E> <nu> <density>
 - `nu` – Poisson's ratio
 - `density` – mass density
 
-### `THERMAL` (Thermal material, constant properties)
+### THERMAL (Thermal material, constant properties)
 ```
 THERMAL <mat_id> <Cp> <kappa> <beta> <density>
 ```
@@ -121,7 +121,7 @@ THERMAL <mat_id> <Cp> <kappa> <beta> <density>
 - `beta` – thermal expansion coefficient
 - `density` – mass density
 
-### `POROSITY` (Porous medium extension; requires a `THERMAL` entry for the same `mat_id`)
+### POROSITY (Porous medium extension; requires a THERMAL entry for the same mat_id)
 ```
 POROSITY <mat_id> <Rsl> <T_bulk> [porosityCapacity]
 ```
@@ -134,7 +134,7 @@ POROSITY <mat_id> <Rsl> <T_bulk> [porosityCapacity]
 - If `porosityCapacity` is specified (and non-zero), the fluid temperature is automatically updated during the simulation according to the power balance, using the provided capacity value. *Note* that this porosityCapacity is currently dependant on the time step parameter. This feature is experimental and may be removed in future versions, as this effect should be implemented as a body property, in order to have a proper residual and tangent contributions.
 - If omitted, the fluid temperature remains constant at `T_bulk` (backward compatible with previous input files).
 
-### `FILES` (Temperature-dependent thermal properties from files)
+### FILES (Temperature-dependent thermal properties from files)
 
 ```
 FILES
@@ -188,7 +188,7 @@ RESISTANCE 2 resistance_y.txt COORDS y
 
 ---
 
-## `SYSTEM` Section
+## SYSTEM Section
 
 ```
 SYSTEM <name>
@@ -210,7 +210,7 @@ ENDSYSTEM
 
 ---
 
-## `RIGIDBODIES` Section
+## RIGIDBODIES Section
 
 ```
 RIGIDBODIES
@@ -224,10 +224,10 @@ RIGIDBODIES
 ENDRIGIDBODIES
 ```
 
-### `PENALTY` / `AUGMENTED`
+### PENALTY / AUGMENTED
 Sets the constraint enforcement method (penalty or augmented Lagrange). Default is penalty.
 
-### `ALPHA`
+### ALPHA
 ```
 ALPHA <value>
 ```
@@ -235,7 +235,7 @@ Sets the penalty / augmented-Lagrange stiffness factor.
 
 ---
 
-### `MASSPOINT`
+### MASSPOINT
 ```
 MASSPOINT <name>
   NODEA <x> <y> <z>
@@ -245,7 +245,7 @@ ENDMASSPOINT
 
 ---
 
-### `BAR`
+### BAR
 ```
 BAR <name>
   NODEA  <x> <y> <z>
@@ -257,7 +257,7 @@ ENDBAR
 
 ---
 
-### `CHAIN`
+### CHAIN
 ```
 CHAIN <name>
   NODEA      <x> <y> <z>
@@ -273,7 +273,7 @@ ENDCHAIN
 
 ---
 
-### `GENERIC2D`
+### GENERIC2D
 ```
 GENERIC2D <name>
   MASS     <value>
@@ -290,7 +290,7 @@ ENDGENERIC2D
 
 ---
 
-### `GENERIC3D`
+### GENERIC3D
 ```
 GENERIC3D <name>
   MASS        <value>
@@ -304,7 +304,7 @@ ENDGENERIC3D
 
 ---
 
-## `FLEXBODIES` Section
+## FLEXBODIES Section
 
 ```
 FLEXBODIES
@@ -316,7 +316,7 @@ ENDFLEXBODIES
 
 `SHARENODES` makes two bodies share their node lists (for coupled domains).
 
-### `MESHFREE` / `FEMESH`
+### MESHFREE / FEMESH
 
 Both use the same sub-keywords:
 
@@ -333,7 +333,7 @@ MESHFREE <name>
 ENDMESHFREE
 ```
 
-#### `BOUNDARYGROUP`
+#### BOUNDARYGROUP
 ```
 BOUNDARYGROUP <name>
   METHOD <formulation> <nGPs> <alpha>
@@ -341,7 +341,7 @@ BOUNDARYGROUP <name>
 ENDBOUNDARYGROUP
 ```
 
-#### `NODES` – Inline definition
+#### NODES – Inline definition
 
 **Rectangular patch:**
 ```
@@ -358,7 +358,7 @@ NODES
 GRID QUADS     <meshfile>
 ```
 
-#### `CELLS` – Integration cell definition
+#### CELLS – Integration cell definition
 
 ```
 CELLS
@@ -366,7 +366,7 @@ CELLS
 RECTANGULAR <mat_id> <dcx> <dcy> <nx> <ny> <x1> <y1> <x2> <y2>
 ```
 
-#### `MESH` – Combined node + cell from file
+#### MESH – Combined node + cell from file
 
 ```
 MESH
@@ -377,7 +377,7 @@ QUADS     <meshfile>
 
 ---
 
-## `BODYPOINTS` Section
+## BODYPOINTS Section
 
 ```
 BODYPOINTS
@@ -390,7 +390,7 @@ Adds extra nodes to already-defined bodies.
 
 ---
 
-## `JOINTS` Section
+## JOINTS Section
 
 ```
 JOINTS
@@ -423,23 +423,23 @@ NODEA <bodyName>.<nodeId>
 NODEB GROUND
 ```
 
-### `AXIS` – additional sub-command
+### AXIS – additional sub-command
 ```
 DIRECTION <x|y|z>
 ```
 
-### `AUGMENTED` tolerance
+### AUGMENTED tolerance
 ```
 AUGMENTED <tolerance>
 ```
 Optional tolerance used by augmented constraints to decide convergence. If omitted, the default tolerance is `5.0`.
 
-### `CLEARANCE` – additional sub-command
+### CLEARANCE – additional sub-command
 ```
 TOLERANCE <value>
 ```
 
-### `THERMALSPHERICAL` – additional sub-command
+### THERMALSPHERICAL – additional sub-command
 `THERMALSPHERICAL` supports an optional initial temperature override:
 ```
 TEMPERATURE <value>
@@ -452,7 +452,7 @@ This initialization is persistent through thermal analysis setup (it is not over
 
 ---
 
-## `LOADS` Section
+## LOADS Section
 
 ```
 LOADS
@@ -472,7 +472,7 @@ ENDLOADS
 
 ---
 
-### `THERMALBODY`
+### THERMALBODY
 
 Applies a volumetric heat source to a thermal body.
 
@@ -547,7 +547,7 @@ THERMALBODY <bodyName> TIMEFILE <timeFilename>
 
 ---
 
-### `THERMALFLUX1D`
+### THERMALFLUX1D
 
 Applies a 1-D heat flux to a boundary group.
 
@@ -565,7 +565,7 @@ ENDTHERMALFLUX1D
 
 ---
 
-### `RADIATION`
+### RADIATION
 
 ```
 RADIATION
@@ -582,7 +582,7 @@ ENDRADIATION
 
 ---
 
-## `MOTION` Section
+## MOTION Section
 
 ```
 MOTION <nodeId>
@@ -594,7 +594,7 @@ Prescribes time-varying displacement on a ground node. Multiple `TIMECONF` entri
 
 ---
 
-## `SIGNALS` Section
+## SIGNALS Section
 
 ```
 SIGNALS
@@ -605,7 +605,7 @@ ENDSIGNALS
 
 ---
 
-## `ANALYSIS` Section
+## ANALYSIS Section
 
 ```
 ANALYSIS
@@ -619,7 +619,7 @@ ENDANALYSIS
 
 All analysis types share `EPSILON` and `TIME`. Transient types also require `INTEGRATOR`.
 
-### `STATIC`
+### STATIC
 ```
 STATIC
   EPSILON <tol>
@@ -627,7 +627,7 @@ STATIC
 ENDSTATIC
 ```
 
-### `THERMALSTATIC`
+### THERMALSTATIC
 ```
 THERMALSTATIC
   EPSILON <tol>
@@ -635,7 +635,7 @@ THERMALSTATIC
 ENDTHERMALSTATIC
 ```
 
-### `THERMALDYNAMIC`
+### THERMALDYNAMIC
 ```
 THERMALDYNAMIC
   EPSILON    <tol>
@@ -644,7 +644,7 @@ THERMALDYNAMIC
 ENDTHERMALDYNAMIC
 ```
 
-### `THERMOMECHANICALDYNAMIC`
+### THERMOMECHANICALDYNAMIC
 ```
 THERMOMECHANICALDYNAMIC
   EPSILON    <tol>
@@ -653,7 +653,7 @@ THERMOMECHANICALDYNAMIC
 ENDTHERMOMECHANICALDYNAMIC
 ```
 
-### `DYNAMIC`
+### DYNAMIC
 ```
 DYNAMIC
   EPSILON    <tol>
