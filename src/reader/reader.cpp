@@ -1139,6 +1139,71 @@ void mknix::Reader::readLoads(System * system_in)
                     }
                 }
             }
+            else if (sOption == "FILE3D")
+            {
+                std::string sValue;
+                if (!(options >> sValue))
+                {
+                    output << "ERROR: THERMALBODY FILE3D missing filename in " << sBody << endl;
+                    continue;
+                }
+
+                output << "\t FILE3D: " << sValue << endl;
+                theLoad->loadFile3D(sValue);
+
+                std::string token;
+                while (options >> token)
+                {
+                    if (token == "TIMEFILE")
+                    {
+                        std::string timeFile;
+                        if (options >> timeFile)
+                        {
+                            theLoad->loadTimeFile(timeFile);
+                            output << "\t TIMEFILE: " << timeFile << endl;
+                        }
+                        else
+                        {
+                            output << "ERROR: THERMALBODY TIMEFILE missing filename in " << sBody << endl;
+                        }
+                    }
+                }
+            }
+            else if (sOption == "FILE_VTK")
+            {
+#ifdef HAVE_VTK
+                std::string sValue;
+                if (!(options >> sValue))
+                {
+                    output << "ERROR: THERMALBODY FILE_VTK missing filename in " << sBody << endl;
+                    continue;
+                }
+
+                output << "\t FILE_VTK: " << sValue << endl;
+                theLoad->loadFileVTK(sValue);
+
+                std::string token;
+                while (options >> token)
+                {
+                    if (token == "TIMEFILE")
+                    {
+                        std::string timeFile;
+                        if (options >> timeFile)
+                        {
+                            theLoad->loadTimeFile(timeFile);
+                            output << "\t TIMEFILE: " << timeFile << endl;
+                        }
+                        else
+                        {
+                            output << "ERROR: THERMALBODY TIMEFILE missing filename in " << sBody << endl;
+                        }
+                    }
+                }
+#else
+                output << "ERROR: THERMALBODY FILE_VTK requires VTK support"
+                          " (rebuild with HAVE_VTK defined) in " << sBody << endl;
+#endif
+            }
             else if (sOption == "TIMEFILE")
             {
                 std::string timeFile;

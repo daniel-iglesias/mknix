@@ -460,8 +460,10 @@ LOADS
   THERMALFLUENCE  <body>.<node> <value>
   THERMALOUTPUT   <body>.<node>
   THERMALOUTPUT   MAX_INTERFACE_TEMP
-  THERMALBODY     <bodyName> VALUE <value>
-  THERMALBODY     <bodyName> FILE  <filename>
+  THERMALBODY     <bodyName> VALUE    <value>
+  THERMALBODY     <bodyName> FILE     <filename>
+  THERMALBODY     <bodyName> FILE3D   <filename>
+  THERMALBODY     <bodyName> FILE_VTK <filename>
   THERMALBODY     <bodyName> TIMEFILE <timeFilename>
   THERMALFLUX1D   <body>.<boundaryGroup> ... ENDTHERMALFLUX1D
   RADIATION       ... ENDRADIATION
@@ -503,10 +505,38 @@ The file uses a matrix layout. The first row lists the `key2` coordinate values 
 ```
 The parser automatically distinguishes 1-D from 2-D based on the number of columns.
 
-**Optional time scaling (with `VALUE` or `FILE`):**
+**3-D spatial distribution from file:**
 ```
-THERMALBODY <bodyName> VALUE <value> TIMEFILE <timeFilename>
-THERMALBODY <bodyName> FILE <filename> TIMEFILE <timeFilename>
+THERMALBODY <bodyName> FILE3D <filename>
+```
+The file contains four whitespace-separated columns (`x`, `y`, `z`, load value), one data row per point.
+Any line that does not parse as exactly four numbers is silently skipped, so the file may begin with
+an arbitrary header (units, comments, etc.):
+```
+# x[m]  y[m]  z[m]  q[W/m3]
+0.0   0.0   0.0   1000.0
+0.05  0.0   0.0   1500.0
+0.05  0.02  0.01  1800.0
+```
+The load at a query point is obtained by trilinear interpolation through `interpolate3D`.
+
+**VTK Unstructured Grid (requires `HAVE_VTK` at build time):**
+```
+THERMALBODY <bodyName> FILE_VTK <file.vtu>
+```
+Reads a VTK XML Unstructured Grid file (`.vtu`). The first scalar point-data array in the file is
+used as the source distribution. At each query point the value is computed using VTK's native
+shape-function interpolation (`vtkCellLocator` + `FindCell`). Points that fall outside the grid are
+projected onto the nearest cell face and interpolated there.
+If MkniX is compiled without VTK support (`HAVE_VTK` not defined), this option emits an error
+message and the load is not applied.
+
+**Optional time scaling (with `VALUE`, `FILE`, `FILE3D`, or `FILE_VTK`):**
+```
+THERMALBODY <bodyName> VALUE    <value>   TIMEFILE <timeFilename>
+THERMALBODY <bodyName> FILE     <filename> TIMEFILE <timeFilename>
+THERMALBODY <bodyName> FILE3D   <filename> TIMEFILE <timeFilename>
+THERMALBODY <bodyName> FILE_VTK <filename> TIMEFILE <timeFilename>
 ```
 
 **Pure time-dependent source:**

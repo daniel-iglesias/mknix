@@ -32,6 +32,14 @@
 
 using namespace std;
 
+#ifdef HAVE_VTK
+#include <vtkSmartPointer.h>
+class vtkUnstructuredGrid;
+class vtkCellLocator;
+class vtkDataArray;
+class vtkGenericCell;
+#endif
+
 namespace mknix
 {
 
@@ -41,6 +49,10 @@ double interpolate1D( double, const std::map<double,double>& );
 double interpolate2D(double key1,
                      double key2,
                      const std::map<double, std::map<double, double>>& the2DMap);
+double interpolate3D(double key1,
+                     double key2,
+                     double key3,
+                     const std::map<double, std::map<double, std::map<double, double>>>& the3DMap);
 
 /*!
  * Stand-in for std::make_unique included in C++14
@@ -67,6 +79,22 @@ std::vector<double> doubles_in_vector( const std::string& );
 std::vector< std::vector<double> > read_lines( std::istream& );
 
 bool isNumber(const std::string& str);
+
+void readFile3D(const std::string& fileName,
+                std::map<double, std::map<double, std::map<double, double>>>& dest);
+
+#ifdef HAVE_VTK
+bool readFileVTK(const std::string& fileName,
+                 vtkSmartPointer<vtkUnstructuredGrid>& grid,
+                 vtkSmartPointer<vtkCellLocator>& locator,
+                 vtkSmartPointer<vtkGenericCell>& cell,
+                 vtkDataArray*& scalars);
+
+double interpolateVTK(double x, double y, double z,
+                      vtkCellLocator* locator,
+                      vtkGenericCell* cell,
+                      vtkDataArray* scalars);
+#endif
 }
 
 #endif
