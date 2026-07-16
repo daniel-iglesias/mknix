@@ -62,6 +62,8 @@ FlexBody::~FlexBody()
  */
 void FlexBody::initialize()
 {
+    // Ensure base body data (including lastNode and cell shape functions) is initialized.
+    Body::initialize();
 
     for (auto& point : points)
     {

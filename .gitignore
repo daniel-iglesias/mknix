@@ -1,6 +1,7 @@
 *.kdev4
 .kdev4/
 
+# VS Code/CMake build directory
 build/
 target/
 

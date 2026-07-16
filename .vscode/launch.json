@@ -1,0 +1,36 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Test mknixrunner (input_2triangles)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/tests/mknixrunner",
+            "args": [
+                "/home/ITER/iglesid/work/Projects/mknix/tests/input_2triangles.fem.mknix"
+            ],
+            "cwd": "${workspaceFolder}/tests",
+            "MIMode": "gdb",
+            "preLaunchTask": "Build mknixrunner (build dir)",
+            "stopAtEntry": false,
+            "externalConsole": false
+        },
+        {
+            "name": "Debug mknixrunner (input_2triangles)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/tests/mknixrunner",
+            "args": [
+                "/home/ITER/iglesid/work/Projects/mknix/tests/input_2triangles.fem.mknix"
+            ],
+            "cwd": "${workspaceFolder}/tests",
+            "MIMode": "gdb",
+            "preLaunchTask": "Build mknixrunner (build dir)",
+            "stopAtEntry": false,
+            "externalConsole": false
+        }
+    ]
+}
