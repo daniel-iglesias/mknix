@@ -1,0 +1,52 @@
+TITLE lamella_278
+
+DIMENSION 2
+
+INITIALTEMPERATURE 200
+
+MATERIALS // Total number of materials:
+  THERMAL 1 1348 224 0 19250 // material #, Capacity, Conductivity, Thermal expansion and density
+  FILES
+    CAPACITY 1 W-Cp.dat
+    CONDUCTIVITY 1 W-K.dat
+  ENDFILES
+ENDMATERIALS
+
+SYSTEM tiles
+  FLEXBODIES
+    MESHFREE stack
+      FORMULATION THERMAL
+      METHOD RPIM
+      BOUNDARY CLOCKWISE
+      MESH
+      1 4 3.5
+      TRIANGLES M15-32-278.dat //name of file
+      BOUNDARYGROUP loaded
+        METHOD FEM 2 3
+        FILE M15-32-278-boundary.dat
+        TIMEFILE timeSteps.txt
+      ENDBOUNDARYGROUP
+    ENDMESHFREE
+  ENDFLEXBODIES
+
+
+  JOINTS
+  ENDJOINTS
+
+  LOADS
+    THERMALFLUX1D stack.loaded
+      FILE PIC_load_scaled.txt
+      TIMEFILE timeSteps.txt
+      SCALE 0.41E6
+    ENDTHERMALFLUX1D
+  ENDLOADS
+
+ENDSYSTEM
+
+ANALYSIS
+  THERMALDYNAMIC
+    EPSILON 1E-3
+    INTEGRATOR BDF-1
+    TIME 0.0 3 0.25
+  ENDTHERMALDYNAMIC
+ENDANALYSIS

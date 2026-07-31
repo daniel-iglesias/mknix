@@ -22,4 +22,6 @@ include(mknix_test.cmake)
 # Test cases in alphabetical order by directory name
 add_subdirectory(test1_thermalfluence)
 add_subdirectory(test2_thermalfluence_timefile)
-add_subdirectory(test3_thermalflux_timefile)
+add_subdirectory(test3_thermalflux)
+add_subdirectory(test4_thermalflux_RPIM)
+add_subdirectory(test5_thermalflux_timefile)

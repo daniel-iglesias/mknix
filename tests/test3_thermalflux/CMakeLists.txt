@@ -4,7 +4,7 @@
 # resources/ and include them in INPUT_FILES below when available.
 
 MKNIX_TEST(
-    NAME test_thermalflux_timefile
+    NAME test3_thermalflux
     COMMAND_ARGS input_lamella_fem.mknix 2 0
     INPUT_FILES
         ${CMAKE_CURRENT_SOURCE_DIR}/input_lamella_fem.mknix
