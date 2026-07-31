@@ -11,22 +11,15 @@ add_executable(mknixrunner mknix.cpp)
 target_link_libraries(mknixrunner ${VTK_LIBRARIES} mknix)
 
 add_executable(mknixwrapper mknixwrapper.cpp)
-target_link_libraries(mknixwrapper ${VTK_LIBRARIES} mknix )
+target_link_libraries(mknixwrapper ${VTK_LIBRARIES} mknix)
+
+set(MKNIX_RUNNER_PATH     ${CMAKE_CURRENT_BINARY_DIR}/mknixrunner)
+set(MKNIX_RESOURCES_DIR   ${CMAKE_CURRENT_SOURCE_DIR}/resources)
+set(MKNIX_RUN_TEST_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/run_test.cmake)
 
 include(mknix_test.cmake)
 
-MKNIX_TEST(
-    NAME test1_thermalfluence
-    COMMAND mknixrunner
-    COMMAND_ARGS input_2triangles.fem.mknix 2 0
-    INPUT_FILES input_2triangles.fem.mknix 2triangles.dat
-    OUTPUT_FILE 2triangfem.mec
-)
-
-MKNIX_TEST(
-    NAME test2_thermalfluence_timefile
-    COMMAND mknixrunner
-    COMMAND_ARGS input_2triangles_timefile.fem.mknix 2 0
-    INPUT_FILES input_2triangles_timefile.fem.mknix 2triangles.dat timescale.dat
-    OUTPUT_FILE 2triangfem_timefile.mec
-)
+# Test cases in alphabetical order by directory name
+add_subdirectory(test1_thermalfluence)
+add_subdirectory(test2_thermalfluence_timefile)
+add_subdirectory(test3_thermalflux_timefile)
