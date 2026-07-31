@@ -457,7 +457,7 @@ This initialization is persistent through thermal analysis setup (it is not over
 ```
 LOADS
   FORCE           <body>.<node> <fx> <fy> <fz>
-  THERMALFLUENCE  <body>.<node> <value>
+  THERMALFLUENCE  <body>.<node> <value> [TIMEFILE <timeFilename>]
   THERMALOUTPUT   <body>.<node>
   THERMALOUTPUT   MAX_INTERFACE_TEMP
   THERMALBODY     <bodyName> VALUE    <value>
@@ -467,6 +467,41 @@ LOADS
   THERMALBODY     <bodyName> TIMEFILE <timeFilename>
   THERMALFLUX1D   <body>.<boundaryGroup> ... ENDTHERMALFLUX1D
   RADIATION       ... ENDRADIATION
+ENDLOADS
+```
+
+---
+
+### THERMALFLUENCE
+
+Applies a point-wise heat flux to a single node of a body.
+
+**Constant fluence:**
+```
+THERMALFLUENCE <bodyName>.<nodeId> <value>
+```
+- `bodyName` – name of a flex or rigid body defined in the `FLEXBODIES` / `RIGIDBODIES` section
+- `nodeId` – integer node identifier within that body
+- `value` – heat fluence (W) applied at the node
+
+**With time-dependent scaling:**
+```
+THERMALFLUENCE <bodyName>.<nodeId> <value> TIMEFILE <timeFilename>
+```
+`TIMEFILE` is a two-column, whitespace-separated file containing `(time, scale_factor)` pairs.
+At each time step the fluence applied is `value * interpolate(time, timeFile)`.
+The time-scale file uses the same format as for `THERMALBODY`:
+```
+0.000  0.0
+0.005  0.5
+0.010  1.0
+```
+
+**Example:**
+```
+LOADS
+  THERMALFLUENCE body1.3 5E6
+  THERMALFLUENCE body1.5 5E6 TIMEFILE ramp.dat
 ENDLOADS
 ```
 

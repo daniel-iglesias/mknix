@@ -21,6 +21,7 @@
 
 #include <core/node.h>
 #include <simulation/simulation.h>
+#include <fstream>
 
 namespace mknix
 {
@@ -68,21 +69,51 @@ void LoadThermal::insertNodesXCoordinates(std::vector<double>& x_coordinates)
 }
 
 /**
+ * @brief Loads a time-dependent load scale factor from a file.
+ *
+ * Reads pairs of (time, load_factor) values from the specified file and
+ * stores them in the internal time map for use during simulation.
+ *
+ * @param fileName Path to the file containing time and load factor pairs.
+ */
+void LoadThermal::loadTimeFile(const std::string& fileName)
+{
+    std::ifstream power;
+    power.open(fileName);
+    if (power.is_open())
+    {
+        double t, load;
+        while (power >> t)
+        {
+            power >> load;
+            m_time[t] = load;
+        }
+    }
+    else
+    {
+        cerr << "ERROR: TIME FILE NOT FOUND!!!" << endl;
+    }
+    m_hasTimeScale = !m_time.empty();
+}
+
+/**
  * @brief Assembles the thermal load value into the global external heat vector.
  * @param globalExternalHeat Reference to the global external heat vector.
  */
 void LoadThermal::assembleExternalHeat
 (lmx::Vector<data_type>& globalExternalHeat)
 {
+    double load = externalHeat;
+    if (m_hasTimeScale)
+    {
+        load *= interpolate1D(Simulation::getTime(), m_time);
+    }
     auto nodesSize = nodes.size();
     for (auto i = 0u; i < nodesSize; ++i)
     {
         if (nodes[i]->getNumber() >= 0)
         {
-//             for (m=0; m<Simulation::getDim(); ++m) {
-            globalExternalHeat(nodes[i]->getNumber())
-            += externalHeat; // change of sign!!
-//             }
+            globalExternalHeat(nodes[i]->getNumber()) += load;
         }
     }
 }

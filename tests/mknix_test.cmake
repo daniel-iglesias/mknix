@@ -13,7 +13,7 @@ macro(MKNIX_TEST)
   # need to replace ; with \\; so that args gets passed as semi colon separated list to command
   string(REPLACE ";" "\\;" COMMAND_ARGS "${TEST_COMMAND_ARGS}")
 
-  add_test(NAME test1
+  add_test(NAME ${TEST_NAME}
       COMMAND ${CMAKE_COMMAND}
       -Dtest_cmd=${CMAKE_CURRENT_BINARY_DIR}/mknixrunner
       -Dtest_args=${COMMAND_ARGS}

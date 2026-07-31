@@ -22,6 +22,8 @@
 
 #include "common.h"
 #include "LMX/lmx.h"
+#include <map>
+#include <string>
 
 namespace mknix
 {
@@ -46,6 +48,8 @@ public:
         externalHeat = load_in;
     }
 
+    void loadTimeFile(const std::string& fileName);
+
     virtual void assembleExternalHeat( lmx::Vector<data_type> & );
 
     virtual void outputToFile( std::ofstream* )
@@ -56,6 +60,8 @@ public:
 protected:
     std::vector<Node*> nodes;
     data_type externalHeat;
+    bool m_hasTimeScale = false;
+    std::map<double, double> m_time;
 };
 
 }

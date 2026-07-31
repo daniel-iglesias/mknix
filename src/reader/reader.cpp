@@ -965,7 +965,30 @@ void mknix::Reader::readLoads(System * system_in)
             input >> fluence;
             output << "THERMALFLUENCE " << pNode->getNumber() << " " << fluence << endl;
 
-            system_in->loadsThermal.push_back(new LoadThermal(pNode, fluence));
+            LoadThermal* theLoad = new LoadThermal(pNode, fluence);
+            system_in->loadsThermal.push_back(theLoad);
+
+            // Parse optional TIMEFILE on the same line
+            std::string optionsLine;
+            std::getline(input, optionsLine);
+            std::stringstream options(optionsLine);
+            std::string token;
+            while (options >> token)
+            {
+                if (token == "TIMEFILE")
+                {
+                    std::string timeFile;
+                    if (options >> timeFile)
+                    {
+                        theLoad->loadTimeFile(timeFile);
+                        output << "\t TIMEFILE: " << timeFile << endl;
+                    }
+                    else
+                    {
+                        output << "ERROR: THERMALFLUENCE TIMEFILE missing filename" << endl;
+                    }
+                }
+            }
         }
         else if (keyword == "THERMALOUTPUT")
         {

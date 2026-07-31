@@ -16,9 +16,17 @@ target_link_libraries(mknixwrapper ${VTK_LIBRARIES} mknix )
 include(mknix_test.cmake)
 
 MKNIX_TEST(
-    NAME test1
+    NAME test1_thermalfluence
     COMMAND mknixrunner
     COMMAND_ARGS input_2triangles.fem.mknix 2 0
     INPUT_FILES input_2triangles.fem.mknix 2triangles.dat
     OUTPUT_FILE 2triangfem.mec
+)
+
+MKNIX_TEST(
+    NAME test2_thermalfluence_timefile
+    COMMAND mknixrunner
+    COMMAND_ARGS input_2triangles_timefile.fem.mknix 2 0
+    INPUT_FILES input_2triangles_timefile.fem.mknix 2triangles.dat timescale.dat
+    OUTPUT_FILE 2triangfem_timefile.mec
 )
