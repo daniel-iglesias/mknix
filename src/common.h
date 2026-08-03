@@ -80,6 +80,9 @@ std::vector< std::vector<double> > read_lines( std::istream& );
 
 bool isNumber(const std::string& str);
 
+void readFile2D(const std::string& fileName,
+                std::map<double, std::map<double, double>>& dest);
+
 void readFile3D(const std::string& fileName,
                 std::map<double, std::map<double, std::map<double, double>>>& dest);
 

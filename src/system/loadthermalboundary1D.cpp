@@ -45,7 +45,7 @@ LoadThermalBoundary1D::~LoadThermalBoundary1D( /*double , double, double*/ )
  * @brief Reads (X, load) pairs from a file and stores them in the spatial load map.
  * @param fileName Path to the spatial load data file.
  */
-void LoadThermalBoundary1D::loadFile(std::string fileName)
+void LoadThermalBoundary1D::loadFile(const std::string& fileName)
 {
     std::ifstream power;
     power.open(fileName);
@@ -68,7 +68,38 @@ void LoadThermalBoundary1D::loadFile(std::string fileName)
  * @brief Reads (time, load_factor) pairs from a file and stores them in the time-scale map.
  * @param fileName Path to the time-scale data file.
  */
-void LoadThermalBoundary1D::loadTimeFile(std::string fileName)
+/**
+ * @brief Reads (X, Y, load) triples from a file and stores them in the 2D spatial load map.
+ *
+ * Lines that cannot be parsed as exactly three whitespace-separated floating-point
+ * numbers are silently skipped. Calling this method activates 2D interpolation
+ * in getLoadThermalBoundary1D().
+ *
+ * @param fileName Path to the 2D spatial load data file.
+ */
+void LoadThermalBoundary1D::loadFile(const std::string& fileName, double /*key1*/, double /*key2*/)
+{
+    readFile2D(fileName, loadmap2D);
+    if (loadmap2D.empty())
+        cerr << "ERROR: 2D LOAD FILE NOT FOUND OR EMPTY: " << fileName << endl;
+}
+
+/**
+ * @brief Reads (X, Y, load) triples from a file and stores them in the 2D spatial load map.
+ *
+ * Equivalent to loadFile(fileName, 0, 0). Activates 2D interpolation in
+ * getLoadThermalBoundary1D().
+ *
+ * @param fileName Path to the 2D spatial load data file.
+ */
+void LoadThermalBoundary1D::loadFile2D(const std::string& fileName)
+{
+    readFile2D(fileName, loadmap2D);
+    if (loadmap2D.empty())
+        cerr << "ERROR: 2D LOAD FILE NOT FOUND OR EMPTY: " << fileName << endl;
+}
+
+void LoadThermalBoundary1D::loadTimeFile(const std::string& fileName)
 {
     std::ifstream power;
     power.open(fileName);
@@ -111,16 +142,22 @@ double LoadThermalBoundary1D::getLoadThermalBoundary1D(Point * thePoint)
 {
 //  cout << Simulation::getTime() << endl;
 
-    if (loadmap.size() == 0) cerr << "ERROR: LOAD FILE NOT FOUND!!!" << endl;
-    if (timemap.size() == 0)
+    double load;
+    if (!loadmap2D.empty())
     {
-        return mknix::interpolate1D(thePoint->getX(), loadmap);
+        load = mknix::interpolate2D(thePoint->getX(), thePoint->getY(), loadmap2D);
     }
     else
     {
-        return mknix::interpolate1D(thePoint->getX(), loadmap)
-               * mknix::interpolate1D(Simulation::getTime(), timemap);
+        if (loadmap.empty()) cerr << "ERROR: LOAD FILE NOT FOUND!!!" << endl;
+        load = mknix::interpolate1D(thePoint->getX(), loadmap);
     }
+
+    if (timemap.empty())
+    {
+        return load;
+    }
+    return load * mknix::interpolate1D(Simulation::getTime(), timemap);
 }
 
 }

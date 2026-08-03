@@ -584,19 +584,53 @@ THERMALBODY <bodyName> TIMEFILE <timeFilename>
 
 ### THERMALFLUX1D
 
-Applies a 1-D heat flux to a boundary group.
+Applies a boundary heat flux to a boundary group.
 
 ```
 THERMALFLUX1D <bodyName>.<boundaryGroupName>
   FILE     <fluxFilename>
+  FILE2D   <flux2DFilename>
   TIMEFILE <timeFilename>
   SCALE    <factor>
 ENDTHERMALFLUX1D
 ```
 
-- `FILE` – two-column file: coordinate vs flux value
-- `TIMEFILE` – two-column file: time vs scale factor
-- `SCALE` – multiplies all flux values by a constant factor
+- `FILE` – 1D spatial map, two-column file: `x  flux_value`
+- `FILE2D` – 2D spatial map, three-column file: `x  y  flux_value`
+- `TIMEFILE` – two-column file: `time  scale_factor`
+- `SCALE` – multiplies all spatial flux values by a constant factor
+
+If both `FILE` and `FILE2D` are provided, the 2D map is used for boundary-load evaluation.
+
+**1D file example (`FILE`):**
+```
+-1.21344E-05  26.75805469
+-2.56272E-05  26.75805469
+-3.91200E-05  26.75805469
+```
+
+**2D file example (`FILE2D`):**
+```
+-1.21344E-05  2.200000E-02  26.75805469
+-2.56272E-05  2.200000E-02  26.75805469
+-1.21344E-05  2.800000E-02  26.75805469
+```
+
+**Usage examples:**
+```
+LOADS
+  THERMALFLUX1D stack.loaded
+    FILE PIC_load_scaled.txt
+    TIMEFILE timescale.dat
+    SCALE 0.41E6
+  ENDTHERMALFLUX1D
+
+  THERMALFLUX1D stack.loaded
+    FILE2D PIC_load_scaled_2D.txt
+    SCALE 0.41E6
+  ENDTHERMALFLUX1D
+ENDLOADS
+```
 
 ---
 

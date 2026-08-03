@@ -325,6 +325,40 @@ bool isNumber(const std::string& str) {
 }
 
 /**
+ * @brief Reads a 2D source distribution file into a nested map.
+ *
+ * Reads the file line by line. Lines that cannot be parsed as exactly three
+ * whitespace-separated floating-point numbers (x, y, value) are silently
+ * skipped, allowing the file to contain an arbitrary header with units or
+ * other human-readable information.
+ *
+ * @param fileName Path to the file containing the 2D source data.
+ * @param dest     Output nested map to populate: dest[x][y] = value.
+ */
+void readFile2D(const std::string& fileName,
+                std::map<double, std::map<double, double>>& dest)
+{
+    std::ifstream file(fileName);
+    if (!file.is_open())
+    {
+        cerr << "ERROR: FILE2D NOT FOUND: " << fileName << endl;
+        return;
+    }
+
+    std::string line;
+    while (std::getline(file, line))
+    {
+        std::istringstream iss(line);
+        double x, y, val;
+        if (iss >> x >> y >> val)
+        {
+            dest[x][y] = val;
+        }
+        // Lines that do not yield 3 doubles (headers, comments, etc.) are skipped.
+    }
+}
+
+/**
  * @brief Reads a 3D source distribution file into a nested map.
  *
  * Reads the file line by line. Lines that cannot be parsed as exactly four

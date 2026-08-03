@@ -1334,6 +1334,12 @@ void mknix::Reader::readLoads(System * system_in)
                     input >> keyword;
                     temp->loadFile(keyword);
                 }
+                else if (keyword == "FILE2D")
+                {
+                    input >> keyword;
+                    temp->loadFile2D(keyword);
+                    output << "\t FILE2D: " << keyword << endl;
+                }
                 else if (keyword == "TIMEFILE")
                 {
                     input >> keyword;

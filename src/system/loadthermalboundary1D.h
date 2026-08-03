@@ -41,9 +41,13 @@ public:
 
     /*virtual */~LoadThermalBoundary1D();
 
-    void loadFile(std::string);
+    void loadFile(const std::string& fileName);
 
-    void loadTimeFile(std::string);
+    void loadFile(const std::string& fileName, double /*key1*/, double /*key2*/);
+
+    void loadFile2D(const std::string& fileName);
+
+    void loadTimeFile(const std::string& fileName);
 
     void scaleLoad(double);
 
@@ -51,6 +55,7 @@ public:
 
 protected:
     std::map<double, double> loadmap;
+    std::map<double, std::map<double, double>> loadmap2D;
     std::map<double, double> timemap;
 };
 
