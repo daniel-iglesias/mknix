@@ -17,6 +17,7 @@
  *  License along with MkniX.  If not, see <http://www.gnu.org/licenses/>.    *
  *****************************************************************************/
 
+#include "version.h" 
 #include "simulation.h"
 #include "analysisdynamic.h"
 
@@ -772,6 +773,14 @@ void Simulation::writeSystem()
         system("pause");
         return;
     }
+
+    outFile << "GIT_REV is " << GIT_REV << endl;
+    outFile << "GIT_REV_VAL is " << GIT_REV_VAL << endl;
+    outFile << "GIT_REV_FULL is " << GIT_REV_FULL << endl;
+    outFile << "GIT_TAG is " << GIT_TAG << endl;
+    outFile << "GIT_BRANCH is " << GIT_BRANCH << endl << endl;
+
+
     outFile << "DIMENSION " << Simulation::dimension << endl;
 
     outFile << "SYSTEM" << endl;

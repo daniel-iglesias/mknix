@@ -5,7 +5,7 @@
 
 MKNIX_TEST(
     NAME test3_thermalflux
-    COMMAND_ARGS input_lamella_fem.mknix 2 0
+    COMMAND_ARGS input_lamella_fem.mknix 3 2
     INPUT_FILES
         ${CMAKE_CURRENT_SOURCE_DIR}/input_lamella_fem.mknix
         ${MKNIX_RESOURCES_DIR}/M15-32-278.dat

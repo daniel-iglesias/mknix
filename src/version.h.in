@@ -1,0 +1,11 @@
+#ifndef VERSION_H
+#define VERSION_H
+
+#define GIT_REV "@GIT_REV@@GIT_DIFF@"
+#define GIT_REV_VAL 0x@GIT_REV@
+#define GIT_REV_FULL "@GIT_REV_FULL@"
+#define GIT_DIFF "@GIT_DIFF@"
+#define GIT_TAG "@GIT_TAG@"
+#define GIT_BRANCH "@GIT_BRANCH@"
+
+#endif /* VERSION_H */
