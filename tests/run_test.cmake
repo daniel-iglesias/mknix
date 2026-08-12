@@ -33,11 +33,14 @@ if (test_had_error)
   message(FATAL_ERROR "Test failed")
 endif (test_had_error)
 
-execute_process(
-    COMMAND ${CMAKE_COMMAND} -E compare_files ${output_blessed} ${output_test}
-    RESULT_VARIABLE test_not_successful)
+# Read files and filter out GIT_* lines
+file(READ ${output_blessed} blessed_content)
+file(READ ${output_test} test_content)
 
-if (test_not_successful)
+string(REGEX REPLACE "(^|\n)GIT_[^\n]*" "" blessed_filtered "${blessed_content}")
+string(REGEX REPLACE "(^|\n)GIT_[^\n]*" "" test_filtered "${test_content}")
+
+if (NOT blessed_filtered STREQUAL test_filtered)
   message(SEND_ERROR "${output_test} does not match ${output_blessed}!")
-endif (test_not_successful)
+endif ()
 #------------------------------------------------- 
