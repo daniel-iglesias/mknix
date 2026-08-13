@@ -79,7 +79,7 @@ void ShapeFunctionLinear::calc()
          << gp->supportNodes[0]->getX() << " ," << gp->supportNodes[0]->getY() << ")("
          << gp->supportNodes[1]->getX() << " ," << gp->supportNodes[1]->getY() << ")" << endl;
 
-    cout << "PHI-1D (" << gp->getX() <<", " << gp->getY() <<" ) = " << phi(0,0) << ", " << phi(0,1) << endl;
+    // cout << "PHI-1D (" << gp->getX() <<", " << gp->getY() <<" ) = " << phi(0,0) << ", " << phi(0,1) << endl;
     //////////////////////////////////////////////////////////////////
     // FIRST DERIVATIVES:
     //////////////////////////////////////////////////////////////////

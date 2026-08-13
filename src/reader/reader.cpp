@@ -31,7 +31,6 @@
 #include <simulation/analysisthermomechanicaldynamic.h>
 #include <system/bodyflex.h>
 #include <system/bodyrigid.h>
-#include <system/bodythermal.h>
 #include <system/force.h>
 #include <system/loadradiation.h>
 #include <system/loadthermal.h>

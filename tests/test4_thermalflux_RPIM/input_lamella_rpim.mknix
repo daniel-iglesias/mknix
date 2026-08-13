@@ -19,12 +19,11 @@ SYSTEM tiles
       METHOD RPIM
       BOUNDARY CLOCKWISE
       MESH
-      1 4 3.5
+      1 4 2.7
       TRIANGLES M15-32-278.dat //name of file
       BOUNDARYGROUP loaded
         METHOD FEM 2 3
         FILE M15-32-278-boundary.dat
-        TIMEFILE timeSteps.txt
       ENDBOUNDARYGROUP
     ENDMESHFREE
   ENDFLEXBODIES

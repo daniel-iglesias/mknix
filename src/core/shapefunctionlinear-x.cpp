@@ -75,7 +75,7 @@ void ShapeFunctionLinearX::calc()
          << gp->supportNodes[0]->getX() << ")("
          << gp->supportNodes[1]->getX() << ")" << endl;
 
-    cout << "PHI-1D-X (" << gp->getX() <<" ) = " << phi(0,0) << ", " << phi(0,1) << endl;
+    // cout << "PHI-1D-X (" << gp->getX() <<" ) = " << phi(0,0) << ", " << phi(0,1) << endl;
     //////////////////////////////////////////////////////////////////
     // FIRST DERIVATIVES:
     //////////////////////////////////////////////////////////////////

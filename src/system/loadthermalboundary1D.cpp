@@ -124,7 +124,7 @@ void LoadThermalBoundary1D::loadTimeFile(const std::string& fileName)
  */
 void LoadThermalBoundary1D::scaleLoad(double loadFactor_in)
 {
-    for (auto el : loadmap)
+    for (auto& el : loadmap)
     {
         el.second *= loadFactor_in;
     }

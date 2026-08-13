@@ -57,6 +57,7 @@ protected:
     std::map<double, double> loadmap;
     std::map<double, std::map<double, double>> loadmap2D;
     std::map<double, double> timemap;
+    double scaleFactor;
 };
 
 }

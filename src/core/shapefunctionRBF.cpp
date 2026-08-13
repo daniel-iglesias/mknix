@@ -394,7 +394,7 @@ void ShapeFunctionRBF::computePhi(double xp, double yp, double zp)
         sumphi += this->phi(0, i);
     }
     cout << "nPs: " << nn << ", SUM_PHI = " << sumphi << endl;
-    cout << "PHI = " << phi << endl;
+    // cout << "PHI = " << phi << endl;
 
 
 //  this->outputValues();
