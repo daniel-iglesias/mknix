@@ -37,6 +37,7 @@
 #include <system/motion.h>
 #include <system/loadthermalbody.h>
 #include <system/loadthermalboundary1D.h>
+#include <system/loadthermalcontact.h>
 
 #if defined __WIN32__ || _WIN64
 #  include <direct.h>
@@ -59,6 +60,55 @@ std::string dirName(const std::string& path)
 {
     auto found = path.find_last_of(pathSep);
     return path.substr(0, found);
+}
+
+/**
+ * @brief Reads a "body.node" token from the input stream (body name up to the '.', node number after it).
+ * @param input Input stream to read from.
+ * @return Pair of (body name, node number as string).
+ */
+std::pair<std::string, std::string> readBodyNodeToken(std::istream& input)
+{
+    std::string sBody, sNode;
+    char a = ' ';
+
+    while (input.get(a))
+    {
+        if (a == '.')
+        {
+            break;
+        }
+        else if (a == '\n')
+        {
+            break;
+        }
+        else if (a == ' ')
+        {
+        }
+        else
+        {
+            sBody.push_back(a);
+        }
+    }
+    if (a == '.')
+    {
+        while (input.get(a))
+        {
+            if (a == '\n')
+            {
+                break;
+            }
+            else if (a == ' ')
+            {
+                break;
+            }
+            else
+            {
+                sNode.push_back(a);
+            }
+        }
+    }
+    return {sBody, sNode};
 }
 }
 
@@ -989,6 +1039,52 @@ void mknix::Reader::readLoads(System * system_in)
                 }
             }
         }
+        else if (keyword == "THERMALCONTACT")
+        {
+            auto resolveNode = [&](const std::string& sBody, const std::string& sNode) -> Node *
+            {
+                if (system_in->rigidBodies.find(sBody) != system_in->rigidBodies.end())
+                {
+                    return system_in->rigidBodies[sBody]->getNode(atoi(sNode.c_str()));
+                }
+                return system_in->flexBodies[sBody]->getNode(atoi(sNode.c_str()));
+            };
+
+            const auto tokenA = readBodyNodeToken(input);
+            const auto tokenB = readBodyNodeToken(input);
+            Node * pNodeA = resolveNode(tokenA.first, tokenA.second);
+            Node * pNodeB = resolveNode(tokenB.first, tokenB.second);
+
+            double filmCoefficient;
+            input >> filmCoefficient;
+            output << "THERMALCONTACT " << pNodeA->getNumber() << " " << pNodeB->getNumber()
+                   << ", film_coefficient = " << filmCoefficient << endl;
+
+            LoadThermalContact* theLoad = new LoadThermalContact(pNodeA, pNodeB, filmCoefficient);
+            system_in->loadsThermal.push_back(theLoad);
+
+            // Parse optional TIMEFILE on the same line
+            std::string optionsLine;
+            std::getline(input, optionsLine);
+            std::stringstream options(optionsLine);
+            std::string token;
+            while (options >> token)
+            {
+                if (token == "TIMEFILE")
+                {
+                    std::string timeFile;
+                    if (options >> timeFile)
+                    {
+                        theLoad->loadTimeFile(timeFile);
+                        output << "\t TIMEFILE: " << timeFile << endl;
+                    }
+                    else
+                    {
+                        output << "ERROR: THERMALCONTACT TIMEFILE missing filename" << endl;
+                    }
+                }
+            }
+        }
         else if (keyword == "THERMALOUTPUT")
         {
             std::string sBody;
@@ -1326,7 +1422,7 @@ void mknix::Reader::readLoads(System * system_in)
             {
                 if (keyword == "ENDTHERMALFLUX1D")
                 {
-                    return;
+                    break;
                 }
                 else if (keyword == "FILE")
                 {
@@ -1370,7 +1466,7 @@ void mknix::Reader::readLoads(System * system_in)
             {
                 if (keyword == "ENDRADIATION")
                 {
-                    return;
+                    break;
                 }
                 else if (keyword == "STATIC3D")
                 {

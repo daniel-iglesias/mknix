@@ -458,6 +458,7 @@ This initialization is persistent through thermal analysis setup (it is not over
 LOADS
   FORCE           <body>.<node> <fx> <fy> <fz>
   THERMALFLUENCE  <body>.<node> <value> [TIMEFILE <timeFilename>]
+  THERMALCONTACT  <bodyA>.<nodeA> <bodyB>.<nodeB> <film_coefficient> [TIMEFILE <timeFilename>]
   THERMALOUTPUT   <body>.<node>
   THERMALOUTPUT   MAX_INTERFACE_TEMP
   THERMALBODY     <bodyName> VALUE    <value>
@@ -502,6 +503,38 @@ The time-scale file uses the same format as for `THERMALBODY`:
 LOADS
   THERMALFLUENCE body1.3 5E6
   THERMALFLUENCE body1.5 5E6 TIMEFILE ramp.dat
+ENDLOADS
+```
+
+---
+
+### THERMALCONTACT
+
+Applies a conductive heat exchange load between two nodes, which may belong to the same body or to two different bodies.
+
+**Constant film coefficient:**
+```
+THERMALCONTACT <bodyA>.<nodeA> <bodyB>.<nodeB> <film_coefficient>
+```
+- `bodyA`, `bodyB` – names of flex or rigid bodies defined in `FLEXBODIES` / `RIGIDBODIES` (may be the same body)
+- `nodeA`, `nodeB` – integer node identifiers within their respective bodies
+- `film_coefficient` – conductance used to compute the exchanged heat
+
+The heat applied at `nodeA` is `heat = -film_coefficient * (Ta - Tb)`, where `Ta` and `Tb` are the current
+temperatures of `nodeA` and `nodeB`. The opposite value (`-heat`) is applied at `nodeB`, so heat always
+flows from the hotter node to the colder one and the net heat added to the system is zero.
+
+**With time-dependent scaling:**
+```
+THERMALCONTACT <bodyA>.<nodeA> <bodyB>.<nodeB> <film_coefficient> TIMEFILE <timeFilename>
+```
+`TIMEFILE` uses the same two-column `(time, scale_factor)` format as `THERMALFLUENCE`; the film
+coefficient is scaled by `interpolate(time, timeFile)` at each time step.
+
+**Example:**
+```
+LOADS
+  THERMALCONTACT stack.0 stack.5 100
 ENDLOADS
 ```
 
