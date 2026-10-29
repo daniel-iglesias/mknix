@@ -59,66 +59,32 @@ ShapeFunctionTriangleSigned::~ShapeFunctionTriangleSigned()
  */
 void ShapeFunctionTriangleSigned::calc()
 {
-    // based on the answer in http://answers.unity3d.com/questions/383804/calculate-uv-coordinates-of-3d-point-on-plane-of-m.html
-    // check out also: http://www.had2know.com/academics/triangle-area-perimeter-angle-3-coordinates.html
-    lmx::Vector<double> f(dim), p1(dim), p2(dim), p3(dim);
-    f.writeElement(gp->getX(),0);
-    f.writeElement(gp->getY(),1);
-    f.writeElement(gp->getZ(),2);
-    p1.writeElement(gp->getSupportNodes()[0]->getX(), 0);
-    p1.writeElement(gp->getSupportNodes()[0]->getY(), 1);
-    p1.writeElement(gp->getSupportNodes()[0]->getZ(), 2);
-    p2.writeElement(gp->getSupportNodes()[1]->getX(), 0);
-    p1.writeElement(gp->getSupportNodes()[1]->getY(), 1);
-    p1.writeElement(gp->getSupportNodes()[1]->getZ(), 2);
-    p3.writeElement(gp->getSupportNodes()[2]->getX(), 0);
-    p1.writeElement(gp->getSupportNodes()[2]->getY(), 1);
-    p1.writeElement(gp->getSupportNodes()[2]->getZ(), 2);
+    const Point* first = gp->getSupportNodes()[0];
+    const Point* second = gp->getSupportNodes()[1];
+    const Point* third = gp->getSupportNodes()[2];
 
-    lmx::Vector<double> f1(dim), f2(dim), f3(dim); // calculate vectors from point f to vertices p1, p2 and p3:
-    f1.subs( p1, f);
-    f2.subs( p2, f);
-    f3.subs( p3, f);
-    lmx::Vector<double> va(dim), va1(dim), va2(dim), va3(dim);
-    double a, a1, a2, a3;
-    va.multElements(p1-p2, p1-p3);
-    va1.multElements(f2, f3);
-    va2.multElements(f3, f1);
-    va3.multElements(f1, f2);
-    lmx::Vector<double> vaa1(dim), vaa2(dim), vaa3(dim);
-    a = va.norm2();
-    a1 = std::copysign( va1.norm2()/a, va*va1 );
-    a2 = std::copysign( va2.norm2()/a, va*va2 );
-    a3 = std::copysign( va3.norm2()/a, va*va3 );
+    const double v0x = second->getX() - first->getX();
+    const double v0y = second->getY() - first->getY();
+    const double v0z = second->getZ() - first->getZ();
+    const double v1x = third->getX() - first->getX();
+    const double v1y = third->getY() - first->getY();
+    const double v1z = third->getZ() - first->getZ();
+    const double v2x = gp->getX() - first->getX();
+    const double v2y = gp->getY() - first->getY();
+    const double v2z = gp->getZ() - first->getZ();
 
-    phi.writeElement( a1, 0, 0 );
-    phi.writeElement( a2, 0, 0 );
-    phi.writeElement( a3, 0, 0 );
-    //////////////////////////////////////////////////////////////////
-    // FIRST DERIVATIVES:
-    //////////////////////////////////////////////////////////////////
-//   phi.writeElement(
-//       ( gp->supportNodes[1]->gety() - gp->supportNodes[2]->gety() )
-//       / ( 2*gp->jacobian ), 1, 0 );
-//   phi.writeElement(
-//       ( gp->supportNodes[2]->getx() - gp->supportNodes[1]->getx() )
-//       / ( 2*gp->jacobian ), 2, 0 );
-//   //////////////////////////////////////////////////////////////////
-//   phi.writeElement(
-//       ( gp->supportNodes[2]->gety() - gp->supportNodes[0]->gety() )
-//       / ( 2*gp->jacobian ), 1, 1 );
-//   phi.writeElement(
-//       ( gp->supportNodes[0]->getx() - gp->supportNodes[2]->getx() )
-//       / ( 2*gp->jacobian ), 2, 1 );
-//   //////////////////////////////////////////////////////////////////
-//   phi.writeElement(
-//       ( gp->supportNodes[0]->gety() - gp->supportNodes[1]->gety() )
-//       / ( 2*gp->jacobian ), 1, 2 );
-//   phi.writeElement(
-//       ( gp->supportNodes[1]->getx() - gp->supportNodes[0]->getx() )
-//       / ( 2*gp->jacobian ), 2, 2 );
+    const double d00 = v0x * v0x + v0y * v0y + v0z * v0z;
+    const double d01 = v0x * v1x + v0y * v1y + v0z * v1z;
+    const double d11 = v1x * v1x + v1y * v1y + v1z * v1z;
+    const double d20 = v2x * v0x + v2y * v0y + v2z * v0z;
+    const double d21 = v2x * v1x + v2y * v1y + v2z * v1z;
+    const double denominator = d00 * d11 - d01 * d01;
+    const double secondValue = (d11 * d20 - d01 * d21) / denominator;
+    const double thirdValue = (d00 * d21 - d01 * d20) / denominator;
 
-//   cout << "phi = " << phi << endl;
+    phi.writeElement(1.0 - secondValue - thirdValue, 0, 0);
+    phi.writeElement(secondValue, 0, 1);
+    phi.writeElement(thirdValue, 0, 2);
 }
 
 

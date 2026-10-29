@@ -3,6 +3,7 @@
 #include "material.h"
 #include "node.h"
 #include "gausspoint2D.h"
+#include "gausspoint3D.h"
 
 namespace mknix
 {
@@ -306,6 +307,31 @@ void CellRect::createGaussPoints(double dcx_in, double dcy_in, double dcz_in)
         gCoef(18, 1) = gCoef(1, 1);
         gCoef(19, 0) = -gCoef(0, 0);
         gCoef(19, 1) = gCoef(0, 1);
+    }
+
+    if (points.cols() == 3)
+    {
+        for (unsigned int i = 0; i < gCoef.rows(); ++i)
+        {
+            for (unsigned int j = 0; j < gCoef.rows(); ++j)
+            {
+                for (unsigned int k = 0; k < gCoef.rows(); ++k)
+                {
+                    gPoints.push_back(new GaussPoint3D(
+                        alpha,
+                        gCoef(i, 1) * gCoef(j, 1) * gCoef(k, 1),
+                        jacobian,
+                        mat,
+                        i * nGPoints * nGPoints + j * nGPoints + k,
+                        points.readElement(0, 0) + Ax / 2 * (1 + gCoef(i, 0)),
+                        points.readElement(0, 1) + Ay / 2 * (1 + gCoef(j, 0)),
+                        points.readElement(0, 2) + Az / 2 * (1 + gCoef(k, 0)),
+                        dcx_in,
+                        true));
+                }
+            }
+        }
+        return;
     }
 
     for (unsigned int i = 0; i < gCoef.rows(); ++i)

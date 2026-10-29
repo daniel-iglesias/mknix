@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.5)
 
 project (MkniX)
 
+enable_testing()
+
 include(CPack)
 
 if(UNIX)

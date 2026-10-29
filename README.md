@@ -22,19 +22,21 @@ cmake -Bbuild -H. -DCMAKE_BUILD_TYPE=Debug
 
 ## Tests
 
-MkniX tests can be run (after building) using the following:
+Configure and build MkniX, then run all tests with CTest:
 
 ```
-cd <build directory>/tests
-ctest
+cmake -S . -B build
+cmake --build build
+ctest --test-dir build --output-on-failure
 ```
 
-i.e.
+To run only the unit-test executables:
 
 ```
-cd build/tests
-ctest
+ctest --test-dir build -R '^mknix_(core_unit|reader_unit|simulation_unit|system_unit)_tests$' --output-on-failure
 ```
+
+For unit-test coverage, individual test suites, selective execution, and expected results, see [tests/README.md](tests/README.md).
 
 ## Usage
 

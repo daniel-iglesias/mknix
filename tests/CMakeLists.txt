@@ -19,6 +19,9 @@ set(MKNIX_RUN_TEST_SCRIPT ${CMAKE_CURRENT_SOURCE_DIR}/run_test.cmake)
 
 include(mknix_test.cmake)
 
+# Focused C++ unit tests, separate from the simulation scenarios below.
+add_subdirectory(unit)
+
 # Test cases in alphabetical order by directory name
 add_subdirectory(test1_thermalfluence)
 add_subdirectory(test2_thermalfluence_timefile)
